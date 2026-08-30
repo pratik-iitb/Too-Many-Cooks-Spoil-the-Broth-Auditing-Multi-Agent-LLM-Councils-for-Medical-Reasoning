@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-27338535",
+  "dataset": "pubmedqa",
+  "question_id": "27338535",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do risk calculators accurately predict surgical site occurrences?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.7,
+          "clinical_reasoning": "While risk calculators can provide valuable estimates, they are not perfect predictors of surgical site infections (SSIs). They are based on statistical models and may not capture all relevant patient-specific factors. Therefore, the answer is 'maybe'.",
+          "critical_evidence": "Risk calculators are not foolproof and can be influenced by various factors not included in the model.",
+          "differential_considered": "I considered that risk calculators might be accurate, but the complexity of SSI development and the limitations of statistical models make this a less certain answer. I ruled out 'A' because perfect prediction is unrealistic, and 'B' because some risk calculators are reasonably accurate.",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 171,
+            "generation_time_s": 8.444
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Risk calculators provide statistical estimates based on historical data and population averages. However, surgical site infections (SSIs) are complex events influenced by numerous variables including surgical technique, patient comorbidities, and postoperative care. These calculators cannot fully account for individual patient variability, making them imperfect predictors. While they offer valuable risk stratification, they should be used as one component of a comprehensive risk assessment rather than a definitive predictor.",
+          "critical_evidence": "SSIs are multifactorial events with significant interindividual variability that cannot be fully captured by statistical models",
+          "differential_considered": "Alternative prediction methods (e.g., clinical judgment, protocol adherence) vs. statistical models - statistical models provide general risk estimates but lack personalized accuracy",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 182,
+            "generation_time_s": 8.464
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Risk calculators for surgical site infections (SSIs) are based on validated models like NSQIP or POSSUM, but their accuracy varies by patient population, surgical type, and institutional factors. While they offer useful risk stratification, they are not universally accurate across all settings or patients, making 'maybe' the most balanced answer.",
+          "critical_evidence": "Multiple studies show moderate predictive accuracy (AUC 0.65–0.75) but significant variability in performance across different surgical specialties and patient cohorts.",
+          "differential_considered": "Considered 'yes' (perfect accuracy) and 'no' (completely inaccurate) — but both are too absolute; real-world evidence supports variable, context-dependent performance, hence 'maybe'.",
+          "usage": {
+            "prompt_tokens": 226,
+            "generated_tokens": 184,
+            "generation_time_s": 6.423
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 253,
+            "generated_tokens": 11,
+            "generation_time_s": 0.275
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.65,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 194,
+            "generation_time_s": 6.097
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

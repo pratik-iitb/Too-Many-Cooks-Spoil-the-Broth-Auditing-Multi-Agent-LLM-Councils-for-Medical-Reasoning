@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-396",
+  "dataset": "medqa",
+  "question_id": "396",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 51-year-old woman presents for her annual wellness visit. She says she feels healthy and has no specific concerns. Past medical history is significant for bipolar disorder, hypertension, and diabetes mellitus type 2, managed with lithium, lisinopril, and metformin, respectively. Her family history is significant for hypertension and diabetes mellitus type 2 in her father, who died from lung cancer at age 67. Her vital signs include: temperature 36.8°C (98.2°F), pulse 97/min, respiratory rate 16/min, blood pressure 120/75 mm Hg. Physical examination is unremarkable. Mammogram findings are labeled breast imaging reporting and data system-3 (BIRADS-3) (probably benign). Which of the following is the next best step in management in this patient?",
+    "options": {
+      "A": "Follow-up mammogram in 1 year",
+      "B": "Follow-up mammogram in 6 months",
+      "C": "Breast MRI",
+      "D": "Biopsy",
+      "E": "Treatment"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 51-year-old woman with a BIRADS-3 mammogram, which indicates a probably benign finding. Given her age and the BIRADS-3 classification, a follow-up mammogram in 1 year is the most appropriate next step according to established guidelines. This allows for monitoring of the lesion and reassessment if any changes occur.",
+          "critical_evidence": "BIRADS-3 mammogram",
+          "differential_considered": "While a biopsy might be considered for a BIRADS-3 lesion, it is not routinely recommended unless there are specific features suggestive of malignancy. A follow-up mammogram is the standard approach for BIRADS-3 lesions to assess for interval changes. MRI is generally reserved for higher BIRADS categories or when there is a high suspicion for malignancy. Treatment is not indicated at this stage without further evaluation.",
+          "usage": {
+            "prompt_tokens": 450,
+            "generated_tokens": 217,
+            "generation_time_s": 10.726
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient has a BIRADS-3 mammogram result, which indicates probably benign findings. Given her age and family history of cancer, a 6-month follow-up is appropriate to monitor for any changes. This allows for early detection of any concerning developments while minimizing unnecessary interventions.",
+          "critical_evidence": "BIRADS-3 classification suggests probably benign findings but warrants closer monitoring",
+          "differential_considered": "While breast cancer is a concern given family history, the BIRADS-3 result makes it less likely than other benign conditions. No specific concerning findings in physical exam or vital signs support immediate biopsy or MRI.",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 158,
+            "generation_time_s": 7.376
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 51-year-old woman with no symptoms and a BIRADS-3 mammogram, which indicates probably benign findings. According to standard guidelines, follow-up for BIRADS-3 lesions is typically at 1 year, as the risk of malignancy is low and immediate intervention is not indicated. No signs of malignancy or high-risk features are present.",
+          "critical_evidence": "BIRADS-3 classification indicates probably benign findings with a low risk of malignancy (<2%), warranting routine follow-up rather than intervention.",
+          "differential_considered": "Malignancy was considered but ruled out due to BIRADS-3 classification and absence of symptoms or concerning features. Biopsy, MRI, or immediate treatment are not indicated for BIRADS-3 lesions without progression or high-risk factors.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 199,
+            "generation_time_s": 7.001
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 72,
+            "generation_time_s": 1.765
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A mammogram in 1 year is less sensitive for recent changes; biopsy is reserved for suspicious or evolving lesions; treatment is only initiated after a diagnosis; MRI is not routinely recommended without specific high-risk features. Since the current finding is non-actionable (BIRADS-3), a follow-up in 6 months is optimal.",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 232,
+            "generation_time_s": 7.31
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

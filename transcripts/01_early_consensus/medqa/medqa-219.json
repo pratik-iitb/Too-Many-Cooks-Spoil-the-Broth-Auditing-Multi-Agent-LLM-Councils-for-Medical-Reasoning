@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-219",
+  "dataset": "medqa",
+  "question_id": "219",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old man presents to the emergency department after being stabbed 12 times in various parts of his body. Paramedics report extensive blood loss at the scene where he was found. Due to his Glasgow Coma Scale score of 3, an endotracheal airway and large-bore access are secured prior to arrival. He is aggressively resuscitated with a massive transfusion protocol as the operating room is prepared for an exploratory laparotomy. An arterial line and central access are obtained. His temperature is 95°F (35°C), blood pressure is 50/40 mmHg, and pulse is 80/min, and respirations are controlled at 20/min on lung-protective volume control. After a 6:6:1 ratio of red blood cells, plasma, and platelets and the use of continuous phenylephrine infusion, the patient's vital signs remain the same. The surgical team reports no active blood loss. A stat ScvO2 results as 39% with a SaO2 of 100% on 100% oxygen. His extremities remain cold despite having the ambient room temperature increased to 80°F (26.7°C). What is the most likely cause of his presentation?",
+    "options": {
+      "A": "Cardiac tamponade",
+      "B": "Cervical spinal cord transection",
+      "C": "Occult hemorrhage",
+      "D": "Pulmonary embolism",
+      "E": "Undiagnosed pneumonia"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with significant blood loss, a low Glasgow Coma Scale score, and persistent cold extremities despite adequate resuscitation and oxygenation. The lack of active blood loss during surgery, coupled with the patient's persistent hypoperfusion, suggests a source of bleeding that is not immediately apparent. The ScvO2 of 39% indicates that the tissues are not receiving enough oxygen, despite the patient being on 100% oxygen. This discrepancy between oxygen saturation and tissue oxygenation strongly points towards occult hemorrhage.",
+          "critical_evidence": "The patient's ScvO2 of 39% despite 100% oxygen and the lack of active blood loss during surgery.",
+          "differential_considered": "Cardiac tamponade is less likely given the lack of specific signs like muffled heart sounds or pulsus paradoxus. Cervical spinal cord transection is unlikely given the multiple stab wounds and the lack of neurological deficits. Pulmonary embolism is possible, but the patient's presentation is more consistent with ongoing blood loss. Undiagnosed pneumonia is less likely to cause such profound hypoperfusion and cold extremities in the setting of significant trauma and resuscitation.",
+          "usage": {
+            "prompt_tokens": 535,
+            "generated_tokens": 276,
+            "generation_time_s": 13.651
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's stable vital signs despite massive transfusion, normal SaO2 on high oxygen, and cold extremities suggest occult hemorrhage. The lack of active blood loss and persistent hypothermia despite aggressive resuscitation point to a hidden source of bleeding that is not immediately apparent.",
+          "critical_evidence": "Stat ScvO2 of 39% with SaO2 100% on 100% oxygen indicates right-to-left shunt, consistent with cardiac tamponade or other right-sided heart failure, but the stable vitals and lack of active bleeding make occult hemorrhage the most likely cause.",
+          "differential_considered": "Cardiac tamponade (ruled out by stable vitals), cervical spinal cord transection (ruled out by Glasgow Coma Scale score of 3 indicating brain death), occult hemorrhage (most likely), pulmonary embolism (ruled out by normal SaO2 on high oxygen), undiagnosed pneumonia (ruled out by lack of respiratory distress)",
+          "usage": {
+            "prompt_tokens": 530,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.121
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has persistent hypotension despite massive transfusion and vasopressor support, with normal surgical findings (no active bleeding) and normal oxygen saturation, but critically low ScvO2 (39%), indicating inadequate tissue oxygen delivery. This suggests ongoing occult hemorrhage, which is not visible on surgical exploration. The cold extremities and hypothermia further support ongoing perfusion deficit.",
+          "critical_evidence": "ScvO2 of 39% despite 100% oxygen and normal SaO2, indicating tissue hypoxia due to inadequate perfusion, not oxygenation.",
+          "differential_considered": "Cardiac tamponade (A) would cause hypotension and low ScvO2, but would typically show signs on echo; cervical spinal cord transection (B) would cause flaccid paralysis and absent reflexes, not hypotension; pulmonary embolism (D) would cause hypoxia and elevated ScvO2; pneumonia (E) would cause fever and hypoxia, not hypothermia or low ScvO2.",
+          "usage": {
+            "prompt_tokens": 516,
+            "generated_tokens": 254,
+            "generation_time_s": 8.916
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 528,
+            "generated_tokens": 152,
+            "generation_time_s": 3.645
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "Stat ScvO2 of 39% on 100% oxygen with a normal SaO2, despite aggressive resuscitation and transfusion",
+          "differential_considered": "Cardiac tamponade (A), Cervical spinal cord injury (B), Pulmonary embolism (D), Undiagnosed pneumonia (E) — all have different key features (e.g., respiratory symptoms, sudden onset of respiratory or spinal compromise, or hypoxia) not supported by the case. His vital signs and cold extremities are more consistent with hypovolemic shock from internal bleeding.",
+          "usage": {
+            "prompt_tokens": 564,
+            "generated_tokens": 300,
+            "generation_time_s": 9.342
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-25",
+  "dataset": "medqa",
+  "question_id": "25",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 71-year-old man presents to the emergency department with severe substernal chest pain. An initial EKG demonstrates ST elevation in leads V2, V3, V4, and V5 with reciprocal changes. The patient is started on aspirin and heparin and is transferred to the cardiac catheterization lab. The patient recovers over the next several days. On the floor, the patient complains of feeling very fatigued and feels too weak to ambulate even with the assistance of physical therapy. Chest radiography reveals an enlarged cardiac silhouette with signs of fluid bilaterally in the lung bases. His temperature is 98.4°F (36.9°C), blood pressure is 85/50 mmHg, pulse is 110/min, respirations are 13/min, and oxygen saturation is 97% on room air. Which of the following would be expected to be seen in this patient?",
+    "options": {
+      "A": "Decreased systemic vascular resistance",
+      "B": "Decreased tissue oxygen extraction",
+      "C": "Increased ejection fraction",
+      "D": "Increased pulmonary capillary wedge pressure",
+      "E": "Increased venous oxygen content"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation strongly suggests heart failure secondary to an acute myocardial infarction (MI). The EKG findings, history of chest pain, and subsequent cardiac catheterization confirm the MI. The fatigue, weakness, enlarged cardiac silhouette, and bilateral pulmonary edema on chest radiography are all consistent with heart failure. The hypotension and tachycardia further support this diagnosis. In heart failure, the left ventricle's inability to pump effectively leads to increased pressure in the left atrium and pulmonary veins, resulting in pulmonary edema and increased pulmonary capillary wedge pressure (PCWP).",
+          "critical_evidence": "The combination of chest pain, EKG changes consistent with MI, and signs of pulmonary edema (enlarged cardiac silhouette, bilateral lung base fluid) strongly points to heart failure as a complication of the MI.",
+          "differential_considered": "Aortic dissection: While chest pain is a symptom, the EKG findings and lack of pulse deficits make this less likely. Pericarditis: While possible, the EKG findings are more consistent with MI. Pneumothorax: The chest radiography findings are not typical of pneumothorax. These were considered and ruled out based on the clinical picture.",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 277,
+            "generation_time_s": 13.679
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's severe chest pain with ST elevation and subsequent fatigue, weakness, and fluid in lung bases suggest a likely myocardial infarction. The enlarged cardiac silhouette and hypotension indicate significant cardiac dysfunction. Pulmonary edema and low blood pressure point to right-to-left shunting, increasing pulmonary capillary wedge pressure (PCWP).",
+          "critical_evidence": "Enlarged cardiac silhouette with bilateral lung base fluid",
+          "differential_considered": "Considered MI, cardiogenic shock, and pulmonary edema; ruled out other causes of fatigue and weakness due to clinical presentation and diagnostic findings",
+          "usage": {
+            "prompt_tokens": 461,
+            "generated_tokens": 154,
+            "generation_time_s": 7.156
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a recent STEMI with subsequent cardiogenic shock and pulmonary edema, indicated by enlarged cardiac silhouette and bilateral lung base fluid on chest X-ray, along with hypotension and tachycardia. This suggests left ventricular dysfunction and elevated pulmonary capillary wedge pressure (a marker of left atrial pressure and pulmonary venous congestion).",
+          "critical_evidence": "Enlarged cardiac silhouette with bilateral pulmonary infiltrates on chest radiograph, hypotension (85/50 mmHg), and tachycardia (110/min) are classic signs of acute heart failure post-MI, consistent with elevated pulmonary capillary wedge pressure.",
+          "differential_considered": "Pneumonia or ARDS were considered but ruled out by normal temperature and absence of infiltrates in upper lung zones; sepsis was unlikely given lack of fever and systemic signs; pulmonary embolism was considered but excluded by absence of pleural effusions or right heart strain on EKG.",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 237,
+            "generation_time_s": 8.311
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 459,
+            "generated_tokens": 335,
+            "generation_time_s": 8.03
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possibilities like anemia or hypoxia were considered but are less likely given the context of recent MI and the presence of pulmonary edema on chest radiography. Atrial fibrillation or other arrhythmias could cause tachycardia but do not directly explain the increased PWP. Acute MI itself does not cause increased PWP immediately, but the resulting heart failure does.",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 332,
+            "generation_time_s": 10.376
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

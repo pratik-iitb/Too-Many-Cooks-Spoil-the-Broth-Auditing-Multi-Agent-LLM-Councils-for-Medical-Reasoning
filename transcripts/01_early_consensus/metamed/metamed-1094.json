@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1094",
+  "dataset": "metamed",
+  "question_id": "1094",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 39-year-old woman presents to the clinic for her annual physical. Although she feels generally healthy she has noticed gaining about 9 kg (20 lb) over the last year. She eats a healthy, varied diet and exercises at the gym 4 days a week, including 20 minutes of aerobic exercise. On further questioning, she has also noted fatigue and constipation. She denies shortness of breath, chest pain, lightheadedness, or blood in her stool. At the clinic, the vital signs include: pulse 52/min, blood pressure 110/72 mm Hg, and oxygen saturation 99% on room air. The physical exam is notable only for slightly dry skin. The complete blood count (CBC) is within normal limits. Which of the following laboratory values is most likely elevated in this patient?",
+    "options": {
+      "A": "Glucose",
+      "B": "Triiodothyronine (T3)",
+      "C": "Thyroxine (T4)",
+      "D": "Thyroid-stimulating hormone (TSH)",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of fatigue, constipation, dry skin, and bradycardia (pulse 52/min) strongly suggest hypothyroidism. TSH is the most sensitive test for primary hypothyroidism. While T4 can be low, TSH is usually elevated first.",
+          "critical_evidence": "Bradycardia (pulse 52/min) and dry skin are classic signs of hypothyroidism.",
+          "differential_considered": "Hyperthyroidism is less likely given the bradycardia and constipation. While fatigue can be present in both, the other symptoms point more towards hypothyroidism. The normal CBC makes anemia less likely, and the patient denies shortness of breath, chest pain, and lightheadedness, making cardiac issues less likely.",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 186,
+            "generation_time_s": 9.414
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's weight gain, fatigue, and constipation are more consistent with hypothyroidism, but the CBC is normal, which rules out overt hypothyroidism. Elevated TSH would indicate primary hypothyroidism, while low T4 and T3 would suggest secondary or tertiary hypothyroidism. However, none of these are directly indicated by the current data. The normal CBC and absence of other concerning symptoms make it unlikely that any of the thyroid hormones or TSH are elevated. The dry skin is a mild finding and not specific. Therefore, none of the listed options are most likely elevated.",
+          "critical_evidence": "Normal CBC",
+          "differential_considered": "Hypothyroidism, adrenal insufficiency, diabetes, and other metabolic disorders were considered but ruled out by the normal CBC and absence of other symptoms.",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.406
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with weight gain, fatigue, constipation, and bradycardia (pulse 52/min), which are classic signs of hypothyroidism. The CBC is normal, ruling out anemia as a cause of fatigue. The most likely cause is primary hypothyroidism, which leads to elevated TSH as the pituitary attempts to stimulate the underactive thyroid. T3 and T4 are typically low, not elevated, in this condition.",
+          "critical_evidence": "Bradycardia (pulse 52/min) and weight gain in a patient with otherwise normal labs strongly suggest hypothyroidism, with TSH being the most sensitive early marker.",
+          "differential_considered": "Other causes of weight gain and fatigue (e.g., depression, Cushing’s, metabolic syndrome) were considered but are less likely given the presence of bradycardia and constipation. Diabetes (glucose) is unlikely without symptoms like polyuria or polydipsia. T3 and T4 are not elevated in hypothyroidism; TSH is the key lab to check.",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 258,
+            "generation_time_s": 9.73
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 458,
+            "generated_tokens": 99,
+            "generation_time_s": 2.519
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 491,
+            "generated_tokens": 1024,
+            "generation_time_s": 43.681
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "E": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

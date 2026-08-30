@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1469",
+  "dataset": "medqa",
+  "question_id": "1469",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 62-year-old man presents to the emergency department with sudden onset of severe left leg pain accompanied by numbness and weakness. His medical history is remarkable for hypertension and hyperlipidemia. His vital signs include a blood pressure of 155/92 mm Hg, a temperature of 37.1°C (98.7°F), and an irregular pulse of 92/min. Physical examination reveals absent left popliteal and posterior tibial pulses. His left leg is noticeably cold and pale. There is no significant tissue compromise, nerve damage, or sensory loss. Which of the following will most likely be required for this patient's condition?",
+    "options": {
+      "A": "Amputation",
+      "B": "Thromboembolectomy",
+      "C": "Fasciotomy",
+      "D": "Warfarin",
+      "E": "Antibiotics"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute onset of severe leg pain, numbness, weakness, absent pulses, coldness, and pallor in the left leg, strongly suggesting acute arterial occlusion. This clinical picture is highly suggestive of acute limb ischemia. Thromboembolectomy is the definitive treatment to restore blood flow to the limb.",
+          "critical_evidence": "Absent left popliteal and posterior tibial pulses, cold and pale left leg, sudden onset of severe pain, numbness, and weakness.",
+          "differential_considered": "Amputation (less likely given the absence of significant tissue compromise), Fasciotomy (not the primary treatment for arterial occlusion), Warfarin (not an acute treatment for arterial occlusion), Antibiotics (not indicated without signs of infection).",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 193,
+            "generation_time_s": 9.56
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with sudden onset of severe left leg pain, numbness, weakness, absent pulses in the popliteal and posterior tibial arteries, and a cold, pale left leg. These findings strongly suggest acute arterial compromise, likely due to a thrombotic occlusion. The absence of tissue compromise, nerve damage, or sensory loss indicates that the arterial blockage is the primary issue. A fasciotomy would be performed to relieve pressure and prevent further tissue damage by creating an opening in the fascia to allow decompression of the affected limb.",
+          "critical_evidence": "Absent left popliteal and posterior tibial pulses with cold, pale leg",
+          "differential_considered": "Considered peripheral artery disease, arterial thrombosis, and other vascular emergencies. Ruled out infection (no fever elevation, no tissue compromise), trauma (no direct injury mentioned), and other causes of leg pain (no sensory loss). The arterial signs are most consistent with acute arterial occlusion requiring fasciotomy.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.673
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute limb ischemia, evidenced by sudden severe pain, pallor, paresthesia, and absent distal pulses in the left leg. The absence of tissue compromise or sensory loss suggests the ischemia is still potentially salvageable. Thromboembolectomy is the definitive treatment for acute limb ischemia to restore perfusion and prevent limb loss. Other options like amputation (A) are for irreversible ischemia, fasciotomy (C) for compartment syndrome, warfarin (D) for chronic anticoagulation, and antibiotics (E) for infection — none are first-line for acute ischemia.",
+          "critical_evidence": "Absent left popliteal and posterior tibial pulses with cold, pale leg and sudden onset of pain and numbness — classic signs of acute limb ischemia.",
+          "differential_considered": "Considered arterial embolism or thrombosis (most likely), atherosclerotic occlusion, or vasospasm; ruled out infection (no fever or signs of sepsis), compartment syndrome (no pain out of proportion or sensory loss), or chronic vascular disease (acute presentation).",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 268,
+            "generation_time_s": 9.399
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 100,
+            "generation_time_s": 2.444
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.97,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Acute arterial occlusion (thromboembolism), ischemic stroke, DVT, vascular trauma. Only thromboembolectomy addresses the described vascular emergency. No evidence for infection, compartment syndrome, or the need for anticoagulation in this acute presentation.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 264,
+            "generation_time_s": 8.326
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

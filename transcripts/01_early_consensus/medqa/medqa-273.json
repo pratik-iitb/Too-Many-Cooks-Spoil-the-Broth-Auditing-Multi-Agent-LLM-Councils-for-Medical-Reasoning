@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-273",
+  "dataset": "medqa",
+  "question_id": "273",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 4-year-old boy presents to the emergency department after his parents found him drinking blue liquid out of an unlabeled bottle in the garage. They have no idea what was in the bottle and are concerned for his health. They have brought the bottle with them to the emergency department. The child's past medical history is not remarkable, and he is currently not taking any medications. The patient's vitals are within normal limits for his age. Physical exam reveals a crying child who is drooling. A radiograph is performed, and the child's vitals are closely monitored. It is determined that the blue liquid is a strong alkali. Which of the following is the best next step in management?",
+    "options": {
+      "A": "Administration of a diluent",
+      "B": "Administration of a weak acid",
+      "C": "Charcoal",
+      "D": "Gastrografin swallow and endoscopy",
+      "E": "Ipecac"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child ingested a strong alkali, which can cause severe esophageal and gastric burns. Gastrografin swallow and endoscopy are crucial to assess the extent of the damage and guide further management, including possible surgical intervention. While charcoal is sometimes used for poisonings, it is not the primary treatment for alkali ingestion.",
+          "critical_evidence": "Ingestion of a strong alkali.",
+          "differential_considered": "A: Administration of a diluent is not appropriate as it could worsen the alkali burn. B: Administration of a weak acid is contraindicated as it would exacerbate the injury. C: Charcoal is not effective for alkali ingestion and would delay definitive treatment. E: Ipecac is contraindicated in corrosive ingestions due to the risk of further esophageal damage and aspiration.",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 194,
+            "generation_time_s": 10.24
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child ingested a strong alkali, which can cause severe corrosive injury to the gastrointestinal tract. The best initial management is to neutralize the alkali with a weak acid to minimize tissue damage. Diluents (A) and charcoal (C) do not neutralize alkali, and ipecac (E) is not indicated for alkali ingestion. Gastrografin swallow and endoscopy (D) are for later evaluation, not initial management. A weak acid like milk or watered-down vinegar can help neutralize the alkali and reduce further damage.",
+          "critical_evidence": "The liquid is identified as a strong alkali, which requires immediate neutralization to prevent severe tissue injury.",
+          "differential_considered": "Other differentials like organic solvents or corrosive acids were ruled out because the substance is confirmed as a strong alkali, and the appropriate management is based on alkali neutralization.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.643
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child ingested a strong alkali, which causes severe tissue damage and necrosis. Alkali ingestion is best managed with neutralization using a weak acid (e.g., vinegar or citric acid) to minimize further injury. Activated charcoal is ineffective for alkalis, and ipecac is contraindicated in corrosive ingestions. Gastrografin and endoscopy are not first-line; they may be considered later if there is concern for perforation or obstruction. Diluent (water) may worsen injury by promoting diffusion of alkali into tissues.",
+          "critical_evidence": "The blue liquid is identified as a strong alkali, which necessitates neutralization with a weak acid to limit tissue damage.",
+          "differential_considered": "Considered charcoal (ineffective for alkalis), ipecac (contraindicated in corrosives), and endoscopy (not first-line). Ruled out based on standard toxicology guidelines for alkali ingestion.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 231,
+            "generation_time_s": 8.386
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 163,
+            "generation_time_s": 3.948
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "The child ingested a strong alkali, which is a hazardous chemical that requires neutralization with a weak acid to prevent mucosal injury in the GI tract.",
+          "differential_considered": "Other considerations included checking for airway obstruction, but the key issue is chemical ingestion; charcoal is for adsorptive poisons like acids or aspirin, and Ipecac is dangerous with alkali ingestion. Administration of a weak acid is the standard first step to neutralize the alkali.",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 308,
+            "generation_time_s": 9.712
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

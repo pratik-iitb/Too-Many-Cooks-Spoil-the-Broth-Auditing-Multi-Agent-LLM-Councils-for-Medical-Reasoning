@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-1015",
+  "dataset": "metamed",
+  "question_id": "1015",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 26-year-old man with no significant past medical history presents to the ED following a motor vehicle accident. Vital signs on presentation are T 99.0 F, BP 100/60 mmHg, HR 125 bpm, RR 16/min, SpO2 98% on room air. He complains of extreme abdominal pain worse in the left upper quadrant which has worsened over the past 30 minutes. Exam demonstrates abdominal wall rigidity, involuntary guarding, and tenderness on light percussion. Bedside sonography shows evidence for hemoperitoneum. Despite administering more intravenous fluids, repeat vitals are T 98.9 F, BP 82/50 mm hg, HR 180 bpm, RR 20/min, SpO2 97% on room air. Which of the following is the best next step?",
+    "options": {
+      "A": "Normal saline bolus and re-evaluation of hemodynamics after infusion",
+      "B": "CT abdomen and pelvis",
+      "C": "Morphine",
+      "D": "Exploratory laparotomy",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs and symptoms highly suggestive of a ruptured abdominal aortic aneurysm (AAA) or other significant intra-abdominal hemorrhage, including hypotension, tachycardia, abdominal pain, abdominal rigidity, guarding, and hemoperitoneum on ultrasound. The patient is unstable despite fluid resuscitation. Therefore, the most appropriate next step is exploratory laparotomy to control the bleeding and repair the source of hemorrhage.",
+          "critical_evidence": "Hypotension (BP 82/50 mmHg) and tachycardia (HR 180 bpm) despite fluid resuscitation indicate ongoing significant blood loss and hemodynamic instability.",
+          "differential_considered": "While other diagnoses like splenic rupture or liver laceration are possible, the combination of hypotension, tachycardia, abdominal rigidity, and hemoperitoneum strongly points towards a life-threatening vascular injury. Delaying definitive surgical intervention for further imaging could be fatal.",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 217,
+            "generation_time_s": 10.834
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with abdominal trauma, hemoperitoneum on sonography, and worsening vital signs including falling blood pressure and increasing heart rate. These findings strongly suggest internal bleeding requiring urgent imaging to identify the source and extent of hemorrhage. The hemoperitoneum indicates significant injury, and further evaluation is needed to guide definitive management.",
+          "critical_evidence": "Evidence for hemoperitoneum on bedside sonography",
+          "differential_considered": "Considered liver laceration, spleen injury, aortic injury, and other intra-abdominal bleeding. Ruled out simple abdominal pain as the cause due to the presence of hemoperitoneum and worsening hemodynamics. The trauma context makes vascular injuries more likely than gastrointestinal causes.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.076
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hemodynamic instability (hypotension, tachycardia) and signs of peritonitis (rigidity, guarding, tenderness) following trauma, with confirmed hemoperitoneum on bedside ultrasound. This indicates a life-threatening intra-abdominal hemorrhage requiring immediate surgical intervention. Fluid resuscitation has failed to stabilize him, making non-operative management inappropriate.",
+          "critical_evidence": "Hemoperitoneum on bedside sonography + progressive hemodynamic deterioration despite fluid resuscitation",
+          "differential_considered": "Other causes of hemoperitoneum (e.g., splenic rupture, liver laceration) are possible, but the clinical urgency and failure of non-operative management make exploratory laparotomy the definitive next step. CT is diagnostic but not immediately life-saving in unstable patients.",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 198,
+            "generation_time_s": 7.681
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with hypotension, tachycardia, and evidence of hemoperitoneum following a motor vehicle accident. These findings are highly suggestive of internal bleeding. Given the severity of the situation, the best next step is to perform an exploratory laparotomy to identify and potentially life-saving surgical intervention.",
+          "critical_evidence": "Hemoperitoneum on bedside sonography",
+          "differential_considered": "None of the other options address the immediate need for surgical intervention to identify and treat the source of internal bleeding.",
+          "usage": {
+            "prompt_tokens": 461,
+            "generated_tokens": 134,
+            "generation_time_s": 3.308
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Fluid resuscitation is important but not definitive in this unstable patient; B: CT is useful but may delay life-saving surgery in this scenario; C: Morphine is not indicated for pain control in shock; E and F: These are less appropriate given the emergent nature of the findings.",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 255,
+            "generation_time_s": 8.737
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

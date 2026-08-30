@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-856",
+  "dataset": "medqa",
+  "question_id": "856",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 60-year-old man comes to the physician’s office with jaundice. Liver ultrasound reveals a shrunken liver and biopsy reveals cirrhosis. Hepatitis serologies are below:\n\nAnti-HAV: negative\nHBsAg: negative\nHBsAb: positive\nHBeAg: negative\nAnti-HBe: negative\nAnti-HBc: negative\nAnti-HCV: positive\n\nThe hepatitis C viral load is 1,000,000 copies/mL. The patient is started on an antiviral regimen including sofosbuvir. What is the mechanism of action of this drug?",
+    "options": {
+      "A": "Inhibits synthesis of DNA-dependent DNA polymerase",
+      "B": "Inhibits hepatitis C protease",
+      "C": "Inhibits reverse transcriptase",
+      "D": "Inhibits integrase",
+      "E": "Inhibits RNA-dependent RNA polymerase"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has chronic hepatitis C infection, confirmed by a positive anti-HCV antibody and a high viral load. Sofosbuvir is a direct-acting antiviral (DAA) that inhibits the RNA-dependent RNA polymerase of the hepatitis C virus. This is the primary mechanism of action for sofosbuvir.",
+          "critical_evidence": "The patient has a positive anti-HCV antibody and a high viral load, indicating active hepatitis C infection.",
+          "differential_considered": "Hepatitis B virus (HBV) infection is ruled out by the negative HBsAg and HBsAb. While other causes of cirrhosis exist, the positive anti-HCV antibody strongly suggests hepatitis C as the cause of the cirrhosis. Therefore, other causes are less likely.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 198,
+            "generation_time_s": 10.028
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has hepatitis C with a positive anti-HCV antibody and high viral load. Sofosbuvir is a nucleotide analogue that inhibits DNA synthesis by blocking DNA-dependent DNA polymerase, which is essential for viral replication. The high viral load and cirrhosis suggest active hepatitis C infection requiring antiviral therapy. Sofosbuvir specifically targets the viral DNA polymerase, making it an effective treatment for hepatitis C.",
+          "critical_evidence": "Anti-HCV positive with high viral load of 1,000,000 copies/mL confirms active hepatitis C infection requiring antiviral treatment",
+          "differential_considered": "Considered other hepatitis types (HAV, HBV) but ruled out by negative serologies. Also considered autoimmune hepatitis but ruled out by positive HBsAb and negative other serologies. Cirrhosis with shrunken liver supports chronic hepatitis C as a likely cause.",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 215,
+            "generation_time_s": 10.035
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has hepatitis C virus (HCV) infection confirmed by positive anti-HCV and high viral load, and is being treated with sofosbuvir, a direct-acting antiviral. Sofosbuvir is a nucleotide analog that inhibits HCV RNA-dependent RNA polymerase, the enzyme essential for viral RNA replication. This mechanism is specific to HCV and distinguishes it from other antivirals targeting different viral enzymes.",
+          "critical_evidence": "Positive anti-HCV and high viral load confirm HCV infection, and sofosbuvir's mechanism is specifically inhibition of HCV RNA-dependent RNA polymerase.",
+          "differential_considered": "Other hepatitis viruses were ruled out by negative HBsAg, anti-HAV, and anti-HBc; HCV is the only confirmed etiology. Other antivirals (e.g., protease inhibitors, reverse transcriptase inhibitors) are not indicated for HCV.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 224,
+            "generation_time_s": 7.987
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has hepatitis C with a high viral load, and the treatment includes sofosbuvir, which is an inhibitor of RNA-dependent RNA polymerase. This enzyme is crucial for the replication of the hepatitis C virus. Therefore, by inhibiting this enzyme, sofosbuvir effectively stops the virus from replicating, allowing the liver to recover from the infection.",
+          "critical_evidence": "The high viral load of hepatitis C and the fact that sofosbuvir specifically inhibits RNA-dependent RNA polymerase.",
+          "differential_considered": "None of the other options listed are correct mechanisms of action for sofosbuvir. The hepatitis A and B serologies are negative, ruling out those viruses. The hepatitis C virus does not require reverse transcriptase for replication, so option C is incorrect. Integrase is an enzyme used by retroviruses, such as HIV, not hepatitis C, so option D is incorrect.",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 215,
+            "generation_time_s": 5.201
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Inhibiting DNA polymerase (A), hepatitis C protease (B), and integrase (D) are mechanisms for other viruses (A: HIV, B: HCV, D: HIV). Since the case is about HCV and the standard of care for HCV is RNA polymerase inhibition, A and D are incorrect. While B is the correct target for HCV, sofosbuvir is a nucleos(t)ide analog that inhibits the HCV RNA-dependent RNA polymerase, making C the best answer among the given options.",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 281,
+            "generation_time_s": 8.842
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

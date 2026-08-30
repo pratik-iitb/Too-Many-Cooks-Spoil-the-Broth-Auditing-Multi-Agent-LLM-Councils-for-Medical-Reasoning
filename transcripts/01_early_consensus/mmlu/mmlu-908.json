@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-908",
+  "dataset": "mmlu",
+  "question_id": "908",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A randomized controlled trial is conducted to assess the effectiveness of a new combination-drug antihypertensive therapy (Drug X) compared with a standard antihypertensive single-drug therapy. Study participants include 140 women (70%) and 60 men (30%) ages 30 to 60 years, with baseline blood pressure measurements of 150/95 mm Hg or higher. The investigators defined antihypertensive therapy as effective if the treatment resulted in a blood pressure measurement below 140/90 mm Hg. When designing the study, the investigators set the probability of wrongly finding that Drug X is more effective than the standard therapy as 1%; they set the probability of wrongly finding that the effectiveness of the two drugs is the same as 10%. Which of the following is the most accurate estimate of the statistical power in this study?",
+    "options": {
+      "A": "1%",
+      "B": "10%",
+      "C": "40%",
+      "D": "90%"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The power of a statistical test is the probability of correctly rejecting the null hypothesis when it is false. In this case, the null hypothesis is that there is no difference between Drug X and the standard therapy. The probability of wrongly finding that Drug X is more effective than the standard therapy is 1%, which is the alpha level (α). The probability of wrongly finding that the two drugs are the same is 10%, which is twice the alpha level (2α). Therefore, the power is 1 - 2α = 1 - 2(0.1) = 1 - 0.2 = 0.8, or 80%. The closest option to 80% is 90%.",
+          "critical_evidence": "The probability of wrongly finding that Drug X is more effective than the standard therapy is 1% (alpha level).",
+          "differential_considered": "The differential diagnoses were not explicitly stated, but the study design focuses on comparing two antihypertensive therapies, so the primary differential would be the effectiveness of each drug individually. The study design is a randomized controlled trial, so the primary outcome is the difference in blood pressure between the two groups. The study is designed to detect a difference in effectiveness, so the differential diagnoses are not relevant to the power calculation.",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 309,
+            "generation_time_s": 15.629
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The statistical power of a study is the probability of correctly detecting a difference between groups when a difference truly exists. In this case, the investigators set the probability of wrongly finding that Drug X is more effective than the standard therapy (Type I error) at 1%, and the probability of wrongly finding that the two drugs are equally effective (Type II error) is 10%. Therefore, the statistical power is 1 - Type II error = 1 - 0.10 = 0.90, or 90%. However, the question asks for the most accurate estimate of the statistical power, and given the context, the correct interpretation is that the power is 90% because the Type II error rate is 10%, meaning there is a 90% chance of detecting a true effect if one exists. The 1% Type I error rate is the significance level, not the power.",
+          "critical_evidence": "The probability of wrongly finding that the effectiveness of the two drugs is the same is set at 10%, which directly relates to the statistical power of the study.",
+          "differential_considered": "No specific medical differential diagnoses were relevant to this statistical question. The focus was on understanding the relationship between Type I and Type II errors and statistical power in the context of a clinical trial.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.749
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Statistical power is the probability of correctly rejecting a false null hypothesis, i.e., detecting a true effect when it exists. The investigator set the probability of a Type I error (false positive) at 1% and Type II error (false negative) at 10%. Power is calculated as 1 minus the probability of a Type II error, so 1 - 0.10 = 0.90 or 90%. This directly matches option D.",
+          "critical_evidence": "The investigator explicitly set the probability of wrongly concluding effectiveness equivalence at 10%, which defines the Type II error rate, and power is 1 minus that value.",
+          "differential_considered": "Other options (A, B, C) represent either Type I error, non-specific error rates, or arbitrary values not derived from the study design. None reflect the definition of statistical power as 1 - β (Type II error rate).",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 223,
+            "generation_time_s": 7.996
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The statistical power of a study refers to the probability that the study will correctly reject a false null hypothesis. In this study, the investigators set the probability of wrongly finding that Drug X is more effective than the standard therapy (the false positive rate) at 1%. This means they are willing to accept a 1% chance of making a wrong decision that Drug X is more effective. The probability of wrongly finding that the effectiveness of the two drugs is the same (the false negative rate) was set at 10%. The statistical power is calculated as 1 minus the false negative rate, which in this case is 1 minus 0.1 or 0.9. Therefore, the most accurate estimate of the statistical power in this study is 90%.",
+          "critical_evidence": "The critical evidence that supports the answer is the investigators' setting of the false negative rate at 10% and the subsequent calculation of the statistical power as 1 minus the false negative rate.",
+          "differential_considered": "None of the options provided directly relate to differential diagnoses, as the question focuses on the statistical power of a study rather than clinical reasoning.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 256,
+            "generation_time_s": 6.338
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study's type I error (false positive) for Drug X being more effective is 1%, and the type II error (false negative) for a real difference being detected as not significant is 10%. Statistical power is the complement of the type II error, so 1 - 0.10 = 0.90 or 90% when the effect size is such that the desired significance (alpha) is 0.01 (since two-tailed test with 1% one-sided error for superiority would use alpha/2=0.005 per group, but the question likely refers to the combined error for the two comparisons). However, the question asks for the 'statistical power in this study,' which is typically calculated as 1 - beta (where beta is the probability of a type II error). Given the 10% chance of a false non-difference result (beta), the power is 90%. Option D matches this calculation.",
+          "critical_evidence": "The probability of failing to detect a true difference (beta) is 10%, as the study would incorrectly conclude the drugs are the same if there is actually a difference.",
+          "differential_considered": "Possible confusion with alpha (1%) as power, but standard definition of power is 1 - beta, so the correct answer is based on the 10% error rate for the null hypothesis.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 310,
+            "generation_time_s": 10.001
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1007",
+  "dataset": "medqa",
+  "question_id": "1007",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 35-year-old man, with a history of neurofibromatosis type 2 (NF2) diagnosed 2 years ago, presents with hearing loss in the right ear and tinnitus. Patient says that symptoms have been gradually progressive. He has difficulty hearing speech as well as loud sounds. He also gives a history of occasional headaches and vertigo on and off for 1 month, which is unresponsive to paracetamol. His vitals include: blood pressure 110/78 mm Hg, temperature 36.5°C (97.8°F), pulse 78/min and respiratory rate 11/min. Tuning fork tests reveal the following:\n  Left Right\nRinne’s test  Air conduction > bone conduction  Air conduction > bone conduction\nWeber test Lateralized to left ear \nOther physical examination findings are within normal limits. An MRI of the head is ordered which is as shown in image 1. A biopsy is done which shows cells staining positive for S100 but negative for glial fibrillary acidic protein (GFAP). The histopathological slide is shown in image 2. What is the most likely diagnosis?",
+    "options": {
+      "A": "Glioblastoma multiforme",
+      "B": "Hemangioblastoma",
+      "C": "Schwannoma",
+      "D": "Meningioma",
+      "E": "Craniopharyngioma"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of NF2, progressive hearing loss, tinnitus, and vertigo strongly suggests a vestibular schwannoma. The MRI findings (image 1) are consistent with a vestibular schwannoma. The biopsy showing S100 positivity and GFAP negativity further supports this diagnosis, as vestibular schwannomas are typically positive for S100 and negative for GFAP.",
+          "critical_evidence": "The combination of NF2, vestibular schwannoma on MRI, and S100 positivity on biopsy is highly suggestive of vestibular schwannoma.",
+          "differential_considered": "Glioblastoma multiforme is less likely due to the absence of GFAP positivity on biopsy and the location in the cerebellopontine angle. Hemangioblastomas are associated with NF2 but typically present with cerebellar or spinal cord tumors. Schwannomas are the most common tumor of the cerebellopontine angle and are strongly associated with NF2. Meningiomas are less common in the cerebellopontine angle and typically do not show S100 positivity. Craniopharyngiomas are supratentorial tumors and are not associated with NF2.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 281,
+            "generation_time_s": 13.843
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has NF2, a genetic disorder predisposing to schwannomas. The hearing loss, tinnitus, and Rinne's test showing air > bone conduction in the right ear suggest sensorineural hearing loss consistent with a schwannoma. The Weber test lateralizing to the left ear indicates a conductive component, but the MRI and biopsy results are critical. The S100 positive and GFAP negative result strongly supports a schwannoma, as GFAP is specific for astrocytomas and S100 is often seen in schwannomas. Glioblastoma multiforme would be GFAP positive, and meningioma typically lacks S100. The progressive nature of symptoms and NF2 history further support a schwannoma.",
+          "critical_evidence": "S100 positive and GFAP negative biopsy result",
+          "differential_considered": "Glioblastoma multiforme (ruled out by GFAP positivity), hemangioblastoma (less common in NF2 and typically causes different symptoms), meningioma (less common in NF2 and different imaging appearance), craniopharyngioma (not associated with NF2)",
+          "usage": {
+            "prompt_tokens": 517,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.889
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has neurofibromatosis type 2, a genetic disorder predisposing to bilateral vestibular schwannomas. His progressive unilateral hearing loss, tinnitus, and vertigo are classic for vestibular schwannoma. The Weber test lateralizing to the left ear suggests conductive or sensorineural hearing loss in the right ear, consistent with a lesion in the right auditory pathway. The MRI (image 1) and histopathology (image 2) showing S100-positive, GFAP-negative cells are diagnostic of schwannoma, as S100 is a marker for Schwann cells and GFAP is negative in schwannomas (unlike meningiomas or gliomas).",
+          "critical_evidence": "Histopathology showing S100-positive, GFAP-negative cells confirms schwannoma.",
+          "differential_considered": "Glioblastoma (A) is GFAP-positive and typically aggressive with necrosis; meningioma (D) is GFAP-negative but S100-negative and usually extra-axial; hemangioblastoma (B) is vascular and often associated with von Hippel-Lindau; craniopharyngioma (E) is midline and causes endocrine symptoms. All are less likely given the clinical context and histopathology.",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 303,
+            "generation_time_s": 10.598
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's history of neurofibromatosis type 2 (NF2), along with the clinical presentation of hearing loss, tinnitus, and the MRI findings of a cerebellum tumor, suggests a vestibular schwannoma as the most likely diagnosis. The biopsy results showing positive staining for S100 but negative for GFAP further support this diagnosis, as S100 is a marker for schwannomas and meningiomas, while GFAP is a marker for glial tumors such as glioblastoma multiforme and meningiomas. The absence of GFAP staining helps to differentiate schwannoma from other options.",
+          "critical_evidence": "The most important evidence pointing towards the diagnosis of schwannoma is the MRI findings of a cerebellum tumor, along with the patient's history of NF2.",
+          "differential_considered": "Glioblastoma multiforme was considered but ruled out due to the absence of GFAP staining. Meningioma was also considered but ruled out due to the lack of specific clinical features and the absence of GFAP staining. Hemangioblastoma and craniopharyngioma were not considered due to the absence of clinical and histopathological evidence supporting these diagnoses.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 276,
+            "generation_time_s": 6.586
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient's unilateral (right) hearing loss with tinnitus, along with MRI findings commonly associated with NF2, strongly suggests a vascular tumor such as hemangioblastoma, which is a known complication of NF2. The positive S100 staining is typical for Schwann cell lineage tumors, but hemangioblastoma is more likely given the clinical context and the association with NF2. Meningioma and craniopharyngioma typically present with different neurological deficits and are less likely in this scenario. Glioblastoma and schwannoma are both S100-positive, but the unilateral, tinnitus-associated lesion in NF2 points away from schwannoma (which is usually peripheral) and towards a central vascular lesion like hemangioblastoma.",
+          "critical_evidence": "Hemangioblastoma is a well-known intracranial vascular malformation associated with NF2 and presents with unilateral hearing loss and tinnitus.",
+          "differential_considered": "Glioblastoma (high-grade glioma, S100-positive but often multi-focal and aggressive), Schwannoma (S100-positive, usually peripheral, less linked to NF2), meningioma (S100-negative in most cases), craniopharyngioma (mass effect in the third ventricle, different symptoms). These were considered but ruled out due to the classic association of NF2 with hemangioblastoma and the pattern of hearing loss.",
+          "usage": {
+            "prompt_tokens": 551,
+            "generated_tokens": 328,
+            "generation_time_s": 10.192
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

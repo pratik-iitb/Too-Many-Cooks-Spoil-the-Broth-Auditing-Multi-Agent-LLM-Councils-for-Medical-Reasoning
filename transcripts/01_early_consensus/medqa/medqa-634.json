@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-634",
+  "dataset": "medqa",
+  "question_id": "634",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 1-year-old boy is brought to the emergency room by his parents because of inconsolable crying and diarrhea for the past 6 hours. As the physician is concerned about acute appendicitis, she consults the literature base. She finds a paper with a table that summarizes data regarding the diagnostic accuracy of multiple clinical findings for appendicitis:\nClinical finding Sensitivity Specificity\nAbdominal guarding (in children of all ages) 0.70 0.85\nAnorexia (in children of all ages)\n0.75 0.50\nAbdominal rebound (in children ≥ 5 years of age) 0.85 0.65\nVomiting (in children of all ages) 0.40 0.63\nFever (in children from 1 month to 2 years of age) 0.80 0.80\nBased on the table, the absence of which clinical finding would most accurately rule out appendicitis in this patient?\"",
+    "options": {
+      "A": "Guarding",
+      "B": "Fever",
+      "C": "Anorexia",
+      "D": "Rebound",
+      "E": "Vomiting"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks which clinical finding would most accurately rule out appendicitis. The table shows that anorexia has the lowest specificity (0.50) among the listed findings. This means that a significant proportion of children without appendicitis will also experience anorexia. Therefore, the absence of anorexia is the least reliable indicator of the absence of appendicitis.",
+          "critical_evidence": "Anorexia has the lowest specificity (0.50) among the listed findings.",
+          "differential_considered": "Appendicitis is a serious concern, but other conditions like gastroenteritis, viral infections, and intussusception can also cause similar symptoms. While the other findings (guarding, rebound, fever, vomiting) can be present in appendicitis, they are not specific enough to rule it out definitively. The absence of anorexia is the least reliable indicator of the absence of appendicitis.",
+          "usage": {
+            "prompt_tokens": 473,
+            "generated_tokens": 217,
+            "generation_time_s": 10.746
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Fever in children aged 1-2 years has a high specificity (0.80) for ruling out appendicitis, meaning it is very good at identifying those without the condition. Given the patient's age and symptoms, fever's high specificity makes it the most reliable indicator for exclusion of appendicitis compared to other findings with lower specificity.",
+          "critical_evidence": "Fever's specificity of 0.80 in this age group",
+          "differential_considered": "Other findings like guarding (70% specificity) and rebound (65% specificity) have lower specificity, making them less reliable for ruling out appendicitis. Vomiting and anorexia have even lower specificity, while fever's 80% specificity makes it the most accurate for exclusion.",
+          "usage": {
+            "prompt_tokens": 467,
+            "generated_tokens": 187,
+            "generation_time_s": 8.727
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 1-year-old with inconsolable crying and diarrhea, raising concern for appendicitis. To rule out appendicitis, we seek the clinical finding with the highest negative predictive value (NPV) — i.e., the absence of which most reliably excludes the disease. Fever in children aged 1 month to 2 years has a sensitivity of 0.80 and specificity of 0.80, meaning its absence would strongly suggest the absence of appendicitis. The NPV is calculated as (1 - sensitivity) / (1 - specificity) for the absence, but more intuitively, high sensitivity and high specificity together make fever’s absence highly diagnostic of non-appendicitis. Other findings like vomiting (low sensitivity) or anorexia (low specificity) are less reliable for ruling out appendicitis.",
+          "critical_evidence": "Fever in children 1-2 years has sensitivity 0.80 and specificity 0.80 — the highest among listed findings — making its absence most diagnostic of non-appendicitis.",
+          "differential_considered": "Other differentials like gastroenteritis (consistent with diarrhea and crying) and urinary tract infection were considered, but the question specifically asks about ruling out appendicitis, and fever’s high sensitivity and specificity make it the most useful for exclusion in this age group.",
+          "usage": {
+            "prompt_tokens": 448,
+            "generated_tokens": 308,
+            "generation_time_s": 10.802
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "In this 1-year-old boy presenting with inconsolable crying and diarrhea, the physician is concerned about acute appendicitis. The table from the literature base shows that among the clinical findings, fever has the highest sensitivity and specificity of 0.80 each. Therefore, the absence of fever would most accurately rule out appendicitis in this patient.",
+          "critical_evidence": "The absence of fever would most accurately rule out appendicitis in this patient.",
+          "differential_considered": "The differential diagnoses considered include acute gastroenteritis, urinary tract infection, and mesenteric lymphadenopathy. These were ruled out based on the clinical presentation and physical examination findings.",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 160,
+            "generation_time_s": 3.889
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "Vomiting has a low sensitivity (0.40) for appendicitis, so its absence is not a strong exclusionary finding.",
+          "differential_considered": "Other symptoms like anorexia or abdominal guarding have higher sensitivity for appendicitis, so their absence would not as strongly suggest excluding appendicitis. Vomiting's low sensitivity makes its absence less conclusive for ruling out appendicitis.",
+          "usage": {
+            "prompt_tokens": 496,
+            "generated_tokens": 343,
+            "generation_time_s": 10.785
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

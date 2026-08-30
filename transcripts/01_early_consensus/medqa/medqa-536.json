@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-536",
+  "dataset": "medqa",
+  "question_id": "536",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 78-year-old female presents to her primary care provider complaining of shaking of her hands. She reports that her hands shake when she is pouring her coffee in the morning and when she is buttoning her shirt. She has noticed that her tremor improves with the several beers she has every night with dinner. She has a past medical history of hypertension, atrial fibrillation, moderate persistent asthma, acute intermittent porphyria, and urinary retention. Her home medications include hydrochlorothiazide, warfarin, bethanechol, low-dose inhaled fluticasone, and an albuterol inhaler as needed. On physical exam, she has an irregularly irregular heart rhythm without S3/S4. She has mild wheezing on pulmonary exam. She has no tremor when her hands are in her lap. A low-amplitude tremor is present during finger-to-nose testing. Her neurological exam is otherwise unremarkable.\n\nWhich of the following is a contraindication to the first-line treatment of this condition?",
+    "options": {
+      "A": "Acute intermittent porphyria",
+      "B": "Asthma",
+      "C": "Heavy alcohol use",
+      "D": "Urinary retention",
+      "E": "Warfarin use"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation strongly suggests essential tremor. The key finding is that the tremor improves with alcohol, which is a classic symptom of essential tremor. Acute intermittent porphyria (AIP) is a serious condition that can cause neurological symptoms, including tremors. The patient's history of AIP makes the diagnosis of essential tremor less likely and raises concern for a different etiology of the tremor. Therefore, AIP is a contraindication to the first-line treatment of essential tremor.",
+          "critical_evidence": "History of acute intermittent porphyria (AIP)",
+          "differential_considered": "The patient's age and medication list make other conditions like Parkinson's disease, medication side effects (e.g., from hydrochlorothiazide or warfarin), and thyroid dysfunction possible. However, the improvement with alcohol strongly points towards essential tremor, and the history of AIP makes it a contraindication to treating the tremor as essential tremor.",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 227,
+            "generation_time_s": 11.255
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's essential tremor improves with alcohol, suggesting alcohol-induced tremor. Warfarin (Coumadin) use is a contraindication for alcohol because it increases the risk of bleeding. The patient's history of warfarin and heavy alcohol use (several beers nightly) creates a high risk of hemorrhage, making warfarin use a critical contraindication to first-line treatment.",
+          "critical_evidence": "Warfarin use combined with alcohol consumption",
+          "differential_considered": "Considered essential tremor (most likely diagnosis), but ruled out other causes like cerebellar disorders, metabolic issues, or drug-induced tremors. The patient's history of acute intermittent porphyria and asthma were considered but ruled out as primary causes of tremor. The key differentiator was the alcohol response and warfarin use.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.665
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a resting tremor that improves with alcohol, which is highly suggestive of essential tremor. However, acute intermittent porphyria is a contraindication to the first-line treatment (beta-blockers or alcohol-containing medications) because alcohol can trigger acute porphyria attacks. The patient’s history of acute intermittent porphyria makes alcohol-induced tremor improvement particularly concerning and contraindicates first-line pharmacologic therapy.",
+          "critical_evidence": "History of acute intermittent porphyria",
+          "differential_considered": "Other differentials like Parkinson’s disease were considered, but the tremor improves with alcohol and is not at rest in a typical Parkinsonian manner; however, the key contraindication is acute intermittent porphyria, which precludes use of first-line agents like propranolol or alcohol-containing drugs.",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 202,
+            "generation_time_s": 7.097
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 14,
+            "generation_time_s": 0.365
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Her current use of warfarin increases the risk of bleeding if she were to start alcohol withdrawal or other tremor management medications.",
+          "differential_considered": "Alcohol-induced tremor (likely), but her warfarin use makes concurrent alcohol exacerbation or certain treatments contraindicated; other conditions like Parkinson's or essential tremor are less likely given the response to alcohol and her age, but warfarin use is the critical contraindication for starting alcohol or certain sedatives.",
+          "usage": {
+            "prompt_tokens": 518,
+            "generated_tokens": 287,
+            "generation_time_s": 9.037
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

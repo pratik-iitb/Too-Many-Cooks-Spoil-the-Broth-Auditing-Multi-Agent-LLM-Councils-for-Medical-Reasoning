@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-359",
+  "dataset": "medqa",
+  "question_id": "359",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 35-year-old African-American female presents to the emergency room complaining of chest pain. She also complains of recent onset arthritis and increased photosensitivity. Physical examination reveals bilateral facial rash. Which of the following is most likely to be observed in this patient?",
+    "options": {
+      "A": "Pain improves with inspiration",
+      "B": "Pain relieved by sitting up and leaning forward",
+      "C": "High-pitched diastolic murmur",
+      "D": "Fixed and split S2",
+      "E": "Mid-systolic click"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of chest pain, arthritis, photosensitivity, and facial rash strongly suggests systemic lupus erythematosus (SLE). The classic symptom of pleuritic chest pain, which is pain that worsens with inspiration, is a hallmark of pleurisy, a common manifestation of SLE. The other options are less likely given the overall clinical picture.",
+          "critical_evidence": "Pleuritic chest pain (pain that worsens with inspiration)",
+          "differential_considered": "A: Pain improves with inspiration (pleuritic chest pain is the opposite). C: High-pitched diastolic murmur (suggests mitral stenosis, not typically associated with SLE). D: Fixed and split S2 (suggests atrial septal defect or pulmonic stenosis, not typically associated with SLE). E: Mid-systolic click (suggests mitral valve prolapse, not typically associated with SLE).",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 217,
+            "generation_time_s": 11.885
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of chest pain, arthritis, and photosensitivity with a bilateral facial rash suggest a possible connective tissue disorder. The presence of a facial rash and photosensitivity is highly suggestive of lupus erythematosus, which can cause chest pain due to inflammation of the pericardium or pleura. In such cases, pain often improves with inspiration (pleuritic pain) and is relieved by sitting up and leaning forward, but the most specific finding here is the facial rash and photosensitivity, which points to a systemic inflammatory response. The pain improving with inspiration is a classic sign of pleurisy, making option A the most likely correct choice.",
+          "critical_evidence": "Bilateral facial rash with photosensitivity",
+          "differential_considered": "Considered lupus erythematosus, rheumatoid arthritis, and other connective tissue disorders. Ruled out other causes of chest pain such as myocardial infarction or angina due to the absence of typical cardiac symptoms like dyspnea, sweating, or radiation to the left arm. The combination of arthritis and photosensitivity strongly supports a connective tissue disorder with systemic involvement.",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.687
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s presentation of chest pain, arthritis, photosensitivity, and bilateral facial rash strongly suggests systemic lupus erythematosus (SLE). In SLE, pericarditis is common and often presents with chest pain that is relieved by sitting up and leaning forward, due to reduced traction on the inflamed pericardium. The other options describe findings more typical of valvular heart disease (e.g., murmurs, clicks) or other cardiac conditions, which are not consistent with this clinical picture.",
+          "critical_evidence": "Chest pain relieved by sitting up and leaning forward is classic for pericarditis, which is frequently associated with SLE.",
+          "differential_considered": "Other differentials like rheumatoid arthritis, vasculitis, or myocarditis were considered, but the combination of photosensitivity, facial rash, and arthritis strongly points to SLE. These conditions do not typically present with the specific cardiac symptom pattern described in the options.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 229,
+            "generation_time_s": 8.056
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 329,
+            "generated_tokens": 12,
+            "generation_time_s": 0.305
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Differentials include myocardial infarction, pulmonary embolism, or other cardiac causes, but the rash and arthritis point away from these; SLE-related pericardial or pleural pathology is more consistent with her history and exam findings.",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 264,
+            "generation_time_s": 8.312
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

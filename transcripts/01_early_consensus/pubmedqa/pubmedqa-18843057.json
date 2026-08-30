@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-18843057",
+  "dataset": "pubmedqa",
+  "question_id": "18843057",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can you deliver accurate tidal volume by manual resuscitator?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks if a manual resuscitator can deliver accurate tidal volume. A manual resuscitator, while not as precise as a mechanical ventilator, can still deliver a tidal volume. The accuracy depends on the skill of the user and the proper technique. Therefore, it is possible to deliver an accurate tidal volume.",
+          "critical_evidence": "The ability to deliver a tidal volume is the core function of a resuscitator, regardless of whether it's manual or mechanical.",
+          "differential_considered": "While a mechanical ventilator is more precise, a manual resuscitator can still be used in emergency situations where a mechanical ventilator is unavailable or not immediately accessible. The key is the user's skill and technique.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 191,
+            "generation_time_s": 9.771
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "Manual resuscitators allow precise control over tidal volume by adjusting the piston movement, enabling accurate delivery of ventilator settings. The device's design directly correlates piston travel with volume, ensuring reproducibility and accuracy. Given the direct mechanical relationship between piston movement and volume, manual resuscitators are capable of delivering accurate tidal volumes when used correctly.",
+          "critical_evidence": "The direct mechanical relationship between piston movement and tidal volume in manual resuscitators",
+          "differential_considered": "While electronic ventilators offer automated volume control, manual resuscitators provide direct operator control. Other devices like bag-valve-mask or high-flow nasal cannula systems have different volume delivery mechanisms, but the question specifically addresses manual resuscitators, which are designed for precise volume control through mechanical piston action.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.214
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Manual resuscitators (e.g., bag-valve-mask) are inherently imprecise in delivering consistent tidal volumes due to variability in operator technique, patient anatomy, and equipment compliance. Accurate tidal volume delivery requires mechanical ventilation with calibrated settings, which manual devices cannot reliably provide.",
+          "critical_evidence": "Manual resuscitators lack built-in volume measurement and adjustment mechanisms, leading to inconsistent and often inadequate tidal volumes.",
+          "differential_considered": "Considered mechanical ventilation as an alternative, but the question specifically asks about manual resuscitators — which are not designed for accurate tidal volume delivery, making mechanical ventilation the only reliable option for precise ventilation.",
+          "usage": {
+            "prompt_tokens": 227,
+            "generated_tokens": 165,
+            "generation_time_s": 5.991
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 11,
+            "generation_time_s": 0.281
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The possibility that the patient has a difficult airway or that the operator is inexperienced with manual resuscitators, which would impair accurate delivery; these are not addressed in the case description.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 203,
+            "generation_time_s": 6.623
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

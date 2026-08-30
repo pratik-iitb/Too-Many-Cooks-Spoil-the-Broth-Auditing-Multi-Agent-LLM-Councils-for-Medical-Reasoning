@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1205",
+  "dataset": "medqa",
+  "question_id": "1205",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old male presents to the emergency department after a motor vehicle collision. The patient was an unrestrained driver in a head-on collision. The patient appears intoxicated and is complaining of severe pain. He has a past medical history of cocaine, heroin, and MDMA use, and he is not currently taking any medications. His temperature is 99.5°F (37.5°C), blood pressure is 80/50 mmHg, pulse is 160/min, respirations are 15/min, and oxygen saturation is 95% on room air. An EKG is obtained as seen in Figure A. Laboratory values are ordered as below:\n\nSerum:\nNa+: 140 mEq/L\nCl-: 100 mEq/L\nK+: 4.1 mEq/L\nHCO3-: 24 mEq/L\nBUN: 20 mg/dL\nGlucose: 110 mg/dL\nCreatinine: 1.1 mg/dL\nCa2+: 10.1 mg/dL\n\nHemoglobin: 10 g/dL\nHematocrit: 23%\nLeukocyte count: 5,000 cells/mm^3 with normal differential\nPlatelet count: 150,000/mm^3\n\nOn physical exam the patient is notably short of breath. Cardiac exam is notable for a rapid rate and thready pulses as well as jugular venous distention (JVD). Pulmonary exam reveals unilateral breath sounds. A neurological exam is deferred due to patient non-compliance. Which of the following is the next best step in management?",
+    "options": {
+      "A": "IV fluids",
+      "B": "Norepinephrine",
+      "C": "Needle decompression",
+      "D": "Cardioversion",
+      "E": "Defibrillation"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs and symptoms suggestive of a tension pneumothorax, including hypotension, tachycardia, tachypnea, JVD, and unilateral breath sounds. This is a life-threatening condition requiring immediate intervention. The EKG shows signs of possible ischemia, but the primary concern is the potential tension pneumothorax.",
+          "critical_evidence": "Unilateral breath sounds and JVD are highly suggestive of a tension pneumothorax.",
+          "differential_considered": "While the patient's history of drug use and trauma could suggest other possibilities like cardiac tamponade or myocardial infarction, the unilateral breath sounds and JVD strongly point towards a tension pneumothorax, making immediate needle decompression the priority.",
+          "usage": {
+            "prompt_tokens": 619,
+            "generated_tokens": 182,
+            "generation_time_s": 9.051
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's rapid heart rate (160/min), thready pulses, and jugular venous distention (JVD) indicate severe hypovolemic shock. The EKG likely shows signs of ventricular tachycardia or asystole, and the low blood pressure (80/50 mmHg) confirms inadequate tissue perfusion. Immediate pharmacologic support with norepinephrine is required to stabilize the heart rate and maintain perfusion, as IV fluids alone may not address the underlying arrhythmia or hypovolemia. Needle decompression is not indicated without evidence of tension pneumothorax, and cardioversion/defibrillation are premature without confirming a shockable rhythm.",
+          "critical_evidence": "Thready pulses and JVD",
+          "differential_considered": "Considered drug toxicity (cocaine/heroin/MDMA), blunt chest trauma, and tension pneumothorax, but ruled out by normal lung sounds and lack of clinical signs. Hypovolemic shock due to trauma is the most likely cause of the unstable hemodynamics.",
+          "usage": {
+            "prompt_tokens": 594,
+            "generated_tokens": 250,
+            "generation_time_s": 11.692
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hypotension, tachycardia, JVD, and unilateral breath sounds, strongly suggesting a tension pneumothorax. The EKG (not shown but implied by context) may show signs of right ventricular strain or other findings consistent with hemodynamic compromise from pneumothorax. Needle decompression is the immediate life-saving intervention for tension pneumothorax. Other options like fluids or vasopressors are secondary and do not address the acute mechanical obstruction.",
+          "critical_evidence": "Unilateral breath sounds and JVD in a hypotensive, tachycardic patient with trauma strongly suggest tension pneumothorax.",
+          "differential_considered": "Cardiac tamponade (ruled out by absence of Kussmaul’s sign and normal JVP without pulsus paradoxus), pulmonary embolism (ruled out by absence of hypoxia, normal D-dimer not ordered, and no signs of shock from PE), and myocardial infarction (ruled out by normal EKG and no chest pain).",
+          "usage": {
+            "prompt_tokens": 591,
+            "generated_tokens": 251,
+            "generation_time_s": 8.86
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with signs of shock (hypotension, tachycardia, jugular venous distention) and unilateral breath sounds, suggesting tension pneumothorax. Needle decompression is the immediate intervention to relieve the tension and is the best next step in management.",
+          "critical_evidence": "Jugular venous distention",
+          "differential_considered": "The patient's presentation is not consistent with hypovolemic shock, which would not explain the jugular venous distention. Cardiac tamponade could also present with hypotension and JVD, but typically does not cause unilateral breath sounds. Pulmonary embolism would not explain the physical exam findings of JVD or unilateral breath sounds.",
+          "usage": {
+            "prompt_tokens": 592,
+            "generated_tokens": 173,
+            "generation_time_s": 4.22
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs of shock (tachycardia, hypotension, JVD, shortness of breath, and altered mental status from intoxication), which are highly suggestive of acute pulmonary embolism (PE) due to his history of illicit drug use (increasing thrombosis risk) and current hemodynamic instability. The most immediate life-threatening finding is the low blood pressure and poor perfusion, indicating a need for vasoactive support before definitive treatment for PE. Norepinephrine is the first-line vasopressor for septic or hypovolemic shock, which this patient likely has due to the trauma and possible underlying sepsis. Other options are inappropriate: IV fluids may be part of resuscitation but are not first-line in this unstable patient; decompression is for tension pneumothorax, which is not indicated here; cardioversion and defibrillation are for arrhythmias, which are not the priority in this hemodynamically unstable trauma/possible PE case.",
+          "critical_evidence": "Hypotension (BP 80/50 mmHg), tachycardia (P 160), and signs of poor perfusion (JVD, shortness of breath, altered mental status) pointing to shock likely due to PE, which requires immediate vasopressor support (norepinephrine).",
+          "differential_considered": "Tension pneumothorax, septic shock, cardiogenic shock, but the hemodynamic profile and history are most consistent with PE and the need for immediate resuscitation with a vasopressor. Tension pneumothorax would have tracheal deviation and rising chest, which are not mentioned; no arrhythmia is emphasized. Thus, norepinephrine is the best next step.",
+          "usage": {
+            "prompt_tokens": 644,
+            "generated_tokens": 400,
+            "generation_time_s": 12.653
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1086",
+  "dataset": "medqa",
+  "question_id": "1086",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old male is brought to the emergency department by ambulance after a motor vehicle collision. He is found to have a broken femur and multiple soft tissue injuries and is admitted to the hospital. During the hospital course, he is found to have lower extremity swelling, redness, and pain, so he is given an infusion of a medication. The intravenous medication is discontinued in favor of an oral medication in preparation for discharge; however, the patient leaves against medical advice prior to receiving the full set of instructions. The next day, the patient is found to have black lesions on his trunk and his leg. The protein involved in this patient's underlying abnormality most likely affects the function of which of the following factors?",
+    "options": {
+      "A": "Factor II only",
+      "B": "Factors II and X",
+      "C": "Factors II, VII, IX, and X",
+      "D": "Factor V only",
+      "E": "Factors V and VIII"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of black lesions on his trunk and leg, along with a history of a motor vehicle collision and subsequent treatment with an intravenous medication, strongly suggests warfarin-induced skin necrosis. Warfarin inhibits the vitamin K-dependent clotting factors, specifically factors II, VII, IX, and X. The black lesions are a result of the breakdown of blood vessels due to the deficiency of these factors.",
+          "critical_evidence": "Black lesions on the trunk and leg in a patient on warfarin.",
+          "differential_considered": "While other conditions could cause skin lesions, the combination of warfarin use, the location of the lesions, and the patient's history makes warfarin-induced skin necrosis the most likely diagnosis. Other possibilities like infection or drug reactions are less likely given the clinical context.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 201,
+            "generation_time_s": 9.929
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's black lesions and soft tissue changes suggest a coagulation disorder. The progression from intravenous to oral anticoagulant therapy and the development of skin necrosis indicate a likely anticoagulant effect. Factor II, VII, IX, and X are involved in the intrinsic and common pathways of coagulation, which are activated by tissue factor and are critical for proper clot formation. Their deficiency or dysfunction would lead to impaired clotting and potential bleeding or skin necrosis. Factor V and VIII are less likely to cause this specific presentation.",
+          "critical_evidence": "The development of black lesions on the trunk and leg after anticoagulant therapy suggests a coagulation disorder affecting the intrinsic pathway.",
+          "differential_considered": "Considered heparin-induced thrombocytopenia (HIT), vitamin K deficiency, and lupus anticoagulant, but ruled out due to the specific presentation and progression of skin changes. The most consistent explanation is a deficiency in factors involved in the intrinsic pathway.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 240,
+            "generation_time_s": 11.169
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s presentation of black lesions on trunk and leg after trauma and IV medication suggests a coagulopathy leading to skin necrosis, likely due to a deficiency in vitamin K-dependent clotting factors. The black lesions are consistent with cutaneous necrosis from hemorrhage, which occurs in severe vitamin K deficiency or anticoagulant overdose. The factors affected are II, VII, IX, and X — all vitamin K-dependent — which are critical for coagulation. The patient’s history of IV medication (likely anticoagulant) and subsequent oral medication (possibly vitamin K antagonist or reversal agent) supports this mechanism.",
+          "critical_evidence": "Black lesions on trunk and leg after trauma and anticoagulant use point to hemorrhagic necrosis due to deficiency of vitamin K-dependent factors (II, VII, IX, X).",
+          "differential_considered": "Other coagulopathies like hemophilia (factors VIII or IX) or liver disease were considered, but the black lesions and context of anticoagulant use strongly favor vitamin K-dependent factor deficiency. Factor V deficiency is less likely to cause such dramatic cutaneous necrosis without other systemic signs.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 269,
+            "generation_time_s": 9.438
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The protein involved in this patient's underlying abnormality most likely affects the function of Factors II and X.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 22,
+            "generation_time_s": 0.556
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 313,
+            "generation_time_s": 9.841
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

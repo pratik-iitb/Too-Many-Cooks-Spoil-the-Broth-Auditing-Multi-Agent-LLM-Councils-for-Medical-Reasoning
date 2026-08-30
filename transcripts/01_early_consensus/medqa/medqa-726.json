@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-726",
+  "dataset": "medqa",
+  "question_id": "726",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 48-year-old woman presents to an urgent care clinic with the complaints of bloody diarrhea, mid-abdominal discomfort, and cramping for 3 days. She also has nausea, vomiting, and fever. She reports that she had eaten raw oysters at a local seafood restaurant almost 3 days ago, but she denies any other potentially infectious exposures. Her temperature is 37.5°C (99.6°F), respiratory rate is 15/min, pulse is 67/min, and blood pressure is 102/68 mm Hg. Physical examination is non-contributory. What is the most likely diagnosis?",
+    "options": {
+      "A": "Rotavirus infection",
+      "B": "C. difficile colitis",
+      "C": "Bacillus cereus infection",
+      "D": "Norovirus infection",
+      "E": "Vibrio parahaemolyticus infection"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of bloody diarrhea, abdominal discomfort, nausea, vomiting, and fever, coupled with a history of eating raw oysters, strongly suggest a bacterial infection related to seafood consumption. Vibrio parahaemolyticus is a common cause of gastroenteritis associated with raw or undercooked seafood, particularly oysters. While other options are possible, the history of raw oyster consumption makes Vibrio parahaemolyticus the most likely diagnosis.",
+          "critical_evidence": "History of eating raw oysters",
+          "differential_considered": "Rotavirus infection is less likely given the acute onset and seafood exposure. C. difficile colitis is typically associated with antibiotic use and healthcare settings, which are not mentioned in the case. Norovirus is a common cause of gastroenteritis, but the seafood history makes Vibrio parahaemolyticus more probable. Bacillus cereus is usually associated with rice or starchy foods, not oysters.",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 226,
+            "generation_time_s": 11.209
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of consuming raw oysters and the presence of bloody diarrhea with a recent onset of symptoms strongly suggest Vibrio parahaemolyticus infection, which is commonly associated with seafood consumption. The other options are less likely due to the absence of typical features: rotavirus is more common in children, norovirus is usually associated with vomiting and less commonly with bloody diarrhea, and bacillus cereus is typically foodborne but not linked to seafood. C. difficile colitis is more commonly associated with antibiotic use and hospitalization, which is not mentioned here.",
+          "critical_evidence": "Consumption of raw oysters",
+          "differential_considered": "Rotavirus (less common in adults, no specific link to oysters), Norovirus (vomiting is present but less specific), Bacillus cereus (not seafood-associated), C. difficile (no antibiotic use mentioned)",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.969
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with bloody diarrhea, fever, and abdominal cramping following consumption of raw oysters, which strongly suggests a seafood-borne bacterial infection. Vibrio parahaemolyticus is a known cause of gastroenteritis associated with raw or undercooked seafood, particularly oysters. Other options like rotavirus and norovirus are typically viral and not associated with seafood exposure or bloody diarrhea. C. difficile colitis usually follows antibiotic use and presents with watery diarrhea, not typically bloody. Bacillus cereus causes food poisoning with vomiting and diarrhea but not usually bloody diarrhea or fever with seafood exposure.",
+          "critical_evidence": "Consumption of raw oysters 3 days prior to symptom onset, combined with bloody diarrhea and fever, is highly suggestive of Vibrio parahaemolyticus infection.",
+          "differential_considered": "Rotavirus and norovirus were considered but ruled out due to lack of association with seafood exposure and absence of systemic symptoms like fever and bloody diarrhea. C. difficile was considered but lacks history of antibiotic use and typically presents with watery diarrhea. Bacillus cereus was considered but is less likely to cause bloody diarrhea or fever with seafood exposure.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 270,
+            "generation_time_s": 9.481
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 91,
+            "generation_time_s": 2.227
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 434,
+            "generated_tokens": 291,
+            "generation_time_s": 9.171
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

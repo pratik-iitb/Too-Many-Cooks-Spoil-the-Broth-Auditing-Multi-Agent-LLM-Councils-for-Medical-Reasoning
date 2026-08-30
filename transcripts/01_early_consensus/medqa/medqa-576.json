@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-576",
+  "dataset": "medqa",
+  "question_id": "576",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 13-year-old teenage girl was brought to the emergency department by her mom after she collapsed. Her mom reports that she was at a birthday party when all of a sudden she fell. She reported left foot weakness and has been limping ever since. The patient has been healthy and had an uncomplicated birth history, though her mom reports that she just recovered from a cold. She currently lives with her younger sister and mother as her parents recently divorced. She does well in school and has a handful of good friends. Her physical exam demonstrated normal bulk and tone, 5/5 strength in all motions, 2+ and symmetric reflexes at biceps, triceps and knees. She had 1+ ankle reflex on left. What is the most likely explanation for her symptoms?",
+    "options": {
+      "A": "Cerebral vascular accident",
+      "B": "Conversion disorder",
+      "C": "Guillain-Barre syndrome",
+      "D": "Multiple sclerosis",
+      "E": "Myasthenia gravis"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute onset of left foot weakness and a limp following a recent cold. The physical exam shows normal strength and reflexes except for a diminished left ankle reflex. Given the lack of other neurological deficits and the recent history of a viral illness, conversion disorder is the most likely explanation. While other conditions are possible, they are less likely given the clinical picture.",
+          "critical_evidence": "The recent history of a cold and the absence of other neurological findings, particularly normal strength and reflexes, point towards a psychological cause.",
+          "differential_considered": "Cerebral vascular accident (CVA) is less likely due to the absence of other neurological deficits and the patient's age. Guillain-Barre syndrome typically presents with ascending weakness and areflexia, which is not present here. Multiple sclerosis is less likely given the acute onset and lack of other typical MS symptoms. Myasthenia gravis typically presents with fluctuating weakness and fatigability, which is not described in the case.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 241,
+            "generation_time_s": 11.926
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's sudden onset of left foot weakness with a history of collapse at a birthday party suggests a possible psychogenic cause. The physical exam shows normal strength and reflexes except for a 1+ ankle reflex on the left, which may indicate a focal neurological deficit consistent with a conversion disorder. The absence of other neurological abnormalities and the patient's history of a recent cold (which could suggest a viral trigger) make conversion disorder the most likely explanation.",
+          "critical_evidence": "The 1+ ankle reflex on the left side, combined with the sudden onset of weakness and the psychosocial context of a recent family change, supports a psychogenic etiology.",
+          "differential_considered": "Cerebral vascular accident (A) was ruled out due to the sudden onset and lack of focal neurological deficits. Guillain-Barre syndrome (C) was less likely due to the absence of ascending weakness and areflexia. Multiple sclerosis (D) and myasthenia gravis (E) were less likely due to the absence of characteristic symptoms like fatigue, progressive weakness, or bulbar involvement.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.619
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a healthy adolescent with acute onset of unilateral foot weakness and limp, without other neurological deficits or systemic symptoms. Her exam shows normal strength, tone, and reflexes except for a diminished left ankle reflex, which is inconsistent with a true neurological deficit. The context of a recent viral illness and psychosocial stressors (recent divorce, living with younger sibling) supports a functional explanation. Conversion disorder fits this profile: somatic symptoms without organic cause, often triggered by psychological stress.",
+          "critical_evidence": "Normal strength, tone, and reflexes except for 1+ left ankle reflex, with no other neurological deficits, in a healthy adolescent with psychosocial stressors.",
+          "differential_considered": "Cerebral vascular accident (unlikely in a healthy teen with no focal deficits), Guillain-Barré (would show ascending paralysis and areflexia, not isolated foot weakness), MS (would show multiple CNS signs, not acute onset in adolescent), Myasthenia gravis (would show fatigable weakness, not isolated foot weakness).",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 246,
+            "generation_time_s": 8.601
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 134,
+            "generation_time_s": 3.262
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Guillain-Barré syndrome (C) due to possible post-infectious neuropathy, multiple sclerosis (D) for demyelinating disease, myasthenia gravis (E) for muscle weakness, and TIA or stroke (A) for sudden neurological change. However, the absence of bilateral weakness, sensory changes, or evidence of autoimmune disease makes these less likely than conversion disorder.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 322,
+            "generation_time_s": 10.137
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

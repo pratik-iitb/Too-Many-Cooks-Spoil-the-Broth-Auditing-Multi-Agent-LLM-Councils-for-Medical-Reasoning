@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-336",
+  "dataset": "medqa",
+  "question_id": "336",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A middle aged man is brought in by emergency medical services after being found unconscious, lying on the street next to an empty bottle of vodka. His past medical history is unknown. Upon evaluation, he opens his eyes spontaneously and is able to obey commands. After peripheral access is obtained, IV normal saline and glucose are administered. Suddenly, the patient becomes confused and agitated. Horizontal nystagmus is noted on exam. This acute presentation was likely caused by a deficiency in which of the following?",
+    "options": {
+      "A": "Vitamin A",
+      "B": "Vitamin B12",
+      "C": "Vitamin B9",
+      "D": "Vitamin B6",
+      "E": "Vitamin B1"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's acute onset of confusion, agitation, and horizontal nystagmus after alcohol ingestion strongly suggests Wernicke's encephalopathy. Wernicke's encephalopathy is caused by thiamine (Vitamin B1) deficiency, often seen in chronic alcoholics. The clinical findings are classic for this condition.",
+          "critical_evidence": "Horizontal nystagmus is a key clinical finding in Wernicke's encephalopathy.",
+          "differential_considered": "Vitamin A deficiency can cause night blindness and other eye problems, but not typically acute confusion and nystagmus. Vitamin B12 deficiency can cause neurological problems, but usually presents with peripheral neuropathy and subacute combined degeneration of the spinal cord, not acute confusion and nystagmus. Vitamin B9 (folate) deficiency can cause megaloblastic anemia and neurological symptoms, but not typically the acute presentation described. Vitamin B6 deficiency can cause peripheral neuropathy and seizures, but not the specific combination of findings in this case.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 244,
+            "generation_time_s": 12.098
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's confusion, agitation, and horizontal nystagmus after IV glucose administration suggest a metabolic crisis. Given the context of alcohol intoxication and rapid IV fluid administration, the most likely cause is hypoglycemia (low blood sugar), which can occur when glucose is rapidly infused into an already alcohol-impaired system. Vitamin B1 (thiamine) deficiency is a known risk factor in alcoholics, leading to Wernicke-Korsakoff syndrome, characterized by acute encephalopathy with nystagmus and confusion.",
+          "critical_evidence": "Horizontal nystagmus and acute onset of confusion after glucose administration in an intoxicated patient",
+          "differential_considered": "Considered vitamin B12 deficiency (megaloblastic anemia) and B9 (folate) deficiency, but these typically present with different neurological symptoms. Vitamin A deficiency is unlikely in this context. B6 deficiency is rare and not typically associated with acute nystagmus. B1 deficiency is the most consistent with the clinical picture in an alcohol-exposed patient.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.603
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with acute confusion, agitation, and horizontal nystagmus after alcohol intoxication and administration of glucose, which is classic for Wernicke encephalopathy. This condition is caused by thiamine (B1) deficiency, commonly seen in chronic alcoholics. The rapid onset after glucose administration (which worsens the deficiency by shifting metabolism) and the presence of nystagmus and altered mental status strongly point to thiamine deficiency.",
+          "critical_evidence": "Horizontal nystagmus and acute confusion after glucose administration in an alcoholic patient are hallmark signs of Wernicke encephalopathy due to thiamine (B1) deficiency.",
+          "differential_considered": "Vitamin B12 deficiency (B) can cause neurological symptoms but typically presents with subacute or chronic changes, not acute confusion with nystagmus. Vitamin B6 (D) deficiency causes seizures or dermatitis, not this triad. Vitamin B9 (C) deficiency causes megaloblastic anemia and neurological symptoms but not acute nystagmus. Vitamin A (A) deficiency causes night blindness and skin changes, not acute encephalopathy.",
+          "usage": {
+            "prompt_tokens": 335,
+            "generated_tokens": 271,
+            "generation_time_s": 9.49
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 233,
+            "generation_time_s": 5.62
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (Vitamin A), C (Vitamin B9/folate), D (Vitamin D), and A (Vitamin A) are less likely causes of this acute neurological presentation; B12 deficiency typically presents with different neurological findings such as sensory loss, gait disturbances, and lack of mental status change upon IV administration. No mention of visual or sensory symptoms points away from B12 deficiency.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 220,
+            "generation_time_s": 6.911
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-20363841",
+  "dataset": "pubmedqa",
+  "question_id": "20363841",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do symptoms predict COPD in smokers?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Smoking is a major risk factor for COPD. The presence of symptoms in a smoker strongly suggests the possibility of COPD. While other conditions could cause similar symptoms, the smoking history makes COPD a highly probable diagnosis.",
+          "critical_evidence": "Smoking history",
+          "differential_considered": "Asthma, Bronchitis, Pneumonia, Lung Cancer. Asthma and bronchitis can present with similar symptoms, but the long-term smoking history makes COPD a more likely diagnosis. Pneumonia and lung cancer are less likely given the chronic nature of the symptoms and the lack of acute infectious signs or specific cancer symptoms.",
+          "usage": {
+            "prompt_tokens": 249,
+            "generated_tokens": 162,
+            "generation_time_s": 7.936
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Smoking is a primary risk factor for COPD, and symptoms like chronic cough, sputum production, and dyspnea can be early indicators. While not all smokers develop COPD, these symptoms significantly increase the likelihood of airflow limitation and lung damage over time. The presence of symptoms in smokers warrants consideration of COPD as a diagnosis.",
+          "critical_evidence": "Smoking history combined with chronic respiratory symptoms",
+          "differential_considered": "Asthma, bronchiectasis, and interstitial lung disease were considered but ruled out based on the absence of typical features (e.g., asthma reversibility, focal lung abnormalities, fibrosis).",
+          "usage": {
+            "prompt_tokens": 251,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.085
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "While smoking is the primary risk factor for COPD, symptoms such as chronic cough, sputum production, and dyspnea are not always present in early or even moderate stages. Many smokers remain asymptomatic until significant lung damage has occurred. Therefore, symptoms alone are not reliable predictors of COPD, but they may suggest the need for further diagnostic evaluation.",
+          "critical_evidence": "Symptoms are non-specific and can be absent in early-stage COPD, even in long-term smokers.",
+          "differential_considered": "Other respiratory conditions like asthma, bronchitis, or heart failure were considered, but the question specifically asks about COPD prediction in smokers, making symptom reliability the key issue. These conditions may present with overlapping symptoms, but they do not alter the fact that symptoms are not predictive of COPD.",
+          "usage": {
+            "prompt_tokens": 222,
+            "generated_tokens": 196,
+            "generation_time_s": 6.783
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 249,
+            "generated_tokens": 10,
+            "generation_time_s": 0.248
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 174,
+            "generation_time_s": 5.426
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

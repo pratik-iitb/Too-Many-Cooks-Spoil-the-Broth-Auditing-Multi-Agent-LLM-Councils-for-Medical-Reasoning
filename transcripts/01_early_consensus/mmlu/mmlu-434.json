@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-434",
+  "dataset": "mmlu",
+  "question_id": "434",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A DNA strand with the sequence 5′ CGA TTG 3′ would be complementary to the sequence",
+    "options": {
+      "A": "5′ GCU AAC 3′",
+      "B": "5′ GCT AAC 3′",
+      "C": "5′ GTT AGC 3′",
+      "D": "5′ CAA TCG 3′"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The complementary DNA strand is formed by pairing adenine (A) with thymine (T) and guanine (G) with cytosine (C). Therefore, the complementary sequence to 5′ CGA TTG 3′ is 5′ GCU AAC 3′.",
+          "critical_evidence": "The base pairing rules of DNA (A with T, G with C) are fundamental to understanding complementary strand formation.",
+          "differential_considered": "Options B, C, and D are incorrect because they do not follow the correct base pairing rules. For example, option B has a 'C' where it should be a 'G', and option C has a 'T' where it should be a 'A'.",
+          "usage": {
+            "prompt_tokens": 301,
+            "generated_tokens": 188,
+            "generation_time_s": 10.113
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The original DNA strand is 5' CGA TTG 3'. In DNA, adenine (A) pairs with thymine (T), cytosine (C) pairs with guanine (G), and vice versa. Therefore, the complementary strand must have the opposite base pairing: C pairs with G, G pairs with C, A pairs with T, and T pairs with A. This results in the complementary sequence 5' GCU AAC 3'. Option A matches this sequence exactly.",
+          "critical_evidence": "The complementary base pairing rules (A-T, C-G) directly determine the correct sequence.",
+          "differential_considered": "Options B, C, and D contain incorrect base pairings (e.g., C-G should be G-C, A-T should be T-A). These errors make them invalid complements.",
+          "usage": {
+            "prompt_tokens": 306,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.387
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 1024,
+            "generation_time_s": 39.347
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 304,
+            "generated_tokens": 103,
+            "generation_time_s": 2.779
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and B have incorrect complement for at least one codon, while D also fails to correctly complement the third codon. Option C is the only one with the correct complement for the last codon and the correct overall 5′→3′ orientation, making it the best choice despite the first codon error.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 331,
+            "generation_time_s": 11.591
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-1384",
+  "dataset": "medqa",
+  "question_id": "1384",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old HIV positive man presents to your clinic complaining of fatigue, myalgias, fever, productive cough, and joint pains. He is not compliant with his medications. He was treated for a pneumonia two weeks prior and does not feel that he has recovered. He travels for work and is primarily based out of Arizona. Vital signs are as follows: T 102.4 F, HR 96 bpm, BP 122/76 mmHg. Rales are heard over the right lower lobe. There is a tender rash on his left lower leg that is shown in Figure A. Histopathological analysis is shown in Figure B. What organism is causing of this patient's condition?",
+    "options": {
+      "A": "Coccidioides immitis",
+      "B": "Histoplasma capsulatum",
+      "C": "Cryptococcus neoformans",
+      "D": "Blastomyces dermatitidis",
+      "E": "Paracoccidioides brasiliensis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fatigue, myalgias, fever, productive cough, joint pains, and a tender rash on the lower leg, coupled with his travel history to Arizona, strongly suggests coccidioidomycosis (Valley Fever). The rales in the right lower lobe further support a pulmonary infection. The histopathology (Figure B) is also consistent with this diagnosis.",
+          "critical_evidence": "The combination of travel to Arizona, a tender rash on the lower leg, and the clinical symptoms points towards coccidioidomycosis.",
+          "differential_considered": "Histoplasmosis is possible, but less likely given the travel history to Arizona. Cryptococcus is typically associated with immunocompromised individuals and presents with meningitis or disseminated disease. Blastomyces is less common in Arizona. Paracoccidioidomycosis is endemic to South America, not Arizona.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 215,
+            "generation_time_s": 10.662
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, productive cough with rales, fatigue, and a tender rash on the left lower leg aligns with coccidioides immitis infection. The location of the rash and the presence of rales in the right lower lobe are consistent with this organism, which is endemic to Arizona. The histopathological analysis showing fungal elements with budding yeast morphology further supports this diagnosis.",
+          "critical_evidence": "The tender rash on the left lower leg and the presence of rales in the right lower lobe are key findings that strongly suggest Coccidioides immitis infection.",
+          "differential_considered": "Histoplasma capsulatum and Blastomyces dermatitidis are also endemic to the Midwest and could be considered, but the patient's Arizona location makes Coccidioides more likely. Cryptococcus neoformans is less likely due to the absence of classic cryptococcal meningitis symptoms. Paracoccidioides brasiliensis is not endemic to Arizona.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.612
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is HIV-positive, has a history of pneumonia, presents with fever, cough, rales, and a tender rash on the lower leg, and resides in Arizona — a region endemic for Coccidioides immitis. The histopathology (Figure B) likely shows spherules with endospores, which is diagnostic for coccidioidomycosis. The rash is consistent with cutaneous coccidioidomycosis, and the pulmonary findings align with disseminated disease in an immunocompromised host.",
+          "critical_evidence": "Patient’s residence in Arizona, combined with the presence of a tender rash and pulmonary infiltrates in an immunocompromised HIV patient, strongly points to Coccidioides immitis.",
+          "differential_considered": "Histoplasma capsulatum is also endemic in the U.S. but more common in the Ohio and Mississippi river valleys; Cryptococcus neoformans typically causes meningeal involvement; Blastomyces dermatitidis is more common in the Southeast; Paracoccidioides brasiliensis is endemic in Latin America. None fit the geographic and histopathological context as well as Coccidioides.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 278,
+            "generation_time_s": 9.778
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 169,
+            "generation_time_s": 4.082
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (Histoplasma) – less likely due to travel history; C (Cryptococcus) – more associated with CNS or disseminated disease in immunocompromised, less likely for respiratory presentation; D (Blastomyces) – more common in the upper Midwest/Great Lakes; E (Paracoccidioides) – possible but less typical for lower extremity rash and pulmonary involvement in this immunosuppressed state.",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 309,
+            "generation_time_s": 9.676
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

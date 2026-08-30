@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-20530150",
+  "dataset": "pubmedqa_context",
+  "question_id": "20530150",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is cholecystectomy really an indication for concomitant splenectomy in mild hereditary spherocytosis?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Children referred with symptomatic gallstones complicating HS between April 1999 and April 2009 were prospectively identified and reviewed retrospectively. During this period, the policy was to undertake concomitant splenectomy only if indicated for haematological reasons and not simply because of planned cholecystectomy. A total of 16 patients (mean age 10.4, range 3.7 to 16 years, 11 women) with HS and symptomatic gallstones underwent cholecystectomy. Three patients subsequently required a splenectomy for haematological reasons 0.8-2.5 years after cholecystectomy; all three splenectomies were performed laparoscopically. There were no postoperative complications in the 16 patients; postoperative hospital stay was 1-3 days after either cholecystectomy or splenectomy. The 13 children with a retained spleen remain under regular review by a haematologist (median follow-up 4.6, range 0.5 to 10.6 years) and are well and transfusion independent.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a study of children with hereditary spherocytosis (HS) and symptomatic gallstones who underwent cholecystectomy. Concomitant splenectomy was only performed for hematological reasons, not solely for cholecystectomy. The study found that 3 out of 16 patients required splenectomy post-cholecystectomy, all for hematological reasons. This suggests that concomitant splenectomy is not routinely indicated for cholecystectomy in mild HS.",
+          "critical_evidence": "The study's policy of only performing concomitant splenectomy for hematological reasons, not for cholecystectomy, is the most important finding.",
+          "differential_considered": "Differential diagnoses considered include other causes of gallstones (e.g., cholelithiasis, choledocholithiasis) and the need for splenectomy in HS patients. These were ruled out because the case specifically focuses on HS patients with gallstones and the context of cholecystectomy, and the study's policy is relevant to this specific scenario.",
+          "usage": {
+            "prompt_tokens": 489,
+            "generated_tokens": 250,
+            "generation_time_s": 14.798
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that in 16 children with HS and symptomatic gallstones, only 3 required splenectomy for haematological reasons after cholecystectomy. Since the policy was to perform splenectomy only when indicated for haematological reasons, and the majority (13/16) did not require splenectomy, cholecystectomy alone appears to be a reasonable approach in most cases of mild HS with gallstones. The low rate of haematological complications and successful laparoscopic splenectomy when needed support this approach.",
+          "critical_evidence": "Only 3 out of 16 patients required splenectomy for haematological reasons after cholecystectomy, indicating that cholecystectomy alone is appropriate in most cases.",
+          "differential_considered": "While gallstones are the primary indication for cholecystectomy in this case, the differential consideration was whether the gallstones were a manifestation of HS or a separate entity. The study's findings support that they are separate, as splenectomy was only required for haematological reasons, not gallstone complications.",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.391
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study explicitly states that concomitant splenectomy was performed only when indicated for hematological reasons, not merely because of planned cholecystectomy. Of the 16 patients, only 3 required splenectomy later for hematological indications, and the remaining 13 with retained spleens are well and transfusion-independent. This demonstrates that cholecystectomy alone is not an indication for splenectomy in mild hereditary spherocytosis.",
+          "critical_evidence": "The policy was to undertake concomitant splenectomy only if indicated for hematological reasons, and 13 out of 16 patients retained their spleen without complications.",
+          "differential_considered": "The differential diagnosis of whether cholecystectomy should trigger splenectomy was considered, but the data clearly show that splenectomy was reserved for hematological indications, not routine co-occurrence with cholecystectomy.",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 219,
+            "generation_time_s": 9.193
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 75,
+            "generation_time_s": 2.183
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.75,
+          "clinical_reasoning": "",
+          "critical_evidence": "The fact that splenectomy was performed only for haematological reasons and that the majority of patients with retained spleen are asymptomatic and transfusion-independent after cholecystectomy.",
+          "differential_considered": "Other causes of recurrent symptoms (e.g., sepsis, severe anaemia) or severe complications (e.g., massive haemolysis, thrombosis) were not mentioned, and the data show no direct link between gallbladder surgery and the need for splenectomy in mild HS without haematological symptoms or complications.",
+          "usage": {
+            "prompt_tokens": 529,
+            "generated_tokens": 262,
+            "generation_time_s": 9.943
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

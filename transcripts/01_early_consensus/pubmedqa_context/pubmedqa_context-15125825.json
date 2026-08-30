@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa_context-15125825",
+  "dataset": "pubmedqa_context",
+  "question_id": "15125825",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Starting insulin in type 2 diabetes: continue oral hypoglycemic agents?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To evaluate the effects of insulin 30/70 twice daily or bedtime isophane (NPH) insulin plus continued sulfonylurea and metformin in patients with type 2 diabetes in primary care. Open-label, randomized trial. Persons younger than 76 years with type 2 diabetes whose disease had not been controlled with oral hypoglycemic agents alone. A total of 64 insulin-naive patients treated with maximal feasible dosages of sulfonylurea and metformin (baseline glycosylated hemoglobin [HbA1c]=8.5%) were randomly assigned to insulin monotherapy (IM group; n=31) or insulin in addition to unchanged oral hypoglycemic medication (IC group; n=33) for 12 months. Insulin doses were adjusted to obtain fasting glucose<7.0 mmol/L and postprandial glucose<10.0 mmol/L. Outcome measures included HbA1c, treatment failure, weight, hypoglycemic events and symptoms, satisfaction with treatment, general well-being, and fear of injecting insulin and testing. HbA1c improved from 8.3% to 7.6% in the IC group, and from 8.8% to 7.6% in the IM group (P=NS). The IC group had 24% treatment failures, compared with 2% in the IM group (P=.09). Patients in the IC group had less weight gain than those in the IM group (1.3 vs 4.2 kg; P=.01), and they reported fewer hypoglycemic events (2.7 vs 4.3; P=.02). Increased satisfaction with treatment was equal in the 2 groups, and general well-being improved by 3.0 points more in the IC group (P=.05). Fear of self-injecting and self-testing did not differ.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study showed that continuing oral hypoglycemic agents (sulfonylurea and metformin) alongside insulin therapy resulted in a lower rate of treatment failure, less weight gain, fewer hypoglycemic events, and improved satisfaction compared to insulin monotherapy. This suggests that continuing oral agents is beneficial in this setting.",
+          "critical_evidence": "The IC group had 24% treatment failures, compared with 2% in the IM group (P=.09).",
+          "differential_considered": "While the study showed that continuing oral agents is beneficial, it's important to consider that the study population was insulin-naive. If the patient had already been on oral agents and had failed to achieve adequate glycemic control, switching to insulin monotherapy might be more appropriate. However, the study design specifically excluded patients who had already failed oral agents, making this a less relevant differential.",
+          "usage": {
+            "prompt_tokens": 652,
+            "generated_tokens": 215,
+            "generation_time_s": 12.83
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that adding insulin to oral hypoglycemic agents (IC group) resulted in better glycemic control (HbA1c 7.6% vs 7.6%, though the difference was not statistically significant) with fewer treatment failures (24% vs 2%), less weight gain (1.3 kg vs 4.2 kg), and fewer hypoglycemic events (2.7 vs 4.3). These outcomes suggest that continuing oral agents alone may not be sufficient for many patients, and adding insulin can improve outcomes despite the lack of significant HbA1c difference.",
+          "critical_evidence": "The IC group had significantly fewer treatment failures (24% vs 2%) and less weight gain (1.3 kg vs 4.2 kg) compared to the IM group, indicating better long-term management with insulin addition.",
+          "differential_considered": "No major differential diagnoses were present; the study focused on treatment strategy in insulin-naive type 2 diabetes patients with uncontrolled oral therapy. The primary concern was optimizing glycemic control with minimal side effects, which the IC approach addressed more effectively.",
+          "usage": {
+            "prompt_tokens": 665,
+            "generated_tokens": 1024,
+            "generation_time_s": 54.261
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The trial showed that adding insulin to continued oral agents (IC group) led to comparable HbA1c improvement but significantly fewer treatment failures (24% vs 2%) and less weight gain compared to insulin monotherapy. Although the primary endpoint (HbA1c) was not significantly different, the clinical outcomes favor continuation of oral agents, suggesting that adding insulin may be more effective in preventing treatment failure and improving tolerability.",
+          "critical_evidence": "The IC group had only 2% treatment failure versus 24% in the IM group (P=.09), indicating that continuing oral agents with insulin may reduce treatment failure.",
+          "differential_considered": "The alternative of insulin monotherapy was considered, but it had higher treatment failure and greater weight gain, making continuation of oral agents more favorable despite similar HbA1c outcomes.",
+          "usage": {
+            "prompt_tokens": 649,
+            "generated_tokens": 205,
+            "generation_time_s": 8.637
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 663,
+            "generated_tokens": 72,
+            "generation_time_s": 2.119
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The possibility of stopping oral hypoglycemic agents was not tested; the trial only compared adding insulin to existing oral therapy vs insulin alone. Other considerations (e.g., hypoglycemia risk) were not shown to be worse in the combined therapy. Thus, without explicit data on adverse effects or optimal control, a definitive \"yes\" or \"no\" cannot be chosen.",
+          "usage": {
+            "prompt_tokens": 700,
+            "generated_tokens": 318,
+            "generation_time_s": 12.102
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-521",
+  "dataset": "medqa",
+  "question_id": "521",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Over the course of a year, 5 children with identical congenital heart defects were referred to a pediatric cardiac surgeon for evaluation. All 5 children had stable vital signs and were on appropriate medication. Upon review of medical records, all of them had a loud holosystolic murmur over the third intercostal space at the left sternal border. The surgeon ordered echocardiograms for all 5 children and recommended surgical closure of the defect in one of them. Which of the following patients required surgical repair of their defect?",
+    "options": {
+      "A": "A 4-month-old male infant with a 12-mm muscular defect, without heart failure, pulmonary hypertension or growth failure",
+      "B": "An 11-month-old female infant with a 6-mm membranous defect, without heart failure, pulmonary hypertension, or growth failure",
+      "C": "A 2-year-old boy with a 2-mm supracristal defect, without heart failure, pulmonary hypertension, or growth failure",
+      "D": "A 5-year-old girl with a 2-mm membranous defect, no heart failure, a Qp:Qs ratio less than 2:1, and no growth failure",
+      "E": "A 7-year-old boy with an 11-mm muscular defect and severe pulmonary vascular disease non-responsive to pulmonary vasodilators"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes children with identical congenital heart defects and a holosystolic murmur. The surgeon recommended surgical closure of the defect in one of them. The key factor determining the need for surgery is the presence of pulmonary vascular disease (PVD). Severe PVD, unresponsive to pulmonary vasodilators, indicates a significant compromise in pulmonary blood flow, making surgical intervention necessary to improve long-term outcomes.",
+          "critical_evidence": "A 7-year-old boy with an 11-mm muscular defect and severe pulmonary vascular disease non-responsive to pulmonary vasodilators",
+          "differential_considered": "Options A, B, C, and D describe children with small defects and no evidence of significant pulmonary hypertension or heart failure. While these children may eventually require intervention, the presence of severe, unresponsive PVD in option E indicates a more urgent need for surgical repair to prevent irreversible damage to the lungs.",
+          "usage": {
+            "prompt_tokens": 509,
+            "generated_tokens": 225,
+            "generation_time_s": 11.141
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The 7-year-old boy with an 11-mm muscular defect and severe pulmonary vascular disease non-responsive to pulmonary vasodilators presents with the most concerning clinical picture. While all patients have a holosystolic murmur, the presence of severe pulmonary vascular disease that is non-responsive to treatment indicates significant right-to-left shunting, which is likely causing progressive pulmonary hypertension. The large defect size (11-mm muscular) further supports the need for surgical closure to prevent long-term complications.",
+          "critical_evidence": "Severe pulmonary vascular disease non-responsive to pulmonary vasodilators",
+          "differential_considered": "Other options have smaller defects (2-6 mm) and no significant hemodynamic compromise, making them less urgent for surgical intervention. The 4-month-old with a 12-mm defect is concerning but has no evidence of heart failure or growth failure, suggesting good prognosis with surgical repair. The 5-year-old with a Qp:Qs ratio less than 2:1 indicates mild pulmonary hypertension, which is not severe enough to require immediate surgery.",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 247,
+            "generation_time_s": 11.522
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient in option E has an 11-mm muscular defect with severe pulmonary vascular disease unresponsive to pulmonary vasodilators, which is a clear indication for surgical repair due to irreversible pulmonary hypertension and high risk of adverse outcomes. The other patients have smaller defects, no pulmonary hypertension, and no signs of failure, making them candidates for conservative management.",
+          "critical_evidence": "Severe pulmonary vascular disease non-responsive to pulmonary vasodilators",
+          "differential_considered": "Other options (A-D) have smaller defects and no pulmonary hypertension or failure, making them candidates for observation. The presence of pulmonary vascular disease in E is the key differentiator requiring urgent intervention.",
+          "usage": {
+            "prompt_tokens": 474,
+            "generated_tokens": 167,
+            "generation_time_s": 5.876
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 32,
+            "generation_time_s": 0.798
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "A suprasternal or specifically a left ventricular (muscular) defect causing a holosystolic murmur is often associated with significant hemodynamic consequences such as increased left-to-right shunting, which can lead to growth failure or pulmonary hypertension if not corrected. However, the most classic indication for surgical repair of a ventricular septal defect (VSD) or similar muscular defect is the presence of significant shunting, even in the absence of overt heart failure or pulmonary hypertension, especially in younger children. Option D describes a 5-year-old girl with a small but potentially significant (based on age) ventricular defect and no obvious hemodynamic complications, making her a candidate for early surgical repair to prevent future issues.",
+          "critical_evidence": "The presence of a 2-mm suprasternal (ventricular) defect in a 5-year-old, without other obvious complications but at an age where early intervention may be beneficial to prevent shunt-related consequences, is the key finding supporting surgical recommendation.",
+          "differential_considered": "Options A, B, and C describe very small defects in infants or a young boy with no clinical signs of shunt-related effects, which typically do not require surgery unless they are large or causing significant hemodynamic issues (not present here). Option E describes a large defect with pulmonary vascular disease, which would strongly support surgery, but the question implies the defect size alone as the deciding factor in the given case. The murmural location and the age of the patient in D make surgical evaluation warranted.",
+          "usage": {
+            "prompt_tokens": 541,
+            "generated_tokens": 341,
+            "generation_time_s": 10.723
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 1,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

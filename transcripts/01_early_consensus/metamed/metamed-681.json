@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-681",
+  "dataset": "metamed",
+  "question_id": "681",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old woman presents to your office with decreased appetite, malaise, and fever. Serologic tests reveal positive Anti-HBsAg and Anti-HAV IgM antibodies. Which of the following is most likely responsible for this patient's presentation?",
+    "options": {
+      "A": "Needlestick",
+      "B": "Unprotected sex",
+      "C": "Shellfish",
+      "D": "Acetaminophen overdose",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of decreased appetite, malaise, and fever, coupled with positive Anti-HBsAg and Anti-HAV IgM antibodies, strongly suggests acute Hepatitis A infection. Anti-HAV IgM indicates a recent or current infection, while Anti-HBsAg indicates immunity, either from vaccination or past infection. Hepatitis A is typically transmitted through the fecal-oral route, often via contaminated food or water, or through close contact with an infected individual. Unprotected sex is a possible, though less common, route of transmission.",
+          "critical_evidence": "Positive Anti-HAV IgM antibodies",
+          "differential_considered": "A: Needlestick could cause Hepatitis B, but the presence of Anti-HAV IgM makes Hepatitis A more likely. C: Shellfish can cause Hepatitis A, but the presence of Anti-HAV IgM makes Hepatitis A more likely. D: Acetaminophen overdose would not cause Hepatitis A. E: While other possibilities exist, the serology points strongly towards Hepatitis A.",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 242,
+            "generation_time_s": 20.98
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has Anti-HBsAg (indicating active hepatitis B virus replication) and Anti-HAV IgM (indicating recent hepatitis A virus infection). Hepatitis A is typically transmitted through fecal-oral route, often via contaminated food or water, while hepatitis B is transmitted through blood and body fluids, commonly via needlestick injuries or sexual contact. The combination of both viruses suggests recent exposure to blood or body fluids, pointing to a needlestick injury as the most likely source of HBV transmission. HAV IgM is not typically seen in chronic hepatitis B, and acetaminophen overdose would not explain the viral markers. Shellfish consumption is not a common route for these specific viral infections.",
+          "critical_evidence": "Positive Anti-HBsAg and Anti-HAV IgM antibodies",
+          "differential_considered": "Unprotected sex (B) could cause HBV but not recent HAV; shellfish (C) is not a route for these viruses; acetaminophen overdose (D) would not show viral markers; none of the above (E) is incorrect as needlestick is the best explanation",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.645
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute symptoms (fever, malaise, decreased appetite) and has positive Anti-HAV IgM, indicating acute hepatitis A infection. Hepatitis A is primarily transmitted via the fecal-oral route, commonly through contaminated food or water, such as shellfish. Anti-HBsAg is irrelevant here as it indicates immunity to hepatitis B, not active infection. Other options like needlestick (hepatitis B/C), unprotected sex (hepatitis B, HIV), or acetaminophen overdose (acute liver injury) do not align with the serologic findings.",
+          "critical_evidence": "Positive Anti-HAV IgM confirms acute hepatitis A infection, which is most commonly acquired through ingestion of contaminated food or water, including shellfish.",
+          "differential_considered": "Considered needlestick (HBV/HCV), unprotected sex (STIs), acetaminophen overdose (drug-induced liver injury), and other viral hepatitis (e.g., HBV, HCV) — but ruled them out due to absence of relevant serology (e.g., HBsAg, HCV Ab, ALT elevation without HAV IgM) and clinical context.",
+          "usage": {
+            "prompt_tokens": 302,
+            "generated_tokens": 268,
+            "generation_time_s": 11.374
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 107,
+            "generation_time_s": 2.702
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (unprotected sex) could cause hepatitis B, but not typically hepatitis A IgM unless recent exposure; C (shellfish) causes hepatitis A but not B; D (acetaminophen overdose) causes liver injury but not serologic evidence of viral infection; E (none of the above) is not supported by the case details. Thus, A is the best answer.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 301,
+            "generation_time_s": 9.589
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

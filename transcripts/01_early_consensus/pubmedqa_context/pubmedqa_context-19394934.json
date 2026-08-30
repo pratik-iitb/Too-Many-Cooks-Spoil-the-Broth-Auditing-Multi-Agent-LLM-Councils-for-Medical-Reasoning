@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19394934",
+  "dataset": "pubmedqa_context",
+  "question_id": "19394934",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Israeli hospital preparedness for terrorism-related multiple casualty incidents: can the surge capacity and injury severity distribution be better predicted?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The incidence of large-scale urban attacks on civilian populations has significantly increased across the globe over the past decade. These incidents often result in Hospital Multiple Casualty Incidents (HMCI), which are very challenging to hospital teams. 15 years ago the Emergency and Disaster Medicine Division in the Israeli Ministry of Health defined a key of 20 percent of each hospital's bed capacity as its readiness for multiple casualties. Half of those casualties are expected to require immediate medical treatment. This study was performed to evaluate the efficacy of the current readiness guidelines based on the epidemiology of encountered HMCIs. A retrospective study of HMCIs was recorded in the Israeli Defense Force (IDF) home front command and the Israeli National Trauma Registry (ITR) between November 2000 and June 2003. An HMCI is defined by the Emergency and Disaster Medicine Division in the Israeli Ministry of Health as>or=10 casualties or>or=4 suffering from injuries with an ISS>or=16 arriving to a single hospital. The study includes a total of 32 attacks, resulting in 62 HMCIs and 1292 casualties. The mean number of arriving casualties to a single hospital was 20.8+/-13.3 (range 4-56, median 16.5). In 95% of the HMCIs the casualty load was<or=52. Based on severity scores and ED discharges 1022 (79.2%) casualties did not necessitate immediate medical treatment.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that in 95% of HMCIs, the casualty load was less than or equal to 52. This suggests that the current readiness guidelines of allocating 20% of bed capacity for HMCIs are likely effective in handling the majority of incidents. Therefore, the surge capacity and injury severity distribution can be better predicted.",
+          "critical_evidence": "In 95% of the HMCIs, the casualty load was <or=52.",
+          "differential_considered": "While the study focuses on HMCIs, it's possible that a small percentage of incidents could overwhelm the capacity. However, the high percentage of incidents with a casualty load below 52 suggests that the current guidelines are generally effective.",
+          "usage": {
+            "prompt_tokens": 592,
+            "generated_tokens": 195,
+            "generation_time_s": 11.461
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that 95% of HMCIs had casualty loads under 52, suggesting that the current 20% bed capacity guideline may be insufficient for handling the majority of incidents. The mean casualty load was 20.8 with a median of 16.5, indicating that the average exceeds the current readiness threshold. The high percentage of non-severe cases (79.2%) suggests that surge capacity planning could be optimized by focusing on the more common injury severity distribution.",
+          "critical_evidence": "95% of HMCIs had casualty loads under 52, indicating that the current 20% bed capacity guideline may not adequately prepare for the majority of incidents",
+          "differential_considered": "Alternative readiness models based on actual casualty load distribution and injury severity patterns were considered but ruled out due to the clear statistical evidence showing that 95% of incidents fall below the current threshold",
+          "usage": {
+            "prompt_tokens": 574,
+            "generated_tokens": 212,
+            "generation_time_s": 11.462
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that 79.2% of casualties did not require immediate medical treatment, and 95% of HMCIs had a casualty load ≤52, which is well within the 20% bed capacity guideline. This suggests the current readiness threshold is adequate for predicting surge capacity and injury severity distribution in Israeli hospitals during terrorism-related HMCIs.",
+          "critical_evidence": "79.2% of casualties did not necessitate immediate medical treatment, indicating that the 20% bed capacity guideline is sufficient for handling the majority of HMCIs.",
+          "differential_considered": "Considered whether higher surge capacity or different severity thresholds might be needed, but the data show that current guidelines align well with actual injury distribution and casualty loads.",
+          "usage": {
+            "prompt_tokens": 566,
+            "generated_tokens": 186,
+            "generation_time_s": 6.478
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 572,
+            "generated_tokens": 146,
+            "generation_time_s": 3.568
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The possibility of underestimating extreme events (outliers) versus the overall average, but the large variability in the data strongly suggests the current threshold is inadequate; alternatives like a higher or dynamic threshold were not evaluated, so we cannot confirm the current guidelines are best without further evidence.",
+          "usage": {
+            "prompt_tokens": 604,
+            "generated_tokens": 249,
+            "generation_time_s": 9.332
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

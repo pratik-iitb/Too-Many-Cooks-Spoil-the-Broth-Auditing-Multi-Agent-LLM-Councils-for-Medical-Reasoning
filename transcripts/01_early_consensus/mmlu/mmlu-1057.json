@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-1057",
+  "dataset": "mmlu",
+  "question_id": "1057",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old woman comes to the physician because of a 2-day history of abdominal pain. She has a history of recurrent upper respiratory tract infections, sinusitis, and pancreatitis. She has thick nasal secretions. She says that her sweat is salty and crystallizes on her skin. Her vital signs are within normal limits. Physical examination shows epigastric tenderness. Genetic testing for the 36 most common mutations shows a detectable mutation (G551D) in one allele of the CFTR gene. Which of the following best explains this patient's clinical phenotype?",
+    "options": {
+      "A": "Only one G551D allele is needed in CFTR",
+      "B": "The patient is a CFTR obligate carrier",
+      "C": "The patient's CFTR mutation is unrelated to her clinical phenotype",
+      "D": "The second CFTR mutation was not detected by the testing obtained"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's clinical presentation, including recurrent respiratory infections, sinusitis, pancreatitis, salty sweat, and a detectable G551D mutation in the CFTR gene, strongly suggests Cystic Fibrosis (CF). The presence of a single G551D mutation is sufficient to cause CF. Therefore, the patient is a CFTR obligate carrier.",
+          "critical_evidence": "The presence of a detectable G551D mutation in one allele of the CFTR gene.",
+          "differential_considered": "Option A is incorrect because a single G551D mutation is sufficient to cause CF. Option C is incorrect because the clinical presentation is highly suggestive of CF, and the genetic testing confirms the presence of a CFTR mutation. Option D is incorrect because the question states that a detectable mutation was found.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 208,
+            "generation_time_s": 10.485
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a detectable G551D mutation in one CFTR allele, which is known to cause cystic fibrosis. The clinical symptoms (abdominal pain, pancreatitis, salty sweat) align with CF. Since only one mutated allele is present, the mutation alone can cause the phenotype, as CFTR function is reduced but not completely lost.",
+          "critical_evidence": "The presence of a detectable G551D mutation in one CFTR allele",
+          "differential_considered": "Pancreatitis, sinusitis, and upper respiratory infections are secondary to CF, not alternative diagnoses. Genetic testing confirmed the mutation, ruling out other causes.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 164,
+            "generation_time_s": 7.812
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic signs of cystic fibrosis (CF), including recurrent infections, pancreatitis, salty sweat, and a detectable G551D mutation. However, CF typically requires two disease-causing mutations in CFTR for full manifestation. Since only one mutation is detected, the second mutation is likely undetected by the panel of 36 common mutations, which may miss rarer or novel variants. This explains the clinical phenotype despite only one mutation being identified.",
+          "critical_evidence": "The patient has multiple classic CF symptoms (salty sweat, pancreatitis, recurrent infections) and a detectable G551D mutation, but CF requires two mutations for full disease expression — thus the second mutation must be undetected.",
+          "differential_considered": "Other differentials like primary ciliary dyskinesia or other genetic syndromes were considered but ruled out due to the presence of multiple classic CF features and the specific CFTR mutation detected. The phenotype strongly suggests CF, but the genetic test did not identify the second mutation.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 247,
+            "generation_time_s": 8.824
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's clinical phenotype is best explained by having only one G551D allele in the CFTR gene. This mutation is associated with a milder form of cystic fibrosis, which can explain her recurrent respiratory tract infections, sinusitis, pancreatitis, and the salty sweat syndrome. The presence of epigastric tenderness may be related to pancreatic inflammation. The patient is not a carrier of the CFTR gene, as she has a detectable mutation in one allele, and the second mutation was likely not detected by the testing obtained.",
+          "critical_evidence": "The presence of a detectable G551D mutation in one allele of the CFTR gene.",
+          "differential_considered": "Carrier of the CFTR gene, two detectable CFTR mutations, and other genetic conditions causing similar symptoms.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 188,
+            "generation_time_s": 4.649
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possibilities like CFTR-null mutations (which require two copies for disease), non-CFTR causes of her symptoms (e.g., sinusitis alone or other metabolic or gastrointestinal disorders), or non-syndromic mutations (which are typically not sufficient for CF) were considered but ruled out by the confirmed mutation and clinical presentation consistent with CF.",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 246,
+            "generation_time_s": 7.908
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

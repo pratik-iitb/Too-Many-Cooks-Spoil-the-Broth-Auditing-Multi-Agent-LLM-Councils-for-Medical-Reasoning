@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-10135926",
+  "dataset": "pubmedqa_context",
+  "question_id": "10135926",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is oral endotracheal intubation efficacy impaired in the helicopter environment?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Patients transported by helicopter often require advanced airway management. The purpose of this study was to determine whether or not the in-flight environment of air medical transport in a BO-105 helicopter impairs the ability of flight nurses to perform oral endotracheal intubation. The study was conducted in an MBB BO-105 helicopter. Flight nurses performed three manikin intubations in each of the two study environments: on an emergency department stretcher and in-flight in the BO-105 helicopter. The mean time required for in-flight intubation (25.9 +/- 10.9 seconds) was significantly longer than the corresponding time (13.2 +/- 2.8 seconds) required for intubation in the control setting (ANOVA, F = 38.7, p<.001). All intubations performed in the control setting were placed correctly in the trachea; there were two (6.7%) esophageal intubations in the in-flight setting. The difference in appropriate endotracheal intubation between the two settings was not significant (chi 2 = 0.3; p>0.05).",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study clearly demonstrates that in-flight intubation takes significantly longer and has a higher rate of esophageal intubation compared to intubation on a stretcher. This indicates that the helicopter environment impairs the efficacy of oral endotracheal intubation. Therefore, the answer is no.",
+          "critical_evidence": "The mean time required for in-flight intubation (25.9 +/- 10.9 seconds) was significantly longer than the corresponding time (13.2 +/- 2.8 seconds) required for intubation in the control setting.",
+          "differential_considered": "While the study focused on intubation efficacy, other factors like patient condition and equipment availability could also influence intubation success. However, the study design specifically controlled for these factors, making the primary conclusion about the helicopter environment's impact on intubation efficacy the most relevant.",
+          "usage": {
+            "prompt_tokens": 502,
+            "generated_tokens": 214,
+            "generation_time_s": 12.727
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that in-flight intubation took significantly longer (25.9 vs 13.2 seconds) and had a higher esophageal intubation rate (6.7%) compared to ground-based intubation. However, the difference in correct intubation placement was not statistically significant (chi² = 0.3, p > 0.05), indicating that despite the longer time and higher error rate, the overall efficacy of oral endotracheal intubation was not impaired in the helicopter environment.",
+          "critical_evidence": "The lack of statistical significance in correct intubation placement (p > 0.05) indicates that the helicopter environment did not impair the overall efficacy of oral endotracheal intubation.",
+          "differential_considered": "While time and error rates increased in the helicopter, these were not sufficient to demonstrate impaired efficacy. The study's statistical analysis showed no significant difference in correct intubation success rates, which is the key measure of efficacy.",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.689
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrated significantly longer intubation times in-flight (25.9 ± 10.9 seconds) compared to the control setting (13.2 ± 2.8 seconds), with a statistically significant difference (ANOVA, p<.001). Although the rate of correct placement was not significantly different, the increased time and two esophageal intubations suggest impaired efficacy in the helicopter environment.",
+          "critical_evidence": "Mean intubation time was significantly longer in-flight (25.9 ± 10.9 seconds) vs. control (13.2 ± 2.8 seconds), with p<.001, indicating impaired efficacy.",
+          "differential_considered": "Considered whether environmental factors (e.g., vibration, noise, motion) or operator skill were responsible; however, the study controlled for operator (flight nurses) and used manikins, making environmental impairment the most plausible explanation for the observed difference.",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 231,
+            "generation_time_s": 9.785
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 79,
+            "generation_time_s": 2.319
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differential diagnoses include airway anatomy changes in the helicopter (e.g., limited access due to equipment positioning), increased stress or distraction, and reduced lighting or vantage points. These factors could explain the increased time and risk of errors, but the direct statistical evidence of slowed performance is the strongest indicator.",
+          "usage": {
+            "prompt_tokens": 533,
+            "generated_tokens": 236,
+            "generation_time_s": 9.011
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

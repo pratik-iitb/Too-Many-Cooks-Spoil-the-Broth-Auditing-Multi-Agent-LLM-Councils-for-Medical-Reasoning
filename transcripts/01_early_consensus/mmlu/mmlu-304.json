@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-304",
+  "dataset": "mmlu",
+  "question_id": "304",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following nucleotide bases is not found in RNA?",
+    "options": {
+      "A": "Thymine",
+      "B": "Adenine",
+      "C": "Uracil",
+      "D": "Guanine"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "RNA differs from DNA in its sugar-phosphate backbone and the presence of uracil instead of thymine. Thymine is a DNA base, while uracil is found in RNA.",
+          "critical_evidence": "The presence of uracil in RNA is a defining characteristic that distinguishes it from DNA.",
+          "differential_considered": "Adenine, Guanine, and Thymine are all found in both DNA and RNA. Therefore, these are not the correct answer.",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 134,
+            "generation_time_s": 6.789
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "RNA contains the nucleotide bases adenine, guanine, cytosine, and uracil. Thymine is found in DNA but not in RNA, making it the correct answer.",
+          "critical_evidence": "Thymine is a component of DNA, not RNA",
+          "differential_considered": "No differential diagnoses needed as this is a straightforward biochemical question about nucleotide composition",
+          "usage": {
+            "prompt_tokens": 269,
+            "generated_tokens": 123,
+            "generation_time_s": 5.86
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "RNA contains adenine, uracil, guanine, and cytosine as its nucleotide bases. Thymine is exclusive to DNA and is replaced by uracil in RNA. Therefore, thymine is not found in RNA.",
+          "critical_evidence": "Thymine is a DNA-specific base and is not present in RNA; uracil substitutes for thymine in RNA.",
+          "differential_considered": "Considered adenine, guanine, and uracil as RNA bases — all correct — and ruled out thymine as the only incorrect option.",
+          "usage": {
+            "prompt_tokens": 240,
+            "generated_tokens": 150,
+            "generation_time_s": 5.378
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 267,
+            "generated_tokens": 43,
+            "generation_time_s": 1.078
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "RNA contains the nitrogenous bases adenine (A), guanine (G), and uracil (U), but not thymine (T), which is specific to DNA in humans. The presence of thymine in the options immediately indicates it is the incorrect choice for RNA.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 294,
+            "generated_tokens": 185,
+            "generation_time_s": 5.965
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

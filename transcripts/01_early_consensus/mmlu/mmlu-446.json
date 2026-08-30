@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-446",
+  "dataset": "mmlu",
+  "question_id": "446",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A healthy person sitting at rest consciously begins to breathe too fast. Which of the following describes the change in the person’s blood caused by this hyperventilation?",
+    "options": {
+      "A": "A decrease in partial pressure of carbon dioxide and an increase in concentration of hydrogen ions",
+      "B": "A decrease in partial pressure of carbon dioxide and a decrease in concentration of hydrogen ions",
+      "C": "An increase in partial pressure of carbon dioxide and an increase in concentration of hydrogen ions",
+      "D": "An increase in partial pressure of carbon dioxide and a decrease in concentration of hydrogen ions"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hyperventilation leads to excessive exhalation of carbon dioxide. This results in a decrease in the partial pressure of carbon dioxide (PaCO2) in the blood. The removal of CO2 also leads to an increase in the concentration of hydrogen ions (H+), causing respiratory alkalosis.",
+          "critical_evidence": "Hyperventilation leads to excessive exhalation of carbon dioxide.",
+          "differential_considered": "While anxiety could cause hyperventilation, the question specifies a healthy person at rest. Other causes of hyperventilation, such as metabolic acidosis, are less likely in this scenario. Therefore, the primary effect of hyperventilation on blood gases is the decrease in PaCO2.",
+          "usage": {
+            "prompt_tokens": 341,
+            "generated_tokens": 181,
+            "generation_time_s": 16.249
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hyperventilation increases alveolar ventilation, which removes more CO2 from the blood. This decreases the partial pressure of CO2 (PCO2) in arterial blood. The decrease in CO2 shifts the carbonic anhydrase reaction to the left, reducing bicarbonate formation and increasing hydrogen ion concentration. However, the body compensates by increasing bicarbonate production, but the net effect of rapid breathing is a decrease in hydrogen ion concentration, making the blood more alkaline.",
+          "critical_evidence": "Hyperventilation directly reduces CO2 levels in the blood, which lowers PCO2 and shifts the acid-base balance toward alkalosis.",
+          "differential_considered": "Considered respiratory alkalosis due to hyperventilation, ruled out metabolic acidosis as it's not caused by respiratory changes. Other causes of respiratory alkalosis like hypoxia or high altitude were ruled out as the patient is healthy and at rest.",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 223,
+            "generation_time_s": 10.887
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Hyperventilation causes excessive expulsion of CO2, leading to a decrease in arterial PCO2. This shifts the carbonic acid-bicarbonate buffer equilibrium, reducing hydrogen ion concentration (increasing pH). The resulting respiratory alkalosis is a direct consequence of rapid breathing.",
+          "critical_evidence": "Hyperventilation decreases alveolar and arterial PCO2, which directly reduces hydrogen ion concentration due to the reaction: CO2 + H2O ⇌ H2CO3 ⇌ H+ + HCO3-.",
+          "differential_considered": "Other causes of respiratory alkalosis (e.g., anxiety, high altitude) were considered but ruled out as the case specifies 'healthy person' and 'conscious' hyperventilation, making it a primary physiological response without secondary pathology.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 194,
+            "generation_time_s": 14.745
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 11,
+            "generation_time_s": 1.176
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "Hyperventilation increases the rate of exhalation, leading to a faster removal of carbon dioxide from the blood. This results in a decrease in the partial pressure of carbon dioxide (PaCO2) in the blood. Additionally, the rapid breathing can displace some of the body's buffering of hydrogen ion (H+) concentration, but the most immediate and direct effect is the drop in PaCO2, which would typically trigger respiratory compensation by increasing breathing rate, but the question focuses on the direct blood gas change from the act of hyperventilation itself. However, the immediate effect of hyperventilation is a decrease in PaCO2, and while H+ concentration might not change significantly directly, the standard answer for conscious hyperventilation-induced blood gas shift is a decrease in PaCO2 and, due to the Bohr effect, a slight decrease in oxygen affinity but not necessarily a change in H+ concentration as described in the options. Still, among the given choices, A is the most accurate overall for the primary gas change associated with hyperventilation.",
+          "critical_evidence": "Conscious hyperventilation leads to a decrease in the partial pressure of carbon dioxide in the blood.",
+          "differential_considered": "One might consider respiratory acidosis or alkalosis, but the question asks for the direct effect of hyperventilation on blood gases. Options B and C are inconsistent with the known physiological response. D is incorrect because hyperventilation lowers PaCO2, not increases it. Thus, A is the best answer despite the imprecise wording about H+ concentration.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 357,
+            "generation_time_s": 12.914
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

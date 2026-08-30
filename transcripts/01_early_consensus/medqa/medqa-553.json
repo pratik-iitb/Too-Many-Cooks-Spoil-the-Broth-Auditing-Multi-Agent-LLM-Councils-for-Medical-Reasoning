@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-553",
+  "dataset": "medqa",
+  "question_id": "553",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old man has a history of smoking 1 pack per day and drinking a six-pack of beer daily over the last ten years. He is admitted to the medical floor after undergoing a cholecystectomy. One day after the surgery, the patient states that he feels anxious and that his hands are shaking. While being checked for a clean surgical site, the patient starts shaking vigorously and loses consciousness. The patient groans and falls to the floor. His arms and legs begin to jerk rapidly and rhythmically. This episode lasts for almost five minutes, and the patient's airway, breathing, and circulation are stabilized per seizure protocol. What is the best next step for this patient?",
+    "options": {
+      "A": "Urinalysis",
+      "B": "Lorazepam",
+      "C": "Morphine",
+      "D": "Antibiotics",
+      "E": "Chest radiograph"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation strongly suggests a seizure, likely post-operative and possibly related to alcohol withdrawal or medication effects. The rapid onset, shaking, loss of consciousness, and jerking movements are classic seizure symptoms. The immediate priority is to control the seizure activity and prevent further harm.",
+          "critical_evidence": "The patient's description of shaking, loss of consciousness, and jerking movements strongly points towards a seizure.",
+          "differential_considered": "A: Urinalysis is not the immediate priority in this acute situation. C: Morphine is contraindicated in active seizure activity as it can worsen the seizure. D: Antibiotics are not indicated for a seizure. E: Chest radiograph is not the immediate priority in this acute situation.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 192,
+            "generation_time_s": 9.535
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's history of alcohol and tobacco use combined with the postoperative seizure suggests possible alcohol withdrawal. Lorazepam is the appropriate choice to manage acute withdrawal symptoms. The shaking and loss of consciousness are consistent with a withdrawal seizure, which requires immediate benzodiazepine management.",
+          "critical_evidence": "History of daily alcohol consumption (six-pack of beer) combined with postoperative seizure",
+          "differential_considered": "Considered postoperative infection, electrolyte imbalance, and drug interactions, but ruled out due to lack of supporting evidence. Alcohol withdrawal is the most likely cause given the patient's alcohol use and the timing of the seizure.",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 161,
+            "generation_time_s": 7.54
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient experienced a witnessed generalized tonic-clonic seizure postoperatively, which is a medical emergency. The most immediate and appropriate intervention is to administer lorazepam, a benzodiazepine, to terminate the seizure and prevent further neurological injury. Other options like antibiotics, chest radiograph, or urinalysis are not urgently indicated in the context of active seizure.",
+          "critical_evidence": "The patient had a witnessed generalized tonic-clonic seizure lasting nearly five minutes, requiring immediate seizure termination.",
+          "differential_considered": "Alcohol withdrawal seizure (considered due to chronic alcohol use) and electrolyte imbalance were considered, but the acute presentation and need for rapid seizure control make lorazepam the best immediate step; antibiotics and imaging are not first-line for active seizure.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 188,
+            "generation_time_s": 6.63
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 65,
+            "generation_time_s": 1.602
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Alcohol withdrawal seizures (most likely), postoperative delirium, other seizure etiologies (e.g., medication interaction, underlying epilepsy), but the history and acute onset strongly favor alcohol withdrawal; other causes are less likely without additional risk factors",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 228,
+            "generation_time_s": 7.209
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

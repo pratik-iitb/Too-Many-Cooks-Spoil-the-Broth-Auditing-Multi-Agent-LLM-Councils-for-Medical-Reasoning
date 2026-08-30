@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-800",
+  "dataset": "medqa",
+  "question_id": "800",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 17-year-old white female with a history of depression is brought to your office by her parents because they are concerned that she is acting differently. She is quiet and denies any changes in her personality or drug use. After the parents step out so that you can speak alone, she begins crying. She states that school has been very difficult and has been very depressed for the past 2 months. She feels a lot of pressure from her parents and coaches and says she cannot handle it anymore. She says that she has been cutting her wrists for the past week and is planning to commit suicide. She instantly regrets telling you and begs you not to tell her parents. What is the most appropriate course of action?",
+    "options": {
+      "A": "Prescribe an anti-depressant medication and allow her to return home",
+      "B": "Explain to her that she will have to be hospitalized as she is an acute threat to herself",
+      "C": "Refer her to a psychiatrist",
+      "D": "Tell her parents about the situation and allow them to handle it as a family",
+      "E": "Prescribe an anti-psychotic medication"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with suicidal ideation and self-harm (cutting wrists), indicating an immediate risk to her life. This requires immediate intervention and potential hospitalization to ensure her safety. The patient's request to not tell her parents further emphasizes the urgency of the situation.",
+          "critical_evidence": "She states she has been cutting her wrists for the past week and is planning to commit suicide.",
+          "differential_considered": "While depression is a factor, the acute suicidal ideation and self-harm necessitate immediate action. A psychiatric evaluation is important, but not before ensuring her safety. Medication alone is insufficient in this acute crisis. Telling the parents is necessary, but not before ensuring the patient's safety.",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 184,
+            "generation_time_s": 9.105
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a clear suicide threat, which constitutes a psychiatric emergency. Given her history of depression and recent suicidal ideation with self-harm, immediate hospitalization is necessary to ensure her safety. The presence of cutting and active suicidal planning requires urgent intervention to prevent harm.",
+          "critical_evidence": "The patient's statement about planning to commit suicide and history of self-harm",
+          "differential_considered": "While depression (Option A) and referral to a psychiatrist (Option C) are relevant, neither addresses the immediate safety risk. Anti-psychotic medication (Option E) is not indicated for depression or suicidal ideation. Involving parents (Option D) may delay necessary intervention. Only hospitalization (Option B) directly addresses the acute threat to self.",
+          "usage": {
+            "prompt_tokens": 452,
+            "generated_tokens": 188,
+            "generation_time_s": 8.668
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is a 17-year-old with a recent history of depression and has now disclosed active suicidal ideation with a specific plan (cutting wrists) and intent (planning to commit suicide). This constitutes an acute psychiatric emergency requiring immediate inpatient psychiatric evaluation and stabilization to prevent self-harm. Her request to keep this confidential is not a valid reason to delay life-saving intervention.",
+          "critical_evidence": "She states she has been cutting her wrists for the past week and is planning to commit suicide — indicating an immediate and active suicide risk.",
+          "differential_considered": "Other differentials like adjustment disorder or substance use were considered, but the presence of active suicidal plan and intent overrides these, making acute psychiatric hospitalization the priority.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 180,
+            "generation_time_s": 6.317
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 450,
+            "generated_tokens": 108,
+            "generation_time_s": 2.6
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 480,
+            "generated_tokens": 201,
+            "generation_time_s": 6.27
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

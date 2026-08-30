@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-11838307",
+  "dataset": "pubmedqa_context",
+  "question_id": "11838307",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Cold knife conization vs. LEEP. Are they the same procedure?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To prospectively evaluate the amount of tissue removed at loop electrosurgical excision procedure (LEEP) vs. cold knife conization. Forty consecutive LEEP or cold knife conization specimens were prospectively measured and weighed by a single pathology technician. Diameter, length and weight of the specimens were compared using Student's t test. Mean diameter of cold knife cone specimens was 2.6 vs. 2.2 cm for LEEP (P = .07). Mean length of cold knife cone specimens was 1.5 vs. 1.0 cm for LEEP (P = .001). Mean weight for cold knife cone specimens was 4.4 vs. 2.0 g for LEEP (P = .001).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a comparison of tissue removal in cold knife conizations and LEEP procedures. The data shows statistically significant differences in diameter, length, and weight between the two procedures. Therefore, they are not the same procedure.",
+          "critical_evidence": "Mean length of cold knife cone specimens was 1.5 vs. 1.0 cm for LEEP (P = .001).",
+          "differential_considered": "The differential diagnoses were not explicitly stated, but the context suggests the comparison is between two different methods of cervical tissue removal. The data clearly indicates that the two procedures result in different amounts of tissue removed, making them distinct.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 176,
+            "generation_time_s": 10.429
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows significant differences in tissue removal between cold knife conization and LEEP. Cold knife conization removes significantly more tissue in both diameter (2.6cm vs 2.2cm, P=0.07) and length (1.5cm vs 1.0cm, P=0.001), with a much greater weight (4.4g vs 2.0g, P=0.001). These differences indicate the procedures are not equivalent in tissue removal, suggesting they are not the same procedure.",
+          "critical_evidence": "The significant differences in tissue removal (especially in weight, P=0.001) demonstrate the procedures remove different amounts of tissue, proving they are not the same procedure.",
+          "differential_considered": "The key differential is the amount of tissue removed. While both are cervical procedures, the quantitative differences in tissue removal (diameter, length, and weight) clearly distinguish the two methods, ruling out equivalence.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 1024,
+            "generation_time_s": 59.266
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The study directly compares LEEP and cold knife conization, showing statistically significant differences in specimen size and weight, indicating they are not the same procedure. Cold knife conization removes larger, heavier tissue samples, which is clinically relevant for diagnostic and therapeutic purposes.",
+          "critical_evidence": "Mean weight for cold knife cone specimens was 4.4 vs. 2.0 g for LEEP (P = .001), with significant differences in length and diameter.",
+          "differential_considered": "Considered whether they might be equivalent in tissue removal, but the statistically significant differences in size and weight rule out equivalence.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 157,
+            "generation_time_s": 7.036
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 46,
+            "generation_time_s": 1.345
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 288,
+            "generation_time_s": 10.928
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19237087",
+  "dataset": "pubmedqa_context",
+  "question_id": "19237087",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are many colorectal cancers due to missed adenomas?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "An unknown number of colorectal cancers could be due to missed adenomas during previous endoscopy. Data in the literature are sparse. A large cross-sectional study was done in a prospective database of all patients diagnosed with colorectal cancer. All consecutive endoscopies over a period of 15 years, in which colorectal cancer was diagnosed were included. All patients who underwent more than one endoscopy and in whom ultimately cancer was diagnosed were studied separately. Colorectal cancer was diagnosed in 835 patients. Twenty-five patients underwent a previous endoscopy without a cancer diagnosis. These 25 patients were divided into three groups according to the time between the endoscopy in which the cancer was detected and the previous endoscopy. Five out of these 25 patients underwent regular surveillance. Only 11 patients had no argument for regular follow-up. Assuming that these cancers developed from an adenoma than only 11 out of 835 (1.3%) cancers were missed in the adenoma phase. There was no difference in the size of the tumour between the three groups of patients.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study indicates that 11 out of 835 colorectal cancers were missed in the adenoma phase. This represents a relatively small percentage (1.3%) of the total number of cancers diagnosed. This suggests that a significant proportion of colorectal cancers are likely due to missed adenomas.",
+          "critical_evidence": "11 out of 835 (1.3%) cancers were missed in the adenoma phase.",
+          "differential_considered": "While the study focuses on missed adenomas, other factors contributing to colorectal cancer development (e.g., genetic predisposition, environmental factors) could also play a role. However, the data presented strongly suggests that missed adenomas are a significant contributor to the overall cancer burden.",
+          "usage": {
+            "prompt_tokens": 477,
+            "generated_tokens": 190,
+            "generation_time_s": 11.44
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study suggests that only 1.3% of colorectal cancers may have been missed during previous endoscopies, indicating that the majority are likely detected through regular surveillance. While the possibility exists that some cancers could be missed, the data from this large-scale study implies that the risk is relatively low. Therefore, the answer is'maybe' because it acknowledges the potential but also reflects the current evidence.",
+          "critical_evidence": "The study found that only 11 out of 835 cancers (1.3%) were missed in the adenoma phase, suggesting that most cancers were detected through regular surveillance.",
+          "differential_considered": "Other factors such as tumor size or patient compliance with follow-up were considered, but the study found no significant differences, supporting the conclusion that missed adenomas are not a major contributor to colorectal cancer diagnosis.",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.42
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that only 11 out of 835 colorectal cancers (1.3%) were potentially missed adenomas in patients with prior endoscopies, but this number is based on a limited subset (25 patients) with incomplete follow-up data. The evidence is sparse and not generalizable, making a definitive 'yes' or 'no' unsupported. Thus, 'maybe' is the most cautious and accurate choice.",
+          "critical_evidence": "Only 11 out of 835 cancers (1.3%) were potentially missed adenomas, based on a small subset of patients with prior endoscopies and incomplete surveillance data.",
+          "differential_considered": "Considered 'yes' (high missed adenoma rate) and 'no' (low missed adenoma rate), but ruled both out due to sparse data and limited sample size; 'maybe' best reflects uncertainty given the lack of robust evidence.",
+          "usage": {
+            "prompt_tokens": 458,
+            "generated_tokens": 221,
+            "generation_time_s": 7.731
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 8,
+            "generation_time_s": 0.219
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.65,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of colorectal cancer (e.g., familial adenomatous polyposis, tumors from other locations, or cancers not arising from polyps) could not be ruled out with the available data, weakening the certainty that missed adenomas are the primary cause.",
+          "usage": {
+            "prompt_tokens": 510,
+            "generated_tokens": 231,
+            "generation_time_s": 7.291
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-891",
+  "dataset": "medqa",
+  "question_id": "891",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 62-year-old man presents to the emergency department for evaluation of a 2-year history of increasing shortness of breath. He also has an occasional nonproductive cough. The symptoms get worse with exertion. The medical history is significant for hypertension and he takes chlorthalidone. He is a smoker with a 40-pack-year smoking history. On physical examination, the patient is afebrile; the vital signs include: blood pressure 125/78 mm Hg, pulse 90/min, and respiratory rate 18/min. The body mass index (BMI) is 31 kg/m2. The oxygen saturation is 94% at rest on room air. A pulmonary examination reveals decreased breath sounds bilaterally, but is otherwise normal with no wheezes or crackles. The remainder of the examination is unremarkable. A chest radiograph shows hyperinflation of both lungs with mildly increased lung markings, but no focal findings. Based on this clinical presentation, which of the following is most likely?",
+    "options": {
+      "A": "FEV1/FVC of 65%",
+      "B": "Decreased total lung capacity",
+      "C": "Increased DLCO",
+      "D": "Metabolic acidosis",
+      "E": "FEV1/FVC of 80% with an FEV1 of 82%"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of smoking, shortness of breath with exertion, and hyperinflation on chest radiograph strongly suggest Chronic Obstructive Pulmonary Disease (COPD). The FEV1/FVC ratio is the key diagnostic test for COPD. A value of 80% indicates airflow obstruction, which is consistent with COPD. The other options are less likely given the clinical picture.",
+          "critical_evidence": "FEV1/FVC of 80% with an FEV1 of 82%",
+          "differential_considered": "A: FEV1/FVC of 65% would suggest obstructive lung disease, but the FEV1/FVC ratio is not the primary diagnostic test. B: Decreased total lung capacity is more typical of restrictive lung diseases, not COPD. C: Increased DLCO is not typical of COPD, which usually shows decreased DLCO. D: Metabolic acidosis is not a typical finding in COPD unless there is a coexisting condition like severe hypoxemia or renal dysfunction.",
+          "usage": {
+            "prompt_tokens": 507,
+            "generated_tokens": 251,
+            "generation_time_s": 12.401
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of progressive shortness of breath with exertion, smoking history, and decreased breath sounds suggest chronic obstructive pulmonary disease (COPD). The chest radiograph showing hyperinflation and mildly increased lung markings further supports this diagnosis. FEV1/FVC ratio is typically decreased in COPD, and 65% is a common value in moderate COPD. The patient's age, smoking history, and symptoms align with this finding.",
+          "critical_evidence": "Decreased breath sounds bilaterally on pulmonary examination",
+          "differential_considered": "Considered heart failure (but ruled out by normal blood pressure and lack of jugular venous distension), asthma (ruled out by absence of wheezes and crackles), and pneumonia (ruled out by normal chest x-ray findings). Smoking history strongly supports COPD over other possibilities.",
+          "usage": {
+            "prompt_tokens": 496,
+            "generated_tokens": 206,
+            "generation_time_s": 9.602
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chronic progressive dyspnea, hyperinflation on chest X-ray, and a smoking history — classic features of emphysema, a form of COPD. Emphysema is characterized by reduced FEV1/FVC ratio due to loss of elastic recoil and air trapping. The normal or near-normal FEV1/FVC ratio in emphysema is often <70%, and 65% fits this pattern. Other options are inconsistent: decreased TLC is expected in emphysema, but not the best answer here; DLCO is typically decreased; metabolic acidosis is not typical without acute exacerbation; and FEV1/FVC of 80% suggests normal or obstructive pattern, not emphysema.",
+          "critical_evidence": "Chest radiograph shows hyperinflation with mildly increased lung markings, consistent with emphysema, and the patient’s smoking history and chronic dyspnea support COPD diagnosis.",
+          "differential_considered": "Restrictive lung disease (ruled out by hyperinflation on CXR), asthma (ruled out by lack of wheezes and no acute exacerbation), heart failure (ruled out by normal BP, no crackles, and no signs of volume overload), and interstitial lung disease (ruled out by absence of focal infiltrates and crackles).",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 311,
+            "generation_time_s": 10.891
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 494,
+            "generated_tokens": 16,
+            "generation_time_s": 0.412
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Chest radiograph shows hyperinflation of both lungs with mildly increased lung markings, consistent with reduced total lung capacity in a chronic obstructive process.",
+          "differential_considered": "Chronic obstructive pulmonary disease (COPD), interstitial lung disease (ruled out due to lack of crackles/wheezes and normal pulmonary exam), and heart failure (less likely given normal exam and no evidence of fluid overload on imaging).",
+          "usage": {
+            "prompt_tokens": 533,
+            "generated_tokens": 248,
+            "generation_time_s": 7.799
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

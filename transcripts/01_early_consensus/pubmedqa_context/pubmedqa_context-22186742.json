@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-22186742",
+  "dataset": "pubmedqa_context",
+  "question_id": "22186742",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does a colonoscopy after acute diverticulitis affect its management?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Medical records of 220 patients hospitalized for acute diverticulitis between June 1, 2002 and September 1, 2009 were reviewed. Acute diverticulitis was diagnosed by clinical criteria and characteristic CT findings. Fifteen patients were excluded either because of questionable CT or hematochezia. Mean age was 61.8±14.3 years (61% females). Clinical parameters, laboratory results, imaging, endoscopic and histopathological reports, and long-term patients' outcome were analyzed. One hundred patients (aged 61.8±13.3 y, 54.1% females), underwent an early (4 to 6 wk) colonoscopy after hospital discharge. There were no significant differences in patients' characteristics or survival between those with or without colonoscopy (4±1.9 vs. 4.2±2.1 y, P=0.62). No colonic malignancy was detected. However, in 32 patients (32%) at least 1 polyp was found. Only 1 was determined as an advanced adenoma. No new or different diagnosis was made after colonoscopy.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found no significant differences in survival or new diagnoses between patients who underwent colonoscopy after acute diverticulitis and those who did not. The colonoscopy did not reveal any colonic malignancies or advanced adenomas. Therefore, the colonoscopy did not affect the management of the diverticulitis.",
+          "critical_evidence": "No significant differences in patients' characteristics or survival between those with or without colonoscopy (4±1.9 vs. 4.2±2.1 y, P=0.62).",
+          "differential_considered": "While a colonoscopy might be considered to rule out colon cancer, the study found no evidence of malignancy or advanced adenomas. Therefore, the colonoscopy did not change the management of the diverticulitis.",
+          "usage": {
+            "prompt_tokens": 504,
+            "generated_tokens": 197,
+            "generation_time_s": 11.728
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found no significant differences in outcomes between patients who underwent colonoscopy and those who did not. With no new malignancies detected and only one advanced adenoma found in 32% of cases, the colonoscopy did not alter the management of acute diverticulitis. The procedure was performed early post-discharge but did not impact survival or clinical course.",
+          "critical_evidence": "No significant differences in survival (4±1.9 vs. 4.2±2.1 y, P=0.62) between groups",
+          "differential_considered": "Colonoscopy may have been considered for detecting occult malignancy, but the study showed it was not necessary in this population of acute diverticulitis patients",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.738
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found no significant differences in survival or clinical outcomes between patients who underwent colonoscopy and those who did not. Additionally, no colonic malignancy was detected, and polyps found were non-advanced, with no new or different diagnoses made. Thus, colonoscopy did not alter management or prognosis.",
+          "critical_evidence": "No significant differences in survival (4±1.9 vs. 4.2±2.1 y, P=0.62) and no new or different diagnosis after colonoscopy.",
+          "differential_considered": "Colonic malignancy was considered but ruled out; advanced adenomas were rare (1/32), and no change in management occurred, making colonoscopy unnecessary for routine management.",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 185,
+            "generation_time_s": 8.026
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 43,
+            "generation_time_s": 1.272
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "No significant differences in patients' characteristics or survival between those with or without colonoscopy (4±1.9 vs. 4.2±2.1 y, P=0.62). No colonic malignancy was detected.",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 529,
+            "generated_tokens": 171,
+            "generation_time_s": 6.526
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1115",
+  "dataset": "medqa",
+  "question_id": "1115",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year old gentleman presents to the primary care physician with the chief complaint of \"feeling down\" for the last 6 weeks. He describes trouble falling asleep at night, decreased appetite, and recent feelings of intense guilt regarding the state of his personal relationships. He says that everything \"feels slower\" than it used to. He endorses having a similar four-week period of feeling this way last year. He denies thoughts of self-harm or harm of others. He also denies racing thoughts or delusions of grandeur. Which of the following would be an INAPPROPRIATE first line treatment for him?",
+    "options": {
+      "A": "Psychotherapy",
+      "B": "Citalopram",
+      "C": "Paroxetine",
+      "D": "Electroconvulsive therapy",
+      "E": "Sertraline"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with symptoms suggestive of a depressive episode, including depressed mood, sleep disturbance, decreased appetite, and feelings of guilt. Given the recurrent nature of his symptoms (similar episode last year), a diagnosis of Major Depressive Disorder (MDD) is likely. Electroconvulsive therapy (ECT) is generally reserved for severe, treatment-resistant depression, especially when there are psychotic features or suicidality, or when rapid response is needed. It is not a first-line treatment for a patient without these features.",
+          "critical_evidence": "The patient denies thoughts of self-harm or harm of others, and there are no psychotic features described.",
+          "differential_considered": "Anxiety disorders (e.g., generalized anxiety disorder) could present with similar symptoms, but the prominent feelings of guilt and the recurrent nature of the episode are more suggestive of depression. Bipolar disorder is less likely given the absence of manic or hypomanic symptoms. Substance use disorder is possible, but the patient denies substance use. Therefore, ECT is not the most appropriate first-line treatment.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 260,
+            "generation_time_s": 13.078
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with depressive symptoms including insomnia, decreased appetite, guilt, and slowed thinking, with a history of prior episodes. While antidepressants are appropriate for treatment-resistant depression, electroconvulsive therapy (ECT) is inappropriately first-line for initial treatment of depression. ECT is typically reserved for treatment-resistant cases or when other treatments have failed, and is not indicated for first-line management of typical depression.",
+          "critical_evidence": "The patient's symptoms are consistent with major depressive disorder but do not indicate treatment resistance, making ECT inappropriate as a first-line treatment.",
+          "differential_considered": "Considered SSRIs (B, C, E) and psychotherapy (A) as appropriate first-line options, but ruled out ECT due to lack of treatment resistance and absence of severe symptoms requiring immediate intervention.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 197,
+            "generation_time_s": 9.184
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with symptoms consistent with major depressive disorder (MDD), including depressed mood, anhedonia, sleep disturbance, appetite loss, guilt, and a history of similar episodes. ECT is reserved for severe, treatment-refractory depression or cases with significant suicidality or psychosis, which are absent here. First-line treatments for MDD include psychotherapy and SSRIs (citalopram, sertraline, paroxetine).",
+          "critical_evidence": "Denial of suicidal ideation, psychosis, or severe functional impairment; history of prior episode without treatment failure.",
+          "differential_considered": "Differential diagnoses considered include adjustment disorder, bipolar depression (ruled out by absence of mania/hypomania), and substance-induced mood disorder (ruled out by absence of substance use history). ECT is inappropriate given the absence of severe or treatment-refractory features.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 212,
+            "generation_time_s": 7.433
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not provided in the options.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 10,
+            "generation_time_s": 0.265
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Major depressive disorder with mild symptoms (ruling out bipolar disorder, schizophrenia, or other psychotic disorders due to lack of supporting findings); cognitive behavioral therapy (not listed as an option) would be appropriate but is subsumed under psychotherapy (A). Other options (A, B, C, E) are standard for mild to moderate depression.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 230,
+            "generation_time_s": 7.23
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

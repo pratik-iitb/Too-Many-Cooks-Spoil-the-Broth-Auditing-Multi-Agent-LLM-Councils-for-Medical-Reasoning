@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-10781708",
+  "dataset": "pubmedqa",
+  "question_id": "10781708",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Thrombosis prophylaxis in hospitalised medical patients: does prophylaxis in all patients make sense?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thrombosis prophylaxis in hospitalized medical patients is not always necessary. The decision to initiate prophylaxis should be individualized based on patient-specific risk factors, such as immobility, surgery, underlying medical conditions, and the duration of hospitalization. Prophylaxis is generally recommended for patients at high risk of thromboembolism, while those at low risk may not benefit from it.",
+          "critical_evidence": "The question explicitly asks if prophylaxis in ALL patients makes sense, implying that not all patients require it.",
+          "differential_considered": "Differential diagnoses considered include deep vein thrombosis (DVT) and pulmonary embolism (PE). While these are potential complications, prophylactic measures are not universally indicated for all hospitalized medical patients, as many may not be at significant risk.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 193,
+            "generation_time_s": 9.543
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Thrombosis prophylaxis is essential for hospitalized medical patients, especially those at high risk due to immobility, surgery, or underlying conditions. While not all patients require it, the benefits of prophylaxis in preventing DVT and PE outweigh the risks in most cases. Given the significant morbidity and mortality associated with venous thromboembolism, and the low absolute risk in low-risk patients, a tailored approach is ideal, but universal prophylaxis remains the safest default in a hospital setting.",
+          "critical_evidence": "The high risk of DVT and PE in hospitalized patients, with mortality rates up to 30% if untreated, supports the use of prophylaxis as a standard of care.",
+          "differential_considered": "Low-risk patients (e.g., elderly with minimal comorbidities) have a low absolute risk of thrombosis, but the potential harm from DVT/PE is severe enough that even in these cases, prophylaxis is often recommended. The decision should be individualized based on the patient's risk profile.",
+          "usage": {
+            "prompt_tokens": 266,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.559
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thrombosis prophylaxis is not universally indicated in all hospitalized medical patients; risk stratification is essential. Prophylaxis should be tailored based on individual risk factors such as immobility, history of thrombosis, cancer, or severe illness. Applying prophylaxis indiscriminately may lead to unnecessary bleeding risk without proportional benefit.",
+          "critical_evidence": "Guidelines (e.g., ACCP, ESC) recommend risk-based prophylaxis, not universal application.",
+          "differential_considered": "Universal prophylaxis (A) is not supported by evidence; no prophylaxis (B) ignores high-risk patients. Both are extreme; risk-stratified approach (C) is best supported by current evidence.",
+          "usage": {
+            "prompt_tokens": 237,
+            "generated_tokens": 180,
+            "generation_time_s": 6.294
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 102,
+            "generation_time_s": 2.476
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considering whether the patient has underlying conditions that increase thromboembolic risk (e.g., cancer, recent surgery, immobilization) would guide the decision. If no such risks are present, prophylaxis may not be justified, but without this information, a blanket \"yes\" or \"no\" is less accurate.",
+          "usage": {
+            "prompt_tokens": 291,
+            "generated_tokens": 233,
+            "generation_time_s": 7.314
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

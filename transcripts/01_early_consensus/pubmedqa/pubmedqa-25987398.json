@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-25987398",
+  "dataset": "pubmedqa",
+  "question_id": "25987398",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The influence of atmospheric pressure on aortic aneurysm rupture--is the diameter of the aneurysm important?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Aortic aneurysms are susceptible to rupture due to the pressure exerted on the weakened aortic wall. The diameter of the aneurysm is a critical factor in determining the stress on the wall, and larger aneurysms are at higher risk of rupture. Therefore, the diameter of the aneurysm is important.",
+          "critical_evidence": "The diameter of the aneurysm is a critical factor in determining the stress on the wall, and larger aneurysms are at higher risk of rupture.",
+          "differential_considered": "While other factors like age, smoking history, and underlying medical conditions contribute to aneurysm risk, the diameter of the aneurysm is a direct and quantifiable measure of the structural weakness that makes rupture more likely. Other factors are important but do not directly address the mechanical stress on the aneurysm wall.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 199,
+            "generation_time_s": 10.037
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Atmospheric pressure directly affects the stress on the aneurysmal wall. As pressure increases, the shear stress on the weakened vessel increases, raising the risk of rupture. The diameter of the aneurysm is critical because larger diameters experience greater wall stress under the same pressure, increasing the likelihood of rupture. This relationship is supported by biomechanical models showing that aneurysm growth correlates with increased rupture risk.",
+          "critical_evidence": "Biomechanical studies demonstrating that aneurysm diameter directly correlates with increased wall stress under atmospheric pressure",
+          "differential_considered": "While other factors like aneurysm location and patient comorbidities matter, the question specifically asks about diameter's importance, which is the primary biomechanical determinant of rupture risk under pressure changes",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.629
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Aortic aneurysm rupture risk is strongly correlated with aneurysm diameter, as larger diameters (>5.5 cm) are associated with significantly increased rupture risk. Atmospheric pressure changes do not override this fundamental biomechanical principle. The question implies a potential confounding factor, but diameter remains the most critical predictor.",
+          "critical_evidence": "Clinical guidelines (e.g., AHA/ACC) classify aneurysm rupture risk based on diameter, not atmospheric pressure.",
+          "differential_considered": "Atmospheric pressure effects on aneurysm wall stress were considered, but no evidence supports pressure as a dominant factor over diameter; ruled out due to lack of mechanistic or epidemiological support.",
+          "usage": {
+            "prompt_tokens": 239,
+            "generated_tokens": 176,
+            "generation_time_s": 6.273
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<2-4 sentences of step-by-step clinical reasoning>",
+          "critical_evidence": "<single most important finding>",
+          "differential_considered": "<key differential diagnoses and why they were ruled out>",
+          "usage": {
+            "prompt_tokens": 266,
+            "generated_tokens": 89,
+            "generation_time_s": 2.212
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible confounders like blood volume changes or barotrauma could be considered, but they are not relevant to the question of whether aneurysm diameter is important for rupture risk, which is directly tied to aneurysm size in established medical knowledge.",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 216,
+            "generation_time_s": 6.955
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

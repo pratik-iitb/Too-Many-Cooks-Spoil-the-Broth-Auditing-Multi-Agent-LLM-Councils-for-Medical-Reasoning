@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1234",
+  "dataset": "medqa",
+  "question_id": "1234",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 57-year-old man comes to the clinic complaining of nausea and 1 episode of vomiting during the past day. He denies any precipitating event except for a headache for which he took some acetaminophen yesterday. The headache is described as bilateral, dull, and 8/10 in severity. He has never had such symptoms before. His past medical history is significant for hypertension, biliary colic, and a past hospitalization for delirium tremens when he “tried to quit alcohol cold turkey.” When asked about his current alcohol intake, the patient looks away and mutters “just a couple of drinks here and there.” The patient reports mild abdominal pain that began this morning but denies vision changes, bowel changes, fever, or weight loss. Physical examination demonstrates tenderness at the right upper quadrant (RUQ) that does not worsens with inhalation. What is the most likely explanation for this patient’s symptoms?",
+    "options": {
+      "A": "Accumulation of N-acetyl-p-benzoquinone imine in the liver",
+      "B": "Impaction of a gallstone in the ileus",
+      "C": "Malignant overgrowth of glial cells in the brain",
+      "D": "Obstruction of the cystic duct by gallstone",
+      "E": "Upregulation of alpha-2 adrenergic receptors"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of nausea, vomiting, and RUQ tenderness, especially in the context of a history of biliary colic, strongly suggests a biliary etiology. The lack of worsening pain with inspiration makes gallbladder inflammation less likely, but doesn't rule out a gallstone. The patient's history of alcohol abuse also increases the risk of gallstones.",
+          "critical_evidence": "RUQ tenderness that does not worsen with inspiration.",
+          "differential_considered": "A: Accumulation of N-acetyl-p-benzoquinone imine in the liver (Drug-induced liver injury): While acetaminophen can cause liver injury, the acute onset of RUQ pain is less typical. B: Impaction of a gallstone in the ileus: Ileus is less likely given the RUQ tenderness. C: Malignant overgrowth of glial cells in the brain: This is highly unlikely given the acute onset of RUQ pain. E: Upregulation of alpha-2 adrenergic receptors: This is not a direct cause of the patient's symptoms.",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 254,
+            "generation_time_s": 12.528
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's RUQ tenderness without worsening on inhalation, along with biliary colic history and past gallstone risk, strongly suggests biliary colic. The headache and nausea may be secondary to gallstone ileus or pancreatitis, but the absence of fever and weight loss reduces the likelihood of malignancy. Delirium tremens history indicates alcohol abuse, which can precipitate gallstone attacks. The cystic duct obstruction is the most specific explanation for RUQ tenderness in this context.",
+          "critical_evidence": "Tenderness at the right upper quadrant (RUQ) that does not worsen with inhalation",
+          "differential_considered": "Pancreatitis, acute cholecystitis, and alcohol-induced liver injury were considered but ruled out by the absence of fever, weight loss, and the patient's history of biliary colic rather than chronic alcohol-related liver disease.",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 214,
+            "generation_time_s": 9.93
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with nausea, vomiting, and RUQ tenderness without rebound or guarding, along with a history of biliary colic and alcohol use. These findings are classic for acute cholecystitis, often caused by gallstone obstruction of the cystic duct. The absence of fever or jaundice does not rule it out, as early or mild cases may present without systemic signs. The headache and acetaminophen use are likely unrelated and do not explain the abdominal findings.",
+          "critical_evidence": "History of biliary colic + current RUQ tenderness + nausea/vomiting = acute cholecystitis due to gallstone obstruction",
+          "differential_considered": "Alcohol-related liver disease (A) is less likely without jaundice or hepatic signs; ileus (B) would cause generalized abdominal distension and constipation; brain tumor (C) would present with focal neurologic deficits or vision changes; alpha-2 receptor upregulation (E) is not clinically relevant here.",
+          "usage": {
+            "prompt_tokens": 474,
+            "generated_tokens": 238,
+            "generation_time_s": 8.321
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 24,
+            "generation_time_s": 0.603
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient's symptoms of right upper quadrant (RUQ) abdominal pain and nausea, along with a history of biliary colic, strongly suggest cholelithiasis or gallstone-related issues. The absence of worsening pain with deep breathing and the context of recent alcohol use (which can contribute to gallstone formation) further support this. Acetaminophen use is a less likely direct precipitant. Other options such as brain tumor (C), ileus (B), and adrenergic upregulation (E) are not indicated by the clinical presentation.",
+          "critical_evidence": "Right upper quadrant abdominal tenderness with a history of biliary colic, suggesting gallstone impaction or cholecystitis.",
+          "differential_considered": "Cholelithiasis/gallstone impaction (D), acute cholecystitis (related to gallstones), hepatitis (A could be a red herring), bowel ischemia (not supported by symptoms), and neurological causes (C is highly unlikely).",
+          "usage": {
+            "prompt_tokens": 531,
+            "generated_tokens": 241,
+            "generation_time_s": 7.571
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

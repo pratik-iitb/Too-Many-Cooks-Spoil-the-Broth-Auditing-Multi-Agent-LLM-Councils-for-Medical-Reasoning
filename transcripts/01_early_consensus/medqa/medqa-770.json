@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-770",
+  "dataset": "medqa",
+  "question_id": "770",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 70-year-old Caucasian male presents to the emergency room following a fall. The patient's past medical history is significant for myocardial infarction and atrial fibrillation. His home medications are unknown. The patient's head CT is shown in Image A. Laboratory results reveal an International Normalized Ratio (INR) of 6. Which of the following is the most appropriate pharmacologic therapy for this patient?",
+    "options": {
+      "A": "Vitamin K",
+      "B": "Cryoprecipitate",
+      "C": "Protamine",
+      "D": "Platelet transfusion",
+      "E": "Fresh frozen plasma"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a significantly elevated INR (6) indicating a coagulopathy, likely due to warfarin or another vitamin K antagonist. The most appropriate treatment is to reverse the effects of the anticoagulant. Fresh frozen plasma (FFP) contains all the coagulation factors, including those affected by warfarin, and is the preferred method for rapid reversal in this setting.",
+          "critical_evidence": "INR of 6 indicates significant anticoagulation and the need for reversal.",
+          "differential_considered": "Vitamin K (A) would be a long-term solution but not appropriate for acute reversal. Cryoprecipitate (B) primarily contains fibrinogen and factor VIII, not the factors affected by warfarin. Protamine (C) reverses heparin, not warfarin. Platelet transfusion (D) is indicated for thrombocytopenia or platelet dysfunction, not coagulopathy.",
+          "usage": {
+            "prompt_tokens": 345,
+            "generated_tokens": 212,
+            "generation_time_s": 10.492
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's INR of 6 indicates severe vitamin K deficiency or excessive anticoagulation, likely due to warfarin or other coumarin anticoagulants. Given the fall and age-related coagulopathy, the primary concern is hemorrhage. Platelet count is not provided, but the INR alone suggests a coagulopathy requiring immediate correction. Platelet transfusion is the most direct intervention to address bleeding risk in this setting.",
+          "critical_evidence": "INR of 6 is significantly elevated, indicating severe anticoagulation",
+          "differential_considered": "Considered vitamin K deficiency, warfarin overdose, and other coagulopathies, but ruled out by INR value. Hypovolemia from fall could contribute to coagulopathy, but platelet count is not provided to confirm this. The INR is the most critical factor in guiding therapy.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 219,
+            "generation_time_s": 10.197
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.798
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 106,
+            "generation_time_s": 2.569
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Warfarin-induced coagulopathy (due to non-adherence or interaction), liver disease (causing synthetic dysfunction), or other anticoagulant overdose. However, without evidence of active bleeding or a clear alternative etiology, correcting the INR with vitamin K is the standard approach.",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 264,
+            "generation_time_s": 8.261
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "D": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

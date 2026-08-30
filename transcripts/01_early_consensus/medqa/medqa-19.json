@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-19",
+  "dataset": "medqa",
+  "question_id": "19",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 69-year-old man comes to the physician because of a 2-month history of severe right hip pain. The pain is worse at night. He has chronic headaches and back pain for which he takes vitamin D, calcium supplements, and ibuprofen. Examination shows hip tenderness and mild sensorineural hearing loss. X-ray of the hip shows a radiolucent lesion in the ilium with a moth-eaten appearance, wide transition zone, and an aggressive periosteal reaction. Wide excision of the lesion is performed. A photomicrograph of a section of the lesion is shown. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Multiple myeloma",
+      "B": "Chondrosarcoma",
+      "C": "Osteosarcoma",
+      "D": "Ewing sarcoma",
+      "E": "Giant cell tumor"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's age (69 years old), the location of the lesion (ilium), the radiographic findings (radiolucent lesion with moth-eaten appearance, wide transition zone, and aggressive periosteal reaction), and the surgical pathology (photomicrograph) strongly suggest osteosarcoma. The aggressive periosteal reaction is a key feature.",
+          "critical_evidence": "The radiographic findings of a radiolucent lesion with a moth-eaten appearance, wide transition zone, and aggressive periosteal reaction are highly suggestive of osteosarcoma.",
+          "differential_considered": "Multiple myeloma is less likely given the location of the lesion and the absence of lytic bone lesions in other areas. Chondrosarcoma is possible, but the aggressive periosteal reaction is more characteristic of osteosarcoma. Ewing sarcoma is less common in this age group and typically presents with a more aggressive, rapidly growing lesion. Giant cell tumor is typically found in the epiphysis of long bones, not the ilium, and is less likely to have such an aggressive periosteal reaction.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 263,
+            "generation_time_s": 12.924
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The radiolucent, moth-eaten appearance with wide transition zone and aggressive periosteal reaction strongly suggests a chondrosarcoma. The patient's age and history of chronic pain, while concerning, are less specific than the imaging findings. The hearing loss is notable but not specific to chondrosarcoma, though it may reflect paraspinal involvement.",
+          "critical_evidence": "Moth-eaten appearance with wide transition zone and aggressive periosteal reaction on X-ray",
+          "differential_considered": "Osteosarcoma (less likely due to typical osteolytic pattern), Ewing sarcoma (rarely presents with such appearance), Multiple myeloma (not typically associated with hip involvement), Giant cell tumor (less aggressive periosteal reaction)",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 189,
+            "generation_time_s": 8.698
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 69-year-old male with severe hip pain, night pain, and a radiolucent lesion in the ilium with a moth-eaten appearance, wide transition zone, and aggressive periosteal reaction — classic features of multiple myeloma. The presence of chronic headaches and mild sensorineural hearing loss may suggest bone marrow involvement or paraproteinemia-related complications. The lesion’s appearance on X-ray and the patient’s age strongly point to plasma cell malignancy rather than a primary bone tumor.",
+          "critical_evidence": "Moth-eaten appearance, wide transition zone, and aggressive periosteal reaction on X-ray in a 69-year-old male with night pain — highly suggestive of multiple myeloma.",
+          "differential_considered": "Chondrosarcoma (typically slow-growing, calcified lesions), osteosarcoma (often in younger patients, with cortical destruction), Ewing sarcoma (common in adolescents, with sunburst pattern), and giant cell tumor (usually in the metaphysis, not ilium, and not aggressive on X-ray) were considered but ruled out based on age, lesion appearance, and clinical context.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 268,
+            "generation_time_s": 9.297
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 98,
+            "generation_time_s": 2.361
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "X-ray showing a radiolucent, moth-eaten lesion in the ilium with wide transition zone and aggressive periosteal reaction.",
+          "differential_considered": "Multiple myeloma (plasma cell tumor, typically involves bones but presents with pathological fractures, cast-like appearance), chondrosarcoma (cartilage origin, often more indolent but can mimic bone sarcoma), osteosarcoma (malignant, peak in young adults, usually more aggressive appearance), Ewing sarcoma (epithelial, axial skeleton involvement in adults is rare, more common in children), and giant cell tumor (benign, classic for iliac lesion with 'spiderweb' or 'moth-eaten' appearance in elderly).",
+          "usage": {
+            "prompt_tokens": 433,
+            "generated_tokens": 367,
+            "generation_time_s": 11.377
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "B": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

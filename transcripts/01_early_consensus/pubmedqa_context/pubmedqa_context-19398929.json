@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19398929",
+  "dataset": "pubmedqa_context",
+  "question_id": "19398929",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can the growth rate of a gallbladder polyp predict a neoplastic polyp?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Cholecystectomy for GB polyps that are larger than 10 mm is generally recommended because of the high probability of neoplasm. In contrast, a follow-up strategy is preferred for GB polyps smaller than 10 mm. However, there are no treatment guidelines for polyps that grow in size during the follow-up period.STUDY: We retrospectively investigated 145 patients with GB polyps who underwent at least 1 ultrasonographic follow-up examination over an interval greater than 6 months, before cholecystectomy at Samsung medical center, South Korea, from 1994 to 2007. The growth rate was determined based on the change in size per time interval between 2 ultrasonographic examinations (mm/mo). The median age of the patients was 48 years (range: 25 to 75). One hundred twenty-five non-neoplastic polyps and 20 neoplastic polyps were found. Neoplastic polyps were more frequently found in patients older than 60 years, those with hypertension, a polyp size greater than 10 mm, and a rapid growth rate greater than 0.6 mm/mo. On multivariate analysis, however, the growth rate was not related to the neoplastic nature of a polyp, but older age (>60 y) and large size (>10 mm) were significantly associated with neoplastic polyps.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that the growth rate of gallbladder polyps was not related to the neoplastic nature of the polyp. Older age and larger polyp size were significantly associated with neoplastic polyps, but not the growth rate itself. Therefore, the growth rate of a gallbladder polyp does not reliably predict a neoplastic polyp.",
+          "critical_evidence": "The study found that the growth rate was not related to the neoplastic nature of a polyp.",
+          "differential_considered": "While other factors like age and size are associated with neoplasia, the study specifically states that growth rate is not a predictor. Therefore, other factors are more reliable indicators.",
+          "usage": {
+            "prompt_tokens": 554,
+            "generated_tokens": 167,
+            "generation_time_s": 9.892
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that while rapid growth rate (>0.6 mm/mo) was associated with neoplastic polyps in the initial analysis, multivariate analysis showed that growth rate was not independently related to neoplastic nature. The strongest predictors were age over 60 and polyp size over 10 mm. Since the question specifically asks about growth rate prediction, and the evidence shows it's not a significant independent predictor after adjusting for other factors, the answer is no.",
+          "critical_evidence": "Multivariate analysis showed that growth rate was not related to the neoplastic nature of a polyp",
+          "differential_considered": "Considered whether growth rate could be a marker, but ruled it out as the study's statistical analysis showed it's not an independent predictor after adjusting for age and size",
+          "usage": {
+            "prompt_tokens": 551,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.433
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study explicitly states that on multivariate analysis, growth rate was not significantly associated with neoplastic nature, despite being correlated in univariate analysis. The strongest predictors were age >60 and size >10 mm. Therefore, growth rate alone cannot reliably predict neoplasia.",
+          "critical_evidence": "On multivariate analysis, growth rate was not related to the neoplastic nature of a polyp.",
+          "differential_considered": "Considered whether growth rate could be a predictor, but ruled it out based on multivariate analysis showing no independent association with neoplasia.",
+          "usage": {
+            "prompt_tokens": 538,
+            "generated_tokens": 152,
+            "generation_time_s": 6.415
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 549,
+            "generated_tokens": 66,
+            "generation_time_s": 1.932
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that while neoplastic polyps tend to be larger and older, the growth rate alone is not a reliable predictor of neoplasia, as non-neoplastic polyps can also grow rapidly. The key finding is that growth rate was not a significant predictor on multivariate analysis, so we cannot rely on it to confirm neoplastic potential.",
+          "critical_evidence": "Multivariate analysis found that the growth rate was not related to the neoplastic nature of the polyp.",
+          "differential_considered": "Gallbladder polyps can grow for various reasons including inflammation, infection, or other benign processes. Since growth rate is not an independent predictor according to the data, differentiating based on growth rate alone is insufficient.",
+          "usage": {
+            "prompt_tokens": 585,
+            "generated_tokens": 183,
+            "generation_time_s": 6.958
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

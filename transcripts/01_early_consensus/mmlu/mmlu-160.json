@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-160",
+  "dataset": "mmlu",
+  "question_id": "160",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Why would you need to carry out a bladder washout for a patient at home?",
+    "options": {
+      "A": "When their urine is clear.",
+      "B": "When the catheter is blocked.",
+      "C": "When the catheter is bypassing.",
+      "D": "When the catheter is dirty."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "A bladder washout is performed to remove residual urine from the bladder, which can lead to complications like urinary tract infections (UTIs) or bladder spasms. A catheter blockage would prevent urine from draining, and a catheter bypassing would mean the catheter is not properly positioned, leading to urine leakage. A dirty catheter is a potential cause of a UTI, but a washout is not the primary treatment for a dirty catheter.",
+          "critical_evidence": "A catheter blockage would prevent urine from draining, and a catheter bypassing would mean the catheter is not properly positioned, leading to urine leakage.",
+          "differential_considered": "A: When their urine is clear. (Clear urine does not necessitate a washout, as the catheter is likely functioning correctly.) D: When the catheter is dirty. (While a dirty catheter can cause a UTI, a washout is not the primary treatment for a dirty catheter.)",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 219,
+            "generation_time_s": 11.159
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "A bladder washout is a procedure to clean the urinary catheter and remove any debris or bacteria that may have accumulated. When a catheter becomes dirty, it can lead to infections and other complications. Performing a bladder washout helps maintain catheter hygiene and reduces the risk of infection. The other options (clear urine, blocked catheter, bypassing catheter) do not directly indicate the need for a bladder washout.",
+          "critical_evidence": "The catheter is dirty",
+          "differential_considered": "Options A, B, and C do not directly relate to the need for a bladder washout. A dirty catheter is the primary indication for performing this procedure.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 169,
+            "generation_time_s": 8.842
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "A bladder washout is performed to clear debris or obstruction from the bladder, typically when a catheter becomes blocked and urine flow is impeded. Clear urine (A) indicates no obstruction, dirty catheter (D) may require cleaning but not necessarily washout, and catheter bypassing (C) suggests a different issue like leakage or misplacement. The primary indication for washout is catheter blockage.",
+          "critical_evidence": "Blocked catheter prevents urine drainage, necessitating washout to restore flow.",
+          "differential_considered": "Dirty catheter (D) may require cleaning, but not washout; catheter bypassing (C) implies leakage, not obstruction; clear urine (A) suggests no issue. All others are less urgent or unrelated to washout.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 190,
+            "generation_time_s": 6.855
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 59,
+            "generation_time_s": 1.494
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "A bladder washout is typically performed to assess or clean the bladder when there is concern about retained infection or blockage, especially if the patient is on indwelling catheter care. Carrying out a bladder washout at home suggests the bladder or catheter may be dirty, which is a risk for urinary tract infection. Options A, B, and C do not directly relate to the need for bladder cleansing or assessment in this home setting.",
+          "critical_evidence": "The indication for a bladder washout at home is likely due to the catheter being dirty, as this procedure is used to remove contaminants before urine output is collected or before reinserting the catheter.",
+          "differential_considered": "Options B and C relate to catheter function issues (blockage or bypass), but these are usually managed in a clinical setting, not at home. Option A (clear urine) is not a reason to perform a bladder washout. The most plausible reason for a home bladder washout is to clean the bladder when the catheter is suspected to be dirty, which is option D.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 252,
+            "generation_time_s": 8.127
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

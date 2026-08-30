@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-360",
+  "dataset": "mmlu",
+  "question_id": "360",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following is true about the carpal tunnel syndrome?",
+    "options": {
+      "A": "It can be caused by rheumatoid arthritis",
+      "B": "It is caused by compression of the ulna nerve",
+      "C": "It causes pain and tingling in the medial three and half digits",
+      "D": "Paraesthesia is worse during the day"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Carpal tunnel syndrome is characterized by compression of the median nerve in the carpal tunnel. This typically causes pain, numbness, and tingling in the thumb, index, middle, and radial half of the ring finger. Option C accurately describes the distribution of symptoms associated with carpal tunnel syndrome. Options A, B, and D are incorrect.",
+          "critical_evidence": "Pain and tingling in the medial three and a half digits (thumb, index, middle, and radial half of the ring finger) is a hallmark symptom of carpal tunnel syndrome.",
+          "differential_considered": "Rheumatoid arthritis can cause carpal tunnel syndrome, but it is not the primary cause. The ulna nerve is not compressed in carpal tunnel syndrome, so option B is incorrect. Paraesthesia is typically worse at night in carpal tunnel syndrome, not during the day, so option D is incorrect.",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 221,
+            "generation_time_s": 18.028
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Carpal tunnel syndrome is primarily caused by compression of the median nerve at the wrist, not the ulna nerve (option B). While it causes pain and paraesthesia in the medial three and half digits (option C), the severity of symptoms often worsens at night due to flexed wrists, making option D incorrect. Rheumatoid arthritis is a known cause of carpal tunnel syndrome through inflammation and swelling (option A), making it the best answer.",
+          "critical_evidence": "Rheumatoid arthritis is a documented cause of carpal tunnel syndrome through inflammatory processes",
+          "differential_considered": "Considered radial tunnel syndrome (compression of radial nerve) but ruled out due to different symptom distribution; considered ulnar nerve compression but ruled out as it affects different digits",
+          "usage": {
+            "prompt_tokens": 297,
+            "generated_tokens": 189,
+            "generation_time_s": 9.091
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Carpal tunnel syndrome results from compression of the median nerve at the wrist, which can be secondary to inflammatory conditions like rheumatoid arthritis. Option B is incorrect because the ulnar nerve is not involved; the median nerve is. Option C is incorrect because symptoms affect the lateral three and a half digits (thumb, index, middle, ring finger lateral half), not medial. Option D is incorrect because paraesthesia is typically worse at night, not during the day.",
+          "critical_evidence": "Rheumatoid arthritis can lead to synovitis and swelling in the carpal tunnel, compressing the median nerve and causing carpal tunnel syndrome.",
+          "differential_considered": "Ulnar nerve compression (Guyon’s canal syndrome) was considered but ruled out because it affects the medial hand and little finger, not the carpal tunnel. Median nerve entrapment elsewhere (e.g., pronator teres syndrome) was considered but not relevant to the carpal tunnel. Diabetic neuropathy and cervical radiculopathy were considered but do not typically present with classic carpal tunnel symptoms.",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 253,
+            "generation_time_s": 11.664
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.8,
+          "clinical_reasoning": "The patient presents with pain and tingling in the median nerve distribution, which is consistent with carpal tunnel syndrome. The fact that the symptoms are worse at night suggests that the compression of the median nerve is more pronounced in this position. Rheumatoid arthritis can lead to synovitis and subsequent compression of the median nerve at the wrist, thus causing carpal tunnel syndrome. Therefore, option A is the most likely cause of the patient's symptoms.",
+          "critical_evidence": "The patient's symptoms of pain and tingling in the median nerve distribution that are worse at night.",
+          "differential_considered": "Ruled out option B (compression of the ulna nerve) because the patient's symptoms are not consistent with ulnar nerve compression. Ruled out option C (pain and tingling in the medial three and half digits) because the patient's symptoms are specifically in the median nerve distribution, not the ulnar distribution. Ruled out option D (paraesthesia worse during the day) because the patient's symptoms are worse at night, not during the day.",
+          "usage": {
+            "prompt_tokens": 295,
+            "generated_tokens": 239,
+            "generation_time_s": 6.323
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 239,
+            "generation_time_s": 10.117
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1259",
+  "dataset": "medqa",
+  "question_id": "1259",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 51-year-old man presents to his primary care provider complaining of malaise. He returned from a research trip to Madagascar 2 weeks ago and has since developed a worsening fever with a maximum temperature of 102.2°F (39°C). He also reports some swelling around his neck and groin. He works as a zoologist and was in rural Madagascar studying a rare species of lemur. His past medical history is notable for hypertension and gout. He takes lisinopril and allopurinol. His temperature is 101.9°F (38.3°C), blood pressure is 145/85 mmHg, pulse is 110/min, and respirations are 22/min. On exam, he has painful erythematous cervical, axillary, and inguinal lymphadenopathy. Black hemorrhagic eschars are noted on his fingertips bilaterally. The pathogen responsible for this patient’s condition produces a virulence factor that has which of the following functions?",
+    "options": {
+      "A": "Cleave immunoglobulin",
+      "B": "Inhibit leukocyte migration",
+      "C": "Inhibit phagocytosis",
+      "D": "Inhibit ribosomal function",
+      "E": "Trigger widespread inflammation"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, lymphadenopathy, and hemorrhagic eschars on the fingertips strongly suggests a diagnosis of monkeypox. The key virulence factor of monkeypox virus is the orthopoxvirus A (ORFV) A, which cleaves immunoglobulin, leading to immune evasion and increased viral replication. This is a crucial step in the viral life cycle.",
+          "critical_evidence": "Black hemorrhagic eschars on the fingertips are a hallmark of monkeypox.",
+          "differential_considered": "While other conditions can cause fever and lymphadenopathy, the presence of hemorrhagic eschars is highly specific for monkeypox. Other considerations like viral hemorrhagic fevers (e.g., Ebola, Dengue) are less likely given the clinical picture and travel history. The patient's medication list does not suggest a strong risk for other infections.",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 210,
+            "generation_time_s": 10.412
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's black hemorrhagic eschars on fingertips and painful lymphadenopathy suggest a bacterial infection with tissue destruction. The presence of eschars indicates necrosis and tissue damage, which is consistent with a virulence factor that inhibits phagocytosis, preventing immune cells from clearing the bacteria. This leads to localized and systemic inflammation, explaining the fever and swelling.",
+          "critical_evidence": "Black hemorrhagic eschars on fingertips",
+          "differential_considered": "Considered leptospirosis, Lyme disease, and cat scratch fever, but ruled out due to lack of clinical features (e.g., rash in Lyme, cat exposure). Leptospirosis can cause eschars but is more common in occupational exposures; Madagascar is a known endemic area. The most consistent finding with a phagocytosis-inhibiting factor is the eschar formation.",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.709
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s history of travel to Madagascar, fever, lymphadenopathy, and black hemorrhagic eschars are classic for rickettsial infection, specifically Rickettsia rickettsii or R. africae, but the eschars on fingertips and systemic symptoms point to African tick bite fever or more likely, rickettsial infection with eschar formation. The key virulence factor of Rickettsia species is the production of a protein that inhibits phagocytosis, allowing the bacteria to evade host immune clearance. This matches option C.",
+          "critical_evidence": "Black hemorrhagic eschars on fingertips bilaterally, along with fever and lymphadenopathy after travel to Madagascar, strongly suggest rickettsial infection, particularly Rickettsia africae or R. rickettsii, which inhibit phagocytosis via virulence factors.",
+          "differential_considered": "Other differentials like plague (no buboes or eschars), tularemia (no eschars), or viral infections were considered but ruled out by the presence of eschars and the specific travel history to Madagascar, which is endemic for rickettsial diseases.",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 269,
+            "generation_time_s": 9.448
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 26,
+            "generation_time_s": 0.656
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered differential diagnoses include bacterial sepsis (e.g., from a cut or infection), viral infections (e.g., Ebola, Lassa fever), and possibly a drug reaction. However, the rapid onset of high fever and eschar formation after travel to a region with zoonotic risks most strongly support an infectious agent with the ability to trigger inflammation, making option E the best choice.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 243,
+            "generation_time_s": 7.665
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

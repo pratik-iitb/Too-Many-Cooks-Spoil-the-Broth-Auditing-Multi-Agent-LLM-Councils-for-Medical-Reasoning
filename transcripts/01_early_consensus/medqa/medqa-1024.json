@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1024",
+  "dataset": "medqa",
+  "question_id": "1024",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old female visits your office complaining of several years of joint swelling and stiffness that is worse in the morning and improves throughout the day. Physical examination reveals bilateral deformities at her proximal interphalangeal and metacarpophalangeal joints. The presence of which of the following in this patient’s serum would most help 'rule in' a diagnosis of rheumatoid arthritis:",
+    "options": {
+      "A": "Rheumatoid factor",
+      "B": "Anti-nuclear antibody",
+      "C": "Anti-citrullinated protein antibody",
+      "D": "Anti-centromere antibody",
+      "E": "Anti-smooth muscle antibody"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of bilateral symmetrical joint swelling and stiffness, particularly in the morning, with deformities at the proximal interphalangeal (PIP) and metacarpophalangeal (MCP) joints, is highly suggestive of rheumatoid arthritis (RA). Anti-citrullinated protein antibodies (ACPA), also known as anti-CCP antibodies, are highly specific for RA and are often present early in the disease course. While rheumatoid factor (RF) is also associated with RA, it is less specific and can be found in other autoimmune conditions and even in healthy individuals.",
+          "critical_evidence": "Anti-citrullinated protein antibody (ACPA)",
+          "differential_considered": "Rheumatoid factor (RF) is associated with RA, but less specific. Anti-nuclear antibody (ANA) is associated with various autoimmune diseases, including systemic lupus erythematosus (SLE), but is not as specific for RA. Anti-centromere antibody is associated with limited cutaneous systemic sclerosis (CREST syndrome). Anti-smooth muscle antibody is associated with autoimmune hepatitis.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 258,
+            "generation_time_s": 12.75
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's morning stiffness and bilateral joint deformities strongly suggest rheumatoid arthritis (RA). While rheumatoid factor is positive in many RA cases, it can be negative in early disease or atypical forms. Anti-nuclear antibodies are more common in autoimmune diseases other than RA. Anti-citrullinated protein antibodies (ACPA) are highly specific for RA and are often positive in patients with morning stiffness and progressive joint damage. Anti-centromere and anti-smooth muscle antibodies are less specific for RA. ACPA detection would most strongly support the diagnosis of RA in this case.",
+          "critical_evidence": "Anti-citrullinated protein antibody positivity",
+          "differential_considered": "Osteoarthritis, gout, psoriatic arthritis, and lupus were considered, but osteoarthritis typically presents with cartilage loss without deformities, gout usually affects one joint and is not bilateral, psoriatic arthritis has skin manifestations, and lupus typically presents with systemic symptoms and different joint patterns. The bilateral deformities and morning stiffness make RA the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.45
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic rheumatoid arthritis (RA) features: symmetric joint swelling and stiffness worse in the morning, improving with activity, and proximal interphalangeal and metacarpophalangeal joint deformities. While rheumatoid factor (A) is commonly positive in RA, it is not specific and can be present in other conditions. Anti-CCP (C) antibodies are highly specific for RA and strongly support the diagnosis, especially in early or seropositive disease. Other options (B, D, E) are associated with other autoimmune or liver diseases, not RA.",
+          "critical_evidence": "Anti-citrullinated protein antibody (ACPA) is the most specific serological marker for rheumatoid arthritis, with high sensitivity and specificity for the disease.",
+          "differential_considered": "Osteoarthritis (less likely due to symmetric, morning stiffness and deformities), psoriatic arthritis (typically has nail changes or asymmetric involvement), and systemic lupus erythematosus (not associated with MCP/PIP deformities or morning stiffness pattern).",
+          "usage": {
+            "prompt_tokens": 329,
+            "generated_tokens": 255,
+            "generation_time_s": 8.94
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 355,
+            "generated_tokens": 28,
+            "generation_time_s": 0.688
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (B, C, D, E) are associated with different autoimmune diseases (e.g., ANA with systemic lupus erythematosus, anti-CPA with primary sclerosing cholangitis, anti-CEN with scleroderma, anti-smooth muscle antibody with sclerosing pancreatitis or vasculitis). None of these are as directly linked to the described joint symptoms and deformities as rheumatoid factor.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 251,
+            "generation_time_s": 7.841
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

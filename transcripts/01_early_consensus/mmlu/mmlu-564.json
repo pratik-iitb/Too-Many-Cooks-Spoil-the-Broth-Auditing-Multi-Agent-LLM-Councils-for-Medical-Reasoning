@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-564",
+  "dataset": "mmlu",
+  "question_id": "564",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following are steroid-based molecules?\nI. Testosterone\nII. Triglycerides\nIII. Progesterone\nIV. DNA",
+    "options": {
+      "A": "I only",
+      "B": "I, II, and III",
+      "C": "I and III",
+      "D": "I, III, and IV"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Steroids are a class of organic compounds characterized by a four-ring structure containing carbon, hydrogen, and oxygen. Testosterone, progesterone, and DNA all contain this characteristic steroid structure. Triglycerides are lipids, not steroids.",
+          "critical_evidence": "Testosterone, progesterone, and DNA all contain the steroid ring structure.",
+          "differential_considered": "Triglycerides are lipids and do not contain the steroid ring structure, so they are not steroids. DNA is a nucleic acid and not a steroid.",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 145,
+            "generation_time_s": 7.35
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Testosterone and progesterone are steroid hormones produced by the endocrine system, while triglycerides are lipid molecules and DNA is a nucleic acid. Steroids have a characteristic four-ring chemical structure, which both testosterone and progesterone share. Triglycerides are composed of glycerol and fatty acids, and DNA contains deoxyribose sugar-phosphate backbones with nitrogenous bases, making them non-steroid molecules.",
+          "critical_evidence": "Steroid hormones have a unique four-ring structure that distinguishes them from other biomolecules like lipids and nucleic acids.",
+          "differential_considered": "IV (DNA) is a nucleic acid, not a steroid; II (triglycerides) are lipids, not steroids; I and III (testosterone and progesterone) are both steroid hormones",
+          "usage": {
+            "prompt_tokens": 294,
+            "generated_tokens": 203,
+            "generation_time_s": 9.694
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "Testosterone and progesterone are steroid hormones derived from cholesterol, making them steroid-based molecules. Triglycerides are lipids but not steroids, and DNA is a nucleic acid, not a steroid. Therefore, only I and III are steroid-based.",
+          "critical_evidence": "Testosterone and progesterone are structurally derived from cholesterol and classified as steroid hormones.",
+          "differential_considered": "Triglycerides and DNA were considered but ruled out as they are not steroid-based; triglycerides are fatty acid esters, and DNA is a genetic molecule.",
+          "usage": {
+            "prompt_tokens": 265,
+            "generated_tokens": 147,
+            "generation_time_s": 5.281
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 292,
+            "generated_tokens": 67,
+            "generation_time_s": 1.667
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.99,
+          "clinical_reasoning": "Testosterone and progesterone are both hormones derived from cholesterol and therefore classified as steroid molecules. Triglycerides are lipids composed of glycerol and fatty acids, not steroids. DNA is a nucleic acid and unrelated to steroids. Thus, the best answer includes only the steroid-based molecules: testosterone and progesterone.",
+          "critical_evidence": "Testosterone and progesterone are steroid hormones synthesized from cholesterol, while triglycerides and DNA are not.",
+          "differential_considered": "Triglycerides and DNA were considered incorrect because they are not steroid-based; this eliminates options B, D, and any that include them.",
+          "usage": {
+            "prompt_tokens": 320,
+            "generated_tokens": 163,
+            "generation_time_s": 5.248
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

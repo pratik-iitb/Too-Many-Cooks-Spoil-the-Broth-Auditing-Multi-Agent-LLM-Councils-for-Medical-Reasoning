@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-28707539",
+  "dataset": "pubmedqa",
+  "question_id": "28707539",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Visceral adipose tissue area measurement at a single level: can it represent visceral adipose tissue volume?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Visceral adipose tissue (VAT) area measurement at a single level is a surrogate marker, not a direct measurement of VAT volume. While it can be correlated with VAT volume, it's not a precise or complete representation. Therefore, it cannot accurately represent the total VAT volume.",
+          "critical_evidence": "Visceral adipose tissue area measurement at a single level is a surrogate marker, not a direct measurement of visceral adipose tissue volume.",
+          "differential_considered": "While other methods like CT scans or MRI provide more accurate volume measurements, the question specifically asks about VAT area measurement at a single level. Therefore, the most accurate answer is B.",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 172,
+            "generation_time_s": 8.81
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Visceral adipose tissue volume requires three-dimensional measurement to accurately assess. A single-level measurement only captures cross-sectional area, not the full volume. Visceral fat surrounds internal organs and extends in multiple directions, so area measurement at one level cannot account for the full three-dimensional distribution and depth of adipose tissue.",
+          "critical_evidence": "Visceral adipose tissue is inherently three-dimensional in nature, requiring volumetric assessment rather than planimetric measurement",
+          "differential_considered": "Considered alternative methods like CT or MRI for volume measurement, ruled out single-level area measurement as insufficient for volume estimation",
+          "usage": {
+            "prompt_tokens": 265,
+            "generated_tokens": 157,
+            "generation_time_s": 7.602
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Visceral adipose tissue (VAT) volume is a three-dimensional measure requiring assessment across multiple levels or volumetric imaging. A single-level measurement provides only a cross-sectional area and cannot accurately represent total VAT volume. This is a well-established limitation in clinical imaging and adipose tissue quantification.",
+          "critical_evidence": "Visceral adipose tissue volume requires volumetric assessment across multiple axial slices or 3D reconstruction, not a single cross-sectional area.",
+          "differential_considered": "Considered whether single-level VAT area could be extrapolated to volume (e.g., using height or body surface area), but this is not clinically validated and introduces significant error; thus, it is not reliable.",
+          "usage": {
+            "prompt_tokens": 236,
+            "generated_tokens": 174,
+            "generation_time_s": 6.318
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 263,
+            "generated_tokens": 100,
+            "generation_time_s": 2.543
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Measuring the visceral adipose tissue area (VAT) at a single level provides only a cross-sectional estimate of VAT surface exposure, not its true volumetric measurement. VAT volume requires integration over multiple planes or 3D imaging to account for its 3D shape and thickness. Thus, a single VAT measurement may be partially informative but cannot reliably represent total VAT volume.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 180,
+            "generation_time_s": 5.877
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

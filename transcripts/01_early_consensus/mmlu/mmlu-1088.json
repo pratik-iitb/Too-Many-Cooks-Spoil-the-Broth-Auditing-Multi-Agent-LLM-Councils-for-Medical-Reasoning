@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1088",
+  "dataset": "mmlu",
+  "question_id": "1088",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 52-year-old man is brought to the emergency department 30 minutes after he had an episode of chest pain radiating to his jaw while shoveling snow. His pulse is 80/min, and blood pressure is 130/70 mm Hg. The lungs are clear to auscultation. Cardiac examination shows an S4. While undergoing an ECG, the patient says that he feels the chest pain returning. The most appropriate immediate treatment is a drug with which of the following mechanisms of action?",
+    "options": {
+      "A": "Increases cAMP concentration",
+      "B": "Increases nitric oxide concentration",
+      "C": "Inhibits potassium flux",
+      "D": "Inhibits sodium flux"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chest pain radiating to the jaw, suggesting angina. The S4 heart sound is consistent with decreased ventricular compliance, often seen in hypertension or hypertrophic cardiomyopathy. Given the acute onset of chest pain, the most likely diagnosis is acute coronary syndrome (ACS), specifically unstable angina or a non-ST-elevation myocardial infarction (NSTEMI). The immediate treatment goal is to reduce myocardial oxygen demand and increase oxygen supply. Nitroglycerin increases cAMP concentration, leading to vasodilation and reduced preload, thus decreasing myocardial oxygen demand. This is the most appropriate immediate treatment.",
+          "critical_evidence": "The patient's chest pain radiating to the jaw, S4 heart sound, and the fact that the pain is returning during the ECG strongly suggest ACS.",
+          "differential_considered": "While the patient's symptoms could be consistent with other conditions like pericarditis or musculoskeletal pain, the radiating chest pain and S4 are more indicative of cardiac ischemia. Therefore, ACS is the most likely diagnosis and the most appropriate immediate treatment should be aimed at reducing myocardial oxygen demand.",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 258,
+            "generation_time_s": 12.972
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's S4 heart sound suggests left ventricular hypertrophy, and the chest pain with ECG-triggered recurrence indicates possible ischemic heart disease. The S4 sound is associated with increased left ventricular stiffness, which can be improved by drugs that enhance myocardial relaxation. Nitric oxide (NO) is a potent vasodilator that increases relaxation of the myocardium, and drugs that increase NO concentration (such as nitroglycerin) are the first-line treatment for angina pectoris. The S4 sound and the patient's history of chest pain during physical exertion strongly suggest ischemic heart disease, making nitroglycerin the most appropriate choice.",
+          "critical_evidence": "The S4 heart sound and the patient's history of chest pain during physical exertion strongly suggest ischemic heart disease.",
+          "differential_considered": "While other conditions like pericarditis or pulmonary embolism could present with chest pain, the S4 sound and the patient's history of chest pain during physical exertion strongly suggest ischemic heart disease. The patient's age and the context of the emergency department visit further support this diagnosis.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.685
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic angina symptoms (chest pain radiating to jaw) triggered by exertion, with an S4 gallop suggesting left ventricular hypertrophy or diastolic dysfunction. The ECG is being performed when pain recurs, indicating acute ischemia. Nitroglycerin, which increases nitric oxide, is the first-line treatment for acute angina by vasodilating coronary arteries and reducing preload, thereby decreasing myocardial oxygen demand.",
+          "critical_evidence": "Chest pain radiating to jaw during exertion in a 52-year-old male is highly suggestive of acute coronary syndrome, and nitroglycerin is the immediate treatment of choice.",
+          "differential_considered": "Other differentials like GERD or musculoskeletal pain were considered but ruled out by the radiation to jaw and exertional trigger. Aortic dissection was considered but less likely without back or neck pain or hypotension. Pulmonary embolism was considered but ruled out by clear lungs and stable BP.",
+          "usage": {
+            "prompt_tokens": 345,
+            "generated_tokens": 236,
+            "generation_time_s": 8.385
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 12,
+            "generation_time_s": 0.311
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Aortic dissection (could consider vasodilators, but nitro is still first for pain control), pulmonary embolism (would consider anticoagulation, not listed here), and pericarditis (may use antiplatelets or nitrates, but the key finding supports ischemia over these). Ruled out other options because they are not the most appropriate immediate action for this presentation.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 318,
+            "generation_time_s": 10.252
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

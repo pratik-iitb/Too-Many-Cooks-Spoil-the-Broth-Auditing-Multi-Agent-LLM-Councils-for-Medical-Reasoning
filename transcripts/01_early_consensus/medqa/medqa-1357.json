@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1357",
+  "dataset": "medqa",
+  "question_id": "1357",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 73-year-old woman with atrial fibrillation presents to your clinic to discuss the need for anticoagulation. Her PMH is significant for high blood pressure, diabetes mellitus type II, osteoporosis, and depression. She previously smoked but quit about 16 years ago. She has never had a stroke or TIA. Her physical examination is remarkable for an irregular heart rate. She has a blood pressure of 136/94 mm Hg and a heart rate of 74/min. What is her CHADS2 score?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4",
+      "E": "Too little information to tell"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has atrial fibrillation, which is a major risk factor for stroke. She also has hypertension, which is another risk factor. She has no history of stroke or TIA, which is a protective factor. The CHADS2 score is calculated as: 1 for age >= 75, 1 for hypertension, and 0 for diabetes, osteoporosis, and depression. Therefore, her CHADS2 score is 2.",
+          "critical_evidence": "Atrial fibrillation",
+          "differential_considered": "The patient's age (73) is a risk factor for stroke, but the absence of prior stroke or TIA is a protective factor. The other risk factors (hypertension, diabetes, osteoporosis, depression) are also considered, but the presence of atrial fibrillation is the most significant factor in determining the CHADS2 score.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 213,
+            "generation_time_s": 10.558
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The CHADS2 score is calculated by assigning 1 point for age >75, hypertension, diabetes, and stroke/ TIA. The patient is 73 (no point), has hypertension (1 point), diabetes (1 point), and no history of stroke/TIA (0 points). The score is 2. The patient's history of depression does not contribute to the CHADS2 score.",
+          "critical_evidence": "The patient's age and hypertension are the key factors contributing to the CHADS2 score.",
+          "differential_considered": "No other factors were considered as they do not contribute to the CHADS2 score.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.674
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The CHADS2 score is calculated based on presence of Congestive heart failure, Hypertension, Age ≥75, Diabetes, and Stroke history. The patient has hypertension (BP 136/94) and age 73 (which is ≥75? No, 73 is not ≥75, so age does not count). She has diabetes and no history of stroke or heart failure. Thus, CHADS2 = 1 (hypertension) + 1 (diabetes) = 2.",
+          "critical_evidence": "Hypertension (BP 136/94) and diabetes mellitus type II are the only CHADS2 risk factors present.",
+          "differential_considered": "Age 73 does not qualify as ≥75, so age is not scored. No history of stroke or heart failure. No evidence of heart failure. Thus, CHADS2 = 2.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 225,
+            "generation_time_s": 7.916
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 98,
+            "generation_time_s": 2.386
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The CHADS2 score for atrial fibrillation only considers the patient's cardiac risk factors: CH (heart disease), H (hypertension), A (age ≥ 65), D (dyspnea on exertion), S (sex: female), and the presence of two or more vascular diseases (e.g., stroke/TIA, peripheral vascular disease) as additional points. Here, the patient has hypertension (H), is female (S), and is ≥65 years old (A). However, CHADS2 specifically counts only the relevant cardiac risk factors: age (1 point), hypertension (1 point), and one other (e.g., heart failure, prior stroke, or mitral valve disease). Since only age and hypertension are mentioned and no evidence of heart failure, prior stroke, or mitral valve disease, the score is 1 (from age) + 1 (hypertension) = 2, but strictly per CHADS2 scoring (age 65+ = 1, HTN = 1, no other qualifying factors), the answer is 2. However, the standard CHADS2 scoring does not include hypertension as a direct point; it's only CH (1), age (1), and one cardiac event (e.g., heart failure, mitral valve disease, or prior stroke). Since none of these are mentioned, the score is 1 (age). But many teaching points include HTN as +1, making it 2. Given the ambiguity, the most commonly taught approach includes HTN as a +1, so the answer is B: 2. But strictly by guidelines, HTN is not scored in CHADS2. Thus, the correct answer is A: 1. However, the question's inclusion of HTN suggests they want the commonly taught version (age 1, HTN1 =2). I will choose B based on typical clinical education, noting the confusion.",
+          "critical_evidence": "The patient's age ≥65 (1 point) is the only directly supported CHADS2 criterion. Hypertension is not a scoring criterion in standard CHADS2, but if the panel includes it as a teaching variation, it would add 1. However, the strict answer is 1.",
+          "differential_considered": "Differential is whether to count hypertension as a CHADS2 point. Standard CHADS2 does not include hypertension, but some sources mistakenly do. The correct answer per guidelines is A (1), but the case's inclusion of HTN may prompt B (2).",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 1024,
+            "generation_time_s": 32.251
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-660",
+  "dataset": "mmlu",
+  "question_id": "660",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A team of engineers constructing signal lights for airplanes that they can use to guide them to runways are attempting to determine the brightness needed for the pilot to be able to detect the tower at 1 mile away. They set the light to a test brightness and establish communication with an inbound pilot. When the pilot is 1 mile away from the tower, he says he cannot see the light. In terms of Signal Detection Theory, what would this be called?",
+    "options": {
+      "A": "Hit",
+      "B": "Miss",
+      "C": "False alarm",
+      "D": "Correct rejection"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In Signal Detection Theory, a 'miss' occurs when a signal is present but the observer fails to detect it. In this case, the light is present (the tower is there), but the pilot cannot see it. Therefore, the pilot missed the signal.",
+          "critical_evidence": "The pilot states he cannot see the light when it is 1 mile away.",
+          "differential_considered": "A 'hit' would mean the pilot sees the light when it is present, which is not the case. A 'false alarm' would mean the pilot sees the light when it is not present, which is not the case either. 'Correct rejection' is not a standard term in Signal Detection Theory.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 184,
+            "generation_time_s": 9.444
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In Signal Detection Theory, a 'Miss' occurs when a signal (the light) is present but not detected by the observer (pilot). Since the pilot cannot see the light when it is present (at 1 mile distance), this represents a Miss. The other options are not applicable: a Hit would be detecting the light when it's present (not the case), False Alarm would be detecting the light when it's not present (no indication of that), and Correct Rejection would be failing to detect when the light is absent (no indication of the light being absent).",
+          "critical_evidence": "The pilot's inability to see the light when it is present at 1 mile distance",
+          "differential_considered": "No differential diagnoses needed as this is a straightforward application of Signal Detection Theory terminology. The scenario clearly describes a detection failure when the signal is present, which is the definition of a Miss.",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 217,
+            "generation_time_s": 10.517
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "In Signal Detection Theory, a 'miss' occurs when a stimulus is present but not detected. Here, the light (stimulus) is on and visible to the pilot at 1 mile, yet the pilot reports not seeing it, indicating failure to detect a present signal. This matches the definition of a miss. Other options involve false positives or correct rejections, which do not apply.",
+          "critical_evidence": "The pilot is 1 mile away, the light is on (stimulus present), but the pilot reports not seeing it (failure to detect).",
+          "differential_considered": "False alarm (C) requires a non-present stimulus being detected — not applicable. Hit (A) requires correct detection — not applicable. Correct rejection (D) requires absence of stimulus and no detection — not applicable. Only 'miss' fits the scenario.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 202,
+            "generation_time_s": 7.393
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 107,
+            "generation_time_s": 2.696
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hit",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 251,
+            "generation_time_s": 8.222
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

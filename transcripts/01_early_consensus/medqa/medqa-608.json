@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-608",
+  "dataset": "medqa",
+  "question_id": "608",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old African American female presents to the physician complaining of fatigue, fever, splenomegaly, and vision problems in her left eye. She denies any sore throat but states that she is fearful of going blind as her eyesight in her left has deteriorated significantly. A blood test reveals a CD4+ count of <50 and ophthalmoscopic exam reveals the following (Figure A). She claims she is currently taking some antivirals for her illness which she has had for several years although is inconsistent in taking them. Which of the following additional medications would be helpful in resolving the infection that resulted in her ophthalmologic condition?",
+    "options": {
+      "A": "Amantadine",
+      "B": "Ribavarin",
+      "C": "Flucytosine",
+      "D": "Nystatin",
+      "E": "Ganciclovir"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fatigue, fever, splenomegaly, CD4+ count <50, and vision problems in the left eye strongly suggests cytomegalovirus (CMV) retinitis. The ophthalmoscopic exam findings (Figure A, not provided, but implied to be consistent with CMV retinitis) further support this diagnosis. Ganciclovir is a potent antiviral medication specifically used to treat CMV infections, including CMV retinitis. The patient's inconsistent antiviral use likely contributed to the progression of the infection.",
+          "critical_evidence": "CD4+ count <50 and ophthalmoscopic findings consistent with CMV retinitis.",
+          "differential_considered": "While other opportunistic infections are possible in immunocompromised individuals, the combination of symptoms and the CD4+ count makes CMV retinitis the most likely diagnosis. Other differentials like toxoplasmosis or fungal infections are less likely given the specific presentation and the patient's history of consistent antiviral use (though inconsistent). Therefore, ganciclovir is the most appropriate choice to target the suspected CMV infection.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 259,
+            "generation_time_s": 12.925
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a CD4+ count <50, indicating advanced HIV infection, and vision loss in the left eye with splenomegaly. The ophthalmoscopic exam (Figure A) shows characteristic lesions consistent with cytomegalovirus (CMV) retinitis, a common opportunistic infection in HIV patients. CMV retinitis can lead to blindness if untreated. Ganciclovir is the antiviral of choice for CMV retinitis in immunocompromised patients, especially those with CD4+ counts below 200 cells/µL. Amantadine, Ribavarin, and Flucytosine are not effective for CMV. Nystatin is an antifungal, not antiviral. The patient's inconsistent antiviral adherence likely contributed to the progression of the infection.",
+          "critical_evidence": "CD4+ count <50 and ophthalmoscopic findings consistent with CMV retinitis",
+          "differential_considered": "Considered HSV, toxoplasmosis, and varicella, but ruled out due to CD4 count and ophthalmologic findings. HSV and varicella typically present with vesicles, not retinal lesions. Toxoplasmosis can cause retinal chorioretinitis but is less common than CMV in this setting and requires pyrimethamine/ sulfadiazine, not listed here.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.638
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient is a young African American female with severe immunosuppression (CD4+ <50), splenomegaly, fever, and vision loss in the left eye — highly suggestive of opportunistic infection. The ophthalmoscopic findings (not shown but implied by context) likely indicate retinitis, a hallmark of CMV retinitis in immunocompromised patients. Ganciclovir is the first-line antiviral for CMV retinitis. Her inconsistent antiviral use further supports active, uncontrolled infection.",
+          "critical_evidence": "CD4+ count <50 and vision loss in immunocompromised patient strongly point to CMV retinitis.",
+          "differential_considered": "Other possibilities like toxoplasmosis (less likely without history of exposure or typical retinal lesions), fungal infections (no systemic signs like mucosal involvement), or bacterial endophthalmitis (no focal intraocular inflammation) were considered but ruled out by immunosuppression context and typical presentation of CMV retinitis.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 248,
+            "generation_time_s": 8.691
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 13,
+            "generation_time_s": 0.338
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Toxoplasmosis (most likely with ganciclovir), candidiasis (nystatin), cytomegalovirus retinitis (ganciclovir), and other HIV-related infections. However, the CD4+ count points to toxoplasmosis as the leading diagnosis.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 336,
+            "generation_time_s": 10.569
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

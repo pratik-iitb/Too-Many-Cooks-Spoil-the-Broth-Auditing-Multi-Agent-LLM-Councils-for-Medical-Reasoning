@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1360",
+  "dataset": "medqa",
+  "question_id": "1360",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 2-year-old is brought to the emergency department by his mother for intermittent abdominal pain. She states the pain seems to be relieved by flexing his knees to his chest. The mother states that she noticed this morning that he passed stool mixed with blood and mucus. On exam, you note abdominal tenderness. An abdominal ultrasound is performed, and the results are shown in Figure A. What is the most common underlying cause of this patient's condition?",
+    "options": {
+      "A": "Idiopathic",
+      "B": "Gastric polyp",
+      "C": "Meckel's diverticulum",
+      "D": "Parasitic infection",
+      "E": "Intestinal lymphoma"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of intermittent abdominal pain relieved by knee flexion, blood and mucus in the stool, and abdominal tenderness strongly suggests intussusception. Meckel's diverticulum is a common cause of intussusception in children. While the other options are possible, they are less likely given the classic presentation.",
+          "critical_evidence": "The key finding is the intermittent abdominal pain relieved by knee flexion, which is a classic sign of intussusception.",
+          "differential_considered": "Idiopathic intussusception is a diagnosis of exclusion, and while possible, the ultrasound findings make a structural cause more likely. Gastric polyps, parasitic infections, and intestinal lymphoma are less common causes of this presentation in a 2-year-old.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 197,
+            "generation_time_s": 9.77
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of abdominal pain relieved by knee flexion, blood and mucus in stool, and abdominal tenderness are consistent with Meckel's diverticulum. This condition is a congenital remnant of the omphalomesenteric duct and commonly presents with epiploic appendagitis. The ultrasound findings would likely show a dilated diverticulum with possible hemorrhage, which matches the clinical picture.",
+          "critical_evidence": "Abdominal tenderness and the specific pain relief pattern with knee flexion",
+          "differential_considered": "Idiopathic (A) is too vague to be the most common cause; gastric polyp (B) would typically present differently; parasitic infection (D) would usually show different symptoms; intestinal lymphoma (E) is less common in children and would present differently",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.712
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with intermittent abdominal pain relieved by knee-to-chest positioning, bloody/mucousy stool, and abdominal tenderness — classic signs of Meckel's diverticulum. The ultrasound findings (not shown, but implied by context) likely reveal a diverticulum with possible ulceration or bleeding. This condition is the most common congenital anomaly of the GI tract and frequently presents in early childhood with pain and bleeding.",
+          "critical_evidence": "The combination of abdominal pain relieved by flexion, hematochezia, and abdominal tenderness strongly suggests Meckel's diverticulum, especially in a 2-year-old.",
+          "differential_considered": "Idiopathic (A) is too vague; gastric polyp (B) is rare in toddlers and doesn't cause hematochezia; parasitic infection (D) is less likely without travel or exposure history; intestinal lymphoma (E) is rare in this age group and typically presents with systemic symptoms.",
+          "usage": {
+            "prompt_tokens": 335,
+            "generated_tokens": 230,
+            "generation_time_s": 8.094
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 128,
+            "generation_time_s": 3.115
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (idiopathic), B (gastric polyp), D (parasitic infection), E (intestinal lymphoma) — these are less likely given the classic physical exam and ultrasound finding of small bowel obstruction pattern. Gastric polyp could cause pain but not the described stool finding. Parasitic or malignancy causes are less common in this age and symptom context without other systemic symptoms or chronic changes.",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 241,
+            "generation_time_s": 7.599
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

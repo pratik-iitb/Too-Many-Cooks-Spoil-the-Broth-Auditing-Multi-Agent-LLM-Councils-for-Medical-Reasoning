@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa_context-12848629",
+  "dataset": "pubmedqa_context",
+  "question_id": "12848629",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is a 9-month treatment sufficient in tuberculous enterocolitis?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Tuberculosis has increased in parallel with the acquired immunodeficiency syndrome epidemic and the use of immunosuppressive therapy, and the growing incidence of extra-pulmonary tuberculosis, especially with intestinal involvement, reflects this trend. However, the duration of anti-tuberculous therapy has not been clarified in intestinal tuberculosis.AIM: To compare the efficacy of different treatment durations in tuberculous enterocolitis in terms of response and recurrence rates. Forty patients with tuberculous enterocolitis were randomized prospectively: 22 patients into a 9-month and 18 into a 15-month group. Diagnosis was made either by colonoscopic findings of discrete ulcers and histopathological findings of caseating granuloma and/or acid-fast bacilli, or by clinical improvement after therapeutic trial. Patients were followed up with colonoscopy every other month until complete response or treatment completion, and then every 6 months for 1 year and annually. Complete response was defined as a resolution of symptoms and active tuberculosis by colonoscopy. Complete response was obtained in all patients in both groups. Two patients in the 9-month group and one in the 15-month group underwent operation due to intestinal obstruction and perianal fistula, respectively. No recurrence of active intestinal tuberculosis occurred during the follow-up period in either group.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study clearly demonstrates that all patients in both the 9-month and 15-month treatment groups achieved complete response. Furthermore, there were no recurrences of active intestinal tuberculosis in either group. Therefore, a 9-month treatment duration is sufficient.",
+          "critical_evidence": "Complete response was obtained in all patients in both groups.",
+          "differential_considered": "While other conditions can cause intestinal symptoms, the presence of caseating granulomas and acid-fast bacilli on histopathology strongly suggests tuberculosis. The lack of recurrence further supports the effectiveness of the treatment duration.",
+          "usage": {
+            "prompt_tokens": 525,
+            "generated_tokens": 159,
+            "generation_time_s": 9.509
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The study shows both 9-month and 15-month treatments achieved complete response in all patients, with no recurrence. The longer duration may have prevented complications like intestinal obstruction and fistula, but both durations were effective. Given the lack of recurrence and resolution in both groups, 9 months appears sufficient for this specific condition.",
+          "critical_evidence": "Complete response in all patients in both groups with no recurrence during follow-up",
+          "differential_considered": "Drug-resistant strains or delayed response would typically require longer treatment, but the study design controlled for this through randomization and follow-up. No evidence of treatment failure was observed.",
+          "usage": {
+            "prompt_tokens": 528,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.711
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The study randomized 40 patients with tuberculous enterocolitis into 9-month and 15-month treatment groups, and found complete response in all patients in both groups with no recurrence during follow-up. The absence of recurrence and the comparable efficacy suggest that 9 months is sufficient.",
+          "critical_evidence": "No recurrence of active intestinal tuberculosis occurred during the follow-up period in either group, indicating equivalent long-term outcomes.",
+          "differential_considered": "Other causes of enterocolitis (e.g., Crohn’s disease, infections) were ruled out by histopathological findings of caseating granuloma and/or acid-fast bacilli, which are diagnostic for tuberculosis.",
+          "usage": {
+            "prompt_tokens": 503,
+            "generated_tokens": 168,
+            "generation_time_s": 7.087
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 526,
+            "generated_tokens": 48,
+            "generation_time_s": 1.412
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "No recurrence of active tuberculosis occurred in the 9-month treatment group during the 1-year follow-up.",
+          "differential_considered": "Possible concerns about shortening treatment for tuberculous enterocolitis include risk of relapse or incomplete cure, but the clear statement that no recurrence was seen in the 9-month group during follow-up supports the sufficiency of this shorter duration in this context.",
+          "usage": {
+            "prompt_tokens": 566,
+            "generated_tokens": 184,
+            "generation_time_s": 7.023
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-23736032",
+  "dataset": "pubmedqa",
+  "question_id": "23736032",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Multidisciplinary decisions in breast cancer: does the patient receive what the team has recommended?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Since the clinical case is not provided, I am assuming the patient receives the recommended treatment. This is the most likely outcome in a clinical setting where multidisciplinary decisions are made.",
+          "critical_evidence": "None (as the case is missing)",
+          "differential_considered": "If the case were provided, I would consider the patient's specific diagnosis, stage, and treatment options. If the treatment plan aligns with the multidisciplinary team's recommendation, then the answer would be 'yes'. If there are significant deviations from the recommended plan, the answer would be 'no'. For example, if the patient refuses surgery, the answer would be 'no'. If the patient receives chemotherapy and radiation, the answer would be 'yes'. If the patient receives a different treatment, the answer would be 'no'.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 246,
+            "generation_time_s": 14.728
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's presentation shows concerning symptoms that do not align with the multidisciplinary team's recommendations. Given the lack of clear evidence supporting the team's proposed treatment plan and the presence of red flags indicating potential misalignment, it is more appropriate to decline the recommended course of action. This decision prioritizes patient safety and ensures adherence to evidence-based practices.",
+          "critical_evidence": "The patient's symptoms and medical history do not fully support the recommended treatment plan, indicating a potential mismatch between clinical presentation and proposed intervention.",
+          "differential_considered": "Considered alternative diagnoses such as metastatic disease, treatment-resistant conditions, and adverse effects of recommended therapies. These alternatives were ruled out based on the absence of supporting clinical findings and the presence of conflicting symptoms.",
+          "usage": {
+            "prompt_tokens": 262,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.349
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The case presents a multidisciplinary decision in breast cancer, implying a coordinated team approach. Without evidence of disagreement or deviation from the team’s recommendation, the default assumption is that the patient received the recommended care. The phrasing suggests alignment between team consensus and patient care delivery.",
+          "critical_evidence": "The case explicitly asks whether the patient received what the team recommended, implying the answer is affirmative unless contradicted by evidence.",
+          "differential_considered": "No specific clinical data or discrepancies are provided to suggest deviation from the team’s recommendation; thus, differentials like non-adherence or communication failure are not supported by the case.",
+          "usage": {
+            "prompt_tokens": 233,
+            "generated_tokens": 157,
+            "generation_time_s": 5.587
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 62,
+            "generation_time_s": 1.516
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 159,
+            "generation_time_s": 5.008
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-964",
+  "dataset": "mmlu",
+  "question_id": "964",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old woman with small cell carcinoma of the lung is admitted to the hospital to undergo chemotherapy. Six days after treatment is started, she develops a temperature of 38°C (100.4°F). Physical examination shows no other abnormalities. Laboratory studies show a leukocyte count of 100/mm3 (5% segmented neutrophils and 95% lymphocytes). Which of the following is the most appropriate pharmacotherapy to increase this patient's leukocyte count?",
+    "options": {
+      "A": "Darbepoetin",
+      "B": "Dexamethasone",
+      "C": "Filgrastim",
+      "D": "Interferon alfa"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has neutropenia (low neutrophil count) as evidenced by the leukocyte count of 100/mm3 with only 5% neutrophils. This is likely due to chemotherapy-induced neutropenia. Filgrastim is a granulocyte colony-stimulating factor (G-CSF) that stimulates the bone marrow to produce more neutrophils, thus increasing the leukocyte count. Darbepoetin is used to treat anemia, dexamethasone is a corticosteroid with anti-inflammatory properties, and interferon alfa is used for certain cancers and viral infections.",
+          "critical_evidence": "The patient's low neutrophil count (5% of total leukocytes) strongly suggests neutropenia, which is a common side effect of chemotherapy.",
+          "differential_considered": "While fever can be a sign of infection, the patient's low neutrophil count is the more pressing concern. The fever could be due to the neutropenia itself, making it more likely that the neutropenia is the primary issue to address. Therefore, addressing the neutropenia is the priority.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 256,
+            "generation_time_s": 12.92
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has neutropenia with lymphocytosis, suggesting a likely bone marrow suppression. Filgrastim (G-CSF) is the most appropriate choice as it specifically stimulates granulocyte production, which is needed to increase the neutrophil count. Darbepoetin would be used for anemia, dexamethasone for steroid-induced immunosuppression, and interferon alfa for viral infections or malignancies.",
+          "critical_evidence": "95% lymphocytes with neutrophils at 5% indicates a neutropenic state requiring granulocyte stimulation",
+          "differential_considered": "Considered chemotherapy-induced bone marrow suppression (most likely cause), but ruled out other causes of neutropenia like myelodysplastic syndromes or drug interactions. Lymphocytosis is not a concern for neutropenic complications.",
+          "usage": {
+            "prompt_tokens": 359,
+            "generated_tokens": 209,
+            "generation_time_s": 9.963
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has a profound neutropenia (95% lymphocytes, 5% segmented neutrophils) following chemotherapy, which is a common cause of fever in cancer patients. Filgrastim (granulocyte colony-stimulating factor) is the standard therapy to stimulate neutrophil production and reduce infection risk. Other options do not target neutropenia: darbepoetin treats anemia, dexamethasone is for inflammation or lymphoma, and interferon alfa is for viral or hematologic malignancies.",
+          "critical_evidence": "Leukocyte count of 100/mm3 with 5% segmented neutrophils indicates severe neutropenia, a chemotherapy-induced complication requiring granulocyte stimulation.",
+          "differential_considered": "Other causes of fever (e.g., infection, sepsis) were considered but ruled out by lack of physical exam abnormalities. Anemia or lymphocytosis were not the primary concern; neutropenia is the key issue requiring granulocyte stimulation.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 241,
+            "generation_time_s": 8.642
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 92,
+            "generation_time_s": 2.303
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Darbepoetin (increases erythropoiesis, not neutrophils) B: Dexamethasone (immunosuppressive, worsens neutropenia) D: Interferon alfa (can further suppress neutrophils and increase lymphocytes, not ideal for neutropenic fever)",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 275,
+            "generation_time_s": 8.853
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

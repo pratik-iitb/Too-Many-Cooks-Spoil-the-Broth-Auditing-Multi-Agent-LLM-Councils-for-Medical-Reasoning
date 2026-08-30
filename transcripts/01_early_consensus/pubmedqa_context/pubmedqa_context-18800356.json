@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-18800356",
+  "dataset": "pubmedqa_context",
+  "question_id": "18800356",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The FOOTSTEP self-management foot care programme: are rheumatoid arthritis patients physically able to participate?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The FOOTSTEP self-management foot care programme is a clinical and cost-effective programme for basic foot care in the elderly. The aim of this study was to determine if patients with rheumatoid arthritis (RA) would be physically able to participate. A consecutive cohort of RA patients undergoing podiatry care underwent tests for sight, reach and grip strength to determine their physical ability to undertake self-managed foot care. Thirty RA patients (10 male, 20 female), with a median age of 61 years (range 42 to 84) and disease duration of 10 years (range one to 40), were recruited. All patients passed the sight test, whereas the reach and grip tests were passed by 77% and 67% of patients, respectively. Only 57% of patients passed all the physical tests. Patients who failed the physical tests were older, and had longer disease duration and higher physical disability, pain and general health scores but these were not statistically different.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that most RA patients could pass the sight test, but a significant proportion (77% and 67%) failed the reach and grip strength tests, respectively. While the patients who failed the tests were older and had more disease duration and disability, these factors were not statistically different from those who passed the tests. This suggests that the physical limitations are likely due to the RA itself, rather than just age or disease duration. Therefore, many RA patients are physically able to participate in the FOOTSTEP programme.",
+          "critical_evidence": "The study found that 57% of patients passed all the physical tests, indicating that a substantial portion of RA patients are physically capable of self-managed foot care.",
+          "differential_considered": "Differential diagnoses considered included osteoarthritis and other musculoskeletal conditions. However, the study focused specifically on RA patients undergoing podiatry care, and the results suggest that the physical limitations are primarily related to the RA itself, making these other conditions less relevant in this context.",
+          "usage": {
+            "prompt_tokens": 475,
+            "generated_tokens": 244,
+            "generation_time_s": 14.41
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study found that only 57% of RA patients passed all physical tests required for the FOOTSTEP programme, indicating that physical ability varies significantly among patients. While some patients can participate, the majority fail at least one test, suggesting that participation is not universally feasible. The lack of statistical significance in differences between failing and non-failing groups further complicates a definitive yes/no answer, making'maybe' the most accurate choice.",
+          "critical_evidence": "Only 57% of patients passed all physical tests, showing significant variability in physical ability among RA patients",
+          "differential_considered": "No differential diagnoses needed - this is a single study evaluating physical ability for a specific programme, not a diagnostic question",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.104
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "While many RA patients passed the physical tests (77% reach, 67% grip), only 57% passed all tests, indicating a significant subset may struggle with self-managed foot care. The study did not show statistically significant differences in failure predictors, but the physical limitations observed suggest variability in ability, making a blanket 'yes' or 'no' inappropriate.",
+          "critical_evidence": "Only 57% of patients passed all physical tests, indicating a substantial proportion may not be physically able to fully participate.",
+          "differential_considered": "Considered 'yes' (if all patients could participate) and 'no' (if none could), but ruled both out due to mixed test results and lack of statistical significance in failure predictors, supporting 'maybe'.",
+          "usage": {
+            "prompt_tokens": 445,
+            "generated_tokens": 189,
+            "generation_time_s": 7.914
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 81,
+            "generation_time_s": 2.355
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other chronic conditions with neuropathy or severe joint impairment (e.g., osteoarthritis, peripheral neuropathy) might also limit participation, but the case specifically highlights RA-related physical limitations as the key factor.",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 236,
+            "generation_time_s": 8.943
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

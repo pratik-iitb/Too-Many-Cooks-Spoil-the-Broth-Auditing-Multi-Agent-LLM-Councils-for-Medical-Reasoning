@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-965",
+  "dataset": "medqa",
+  "question_id": "965",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old school teacher visits her doctor because of disfiguring skin lesions that started to appear in the past few days. The lesions are mostly located on her chest, shoulders, and back. They are 2–5 mm in diameter, droplike, erythematous papules with fine silver scales. Besides a sore throat and laryngitis requiring amoxicillin several weeks ago, she has no significant medical history. What is the most likely diagnosis?",
+    "options": {
+      "A": "Guttate psoriasis",
+      "B": "Bullous pemphigoid",
+      "C": "Inverse psoriasis",
+      "D": "Pemphigus vulgaris",
+      "E": "Plaque psoriasis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The description of the lesions (2-5 mm, droplike, erythematous papules with fine silver scales) is highly suggestive of plaque psoriasis. The distribution on the chest, shoulders, and back is also typical. The patient's age and lack of significant medical history further support this diagnosis.",
+          "critical_evidence": "The description of the lesions (2-5 mm, droplike, erythematous papules with fine silver scales) is highly suggestive of plaque psoriasis.",
+          "differential_considered": "Guttate psoriasis is more common in patients with a history of streptococcal infection, which the patient does not have. Bullous pemphigoid typically presents with large, tense blisters, which are not described here. Inverse psoriasis is usually found in skin folds, and the lesions are often more confluent. Pemphigus vulgaris presents with flaccid bullae and erosions, which are not described here.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 229,
+            "generation_time_s": 11.358
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with small, erythematous, droplike papules with fine silver scales, typically seen in acute guttate psoriasis. The sudden onset and distribution on the trunk align with this pattern. Other options like bullous pemphigoid (B) involve larger blisters and are less common in young adults; inverse psoriasis (C) affects skin folds, not the trunk; pemphigus vulgaris (D) presents with extensive blistering and mucosal involvement; plaque psoriasis (E) has thicker plaques and is less acute.",
+          "critical_evidence": "The droplike, erythematous papules with fine silver scales are classic for acute guttate psoriasis.",
+          "differential_considered": "Bullous pemphigoid, inverse psoriasis, pemphigus vulgaris, and plaque psoriasis were considered but ruled out due to mismatched clinical features such as blister size, location, and patient history.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 231,
+            "generation_time_s": 10.76
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute-onset, droplike, erythematous papules with fine silver scales on the chest, shoulders, and back — classic features of guttate psoriasis. The recent history of streptococcal infection (sore throat, laryngitis treated with amoxicillin) is a well-known trigger for guttate psoriasis. Other options lack key features: bullous pemphigoid presents with tense bullae, inverse psoriasis occurs in flexural areas, pemphigus vulgaris causes flaccid bullae with Nikolsky sign, and plaque psoriasis is chronic with thick, well-demarcated plaques.",
+          "critical_evidence": "Acute onset of droplike, erythematous papules with fine silver scales following recent streptococcal infection.",
+          "differential_considered": "Bullous pemphigoid (tense bullae, often with mucosal involvement), inverse psoriasis (intertriginous areas), pemphigus vulgaris (flaccid bullae, Nikolsky sign), and plaque psoriasis (chronic, thick plaques) were considered but ruled out based on lesion morphology, distribution, and acute onset post-infection.",
+          "usage": {
+            "prompt_tokens": 345,
+            "generated_tokens": 287,
+            "generation_time_s": 10.086
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 12,
+            "generation_time_s": 0.305
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Guttate psoriasis (usually on the scalp and extremities, not the back), bullous pemphigoid (characteristic blisters), inverse psoriasis (usually mucosal and symmetric, not described here), and pemphigus vulgaris (more severe, rapid progression, and mucosal involvement expected but not mentioned) were all considered but ruled out due to the acute onset and lesion morphology.",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 315,
+            "generation_time_s": 9.924
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

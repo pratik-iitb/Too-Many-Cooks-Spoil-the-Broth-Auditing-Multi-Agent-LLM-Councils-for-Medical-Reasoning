@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1000",
+  "dataset": "medqa",
+  "question_id": "1000",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 37-year-old man with no significant past medical history is rear-ended in a motor vehicle accident. He reported significant neck pain to emergency responders, but otherwise denies weakness, numbness or tingling in his extremities. His vitals on presentation to the ED are HR 90, BP 140/80, RR 20, SpO2 98%. What is the most appropriate next step upon presentation to the emergency room?",
+    "options": {
+      "A": "Lateral cervical film",
+      "B": "Three view cervical spine series",
+      "C": "Cervical immobilization",
+      "D": "IV methylprednisolone",
+      "E": "Observation overnight"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with neck pain after a motor vehicle accident, raising concern for cervical spine injury. Immobilization is the priority to prevent further injury. While imaging is important, it should not delay immobilization.",
+          "critical_evidence": "Neck pain after a motor vehicle accident",
+          "differential_considered": "While other options may be considered later, the immediate priority is to stabilize the cervical spine. A lateral cervical film or three-view series can be obtained after immobilization. IV methylprednisolone is not indicated in this acute setting. Observation overnight without immobilization is insufficient given the mechanism of injury.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 161,
+            "generation_time_s": 7.973
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a low-velocity rear-end collision and reports significant neck pain. While no neurological deficits are noted, cervical spine injury is a known risk in motor vehicle accidents, particularly in the absence of protective mechanisms. Immediate cervical immobilization is the standard of care to prevent further injury and spinal instability.",
+          "critical_evidence": "The patient's mechanism of injury (motor vehicle accident) and the presence of neck pain without protective mechanisms suggest potential for cervical spine injury.",
+          "differential_considered": "Considered soft tissue injury, but cervical spine instability is a known risk in such accidents. No red flags for urgent neurosurgical intervention were present, but immobilization remains the safest approach.",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 171,
+            "generation_time_s": 7.961
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 37-year-old with acute neck pain following a motor vehicle collision, but no neurological deficits or red flags. According to NEXUS criteria, he does not meet criteria for cervical spine imaging (no midline cervical tenderness, no history of trauma mechanism, no altered mental status, no focal neurological deficit, no intoxication). Therefore, cervical immobilization is the most appropriate next step to prevent further injury while ruling out instability or fracture non-invasively.",
+          "critical_evidence": "No neurological deficits, no midline cervical tenderness, and no mechanism of injury suggesting high-energy trauma.",
+          "differential_considered": "Cervical spine fracture or dislocation was considered, but ruled out by absence of neurological symptoms and lack of high-risk mechanism. Imaging is not indicated per NEXUS criteria, making immobilization the safest next step.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 206,
+            "generation_time_s": 7.226
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 12,
+            "generation_time_s": 0.304
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A (lateral film) and D (methylprednisolone) are not first-line for initial assessment of trauma with neck pain. C (cervical immobilization) is important for patient stability but not the diagnostic next step. E (observation) is inappropriate without ruling out serious spinal injury.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 256,
+            "generation_time_s": 8.036
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1018",
+  "dataset": "metamed",
+  "question_id": "1018",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old woman with a history of depression and headaches presents to the emergency room with severe, pulsating pain around the crown of her head beginning 12 hours ago. She last took ibuprofen 2 hours ago but did not feel any improvement in the pain. She has been nauseous and unable to get out of bed and is currently laying in the dark with the lights off. Her depression has improved, and she has stopped taking her sertraline 2 months ago. Other than ibuprofen as needed, she is not currently taking any additional medications. Which of the following would be the best treatment for her acute symptoms?",
+    "options": {
+      "A": "No treatment necessary",
+      "B": "100% oxygen",
+      "C": "Propranolol",
+      "D": "Sumatriptan",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a classic migraine headache, characterized by severe, pulsating pain around the crown of the head, nausea, and photophobia (lying in the dark). Given the acute nature of the symptoms and the lack of response to ibuprofen, a triptan is the most appropriate first-line treatment for acute migraine. While oxygen and propranolol are sometimes used in migraine management, they are not the first-line treatment for acute symptoms.",
+          "critical_evidence": "Severe, pulsating headache around the crown of the head, nausea, and lack of response to ibuprofen strongly suggest migraine.",
+          "differential_considered": "Cluster headache: Less likely given the location of the pain (crown of the head) and the lack of associated autonomic symptoms. Tension headache: Less likely given the severity and pulsating nature of the pain. Sinus headache: Less likely given the lack of nasal congestion or facial pain. Medication overuse headache: While possible, the acute presentation and lack of prior medication use make this less likely as the primary diagnosis. Therefore, migraine is the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 256,
+            "generation_time_s": 13.244
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with severe, pulsating head pain, nausea, photophobia, and worsening headache despite ibuprofen. These features strongly suggest a migraine attack. Sumatriptan is a specific treatment for acute migraines, while propranolol is a preventive agent, oxygen is not indicated for migraines, and no treatment is not appropriate given the severity. The patient's history of depression and prior use of sertraline is noted but not relevant to the current acute headache.",
+          "critical_evidence": "Severe, pulsating head pain with nausea and photophobia consistent with migraine",
+          "differential_considered": "Considered tension headache, cluster headache, and sinusitis, but ruled out due to specific migraine features and lack of other supporting symptoms. No evidence of sinus involvement or cluster headache pattern.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 196,
+            "generation_time_s": 9.57
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with severe, pulsating headache localized to the crown of the head, associated with nausea and photophobia, consistent with a migraine attack. She has a history of depression and recently discontinued sertraline, which may have contributed to symptom exacerbation. Ibuprofen was ineffective, indicating a need for a triptan, which is the first-line acute treatment for moderate to severe migraine. The absence of other significant comorbidities or red flags supports migraine as the most likely diagnosis.",
+          "critical_evidence": "Severe, pulsating headache localized to the crown of the head, nausea, photophobia, and lack of response to NSAIDs — classic migraine features.",
+          "differential_considered": "Other differentials like cluster headache (typically unilateral, with autonomic symptoms) or secondary headache (e.g., due to vascular or structural cause) were considered but ruled out by the bilateral, pulsating nature and absence of systemic symptoms or red flags. Depression history and recent SSRI discontinuation may have contributed to migraine exacerbation but do not alter the acute treatment approach.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 250,
+            "generation_time_s": 8.834
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not provided in the options.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 10,
+            "generation_time_s": 0.267
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Migraine with aura (best fit), tension headache, subdural hematoma, medication-overuse headache, or other secondary headaches. However, the headache's duration and lack of clear signs of a life-threatening process rule out acute interventions like oxygen or propranolol, and no evidence points to a need for hospitalization or alternative migraine prophylaxis. There is no indication of a secondary cause requiring a different class of drug.",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 234,
+            "generation_time_s": 7.65
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

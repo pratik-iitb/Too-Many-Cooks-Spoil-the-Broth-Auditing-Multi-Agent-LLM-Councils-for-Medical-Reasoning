@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-23347337",
+  "dataset": "pubmedqa_context",
+  "question_id": "23347337",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is intensive chemotherapy safe for rural cancer patients?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To provide equality of cancer care to rural patients, Townsville Cancer Centre administers intensive chemotherapy regimens to rural patients with node-positive breast and metastatic colorectal cancers at the same doses as urban patients. Side-effects were usually managed by rural general practitioners locally.AIM: The aim is to determine the safety of this practice by comparing the profile of serious adverse events and dose intensities between urban and rural patients at the Townsville Cancer Centre. A retrospective audit was conducted in patients with metastatic colorectal and node-positive breast cancers during a 24-month period. Fisher's exact test was used for analysis. Rurality was determined as per rural, remote and metropolitan classification. Of the 121 patients included, 70 and 51 patients had breast and colon cancers respectively. The urban versus rural patient split among all patients, breast and colorectal cancer subgroups was 68 versus 53, 43 versus 27 and 25 versus 26 respectively. A total of 421 cycles was given with dose intensity of>95% for breast cancer in both groups (P>0.05). Rate of febrile neutropenia was 9.3% versus 7.4% (P = 0.56). For XELOX, rate of diarrhoea was 20% versus 19% (P = 0.66) and rate of vomiting was 20% versus 11% (P = 0.11). Only two patients were transferred to Townsville for admission. No toxic death occurred in either group.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that intensive chemotherapy regimens are safe for rural cancer patients at Townsville Cancer Centre, as evidenced by comparable rates of serious adverse events (febrile neutropenia, diarrhea, vomiting) and lack of toxic deaths between urban and rural patients. The low number of transfers to Townsville for admission further supports the safety of the practice.",
+          "critical_evidence": "No toxic death occurred in either group.",
+          "differential_considered": "While the study focuses on the safety of intensive chemotherapy, other factors like access to supportive care and patient adherence might influence outcomes. However, the data presented suggests that the intensive chemotherapy regimen is safe for rural patients, and these other factors are not directly addressed in the provided information.",
+          "usage": {
+            "prompt_tokens": 586,
+            "generated_tokens": 186,
+            "generation_time_s": 10.435
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The data shows no significant differences in serious adverse events, dose intensities, or toxic deaths between urban and rural patients. With only two hospital admissions and no toxic deaths, the practice appears safe. The P-values for all compared metrics were non-significant, indicating no statistically meaningful difference in safety profiles.",
+          "critical_evidence": "No toxic death occurred in either group, and the P-values for all adverse event comparisons were non-significant, demonstrating equivalent safety between urban and rural patients.",
+          "differential_considered": "No differential diagnoses needed - this is a single clinical question about treatment safety, not a diagnostic scenario. The analysis directly addresses the safety of rural chemotherapy administration through comparative adverse event data.",
+          "usage": {
+            "prompt_tokens": 571,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.407
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The audit shows no significant differences in serious adverse events, dose intensity, or toxic deaths between urban and rural patients. Only two patients required transfer, and no toxic deaths occurred, indicating that intensive chemotherapy is safe for rural patients when managed appropriately.",
+          "critical_evidence": "No toxic death occurred in either group, and dose intensity remained >95% in both groups with no statistically significant differences in serious adverse events.",
+          "differential_considered": "Potential concerns about rural access to supportive care were considered, but the data show comparable safety profiles and no toxic deaths, ruling out significant risk from rurality.",
+          "usage": {
+            "prompt_tokens": 564,
+            "generated_tokens": 153,
+            "generation_time_s": 6.496
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 569,
+            "generated_tokens": 87,
+            "generation_time_s": 2.547
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The audit shows that both urban and rural patients received similar dose intensities and similar rates of common toxicities such as febrile neutropenia and gastrointestinal side effects. However, the data does not report any increased incidence of serious adverse events in the rural group, but the sample size is relatively small and the differences observed (e.g., vomiting) are not statistically significant. Without evidence of increased risk in rural patients, but with acknowledged limitations in study design, the answer is uncertain and could be 'maybe'.",
+          "critical_evidence": "The lack of statistically significant differences in serious adverse events or toxic deaths between urban and rural groups, despite similar chemotherapy exposure, suggests safety but does not definitively prove it due to the retrospective and non-randomized nature of the study.",
+          "differential_considered": "Possible concerns about rural access to emergency care or toxicity management could be considered, but the data do not show higher toxicity rates in rural patients, and no toxic deaths occurred in either group. Other factors like patient adherence or follow-up were not reported, but the absence of increased serious adverse events is the key supportive finding.",
+          "usage": {
+            "prompt_tokens": 603,
+            "generated_tokens": 256,
+            "generation_time_s": 9.813
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

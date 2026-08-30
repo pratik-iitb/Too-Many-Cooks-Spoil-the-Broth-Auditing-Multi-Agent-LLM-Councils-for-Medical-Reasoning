@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1451",
+  "dataset": "medqa",
+  "question_id": "1451",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 50-year-old woman is brought to the emergency department following a motor vehicle accident. She is awake but slow to respond. Her breath smells of alcohol. The emergency medical technician reports that her blood pressure has been dropping despite intravenous fluids. Ultrasound reveals a hypoechoic rim around the spleen, suspicious for a splenic laceration. The patient is brought into the operating room for abdominal exploration and a splenic embolization is performed. Since arriving to the hospital, the patient has received 8 units of packed red blood cells and 2 units of fresh frozen plasma. She is stabilized and admitted for observation. The next morning on rounds, the patient complains of numbness and tingling of her mouth and cramping of her hands. Her temperature is 99°F (37.2°C), blood pressure is 110/69 mmHg, and pulse is 93/min. On physical examination, her abdomen is mildly tender without distention. The surgical wound is clean, dry, and intact. Jugular venous pressure is normal. Periodic spasms of the muscles of her bilateral upper and lower extremities can be seen and tapping of the facial nerve elicits twitching of he facial muscles. Which of the following is most likely to improve the patient’s symptoms?",
+    "options": {
+      "A": "Calcium gluconate",
+      "B": "Dextrose",
+      "C": "Lorazepam",
+      "D": "Thiamine",
+      "E": "Sodium bicarbonate"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of numbness, tingling, muscle spasms, and facial twitching strongly suggest hypocalcemia. The recent massive blood transfusion, particularly the administration of fresh frozen plasma, can lead to hypocalcemia due to the citrate in the plasma binding calcium. Thiamine is important in alcoholics, but the patient's primary issue is likely related to the blood transfusion.",
+          "critical_evidence": "Numbness and tingling of the mouth and cramping of the hands, along with facial twitching, are classic symptoms of hypocalcemia.",
+          "differential_considered": "A: Calcium gluconate is the treatment for hypocalcemia, but it's not the most likely cause of the patient's symptoms given the recent blood transfusion. B: Dextrose can worsen hypocalcemia by increasing calcium uptake into cells. C: Lorazepam is a benzodiazepine used for anxiety and seizures, not directly related to the patient's current symptoms. E: Sodium bicarbonate is used for metabolic acidosis, which is not indicated in this case.",
+          "usage": {
+            "prompt_tokens": 521,
+            "generated_tokens": 254,
+            "generation_time_s": 12.889
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of numbness, tingling, and muscle cramps are consistent with Wernicke encephalopathy, a complication of thiamine deficiency. Given her alcohol intoxication and significant blood loss, thiamine deficiency is a likely cause. Splenic embolization can lead to hypoxia and organ dysfunction, exacerbating the deficiency. Thiamine is essential for glucose metabolism in the brain and its deficiency can cause neurological symptoms.",
+          "critical_evidence": "The patient's history of alcohol intoxication and significant blood loss, combined with neurological symptoms, strongly suggest thiamine deficiency.",
+          "differential_considered": "While hypoxia from splenic embolization could contribute to neurological symptoms, the combination of alcohol intoxication and blood loss makes thiamine deficiency the most likely cause. Other differentials like hypocalcemia or hypomagnesemia were less likely given the absence of typical findings (tetany, hyporeflexia).",
+          "usage": {
+            "prompt_tokens": 527,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.623
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient’s symptoms—numbness, tingling, muscle cramps, and muscle spasms triggered by facial nerve tapping—are classic signs of hypocalcemia, likely secondary to massive transfusion. Transfused blood products, especially fresh frozen plasma and packed red blood cells, can dilute serum calcium or bind it, leading to symptomatic hypocalcemia. Calcium gluconate is the treatment of choice to rapidly correct this life-threatening electrolyte imbalance.",
+          "critical_evidence": "Numbness, tingling of mouth, cramping of hands, and muscle spasms triggered by facial nerve tapping are hallmark signs of hypocalcemia.",
+          "differential_considered": "Other differentials like hypomagnesemia, hypokalemia, or metabolic alkalosis were considered but are less likely given the acute presentation and lack of associated findings (e.g., ECG changes for hypokalemia, no respiratory alkalosis). Thiamine deficiency (Wernicke’s) is unlikely without alcoholism history and neurological deficits. Lorazepam and dextrose address different etiologies (seizures, hypoglycemia) not supported by this case.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 272,
+            "generation_time_s": 9.576
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 525,
+            "generated_tokens": 109,
+            "generation_time_s": 2.66
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 558,
+            "generated_tokens": 266,
+            "generation_time_s": 8.389
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

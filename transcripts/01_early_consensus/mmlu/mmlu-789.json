@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-789",
+  "dataset": "mmlu",
+  "question_id": "789",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The most common cystic fibrosis mutation consists of:",
+    "options": {
+      "A": "a deletion.",
+      "B": "a duplication.",
+      "C": "a substitution.",
+      "D": "an insertion."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cystic fibrosis (CF) is most commonly caused by mutations in the CFTR gene. The most common mutation is a deletion of phenylalanine at position 508 (ΔF508). This is a deletion, but it is a specific type of mutation. Other mutations can be deletions, duplications, or substitutions.",
+          "critical_evidence": "The most common cystic fibrosis mutation is a deletion of phenylalanine at position 508 (ΔF508).",
+          "differential_considered": "A: A deletion is a possible mutation, but not the most common. B: A duplication is a possible mutation, but not the most common. D: An insertion is a possible mutation, but not the most common. The most common mutation is a deletion.",
+          "usage": {
+            "prompt_tokens": 265,
+            "generated_tokens": 200,
+            "generation_time_s": 10.09
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cystic fibrosis is caused by mutations in the CFTR gene, which encodes a chloride channel protein. The most common mutation is a single nucleotide substitution that leads to a premature stop codon, resulting in a truncated protein. This type of mutation is a substitution, where one nucleotide is replaced by another, altering the amino acid sequence. This substitution disrupts the normal function of the CFTR protein, leading to the characteristic symptoms of cystic fibrosis.",
+          "critical_evidence": "The most common cystic fibrosis mutation is a substitution that results in a truncated CFTR protein.",
+          "differential_considered": "Other types of mutations like deletions, duplications, and insertions can occur, but they are less common in cystic fibrosis. These mutations typically result in a longer or shorter protein, but the substitution mutation is the most frequent and clinically significant in this disease.",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 214,
+            "generation_time_s": 10.176
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The most common cystic fibrosis mutation is the ΔF508 mutation, which is a three-base pair deletion leading to the loss of phenylalanine at position 508 in the CFTR protein. This deletion is the most prevalent worldwide and accounts for approximately 70% of CF alleles in Caucasian populations. Other mutations like substitutions or insertions are less common in terms of prevalence.",
+          "critical_evidence": "ΔF508 is a deletion mutation, specifically a 3-bp deletion causing a frameshift and premature stop codon.",
+          "differential_considered": "Substitutions (C) and insertions (D) are less common; duplications (B) are rare in CF. These were considered but ruled out due to their lower prevalence and lack of association with the most common CF phenotype.",
+          "usage": {
+            "prompt_tokens": 235,
+            "generated_tokens": 199,
+            "generation_time_s": 7.111
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 262,
+            "generated_tokens": 14,
+            "generation_time_s": 0.356
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Deletions, duplications, and insertions are types of genetic mutations, but the question specifies the \"most common\" mutation, which is a substitution (a base change). Other types of mutations are less frequent as primary causes of the classic form of cystic fibrosis.",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 223,
+            "generation_time_s": 7.155
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

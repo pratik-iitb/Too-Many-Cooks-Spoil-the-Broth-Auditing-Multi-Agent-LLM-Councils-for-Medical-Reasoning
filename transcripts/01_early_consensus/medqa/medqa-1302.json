@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1302",
+  "dataset": "medqa",
+  "question_id": "1302",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 64-year-old man presents to the outpatient clinic because of abdominal pain. He reports that for the last few months, he has had postprandial pain that is worsened by spicy foods. He states that the pain is often located in the right upper portion of his abdomen and feels like it's traveling to his shoulder blade. These episodes are sporadic and unpredictable. He denies any fevers. Physical examination shows no abnormalities. Abdominal ultrasound is shown. Which of the following is the best treatment for this condition?",
+    "options": {
+      "A": "Cholecystectomy",
+      "B": "Endoscopic retrograde cholangiopancreatography (ERCP)",
+      "C": "Magnetic resonance cholangiopancreatography (MRCP)",
+      "D": "Ketorolac",
+      "E": "Ursodeoxycholic acid"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of postprandial abdominal pain, radiating to the right shoulder blade, is highly suggestive of biliary colic due to gallstones. The abdominal ultrasound is likely to show gallstones. Cholecystectomy is the definitive treatment for symptomatic gallstones.",
+          "critical_evidence": "Postprandial abdominal pain radiating to the right shoulder blade is a classic symptom of biliary colic.",
+          "differential_considered": "ERCP is typically reserved for acute cholangitis or common bile duct stones, which are not indicated by the patient's lack of fever or jaundice. MRCP is a good imaging modality for biliary pathology, but cholecystectomy is the definitive treatment. Ketorolac is a pain reliever and does not address the underlying cause. Ursodeoxycholic acid is used to dissolve small cholesterol gallstones, but it is not effective for large stones and is not the first-line treatment for symptomatic gallstones.",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 231,
+            "generation_time_s": 11.423
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's postprandial abdominal pain with radiation to the shoulder blade suggests possible biliary colic or cholangitis. While cholecystectomy (A) is a definitive treatment for gallstones, the absence of clear evidence of gallstones on ultrasound and the need for further imaging to confirm the diagnosis makes ERCP (B) the most appropriate next step. MRCP (C) could be considered but ERCP provides both diagnostic and therapeutic capabilities. Ketorolac (D) is a pain reliever but not a curative treatment. Ursodeoxycholic acid (E) is for gallstone prevention, not acute pain management.",
+          "critical_evidence": "The patient's description of pain that worsens with spicy foods and radiates to the shoulder blade is consistent with biliary colic, which is best diagnosed and treated with ERCP.",
+          "differential_considered": "Gallstones were considered but ruled out as the primary diagnosis pending further imaging. Other causes like pancreatitis or peptic ulcer disease were less likely given the location and radiation of pain.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 250,
+            "generation_time_s": 11.635
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chronic postprandial right upper quadrant pain radiating to the shoulder blade, a classic presentation of biliary colic due to gallstones. The absence of fever and normal physical exam suggest no acute cholangitis or pancreatitis. Imaging (ultrasound, though not shown, is implied by context) would likely reveal gallstones. Cholecystectomy is the definitive treatment for symptomatic gallstones. Other options are either diagnostic (MRCP, ERCP) or symptomatic (ketorolac, ursodeoxycholic acid), which are not curative.",
+          "critical_evidence": "Postprandial RUQ pain radiating to shoulder blade is highly suggestive of biliary colic due to gallstones.",
+          "differential_considered": "Acute cholangitis (ruled out by absence of fever), pancreatitis (ruled out by absence of epigastric pain and no history of alcohol use), GERD (ruled out by location and radiation pattern), and peptic ulcer disease (ruled out by absence of epigastric pain and no history of NSAID use).",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 262,
+            "generation_time_s": 9.182
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's symptoms of postprandial pain, particularly after eating spicy foods, and the location of the pain in the right upper abdomen with radiation to the shoulder blade are suggestive of gallbladder pathology. The absence of fever and normal physical examination make acute cholecystitis less likely. The ultrasound findings are not provided, but if they show gallstones or cholecystitis, cholecystectomy would be the appropriate treatment. Therefore, the best treatment option is cholecystectomy.",
+          "critical_evidence": "The patient's symptoms of postprandial pain with radiation to the shoulder blade suggest gallbladder pathology.",
+          "differential_considered": "Acute cholecystitis was considered and ruled out due to the absence of fever and normal physical examination.",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 181,
+            "generation_time_s": 4.388
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Cholecystitis (gallbladder inflammation), peptic ulcer, pancreatitis, hepatic or biliary tract issues, and functional dyspepsia were considered, but the classic location and radiation of pain point strongly toward cholecystitis as the leading diagnosis. However, without imaging confirmation, the best immediate treatment is further evaluation, making MRCP the most appropriate next step.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 252,
+            "generation_time_s": 7.944
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

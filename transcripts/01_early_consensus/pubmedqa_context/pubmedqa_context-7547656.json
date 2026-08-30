@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-7547656",
+  "dataset": "pubmedqa_context",
+  "question_id": "7547656",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does continuous intravenous infusion of low-concentration epinephrine impair uterine blood flow in pregnant ewes?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Bolus intravenous injection of epinephrine can decrease uterine blood flow. This study examined the effects of intravenous infusion of epinephrine on uterine blood flow in the gravid ewe. Maternal and fetal vascular catheters and a maternal electromagnetic uterine artery flow probe were implanted in 10 near-term gravid ewes. After recovery, saline, 0.125% bupivacaine, 0.125% bupivacaine with 1:200,000 epinephrine, 0.125% bupivacaine with 1:400,000 epinephrine, and 0.125% bupivacaine with 1:800,000 epinephrine were infused into the maternal superior vena cava. Drugs were infused at 10 mL/h for 30 minutes and then at 20 mL/h for an additional 30 minutes. Animals also received an intravenous bolus of epinephrine 15 micrograms. Throughout all infusions, maternal heart rate, systemic and pulmonary blood pressures, uterine blood flow, cardiac output, and acid-base balance were measured, as well as fetal heart rate, blood pressure, and acid-base balance. Epinephrine 15 micrograms decreased uterine blood flow to 68 +/- 14% of baseline (mean +/- SD). Infusion of all solutions had no effect on any measured hemodynamic variable.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that bolus epinephrine decreased uterine blood flow significantly. However, the continuous infusion of epinephrine at low concentrations (0.125% bupivacaine with 1:200,000, 1:400,000, and 1:800,000 epinephrine) had no effect on uterine blood flow or other measured hemodynamic variables. Therefore, continuous infusion of low-concentration epinephrine does not impair uterine blood flow in pregnant ewes.",
+          "critical_evidence": "Infusion of all solutions had no effect on any measured hemodynamic variable.",
+          "differential_considered": "A potential differential diagnosis could be that the low concentration of epinephrine might have a subtle effect on uterine blood flow over time, but the study's design and results make this unlikely. The lack of effect on other hemodynamic variables further supports this conclusion.",
+          "usage": {
+            "prompt_tokens": 555,
+            "generated_tokens": 221,
+            "generation_time_s": 13.187
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that bolus epinephrine decreased uterine blood flow, but continuous intravenous infusion of epinephrine at concentrations tested (1:200,000 to 1:800,000) did not impair uterine blood flow. The key evidence is that all infusion rates had no effect on uterine blood flow, while only the bolus dose caused a significant decrease.",
+          "critical_evidence": "Infusion of all solutions had no effect on uterine blood flow",
+          "differential_considered": "Differential consideration was whether the bolus effect might generalize to continuous infusion, but the data shows bolus and infusion effects are distinct - bolus causes decrease, infusion does not",
+          "usage": {
+            "prompt_tokens": 571,
+            "generated_tokens": 1024,
+            "generation_time_s": 71.688
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The study explicitly states that infusion of all epinephrine-containing solutions (at concentrations 1:200,000 to 1:800,000) had no effect on uterine blood flow, unlike the bolus injection which significantly reduced it. This indicates that continuous low-concentration infusion does not impair uterine perfusion.",
+          "critical_evidence": "Infusion of all solutions had no effect on any measured hemodynamic variable, including uterine blood flow.",
+          "differential_considered": "The differential of epinephrine causing uterine hypoperfusion was considered, but ruled out because only bolus injection, not infusion, affected flow; infusion at low concentrations was neutral.",
+          "usage": {
+            "prompt_tokens": 571,
+            "generated_tokens": 180,
+            "generation_time_s": 9.892
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 569,
+            "generated_tokens": 64,
+            "generation_time_s": 1.942
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible considerations included whether the bolus effect could persist or accumulate during infusion, but the clear data showing no change in uterine blood flow during continuous infusion directly refutes impairment from low-concentration epinephrine infusions.'",
+          "usage": {
+            "prompt_tokens": 605,
+            "generated_tokens": 223,
+            "generation_time_s": 8.572
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

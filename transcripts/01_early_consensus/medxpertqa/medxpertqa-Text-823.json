@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-823",
+  "dataset": "medxpertqa",
+  "question_id": "Text-823",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old male is brought to the emergency department after sustaining 12 stab wounds across multiple areas of his body. Paramedics report significant blood loss at the scene. Upon arrival, the patient has a Glasgow Coma Scale score of 3, necessitating endotracheal intubation and large-bore intravenous access. He is managed with a massive transfusion protocol while preparations are made for an exploratory laparotomy. An arterial line and central venous access are established. His vital signs include a temperature of 95°F (35°C), blood pressure of 50/40 mmHg, pulse of 80/min, and controlled respirations of 20/min on lung-protective volume control. Despite receiving a 6:6:1 ratio of red blood cells, plasma, and platelets, along with continuous phenylephrine infusion, his vital signs remain unchanged. The surgical team confirms no ongoing blood loss. A stat ScvO2 is 39%, with a SaO2 of 100% on 100% oxygen. His extremities are cold, despite increasing the ambient room temperature to 80°F (26.7°C). What is the most likely cause of his condition?\nAnswer Choices: (A) Septic shock due to contamination of wounds (B) Tension pneumothorax (C) Acute respiratory distress syndrome (ARDS) (D) Hypovolemic shock due to inadequate resuscitation (E) Myocardial contusion (F) Cardiac tamponade (G) Cervical spinal cord transection (H) Hypothermia-induced vasoconstriction (I) Neurogenic shock (J) Occult hemorrhage",
+    "options": {
+      "A": "Septic shock due to contamination of wounds",
+      "B": "Tension pneumothorax",
+      "C": "Acute respiratory distress syndrome (ARDS)",
+      "D": "Hypovolemic shock due to inadequate resuscitation",
+      "E": "Myocardial contusion",
+      "F": "Cardiac tamponade",
+      "G": "Cervical spinal cord transection",
+      "H": "Hypothermia-induced vasoconstriction",
+      "I": "Neurogenic shock",
+      "J": "Occult hemorrhage"
+    },
+    "context": "",
+    "correct_option": "F",
+    "metadata": {
+      "medical_task": "Diagnosis",
+      "body_system": "Cardiovascular",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's core temperature of 95°F (35°C), despite being in a warm environment, and the presence of cold extremities strongly suggest hypothermia. Hypothermia causes vasoconstriction, which reduces peripheral blood flow and can lead to decreased oxygen delivery to tissues, explaining the low ScvO2 despite adequate oxygenation. The other options are less likely given the clinical picture.",
+          "critical_evidence": "Core temperature of 95°F (35°C) and cold extremities.",
+          "differential_considered": "Septic shock (A) is less likely without signs of infection. Tension pneumothorax (B) would typically present with unilateral decreased breath sounds and tracheal deviation, which are not mentioned. ARDS (C) usually presents with bilateral infiltrates on chest X-ray, which is not mentioned. Hypovolemic shock (D) has been addressed with massive transfusion, and the surgical team confirmed no ongoing blood loss. Myocardial contusion (E) is possible but less likely given the lack of chest pain or ECG changes. Cardiac tamponade (F) would present with Beck's triad (hypotension, distended neck veins, muffled heart sounds), which is not mentioned. Cervical spinal cord transection (G) would present with neurological deficits, which are not mentioned. Neurogenic shock (I) is less likely given the patient's history of trauma and the lack of specific neurological findings. Occult hemorrhage (J) is a possibility but less likely than hypothermia given the other findings.",
+          "usage": {
+            "prompt_tokens": 675,
+            "generated_tokens": 360,
+            "generation_time_s": 15.012
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "H",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's hypothermia (95°F/35°C) and vasoconstriction explain the persistent hypotension despite adequate fluid resuscitation. The stat ScvO2 of 39% and SaO2 of 100% on high oxygen suggest a perfusion defect, but the cold extremities and room temperature of 80°F (26.7°C) point to hypothermia-induced vasoconstriction as the primary cause of his condition.",
+          "critical_evidence": "Temperature of 95°F (35°C) with cold extremities despite warm environment",
+          "differential_considered": "While septic shock, tension pneumothorax, and ARDS were considered, the absence of fever, signs of infection, and respiratory findings rule out sepsis and ARDS. The lack of ongoing blood loss and absence of chest findings rule out tension pneumothorax. Hypovolemic shock is unlikely given adequate fluid resuscitation and no ongoing hemorrhage.",
+          "usage": {
+            "prompt_tokens": 687,
+            "generated_tokens": 1024,
+            "generation_time_s": 45.056
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "H",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has profound hypotension despite massive transfusion and vasopressor support, with a low ScvO2 (39%) and profound hypothermia (95°F), suggesting impaired tissue perfusion and oxygen delivery. His extremities are cold despite warming, indicating that hypothermia itself is contributing to vasoconstriction and poor perfusion. No ongoing hemorrhage is confirmed, ruling out hypovolemic shock. The other options lack direct supporting evidence — sepsis is not supported by clinical context, ARDS or pneumothorax would present with respiratory distress, and neurogenic or cardiac causes would have different presentations.",
+          "critical_evidence": "Temperature of 95°F (35°C) with cold extremities despite warming, and persistent hypotension despite adequate volume and vasopressor support, strongly suggest hypothermia-induced vasoconstriction as the primary cause of poor perfusion.",
+          "differential_considered": "Hypovolemic shock was considered but ruled out by surgical confirmation of no ongoing bleeding. Septic shock, ARDS, and neurogenic shock were considered but lack supporting evidence (e.g., no fever, no respiratory distress, no spinal injury). Cardiac tamponade and myocardial contusion were not supported by clinical findings. Occult hemorrhage was considered but ruled out by surgical exploration.",
+          "usage": {
+            "prompt_tokens": 673,
+            "generated_tokens": 308,
+            "generation_time_s": 11.072
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "H",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 685,
+            "generated_tokens": 16,
+            "generation_time_s": 0.613
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Septic shock (A), Tension pneumothorax (B), ARDS (C), Myocardial contusion (E), Cardiac tamponade (F), Cervical spinal cord injury (G), Hypothermia-induced vasoconstriction (H), Neurogenic shock (I), Occult hemorrhage (J). However, the persistent hypotension and cold extremities after resuscitation are most consistent with ongoing hypovolemia, making D the best answer.",
+          "usage": {
+            "prompt_tokens": 726,
+            "generated_tokens": 315,
+            "generation_time_s": 11.036
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "H": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "H",
+    "correct_option": "F",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

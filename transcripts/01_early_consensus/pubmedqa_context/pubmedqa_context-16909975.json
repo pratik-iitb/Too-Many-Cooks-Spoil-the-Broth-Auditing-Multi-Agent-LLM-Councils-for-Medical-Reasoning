@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-16909975",
+  "dataset": "pubmedqa_context",
+  "question_id": "16909975",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can dose reduction to one parotid gland prevent xerostomia?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Dryness of the mouth is one of the most distressing chronic toxicities of radiation therapy in head and neck cancers. In this study, parotid function was assessed in patients with locally advanced head and neck cancers undergoing intensity-modulated radiotherapy (IMRT) with or without chemotherapy. Parotid function was assessed with the help of a questionnaire and parotid scintigraphy, especially with regards to unilateral sparing of the parotid gland. In total, 19 patients were treated with compensator-based IMRT between February 2003 and March 2004. The dose to the clinical target volume ranged between 66 and 70 Gy in 30-35 fractions to 95% of the isodose volume. Ipsilateral high-risk neck nodes received an average dose of 60 Gy and the contralateral low-risk neck received a dose of 54-56 Gy. Eight of 19 patients also received concomitant chemotherapy. Subjective toxicity to the parotid glands was assessed with the help of a questionnaire at 0, 3 and 6 months and objective toxicity was assessed with parotid scintigraphy at 0 and 3 months. The mean dose to the ipsilateral parotid gland ranged from 19.5 to 52.8 Gy (mean 33.14 Gy) and the mean dose to the contralateral gland was 11.1-46.6 Gy (mean 26.85 Gy). At a median follow-up of 13 months, 9/19 patients had no symptoms of dryness of the mouth (grade I), 8/19 had mild dryness of the mouth (grade II) and only 2/19 had grade III xerostomia, although the parotid gland could only be spared on one side in most of the patients.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a study where parotid function was assessed in patients undergoing IMRT for head and neck cancers. The study found that parotid sparing, achieved by reducing the dose to the parotid gland, could prevent xerostomia. While complete sparing was not always possible, reducing the dose to the parotid gland significantly reduced the incidence of xerostomia.",
+          "critical_evidence": "The study found that reducing the dose to the parotid gland significantly reduced the incidence of xerostomia.",
+          "differential_considered": "While other factors can contribute to xerostomia, the study specifically addresses the impact of parotid dose reduction, making it the most relevant factor to consider in this context.",
+          "usage": {
+            "prompt_tokens": 646,
+            "generated_tokens": 183,
+            "generation_time_s": 10.812
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that sparing one parotid gland during IMRT reduced xerostomia symptoms, with only 2/19 patients experiencing severe dryness despite unilateral sparing. This suggests partial dose reduction can help, but the limited sample size and variability in results indicate uncertainty. The data supports a'maybe' answer as the effect appears modest and not universally effective.",
+          "critical_evidence": "Only 2/19 patients developed grade III xerostomia despite sparing one parotid gland, suggesting partial protection but not complete prevention",
+          "differential_considered": "Radiation dose escalation to improve local control vs. toxicity management: While the primary goal is tumor control, the study shows that even with reduced doses, xerostomia persists in some patients, indicating dose reduction alone may not fully prevent all cases of xerostomia",
+          "usage": {
+            "prompt_tokens": 639,
+            "generated_tokens": 1024,
+            "generation_time_s": 56.335
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that unilateral sparing of the parotid gland (dose reduction to one gland) was associated with significantly lower rates of xerostomia, with only 2 out of 19 patients developing grade III dry mouth despite most patients having one gland spared. This suggests that sparing one gland can effectively prevent severe xerostomia.",
+          "critical_evidence": "Only 2/19 patients had grade III xerostomia, despite most patients having only one parotid gland spared, indicating that dose reduction to one gland is effective in preventing severe dry mouth.",
+          "differential_considered": "Other factors like chemotherapy or total dose to the target volume were considered, but the study specifically isolates the effect of unilateral sparing, and the low incidence of severe xerostomia supports the protective effect of sparing one gland.",
+          "usage": {
+            "prompt_tokens": 636,
+            "generated_tokens": 205,
+            "generation_time_s": 7.712
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 637,
+            "generated_tokens": 8,
+            "generation_time_s": 0.259
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.7,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 672,
+            "generated_tokens": 231,
+            "generation_time_s": 8.714
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

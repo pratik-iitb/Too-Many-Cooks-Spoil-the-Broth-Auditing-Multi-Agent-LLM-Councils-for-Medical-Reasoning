@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-822",
+  "dataset": "mmlu",
+  "question_id": "822",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Six healthy subjects participate in a study of muscle metabolism during which hyperglycemia and hyperinsulinemia is induced. Muscle biopsy specimens obtained from the subjects during the resting state show significantly increased concentrations of malonyl-CoA. The increased malonyl-CoA concentration most likely directly inhibits which of the following processes in these subjects?",
+    "options": {
+      "A": "Fatty acid oxidation",
+      "B": "Fatty acid synthesis",
+      "C": "Gluconeogenesis",
+      "D": "Glycogenolysis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a scenario of hyperglycemia and hyperinsulinemia, which are hallmarks of insulin resistance. Increased malonyl-CoA in muscle biopsies during the resting state indicates a state of energy abundance and inhibition of fatty acid oxidation. Malonyl-CoA is a key regulator of fatty acid metabolism, specifically inhibiting fatty acid oxidation and promoting fatty acid synthesis. Therefore, the most likely process directly inhibited is fatty acid oxidation.",
+          "critical_evidence": "Significantly increased concentrations of malonyl-CoA in muscle biopsies during the resting state.",
+          "differential_considered": "Fatty acid oxidation: While malonyl-CoA inhibits fatty acid oxidation, the clinical context of hyperglycemia and hyperinsulinemia points towards a metabolic state where fatty acid oxidation is less likely to be the primary issue. Gluconeogenesis and Glycogenolysis: These processes are stimulated by insulin, which is elevated in this case, making them less likely to be directly inhibited by malonyl-CoA.",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 229,
+            "generation_time_s": 11.541
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Malonyl-CoA inhibits fatty acid oxidation by competitively inhibiting carnitine palmitoyltransferase I (CPT I), which is essential for mitochondrial transport of fatty acids into the mitochondria. In hyperglycemic and hyperinsulinemic states, increased malonyl-CoA concentration likely reflects insulin-mediated inhibition of acetyl-CoA carboxylase, leading to reduced fatty acid oxidation. This inhibition of fatty acid oxidation is a key metabolic adaptation in insulin-stimulated glucose uptake and storage.",
+          "critical_evidence": "Significantly increased malonyl-CoA concentration in muscle biopsy specimens during resting state",
+          "differential_considered": "Options B (fatty acid synthesis), C (gluconeogenesis), and D (glycogenolysis) were considered but ruled out because malonyl-CoA directly inhibits fatty acid oxidation, not synthesis, gluconeogenesis, or glycogenolysis. Fatty acid synthesis would be inhibited by other factors like acetyl-CoA carboxylase inhibition, while gluconeogenesis and glycogenolysis are primarily regulated by other metabolic pathways.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.524
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Malonyl-CoA is a key intermediate in fatty acid synthesis and a potent inhibitor of carnitine palmitoyltransferase I (CPT1), the rate-limiting enzyme for mitochondrial fatty acid oxidation. In the context of hyperinsulinemia and hyperglycemia, increased malonyl-CoA levels directly inhibit fatty acid oxidation by blocking fatty acid entry into mitochondria. This is a well-established metabolic feedback mechanism during insulin-mediated anabolic states.",
+          "critical_evidence": "Increased malonyl-CoA directly inhibits carnitine palmitoyltransferase I, thereby suppressing fatty acid oxidation.",
+          "differential_considered": "Fatty acid synthesis (B) is promoted by malonyl-CoA, not inhibited; gluconeogenesis (C) and glycogenolysis (D) are primarily regulated by hormones like glucagon and epinephrine, not directly by malonyl-CoA.",
+          "usage": {
+            "prompt_tokens": 301,
+            "generated_tokens": 219,
+            "generation_time_s": 7.831
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The increased malonyl-CoA concentration most likely directly inhibits fatty acid oxidation.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 18,
+            "generation_time_s": 0.457
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (fatty acid oxidation) – blocked by malonyl-CoA inhibition; C (gluconeogenesis) and D (glycogenolysis) are not directly inhibited by malonyl-CoA, while B (fatty acid synthesis) is promoted by malonyl-CoA as a substrate, but the context of the increased malonyl-CoA in resting muscle points to its role as an inhibitor of fatty acid oxidation.",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 272,
+            "generation_time_s": 9.338
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-0",
+  "dataset": "mmlu",
+  "question_id": "0",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A lesion causing compression of the facial nerve at the stylomastoid foramen will cause ipsilateral",
+    "options": {
+      "A": "paralysis of the facial muscles.",
+      "B": "paralysis of the facial muscles and loss of taste.",
+      "C": "paralysis of the facial muscles, loss of taste and lacrimation.",
+      "D": "paralysis of the facial muscles, loss of taste, lacrimation and decreased salivation."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The facial nerve (CN VII) exits the skull through the stylomastoid foramen. Compression at this location will affect the entire facial nerve pathway. The facial nerve controls facial muscles, taste from the anterior two-thirds of the tongue, lacrimation, and salivation. Therefore, compression would result in paralysis of the facial muscles, loss of taste, lacrimation, and decreased salivation.",
+          "critical_evidence": "Compression of the facial nerve at the stylomastoid foramen.",
+          "differential_considered": "A lesion at the stylomastoid foramen would affect the entire facial nerve. While a lesion at the geniculate ganglion (e.g., Bell's palsy) could cause facial paralysis, it would not typically affect taste, lacrimation, or salivation. A lesion at the nerve root would affect the entire nerve, but the stylomastoid foramen is a more specific location for a compressive lesion.",
+          "usage": {
+            "prompt_tokens": 312,
+            "generated_tokens": 236,
+            "generation_time_s": 28.592
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Compression of the facial nerve at the stylomastoid foramen primarily affects the motor function of the facial muscles, leading to ipsilateral facial paralysis. While taste and lacrimation can be affected by other conditions, the stylomastoid foramen primarily involves the facial nerve's motor component, not its sensory or parasympathetic contributions.",
+          "critical_evidence": "The stylomastoid foramen is the exit point of the facial nerve from the skull, primarily responsible for motor innervation of facial muscles.",
+          "differential_considered": "Other conditions like glossopharyngeal nerve compression (taste and lacrimation) or trigeminal nerve involvement (sensory) were considered but ruled out due to the specific location of the lesion.",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 187,
+            "generation_time_s": 9.865
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Compression of the facial nerve at the stylomastoid foramen affects the entire nerve, including its motor fibers, leading to ipsilateral facial muscle paralysis. Taste sensation (chorda tympani) and autonomic functions (lacrimation, salivation) are carried by branches that typically arise proximal to this point, so they are not affected by compression at the stylomastoid foramen.",
+          "critical_evidence": "The facial nerve exits the stylomastoid foramen and its motor fibers innervate the facial muscles; compression here primarily affects motor function.",
+          "differential_considered": "Differential diagnoses such as acoustic neuroma or parotid tumors were considered, but these typically affect the nerve proximal to the stylomastoid foramen and may involve additional cranial nerves or sensory functions, which are not seen here.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 203,
+            "generation_time_s": 8.014
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The lesion causing compression of the facial nerve at the stylomastoid foramen will cause ipsilateral paralysis of the facial muscles.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 27,
+            "generation_time_s": 0.703
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B and C mention loss of taste or lacrimation, which are not directly caused by a lesion at the stylomastoid foramen (taste is from the facial, glossopharyngeal, and vagal complex; lacrimation is from the facial nerve but via different branches). Ruled out because the case specifies only compression at the stylomastoid foramen, not involvement of the taste or lacrimal nerve origins.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 226,
+            "generation_time_s": 7.995
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

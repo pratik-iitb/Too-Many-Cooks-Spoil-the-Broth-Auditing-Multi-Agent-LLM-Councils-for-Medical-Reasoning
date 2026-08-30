@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-669",
+  "dataset": "mmlu",
+  "question_id": "669",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The electron transport chain, which is embedded in the mitochondrial membrane, exists primarily to generate new molecules of ATP for use by the cell. This is accomplished by a positive gradient of H+ ions that are formed outside the membrane which then pass back through a specialized channel known as ATP synthase. The energy created from this phosphorylates an ATP to an ATP, known as oxidative phosphorylation. The mechanism by which H+ returns to the inside of the mitochondria is known as what?",
+    "options": {
+      "A": "Passive transport",
+      "B": "Passive diffusion",
+      "C": "Active transport",
+      "D": "Endocytosis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The electron transport chain creates a proton gradient across the mitochondrial membrane. The question describes the movement of H+ ions back into the mitochondria. Active transport requires energy input to move molecules against their concentration gradient. Passive transport and diffusion do not require energy. Endocytosis is the process of a cell taking in material by engulfing it with its membrane.",
+          "critical_evidence": "The description explicitly states that the movement of H+ ions is 'against their concentration gradient', indicating the need for energy.",
+          "differential_considered": "Passive transport and diffusion are both forms of movement down a concentration gradient and do not require energy. Endocytosis is a process of engulfing material, not a mechanism for returning H+ ions to the mitochondria.",
+          "usage": {
+            "prompt_tokens": 345,
+            "generated_tokens": 188,
+            "generation_time_s": 9.485
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The H+ ions move back into the mitochondria through ATP synthase channels without requiring energy input from the cell, which aligns with passive processes. Since the gradient drives the movement spontaneously, it is neither active transport (which requires ATP) nor endocytosis (which involves membrane engulfment). Passive diffusion is a general term, but in this context, the movement is facilitated by a specific protein channel, making it more accurately described as passive diffusion.",
+          "critical_evidence": "The H+ ions move back through ATP synthase channels driven by their electrochemical gradient, a hallmark of passive diffusion.",
+          "differential_considered": "Active transport was ruled out because it requires ATP, which is not mentioned. Endocytosis was ruled out because it involves bulk transport, not ion movement through channels. Passive transport is too general; passive diffusion is the most specific and accurate term here.",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 211,
+            "generation_time_s": 10.079
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The H+ ions move down their electrochemical gradient from the intermembrane space back into the mitochondrial matrix through ATP synthase, which is a passive process driven by the gradient, not requiring direct energy input. This is consistent with passive transport, as the movement is facilitated by the channel and follows the concentration gradient.",
+          "critical_evidence": "The H+ ions return through ATP synthase down their electrochemical gradient, which is a hallmark of passive transport.",
+          "differential_considered": "Active transport was considered but ruled out because it requires energy input and moves ions against the gradient, which is not the case here. Endocytosis is irrelevant as it involves membrane engulfment, not ion movement through a channel. Passive diffusion was considered but is less precise than 'passive transport' as it implies simple diffusion without channel mediation, whereas ATP synthase is a specific protein channel.",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 209,
+            "generation_time_s": 7.501
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 65,
+            "generation_time_s": 1.618
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "The return of H+ ions from the intermembrane space into the mitochondrial matrix is driven against their concentration gradient, which requires energy. This process is specifically powered by the proton motive force generated by the electron transport chain and is facilitated through ATP synthase, a proton pump. Only active transport involves energy expenditure to move molecules against their gradient.",
+          "critical_evidence": "The question states that H+ must pass through a specialized channel (ATP synthase) to generate ATP, implying that this movement is not spontaneous but energy-dependent.",
+          "differential_considered": "Passive transport (A) and passive diffusion (B) would not create a gradient or require ATP, which contradicts the description. Endocytosis (D) is unrelated to the mitochondrial membrane or H+ ion movement in this context.",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 197,
+            "generation_time_s": 6.347
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "B": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

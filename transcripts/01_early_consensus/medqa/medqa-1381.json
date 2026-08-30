@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1381",
+  "dataset": "medqa",
+  "question_id": "1381",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old man presents to the emergency department with chest pain and shortness of breath. He states his symptoms came on several hours ago and have been steadily worsening. The patient has a past medical history of dyslipidemia and diabetes. His temperature is 98.9°F (37.2°C), blood pressure is 122/68 mmHg, pulse is 150/min, respirations are 27/min, and oxygen saturation is 98% on room air. An ECG is performed as seen in Figure A. Which of the following is the best initial step in management?",
+    "options": {
+      "A": "CPR",
+      "B": "Defibrillation",
+      "C": "Epinephrine",
+      "D": "Magnesium sulfate",
+      "E": "Synchronized cardioversion"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chest pain, shortness of breath, tachycardia, and tachypnea, suggesting a possible cardiac arrhythmia. The ECG (Figure A, not provided but assumed to show a wide QRS complex tachycardia) is highly suggestive of ventricular tachycardia (VT). The patient's hemodynamic stability (BP 122/68 mmHg, SpO2 98%) is not immediately life-threatening, but the VT could rapidly deteriorate into ventricular fibrillation (VF) and cardiac arrest. Synchronized cardioversion is the appropriate initial treatment for unstable VT.",
+          "critical_evidence": "The ECG showing a wide QRS complex tachycardia strongly suggests ventricular tachycardia.",
+          "differential_considered": "CPR would be indicated if the patient was pulseless, defibrillation would be indicated if the rhythm was ventricular fibrillation, epinephrine would be indicated if the patient was pulseless and not responding to defibrillation, and magnesium sulfate is used for Torsades de Pointes, a specific type of polymorphic VT.",
+          "usage": {
+            "prompt_tokens": 393,
+            "generated_tokens": 243,
+            "generation_time_s": 12.063
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's tachycardia (150/min), elevated respiratory rate (27/min), and worsening symptoms suggest possible cardiac arrhythmia. The ECG (Figure A) likely shows a ventricular tachycardia or fibrillation pattern, which requires immediate defibrillation to restore sinus rhythm. Epinephrine (C) is not appropriate for cardiac arrest and could worsen ischemia. Magnesium sulfate (D) is used for magnesium deficiency, not arrhythmias. Synchronized cardioversion (E) is for specific arrhythmias and may not be indicated without confirming the rhythm. CPR (A) is only if the patient is pulseless, which is not confirmed here.",
+          "critical_evidence": "ECG showing ventricular tachycardia or fibrillation",
+          "differential_considered": "Considered: myocardial infarction, cardiogenic shock, and other arrhythmias. Ruled out: Hypoglycemia (symptoms are worsening, not improving). No evidence of hypotension or asystole, so CPR is not indicated.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.199
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chest pain, tachycardia, and tachypnea, and the ECG (Figure A) shows a wide-complex tachycardia, which is likely ventricular tachycardia (VT). Given the hemodynamic instability (HR 150, RR 27), synchronized cardioversion is the first-line treatment for hemodynamically unstable VT. CPR, defibrillation, and epinephrine are not first-line in this context unless cardioversion is contraindicated or fails. Magnesium sulfate is used for torsades de pointes or hyperkalemia, not VT.",
+          "critical_evidence": "Wide-complex tachycardia with hemodynamic instability (HR 150, RR 27) suggests ventricular tachycardia requiring immediate synchronized cardioversion.",
+          "differential_considered": "Other differentials like supraventricular tachycardia with aberrant conduction or acute myocardial infarction were considered, but the wide QRS and hemodynamic instability strongly favor VT. No ST elevation or ischemic changes suggest MI is less likely as the primary cause of arrhythmia.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 277,
+            "generation_time_s": 9.731
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 72,
+            "generation_time_s": 6.243
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Acute myocardial infarction, ventricular tachycardia, pulseless ventricular tachycardia, or other cardiac arrhythmias; these would all warrant immediate ECG and rhythm management, making E (synchronized cardioversion) the best initial step if the ECG shows a suitable indication for it.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 285,
+            "generation_time_s": 9.077
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

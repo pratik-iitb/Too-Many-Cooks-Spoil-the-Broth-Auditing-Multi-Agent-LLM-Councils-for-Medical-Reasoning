@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-403",
+  "dataset": "medqa",
+  "question_id": "403",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 47-year-old male with a history of depression, IV drug use, asthma, and coronary artery disease is brought by fire rescue to the emergency department after being found down on the side of the road for an unknown period of time. He is comatose upon arrival, and vital signs are as follows: T 101.2, HR 120, BP 110/66, O2 Sat 92%, RR 7. An EKG is promptly obtained, which is shown in Figure A. What is the most appropriate management?",
+    "options": {
+      "A": "Secure the patient's airway and administer NaHCO3",
+      "B": "Secure the patient's airway and administer physostigmine",
+      "C": "Secure the patient's airway and administer procainamide",
+      "D": "Secure the patient's airway and immediately begin hemodialysis",
+      "E": "Decontaminate the patient, place NG tube, and administer activated charcoal"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (comatose, fever, hypotension, bradycardia, respiratory depression) strongly suggests a toxic ingestion. The EKG (Figure A, not provided but assumed to show a widened QRS complex) is highly suggestive of tricyclic antidepressant (TCA) toxicity. The priority is to stabilize the airway and administer sodium bicarbonate to address the QRS widening and hypotension, which are life-threatening complications of TCA overdose.",
+          "critical_evidence": "The EKG showing a widened QRS complex is the most critical evidence supporting TCA toxicity.",
+          "differential_considered": "While other toxicities are possible, the combination of symptoms and the EKG findings make TCA toxicity the most likely and immediately life-threatening diagnosis. Other differentials like opioid overdose (respiratory depression) or hypoglycemia (altered mental status) are less likely given the EKG findings and the patient's history of IV drug use (which could be a source of TCA exposure). Benzodiazepine overdose is also a possibility, but the EKG findings are more specific to TCA toxicity.",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 256,
+            "generation_time_s": 12.683
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's elevated temperature (T 101.2) and low oxygen saturation (92%) suggest hyperthermia and metabolic acidosis, which are consistent with a possible overdose of a central nervous system depressant such as cocaine or amphetamines. The EKG in Figure A would likely show ST-segment elevation, which is characteristic of drug-induced hyperkalemia and acidosis. Administering sodium bicarbonate (NaHCO3) helps correct metabolic acidosis and stabilize the patient's condition.",
+          "critical_evidence": "Elevated temperature (T 101.2) and low O2 Sat (92%) indicating metabolic acidosis",
+          "differential_considered": "Considered drug overdose (cocaine, amphetamines), sepsis, and cardiac ischemia. Ruled out cardiac ischemia due to the patient's history of coronary artery disease and the presence of hyperthermia, which is not typical for ischemic heart disease. Sepsis was considered but ruled out due to lack of signs of infection.",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.674
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is comatose with hyperthermia (101.2°F), tachycardia, hypotension, and bradypnea — classic signs of a drug overdose or toxic exposure. The EKG (Figure A, though not visible, is implied to show a specific pattern) likely indicates a life-threatening arrhythmia or metabolic derangement. Given the history of IV drug use and comatose state, the most likely cause is a drug overdose (e.g., cocaine, opioids, or tricyclic antidepressants) or poisoning. The immediate priority is securing the airway, followed by supportive care and antidotes if indicated. NaHCO3 is indicated for severe metabolic acidosis or certain drug overdoses (e.g., tricyclic antidepressants), which may be present in this scenario. Other options are less appropriate: physostigmine is for anticholinergic overdose, procainamide for arrhythmias, hemodialysis for certain toxins, and activated charcoal is not first-line in comatose patients without GI tract access.",
+          "critical_evidence": "Coma, hyperthermia, tachycardia, hypotension, and bradypnea in a patient with IV drug use history strongly suggest a toxic or overdose etiology requiring immediate airway management and potential antidotal therapy (NaHCO3).",
+          "differential_considered": "Tricyclic antidepressant overdose (considered due to history of depression and coma), cocaine toxicity (due to IV drug use and hyperthermia), and opioid overdose (though less likely with hyperthermia and tachycardia). Ruled out: physostigmine (not for tricyclics), procainamide (not for overdose), hemodialysis (not immediate without specific toxin), activated charcoal (not first-line in comatose patients).",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 416,
+            "generation_time_s": 14.591
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 20,
+            "generation_time_s": 0.508
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is found comatose with a high heart rate (120 bpm), tachypnea (RR 7), and mildly low oxygen saturation (92%). These are consistent with possible opioid overdose, which is a known risk in a patient with a history of IV drug use. The most immediate life-threatening feature is respiratory depression, which is managed by securing the airway and addressing acidosis with sodium bicarbonate if present. Without evidence of a specific toxin (e.g., opioid vs. anticholinergic), the standard approach for a comatose patient with suspected opioid overdose is to secure the airway and administer sodium bicarbonate for hypercarbia if indicated by EKG (e.g., sinus tachycardia and possible metabolic acidosis). Other options are less appropriate: physostigmine is contraindicated in opioid overdose, procainamide is an antiarrhythmic not indicated for this presentation, and activated charcoal is ineffective after ingestion and not indicated for a likely airway compromise. Immediate hemodialysis (D) is not justified without evidence of acute kidney injury or uremic crisis.",
+          "critical_evidence": "Comatose state with history of IV drug use and EKG showing possible opioid-related respiratory depression and potential acidosis",
+          "differential_considered": "Opioid overdose (most likely), anticholinergic toxicity, arrhythmia, or other drug-induced coma. However, without specific EKG changes pointing to a different toxin (e.g., hyperkalemia for digoxin, or amiodarone for arrhythmia), opioid overdose is the leading concern. Securing the airway is the priority in a comatose patient, and sodium bicarbonate is appropriate if acidosis is suspected from the presentation and history.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 391,
+            "generation_time_s": 12.314
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

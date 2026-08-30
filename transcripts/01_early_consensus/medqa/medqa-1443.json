@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1443",
+  "dataset": "medqa",
+  "question_id": "1443",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A student studying pharmacology is a member of a team that is conducting research related to the elimination of multiple anticoagulant medications. His duty as a member of the team is to collect serum samples of the subjects every 4 hours and send them for analysis of serum drug levels. He is also supposed to collect, document and analyze the data. For one of the subjects, he notices that the subject is eliminating 0.5 mg of the drug every 4 hours. Which of the following anticoagulants did this patient most likely consume?",
+    "options": {
+      "A": "Warfarin",
+      "B": "Enoxaparin",
+      "C": "Dabigatran",
+      "D": "Fondaparinux",
+      "E": "Apixaban"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is eliminating 0.5 mg of the drug every 4 hours. This suggests a relatively rapid elimination rate. Warfarin is primarily metabolized by the liver, with a half-life of approximately 20-60 hours. Enoxaparin, Fondaparinux, and Apixaban are cleared primarily by the kidneys, with elimination half-lives of around 2-4 hours, 12-17 hours, and 10-12 hours, respectively. Dabigatran is primarily eliminated by the kidneys, with a half-life of approximately 12 hours. Given the relatively short elimination half-life of Dabigatran, it is the most likely anticoagulant to be eliminated at a rate of 0.5 mg every 4 hours.",
+          "critical_evidence": "The elimination rate of 0.5 mg every 4 hours suggests a relatively short half-life, which is consistent with the elimination profile of Dabigatran.",
+          "differential_considered": "Warfarin: Has a longer half-life, so elimination would be slower. Enoxaparin, Fondaparinux, and Apixaban: Have shorter half-lives than Warfarin, but the elimination rate of 0.5 mg every 4 hours is more consistent with Dabigatran's renal clearance.",
+          "usage": {
+            "prompt_tokens": 370,
+            "generated_tokens": 314,
+            "generation_time_s": 15.559
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient is eliminating 0.5 mg of the drug every 4 hours, which suggests a half-life of approximately 8 hours. Warfarin has a half-life of 12-48 hours, making it the most likely candidate among the options provided. The other anticoagulants listed (enoxaparin, dabigatran, fondaparinux, and apixaban) have much shorter half-lives and are not eliminated at this rate.",
+          "critical_evidence": "The elimination rate of 0.5 mg every 4 hours indicates a half-life of about 8 hours, which aligns with the pharmacokinetics of warfarin.",
+          "differential_considered": "Enoxaparin, dabigatran, fondaparinux, and apixaban were ruled out due to their significantly shorter half-lives compared to the observed elimination rate.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 214,
+            "generation_time_s": 9.998
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is eliminating 0.5 mg of the drug every 4 hours, indicating a relatively constant and predictable elimination rate, which is characteristic of direct oral anticoagulants (DOACs) like dabigatran. Warfarin has a much slower, more variable elimination profile and is not typically measured in mg per 4-hour intervals. Enoxaparin and fondaparinux are low-molecular-weight heparins with short half-lives and are not dosed in mg per 4-hour intervals. Apixaban, while a DOAC, is typically dosed in mg, but its elimination kinetics are not as linear or predictable as dabigatran’s.",
+          "critical_evidence": "The consistent elimination of 0.5 mg every 4 hours suggests a predictable, linear pharmacokinetic profile, which is most consistent with dabigatran’s known elimination characteristics.",
+          "differential_considered": "Warfarin was ruled out due to its variable, non-linear elimination and long half-life. Enoxaparin and fondaparinux were ruled out because they are heparins with rapid clearance and are not typically measured in mg per 4-hour intervals. Apixaban was considered but eliminated due to its less predictable elimination kinetics compared to dabigatran.",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 296,
+            "generation_time_s": 10.39
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 34,
+            "generation_time_s": 0.837
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The key finding is the elimination rate of 0.5 mg every 4 hours, which indicates a relatively rapid and consistent pharmacokinetic profile. Among the listed anticoagulants, only dabigatran is an oral direct thrombin inhibitor with a known, relatively predictable elimination—typically around 10% per 24-hour period, but here the 4-hour elimination suggests a drug with a shorter half-life and regular excretion patterns. Warfarin is excreted slowly and has variable elimination; the others are parenterally administered or have different elimination timelines not matching the 4-hour interval described.",
+          "critical_evidence": "The 0.5 mg eliminated every 4 hours points to a drug with a known and regular excretion interval, characteristic of dabigatran, an oral anticoagulant.",
+          "differential_considered": "Other options like warfarin, enoxaparin, fondaparinux, and apixaban do not have elimination measured on a 4-hour schedule; their pharmacokinetics are either slower (warfarin) or not orally administered (heparins, apixaban).",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 267,
+            "generation_time_s": 8.432
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

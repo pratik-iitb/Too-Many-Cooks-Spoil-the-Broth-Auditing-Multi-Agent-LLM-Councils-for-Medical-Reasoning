@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-1137",
+  "dataset": "medqa",
+  "question_id": "1137",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old woman presents to your office complaining of right arm numbness and weakness. Her past medical history is unremarkable. Her family history, however, is significant for the unexpected death of both her parents at age 59 in a motor vehicle accident last week. On physical exam, her bicep, brachioradialis, and patellar reflexes are 2+ bilaterally. CNS imaging shows no abnormalities. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Conversion disorder",
+      "B": "Vitamin B12 deficiency",
+      "C": "Amyotrophic lateral sclerosis",
+      "D": "Arnold-Chiari malformation",
+      "E": "Multiple sclerosis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's sudden onset of right arm numbness and weakness, coupled with a significant family history of sudden death in both parents, strongly suggests a possible genetic predisposition to a condition that can manifest with neurological symptoms. The normal CNS imaging further points away from structural abnormalities.",
+          "critical_evidence": "The sudden onset of neurological symptoms in a young woman with a family history of sudden death is highly suggestive of a genetic condition.",
+          "differential_considered": "B12 deficiency is less likely given the acute onset and lack of other typical symptoms. ALS is possible but less likely given the normal reflexes and lack of upper motor neuron signs. Arnold-Chiari malformation is less likely given the normal CNS imaging. Multiple sclerosis is less likely given the acute onset and lack of typical MS symptoms.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 200,
+            "generation_time_s": 9.901
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's sudden onset of right arm numbness and weakness, combined with normal reflexes and normal CNS imaging, suggests a psychogenic condition. The family history of unexpected death at a young age may indicate a significant emotional component. Conversion disorder is a diagnosis of exclusion for symptoms that are medically inconsistent with neurological findings.",
+          "critical_evidence": "Normal reflexes and normal CNS imaging",
+          "differential_considered": "B (B12 deficiency) ruled out by normal reflexes; C (ALS) and E (MS) ruled out by normal imaging; D (Chiari) is unlikely given age and presentation",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 156,
+            "generation_time_s": 7.28
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute right arm numbness and weakness, but has no neurological deficits on reflex exam and normal CNS imaging. The sudden, emotionally traumatic event (loss of both parents) strongly suggests a psychogenic origin. Conversion disorder is characterized by neurological symptoms without organic cause, often triggered by stress or trauma, fitting this case perfectly.",
+          "critical_evidence": "Recent traumatic bereavement and absence of structural CNS abnormalities on imaging",
+          "differential_considered": "Vitamin B12 deficiency (no dietary history or GI symptoms), ALS (progressive, asymmetric, no family history), Arnold-Chiari (imaging would show structural abnormality), MS (would show lesions on MRI, not present here).",
+          "usage": {
+            "prompt_tokens": 343,
+            "generated_tokens": 176,
+            "generation_time_s": 6.182
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 11,
+            "generation_time_s": 0.281
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with sudden, unilateral numbness and weakness of the right arm, which is most consistent with a neurologic deficit of an upper motor neuron origin. The rapid onset and lack of radiologic or laboratory evidence point away from chronic progressive diseases like ALS (C), B12 deficiency (B), or multiple sclerosis (E), which typically have a slower progression or associated findings. Arnold-Chiari malformation (D) and conversion disorder (A) can both present with such symptoms, but the absence of imaging abnormalities and the acute onset favor conversion disorder, especially given the psychological stressor of recent bereavement. Conversion disorder is also supported by the absence of structural brain or spinal cord lesions on imaging.",
+          "critical_evidence": "",
+          "differential_considered": "B12 deficiency (common cause of neuropathy but usually with sensory symptoms and a positive B12 level), ALS (chronic, progressive, with upper motor neuron signs but imaging would likely show early changes), Arnold-Chiari malformation (structural, but imaging was normal), and multiple sclerosis (relapsing course, but no evidence of inflammation or demyelination).",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 284,
+            "generation_time_s": 9.02
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

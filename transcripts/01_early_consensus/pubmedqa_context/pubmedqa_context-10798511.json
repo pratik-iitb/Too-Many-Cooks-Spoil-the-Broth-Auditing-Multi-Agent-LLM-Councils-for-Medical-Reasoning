@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-10798511",
+  "dataset": "pubmedqa_context",
+  "question_id": "10798511",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Blunt trauma in intoxicated patients: is computed tomography of the abdomen always necessary?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Physical examination to detect abdominal injuries has been considered unreliable in alcohol-intoxicated trauma patients. Computed tomography (CT) plays the primary role in these abdominal evaluations. We reviewed medical records of all blunt trauma patients admitted to our trauma service from January 1, 1992, to March 31, 1998. Study patients had a blood alcohol level>or =80 mg/dL, Glasgow Coma Scale (GCS) score of 15, and unremarkable abdominal examination. Of 324 patients studied, 317 (98%) had CT scans negative for abdominal injury. Abdominal injuries were identified in 7 patients (2%), with only 2 (0.6%) requiring abdominal exploration. A significant association was found between major chest injury and abdominal injury.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case demonstrates that in intoxicated patients with blunt trauma and unremarkable abdominal examinations, CT scans are not always necessary. The high percentage of negative CT scans (98%) suggests that abdominal injuries are relatively uncommon in this specific population. The low rate of abdominal exploration (0.6%) further supports the conclusion that CT scans can be avoided in these cases.",
+          "critical_evidence": "Of 324 patients studied, 317 (98%) had CT scans negative for abdominal injury.",
+          "differential_considered": "While the clinical case focuses on abdominal injuries, other potential injuries (e.g., chest, head) are also important to consider in trauma patients. However, the primary focus is on abdominal injuries, and the data strongly suggests that CT scans are not always required for these patients.",
+          "usage": {
+            "prompt_tokens": 433,
+            "generated_tokens": 206,
+            "generation_time_s": 12.207
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows 98% of intoxicated trauma patients with unremarkable abdominal exam had negative CT scans, with only 2% requiring exploration. The strong association with chest injury suggests CT is the most reliable method for detecting abdominal injuries in this population.",
+          "critical_evidence": "98% negative rate for abdominal injury in CT scans of intoxicated trauma patients with unremarkable physical exam",
+          "differential_considered": "Perforated viscus, intra-abdominal bleeding, and organ rupture were considered but ruled out by the low incidence (2%) despite high-risk presentation",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.26
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Although CT is the primary diagnostic tool in intoxicated trauma patients due to unreliable physical exam, the study shows that only 2% of patients had significant abdominal injuries, and only 0.6% required surgery. This low rate of clinically significant injury suggests CT is not always necessary for every intoxicated blunt trauma patient, especially when other criteria are met.",
+          "critical_evidence": "Of 324 patients, only 7 (2%) had abdominal injuries, and only 2 (0.6%) required abdominal exploration, indicating low yield of clinically significant findings with CT.",
+          "differential_considered": "Considered major abdominal injury as a differential, but ruled it out in most cases due to low prevalence (2%) and the fact that only 0.6% required intervention, supporting that CT is not universally necessary.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 197,
+            "generation_time_s": 8.289
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 9,
+            "generation_time_s": 0.283
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "Of 324 patients studied, 317 (98%) had CT scans negative for abdominal injury.",
+          "differential_considered": "Possible alternatives include ultrasound or no imaging at all, but CT is standard in such cases due to risk of missed injuries. However, the low rate of positive CTs suggests that in most cases, the risk of missing a life-threatening injury is low when physical exam is normal, supporting the case for not routinely ordering CT in all intoxicated blunt trauma patients.",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 249,
+            "generation_time_s": 9.435
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-618",
+  "dataset": "medqa",
+  "question_id": "618",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 16-year-old college student presents to the emergency department with a 3-day history of fever, muscle rigidity, and confusion. He was started on a new medication for schizophrenia 2 months ago. There is no history of sore throat, burning micturition, or loose motions. At the hospital, his temperature is 38.6°C (101.5°F); the blood pressure is 108/62 mm Hg; the pulse is 120/min, and the respiratory rate is 16/min. His urine is cola-colored. On physical examination, he is sweating profusely. Treatment is started with antipyretics and intravenous hydration. Which of the following is most likely responsible for this patient's condition?",
+    "options": {
+      "A": "Amantadine",
+      "B": "Chlorpromazine",
+      "C": "Diazepam",
+      "D": "Levodopa",
+      "E": "Phenytoin"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, muscle rigidity, confusion, cola-colored urine, and diaphoresis strongly suggests Neuroleptic Malignant Syndrome (NMS). The recent initiation of a new antipsychotic medication (schizophrenia medication) is a significant risk factor for NMS. Chlorpromazine is a first-generation antipsychotic known to cause NMS.",
+          "critical_evidence": "The combination of fever, muscle rigidity, confusion, and cola-colored urine in a patient recently started on an antipsychotic medication is highly suggestive of NMS.",
+          "differential_considered": "Amantadine is an antiviral and antiparkinsonian drug, not typically associated with NMS. Diazepam is a benzodiazepine used for anxiety and seizures, not a primary cause of NMS. Levodopa is used to treat Parkinson's disease and is not a common cause of NMS. Phenytoin is an anticonvulsant and is not typically associated with NMS.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 239,
+            "generation_time_s": 11.833
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of fever, muscle rigidity, confusion, and cola-colored urine with profuse sweating are consistent with a drug-induced fever. Amantadine, an antiparkinsonian agent, is known to cause such reactions in some patients, especially when initiated. The other antipsychotics listed (chlorpromazine, diazepam) are less commonly associated with this specific syndrome. Phenytoin's side effects don't match, and levodopa's presentation is different. The physical findings strongly suggest a drug reaction.",
+          "critical_evidence": "Cola-colored urine and profuse sweating are classic signs of a drug-induced fever, particularly with amantadine.",
+          "differential_considered": "Considered: Drug-induced fever, viral infection, heat exhaustion. Ruled out: Viral infection due to absence of sore throat, burning micturition, or loose motions. Heat exhaustion is less likely given the patient's age and medical history.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 230,
+            "generation_time_s": 10.705
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, muscle rigidity, confusion, and cola-colored urine — classic signs of neuroleptic malignant syndrome (NMS), which is strongly associated with antipsychotic medications. Chlorpromazine, a typical antipsychotic, is a known trigger of NMS. The other options are not associated with this constellation of symptoms. The patient’s recent initiation of antipsychotic therapy is a critical clue.",
+          "critical_evidence": "Recent initiation of antipsychotic medication (chlorpromazine) in a young adult with fever, rigidity, confusion, and cola-colored urine — hallmark features of neuroleptic malignant syndrome.",
+          "differential_considered": "Other differentials like serotonin syndrome (not supported by history or presentation), rhabdomyolysis (cola-colored urine is suggestive but not diagnostic alone), and drug-induced hepatitis were considered but ruled out due to absence of jaundice, hepatomegaly, or specific drug history. NMS remains the most likely diagnosis given the clinical context and timing of medication initiation.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 245,
+            "generation_time_s": 8.825
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 142,
+            "generation_time_s": 3.42
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Neuroleptic malignant syndrome (NMS) due to chlorpromazine; meningoencephalitis; sepsis; other drug toxicity (amantadine, phenytoin, or benzodiazepine use); delirium due to other causes",
+          "usage": {
+            "prompt_tokens": 450,
+            "generated_tokens": 267,
+            "generation_time_s": 8.356
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

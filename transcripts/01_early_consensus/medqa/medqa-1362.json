@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1362",
+  "dataset": "medqa",
+  "question_id": "1362",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A healthy 32-year-old woman enrolls in a study investigating kidney function. Her renal plasma flow (RPF) is 600 mL/min. She is administered an intravenous substance that does not undergo tubular reabsorption. The following sets of measurements are taken every 10 minutes:\nPlasma concentration of substance Excretion rate of substance\nSet 1 0.1 mg/mL 60 mg/min\nSet 2 0.15 mg/mL 90 mg/min\nSet 3 0.2 mg/mL 104 mg/min\nSet 4 0.25 mg/mL 110 mg/min\nSet 5 0.3 mg/mL 116 mg/min\nThis patient was most likely administered which of the following substances?\"",
+    "options": {
+      "A": "Cystatin C",
+      "B": "Glucose",
+      "C": "Para-aminohippurate",
+      "D": "Inulin",
+      "E": "Iohexol"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The key finding is that the substance does not undergo tubular reabsorption. This eliminates options like glucose (reabsorbed), inulin (not reabsorbed, but not used for this type of study), and iohexol (reabsorbed). Cystatin C and para-aminohippurate (PAH) are both substances that are filtered by the glomerulus but not reabsorbed, making them suitable for measuring renal plasma flow (RPF). The excretion rate increases with increasing plasma concentration, which is consistent with a substance that is filtered and not reabsorbed. The rate of increase in excretion rate is also consistent with PAH.",
+          "critical_evidence": "The substance does not undergo tubular reabsorption.",
+          "differential_considered": "Cystatin C: While not reabsorbed, its clearance is more closely related to muscle mass and age, not primarily RPF. Glucose: Reabsorbed, so its clearance would not be a good measure of RPF. Inulin: Not reabsorbed, but it is used to measure GFR, not RPF. Iohexol: Reabsorbed, so its clearance would not be a good measure of RPF.",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 273,
+            "generation_time_s": 13.527
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The substance does not undergo tubular reabsorption, meaning it should be excreted in proportion to its plasma concentration. Para-aminohippurate (PAH) is a marker for glomerular filtration rate (GFR) and is not reabsorbed in the renal tubules. The increasing excretion rate with rising plasma concentration aligns with PAH's behavior. Other substances like glucose, cystatin C, inulin, and Iohexol have different reabsorption mechanisms or are used for different purposes.",
+          "critical_evidence": "The substance's excretion rate increases linearly with plasma concentration, characteristic of a substance not undergoing tubular reabsorption.",
+          "differential_considered": "Glucose (reabsorbed in proximal tubule), cystatin C (secreted by renal epithelial cells), inulin (not reabsorbed but used for GFR measurement), Iohexol (used for GFR measurement with some tubular reabsorption). Only PAH fits the pattern of non-reabsorption.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.134
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The substance is administered IV and does not undergo tubular reabsorption, making it ideal for measuring renal plasma flow (RPF). The excretion rate increases with plasma concentration but plateaus, indicating saturation of secretion mechanisms. Para-aminohippurate (PAH) is a classic marker for RPF because it is actively secreted by the proximal tubule and its excretion rate approximates RPF when plasma concentrations are high. The excretion rate approaching a plateau (116 mg/min at 0.3 mg/mL) suggests saturation of secretion, which is characteristic of PAH, not filtration-only markers like inulin.",
+          "critical_evidence": "Excretion rate plateaus at higher plasma concentrations, indicating saturable tubular secretion — a hallmark of PAH.",
+          "differential_considered": "Inulin (D) is a filtration marker only, so excretion should be proportional to plasma concentration without saturation. Cystatin C (A) and glucose (B) are not used for RPF measurement. Iohexol (E) is a contrast agent used for GFR estimation, not RPF. PAH (C) is the only option that fits the saturable secretion pattern observed.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 279,
+            "generation_time_s": 9.811
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The substance used in this study does not undergo tubular reabsorption, which is characteristic of para-aminohippurate (PAH). PAH is a substance that is primarily excreted by the kidneys through glomerular filtration and is not reabsorbed in the renal tubules. This makes it an ideal marker for measuring renal plasma flow (RPF). The increase in excretion rate with increasing plasma concentration suggests that the substance is being filtered at a constant rate and not reabsorbed, further supporting the choice of PAH as the substance administered in this study.",
+          "critical_evidence": "The substance does not undergo tubular reabsorption.",
+          "differential_considered": "Glucose is normally completely reabsorbed in the proximal tubules of the kidneys and is not a good marker for RPF. Cystatin C is also a marker for GFR but is not used in this study. Iohexol is a contrast agent used for radiographic imaging and is not the substance administered in this study. Inulin is another marker for GFR and is not the substance used in this study.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 255,
+            "generation_time_s": 6.12
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Cystatin C is filtered by the kidneys and has variable excretion; glucose is reabsorbed in the renal tubules; iohexol and para-aminophenol are actively secreted by the kidneys; only inulin matches the lack of change in excretion rate with rising plasma concentration.",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 264,
+            "generation_time_s": 8.252
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

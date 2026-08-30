@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-76",
+  "dataset": "mmlu",
+  "question_id": "76",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A patient suffers a CVA in the area of the left internal capsule conveying motor neurons to the right leg. The patient's leg will exhibit",
+    "options": {
+      "A": "spastic paralysis.",
+      "B": "flaccid paralysis.",
+      "C": "tremor.",
+      "D": "hyporeflexia."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The internal capsule is a major white matter structure containing ascending and descending motor pathways. A stroke in the left internal capsule affecting the motor fibers destined for the right leg will result in weakness or paralysis on the right leg. The motor fibers are primarily upper motor neurons, which typically cause spasticity.",
+          "critical_evidence": "The location of the stroke in the left internal capsule conveying motor neurons to the right leg.",
+          "differential_considered": "Flaccid paralysis is typically associated with lower motor neuron lesions, which are less likely given the location of the stroke. Tremor is not a direct consequence of a stroke in the internal capsule. Hyporeflexia can be seen in lower motor neuron lesions, but the primary motor deficit is weakness, which is more consistent with upper motor neuron damage.",
+          "usage": {
+            "prompt_tokens": 289,
+            "generated_tokens": 202,
+            "generation_time_s": 10.457
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The internal capsule contains descending motor tracts, including the corticospinal tract, which controls voluntary movement. Damage here leads to flaccid paralysis because the motor neurons are destroyed, resulting in loss of muscle tone and strength. Spasticity (A) is associated with upper motor neuron involvement elsewhere, tremor (C) is a peripheral or extrapyramidal sign, and hyporeflexia (D) suggests sensory loss, not motor deficit.",
+          "critical_evidence": "The lesion is in the internal capsule, which contains corticospinal tract fibers.",
+          "differential_considered": "Considered spinal cord injury, peripheral neuropathy, and stroke in other locations, but ruled out due to specificity of the lesion site.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 181,
+            "generation_time_s": 8.74
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The left internal capsule lesion affects corticospinal tracts descending to the right leg, causing upper motor neuron (UMN) damage. UMN lesions result in spastic paralysis due to loss of inhibitory control and hyperreflexia. Flaccid paralysis (B) is associated with lower motor neuron lesions, tremor (C) is not typical of UMN lesions, and hyporeflexia (D) is seen in LMN lesions.",
+          "critical_evidence": "Corticospinal tract damage in the internal capsule is a classic upper motor neuron lesion, leading to spastic paralysis.",
+          "differential_considered": "Flaccid paralysis (LMN lesion) was considered but ruled out because internal capsule lesions affect UMN pathways. Tremor and hyporeflexia are inconsistent with UMN pathology.",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 197,
+            "generation_time_s": 7.157
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 13,
+            "generation_time_s": 0.349
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (Flaccid paralysis) could occur with basal ganglia or corticospinal tract lesions in other locations, but the left internal capsule specifically affects the pyramidal system; C (tremor) is not typical for this lesion. D (Hyporeflexia) might occur with spinal or peripheral lesions, but the case specifies a cortical lesion.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 220,
+            "generation_time_s": 7.579
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

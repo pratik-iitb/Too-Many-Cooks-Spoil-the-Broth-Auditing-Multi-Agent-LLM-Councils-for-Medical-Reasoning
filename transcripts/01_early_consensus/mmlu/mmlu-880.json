@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-880",
+  "dataset": "mmlu",
+  "question_id": "880",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 20-year-old man has had frequent upper respiratory tract infections over the past 4 years. He has daily purulent sputum and has noted decreased exercise tolerance over the past 2 years. He and his wife have been unable to conceive because of his low sperm count. Scattered expiratory wheezing and rhonchi are heard throughout both lung fields. An x-ray of the chest shows hyperinflation. Spirometry shows a decreased FEV1:FVC ratio. Which of the following is most likely to confirm the diagnosis?",
+    "options": {
+      "A": "Arterial blood gas analysis",
+      "B": "Examination of sputum for eosinophils",
+      "C": "Sweat chloride test",
+      "D": "Sputum cytology"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of frequent upper respiratory infections, purulent sputum, decreased exercise tolerance, infertility, wheezing, rhonchi, hyperinflation on chest x-ray, and a decreased FEV1/FVC ratio strongly suggest Chronic Obstructive Pulmonary Disease (COPD). Arterial blood gas analysis is crucial to assess the severity of the COPD and identify any hypoxemia or hypercapnia, which are important for management decisions.",
+          "critical_evidence": "The decreased FEV1/FVC ratio is a key spirometry finding consistent with obstructive lung disease, most likely COPD.",
+          "differential_considered": "A: Arterial blood gas analysis is the most appropriate test to confirm the diagnosis and assess the severity of the COPD. B: Examination of sputum for eosinophils is more relevant for asthma or allergic bronchopulmonary aspergillosis (ABPA). C: Sweat chloride test is used to diagnose cystic fibrosis, which typically presents with more severe respiratory symptoms and pancreatic insufficiency. D: Sputum cytology is used to evaluate for malignancy, which is less likely given the patient's history of recurrent infections and the presence of obstructive findings on spirometry.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 281,
+            "generation_time_s": 14.153
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of recurrent infections, decreased exercise tolerance, and low sperm count suggests a chronic inflammatory process. The presence of hyperinflation on chest X-ray and decreased FEV1:FVC ratio indicates obstructive lung disease, likely due to airway inflammation. Cystic fibrosis is a condition characterized by chronic respiratory infections, male infertility, and increased sweat chloride levels, making the sweat chloride test the most specific diagnostic tool. While sputum analysis could show eosinophils in allergic asthma, cystic fibrosis is more strongly supported by the sweat chloride result.",
+          "critical_evidence": "Sweat chloride test is the most specific test for cystic fibrosis",
+          "differential_considered": "Considered bronchiectasis, allergic asthma, and other chronic lung diseases, but cystic fibrosis is the most likely diagnosis given the combination of respiratory symptoms, infertility, and the specific clinical findings",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.596
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chronic purulent sputum, decreased exercise tolerance, hyperinflation on chest X-ray, and a reduced FEV1:FVC ratio — all suggestive of chronic bronchitis and obstructive lung disease. The inability to conceive due to low sperm count is a key clue pointing toward cystic fibrosis (CF), as CF is associated with male infertility due to congenital absence of the vas deferens. The sweat chloride test is the gold standard diagnostic test for CF. Other options like sputum eosinophils (B) are more relevant for asthma, and sputum cytology (D) is used for malignancy or infection. Arterial blood gas (A) may show hypoxemia but is not diagnostic.",
+          "critical_evidence": "Low sperm count in a male patient with chronic respiratory symptoms and hyperinflation strongly suggests cystic fibrosis, which is confirmed by sweat chloride test.",
+          "differential_considered": "Asthma (ruled out by lack of reversible airflow obstruction and absence of atopy), chronic bronchitis (lacks the infertility clue), and bronchiectasis (no history of recurrent hemoptysis or prior lung infections). Cystic fibrosis is the most likely diagnosis given the constellation of symptoms and infertility.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 293,
+            "generation_time_s": 10.465
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 14,
+            "generation_time_s": 0.361
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Asthma (less likely due to the chronicity and hyperinflation), interstitial lung disease (no mention of cough or diffuse infiltrates), and other metabolic or infectious causes (ruling out as less likely given the main symptoms and exam findings).",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 241,
+            "generation_time_s": 7.761
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

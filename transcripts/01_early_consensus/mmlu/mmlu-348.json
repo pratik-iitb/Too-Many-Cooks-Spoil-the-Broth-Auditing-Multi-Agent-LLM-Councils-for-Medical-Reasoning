@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-348",
+  "dataset": "mmlu",
+  "question_id": "348",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Your first action following confirmation of cardiac arrest is to:",
+    "options": {
+      "A": "ensure the emergency team/services are called.",
+      "B": "give two rescue breaths.",
+      "C": "give 30 chest compressions.",
+      "D": "check the notes to see if the patient has a DNAR order."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The very first action in cardiac arrest is to activate the emergency response system. This ensures that trained personnel and necessary equipment are immediately available to provide advanced life support. Delaying this step to perform rescue breaths or chest compressions would be detrimental to the patient's chances of survival.",
+          "critical_evidence": "Confirmation of cardiac arrest",
+          "differential_considered": "While giving rescue breaths and chest compressions are crucial, they are secondary to activating the emergency response system. A DNAR order is important to consider, but it's not the immediate first step. Therefore, activating the emergency response system is the priority.",
+          "usage": {
+            "prompt_tokens": 291,
+            "generated_tokens": 167,
+            "generation_time_s": 8.477
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The first action in managing cardiac arrest is to activate the emergency response system by calling for help, as this ensures rapid access to advanced life support and defibrillation equipment. This is a universal first step in all cardiac arrest scenarios before initiating compressions or breaths.",
+          "critical_evidence": "The American Heart Association's Chain of Survival emphasizes early activation of emergency response as the first link.",
+          "differential_considered": "No specific differential diagnoses apply to this initial action - the question focuses on the correct sequence of steps in cardiac arrest management, not on diagnosing the cause of cardiac arrest.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.845
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "According to current resuscitation guidelines (e.g., AHA), the first action upon confirming cardiac arrest is to activate the emergency response system immediately. This ensures rapid deployment of advanced life support and defibrillation if needed. Chest compressions and rescue breaths follow only after the team is alerted and the scene is secured.",
+          "critical_evidence": "Cardiac arrest requires immediate activation of emergency services as the first step in the chain of survival.",
+          "differential_considered": "DNR orders are important but not the first action; they are considered after initiating resuscitation. Breath support and compressions are secondary to calling for help.",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 159,
+            "generation_time_s": 5.739
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 73,
+            "generation_time_s": 1.841
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A (calling for help) is important but secondary to starting compressions; B (giving breaths) is only appropriate if the airway is open and compressions have stopped; D (checking DNAR) is a later step after resuscitation efforts begin or are ongoing.",
+          "usage": {
+            "prompt_tokens": 317,
+            "generated_tokens": 185,
+            "generation_time_s": 6.067
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

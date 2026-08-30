@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-364",
+  "dataset": "medqa",
+  "question_id": "364",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 34-year-old woman is brought to the emergency department by fire and rescue after an apparent suicide attempt. She reports ingesting several pills 6 hours prior to presentation but cannot recall what they were. No pills were found on the scene. She complains of severe malaise, ringing in her ears, and anxiety. Her past medical history is notable for bipolar disorder, generalized anxiety disorder, rheumatoid arthritis, obesity, and diabetes. She takes lithium, methotrexate, metformin, and glyburide. She has a reported history of benzodiazepine and prescription opioid abuse. Her temperature is 102.2°F (39°C), blood pressure is 135/85 mmHg, pulse is 110/min, and respirations are 26/min. On exam, she appears diaphoretic and pale. Results from an arterial blood gas are shown:\n\npH: 7.48\nPaCO2: 32 mmHg\nHCO3-: 23 mEq/L\n\nThis patient should be treated with which of the following?",
+    "options": {
+      "A": "Ammonium chloride",
+      "B": "Atropine",
+      "C": "Flumazenil",
+      "D": "Physostigmine",
+      "E": "Sodium bicarbonate"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a history of substance abuse, altered mental status, and a significantly elevated temperature. The arterial blood gas shows respiratory alkalosis (pH 7.48, PaCO2 32 mmHg, HCO3- 23 mEq/L). This suggests a primary respiratory alkalosis, likely due to hyperventilation secondary to anxiety or salicylate toxicity. Given the history of medication ingestion and the potential for salicylate toxicity, sodium bicarbonate is indicated to correct the metabolic alkalosis and potentially prevent complications like metabolic alkalosis-induced cardiac arrhythmias.",
+          "critical_evidence": "Respiratory alkalosis (pH 7.48, PaCO2 32 mmHg, HCO3- 23 mEq/L) and history of possible salicylate ingestion.",
+          "differential_considered": "Salicylate toxicity is the most likely cause of the respiratory alkalosis given the history of possible pill ingestion and the patient's symptoms. While other causes of respiratory alkalosis exist, the history makes salicylate toxicity the most probable diagnosis. Therefore, other options are less likely to be the primary treatment.",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 264,
+            "generation_time_s": 13.069
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's arterial blood gas shows metabolic acidosis with a low bicarbonate level (23 mEq/L), indicating a metabolic alkalosis or bicarbonate depletion. This suggests the ingestion of a substance that causes bicarbonate loss, such as lithium or methotrexate, which are part of her medication regimen. Ammonium chloride (A) is used for metabolic alkalosis, but it's not the most appropriate choice here. Atropine (B), flumazenil (C), and physostigmine (D) are used for cholinergic or other specific toxicities, not metabolic alkalosis. Sodium bicarbonate (E) is the most appropriate treatment for correcting metabolic alkalosis by restoring bicarbonate levels.",
+          "critical_evidence": "HCO3- level of 23 mEq/L indicating metabolic alkalosis",
+          "differential_considered": "Considered lithium toxicity (common in this patient's history) and methotrexate toxicity, both of which can cause metabolic alkalosis. Ruled out other causes of metabolic alkalosis like vomiting, diuretic use, or kidney disease, as they are less likely given the patient's presentation and history.",
+          "usage": {
+            "prompt_tokens": 488,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.682
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.921
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 12,
+            "generation_time_s": 0.317
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 310,
+            "generation_time_s": 9.773
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

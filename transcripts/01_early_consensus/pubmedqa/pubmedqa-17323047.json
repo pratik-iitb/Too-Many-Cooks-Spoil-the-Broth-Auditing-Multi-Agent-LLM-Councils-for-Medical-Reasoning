@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-17323047",
+  "dataset": "pubmedqa",
+  "question_id": "17323047",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does invasive diagnosis of nosocomial pneumonia during off-hours delay treatment?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks if invasive diagnosis of nosocomial pneumonia during off-hours delays treatment. While invasive diagnosis is important for accurate treatment, the key factor is whether the delay is significant. If the diagnosis is made promptly during off-hours, it shouldn't necessarily delay treatment. The promptness of the diagnosis is more important than the time of day.",
+          "critical_evidence": "The question implies that the diagnosis is made during off-hours, suggesting the possibility of a delay in treatment.",
+          "differential_considered": "Differential diagnoses include other causes of respiratory distress, such as pulmonary embolism or acute respiratory distress syndrome (ARDS). These conditions could also present with similar symptoms, but the question specifically focuses on nosocomial pneumonia, making them less relevant to the core question.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 198,
+            "generation_time_s": 9.787
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Invasive diagnosis of nosocomial pneumonia during off-hours may introduce delays in initiating empiric antibiotic therapy, which is critical for managing severe community-acquired pneumonia. However, the question implies a scenario where diagnosis is necessary for appropriate treatment decisions. Given that nosocomial pneumonia often requires specific antimicrobial therapy, delaying definitive diagnosis could lead to suboptimal treatment. But if the diagnosis is made during off-hours, it may still allow for timely initiation of appropriate therapy, especially if the pathogen is known or highly likely based on clinical presentation. The key is that the delay in diagnosis does not necessarily equate to delayed treatment if the clinician can act on the available information.",
+          "critical_evidence": "The ability to initiate appropriate antibiotic therapy based on clinical presentation and available diagnostic information during off-hours",
+          "differential_considered": "Mycoplasma pneumoniae, Legionella, and other atypical pathogens commonly associated with nosocomial pneumonia were considered, but the critical factor is the clinician's ability to manage the patient with available information, not the timing of the invasive test.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.553
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Invasive diagnosis of nosocomial pneumonia during off-hours does not inherently delay treatment, as rapid diagnostic tools and protocols (e.g., bedside ultrasound, point-of-care testing, or expedited microbiology) can be employed to initiate empiric therapy promptly. Delayed treatment is more often due to systemic factors (e.g., staffing, resource availability) rather than the timing of invasive procedures.",
+          "critical_evidence": "Empiric antibiotic therapy can be initiated before definitive culture results, minimizing treatment delay regardless of time of day.",
+          "differential_considered": "Other causes of respiratory deterioration (e.g., pulmonary embolism, heart failure, aspiration) were considered but ruled out based on clinical context and absence of supporting findings.",
+          "usage": {
+            "prompt_tokens": 228,
+            "generated_tokens": 178,
+            "generation_time_s": 6.223
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 87,
+            "generation_time_s": 2.111
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possible reasons for delay (e.g., physician unavailability) were not mentioned, but the explicit timing of the invasive procedure is the most relevant factor here. Diagnoses unrelated to procedural timing (e.g., radiographic findings) are not provided in the case.",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 193,
+            "generation_time_s": 6.078
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

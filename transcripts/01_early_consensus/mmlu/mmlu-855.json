@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-855",
+  "dataset": "mmlu",
+  "question_id": "855",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A healthy 22-year-old man participates in a study of glucose metabolism. At the beginning of the study, his serum glucose concentration is within the reference range. He consumes an 800-calorie meal consisting of protein, fat, and carbohydrates. He then sleeps through the night without additional food or drink. Twelve hours later, his serum glucose concentration remains within the reference range. Which of the following mechanisms is most likely involved in maintaining this man's serum glucose concentration?",
+    "options": {
+      "A": "Continued gut absorption of calories from the ingested meal",
+      "B": "Glucose release from skeletal muscle",
+      "C": "Glycogenolysis in the liver",
+      "D": "Increased leptin release from adipose tissues"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's glucose concentration remained within the reference range after a 12-hour fast. This indicates that the body was able to maintain blood glucose levels despite the absence of glucose intake. Glycogenolysis in the liver is the process of breaking down glycogen into glucose, which can then be released into the bloodstream to maintain blood glucose levels during fasting. The other options are less likely because they would lead to a decrease in blood glucose.",
+          "critical_evidence": "The patient's serum glucose concentration remained within the reference range after a 12-hour fast.",
+          "differential_considered": "A: Continued gut absorption of calories from the ingested meal is unlikely after 12 hours. B: Glucose release from skeletal muscle is not a significant contributor to maintaining blood glucose during fasting. D: Increased leptin release from adipose tissues primarily regulates appetite and energy expenditure, not directly glucose homeostasis.",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 224,
+            "generation_time_s": 11.925
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's serum glucose remains stable after a meal and overnight fasting, indicating endogenous glucose production. Since the glucose was within reference range initially and remained so after 12 hours, the body must be maintaining glucose through internal mechanisms rather than continued absorption or leptin release. Skeletal muscle glucose release occurs during prolonged fasting, but liver glycogenolysis is the primary source of glucose during overnight fasting in healthy individuals. The liver converts stored glycogen into glucose to maintain blood sugar levels.",
+          "critical_evidence": "The patient's glucose remained within reference range after 12 hours of fasting, demonstrating the liver's ability to maintain glucose homeostasis through glycogenolysis.",
+          "differential_considered": "Option A (continued gut absorption) is unlikely as the meal was consumed 12 hours prior and digestion would be complete. Option B (skeletal muscle glucose release) is less likely as liver glycogenolysis is the primary source of glucose during overnight fasting in healthy individuals. Option D (leptin release) is unrelated to glucose regulation.",
+          "usage": {
+            "prompt_tokens": 370,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.797
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "After consuming a meal, the body relies on hepatic glycogenolysis to maintain serum glucose during fasting, especially within the first 12 hours. Since the patient slept without food and glucose remained normal, the liver’s glycogen breakdown is the primary mechanism. Skeletal muscle does not release glucose into the bloodstream, gut absorption is negligible after 12 hours, and leptin does not directly regulate glucose levels.",
+          "critical_evidence": "Serum glucose remains within reference range 12 hours after a meal, indicating effective glucose homeostasis via hepatic glycogenolysis.",
+          "differential_considered": "A: Gut absorption is minimal after 12 hours; B: Skeletal muscle does not release glucose; D: Leptin regulates appetite, not acute glucose maintenance.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 192,
+            "generation_time_s": 6.914
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 18,
+            "generation_time_s": 0.46
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "- A: Continued glucose absorption would raise blood sugar, inconsistent with the case.\n    - B: Some glucose release from muscle during fasting could occur, but in healthy individuals, insulin action typically suppresses this.\n    - C: Glycogenolysis would cause hypoglycemia after 12 hours, which is not observed.\n    - D: Enhanced insulin sensitivity allows efficient glucose storage and utilization, maintaining normal levels.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 274,
+            "generation_time_s": 8.838
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

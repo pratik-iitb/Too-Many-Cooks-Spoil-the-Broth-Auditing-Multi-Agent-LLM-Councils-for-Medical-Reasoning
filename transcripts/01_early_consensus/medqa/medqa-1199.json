@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1199",
+  "dataset": "medqa",
+  "question_id": "1199",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old, G3P2012 woman comes to the clinic complaining of painful menstruation for the past 4 months. She is also using more tampons compared to prior periods. She is concerned as her close friend was just diagnosed with endometrial cancer. Prior to these symptoms, her menstrual cycle was regular (every 28 days) and without pain. She denies abnormal uterine bleeding, abnormal discharge, past sexually transmitted diseases, or spotting. A bimanual pelvic examination is unremarkable except for a mobile, diffusely enlarged, globular uterus. What is the most likely explanation for this patient’s symptoms?",
+    "options": {
+      "A": "Abnormal endometrial gland proliferation at the endometrium",
+      "B": "Benign smooth muscle tumor within the uterine wall",
+      "C": "Collection of endometrial tissue protruding into the uterine cavity",
+      "D": "Invasion of endometrial glands into the myometrium",
+      "E": "Non-neoplastic endometrial tissue outside of the endometrial cavity"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of painful menstruation, increased tampon use, and a diffusely enlarged, globular uterus strongly suggests a fibroid. The absence of abnormal bleeding or discharge makes other diagnoses less likely. The mobile nature of the uterus also supports a benign etiology.",
+          "critical_evidence": "The mobile, diffusely enlarged, globular uterus is the most important finding, pointing towards a fibroid.",
+          "differential_considered": "A: Abnormal endometrial gland proliferation at the endometrium (endometrial hyperplasia/cancer) is less likely given the absence of abnormal bleeding and the patient's age. C: Collection of endometrial tissue protruding into the uterine cavity (endometrial polyp) is possible but less likely given the diffuse enlargement of the uterus. D: Invasion of endometrial glands into the myometrium (endometrial cancer) is less likely given the absence of abnormal bleeding and the patient's age. E: Non-neoplastic endometrial tissue outside of the endometrial cavity (e.g., adenomyosis) is possible, but the diffuse enlargement of the uterus is more suggestive of a fibroid.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 265,
+            "generation_time_s": 13.167
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's painful menstruation and increased tampon usage suggest endometrial hyperplasia, which can lead to adenomyosis. The bimanual exam finding of a mobile, diffusely enlarged, globular uterus aligns with adenomyosis, where endometrial glands invade the myometrium. This explains both the pain and the enlarged uterus.",
+          "critical_evidence": "Mobile, diffusely enlarged, globular uterus on bimanual exam",
+          "differential_considered": "Endometrial cancer was ruled out by the absence of abnormal bleeding and the patient's age (42 is not a high-risk age for endometrial cancer). Benign smooth muscle tumors (B) would not typically cause painful menstruation. Collection of endometrial tissue (C) is less likely without abnormal bleeding. Invasion of endometrial glands (D) is a feature of adenomyosis, not cancer. Non-neoplastic endometrial tissue (E) is not a common cause of painful menstruation.",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.721
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with painful menstruation and increased tampon use, along with a diffusely enlarged, globular uterus on pelvic exam. These findings are most consistent with uterine fibroids (leiomyomas), which are benign smooth muscle tumors commonly causing bulk symptoms and dysmenorrhea. The absence of abnormal bleeding or discharge makes endometrial cancer (A, D) less likely. Endometriosis (C, E) typically presents with extracavitary lesions and often pelvic pain, but the globular, diffusely enlarged uterus is more characteristic of fibroids.",
+          "critical_evidence": "Mobile, diffusely enlarged, globular uterus — classic physical exam finding for uterine fibroids.",
+          "differential_considered": "Endometrial cancer (ruled out by absence of bleeding, normal prior cycles, and no risk factors), endometriosis (ruled out by lack of extracavitary symptoms and no history of pelvic pain), adenomyosis (possible but less likely without focal tenderness or heavy bleeding), and leiomyomas (best fit with findings).",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 257,
+            "generation_time_s": 9.05
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 143,
+            "generation_time_s": 3.487
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (endometrial hyperplasia) and C (endometriosis) are considered but the description of a diffusely enlarged uterus and absence of other endometriosis symptoms make them less likely. D (invasive carcinoma) is possible but the clinical context and lack of risk factors for cancer, along with the benign-sounding exam findings, make it less likely without more evidence. E (benign ectopic or submucosal growth) is less likely given the uterine size description. Thus, B (benign uterine smooth muscle tumor/fibroid) is the best fit.",
+          "usage": {
+            "prompt_tokens": 473,
+            "generated_tokens": 290,
+            "generation_time_s": 9.154
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

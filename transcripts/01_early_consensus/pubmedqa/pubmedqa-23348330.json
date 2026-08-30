@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-23348330",
+  "dataset": "pubmedqa",
+  "question_id": "23348330",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Nasal fractures:  is closed reduction satisfying?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks if closed reduction of a nasal fracture is satisfying. If the fracture is adequately reduced and the patient is stable, then the closed reduction is considered satisfactory. Without further information about the reduction's success or the patient's condition, it's reasonable to assume it is.",
+          "critical_evidence": "The question implies a closed reduction has been performed and the question is about its satisfaction.",
+          "differential_considered": "If the fracture was not adequately reduced, the answer would be 'no'. If the patient is unstable or has other complications, the answer would be 'no'. However, the question does not provide any information to suggest these conditions.",
+          "usage": {
+            "prompt_tokens": 252,
+            "generated_tokens": 176,
+            "generation_time_s": 8.626
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Nasal fractures typically require closed reduction if they are displaced and causing significant deformity or functional impairment. Given the clinical case, the absence of open fracture features (e.g., open wound, bone protrusion) and the presence of a closed fracture suggest that closed reduction is appropriate. The patient's symptoms and examination findings align with a closed nasal fracture, and no additional trauma to the face or skull was mentioned, supporting the need for closed reduction.",
+          "critical_evidence": "The absence of open fracture features and the presence of a closed fracture",
+          "differential_considered": "Considered open nasal fractures (with bone exposure) and other facial fractures, but ruled them out due to the lack of open wounds or significant external deformities. No evidence of associated orbital floor fracture or basilar skull injury was noted.",
+          "usage": {
+            "prompt_tokens": 253,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.048
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The case presents only 'Nasal fractures' without specific details on displacement, symptoms, or imaging. Closed reduction success depends on fracture alignment, patient symptoms, and functional outcomes, which are not provided. Therefore, a definitive answer cannot be made without further clinical context.",
+          "critical_evidence": "No clinical details on fracture displacement, symptoms, or imaging results are provided.",
+          "differential_considered": "Differential diagnoses such as nasal septal hematoma or deviated septum were not considered because the case lacks sufficient detail to support or rule them out.",
+          "usage": {
+            "prompt_tokens": 225,
+            "generated_tokens": 144,
+            "generation_time_s": 4.99
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 251,
+            "generated_tokens": 71,
+            "generation_time_s": 1.708
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: \"yes\" assumes the reduction was adequate, which is unlikely without imaging or follow-up confirmation. B: \"no\" implies closed reduction is never satisfying, which is too absolute. Thus, C: \"maybe\" accounts for variable outcomes based on fracture characteristics and reduction quality.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 231,
+            "generation_time_s": 7.202
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

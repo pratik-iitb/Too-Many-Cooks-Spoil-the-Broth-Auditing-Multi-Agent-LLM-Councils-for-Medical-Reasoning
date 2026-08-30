@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-75",
+  "dataset": "mmlu",
+  "question_id": "75",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A patient cuts a peripheral motor nerve in their wrist when they fall through a plate glass window. If the nerve does not regenerate, after about 6 months the muscles it normally innervates will show signs of which of the four options below?",
+    "options": {
+      "A": "spastic paralysis",
+      "B": "flaccid paralysis",
+      "C": "atrophy",
+      "D": "contracture"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "A severed peripheral motor nerve will lead to denervation of the muscles it innervates. After 6 months, the lack of nerve stimulation will cause the muscles to undergo atrophy, resulting in a decrease in muscle size and strength. Spastic paralysis is associated with upper motor neuron lesions, flaccid paralysis with lower motor neuron lesions, and contracture is a result of prolonged muscle shortening or fixation.",
+          "critical_evidence": "A severed peripheral motor nerve will lead to denervation of the muscles it innervates.",
+          "differential_considered": "Spastic paralysis is associated with upper motor neuron lesions, flaccid paralysis with lower motor neuron lesions, and contracture is a result of prolonged muscle shortening or fixation. These are not the primary expected findings in a peripheral nerve injury.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 200,
+            "generation_time_s": 10.632
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient cut a peripheral motor nerve in the wrist, leading to denervation of the muscles it innervates. Without nerve regeneration, the muscles will gradually weaken and atrophy due to lack of motor input. Spastic paralysis (A) suggests hyperreflexia and increased muscle tone, which is not expected in denervated muscles. Flaccid paralysis (B) involves flaccid muscles but typically occurs in spinal cord injuries, not peripheral nerve lesions. Contracture (D) is a fixed deformity that develops after atrophy, not the initial finding. Atrophy (C) is the direct result of denervation and lack of muscle activity.",
+          "critical_evidence": "The absence of nerve regeneration means the muscles will lose their innervation, leading to muscle atrophy.",
+          "differential_considered": "Spinal cord injury (ruled out by peripheral nerve cut), central nervous system lesions (not indicated by wrist injury), and acute nerve injury complications (not relevant to long-term outcome).",
+          "usage": {
+            "prompt_tokens": 305,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.887
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "After nerve injury, if regeneration does not occur, denervated muscles lose innervation and gradually atrophy due to lack of neural stimulation. This process typically becomes evident after 6 months. Spastic paralysis (A) and flaccid paralysis (B) are acute or early-phase phenomena, not the long-term outcome. Contracture (D) is a secondary complication from prolonged immobility, not the primary sign of denervation.",
+          "critical_evidence": "Denervated muscles undergo atrophy due to loss of trophic support from motor neurons, a well-established consequence of chronic nerve injury without regeneration.",
+          "differential_considered": "Spastic paralysis and flaccid paralysis were considered but ruled out as they describe acute or early-phase motor deficits, not the 6-month outcome. Contracture was considered but is a mechanical complication, not the primary sign of denervation.",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 210,
+            "generation_time_s": 7.798
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are incorrect>",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 72,
+            "generation_time_s": 1.913
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "When a peripheral motor nerve is injured and does not regenerate, the muscles it innervates typically lose their contractile proteins due to lack of nerve stimulation, leading to muscle atrophy. This process is time-dependent and becomes evident after a few months of disuse. Spastic paralysis and contracture result from upper motor neuron lesions, not from denervation without regeneration. Flaccid paralysis suggests axonal injury with some residual function, which is less likely in this scenario of complete injury without regeneration.",
+          "critical_evidence": "",
+          "differential_considered": "Options A (spastic paralysis) and D (contracture) are ruled out because they require intact or partially damaged upper motor neurons, not denervation without regeneration. Option B (flaccid paralysis) could occur with axonal injury but is less typical for complete injury without any regenerative capacity. Only C (atrophy) is directly caused by the absence of innervation over time in this case.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 251,
+            "generation_time_s": 8.286
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

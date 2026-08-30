@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-146",
+  "dataset": "metamed",
+  "question_id": "146",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 24-year-old woman presents to a physician with a history of exposure to a close friend who was diagnosed with meningococcal meningitis. She was told by her friend that she need to see a physician because she needs to be treated as well, even if she is not having symptoms yet. She currently denies any headaches, vision changes, nausea or vomiting, or neck stiffness. Her physical exam is within normal limits. Her vital signs are stable. She is prescribed rifampin for prophylaxis with specific instructions on when to follow up if symptoms develop. When asked about the possibility of pregnancy, she mentioned that she uses combination oral contraceptive pills (OCPs) for contraception. The physician suggested that her husband should use condoms for contraception as she requires antibiotic therapy. Which of the following mechanisms best explains the need for additional contraception?",
+    "options": {
+      "A": "Rifampin alters normal gastrointestinal flora, which leads to a decrease in the enterohepatic circulation of estrogens.",
+      "B": "Rifampin inhibits CYP3A4, which metabolizes progestins.",
+      "C": "Rifampin alters normal gastrointestinal flora, which leads to a decrease in the enterohepatic circulation of progestins.",
+      "D": "Rifampin directly interferes with intestinal absorption of estrogens.",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is taking oral contraceptive pills (OCPs), which contain both estrogen and progestin. Rifampin is a potent inducer of CYP3A4, an enzyme that metabolizes both estrogen and progestin. Inducing CYP3A4 leads to increased metabolism of these hormones, reducing their levels in the body and potentially decreasing the effectiveness of the OCPs. This can lead to unintended pregnancy.",
+          "critical_evidence": "The patient is taking oral contraceptive pills (OCPs).",
+          "differential_considered": "While other factors could potentially affect OCP efficacy, the strong interaction between rifampin and CYP3A4 is the most direct and likely explanation in this scenario. Other factors like changes in body weight or other medications are less likely to be the primary reason for the recommendation to use condoms.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 209,
+            "generation_time_s": 10.856
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Rifampin alters gastrointestinal flora, reducing enterohepatic circulation of estrogens. This decreases estrogen availability, potentially impairing contraceptive efficacy. The patient uses OCPs, which rely on consistent estrogen levels for effectiveness. The physician's recommendation for condoms ensures contraceptive failure is avoided due to uncertain estrogen bioavailability during rifampin therapy.",
+          "critical_evidence": "Rifampin's effect on enterohepatic circulation of estrogens",
+          "differential_considered": "No relevant differentials; focus is on contraceptive efficacy during rifampin therapy",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 149,
+            "generation_time_s": 7.469
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Rifampin is a potent inducer of hepatic cytochrome P450 enzymes, including CYP3A4 and CYP2C9, which accelerates the metabolism of oral contraceptives, particularly estrogens. This leads to reduced efficacy of combination OCPs. While rifampin can also affect progestins, its primary mechanism in reducing contraceptive efficacy is through increased estrogen metabolism. The physician’s recommendation for backup contraception (condoms) is appropriate due to this pharmacokinetic interaction.",
+          "critical_evidence": "Rifampin induces hepatic enzymes that accelerate estrogen metabolism, reducing contraceptive efficacy.",
+          "differential_considered": "Other options like CYP3A4 inhibition (B) are incorrect because rifampin is an inducer, not an inhibitor. Alterations in gut flora (C, D) are not the primary mechanism; rifampin’s effect is hepatic. Option E is incorrect as A is well-supported by evidence.",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 231,
+            "generation_time_s": 8.639
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 513,
+            "generated_tokens": 33,
+            "generation_time_s": 1.215
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Rifampin is primarily used for prophylaxis in meningococcal exposure and is not known to impair contraceptive pills like OCPs.",
+          "differential_considered": "Options A-D propose pharmacological mechanisms related to hormonal metabolism, but OCPs are not contraindicated by these effects. The real concern would be antibiotic-associated risk of sexually transmitted infections (not listed), but the question focuses on the listed pharmacological mechanisms. Therefore, the answer is E.",
+          "usage": {
+            "prompt_tokens": 546,
+            "generated_tokens": 280,
+            "generation_time_s": 9.266
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 3,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

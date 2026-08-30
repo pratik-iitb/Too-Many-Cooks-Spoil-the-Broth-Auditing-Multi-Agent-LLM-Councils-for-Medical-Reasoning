@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-231",
+  "dataset": "medqa",
+  "question_id": "231",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 3-day-old newborn girl is admitted to the neonatal intensive care unit for emesis. She has been vomiting for the past 6 hours, and the mother reports that the vomitus is green in color. The patient was delivered at 39 weeks 2 days via an uncomplicated delivery. However, the dad reports that she has yet to have a bowel movement. A physical examination demonstrates a newborn baby in moderate distress with abdominal distension, facial findings shown in Figure A, and large passage of stool upon rectal examination. Her vital signs are within normal limits. What is the most likely explanation for this patient’s symptoms?",
+    "options": {
+      "A": "Abnormal midgut rotation during fetal development",
+      "B": "Failure of neural crest cell migration",
+      "C": "Failure of the duodenum to recanalize",
+      "D": "Group B streptococcus infection",
+      "E": "Ischemic necrosis of the mesenteric vessels"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The newborn's presentation of bilious emesis, abdominal distension, and delayed passage of stool strongly suggests intestinal obstruction. The key finding is the green vomit, which indicates the presence of bile. Abnormal midgut rotation is a common cause of intestinal obstruction in newborns, leading to malrotation and volvulus.",
+          "critical_evidence": "Bilious emesis",
+          "differential_considered": "Failure of neural crest cell migration (Hirschsprung's disease) typically presents with delayed passage of meconium, not bilious emesis. Failure of the duodenum to recanalize can cause duodenal obstruction, but it usually presents with bilious emesis and abdominal distension, but the delayed passage of stool is less common. Group B streptococcus infection can cause sepsis, but it doesn't typically present with this specific constellation of symptoms. Ischemic necrosis of the mesenteric vessels is a serious condition, but it usually presents with more severe symptoms like bloody stools and signs of shock, which are not mentioned in the case.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 250,
+            "generation_time_s": 12.333
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The green vomitus and absence of bowel movements suggest meconium retention, which is consistent with a blocked duodenum. The abdominal distension and passage of large stool upon rectal examination further support a meconium plug obstructing the intestinal tract. Failure of the duodenum to recanalize is the most likely cause of this obstruction.",
+          "critical_evidence": "Absence of bowel movements in a newborn with vomiting and distension suggests meconium retention",
+          "differential_considered": "Options A, D, and E are less likely given the absence of other clinical signs (e.g., jaundice, infection, or vascular abnormalities). Option B (neural crest cell migration failure) is not relevant to intestinal obstruction.",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 182,
+            "generation_time_s": 8.482
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The newborn presents with vomiting, abdominal distension, and failure to pass meconium, which are classic signs of duodenal atresia. The green vomitus suggests bile-stained contents, indicating obstruction proximal to the duodenum. The absence of bowel movements and large passage of stool upon rectal exam suggest a mechanical obstruction with retained meconium. This aligns with failure of duodenal recanalization, a common cause of duodenal atresia.",
+          "critical_evidence": "Green vomitus and failure to pass meconium in a newborn with abdominal distension strongly suggest duodenal atresia due to failure of duodenal recanalization.",
+          "differential_considered": "Group B streptococcus (D) is ruled out due to absence of fever, sepsis signs, or systemic illness. Abnormal midgut rotation (A) typically presents with malrotation and volvulus, often with bilious vomiting but not necessarily absent meconium passage. Neural crest cell migration failure (B) causes Hirschsprung disease, which presents with constipation and failure to pass meconium but not typically with bilious vomiting. Ischemic necrosis (E) would present with acute abdominal pain, shock, and necrotic changes, not seen here.",
+          "usage": {
+            "prompt_tokens": 393,
+            "generated_tokens": 300,
+            "generation_time_s": 10.578
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 17,
+            "generation_time_s": 0.432
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Abnormal midgut rotation (A), failure of duodenum recanalization (C), and infection (D) were considered but do not as directly explain the combination of emesis, green color, and distension seen here. Ischemic necrosis (E) would likely have more severe systemic signs like hypotension or shock.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 320,
+            "generation_time_s": 10.003
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

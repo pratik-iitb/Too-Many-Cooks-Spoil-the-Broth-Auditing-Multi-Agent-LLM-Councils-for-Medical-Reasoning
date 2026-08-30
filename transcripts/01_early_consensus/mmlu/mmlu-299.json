@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-299",
+  "dataset": "mmlu",
+  "question_id": "299",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "When recording peak flow results, within how many litres/minute should the three readings be?",
+    "options": {
+      "A": "10 litres per minute of each other.",
+      "B": "20 litres per minute of each other.",
+      "C": "100 litres per minute of each other.",
+      "D": "30 litres per minute of each other."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The standard protocol for peak flow measurements is to obtain three readings, each separated by at least 1 minute. This allows for the identification of any significant variability in the patient's airflow. The readings should be within 20% of each other.",
+          "critical_evidence": "The requirement for three readings separated by at least 1 minute.",
+          "differential_considered": "While other factors can influence peak flow, the specific requirement of 1 minute between readings is a standard guideline for accurate assessment.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 144,
+            "generation_time_s": 7.255
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Peak flow measurements should be consistent and reliable for accurate asthma management. A 20% variation between readings (20 litres per minute) is within the acceptable range for clinical stability, as it reflects normal physiological variability in breathing patterns. Larger differences (A, C, or D) would indicate measurement inconsistency rather than true respiratory changes.",
+          "critical_evidence": "Standard clinical practice recommends a 20% variation between peak flow readings for clinical validity",
+          "differential_considered": "Options A, C, and D represent progressively larger measurement inconsistencies that would compromise clinical assessment accuracy",
+          "usage": {
+            "prompt_tokens": 295,
+            "generated_tokens": 146,
+            "generation_time_s": 6.946
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Peak flow variability is assessed to evaluate airway function consistency. According to standard spirometry and peak flow meter guidelines, acceptable repeatability is typically within 20 L/min for three consecutive readings in a healthy individual. This ensures reliability of the measurement for clinical decision-making.",
+          "critical_evidence": "Standard clinical guidelines for peak flow measurement require that three readings should not differ by more than 20 L/min to be considered reliable.",
+          "differential_considered": "Other variability thresholds (e.g., 10 or 30 L/min) were considered but are either too stringent (10 L/min) or too lenient (30 L/min) for standard clinical practice. No alternative diagnostic condition was relevant to this specific question.",
+          "usage": {
+            "prompt_tokens": 271,
+            "generated_tokens": 182,
+            "generation_time_s": 6.495
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 175,
+            "generation_time_s": 4.315
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered whether the question might be referencing the standard 20% guideline or a specific instruction for a particular population, but none of the options match the percentage. The only plausible answer based on the given choices is A, as it is the smallest and most likely to represent a clinically acceptable range in some contexts.",
+          "usage": {
+            "prompt_tokens": 324,
+            "generated_tokens": 391,
+            "generation_time_s": 12.53
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

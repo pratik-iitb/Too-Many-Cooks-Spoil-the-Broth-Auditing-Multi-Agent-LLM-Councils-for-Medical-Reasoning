@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1066",
+  "dataset": "mmlu",
+  "question_id": "1066",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old man with Down syndrome and severe mental retardation is brought to the emergency department by ambulance because of increasing lethargy for the past several hours. The patient is noncommunicative and you are unable to obtain an initial history of his present illness or a past medical history. You do not know if he takes any medications. Vital signs are temperature 38.3°C (100.9°F), pulse 90/min, respirations 19/min, and blood pressure 120/60 mm Hg. On physical examination the patient is awake but lethargic. Auscultation of the chest discloses clear lungs; cardiac examination discloses a systolic click. Neurologic examination shows decreased muscle tone. Serum electrolyte concentrations are normal. Complete blood count shows a leukocyte count of 18,000/mm3 with 23% band neutrophils. The patient's caregiver, who is also the patient's guardian, cannot be located and staff at the group home where the patient resides cannot be reached by telephone. The patient refuses lumbar puncture for examination of cerebrospinal fluid. Toxicologic screening of the urine is negative. Which of the following is the most appropriate next step?",
+    "options": {
+      "A": "Administer intravenous antibiotics",
+      "B": "Await contact with the caregiver before proceeding with management",
+      "C": "Obtain CT scan of the head",
+      "D": "Obtain echocardiography"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, lethargy, and leukocytosis with bandemia, suggesting a possible bacterial infection, likely sepsis. Given the patient's age, Down syndrome, and mental retardation, they are at increased risk for serious infections. Delaying antibiotics could lead to rapid deterioration and increased morbidity/mortality. While the caregiver is unavailable, the clinical picture strongly points towards a bacterial infection requiring immediate treatment.",
+          "critical_evidence": "Leukocytosis with bandemia (18,000/mm3 with 23% band neutrophils) and fever (38.3°C) strongly suggest a bacterial infection.",
+          "differential_considered": "While other conditions could cause lethargy and fever, the combination of these findings, especially in a patient with Down syndrome, makes bacterial sepsis the most likely and most immediately life-threatening possibility. Aspiration pneumonia is also a consideration, but the clear lungs make it less likely. Meningitis is possible, but the patient refuses lumbar puncture, making it less likely than a systemic infection. Therefore, empiric antibiotics are the most appropriate first step.",
+          "usage": {
+            "prompt_tokens": 519,
+            "generated_tokens": 265,
+            "generation_time_s": 13.282
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's leukocytosis with band neutrophils suggests a bacterial infection, but the absence of fever and normal electrolytes makes this less likely. The systolic click on cardiac exam raises concern for aortic valve stenosis, a common congenital heart defect in Down syndrome. Given the patient's age, mental retardation, and the presence of a heart murmur, echocardiography is the most appropriate next step to evaluate for structural heart disease, which could explain the lethargy and may require urgent intervention.",
+          "critical_evidence": "The systolic click on cardiac examination",
+          "differential_considered": "Infections (elevated WBC with bands), metabolic derangements (normal electrolytes), and congenital heart disease (systolic click). The latter is most concerning given the patient's Down syndrome and the clinical presentation.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.448
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has Down syndrome, lethargy, fever, and a systolic click on cardiac exam, which strongly suggests infective endocarditis. Given his noncommunicative state and inability to obtain history, echocardiography is the most appropriate next step to confirm or rule out endocarditis, which is a life-threatening condition requiring urgent intervention. Other options are less immediately actionable or less specific to the current presentation.",
+          "critical_evidence": "Systolic click on cardiac examination in a patient with fever and lethargy is highly suggestive of infective endocarditis, especially in the context of Down syndrome, which is a known risk factor.",
+          "differential_considered": "Other differentials like meningitis or sepsis were considered, but the systolic click and lack of focal neurologic signs make infective endocarditis more likely. Toxicology is negative, and lumbar puncture is refused, making meningitis less likely. CT of the head is not immediately indicated without focal neurologic signs or suspicion of structural abnormality.",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 243,
+            "generation_time_s": 8.655
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 513,
+            "generated_tokens": 141,
+            "generation_time_s": 3.483
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "The patient's noncommunicative state and the inability to obtain a history from the caregiver/guardian raise concerns about missed medication effects or other important clinical information that could impact care.",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 547,
+            "generated_tokens": 302,
+            "generation_time_s": 9.705
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

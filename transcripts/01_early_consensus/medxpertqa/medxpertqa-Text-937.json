@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-937",
+  "dataset": "medxpertqa",
+  "question_id": "Text-937",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 67-year-old male patient is seen for follow-up one week after hospital discharge for a properly treated ST-elevation myocardial infarction (STEMI). He has not taken any prescribed medications or attended his scheduled follow-up appointment. His medical history includes hypertension and peripheral vascular disease. His vital signs show: temperature 97.5°F (36.4°C), blood pressure 167/118 mmHg, heart rate 90/min, respiratory rate 14/min, and oxygen saturation 99% on room air. Physical examination reveals jugular venous distention and bilateral lower extremity pitting edema. His echocardiogram shows an ejection fraction of 55%. Which medication would provide the greatest reduction in mortality for this patient?\nAnswer Choices: (A) Carvedilol (B) Amlodipine (C) Diltiazem (D) Losartan (E) Lisinopril (F) Digoxin (G) Spironolactone (H) Propranolol (I) Hydralazine and isosorbide dinitrate (J) Metoprolol succinate",
+    "options": {
+      "A": "Carvedilol",
+      "B": "Amlodipine",
+      "C": "Diltiazem",
+      "D": "Losartan",
+      "E": "Lisinopril",
+      "F": "Digoxin",
+      "G": "Spironolactone",
+      "H": "Propranolol",
+      "I": "Hydralazine and isosorbide dinitrate",
+      "J": "Metoprolol succinate"
+    },
+    "context": "",
+    "correct_option": "J",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Cardiovascular",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "J",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of STEMI, hypertension, and peripheral vascular disease, and is presenting with signs of heart failure (JVD, edema). The goal is to reduce mortality. Beta-blockers (metoprolol succinate) are first-line therapy for post-MI patients, especially those with heart failure or reduced ejection fraction. ACE inhibitors (lisinopril) are also indicated. Hydralazine and isosorbide dinitrate are used in patients who cannot tolerate ACE inhibitors or ARBs, or in African American patients with heart failure. Spironolactone is an aldosterone antagonist that is beneficial in heart failure with reduced ejection fraction. Carvedilol is a beta-blocker, but metoprolol succinate is a more commonly used and guideline-recommended beta-blocker in this setting. Amlodipine is a calcium channel blocker, which is not a first-line agent for post-MI patients. Diltiazem is a calcium channel blocker that is generally avoided in patients with reduced ejection fraction. Digoxin is not a first-line agent for post-MI patients and is generally reserved for patients with heart failure and atrial fibrillation.",
+          "critical_evidence": "The patient's history of STEMI, hypertension, and signs of heart failure (JVD, edema) strongly suggest the need for guideline-directed medical therapy (GDMT) including a beta-blocker and an ACE inhibitor.",
+          "differential_considered": "While the patient has hypertension, the primary concern is the post-MI status and the presence of heart failure. The patient's ejection fraction is 55%, which is not severely reduced, but the presence of heart failure symptoms warrants treatment. The other options are either not first-line or not indicated in this specific clinical scenario.",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 404,
+            "generation_time_s": 16.85
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "The patient has a history of STEMI with an ejection fraction of 55%, indicating significant heart failure risk. Jugular venous distention and lower extremity edema suggest fluid retention. Carvedilol is a beta-blocker with inotropic properties that reduces mortality in heart failure patients by improving left ventricular function and reducing arrhythmic events.",
+          "critical_evidence": "Ejection fraction of 55% indicates heart failure risk",
+          "differential_considered": "Considered hypertension management but focused on heart failure risk; ruled out peripheral vascular disease as primary cause of edema",
+          "usage": {
+            "prompt_tokens": 562,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.955
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "J",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a recent STEMI with preserved ejection fraction (55%) and signs of heart failure (jugular venous distention, bilateral edema), indicating he is at risk for adverse outcomes. Beta-blockers like metoprolol succinate are first-line for reducing mortality in post-STEMI patients, especially those with left ventricular dysfunction or heart failure symptoms. While other agents like ACE inhibitors or ARBs are also beneficial, beta-blockers have the strongest mortality benefit in this specific post-STEMI context with preserved EF and heart failure signs.",
+          "critical_evidence": "Recent STEMI with signs of heart failure (jugular venous distention, bilateral edema) and preserved ejection fraction (55%) — beta-blockers are proven to reduce mortality in this population.",
+          "differential_considered": "Spironolactone (G) and ACE inhibitors (E) are beneficial in heart failure with reduced EF, but this patient has preserved EF. Diltiazem (C) and Amlodipine (B) are for hypertension and angina, not mortality reduction. Digoxin (F) and Hydralazine (I) are not first-line for mortality reduction. Propranolol (H) is a beta-blocker but not preferred over metoprolol succinate in post-STEMI due to better tolerability and evidence. Carvedilol (A) is also effective but metoprolol succinate has stronger evidence in this specific scenario.",
+          "usage": {
+            "prompt_tokens": 544,
+            "generated_tokens": 339,
+            "generation_time_s": 12.127
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 560,
+            "generated_tokens": 140,
+            "generation_time_s": 4.615
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 596,
+            "generated_tokens": 466,
+            "generation_time_s": 16.152
+          }
+        }
+      },
+      "vote_distribution": {
+        "J": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "J",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

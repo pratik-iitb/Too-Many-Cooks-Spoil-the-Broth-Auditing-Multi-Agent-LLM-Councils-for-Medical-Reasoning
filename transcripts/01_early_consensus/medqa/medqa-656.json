@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-656",
+  "dataset": "medqa",
+  "question_id": "656",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 26-year-old G1P0 woman presents for her first prenatal visit. Past medical history reveals the patient is blood type O negative, and the father is type A positive. The patient refuses Rho(D) immune globulin (RhoGAM), because it is derived from human plasma, and she says she doesn’t want to take the risk of contracting HIV. Which of the following is correct regarding the potential condition her baby may develop?",
+    "options": {
+      "A": "Rho(D) immune globulin is needed both before and immediately after delivery to protect this baby from developing the condition",
+      "B": "She should receive Rho(D) immune globulin to prevent the development of ABO incompatibility",
+      "C": "She should receive Rho(D) immune globulin to prevent the development of Rh(D) alloimmunization",
+      "D": "The Rho(D) immune globulin will also protect the baby against other Rh antigens aside from Rh(D)",
+      "E": "The injection can be avoided because the risk of complications of this condition is minimal"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is O negative and the father is A positive. This scenario indicates a potential for Rh(D) alloimmunization in the mother. Rho(D) immune globulin (RhoGAM) is administered to prevent the mother from developing antibodies against the Rh(D) antigen, which could then harm a future Rh(D) positive fetus. The patient's refusal of RhoGAM is based on concerns about HIV transmission, which is not a risk associated with RhoGAM.",
+          "critical_evidence": "The patient is O negative and the father is A positive, indicating a potential for Rh(D) alloimmunization.",
+          "differential_considered": "ABO incompatibility is a possibility, but the mother's blood type is O negative, making ABO incompatibility less likely. While the patient's concern about HIV is valid, RhoGAM does not pose a risk of HIV transmission. Therefore, the primary concern is Rh(D) alloimmunization.",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 235,
+            "generation_time_s": 11.629
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is blood type O negative and the father is A positive, so the baby could be Rh(D) positive. Since the mother is Rh(D) negative, her blood could develop anti-Rh(D) antibodies if exposed to fetal Rh(D) positive cells, leading to hemolytic disease of the newborn. RhoGAM prevents this by blocking Rh(D) antigen exposure. The patient's refusal is based on HIV risk, but RhoGAM is made from pooled plasma and is now screened for HIV, making the risk minimal. The concern about ABO incompatibility is irrelevant here since both parents are Rh(D) negative and positive, not ABO incompatible. RhoGAM only targets Rh(D), not other Rh antigens, so option D is incorrect. The condition's risk is significant, so avoiding RhoGAM is not justified.",
+          "critical_evidence": "The mother is Rh(D) negative and the baby could be Rh(D) positive, requiring RhoGAM to prevent alloimmunization.",
+          "differential_considered": "Options B (ABO incompatibility) and D (protection against other Rh antigens) were considered but ruled out because the patient's blood type and the baby's potential Rh(D) status make them irrelevant. Option E is incorrect because the risk of hemolytic disease is significant.",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 307,
+            "generation_time_s": 14.308
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is Rh-negative (O negative) and her partner is Rh-positive (A positive), creating a risk of Rh(D) alloimmunization if fetal Rh-positive blood enters her circulation. RhoGAM prevents this by blocking maternal immune response to Rh(D) antigens. The patient’s refusal is based on misconceptions about HIV risk (RhoGAM is not derived from plasma in the way she fears, and is rigorously screened). ABO incompatibility is not prevented by RhoGAM and is not the primary concern here. The injection is not needed before delivery unless there is a risk of fetomaternal hemorrhage, and it is not effective against other Rh antigens beyond D.",
+          "critical_evidence": "The patient is Rh-negative and her partner is Rh-positive, placing her at risk for Rh(D) alloimmunization, which can lead to hemolytic disease of the fetus and newborn (HDFN) in future pregnancies.",
+          "differential_considered": "ABO incompatibility was considered but ruled out because it is not prevented by RhoGAM and is less severe in the first pregnancy. Other Rh antigens were considered but RhoGAM only targets Rh(D). The risk of HDFN in this first pregnancy is low but not zero, so prevention is still indicated.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 300,
+            "generation_time_s": 10.518
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 30,
+            "generation_time_s": 0.749
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.99,
+          "clinical_reasoning": "The key issue here is Rh incompatibility. The mother is Rh negative (G1), and the father is Rh positive (A+). During delivery, fetal Rh+ blood can cross the placenta into the mother, potentially causing her to develop anti-D antibodies. To prevent hemolytic disease of the newborn in future pregnancies, the mother must be immunized with Rho(D) immune globulin after exposure, not before. Option C correctly identifies the need for Rho(D) immunoglobulin to prevent Rh alloimmunization in the fetus. Options A, B, and D are incorrect because RhoGAM only addresses Rh incompatibility, not ABO incompatibility or other Rh antigens. Option E is incorrect because Rh incompatibility can lead to significant neonatal complications if not managed.",
+          "critical_evidence": "The patient is Rh negative and the father is Rh positive, making her susceptible to Rh incompatibility if the baby is Rh positive.",
+          "differential_considered": "Diseases like ABO incompatibility (option B) are unrelated to RhoGAM and are managed differently. Other Rh incompatibility issues (A, D) are not the best answer because RhoGAM only addresses the D antigen. Option E is incorrect due to the established risk of Rh incompatibility causing hemolytic disease if RhoGAM is not given.",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 316,
+            "generation_time_s": 9.939
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

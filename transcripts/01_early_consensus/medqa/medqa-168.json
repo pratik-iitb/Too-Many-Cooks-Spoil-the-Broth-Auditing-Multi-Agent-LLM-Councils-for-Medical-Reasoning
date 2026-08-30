@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-168",
+  "dataset": "medqa",
+  "question_id": "168",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 61-year-old man sustains an intracranial injury to a nerve that also passes through the parotid gland. Which of the following is a possible consequence of this injury?",
+    "options": {
+      "A": "Loss of taste from posterior 1/3 of tongue",
+      "B": "Loss of general sensation in anterior 2/3 of tongue",
+      "C": "Paralysis of lateral rectus muscle",
+      "D": "Changes in hearing",
+      "E": "Horner's syndrome"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes an intracranial injury affecting a nerve that also passes through the parotid gland. The chorda tympani nerve, a branch of the facial nerve, passes through the parotid gland and carries taste sensation from the anterior 2/3 of the tongue. Therefore, damage to this nerve would result in loss of taste from the anterior 2/3 of the tongue.",
+          "critical_evidence": "The nerve passes through the parotid gland.",
+          "differential_considered": "Option B (Loss of general sensation in anterior 2/3 of tongue) is less likely because the chorda tympani primarily carries taste fibers, not general sensation. Option C (Paralysis of lateral rectus muscle) is incorrect because the abducens nerve (CN VI) controls lateral eye movement, not taste or sensation. Option D (Changes in hearing) is incorrect because the facial nerve is responsible for facial expression and taste, not hearing. Option E (Horner's syndrome) is incorrect because Horner's syndrome is caused by damage to the sympathetic pathway, not the chorda tympani nerve.",
+          "usage": {
+            "prompt_tokens": 323,
+            "generated_tokens": 265,
+            "generation_time_s": 13.098
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The injury to a nerve passing through the parotid gland most likely affects the facial nerve (CN VII), which innervates the lateral rectus muscle and controls sweating, pupil size, and miosis. Damage to the facial nerve can lead to Horner's syndrome, characterized by ptosis, miosis, and anhidrosis. The other options involve different cranial nerves (glossopharyngeal for taste, trigeminal for sensation, and vestibulocochlear for hearing), which do not pass through the parotid gland.",
+          "critical_evidence": "The parotid gland is primarily associated with the facial nerve (CN VII), which innervates the lateral rectus muscle and is involved in Horner's syndrome.",
+          "differential_considered": "Options A, B, D involve cranial nerves not passing through the parotid gland (glossopharyngeal, trigeminal, vestibulocochlear), and C involves the oculomotor nerve, which does not pass through the parotid gland.",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 248,
+            "generation_time_s": 11.419
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The case describes an intracranial injury to a nerve passing through the parotid gland. The facial nerve (CN VII) traverses the parotid gland and innervates taste fibers from the posterior 1/3 of the tongue via the chorda tympani. Injury to the facial nerve at this level can result in loss of taste sensation in the posterior tongue. Other options involve nerves not passing through the parotid gland (e.g., CN III for lateral rectus, CN VIII for hearing, CN I/II for Horner’s).",
+          "critical_evidence": "The facial nerve (CN VII) passes through the parotid gland and carries taste fibers from the posterior 1/3 of the tongue via the chorda tympani.",
+          "differential_considered": "CN III injury causes lateral rectus paralysis; CN VIII injury causes hearing changes; CN I/II injury causes Horner’s syndrome; CN V injury affects sensation in anterior tongue — none of these nerves traverse the parotid gland as the facial nerve does.",
+          "usage": {
+            "prompt_tokens": 298,
+            "generated_tokens": 248,
+            "generation_time_s": 8.688
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 324,
+            "generated_tokens": 19,
+            "generation_time_s": 0.467
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 305,
+            "generation_time_s": 9.466
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

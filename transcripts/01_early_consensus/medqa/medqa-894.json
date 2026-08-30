@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-894",
+  "dataset": "medqa",
+  "question_id": "894",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An 18-year-old man presents to his primary care provider before leaving for college. He has no complaints. His past medical history is significant for asthma, acne vulgaris, and infectious mononucleosis at age 16. His home medications include doxycycline and albuterol as needed. His family history is significant for colon cancer in his father at age 50, his paternal grandfather at age 55, and an uncle at age 45. His father underwent testing for mutations in the APC gene, which were negative. There is no family history of dental abnormalities or other malignancy. The patient denies any recent weight loss, abdominal pain, hematochezia, melena, or other changes in the appearance of his stools. This patient should be screened for colorectal cancer (CRC) under which of the following protocols?",
+    "options": {
+      "A": "Colonoscopy every 1-2 years beginning at age 25",
+      "B": "Colonoscopy every 5 years beginning at age 40",
+      "C": "Colonoscopy every 10 years beginning at age 40",
+      "D": "Colonoscopy every 10 years beginning at age 50",
+      "E": "Prophylactic colectomy"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is 18 years old and has a family history of colon cancer at a relatively young age (father at 50, grandfather at 55, uncle at 45). This increases his risk for colorectal cancer. Current guidelines recommend starting colorectal cancer screening at age 45, but given the family history and the patient's age, screening should begin earlier. The American College of Gastroenterology (ACG) recommends colonoscopy screening for individuals with a first-degree relative diagnosed with colorectal cancer before age 60, or with a family history of colorectal cancer or advanced adenoma. Since the patient is 18, the recommended age to start screening is 25, and the frequency is every 1-2 years.",
+          "critical_evidence": "Family history of colon cancer in multiple first-degree relatives at a relatively young age (father at 50, grandfather at 55, uncle at 45).",
+          "differential_considered": "While the patient denies symptoms, the family history is the most important factor. Other considerations include the possibility of a genetic predisposition, but the negative APC gene testing in the father makes this less likely. The patient's age is also a factor, as the guidelines for screening vary based on age.",
+          "usage": {
+            "prompt_tokens": 474,
+            "generated_tokens": 302,
+            "generation_time_s": 14.907
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a strong family history of colon cancer in first-degree relatives (father, grandfather, uncle) at ages 50, 55, and 45 respectively. Although APC gene testing was negative, this does not exclude other hereditary cancer syndromes. The patient is 18 years old, so he falls into the age range where early screening is recommended for individuals with a family history of CRC. Option B (colonoscopy every 5 years beginning at age 40) is the most appropriate protocol as it accounts for both the family history and the patient's age, providing earlier detection while balancing risk and potential harms.",
+          "critical_evidence": "Family history of colon cancer in first-degree relatives at ages 45-55",
+          "differential_considered": "While the negative APC gene test reduces the likelihood of Lynch syndrome, the strong family history of CRC in multiple first-degree relatives warrants earlier screening. Other conditions like familial adenomatous polyposis (FAP) were considered but are less likely given the negative APC test and absence of other clinical features.",
+          "usage": {
+            "prompt_tokens": 477,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.549
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a family history of colon cancer in first-degree relatives (father at 50, grandfather at 55, uncle at 45), but his father’s negative APC mutation testing suggests it is not familial adenomatous polyposis (FAP). This indicates a possible hereditary non-polyposis colorectal cancer (HNPCC) or other hereditary cancer syndrome, but without a known mutation, he does not meet criteria for prophylactic colectomy. The American Cancer Society and USPSTF recommend starting screening at age 40 for average-risk individuals with a family history of CRC in a first-degree relative diagnosed before age 60, with intervals of 10 years. Since his father was diagnosed at 50, screening should begin at age 40 with 10-year intervals.",
+          "critical_evidence": "Family history of colon cancer in first-degree relatives (father at 50, grandfather at 55, uncle at 45) with negative APC mutation testing.",
+          "differential_considered": "FAP was considered but ruled out due to negative APC testing; HNPCC was not confirmed without testing for mismatch repair genes; prophylactic colectomy was ruled out due to absence of confirmed hereditary syndrome and negative APC testing.",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 298,
+            "generation_time_s": 10.428
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 475,
+            "generated_tokens": 22,
+            "generation_time_s": 0.556
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and B suggest standard screening ages that are too late for this high-risk family; E (prophylactic colectomy) is not a screening recommendation. C is correct based on the family history and age, while D is the earliest appropriate start for screening in this scenario.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 221,
+            "generation_time_s": 6.96
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

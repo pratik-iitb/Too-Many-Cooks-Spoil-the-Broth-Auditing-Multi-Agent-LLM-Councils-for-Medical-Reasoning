@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-623",
+  "dataset": "medqa",
+  "question_id": "623",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old man is brought into the hospital by his family because they are concerned that he has post-traumatic stress disorder. The patient is a marine and was deployed to Afghanistan 2 years ago. He was able to successfully reintegrate with society upon his return; however, for the last 2 weeks, he has been having recurrent nightmares and avoiding news coverage on the war. He has become more and more detached from his family and friends and, on the few times he does interact with them, he has angry outbursts. The patient is afebrile, and his vital signs are within normal limits. Physical examination is unremarkable. Which of the following findings is most important in correctly diagnosing this patient’s condition?",
+    "options": {
+      "A": "Duration of symptoms",
+      "B": "Flashbacks",
+      "C": "State of hyperarousal",
+      "D": "Avoidance of triggers",
+      "E": "Negative Mood"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms, including recurrent nightmares, avoidance of news coverage, detachment from family and friends, and angry outbursts, strongly suggest a diagnosis of Post-Traumatic Stress Disorder (PTSD). Flashbacks are a core diagnostic criterion for PTSD. While the other options are relevant to PTSD, they are not as specific or diagnostic as flashbacks.",
+          "critical_evidence": "Flashbacks",
+          "differential_considered": "Duration of symptoms: While the duration of symptoms is important for diagnosis, it is not the most important finding in this case. Avoidance of triggers: Avoidance is a common symptom of PTSD, but it is not as specific as flashbacks. State of hyperarousal: Hyperarousal is a symptom of PTSD, but it is not the most important finding in this case. Negative Mood: Negative mood is a symptom of PTSD, but it is not as specific as flashbacks. Other diagnoses such as depression or anxiety disorder could present with similar symptoms, but the presence of flashbacks is more indicative of PTSD.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 247,
+            "generation_time_s": 12.233
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of recurrent nightmares, avoidance of war-related triggers, and angry outbursts align with PTSD criteria. While avoidance and hyperarousal are key symptoms, the duration of 2 weeks exceeds the typical 1-month threshold for PTSD diagnosis, making duration the most critical factor for confirming the condition.",
+          "critical_evidence": "Duration of symptoms exceeding 1 month",
+          "differential_considered": "Acute stress reaction (ASR) was considered but ruled out due to the 2-week duration; major depressive disorder was considered but ruled out due to lack of prominent depressed mood and anhedonia, which are more consistent with PTSD's negative mood symptoms.",
+          "usage": {
+            "prompt_tokens": 417,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.427
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with symptoms consistent with PTSD, including nightmares, avoidance, detachment, and angry outbursts. However, the key diagnostic criterion for PTSD is the duration of symptoms — they must persist for at least one month to meet diagnostic criteria. The case notes symptoms have been present for only 2 weeks, which is insufficient for a diagnosis of PTSD. Therefore, duration is the most critical factor in determining whether the diagnosis is currently valid.",
+          "critical_evidence": "Symptoms have only been present for 2 weeks, which is less than the required 1-month duration for PTSD diagnosis.",
+          "differential_considered": "Other differentials like acute stress disorder (ASD) or adjustment disorder were considered, but ASD requires symptoms to last 3 days to 4 weeks, and the patient’s symptoms are still within the acute phase. However, since the case does not specify symptom onset relative to trauma, and duration is the only criterion that definitively rules out PTSD, it remains the most important factor.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 234,
+            "generation_time_s": 8.223
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 102,
+            "generation_time_s": 2.473
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other symptoms like flashbacks, hypervigilance, or severe social withdrawal are also important but less immediately suggestive in the early phase. Differential diagnoses could include adjustment disorder, depression, or anxiety disorders, but the 2-year deployment context and the gradual onset of trauma-specific symptoms point more toward PTSD. However, the question specifically asks for the finding \"most important in correctly diagnosing,\" and the duration post-trauma is a key criterion for PTSD diagnosis.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 305,
+            "generation_time_s": 9.514
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

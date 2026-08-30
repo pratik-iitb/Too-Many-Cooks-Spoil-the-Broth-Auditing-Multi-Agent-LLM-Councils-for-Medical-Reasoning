@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-23517744",
+  "dataset": "pubmedqa_context",
+  "question_id": "23517744",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is solitary kidney really more resistant to ischemia?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To our knowledge there are no evidence-based medicine data to date to critically judge the vulnerability of a solitary kidney to warm ischemia compared to paired kidneys. Ten dogs were exposed to open right nephrectomy to create a solitary kidney model (group 1). Ten dogs with both kidneys were considered group 2. All dogs underwent warm ischemia by open occlusion of the left renal artery for 90 minutes. Dogs were sacrificed at different intervals (3 days to 4 weeks). All dogs were reevaluated by renogram before sacrifice and histopathology of the investigated kidney. The proinflammatory markers CD95 and tumor necrosis factor-α were assessed using real-time polymerase chain reaction. In group 1 clearance decreased by 20% at 1 week but basal function was regained starting at week 2. In group 2 clearance decreased more than 90% up to week 2. Recovery started at week 3 and by 4 weeks there was a 23% clearance reduction. Histopathological examination in group 1 revealed significant tubular necrosis (60%) at 3 days with regeneration starting at 1 week. In group 2 there was more pronounced tubular necrosis (90%) with regeneration starting at 2 weeks. The expression of proinflammatory markers was up-regulated in each group with higher, more sustained expression in group 2.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case demonstrates that a solitary kidney is more vulnerable to ischemia than a paired kidney. The group with a solitary kidney experienced a greater reduction in clearance and more pronounced tubular necrosis compared to the group with both kidneys. This indicates that the solitary kidney is more susceptible to ischemic damage.",
+          "critical_evidence": "The group with a solitary kidney experienced a greater reduction in clearance and more pronounced tubular necrosis compared to the group with both kidneys.",
+          "differential_considered": "While the case focuses on the effects of ischemia, other factors like age, underlying kidney disease, and surgical technique could also influence kidney function. However, the primary focus is on the impact of ischemia, and the data clearly points to the solitary kidney being more vulnerable.",
+          "usage": {
+            "prompt_tokens": 530,
+            "generated_tokens": 189,
+            "generation_time_s": 11.31
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study shows that while both kidneys showed ischemia injury, the solitary kidney (group 1) recovered faster in terms of renal function and tubular necrosis resolution. However, proinflammatory markers were more sustained in paired kidneys (group 2). This suggests the solitary kidney may have a compensatory advantage but still shows vulnerability, particularly in long-term recovery.",
+          "critical_evidence": "The solitary kidney showed 60% tubular necrosis at 3 days with regeneration starting at 1 week, compared to 90% necrosis in paired kidneys with regeneration delayed to 2 weeks.",
+          "differential_considered": "No direct differential diagnoses were present in this study, but the key differentiator was the timing of recovery: solitary kidney showed faster initial recovery but paired kidneys had more severe initial injury and sustained inflammation.",
+          "usage": {
+            "prompt_tokens": 537,
+            "generated_tokens": 198,
+            "generation_time_s": 11.428
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that solitary kidneys (group 1) exhibited less functional decline (20% clearance loss at 1 week) and faster recovery compared to paired kidneys (group 2, >90% loss at 2 weeks). Histopathology also revealed less severe tubular necrosis (60% vs 90%) in solitary kidneys, suggesting greater resilience to ischemia. The proinflammatory response was more sustained in paired kidneys, further supporting the idea that solitary kidneys are more resistant.",
+          "critical_evidence": "Solitary kidneys showed 20% clearance reduction at 1 week versus >90% in paired kidneys at 2 weeks, with faster functional recovery and less tubular necrosis.",
+          "differential_considered": "Differential considerations such as compensatory hypertrophy or hemodynamic redistribution were not supported by the data, as the study directly compared ischemic injury outcomes between solitary and paired kidneys under identical ischemia conditions.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 224,
+            "generation_time_s": 9.556
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 535,
+            "generated_tokens": 26,
+            "generation_time_s": 0.783
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible alternatives include genetic or structural differences in the solitary kidney, but the study's model (artificially created solitary kidney) controls for such factors. The evidence leans toward a possible increased resistance in solitary kidneys, but the sustained inflammatory response in the two-kidney group complicates the conclusion.",
+          "usage": {
+            "prompt_tokens": 567,
+            "generated_tokens": 298,
+            "generation_time_s": 11.472
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "C": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

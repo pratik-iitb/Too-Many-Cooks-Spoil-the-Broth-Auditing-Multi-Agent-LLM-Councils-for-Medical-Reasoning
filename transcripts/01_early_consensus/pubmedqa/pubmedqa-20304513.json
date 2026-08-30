@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-20304513",
+  "dataset": "pubmedqa",
+  "question_id": "20304513",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is (18)F-FDG a surrogate tracer to measure tumor hypoxia?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "18F-FDG PET/CT is a widely used imaging modality for cancer diagnosis and staging. It relies on the principle of glucose metabolism, where tumors often exhibit increased glucose uptake compared to normal tissues. Hypoxia, a common feature of many tumors, can impair the function of the glucose transporters (GLUTs) responsible for glucose uptake. Therefore, hypoxic tumors may show reduced 18F-FDG uptake, making 18F-FDG a surrogate marker for hypoxia.",
+          "critical_evidence": "18F-FDG PET/CT uses glucose as a tracer, and tumors often exhibit increased glucose uptake, which can be reduced in hypoxic tumors.",
+          "differential_considered": "While other tracers like 18F-FDG-HMPA (hypoxia-selective) are more specific for hypoxia, 18F-FDG is still a valuable tool for assessing tumor metabolism and can be used as a surrogate marker for hypoxia in certain clinical contexts. Other imaging modalities like MRI and CT are not directly related to glucose metabolism or hypoxia.",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 260,
+            "generation_time_s": 15.643
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "18F-FDG is a glucose analog that accumulates in cells with increased glycolysis, which is a hallmark of hypoxic cells. Tumor hypoxia often leads to the Warburg effect, where cells rely on glycolysis for energy production despite low oxygen availability. Therefore, 18F-FDG PET/CT can indirectly reflect hypoxic tumor regions by detecting areas of increased glucose metabolism.",
+          "critical_evidence": "The Warburg effect in hypoxic tumors leads to elevated glucose uptake, making 18F-FDG accumulation a surrogate marker for hypoxia.",
+          "differential_considered": "While other factors like vascularity and inflammation can affect 18F-FDG uptake, these are less specific to hypoxia compared to the metabolic changes seen in hypoxic tumors.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.895
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "FDG-PET imaging reflects glucose metabolism, which is often elevated in tumors due to Warburg effect, not directly due to hypoxia. Hypoxia is better assessed by tracers like FMISO or FAZA that target hypoxia-specific pathways. FDG uptake does not reliably correlate with oxygen levels, making it an unsuitable surrogate for hypoxia.",
+          "critical_evidence": "FDG uptake reflects glycolytic metabolism, not oxygen tension; hypoxia-specific tracers are required for accurate hypoxia assessment.",
+          "differential_considered": "Considered FDG as a marker of metabolic activity (not hypoxia), ruled out hypoxia-specific tracers as alternatives, and excluded confounding factors like tumor type or glucose availability.",
+          "usage": {
+            "prompt_tokens": 232,
+            "generated_tokens": 185,
+            "generation_time_s": 7.926
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The clinical reasoning and critical evidence should be in English, while the selected_option and confidence can be any JSON type.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 24,
+            "generation_time_s": 0.719
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and B are incorrect because 18F-FDG is not a validated or direct surrogate for hypoxia, though it can be associated with it. Option C is the most accurate reflection of the current clinical understanding.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 247,
+            "generation_time_s": 9.502
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-947",
+  "dataset": "medqa",
+  "question_id": "947",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "During an experiment, the immunophenotypes of different cells in a sample are determined. The cells are labeled with fluorescent antibodies specific to surface proteins, and a laser is then focused on the samples. The intensity of fluorescence created by the laser beam is then plotted on a scatter plot. The result shows most of the cells in the sample to be positive for CD8 surface protein. Which of the following cell types is most likely represented in this sample?",
+    "options": {
+      "A": "Dendritic cells",
+      "B": "Activated regulatory T lymphocytes",
+      "C": "Mature cytotoxic T lymphocytes",
+      "D": "Inactive B lymphocytes",
+      "E": "Mature helper T lymphocytes"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The key finding is that the cells are positive for CD8. CD8 is a surface protein found on cytotoxic T lymphocytes (CTLs), also known as cytotoxic T cells. These cells are responsible for directly killing infected or cancerous cells. Dendritic cells present antigens to T cells, regulatory T cells suppress immune responses, B cells produce antibodies, and helper T cells assist other immune cells.",
+          "critical_evidence": "CD8 surface protein positivity",
+          "differential_considered": "Dendritic cells are antigen-presenting cells and typically express MHC class II, not CD8. Activated regulatory T cells express CD25 and FoxP3. Mature B lymphocytes express CD19 and CD20. Mature helper T lymphocytes express CD4.",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 192,
+            "generation_time_s": 9.528
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "CD8 is a major surface marker of cytotoxic T lymphocytes (CTLs), which are a subset of T cells responsible for killing infected or malignant cells. The presence of CD8+ cells in a sample strongly suggests the presence of mature cytotoxic T lymphocytes, which are activated in response to antigen presentation by antigen-presenting cells. Dendritic cells (A) typically express CD80 and CD86 but are not CD8+; regulatory T cells (B) express Foxp3 and are usually not CD8+; inactive B cells (D) express B-cell markers like CD19 and IgM, not CD8; and helper T cells (E) are typically CD4+ and not CD8+.",
+          "critical_evidence": "The sample shows positivity for CD8 surface protein, which is a hallmark of cytotoxic T lymphocytes.",
+          "differential_considered": "Dendritic cells (A) are antigen-presenting cells but lack CD8; regulatory T cells (B) are suppressor cells with Foxp3 expression; inactive B cells (D) express B-cell markers; mature helper T cells (E) are CD4+ and not CD8+.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.721
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "clinical_reasoning": "CD8 is a surface marker expressed on cytotoxic T lymphocytes (CTLs), which are primarily responsible for killing infected or malignant cells. The high proportion of CD8+ cells in the sample strongly suggests a predominance of mature cytotoxic T lymphocytes. Other options like dendritic cells (CD8-), regulatory T cells (often CD4+), B lymphocytes (CD8-), and helper T cells (CD4+) do not typically express CD8 at high levels.",
+          "critical_evidence": "The majority of cells are positive for CD8, a marker specific to cytotoxic T lymphocytes.",
+          "differential_considered": "Dendritic cells (CD8-), regulatory T cells (CD4+), B cells (CD8-), and helper T cells (CD4+) were considered but ruled out because they do not express CD8 as a dominant surface marker.",
+          "usage": {
+            "prompt_tokens": 337,
+            "generated_tokens": 212,
+            "generation_time_s": 7.46
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 14,
+            "generation_time_s": 0.354
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Dendritic cells (option A) can be CD8+ but are usually a minority in most immune responses; helper T cells (option E) are primarily CD4+; inactivated B cells (option D) lack CD8 expression. These alternatives are less consistent with the main finding of CD8+ cells.",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 243,
+            "generation_time_s": 7.655
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

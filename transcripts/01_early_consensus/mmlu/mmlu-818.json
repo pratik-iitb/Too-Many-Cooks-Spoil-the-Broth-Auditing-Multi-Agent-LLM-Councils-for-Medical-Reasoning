@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-818",
+  "dataset": "mmlu",
+  "question_id": "818",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old gravida 3 para 2 female is admitted to the hospital at 39 weeks' gestation in active labor. She had been having regular contractions every 4 minutes, but is now having only a few intermittent, weak contractions. She has received medication for pain twice in the past 6 hours. Examination shows no reason for obstructed labor. The fetal head is engaged, the membranes are intact, the fetal heart tones are normal, and the cervix is 100% effaced and 7 cm dilated. The most likely diagnosis is",
+    "options": {
+      "A": "Braxton Hicks contractions",
+      "B": "lower uterine retraction ring",
+      "C": "hypotonic uterine dysfunction",
+      "D": "primary dysfunctional labor"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is in active labor at 39 weeks gestation with a cervix of 7 cm dilated and 100% effaced. She has received pain medication twice in the past 6 hours, and her contractions are now infrequent and weak. This clinical picture is most consistent with hypotonic uterine dysfunction, where the uterus is not contracting effectively despite being stimulated. Braxton Hicks contractions are typically irregular and do not lead to cervical dilation. Lower uterine retraction ring is not a diagnosis, and primary dysfunctional labor is a diagnosis of exclusion after other causes have been ruled out.",
+          "critical_evidence": "The patient's contractions are infrequent and weak despite being in active labor and having received pain medication.",
+          "differential_considered": "Braxton Hicks contractions are less likely given the patient's active labor and the presence of pain medication. Lower uterine retraction ring is not a diagnosis. Primary dysfunctional labor is a diagnosis of exclusion after other causes have been ruled out.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 235,
+            "generation_time_s": 11.834
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with active labor at 39 weeks, regular contractions every 4 minutes, and now only intermittent weak contractions despite receiving pain medication. The cervix is fully effaced (100%) and 7 cm dilated with an engaged fetal head, intact membranes, and normal fetal heart tones. This pattern suggests a primary dysfunctional labor, where the uterus is not effectively contracting to progress labor despite normal anatomy and physiology.",
+          "critical_evidence": "Cervix is 100% effaced and 7 cm dilated with engaged fetal head, indicating labor has progressed normally but is not advancing further due to uterine dysfunction",
+          "differential_considered": "Braxton Hicks contractions (A) are typically irregular and ineffective; lower uterine retraction ring (B) is a rare anatomical variant that would not explain active labor; hypotonic uterine dysfunction (C) is less specific than primary dysfunctional labor in this context",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 227,
+            "generation_time_s": 10.806
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is in active labor at 39 weeks with a fully effaced cervix at 7 cm dilation, but is now experiencing only weak, intermittent contractions despite prior pain medication. This pattern indicates inadequate uterine contractility, consistent with hypotonic uterine dysfunction. There is no evidence of obstruction, cephalopelvic disproportion, or fetal distress, which rules out other diagnoses.",
+          "critical_evidence": "Intermittent, weak contractions despite being in active labor with cervical dilation and effacement",
+          "differential_considered": "Braxton Hicks contractions are non-labor-related and do not cause cervical change; lower uterine retraction ring is associated with obstructed labor, which is ruled out; primary dysfunctional labor implies failure to progress from onset, but this patient has already reached 7 cm dilation, suggesting secondary dysfunction.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 208,
+            "generation_time_s": 7.436
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 15,
+            "generation_time_s": 0.393
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A (Braxton Hicks) are typically not strong or frequent enough to maintain active labor; B (retraction ring) is a myometrial condition unrelated to labor pattern; D (primary dysfunctional labor) implies a poor labor start, not current weak contractions in an advanced labor stage.",
+          "usage": {
+            "prompt_tokens": 417,
+            "generated_tokens": 279,
+            "generation_time_s": 8.977
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

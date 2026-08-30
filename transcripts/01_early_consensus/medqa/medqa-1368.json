@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1368",
+  "dataset": "medqa",
+  "question_id": "1368",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old man with a 60 pack-year smoking history is referred by his primary care physician for a pulmonary function test (PFT). A previously obtained chest x-ray is shown below. Which of the following will most likely appear in his PFT report?",
+    "options": {
+      "A": "Residual volume increased, total lung capacity decreased",
+      "B": "Residual volume increased, total lung capacity increased",
+      "C": "Residual volume decreased, total lung capacity increased",
+      "D": "Residual volume normal, total lung capacity normal",
+      "E": "Residual volume normal, total lung capacity decreased"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's significant smoking history strongly suggests emphysema, a type of chronic obstructive pulmonary disease (COPD). Emphysema is characterized by destruction of the alveolar walls, leading to air trapping and hyperinflation of the lungs. This results in an increased residual volume (RV) and a decreased total lung capacity (TLC).",
+          "critical_evidence": "The patient's 60 pack-year smoking history is the most critical evidence supporting the diagnosis of emphysema.",
+          "differential_considered": "COPD is a broad category, and other causes of hyperinflation (e.g., asthma, obesity) could be considered. However, the smoking history makes emphysema the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 184,
+            "generation_time_s": 9.147
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient is a 55-year-old man with a 60 pack-year smoking history, indicating a high risk for chronic obstructive pulmonary disease (COPD). COPD typically causes airway obstruction, which leads to increased residual volume (air trapping) and decreased total lung capacity (due to the inability to fully exhale). The chest x-ray, though not shown, would likely show signs of emphysema or bullae, further supporting COPD. These findings align with option A.",
+          "critical_evidence": "60 pack-year smoking history strongly suggests COPD, which is associated with increased residual volume and decreased total lung capacity.",
+          "differential_considered": "Considered other causes of lung volume changes such as restrictive lung diseases (e.g., pulmonary fibrosis), but these are less common in smokers and would typically show decreased residual volume rather than increased. The smoking history makes COPD the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 218,
+            "generation_time_s": 10.092
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 55-year-old male with a 60 pack-year smoking history, which strongly suggests chronic obstructive pulmonary disease (COPD). In COPD, airflow obstruction leads to air trapping, causing increased residual volume (RV) due to incomplete exhalation. Total lung capacity (TLC) is typically increased or normal in early to moderate COPD due to hyperinflation from air trapping, though it may decrease in advanced disease. Given the smoking history and typical presentation, increased RV with increased TLC is most consistent with early to moderate COPD.",
+          "critical_evidence": "60 pack-year smoking history strongly indicates COPD, which causes air trapping and hyperinflation, leading to increased residual volume and total lung capacity.",
+          "differential_considered": "Restrictive lung disease was considered but ruled out because smoking history and typical COPD presentation point to obstructive disease. Emphysema (a form of COPD) causes hyperinflation, supporting increased TLC and RV, not decreased.",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 239,
+            "generation_time_s": 8.404
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 16,
+            "generation_time_s": 0.398
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options like A (residual volume increased) suggest emphysema or severe COPD, but this is less specific than the classic reduction in total lung capacity seen in smoking-related lung disease; B and C are inconsistent with COPD patterns, and D is unlikely given the smoking history.",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 228,
+            "generation_time_s": 7.123
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

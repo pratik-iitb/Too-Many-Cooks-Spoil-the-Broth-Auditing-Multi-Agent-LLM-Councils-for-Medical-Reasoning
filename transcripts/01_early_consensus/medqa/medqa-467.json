@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-467",
+  "dataset": "medqa",
+  "question_id": "467",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 29-year-old male presents to the emergency department after a motor vehicle accident. The patient was an unrestrained passenger who was involved in a head-on collision. The patient has a Glasgow Coma Scale of 7 on arrival. On physical exam, you note a young man covered in bruises and scrapes. There is notable erythema and edema of his pelvis, and profound bruising of his dorsal upper back. His temperature is 99.5°F (37.5°C), pulse is 112/min, blood pressure is 100/70 mmHg, respirations are 18/min, and oxygen saturation is 97% on room air. The patient is started on IV fluids and radiography is obtained as seen in Figure A and B. The patient’s blood pressure 15 minutes later is 98/69 mmHg. IV fluids are continued, and a FAST exam is performed which is negative for signs of intrathoracic or intraabdominal trauma. Which of the following is the best next step in management?",
+    "options": {
+      "A": "CT scan of the abdomen and pelvis",
+      "B": "Placement of a pelvic binder",
+      "C": "Embolization of the pelvic vessels",
+      "D": "Large needle decompression of the 4th intercostal space",
+      "E": "Immediate blood transfusion"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with significant pelvic trauma, evidenced by the bruising, erythema, and edema. The initial blood pressure of 100/70 mmHg, followed by a drop to 98/69 mmHg despite fluid resuscitation, suggests possible hemorrhagic shock from pelvic bleeding. A pelvic binder is the most appropriate initial intervention to control pelvic bleeding and stabilize the patient.",
+          "critical_evidence": "The patient's hypotension despite fluid resuscitation strongly suggests ongoing blood loss, making pelvic bleeding the most likely source.",
+          "differential_considered": "A CT scan of the abdomen and pelvis (A) might be helpful later, but the immediate priority is to control pelvic bleeding. Embolization (C) is a more invasive procedure and not the first-line management. Needle decompression (D) is for tension pneumothorax, which is not indicated by the clinical findings. While blood transfusion (E) may be necessary, it does not address the source of the bleeding and should be done in conjunction with controlling the bleeding.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 248,
+            "generation_time_s": 12.272
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has significant pelvic edema and bruising, which raises concern for pelvic fracture or internal bleeding. The FAST exam is negative, but this may not detect all pelvic injuries. Given the mechanism of injury and clinical findings, a CT scan of the abdomen and pelvis is the most appropriate next step to evaluate for internal injuries and guide further management.",
+          "critical_evidence": "Notable erythema and edema of the pelvis with profound bruising of the dorsal upper back suggest significant trauma to the pelvic region.",
+          "differential_considered": "Considered pelvic fracture, aortic injury, and other abdominal injuries. Ruled out thoracic trauma based on negative FAST exam, but pelvic injuries remain a high priority.",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.546
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a Glasgow Coma Scale of 7, hypotension (BP 98/69 mmHg), and significant pelvic and back bruising following a high-impact trauma. The FAST exam is negative, but the clinical picture suggests ongoing hemorrhage from pelvic trauma. A pelvic binder is indicated to stabilize the pelvis and reduce bleeding in unstable trauma patients with pelvic fractures. CT or embolization are not immediate next steps without hemodynamic instability being controlled first.",
+          "critical_evidence": "Hypotension (BP 98/69 mmHg) and pelvic/upper back bruising in a trauma patient with GCS 7 strongly suggest pelvic fracture with ongoing hemorrhage.",
+          "differential_considered": "Intra-abdominal bleeding was ruled out by FAST; thoracic injury was not indicated by clinical exam or FAST; CT abdomen/pelvis is next if hemodynamically stable; embolization is for active bleeding but not first-line; needle decompression is for tension pneumothorax, not indicated here.",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 247,
+            "generation_time_s": 8.665
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 16,
+            "generation_time_s": 0.414
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Intracranial injury (most likely given GCS), pelvic or spinal injury (supported by bruising pattern), thoracic injury (less likely given negative FAST and lack of respiratory symptoms), and possible internal bleeding elsewhere. However, the distribution of injuries makes pelvic and upper back imaging essential to exclude life-threatening occult fractures.",
+          "usage": {
+            "prompt_tokens": 534,
+            "generated_tokens": 339,
+            "generation_time_s": 10.62
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

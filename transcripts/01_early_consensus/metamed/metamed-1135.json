@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1135",
+  "dataset": "metamed",
+  "question_id": "1135",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 65-year-old male presents to the emergency department from his home complaining of dyspnea. He is alert and oriented. The following arterial blood gas readings are drawn: pH: 7.33 (Normal: 7.35-7.45), pCO2: 70 mmHg (Normal: 35-45 mmHg), HCO3 33 (Normal: 21-26 mEq/L) Which of the following is most likely to have produced this patient’s condition?",
+    "options": {
+      "A": "Panic attack",
+      "B": "Mechanical ventilation",
+      "C": "Pulmonary embolus",
+      "D": "Delirium",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Answer removed"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with respiratory acidosis (low pH and high pCO2) and elevated bicarbonate (HCO3). This indicates a chronic respiratory acidosis with metabolic compensation. Mechanical ventilation is a common cause of this presentation, as it can lead to CO2 retention.",
+          "critical_evidence": "The significantly elevated pCO2 (70 mmHg) is the most critical finding, indicating respiratory acidosis.",
+          "differential_considered": "Panic attack (A) could cause dyspnea, but would not typically lead to this degree of CO2 retention. Pulmonary embolus (C) can cause dyspnea and hypoxemia, but the ABG findings are not typical. Delirium (D) can cause altered mental status and potentially respiratory changes, but the ABG findings are more suggestive of chronic CO2 retention. None of the above (E) is not a valid option.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 219,
+            "generation_time_s": 11.484
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's arterial blood gas shows metabolic acidosis (low pH and low HCO3) with normal pCO2, indicating respiratory compensation. This pattern is consistent with a pulmonary embolus causing hypoxemia and metabolic acidosis, which would lead to dyspnea. The patient's age and presentation also support this diagnosis.",
+          "critical_evidence": "Metabolic acidosis with normal pCO2 (respiratory compensation)",
+          "differential_considered": "Panic attack (would show normal blood gases), mechanical ventilation (would show different gas patterns), delirium (would show other signs of altered mental status), ruled out based on clinical presentation and blood gas analysis",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 170,
+            "generation_time_s": 8.279
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The ABG shows respiratory acidosis (low pH, high pCO2) with a concurrent elevated HCO3-, indicating chronic compensation. This pattern is commonly seen in chronic lung disease or COPD exacerbations, but given the acute presentation and absence of other clues, pulmonary embolism is a strong consideration as it can cause acute hypoxia and hypercapnia due to ventilation-perfusion mismatch. Other options like panic attack or delirium typically do not cause sustained hypercapnia. Mechanical ventilation would cause low pCO2, not high. The patient’s age and acute dyspnea make pulmonary embolism a high-yield diagnosis.",
+          "critical_evidence": "pH 7.33, pCO2 70 mmHg, HCO3- 33 mEq/L — classic for acute respiratory acidosis with chronic compensation, often seen in COPD or pulmonary embolism.",
+          "differential_considered": "Panic attack (unlikely to cause sustained hypercapnia), mechanical ventilation (would lower pCO2), delirium (no respiratory effect), and none of the above (inaccurate as C is plausible).",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 269,
+            "generation_time_s": 10.925
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's symptoms of dyspnea and the arterial blood gas findings of a low pH (acidosis), high pCO2 (respiratory acidosis), and low HCO3 (compensatory metabolic alkalosis) are indicative of a primary respiratory issue. Given the options, pulmonary embolus is the most likely cause of these findings as it can lead to acute respiratory distress and subsequent hypoxemia, which can manifest as dyspnea and the described ABG values.",
+          "critical_evidence": "The high pCO2 is the most important finding that suggests a primary respiratory issue such as pulmonary embolus.",
+          "differential_considered": "Panic attack and delirium were ruled out due to the absence of typical symptoms and presentation. Mechanical ventilation could potentially improve the ABG values but would not be the most likely cause of the initial presentation.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 200,
+            "generation_time_s": 4.881
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient's low pH (acidosis), high pCO2 (hypercapnia), and mildly low HCO3- suggest respiratory failure, most likely due to an acute process. Among the options, mechanical ventilation is the most common cause of such gas abnormalities in an older adult, especially if recent or due to an iatrogenic or postoperative event.",
+          "critical_evidence": "Arterial blood gas showing pH 7.33, pCO2 70 mmHg (both indicating respiratory acidosis), and HCO3- 33 mEq/L (elevated but not enough to correct the acidosis) strongly point to acute respiratory failure, often caused by mechanical ventilation or a condition that impairs natural ventilation.",
+          "differential_considered": "Pulmonary embolus could cause respiratory distress but typically presents with hypoxemia and tachycardia rather than the specific gas pattern here. Panic attack and delirium usually show normal gas values unless severe respiratory compromise is present. I ruled out C and D because the primary disturbance is respiratory acidosis with a high pCO2, which is more consistent with impaired respiratory drive from mechanical ventilation or severe respiratory failure.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 276,
+            "generation_time_s": 14.742
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-840",
+  "dataset": "medqa",
+  "question_id": "840",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 36-year-old woman complains of recurrent headaches. The pain is located on the right side of the head, is accompanied by nausea, worsens when lifting heavy objects, and typically lasts 2 days. She describes the pain as pulsatile and says that they are usually triggered by eating chocolates. Her headache is not associated with an aura. She sits in a dark room due to her increased discomfort. The patient has tried multiple over-the-counter medications without relief. Which of the following will most likely be the next treatment of choice for acute episodes?",
+    "options": {
+      "A": "D2 receptor blocker",
+      "B": "Beta-blocker",
+      "C": "GABA transaminase inhibitor",
+      "D": "5-HT1B/D agonist",
+      "E": "Cyclooygenase inhibitor"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation strongly suggests migraine headaches, characterized by unilateral throbbing pain, nausea, photophobia (sensitivity to light), and a history of triggers like chocolate. The fact that she has tried multiple over-the-counter medications without relief points towards a need for a more specific and effective treatment. 5-HT1B/D agonists are first-line abortive medications for migraine, targeting serotonin receptors to alleviate pain and associated symptoms.",
+          "critical_evidence": "The patient's description of pulsatile headache, nausea, photophobia, and chocolate trigger strongly suggests migraine.",
+          "differential_considered": "Tension headaches are less likely given the throbbing nature of the pain, nausea, and photophobia. Cluster headaches are less likely due to the lack of associated autonomic symptoms (e.g., eye tearing, nasal congestion). While other headache types exist, the clinical picture is most consistent with migraine.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 227,
+            "generation_time_s": 11.254
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's pulsatile headache triggered by chocolate and worsened with physical exertion suggests a migraine with aura. While she denies aura, the chocolate trigger and physical aggravation are classic migraine features. Migraine is typically treated with 5-HT1B/D agonists (e.g., sumatriptan) for acute attacks, which constrict blood vessels and block pain pathways. Other options like beta-blockers are preventive, not acute treatments, and cyclooxygenase inhibitors (NSAIDs) have already been tried without success. D2 receptor blockers and GABA transaminase inhibitors are not first-line acute migraine treatments.",
+          "critical_evidence": "Pulsatile headache triggered by chocolate and worsened with physical exertion",
+          "differential_considered": "Considered tension-type headache, cluster headache, and sinusitis, but ruled out due to chocolate trigger, pulsatile quality, and lack of typical sinus symptoms. Cluster headache would be more unilateral and associated with eye watering, which is not mentioned.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.608
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent, unilateral, pulsatile headaches triggered by chocolate, worsened by exertion, and associated with nausea and photophobia — classic features of migraine without aura. The lack of response to OTC analgesics supports the need for acute migraine-specific therapy. 5-HT1B/D agonists (triptans) are first-line for acute migraine treatment due to their efficacy in aborting migraine attacks by constricting dilated vessels and inhibiting pain pathways.",
+          "critical_evidence": "Unilateral, pulsatile, exertion-worsened, chocolate-triggered headache with nausea and photophobia — highly suggestive of migraine without aura.",
+          "differential_considered": "Tension-type headache (non-pulsatile, not triggered by chocolate, not worsened by exertion), cluster headache (bilateral, nocturnal, with autonomic symptoms), and secondary headache (e.g., structural cause) — all are less likely given the unilateral, pulsatile, and trigger-specific features.",
+          "usage": {
+            "prompt_tokens": 359,
+            "generated_tokens": 233,
+            "generation_time_s": 8.178
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 152,
+            "generation_time_s": 3.693
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Tension headache (less likely due to lack of mentioned pain quality), cluster headache (unlikely given the duration and location), secondary headache of other etiologies, and medication-overuse headache (ruled out as she hasn't tried triptans yet). Migraine is the leading diagnosis here.",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 244,
+            "generation_time_s": 7.68
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

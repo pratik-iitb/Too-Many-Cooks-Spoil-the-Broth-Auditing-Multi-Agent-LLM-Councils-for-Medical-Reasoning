@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-354",
+  "dataset": "mmlu",
+  "question_id": "354",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Your patient has diabetes. Why is this important?",
+    "options": {
+      "A": "These patients are more likely to bleed.",
+      "B": "These patients are more likely to get urinary tract infections if their blood sugar is unstable.",
+      "C": "These patients are more likely to have clear urine.",
+      "D": "These patients are less likely to have catheter encrustation."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Diabetes mellitus is a metabolic disorder characterized by hyperglycemia. Unstable blood sugar levels can lead to increased glucose in the urine, which can then predispose patients to urinary tract infections (UTIs). Bleeding is not a direct consequence of diabetes. Clear urine is not a typical finding in diabetes. Catheter encrustation is more related to the type of catheter and the patient's overall health, not directly to diabetes.",
+          "critical_evidence": "Unstable blood sugar levels can lead to increased glucose in the urine, which can then predispose patients to urinary tract infections (UTIs).",
+          "differential_considered": "A: Bleeding is not a direct consequence of diabetes. C: Clear urine is not a typical finding in diabetes. D: Catheter encrustation is more related to the type of catheter and the patient's overall health, not directly to diabetes.",
+          "usage": {
+            "prompt_tokens": 301,
+            "generated_tokens": 220,
+            "generation_time_s": 20.287
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Patients with diabetes are at increased risk for urinary tract infections (UTIs) due to hyperglycemia impairing immune function and increasing bacterial growth. Unstable blood sugar levels further exacerbate this risk by creating an environment conducive to bacterial proliferation in the urinary tract. While option A (bleeding) is possible, it's less directly related to the core issue of blood sugar instability. Option C (clear urine) is actually protective against UTIs, and option D (catheter encrustation) is more commonly associated with indwelling catheters rather than diabetes itself.",
+          "critical_evidence": "Hyperglycemia impairs immune function and increases bacterial growth in the urinary tract",
+          "differential_considered": "While other factors like catheter use or age could influence UTI risk, the question specifically highlights blood sugar instability as a key factor, making diabetes the most relevant differentiating factor.",
+          "usage": {
+            "prompt_tokens": 299,
+            "generated_tokens": 214,
+            "generation_time_s": 10.625
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Patients with diabetes, especially when blood sugar is unstable, are at increased risk for urinary tract infections due to impaired immune function and glycosuria, which provides a favorable environment for bacterial growth. The other options are not supported by clinical evidence: bleeding risk is not specifically elevated in diabetes, clear urine is not a hallmark, and catheter encrustation is more likely in hyperglycemic states due to increased osmolarity and crystal formation.",
+          "critical_evidence": "Glycosuria in diabetes creates a nutrient-rich environment for bacterial proliferation, increasing susceptibility to urinary tract infections.",
+          "differential_considered": "Options A, C, and D were considered but ruled out: bleeding risk is not directly linked to diabetes; clear urine is not typical in uncontrolled diabetes (often cloudy or turbid); and catheter encrustation is more likely in hyperglycemia, not less.",
+          "usage": {
+            "prompt_tokens": 270,
+            "generated_tokens": 211,
+            "generation_time_s": 8.362
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 297,
+            "generated_tokens": 123,
+            "generation_time_s": 3.48
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Unstable blood sugar in diabetics increases the risk of infections, particularly in the urinary tract, due to impaired immune response and bacterial overgrowth. Among the options, urinary tract infections are a well-documented complication of diabetes when blood glucose is not well controlled. Other options do not directly relate to the complications or benefits specific to diabetes.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 189,
+            "generation_time_s": 6.083
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,74 @@
+================================================================================
+Round 0  -  Independent Reasoning Prompt
+================================================================================
+
+Used once per council member, per question. No colleague responses are visible
+at Round 0; that is what "independent" means. All five Panel-1 members receive
+byte-identical prompts for a given question.
+
+Placeholders
+------------
+  {QUESTION_TEXT}    the case description, verbatim from the benchmark
+  {CONTEXT_BLOCK}    "" for every dataset except PubMedQA-with-context, where it is
+                     literally:
+
+                         \n\nRELEVANT CONTEXT:\n<abstract>\n
+
+  {OPTIONS_STR}      the options, one per line, sorted by letter, formatted as
+                     "<letter>: <option text>"
+  {VALID_LETTERS}    the option letters, sorted, comma-separated
+                     (e.g. "A, B, C, D" for MMLU-Med, "A, B, C, D, E, F, G, H, I, J"
+                     for MedXpertQA)
+
+================================================================================
+PROMPT (verbatim template)
+================================================================================
+
+You are a medical expert participating in a clinical consultation panel.
+Your task is to carefully analyze the following clinical case and select the BEST answer from the given options.
+
+CLINICAL CASE:
+{QUESTION_TEXT}{CONTEXT_BLOCK}
+
+OPTIONS:
+{OPTIONS_STR}
+
+INSTRUCTIONS:
+1. Carefully read the clinical case and all options.
+2. Reason through the clinical presentation step by step.
+3. Consider the key clinical findings, differential diagnoses, and supporting evidence.
+4. Select the single best answer option.
+
+Respond ONLY with a valid JSON object in the following format (no extra text before or after):
+{
+  "selected_option": "<{VALID_LETTERS}>",
+  "confidence": <0.0 to 1.0>,
+  "clinical_reasoning": "<your step-by-step clinical reasoning in 2-4 sentences>",
+  "critical_evidence": "<the single most important finding that supports your answer>",
+  "differential_considered": "<key differential diagnoses you considered and why you ruled them out>"
+}
+
+================================================================================
+NOTES
+================================================================================
+
+1. The prompt above is the text handed to the tokenizer before each model's own
+   chat template is applied. Two members were additionally given a system
+   message of their own: MedGemma-4B ("You are a helpful medical assistant.")
+   and OpenBioLLM-8B ("You are an expert and experienced from the healthcare and
+   biomedical domain with extensive medical knowledge and practical
+   experience."). The other three members were run without a system message.
+
+2. Decoding was greedy (temperature 0.0, do_sample false, max_new_tokens 1024)
+   for every model at every round.
+
+3. Round 0 closes with a vote over the parsed selected_option values. If the
+   modal option holds at least 3 votes, the council returns it immediately and
+   no debate round fires. See "How a question was resolved" in ../README.md.
+
+4. The confidence field is the model's own self-report. No consensus rule reads
+   it; it is preserved in the transcripts for analysis.
+
+5. Not every response parsed cleanly. Where a model emitted prose or truncated
+   JSON, selected_option may be null; such a response casts no vote. All four
+   text fields are preserved exactly as recovered.

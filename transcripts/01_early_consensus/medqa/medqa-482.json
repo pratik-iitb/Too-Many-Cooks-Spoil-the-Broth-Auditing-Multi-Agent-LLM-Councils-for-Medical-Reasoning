@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-482",
+  "dataset": "medqa",
+  "question_id": "482",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 56-year-old woman comes to the physician for follow-up after a measurement of elevated blood pressure at her last visit three months ago. She works as a high school teacher at a local school. She says that she mostly eats cafeteria food and take-out. She denies any regular physical activity. She does not smoke or use any recreational drugs. She drinks 2 to 3 glasses of wine per day. She has hypercholesterolemia for which she takes atorvastatin. Her height is 165 cm (5 ft 5 in), weight is 82 kg (181 lb), and BMI is 30.1 kg/m2. Her pulse is 67/min, respirations are 18/min, and blood pressure is 152/87 mm Hg on the right arm and 155/92 mm Hg on the left arm. She would like to try lifestyle modifications to improve her blood pressure before considering pharmacologic therapy. Which of the following lifestyle modifications is most likely to result in the greatest reduction of this patient's systolic blood pressure?",
+    "options": {
+      "A": "Losing 15 kg (33 lb) of body weight",
+      "B": "Decreasing alcohol consumption to maximum of one drink per day",
+      "C": "Reducing sodium intake to less than 2.4 g per day",
+      "D": "Adopting a DASH diet",
+      "E": "Walking for 30 minutes, 5 days per week"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a BMI of 30.1, indicating obesity. Weight loss is a well-established and effective strategy for lowering blood pressure. While all options are beneficial, weight loss is likely to have the most significant impact on systolic blood pressure in this patient.",
+          "critical_evidence": "The patient's BMI of 30.1 kg/m2 indicates obesity.",
+          "differential_considered": "While decreasing alcohol consumption, reducing sodium intake, adopting a DASH diet, and increasing physical activity are all beneficial, weight loss is the most impactful intervention for a patient with a BMI of 30.1, as it addresses the underlying metabolic issue contributing to hypertension.",
+          "usage": {
+            "prompt_tokens": 536,
+            "generated_tokens": 180,
+            "generation_time_s": 10.352
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has obesity (BMI 30.1) and hypertension with elevated blood pressure readings. While weight loss would help, the DASH diet (D) is specifically designed to lower blood pressure through reduced sodium, increased potassium, and emphasis on fruits/vegetables. This combined approach has strong evidence for blood pressure reduction, especially when combined with other lifestyle changes. The patient already has atorvastatin for cholesterol, indicating cardiovascular risk, making blood pressure control particularly important.",
+          "critical_evidence": "BMI of 30.1 indicates obesity, a major modifiable risk factor for hypertension",
+          "differential_considered": "Considered secondary hypertension, but patient's young age and lack of family history make primary hypertension more likely. No evidence of renal disease or endocrine disorders in the history.",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 193,
+            "generation_time_s": 9.014
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has obesity (BMI 30.1), elevated BP (152/87 mm Hg), and is seeking lifestyle modifications. Weight loss is the most effective intervention for reducing systolic BP in obese individuals, with each 1 kg lost reducing systolic BP by approximately 1 mm Hg. Other options have beneficial effects but are less impactful than weight loss in this context.",
+          "critical_evidence": "The patient’s BMI is 30.1 (obese), and weight loss is the most potent modifiable factor for lowering systolic BP in obese hypertensive patients.",
+          "differential_considered": "Other interventions like DASH diet or sodium reduction are beneficial but less impactful than weight loss in this obese patient. Alcohol reduction and exercise are helpful but secondary to weight loss for BP reduction in this case.",
+          "usage": {
+            "prompt_tokens": 509,
+            "generated_tokens": 200,
+            "generation_time_s": 7.04
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 518,
+            "generated_tokens": 210,
+            "generation_time_s": 5.106
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "While diet and alcohol modification are important, the strongest and most feasible initial lifestyle change for her is increasing physical activity due to her current inactivity and high BMI, which independently improve blood pressure. Other options like weight loss or sodium reduction may be beneficial but are harder to sustain at the outset without a clear plan for significant weight change. A DASH diet and reducing alcohol are helpful but physical activity is likely to produce the greatest immediate effect given her sedentary lifestyle.",
+          "usage": {
+            "prompt_tokens": 552,
+            "generated_tokens": 281,
+            "generation_time_s": 8.865
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

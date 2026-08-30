@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-797",
+  "dataset": "medqa",
+  "question_id": "797",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 3-year boy with a history of atopic dermatitis is brought to his pediatrician for onset of a new facial rash. His skin exam (Figure A) is notable for erythematous erosions on his cheeks and surrounding his nares, some with an overlying honey-colored crust. What is the optimal first-line treatment for these lesions?",
+    "options": {
+      "A": "Topical hydrocortisone 0.1%",
+      "B": "Topical mupirocin",
+      "C": "Oral trimethoprim-sulfamethoxazole",
+      "D": "Oral penicillin",
+      "E": "Oral dicloxacillin"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical presentation of erythematous erosions with honey-colored crusting on the cheeks and around the nares in a 3-year-old with a history of atopic dermatitis strongly suggests impetigo. Topical hydrocortisone is a first-line treatment for atopic dermatitis, but in this case, the honey-colored crusting points towards a bacterial infection. Topical hydrocortisone alone will not treat the impetigo.",
+          "critical_evidence": "Honey-colored crusting on the lesions is a hallmark sign of impetigo.",
+          "differential_considered": "Bacterial infection (impetigo) is the most likely diagnosis given the honey-colored crusting. While other bacterial infections could present with similar symptoms, impetigo is the most common and fits the clinical picture best. Other differentials like allergic contact dermatitis are less likely given the honey-colored crusting and the patient's history of atopic dermatitis.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 232,
+            "generation_time_s": 11.466
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The honey-colored crusts suggest pyoderma faciale, a superficial bacterial infection of the face common in atopic patients. Topical mupirocin is the first-line antibiotic for such infections due to its efficacy against Staphylococcus aureus, the most common pathogen. Oral antibiotics are reserved for extensive involvement or failure of topical treatment.",
+          "critical_evidence": "Honey-colored crusts indicative of bacterial infection",
+          "differential_considered": "Atopic dermatitis (pruritic, non-crusted) was considered but ruled out by the presence of crusts. Impetigo was considered but pyoderma faciale is more likely given the facial distribution and atopic history.",
+          "usage": {
+            "prompt_tokens": 359,
+            "generated_tokens": 174,
+            "generation_time_s": 8.032
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child has a facial rash with erythematous erosions and honey-colored crusts, highly suggestive of impetigo, especially in the context of atopic dermatitis which predisposes to secondary bacterial infection. Topical mupirocin is the first-line treatment for localized impetigo due to its efficacy against Staphylococcus aureus and Streptococcus pyogenes, the most common causative organisms. Systemic antibiotics are not indicated for localized, non-severe cases.",
+          "critical_evidence": "Honey-colored crusts on facial erosions are pathognomonic for impetigo.",
+          "differential_considered": "Atopic dermatitis flare (ruled out by presence of honey-colored crusts, which suggest bacterial superinfection); viral exanthem (no vesicles or systemic symptoms); fungal infection (no scaling or satellite lesions).",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 210,
+            "generation_time_s": 7.368
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 107,
+            "generation_time_s": 2.568
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Fungal or viral infections (like herpes or candidiasis) were less likely given the description of crusting and the typical course of treatment for these lesions; mupirocin (B) is more for bacterial colonization in skin folds, while hydrocortisone (A) is for inflammation, not infection. Oral trimethoprim-sulfamethoxazole (C) or other specific antibiotics (E) are considered after ruling out other causes and considering the likely bacterial origin.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 296,
+            "generation_time_s": 9.206
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

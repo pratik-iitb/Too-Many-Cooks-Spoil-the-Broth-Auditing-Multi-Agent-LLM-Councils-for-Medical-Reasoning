@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-471",
+  "dataset": "medqa",
+  "question_id": "471",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 32-year-old male patient presents to a medical office requesting screening for colorectal cancer. He currently has no symptoms and his main concern is that his father was diagnosed with colorectal cancer at 55 years of age. What screening strategy would be the most appropriate?",
+    "options": {
+      "A": "Perform a colonoscopy now and repeat every 10 years",
+      "B": "Perform a colonoscopy at the age of 40 and repeat every 5 years",
+      "C": "Perform a colonoscopy at the age of 40 and repeat every 3 years",
+      "D": "Perform a colonoscopy at the age of 50 and repeat every 5 years",
+      "E": "Perform a colonoscopy at the age of 50 and repeat every 10 years"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is 32 years old with a family history of colorectal cancer. Current guidelines recommend starting colorectal cancer screening at age 45 for individuals with average risk. Given the family history, starting screening at age 40 is appropriate. Colonoscopies should be repeated every 5 years.",
+          "critical_evidence": "Family history of colorectal cancer at a relatively young age (55)",
+          "differential_considered": "While the patient is young, the family history warrants earlier screening than the standard 50-year age. Other options were considered, but the family history makes starting at 40 more appropriate.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 169,
+            "generation_time_s": 8.389
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is 32 years old with a family history of colorectal cancer at 55, indicating an increased risk. The US Preventive Services Task Force recommends starting screening at age 45 for average-risk individuals, but for those with a first-degree relative diagnosed before age 45, screening should begin at age 40. Colonoscopy is the preferred screening modality, and the interval should be every 5 years for those with a family history. Option B aligns with these guidelines by starting at age 40 and repeating every 5 years.",
+          "critical_evidence": "Family history of colorectal cancer at age 55 in a first-degree relative",
+          "differential_considered": "No significant differential diagnoses needed as the primary concern is colorectal cancer screening. The focus is on risk stratification based on family history rather than symptom evaluation.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.565
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a family history of colorectal cancer (father diagnosed at 55), which qualifies him as having average risk with a first-degree relative with cancer. According to guidelines, individuals with a first-degree relative diagnosed with colorectal cancer should begin screening at age 40 or 10 years before the age of diagnosis of the relative, whichever comes first. Since his father was diagnosed at 55, screening should start at 45, but since 40 is the earliest recommended age for average-risk individuals with family history, option B (age 40) is the most appropriate. Repeat screening every 5 years is standard for average-risk individuals with family history.",
+          "critical_evidence": "Family history of colorectal cancer in a first-degree relative at age 55 triggers earlier screening initiation at age 40 per guidelines.",
+          "differential_considered": "Considered high-risk screening (e.g., genetic syndromes) but ruled out due to absence of multiple affected relatives or early-onset cancers; thus, average-risk with family history is the correct classification.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 253,
+            "generation_time_s": 8.889
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 103,
+            "generation_time_s": 2.49
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A (immediate screening) and E (starting at 50 but every 10 years) are less optimal due to timing. B and C suggest earlier starts than recommended without clear justification. Only D aligns with guideline-based initiation at 50 and appropriate intervals.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 210,
+            "generation_time_s": 6.588
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

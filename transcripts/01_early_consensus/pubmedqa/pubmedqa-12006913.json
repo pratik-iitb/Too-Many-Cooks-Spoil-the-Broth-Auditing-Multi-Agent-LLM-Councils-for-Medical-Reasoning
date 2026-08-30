@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-12006913",
+  "dataset": "pubmedqa",
+  "question_id": "12006913",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do lipids, blood pressure, diabetes, and smoking confer equal risk of myocardial infarction in women as in men?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "While all the listed factors (lipids, blood pressure, diabetes, and smoking) are risk factors for myocardial infarction (MI) in both men and women, the relative contribution of each can differ. Studies have shown that women are more likely to experience atypical symptoms of MI, and they may have a higher risk of MI related to diabetes and hypertension compared to men. Therefore, the answer is no.",
+          "critical_evidence": "Women are more likely to experience atypical symptoms of MI.",
+          "differential_considered": "Atypical symptoms of MI in women are a key differential diagnosis. While all the listed factors contribute to MI risk, the specific impact on women's risk profile is not identical to that of men. Therefore, the answer is no.",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 193,
+            "generation_time_s": 9.563
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Women generally have a lower risk of myocardial infarction than men at similar ages, even when adjusting for traditional risk factors like lipids, blood pressure, diabetes, and smoking. While these factors do increase risk in both genders, the overall burden of CVD in women is lower due to biological, hormonal, and behavioral differences. However, the relative risk conferred by each factor is comparable between genders when controlled for other variables.",
+          "critical_evidence": "Women have a 50-75% lower risk of CVD mortality than men at similar ages, even with comparable risk factor profiles",
+          "differential_considered": "Non-traditional risk factors like gestational diabetes, polycystic ovary syndrome, and autoimmune diseases were considered but ruled out as they are not part of the question's focus on traditional risk factors",
+          "usage": {
+            "prompt_tokens": 269,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.563
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cardiovascular risk factors such as lipids, blood pressure, diabetes, and smoking do not confer equal risk of myocardial infarction in women compared to men. Women generally develop coronary artery disease later in life and often present with atypical symptoms, while traditional risk factors may be less predictive in women. Additionally, women are more likely to have a combination of risk factors and are underdiagnosed or undertreated, leading to higher mortality rates despite similar or lower prevalence of some risk factors.",
+          "critical_evidence": "Women are more likely to experience atypical presentations and have higher mortality rates from myocardial infarction despite similar or lower prevalence of traditional risk factors compared to men.",
+          "differential_considered": "Considered whether hormonal or genetic factors might equalize risk, but evidence shows women are more vulnerable to adverse outcomes even with similar risk factor exposure, indicating unequal risk profiles.",
+          "usage": {
+            "prompt_tokens": 240,
+            "generated_tokens": 211,
+            "generation_time_s": 7.386
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 267,
+            "generated_tokens": 96,
+            "generation_time_s": 2.338
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 294,
+            "generated_tokens": 196,
+            "generation_time_s": 6.165
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

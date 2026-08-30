@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1017",
+  "dataset": "medqa",
+  "question_id": "1017",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 47-year-old Hispanic man presents with complaints of recent heat intolerance and rapid heart rate. The patient has also experienced recent unintentional weight loss of 15 pounds. Physical exam reveals tachycardia and skin that is warm to the touch. A radioactive iodine uptake scan of the thyroid reveals several focal nodules of increased iodine uptake. Prior to this study, the physician had also ordered a serum analysis that will most likely show which of the following?",
+    "options": {
+      "A": "High TSH and low T4",
+      "B": "Low TSH and high T4",
+      "C": "High TSH and normal T4",
+      "D": "High TSH and high T4",
+      "E": "Low TSH and low T4"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms (heat intolerance, rapid heart rate, weight loss), physical exam findings (tachycardia, warm skin), and radioactive iodine uptake scan results (focal nodules of increased uptake) strongly suggest hyperthyroidism. In hyperthyroidism, the thyroid gland is overactive, producing excessive thyroid hormones. This leads to increased metabolic rate, causing heat intolerance, weight loss, and tachycardia. The increased iodine uptake on the scan indicates that the thyroid nodules are actively producing thyroid hormones. Therefore, the serum analysis is most likely to show low TSH and high T4.",
+          "critical_evidence": "The combination of hyperthyroid symptoms, increased iodine uptake on the scan, and the expected hormonal profile in hyperthyroidism points towards a diagnosis of hyperthyroidism.",
+          "differential_considered": "Hypothyroidism (A) is less likely given the patient's symptoms of heat intolerance and weight loss. While hypothyroidism can cause weight gain and fatigue, it typically presents with cold intolerance and bradycardia. A goiter may be present in both hyperthyroidism and hypothyroidism, but the increased iodine uptake is more specific to hyperthyroidism. A TSH level would be low in both conditions, but the T4 level would be low in hypothyroidism and high in hyperthyroidism. Therefore, the clinical picture is more consistent with hyperthyroidism.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 313,
+            "generation_time_s": 15.433
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's heat intolerance, tachycardia, and weight loss suggest hyperthyroidism. The radioactive iodine uptake scan showing focal nodules of increased uptake indicates Graves' disease, a common cause of toxic multinodular goiter. This pattern typically presents with high TSH due to negative feedback inhibition and high T4 levels from excess thyroid hormone production.",
+          "critical_evidence": "Focal nodules of increased iodine uptake on scan strongly suggests Graves' disease, which is associated with high TSH and high T4 levels.",
+          "differential_considered": "Considered simple goiter, thyroiditis, and toxic adenoma, but ruled out by the focal uptake pattern and weight loss. Thyroiditis would typically show normal TSH and T4, while toxic adenoma would show focal uptake but less weight loss.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 201,
+            "generation_time_s": 9.318
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with heat intolerance, tachycardia, weight loss, and warm skin — classic signs of hyperthyroidism. The radioactive iodine uptake scan shows focal nodules with increased uptake, suggesting autonomously functioning thyroid nodules (e.g., toxic adenoma). In hyperthyroidism, TSH is suppressed (low) due to negative feedback from elevated T4, while T4 levels are high. This pattern is consistent with Graves’ disease or toxic nodules.",
+          "critical_evidence": "Focal nodules with increased iodine uptake on scan + clinical signs of hyperthyroidism (heat intolerance, tachycardia, weight loss) strongly point to autonomous thyroid hyperfunction, leading to low TSH and high T4.",
+          "differential_considered": "Graves’ disease was considered but ruled out as less likely due to focal uptake (suggesting nodular rather than diffuse disease). Hashitoxicosis was ruled out because it typically presents with high TSH and low T4, which contradicts the clinical picture. Hypothyroidism and euthyroid states were ruled out due to hypermetabolic symptoms.",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 265,
+            "generation_time_s": 9.278
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 117,
+            "generation_time_s": 2.809
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hypothyroidism (which would show high TSH and low T4), but the symptoms and scan findings are inconsistent with hypothyroidism. Other causes like pheochromocytoma or arrhythmias are less likely given the thyroid imaging and symptoms.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 186,
+            "generation_time_s": 5.797
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

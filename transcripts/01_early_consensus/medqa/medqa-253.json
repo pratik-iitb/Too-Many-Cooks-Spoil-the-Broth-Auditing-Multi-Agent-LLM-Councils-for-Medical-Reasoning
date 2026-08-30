@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-253",
+  "dataset": "medqa",
+  "question_id": "253",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 40-year-old woman is brought to the emergency department by a paramedic team from the scene of a motor vehicle accident where she was the driver. The patient was restrained by a seat belt and was unconscious at the scene. On physical examination, the patient appears to have multiple injuries involving the trunk and extremities. There are no penetrating injuries to the chest. As part of her trauma workup, a CT scan of the chest is ordered. At what vertebral level of the thorax is this image from?",
+    "options": {
+      "A": "T4",
+      "B": "T1",
+      "C": "T5",
+      "D": "T6",
+      "E": "T8"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 40-year-old woman who was involved in a motor vehicle accident and is unconscious. The CT scan of the chest is ordered as part of the trauma workup. The most common location for chest trauma in motor vehicle accidents is the thoracic spine, specifically the mid-thoracic region. Given the options, T4 is the most likely level for a chest CT scan in this scenario.",
+          "critical_evidence": "The CT scan of the chest is ordered as part of the trauma workup.",
+          "differential_considered": "T1, T5, T6, and T8 are all possible locations for chest trauma, but the CT scan being ordered for a trauma workup makes T4 the most likely location. While other levels could be involved, T4 is the most common site for chest trauma in motor vehicle accidents.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 216,
+            "generation_time_s": 10.659
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient was the driver in a motor vehicle accident and was restrained by a seat belt. Seat belt injuries commonly involve the thoracic spine, particularly at the level of T1-T2, which is the most mobile part of the spine and often bears the brunt of impact forces. The absence of penetrating chest injuries suggests the CT scan is focused on the thoracic spine rather than the chest wall. T1 is the most likely level given the mechanism of injury and typical distribution of seat belt-related trauma.",
+          "critical_evidence": "The patient was the driver in a motor vehicle accident and was restrained by a seat belt, which typically results in injuries at the thoracic spine, particularly at the most mobile levels (T1-T2).",
+          "differential_considered": "While T4-T8 are also part of the thorax, T1 is the most likely level due to the mechanism of injury (motor vehicle accident with seat belt use). Penetrating chest injuries were ruled out, further supporting a thoracic spine focus. Other levels like T5 or T6 could be involved in more severe accidents, but T1 is the most probable given the typical distribution of seat belt injuries.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.987
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a trauma victim with no penetrating chest injury, and a CT scan of the chest is ordered. The vertebral level T5 is commonly imaged in trauma workups to assess for rib fractures, pulmonary contusions, or other thoracic injuries. T5 is also a key level for evaluating the thoracic spine in blunt trauma, especially when assessing for spinal injury in the mid-thoracic region. The other levels are less commonly the primary focus in initial trauma imaging unless specific symptoms or findings suggest otherwise.",
+          "critical_evidence": "The patient has multiple trunk injuries and is unconscious after a motor vehicle accident — T5 is a common level for assessing thoracic spine and rib injuries in trauma patients.",
+          "differential_considered": "T1 and T8 are less commonly the initial focus in blunt trauma without specific neurological or respiratory findings; T4 and T6 are possible but T5 is more central for thoracic trauma imaging. T1 is more cervical/upper thoracic, T8 is lower thoracic, and T6 is less commonly the primary level for initial trauma assessment.",
+          "usage": {
+            "prompt_tokens": 336,
+            "generated_tokens": 252,
+            "generation_time_s": 8.802
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 106,
+            "generation_time_s": 2.54
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "T1 (too high for trauma), T8 (less common for seat belt injuries), T4 (less typical than T5/T6), T6 (possible but T5 is more commonly involved in seat belt-related injuries); however, the standard anatomical point of impact for seat belts is T5, so this is the best choice.",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 231,
+            "generation_time_s": 7.182
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

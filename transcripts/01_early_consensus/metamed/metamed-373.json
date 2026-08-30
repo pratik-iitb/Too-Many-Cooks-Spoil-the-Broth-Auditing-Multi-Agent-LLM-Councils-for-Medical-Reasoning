@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-373",
+  "dataset": "metamed",
+  "question_id": "373",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A six-year-old boy with a history of asthma currently uses an albuterol inhaler as needed to manage his asthma symptoms. His mother brings him into your office because she feels she has had to increase the patient’s use of his inhaler to four times per week for the past month. She also reports that he has woken up three times during the night from his symptoms this month. The boy reports that he is upset because he can’t always keep up with his friends in the playground. His past medical history is significant for allergic rhinitis. The patient’s temperature is 98°F (36.6°C), blood pressure is 110/70 mmHg, pulse is 88/min, and respirations are 18/min with an oxygen saturation of 98% O2 on room air. Auscultation of his lungs reveals bilateral late expiratory wheezes.\n\nWhat changes should be made to his current asthma treatment regimen?",
+    "options": {
+      "A": "Maintain current therapy",
+      "B": "Add fluticasone daily",
+      "C": "Add salmeterol twice daily",
+      "D": "Add zileuton twice daily",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is experiencing an asthma exacerbation, indicated by increased inhaler use, nighttime awakenings, and playground limitations. Given his age and history of allergic rhinitis, a controller medication is warranted to reduce the frequency of exacerbations. Fluticasone is a low-dose inhaled corticosteroid (ICS) that is appropriate for a child with mild persistent asthma.",
+          "critical_evidence": "Increased inhaler use (four times per week) and nighttime awakenings indicate a need for controller medication.",
+          "differential_considered": "While the patient's symptoms could be due to a viral upper respiratory infection, the history of asthma and the presence of wheezing make asthma the most likely diagnosis. Salmeterol is a long-acting beta-agonist (LABA) and should not be used as monotherapy in children with asthma due to safety concerns. Zileuton is a leukotriene inhibitor and is not typically a first-line treatment for asthma exacerbations. Therefore, adding a controller medication is the most appropriate next step.",
+          "usage": {
+            "prompt_tokens": 491,
+            "generated_tokens": 250,
+            "generation_time_s": 23.219
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's increased use of albuterol and nighttime symptoms suggest worsening asthma control. The presence of late expiratory wheezes on auscultation confirms ongoing airway obstruction. Allergic rhinitis in the history supports a need for anti-inflammatory therapy. Fluticasone is a corticosteroid that reduces airway inflammation and is appropriate for daily maintenance in this case.",
+          "critical_evidence": "Bilateral late expiratory wheezes on auscultation",
+          "differential_considered": "Considered viral infection, exercise-induced bronchoconstriction, and eosinophilic bronchopneumopathy, but ruled out due to persistent symptoms despite current therapy and lack of fever. Allergic rhinitis history supports allergic asthma as the primary diagnosis.",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.463
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has persistent asthma symptoms requiring albuterol 4x/week and nocturnal awakenings, indicating moderate persistent asthma. According to asthma guidelines, step-up therapy from as-needed short-acting beta-agonists to daily inhaled corticosteroids (e.g., fluticasone) is indicated. His history of allergic rhinitis further supports the use of ICS for anti-inflammatory control.",
+          "critical_evidence": "Waking up 3 times per night and needing albuterol 4x/week indicates persistent asthma requiring step-up therapy.",
+          "differential_considered": "Acute viral URI was considered but ruled out by normal vitals and no fever. Exercise-induced asthma was considered but not supported by playground symptom context. Bronchitis or GERD were not indicated by findings.",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 197,
+            "generation_time_s": 7.941
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 140,
+            "generation_time_s": 7.829
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered whether there might be an infection or other comorbidity causing symptoms, but the consistent pattern and history of asthma with exacerbation more likely indicate poor asthma control rather than a new infection or dermatologic issue.",
+          "usage": {
+            "prompt_tokens": 517,
+            "generated_tokens": 325,
+            "generation_time_s": 11.494
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

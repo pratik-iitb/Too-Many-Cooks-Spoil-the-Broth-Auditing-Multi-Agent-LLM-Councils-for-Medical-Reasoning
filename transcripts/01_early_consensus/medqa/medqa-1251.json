@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1251",
+  "dataset": "medqa",
+  "question_id": "1251",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 5-year-old girl is brought to her pediatrician for evaluation of difficulties noted at school. Her kindergarten teacher voiced her concern that the child ‘spaces out’ often and thinks she may have ADHD. The parents deny any history of head trauma or infection. Her blood pressure is 106/74 mm Hg, the heart rate is 69/min, and the respiratory rate is 14/min. Physical exam demonstrates a happy child who has reached developmental milestones. Laboratory results are within normal limits. EEG demonstrates a 3-Hz spike and wave pattern (see image). The decision is made to start the child on medical therapy. What should be advised to the parents as a potential side effect of the first-line medication?",
+    "options": {
+      "A": "Nystagmus",
+      "B": "GI upset",
+      "C": "Facial rash and blood in the urine",
+      "D": "Profound leukopenia increasing the risk for severe infection",
+      "E": "Weight gain and change in hair color"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The EEG finding of a 3-Hz spike and wave pattern is highly suggestive of absence seizures. The first-line medication for absence seizures in children is ethosuximide. A common side effect of ethosuximide is gastrointestinal upset. The other options are not typical side effects of ethosuximide.",
+          "critical_evidence": "The EEG finding of a 3-Hz spike and wave pattern is highly suggestive of absence seizures.",
+          "differential_considered": "Nystagmus is more commonly associated with other seizure types, such as myoclonic or tonic-clonic seizures. Facial rash and blood in the urine are not typical side effects of ethosuximide. Profound leukopenia is not a known side effect of ethosuximide. Weight gain and change in hair color are not typical side effects of ethosuximide.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 210,
+            "generation_time_s": 10.422
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The EEG finding of a 3-Hz spike and wave pattern suggests epilepsy, likely benign rolandic epilepsy. First-line treatment is typically valproate, which commonly causes GI upset as a side effect. The other options are less likely: nystagmus is rare with valproate, facial rash and blood in urine are not typical, leukopenia is a late effect, and weight gain/hair changes are not immediate side effects.",
+          "critical_evidence": "The 3-Hz spike and wave pattern on EEG strongly indicates epilepsy, guiding the choice of valproate as first-line therapy.",
+          "differential_considered": "ADHD was mentioned, but the EEG finding points to epilepsy rather than ADHD. Other differentials like infection or trauma were ruled out by history and exam.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 193,
+            "generation_time_s": 9.032
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with developmental milestones, normal labs, and an EEG showing 3-Hz spike and wave pattern, which is characteristic of absence seizures. The first-line treatment for absence seizures in children is ethosuximide, which commonly causes gastrointestinal upset as a side effect. Other options are not typical for first-line antiseizure medications in this context.",
+          "critical_evidence": "EEG demonstrates a 3-Hz spike and wave pattern, indicating absence seizures, which are typically treated with ethosuximide, a medication known for causing GI upset.",
+          "differential_considered": "ADHD was considered due to the teacher’s concern, but the EEG findings point to absence seizures, making it the primary diagnosis. Other seizure types or metabolic disorders were ruled out by normal labs and developmental milestones.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 193,
+            "generation_time_s": 6.791
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 105,
+            "generation_time_s": 2.564
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Nystagmus (not a common side effect of antiepileptic drugs); C: Facial rash and blood in urine (not typical for seizure medications in this age group and without indication of allergic reaction); D: Profound leukopenia (no evidence of immune suppression in the case); E: Weight gain and hair color change (not a direct or common side effect of antiepileptic drugs in this context). The most relevant differential is epilepsy, making GI upset the expected side effect.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 320,
+            "generation_time_s": 10.1
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

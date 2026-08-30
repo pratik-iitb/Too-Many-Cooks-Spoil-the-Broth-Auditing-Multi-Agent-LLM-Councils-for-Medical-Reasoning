@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-884",
+  "dataset": "medqa",
+  "question_id": "884",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 65-year-old patient with a history of atrial fibrillation presents to the emergency room complaining of sudden-onset speech difficulty. Her husband notes that they were eating dinner earlier in the night, when he suddenly noticed the change. On admission, her blood pressure is 135/80 mmHg, heart rate is 85 beats per minute, temperature is 98.6 degrees Fahrenheit, and SpO2 is 99% on room air. Her MRI is shown below in Figure A. Which of the following speech deficit is the patient most likely to experience?",
+    "options": {
+      "A": "Difficulty with speech production and repetition",
+      "B": "Difficulty with speech comprehension and repetition",
+      "C": "Isolated difficulty with repetition",
+      "D": "No speech disturbance",
+      "E": "Difficulty with speech prosody"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of sudden-onset speech difficulty in the setting of atrial fibrillation strongly suggests a stroke affecting the dominant hemisphere (likely the left). The most common speech deficit following a left-sided stroke is difficulty with speech production and repetition (aphasia).",
+          "critical_evidence": "Sudden-onset speech difficulty in a patient with atrial fibrillation is highly suggestive of a stroke.",
+          "differential_considered": "While other options are possible, the sudden onset and the patient's history make aphasia the most likely diagnosis. Difficulty with comprehension (B) is possible, but less likely given the sudden onset. Isolated repetition (C) is a component of aphasia, but not the whole picture. No speech disturbance (D) is unlikely given the patient's symptoms. Difficulty with speech prosody (E) is a possible symptom of aphasia, but not the primary deficit.",
+          "usage": {
+            "prompt_tokens": 393,
+            "generated_tokens": 226,
+            "generation_time_s": 11.2
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's sudden-onset speech difficulty with a history of atrial fibrillation suggests a stroke, particularly given the MRI findings. A stroke affecting the dominant hemisphere (likely left) would impair speech production and repetition, which aligns with option A. The absence of other neurological deficits in the MRI supports a focal brain lesion rather than a global aphasia or other non-specific speech disorders.",
+          "critical_evidence": "MRI findings showing a focal brain lesion in the dominant hemisphere",
+          "differential_considered": "Considered cardiac causes (e.g., atrial fibrillation-related embolic stroke) and non-neurological causes (e.g., migraine, transient ischemic attack), but ruled out due to sudden onset and MRI evidence of a brain lesion. Also considered aphasia subtypes, but production and repetition deficits are more consistent with a left hemisphere lesion.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 204,
+            "generation_time_s": 9.511
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with sudden-onset speech difficulty following a known risk factor (atrial fibrillation) and has a stroke-like presentation. MRI findings (not shown but implied by context) likely reveal a left hemisphere lesion affecting Broca’s area or adjacent regions, which typically causes aphasia with impaired speech comprehension and repetition. The acute onset and neurological deficit point to ischemic stroke as the most likely cause.",
+          "critical_evidence": "Sudden-onset speech difficulty in a patient with atrial fibrillation strongly suggests acute ischemic stroke, commonly involving the left hemisphere and causing Broca’s aphasia or mixed aphasia with comprehension and repetition deficits.",
+          "differential_considered": "Other differentials like transient ischemic attack (TIA) were considered but ruled out due to persistent symptoms; metabolic or toxic causes were unlikely given the acute neurological presentation and lack of systemic symptoms. No evidence of cerebellar or brainstem involvement suggests non-fluent aphasia rather than apraxia or dysarthria.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 233,
+            "generation_time_s": 8.16
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The patient is most likely to experience difficulty with speech production and repetition. This is consistent with the clinical presentation of acute stroke affecting the left hemisphere, which can lead to aphasia. The MRI findings would be crucial in confirming the diagnosis and determining the extent of the lesion.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 55,
+            "generation_time_s": 1.35
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 242,
+            "generation_time_s": 7.607
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

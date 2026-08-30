@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-145",
+  "dataset": "metamed",
+  "question_id": "145",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 44-year-old man comes to the clinic because of a 6-month history of progressive fatigue. He has a history of intravenous heroin use. Physical examination shows scleral icterus. A serum study is positive for hepatitis C RNA. Therapy with interferon-α is initiated in combination with a second drug. The expected beneficial effect of the additional drug is most likely due to inhibition of which of the following enzymes?",
+    "options": {
+      "A": "Inosine monophosphate dehydrogenase",
+      "B": "DNA-dependent RNA polymerase",
+      "C": "DNA gyrase",
+      "D": "Dihydroorotate dehydrogenase",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of intravenous heroin use, scleral icterus, and positive hepatitis C RNA strongly suggest chronic hepatitis C infection. Interferon-alpha is a common treatment for hepatitis C, but its efficacy is often enhanced by the addition of ribavirin. Ribavirin inhibits inosine monophosphate dehydrogenase (IMPDH), an enzyme crucial for guanosine nucleotide synthesis, which is essential for viral replication. Therefore, the additional drug is most likely ribavirin.",
+          "critical_evidence": "The patient's history of intravenous heroin use and positive hepatitis C RNA strongly suggest chronic hepatitis C infection.",
+          "differential_considered": "While other viral hepatitis infections are possible, the history of intravenous drug use makes hepatitis C the most likely diagnosis. Other viral hepatitis infections (e.g., hepatitis B, hepatitis A) are less likely given the chronic nature of the symptoms and the lack of specific risk factors mentioned in the case. Therefore, I focused on the most probable cause given the clinical context.",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 245,
+            "generation_time_s": 13.479
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has hepatitis C RNA positive with progressive fatigue and scleral icterus. Interferon-α is a first-line therapy for hepatitis C, but adding a second drug is likely to target DNA-dependent RNA polymerase, which is essential for viral replication. This enzyme is responsible for synthesizing new viral DNA from the viral RNA genome, making it a critical target for antiviral therapy.",
+          "critical_evidence": "Serum positive for hepatitis C RNA",
+          "differential_considered": "Considered hepatitis A, B, and D, but ruled out due to RNA positivity. Also considered drug-induced liver injury from heroin use, but viral hepatitis is more likely given the RNA positivity and icterus.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 176,
+            "generation_time_s": 9.174
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has chronic hepatitis C virus (HCV) infection confirmed by positive HCV RNA, and is being treated with interferon-α plus ribavirin. Ribavirin, the second drug, enhances interferon’s antiviral effect by inhibiting viral RNA synthesis, primarily through interference with HCV RNA-dependent RNA polymerase. This enzyme is essential for viral replication, and its inhibition reduces viral load. Other options refer to enzymes involved in cellular nucleotide synthesis or bacterial DNA replication, which are not relevant to HCV treatment.",
+          "critical_evidence": "Positive HCV RNA confirms active viral replication, and ribavirin is known to inhibit HCV RNA polymerase, making option B correct.",
+          "differential_considered": "Other antiviral regimens (e.g., nucleoside analogs) were considered, but ribavirin’s mechanism is specific to RNA polymerase inhibition. Interferon-α alone is less effective, and the combination is standard for HCV. Options A, C, and D relate to cellular or bacterial enzymes, not HCV replication.",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 255,
+            "generation_time_s": 9.508
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The expected beneficial effect of the additional drug is most likely due to inhibition of DNA-dependent RNA polymerase.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 22,
+            "generation_time_s": 0.572
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options such as inosine monophosphate dehydrogenase (A) relate to nucleotide metabolism, not viral replication. DNA-dependent RNA polymerase (B) and DNA gyrase (C) are bacterial targets, not relevant to hepatitis C treatment. Thus, these are ruled out.",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 207,
+            "generation_time_s": 6.885
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

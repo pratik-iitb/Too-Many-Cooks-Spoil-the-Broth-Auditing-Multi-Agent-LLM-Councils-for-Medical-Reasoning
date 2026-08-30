@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-318",
+  "dataset": "metamed",
+  "question_id": "318",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 37-year-old man with no significant past medical history is rear-ended in a motor vehicle accident. He reported significant neck pain to emergency responders, but otherwise denies weakness, numbness or tingling in his extremities. His vitals on presentation to the ED are HR 90, BP 140/80, RR 20, SpO2 98%. What is the most appropriate next step upon presentation to the emergency room?",
+    "options": {
+      "A": "Lateral cervical film",
+      "B": "Cervical immobilization",
+      "C": "IV methylprednisolone",
+      "D": "Observation overnight",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with neck pain after a motor vehicle accident, which raises concern for cervical spine injury. Immobilization is the priority to prevent further injury. While imaging is important, it should not delay immobilization.",
+          "critical_evidence": "Neck pain after a motor vehicle accident",
+          "differential_considered": "While other conditions could cause neck pain, the mechanism of injury (MVA) makes cervical spine injury the most likely and dangerous possibility. Therefore, immobilization is the most appropriate initial step.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 141,
+            "generation_time_s": 7.172
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with neck pain after a motor vehicle accident, which raises concern for cervical spine injury. While observation and imaging are important, cervical immobilization is the most critical initial step to prevent further injury. The absence of neurologic deficits (weakness, numbness, tingling) suggests the injury may be stable, but cervical immobilization prevents potential worsening of spinal cord compression.",
+          "critical_evidence": "The patient's neurologic examination is normal (no weakness, numbness, or tingling), but cervical immobilization is still indicated as a precautionary measure to prevent potential spinal cord injury.",
+          "differential_considered": "Considered: cervical spine fracture, disc herniation, soft tissue injury. Ruled out: Immediate neurologic deficits would have changed the approach, but the patient's normal neurologic exam suggests a possible stable injury.",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.719
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a young, otherwise healthy adult with acute neck pain following a motor vehicle collision. While there are no neurological deficits, cervical spine injury must be ruled out due to the mechanism of injury. The most appropriate next step is cervical immobilization to prevent further injury during evaluation. Imaging (e.g., lateral cervical film) may be indicated after initial immobilization and clinical assessment, but immobilization is the immediate priority.",
+          "critical_evidence": "Mechanism of injury (rear-end MVC) + neck pain + no neurological deficits — requires cervical immobilization per standard trauma protocols to prevent spinal cord injury.",
+          "differential_considered": "Cervical spine fracture/dislocation (considered due to mechanism and pain), but ruled out as not yet confirmed; neurological deficits absent, so spinal cord injury unlikely; no signs of stroke or other acute conditions; imaging not indicated before immobilization.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 209,
+            "generation_time_s": 8.558
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Given the patient's history of a motor vehicle accident with neck pain, the most appropriate next step is cervical immobilization to prevent any potential spinal injury. This is especially important in the acute setting to stabilize the cervical spine and prevent further injury.",
+          "critical_evidence": "The patient's history of a motor vehicle accident and presentation with neck pain.",
+          "differential_considered": "None of the other options are appropriate in this acute setting as they do not address the immediate need for cervical spine immobilization.",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 125,
+            "generation_time_s": 3.578
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Cervical spine instability (requiring immobilization or imaging) is unlikely at this stage due to stable neurological exam and vitals; other considerations like discitis or soft tissue injury also favor observation over immediate intervention.",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 193,
+            "generation_time_s": 6.996
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

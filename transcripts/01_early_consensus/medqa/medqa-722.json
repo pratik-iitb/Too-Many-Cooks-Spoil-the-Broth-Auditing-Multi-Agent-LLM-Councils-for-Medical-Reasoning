@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-722",
+  "dataset": "medqa",
+  "question_id": "722",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An 82-year-old male with congestive heart failure experiences rapid decompensation of his condition, manifesting as worsening dyspnea, edema, and increased fatigue. Labs reveal an increase in his serum creatinine from baseline. As part of the management of this acute change, the patient is given IV dobutamine to alleviate his symptoms. Which of the following effects occur as a result of this therapy?",
+    "options": {
+      "A": "Slowed atrioventricular conduction velocities",
+      "B": "Increased myocardial oxygen consumption",
+      "C": "Decreased heart rate",
+      "D": "Increased systemic vascular resistance due to systemic vasoconstriction",
+      "E": "Decreased cardiac contractility"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Dobutamine is a beta-1 adrenergic agonist. Beta-1 stimulation increases myocardial contractility, leading to increased cardiac output. This increased contractility also results in increased myocardial oxygen consumption. The patient's decompensated heart failure and elevated creatinine suggest a possible ischemic component to his heart failure, making increased oxygen demand a significant concern.",
+          "critical_evidence": "Dobutamine's mechanism of action as a beta-1 adrenergic agonist.",
+          "differential_considered": "A: Slowed atrioventricular conduction velocities - Dobutamine primarily affects the beta-1 receptors in the heart, not the AV node. Therefore, it is unlikely to significantly slow AV conduction. C: Decreased heart rate - Dobutamine increases heart rate, not decreases it. E: Decreased cardiac contractility - Dobutamine increases cardiac contractility, not decreases it. While dobutamine can cause arrhythmias, the primary effect is increased contractility and oxygen consumption.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 238,
+            "generation_time_s": 11.801
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Dobutamine is a positive inotrope that increases myocardial contractility and cardiac output. In heart failure patients, this leads to increased myocardial oxygen demand. The patient's worsening symptoms and elevated serum creatinine suggest inadequate oxygen delivery to the myocardium, which is consistent with increased oxygen consumption. The other options are not directly caused by dobutamine therapy.",
+          "critical_evidence": "Increased serum creatinine indicates impaired myocardial perfusion, which is a direct consequence of increased myocardial oxygen consumption from dobutamine administration.",
+          "differential_considered": "Considered hypovolemia (ruled out by IV fluid administration), pulmonary embolism (ruled out by clinical presentation), and other causes of acute heart failure decompensation, but dobutamine's mechanism of action is specific to increasing myocardial oxygen demand.",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 202,
+            "generation_time_s": 9.438
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Dobutamine is a beta-1 adrenergic agonist that increases myocardial contractility and heart rate, thereby improving cardiac output in acute decompensated heart failure. This comes at the cost of increased myocardial oxygen consumption, which is a known adverse effect. The other options describe effects of agents like beta-blockers or vasopressors, not dobutamine.",
+          "critical_evidence": "Dobutamine increases myocardial contractility and heart rate, leading to increased myocardial oxygen consumption — a well-documented pharmacological effect.",
+          "differential_considered": "Considered beta-blockers (which decrease HR and contractility), vasopressors (which increase systemic vascular resistance), and calcium channel blockers (which may slow conduction). These were ruled out because dobutamine specifically acts as a positive inotrope and chronotrope, increasing myocardial oxygen demand.",
+          "usage": {
+            "prompt_tokens": 339,
+            "generated_tokens": 215,
+            "generation_time_s": 7.555
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 365,
+            "generated_tokens": 275,
+            "generation_time_s": 6.664
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is showing signs of poor cardiac reserve and low cardiac output due to his congestive heart failure and acute decompensation. Dobutamine, a beta-1 adrenergic agonist, typically increases myocardial contractility and cardiac output in patients with low output states like this one. Options A, C, and E describe effects opposite to what is expected with dobutamine, while D is less likely because dobutamine primarily causes vasodilation rather than vasoconstriction. Therefore, the best effect of IV dobutamine in this scenario is increased myocardial oxygen consumption as part of improving cardiac output.",
+          "critical_evidence": "",
+          "differential_considered": "Other considerations included norepinephrine (which could also increase contractility but is not listed), but among the given options, B is the most accurate and clinically relevant effect of dobutamine in this context.",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 239,
+            "generation_time_s": 7.542
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

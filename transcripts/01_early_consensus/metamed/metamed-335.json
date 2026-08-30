@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-335",
+  "dataset": "metamed",
+  "question_id": "335",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A type of fatal adrenal cancer has an average survival rate of 3 years after the onset of clinically significant symptoms. It is determined that patients have a 4-year asymptomatic period prior to developing clinical symptoms from this adrenal cancer. A new screening test is developed, and the cancer can now be detected 2 years prior to developing clinical symptoms. A new observational case-control study of screened and unscreened patients measures the median 5-year survival of patients who decline medical and surgical treatment. The screened population has statistically better outcomes. Which step should be undertaken to prevent bias in these conclusions?",
+    "options": {
+      "A": "Using survival rates in the analysis",
+      "B": "Using mortality rates in the analysis",
+      "C": "Increasing the number of screened individuals",
+      "D": "Decreasing the number of screened individuals",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study compares survival rates between screened and unscreened patients. The observed difference in survival is likely due to the screening process itself, not necessarily a true difference in the underlying disease. The screening process could introduce bias, such as selection bias or information bias. Therefore, simply using survival rates in the analysis will not address the potential bias.",
+          "critical_evidence": "The study compares survival rates between screened and unscreened patients, suggesting a potential bias in the results.",
+          "differential_considered": "While other factors could influence survival, the study design specifically isolates the effect of screening. Therefore, the primary concern is the potential for bias introduced by the screening process itself.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 178,
+            "generation_time_s": 9.808
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The observed better outcomes in the screened population may be due to selection bias. Since the cancer is detected 2 years before symptoms, screened individuals are healthier at the time of detection and thus have a survival advantage regardless of treatment. This is a classic example of 'healthy user effect' or 'healthy survivor bias' in observational studies. The survival difference is likely due to the earlier detection rather than the screening intervention itself.",
+          "critical_evidence": "The 2-year earlier detection before symptoms creates a healthier cohort in the screened group",
+          "differential_considered": "Other factors like treatment effect, patient compliance, or confounding variables were considered but ruled out as the primary explanation. The key issue is the inherent bias in the study design due to the timing of detection.",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 186,
+            "generation_time_s": 9.85
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study compares screened vs. unscreened patients who decline treatment, and survival rates are the most appropriate metric for evaluating outcomes in this context. Using survival rates accounts for time-to-event data, which is critical when comparing populations with different detection windows. Mortality rates (option B) would not capture the temporal advantage of early detection, and sample size adjustments (C/D) do not address bias. The key evidence is the 2-year earlier detection in screened patients, which directly impacts survival.",
+          "critical_evidence": "The cancer can be detected 2 years prior to clinical symptoms, and screened patients show better 5-year survival — indicating early detection improves outcomes.",
+          "differential_considered": "Mortality rates (B) were considered but ruled out because they do not account for time-to-event differences; sample size adjustments (C/D) were considered but do not address selection bias; increasing/decreasing screened individuals does not correct for confounding or selection bias.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 225,
+            "generation_time_s": 9.467
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The best way to prevent bias in this study is by using survival rates in the analysis. This is because survival rates provide a more accurate reflection of the effectiveness of the treatment and the overall prognosis of the disease. By comparing the survival rates of screened and unscreened patients, it can be determined if the screening test is beneficial and if it leads to improved outcomes. Using mortality rates may not accurately reflect the effectiveness of the screening test, as mortality rates can be influenced by factors other than the disease itself, such as access to healthcare or socioeconomic status. Increasing or decreasing the number of screened individuals may introduce selection bias and not provide a true comparison between screened and unscreened populations. Therefore, using survival rates in the analysis is the most appropriate method to avoid bias in this study's conclusions.",
+          "critical_evidence": "The key evidence that supports the use of survival rates in this study is that survival rates reflect the overall prognosis of the disease and the effectiveness of the treatment. This allows for a direct comparison between screened and unscreened patients, ensuring that the conclusions drawn are accurate and not influenced by other factors.",
+          "differential_considered": "The main differential diagnosis considered in this case is the use of mortality rates instead of survival rates. This was ruled out because mortality rates can be influenced by factors other than the disease itself, which could lead to biased conclusions about the effectiveness of the screening test.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 305,
+            "generation_time_s": 8.796
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The key finding is that the new screening test allows detection of the cancer two years before clinical symptoms appear, yet the survival comparison is only between screened and unscreened groups who declined treatment. Since the study is observational and survival is measured in those who do not receive treatment, the comparison may be confounded by treatment decisions influenced by screening. The best approach to prevent selection bias in this context is to ensure the analysis accounts for the screening status and its effect, rather than altering the number of participants or using mortality instead of survival, which the options do not directly address as a method to reduce bias in this design.",
+          "critical_evidence": "The study measures 5-year survival among those who decline treatment, but the groups differ in when they were identified (screened vs. unscreened). This timing difference could introduce selection bias if not appropriately controlled.",
+          "differential_considered": "Potential biases include selection bias due to differences in treatment uptake between screened and unscreened groups. However, the question asks what step should be taken in the analysis, not changes to the study design or participant numbers.",
+          "usage": {
+            "prompt_tokens": 437,
+            "generated_tokens": 253,
+            "generation_time_s": 9.515
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

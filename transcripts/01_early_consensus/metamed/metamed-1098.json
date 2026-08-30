@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1098",
+  "dataset": "metamed",
+  "question_id": "1098",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 21-year-old female presents to the clinic requesting prenatal counseling. She was born with a disease that has led her to have recurrent upper respiratory infections throughout her life requiring antibiotic prophylaxis and chest physiotherapy as well as pancreatic enzyme replacement therapy. She marries a man (without this disease phenotype) from a population where the prevalence of this disease is 1/100. What is the chance that their child will have the disease of interest?",
+    "options": {
+      "A": "9/1000",
+      "B": "1/10",
+      "C": "81/100",
+      "D": "9/10",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Answer removed"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a genetic disease that causes recurrent infections and requires enzyme replacement therapy. This indicates a recessive inheritance pattern. The husband is unaffected, meaning he is a carrier of the recessive allele. Since the prevalence of the disease in the husband's population is 1/100, he has a 1/100 chance of being a carrier. Therefore, the probability of their child inheriting the disease is 1/100 * 1/100 = 1/10000, which is 1/1000.",
+          "critical_evidence": "The patient's history of recurrent infections and enzyme replacement therapy strongly suggests a recessive genetic disorder.",
+          "differential_considered": "While other conditions could cause recurrent infections, the combination of symptoms and the family history points towards a genetic cause. Other conditions like common variable immunodeficiency (CVID) or chronic granulomatous disease (CGD) are less likely given the specific enzyme replacement therapy requirement and the family history of a similar condition.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 252,
+            "generation_time_s": 12.765
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient is a carrier of a recessive disease with a prevalence of 1/100 in the population. Since she is a woman with the disease phenotype, she has a 50% chance of passing the mutant allele to her offspring. Her husband is unaffected and from a population with 1/100 prevalence, so his carrier frequency is 2/100. The probability of both being carriers is (1/2) * (2/100) = 1/100. The probability of both passing the mutant allele is 1/4. Thus, the overall probability of their child inheriting the disease is 1/100 * 1/4 = 1/400, which is not listed among the options.",
+          "critical_evidence": "The patient's disease phenotype and the population prevalence allow calculation of carrier frequencies and inheritance probabilities.",
+          "differential_considered": "No specific differentials were needed as the scenario clearly describes a recessive genetic condition with known prevalence and inheritance pattern.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.422
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 355,
+            "generated_tokens": 1024,
+            "generation_time_s": 37.478
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 101,
+            "generation_time_s": 2.748
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The possibility of autosomal dominant, recessive, or X-linked inheritance, but the question's phrasing and options suggest a rare disease with carrier mother, so the answer is best approximated by A if assuming a 1% prevalence in the general population and some maternal contribution, but this is unclear.",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 849,
+            "generation_time_s": 54.842
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

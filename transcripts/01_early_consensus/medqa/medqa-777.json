@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-777",
+  "dataset": "medqa",
+  "question_id": "777",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 6-year-old African-American boy presents with severe pain and swelling of both his hands and wrists. His symptoms onset 2 days ago and have not improved. He also has had diarrhea for the last 2 days and looks dehydrated. This patient has had two similar episodes of severe pain in the past. Physical examination reveals pallor, jaundice, dry mucous membranes, and sunken eyes. Which of the following mutations is most consistent with this patient’s clinical condition?",
+    "options": {
+      "A": "Chromosomal deletion",
+      "B": "Nonsense",
+      "C": "Silent",
+      "D": "Missense",
+      "E": "Frame shift"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of severe pain and swelling in the hands and wrists, along with diarrhea, dehydration, pallor, jaundice, dry mucous membranes, and sunken eyes, strongly suggests a hemolytic anemia. The history of similar episodes further supports this. The most common cause of hemolytic anemia in children is sickle cell disease, which is caused by a point mutation in the beta-globin gene. A chromosomal deletion would lead to a complete absence of the beta-globin gene, resulting in a severe form of sickle cell anemia.",
+          "critical_evidence": "The combination of hemolytic anemia symptoms (pallor, jaundice, anemia), painful crises, and a history of similar episodes is highly suggestive of sickle cell disease.",
+          "differential_considered": "While other causes of hemolytic anemia exist, the recurrent nature of the episodes and the specific symptoms (painful crises, jaundice) make sickle cell disease the most likely diagnosis. Other possibilities like autoimmune hemolytic anemia or hereditary spherocytosis are less likely given the age of onset and the severity of the presentation. G6PD deficiency is less likely to cause jaundice and severe anemia in a 6-year-old without a clear trigger.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 275,
+            "generation_time_s": 13.581
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's severe pain, swelling, jaundice, and dehydration suggest a likely hemolytic anemia. Nonsense mutations typically lead to truncated proteins that can cause cellular dysfunction and lysis, which aligns with the clinical presentation. The other mutation types (silent, missense, frame shift, chromosomal deletion) are less likely to cause such severe, acute symptoms.",
+          "critical_evidence": "Jaundice and severe pain with swelling are consistent with hemolytic anemia caused by a nonsense mutation",
+          "differential_considered": "Considered sickle cell disease, thalassemia, and other hemoglobinopathies, but ruled out due to lack of typical clinical features. Also considered viral infections, but physical findings support a hemolytic process.",
+          "usage": {
+            "prompt_tokens": 359,
+            "generated_tokens": 189,
+            "generation_time_s": 8.792
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s recurrent severe joint pain, pallor, jaundice, and dehydration suggest a systemic inflammatory or metabolic disorder. The clinical presentation is highly suggestive of hemolytic uremic syndrome (HUS) or a genetic disorder like sickle cell disease (SCD) with vaso-occlusive crises. However, the recurrent nature and systemic symptoms point toward a genetic mutation causing a loss-of-function or premature termination. A nonsense mutation is most consistent with a premature stop codon leading to truncated, nonfunctional protein, which can cause severe disease phenotypes like sickle cell disease (HbS mutation is a missense, but the recurrent crises and systemic findings may reflect a more severe mutation type).",
+          "critical_evidence": "Recurrent severe joint pain with systemic symptoms (pallor, jaundice, dehydration) suggests a genetic disorder with systemic impact, most consistent with a nonsense mutation causing premature termination and loss of function.",
+          "differential_considered": "Hemolytic uremic syndrome (HUS) was considered but lacks the recurrent joint pain pattern. Sickle cell disease was considered but typically presents with chronic anemia and vaso-occlusion, not acute joint pain as the primary feature. Other genetic disorders like HbE or thalassemia were less likely given the acute presentation and systemic signs.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 302,
+            "generation_time_s": 10.586
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 64,
+            "generation_time_s": 1.549
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Severe, non-traumatic multisystem symptoms in a young child with pain in the hands/wrists are red flags for a genetic syndrome. Chromosomal deletions are known to cause such wide-ranging clinical features, unlike missense or nonsense mutations which usually affect specific proteins and have a different clinical spectrum.",
+          "critical_evidence": "Chronic multisystem symptoms including jaundice, dehydration, and recurrent pain suggesting a genetic disorder rather than an acute infection.",
+          "differential_considered": "Point mutation (B, D, E) typically causes more isolated or progressive single-organ disease; infectious or inflammatory causes are less supported by the question's focus on mutation. No evidence of a classic oncogenic or missense mutation pattern in the case description.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 381,
+            "generation_time_s": 11.913
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "B": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-47",
+  "dataset": "medqa",
+  "question_id": "47",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old Honduran woman presents to your clinic with shortness of breath. She reports that her symptoms have progressed over the past several months and are now impacting her quality of life because she cannot complete her usual exercise routine. She recalls \"normal\" childhood illnesses, including sore throats and fevers, but never required hospitalization. Vital signs are temperature 37 degrees Celsius, blood pressure 110/70 mm Hg, heart rate 109/min, respiratory rate 22/min, and oxygen saturation 98% on room air. Physical exam reveals a holosystolic, high-pitched, blowing murmur at the cardiac apex. One would expect that this murmur would also:",
+    "options": {
+      "A": "Radiate to the neck",
+      "B": "Increase with squatting or handgrip",
+      "C": "Increase with inspiration",
+      "D": "Also have a mid-systolic click loudest at S2",
+      "E": "Have a characteristic machine-like sound"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation, including the holosystolic murmur at the apex, strongly suggests mitral regurgitation. The murmur increasing with squatting or handgrip is a classic finding in mitral regurgitation, as these maneuvers increase venous return and left ventricular volume, thereby increasing the amount of blood regurgitating back into the left atrium.",
+          "critical_evidence": "The murmur increasing with squatting or handgrip.",
+          "differential_considered": "A: Radiating to the neck is more typical of aortic stenosis or aortic regurgitation. C: Increasing with inspiration is more typical of tricuspid regurgitation. D: A mid-systolic click is more typical of mitral valve prolapse. E: A machine-like sound is more typical of mitral stenosis.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 195,
+            "generation_time_s": 9.658
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The holosystolic, high-pitched, blowing murmur at the cardiac apex is consistent with aortic stenosis. Aortic stenosis typically causes a mid-diastolic murmur that increases with inspiration and squatting due to increased afterload and ventricular dilation. The holosystolic nature suggests significant regurgitant flow, and the blowing quality aligns with severe aortic insufficiency.",
+          "critical_evidence": "Holosystolic murmur with inspiration and squatting increase",
+          "differential_considered": "Considered mitral stenosis (which would have different timing and radiation), tricuspid valve disease, and pulmonic valve disease, but these would not produce a holosystolic apex beat murmur. Mitral stenosis typically has a crescendo-decrescendo murmur, while tricuspid and pulmonic regurgitation usually have different locations and qualities.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 220,
+            "generation_time_s": 10.195
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's holosystolic, high-pitched, blowing murmur at the cardiac apex is classic for mitral regurgitation. This murmur typically increases with maneuvers that increase left ventricular afterload or reduce preload, such as squatting or handgrip, due to enhanced regurgitant flow. Other options are inconsistent: radiation to neck (A) is more typical of aortic regurgitation; inspiration increases venous return and may worsen murmurs in some conditions but is not characteristic of mitral regurgitation; mid-systolic click (D) suggests mitral valve prolapse; machine-like sound (E) is characteristic of aortic regurgitation.",
+          "critical_evidence": "Holosystolic, high-pitched, blowing murmur at the cardiac apex — classic for mitral regurgitation.",
+          "differential_considered": "Aortic regurgitation (ruled out by murmur location and characteristics), mitral valve prolapse (ruled out by absence of click), pulmonary hypertension (ruled out by lack of right heart strain signs), and infective endocarditis (ruled out by absence of fever or embolic signs).",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 272,
+            "generation_time_s": 9.549
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's holosystolic murmur at the cardiac apex suggests a valvular heart disease, likely mitral valve prolapse. The murmur's radiation to the neck is consistent with the regurgitant flow of blood from the left ventricle to the left atrium and subsequently to the pulmonary circulation. This is a characteristic finding in mitral valve prolapse.",
+          "critical_evidence": "The holosystolic, high-pitched, blowing murmur at the cardiac apex.",
+          "differential_considered": "Aortic stenosis would present with a systolic ejection murmur, not a holosystolic murmur. Tricuspid stenosis would present with a holosystolic murmur heard best at the lower left sternal border. Pulmonary stenosis would present with a systolic ejection murmur heard best at the left upper sternal border.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 207,
+            "generation_time_s": 4.966
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 458,
+            "generated_tokens": 345,
+            "generation_time_s": 10.771
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

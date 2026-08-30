@@ -1,0 +1,325 @@
+{
+  "sample_id": "medqa-442",
+  "dataset": "medqa",
+  "question_id": "442",
+  "category": "03_debate_2_rounds",
+  "question": {
+    "text": "A 25-year-old woman presents to the emergency department with palpitations, sweating, and blurry vision after playing volleyball on the beach. She denies chest pain and shortness of breath. She states that these episodes occur often, but resolve after eating a meal or drinking a sugary soda. Past medical history is unremarkable, and she takes no medications. Temperature is 37°C (98.6°F), blood pressure is 135/80 mm Hg, pulse is 102/min, and respirations are 18/min. Fingerstick blood glucose level is 42 g/dL. ECG reveals sinus tachycardia. Urinalysis and toxicology are noncontributory. Appropriate medical therapy is administered and she is discharged with an appointment for a fasting blood draw within the week. Laboratory results are as follows:\nBlood glucose 45 mg/dL\nSerum insulin  20 microU/L (N: < 6 microU/L)\nSerum proinsulin 10 microU/L (N: < 20% of total insulin)\nC-peptide level  0.8 nmol/L (N: < 0.2 nmol/L)\nSulfonylurea Negative\nIGF-2  Negative\nWhat is the most likely cause of this patient’s hypoglycemia?",
+    "options": {
+      "A": "Heat stroke",
+      "B": "Delta cell tumor of the pancreas",
+      "C": "Exogenous insulin",
+      "D": "Beta cell tumor of the pancreas",
+      "E": "Alpha cell tumor of the pancreas"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of palpitations, sweating, and blurry vision, along with a low blood glucose level (42 mg/dL) and significantly elevated insulin level (20 microU/L), strongly suggest exogenous insulin administration. The negative sulfonylurea and IGF-2 tests further support this, as they would be expected in cases of endogenous insulin production. The low C-peptide level also indicates that the insulin is not being produced by the body.",
+          "critical_evidence": "Significantly elevated insulin level (20 microU/L) and low C-peptide level (0.8 nmol/L) are highly indicative of exogenous insulin administration.",
+          "differential_considered": "A: Heat stroke is less likely given the normal temperature and lack of other typical symptoms. B: Delta cell tumor of the pancreas is a rare cause of hypoglycemia and would likely present with more severe symptoms and abnormal C-peptide levels. D: Beta cell tumor of the pancreas is a possibility, but the negative sulfonylurea and IGF-2 tests make it less likely. E: Alpha cell tumor of the pancreas is unlikely to cause hypoglycemia, as it primarily affects glucagon secretion and would lead to hyperglycemia.",
+          "usage": {
+            "prompt_tokens": 550,
+            "generated_tokens": 285,
+            "generation_time_s": 14.097
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's hypoglycemia is most likely due to a delta cell tumor of the pancreas. This is supported by the extremely low serum insulin level (20 microU/L) and normal blood glucose (45 mg/dL), which suggests insulin is being produced but not utilized properly. The low C-peptide level (0.8 nmol/L) further supports this diagnosis, as delta cell tumors produce insulin but have reduced C-peptide production. The patient's symptoms resolve with sugar intake, which is consistent with insulin-mediated hypoglycemia.",
+          "critical_evidence": "Serum insulin level of 20 microU/L with normal blood glucose",
+          "differential_considered": "Heat stroke (ruled out by normal temperature and lack of other symptoms), exogenous insulin (ruled out by lack of administration and normal blood glucose), beta cell tumor (ruled out by normal blood glucose and insulin), alpha cell tumor (ruled out by lack of hyperinsulinemia)",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 233,
+            "generation_time_s": 10.862
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent hypoglycemia triggered by exercise and relieved by eating, with markedly elevated insulin and proinsulin levels and very low C-peptide, indicating endogenous insulin secretion from a beta cell tumor. The absence of exogenous insulin, sulfonylureas, or other causes makes an insulinoma the most likely diagnosis.",
+          "critical_evidence": "C-peptide level of 0.8 nmol/L (N: < 0.2 nmol/L) — this is markedly elevated, indicating endogenous insulin production, which is inconsistent with exogenous insulin or sulfonylurea use.",
+          "differential_considered": "Heat stroke (A) is ruled out by normal temperature and absence of systemic toxicity; exogenous insulin (C) is ruled out by negative toxicology and sulfonylurea test; alpha cell tumor (E) would cause hyperglycemia or inappropriate insulin secretion; delta cell tumor (B) causes hypoglycemia but typically with low insulin and high proinsulin, which does not match this case.",
+          "usage": {
+            "prompt_tokens": 533,
+            "generated_tokens": 250,
+            "generation_time_s": 8.794
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's symptoms of hypoglycemia, which improve with food intake, along with the laboratory findings of low blood glucose, high insulin, and high proinsulin levels, are indicative of an insulin-producing tumor. The presence of C-peptide in the urine would normally be elevated in response to increased insulin secretion, but in this case, the low C-peptide level suggests that the insulinoma is not releasing insulin in a normal manner, which is characteristic of a beta cell tumor of the pancreas.",
+          "critical_evidence": "The low C-peptide level in the presence of high insulin and proinsulin levels.",
+          "differential_considered": "Heat stroke was ruled out due to the absence of fever and the specific pattern of hypoglycemia. A delta cell tumor of the pancreas would typically present with hypergastrinemia, which is not mentioned in the case. Exogenous insulin was considered but ruled out due to the lack of a history of insulin use and the atypical laboratory findings. An alpha cell tumor of the pancreas would likely cause hyperglucagonemia, which is not indicated in this case.",
+          "usage": {
+            "prompt_tokens": 546,
+            "generated_tokens": 264,
+            "generation_time_s": 6.35
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 592,
+            "generated_tokens": 293,
+            "generation_time_s": 9.211
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "B": 1,
+        "D": 1,
+        "A": 2
+      },
+      "agreement_ratio": 0.4,
+      "position_changes": []
+    },
+    {
+      "round": 1,
+      "kind": "debate",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.98,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "Panelist B and C's arguments highlight the significance of the low C-peptide level in the context of the elevated insulin and proinsulin. This strongly suggests endogenous insulin production, making an insulinoma the most likely diagnosis. While Panelist A's reasoning is valid, the combination of the low C-peptide and the high insulin level makes the insulinoma more likely.",
+          "critical_evidence": "C-peptide level of 0.8 nmol/L (N: < 0.2 nmol/L) — this is markedly elevated, indicating endogenous insulin production, which is inconsistent with exogenous insulin or sulfonylurea use.",
+          "counter_argument": "Panelist A's argument that the patient's symptoms could be due to heat stroke is less likely given the normal temperature and the fact that the symptoms resolve with food intake, which is characteristic of insulin-mediated hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 1341,
+            "generated_tokens": 235,
+            "generation_time_s": 12.383
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "Upon reviewing the colleagues' responses, I reaffirm my position that a delta cell tumor of the pancreas (B) is the most likely cause. The key evidence remains the extremely low C-peptide level (0.8 nmol/L) in the presence of elevated insulin and proinsulin, which is characteristic of a delta cell tumor. While Panelist B's reasoning is compelling, the low C-peptide level in this case actually supports a delta cell tumor, not an insulinoma, as delta cells produce insulin but have reduced C-peptide production. The absence of exogenous insulin and the patient's symptoms resolving with sugar intake further support this diagnosis.",
+          "critical_evidence": "Serum insulin level of 20 microU/L with normal blood glucose and low C-peptide level of 0.8 nmol/L",
+          "counter_argument": "The argument for an insulinoma (D) is based on the low C-peptide level, but this is actually a hallmark of delta cell tumors, not insulinomas. Insulinomas typically have normal or elevated C-peptide levels, whereas delta cell tumors have reduced C-peptide production.",
+          "usage": {
+            "prompt_tokens": 1384,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.657
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.98,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "My initial reasoning remains valid: the markedly elevated insulin and proinsulin with very low C-peptide (0.8 nmol/L) is diagnostic of an insulinoma, as C-peptide is co-secreted with insulin and its low level rules out exogenous insulin or sulfonylureas. Panelist A’s argument for exogenous insulin is contradicted by the presence of proinsulin and the absence of sulfonylurea/IGF-2, which would be expected in exogenous insulin use. Panelist B’s delta cell tumor argument is incorrect because delta cells do not produce insulin; they produce somatostatin, and insulin levels would not be elevated in that context.",
+          "critical_evidence": "C-peptide level of 0.8 nmol/L (N: < 0.2 nmol/L) — this is markedly elevated, indicating endogenous insulin production, which is inconsistent with exogenous insulin or sulfonylurea use.",
+          "counter_argument": "Panelist A’s argument for exogenous insulin is undermined by the presence of proinsulin and the absence of sulfonylurea/IGF-2, which would be expected in exogenous insulin use.",
+          "usage": {
+            "prompt_tokens": 1379,
+            "generated_tokens": 284,
+            "generation_time_s": 10.048
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "",
+          "usage": {
+            "prompt_tokens": 1382,
+            "generated_tokens": 29,
+            "generation_time_s": 0.794
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.97,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "Exogenous insulin could theoretically cause these labs if not accounted for, but the context and the C-peptide data make exogenous insulin less likely.",
+          "usage": {
+            "prompt_tokens": 1482,
+            "generated_tokens": 254,
+            "generation_time_s": 7.944
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 2,
+        "B": 1,
+        "A": 2
+      },
+      "agreement_ratio": 0.4,
+      "position_changes": [
+        {
+          "model": "medgemma_4b",
+          "model_name": "MedGemma-4b",
+          "from": "C",
+          "to": "D"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "kind": "debate",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.99,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "Panelist B's reasoning is stronger. The elevated C-peptide level (0.8 nmol/L) definitively indicates endogenous insulin production, ruling out exogenous insulin or sulfonylurea use. While Panelist A's reasoning is also valid, the C-peptide level is the most compelling evidence.",
+          "critical_evidence": "Serum C-peptide level of 0.8 nmol/L (N: < 0.2 nmol/L)",
+          "counter_argument": "Panelist A's argument that the insulin level is high is valid, but the elevated C-peptide level is the stronger evidence, as it confirms endogenous insulin production.",
+          "usage": {
+            "prompt_tokens": 1040,
+            "generated_tokens": 189,
+            "generation_time_s": 9.978
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.98,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "The C-peptide level of 0.8 nmol/L is markedly elevated compared to the normal range of <0.2 nmol/L, indicating endogenous insulin production. This strongly supports a beta cell tumor of the pancreas (insulinoma) as the cause of the hypoglycemia, as these tumors produce excessive insulin. The serum insulin level of 20 microU/L is also elevated, further supporting this diagnosis. The patient's symptoms of hypoglycemia, including palpitations, sweating, and blurry vision, are consistent with insulinoma. The absence of exogenous insulin or sulfonylurea use rules out other causes.",
+          "critical_evidence": "C-peptide level of 0.8 nmol/L (N: < 0.2 nmol/L)",
+          "counter_argument": "While heat stroke (A) could cause symptoms of hypoglycemia, it does not explain the elevated insulin and C-peptide levels. Alpha cell tumors (E) would not cause hypoglycemia but rather hyperglycemia. Delta cell tumors (B) are rare and typically present with different symptoms. Exogenous insulin (C) is not used by the patient. Thus, the most likely cause is a beta cell tumor of the pancreas (D).",
+          "usage": {
+            "prompt_tokens": 1070,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.912
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "",
+          "usage": {
+            "prompt_tokens": 1061,
+            "generated_tokens": 1024,
+            "generation_time_s": 36.089
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "",
+          "usage": {
+            "prompt_tokens": 1068,
+            "generated_tokens": 13,
+            "generation_time_s": 0.384
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.99,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "The key piece of evidence is the markedly elevated C-peptide level (0.8 nmol/L vs. normal <0.2 nmol/L), which strongly suggests the patient is producing insulin endogenously. This is inconsistent with exogenous insulin or sulfonylurea use (ruled out by negative tests), and while delta cell tumors can cause insulin excess, the presentation (symptoms resolved by food, no drug use) is more typical of hypoglycemia due to an insulin-secreting lesion (e.g., beta cell tumor) causing relative insulin deficiency despite high glucose. The combination of hyperglycemia with high insulin and C-peptide, but insufficient glucose production, is classic for a beta cell mass lesion. My previous consideration of heat stroke was less supported by lab data.",
+          "critical_evidence": "Elevated serum insulin and C-peptide with hyperglycemia indicate excessive insulin secretion, most likely from a pancreatic tumor (beta cell) causing insufficient glucose production.",
+          "counter_argument": "A high C-peptide argues against exogenous insulin or sulfonylurea, but one must still consider other causes of insulin excess (e.g., delta cell), however, the absence of drug use and the biochemical profile more strongly point to an endogenous cause.",
+          "usage": {
+            "prompt_tokens": 1155,
+            "generated_tokens": 299,
+            "generation_time_s": 9.31
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": [
+        {
+          "model": "rnj1_8b",
+          "model_name": "Rnj1-8b",
+          "from": "B",
+          "to": "D"
+        },
+        {
+          "model": "qwen3_vl_8b",
+          "model_name": "Qwen3-VL-8b",
+          "from": "D",
+          "to": "A"
+        },
+        {
+          "model": "openbio_8b",
+          "model_name": "OpenBioLLM-8b",
+          "from": "A",
+          "to": "D"
+        },
+        {
+          "model": "olmo3_7b",
+          "model_name": "Olmo3-7b",
+          "from": "A",
+          "to": "D"
+        }
+      ]
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_debate_consensus",
+    "n_debate_rounds": 2,
+    "escalated": false
+  }
+}

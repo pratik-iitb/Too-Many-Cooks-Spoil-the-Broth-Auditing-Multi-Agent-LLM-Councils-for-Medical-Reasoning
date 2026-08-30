@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-731",
+  "dataset": "medqa",
+  "question_id": "731",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A drug research team has synthesized a novel oral drug that acts as an agonist at multiple adrenergic receptors. When administered in animals, it has been shown to produce urinary retention at therapeutic doses with the absence of other manifestations of adrenergic stimulation. The researchers are interested in understanding signal transduction and molecular mechanisms behind the action of the novel drug. Which of the following receptors would most likely transduce signals across the plasma membrane following the administration of this novel drug?",
+    "options": {
+      "A": "GiPCRs (Gi protein-coupled receptors)",
+      "B": "GsPCRs (Gs protein-coupled receptors)",
+      "C": "GtPCRs (Gt protein-coupled receptors)",
+      "D": "GoPCRs (Go protein-coupled receptors)",
+      "E": "GqPCRs (Gq protein-coupled receptors)"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The drug acts as an agonist at multiple adrenergic receptors and causes urinary retention. Adrenergic receptors are G protein-coupled receptors (GPCRs). The key finding is that the drug causes urinary retention, which is a downstream effect of adrenergic stimulation. Gq protein-coupled receptors are known to activate phospholipase C, leading to increased intracellular calcium and ultimately causing smooth muscle contraction, which is relevant to urinary retention. Gi, Gs, and Gt receptors typically lead to inhibition of adenylate cyclase or activation of potassium channels, respectively, which are not directly linked to urinary retention.",
+          "critical_evidence": "The drug's action causing urinary retention, a smooth muscle contraction, points to Gq receptor activation.",
+          "differential_considered": "GiPCRs: While Gi receptors can cause smooth muscle relaxation, the drug's action is more directly linked to contraction. GsPCRs: Gs receptors typically lead to increased cAMP production, which is not the primary mechanism for urinary retention. GtPCRs: Gt receptors are less commonly associated with smooth muscle contraction. GoPCRs: Go receptors are not typically associated with smooth muscle contraction.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 274,
+            "generation_time_s": 13.544
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The drug causes urinary retention, a parasympathetic effect. GiPCRs are primarily associated with parasympathetic signaling, while other GPCRs (Gs, Gt, Go, Gq) are more involved in sympathetic responses. The absence of other adrenergic manifestations suggests a parasympathetic mechanism, pointing to GiPCRs as the most likely receptor.",
+          "critical_evidence": "Urinary retention is a parasympathetic effect mediated by GiPCRs.",
+          "differential_considered": "Other GPCRs (Gs, Gt, Go, Gq) are typically involved in sympathetic responses, which would produce more adrenergic manifestations, not just urinary retention.",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 179,
+            "generation_time_s": 8.36
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Urinary retention is a classic effect of alpha-1 adrenergic receptor activation, which are Gi-coupled receptors. The absence of other adrenergic symptoms suggests selectivity for alpha-1 receptors, which primarily mediate vasoconstriction and smooth muscle contraction (including bladder sphincter contraction), without significant beta-adrenergic effects. Gi-coupled receptors inhibit adenylate cyclase, leading to decreased cAMP and smooth muscle contraction, consistent with urinary retention.",
+          "critical_evidence": "Urinary retention at therapeutic doses without other adrenergic manifestations strongly implicates selective alpha-1 receptor activation, which are Gi-coupled.",
+          "differential_considered": "Gs-coupled receptors (B) would cause relaxation and increased cAMP, opposing urinary retention. Gq-coupled receptors (E) can cause contraction but are more associated with platelet aggregation or smooth muscle contraction in other contexts; however, alpha-1 receptors are Gi-coupled, not Gq. Gt (C) and Go (D) are less relevant in this context as they are not primarily involved in adrenergic signaling.",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 267,
+            "generation_time_s": 9.346
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 132,
+            "generation_time_s": 3.209
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (GsPCRs) and E (GqPCRs) would typically cause smooth muscle contraction, opposite to retention. C (GtPCRs) are not a standard adrenergic signaling class. D (GoPCRs) is possible but less specific for urinary retention compared to the broader inhibitory class (A).",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 333,
+            "generation_time_s": 10.457
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

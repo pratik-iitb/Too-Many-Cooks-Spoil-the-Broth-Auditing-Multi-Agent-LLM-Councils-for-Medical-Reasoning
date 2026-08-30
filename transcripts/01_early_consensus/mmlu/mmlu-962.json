@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-962",
+  "dataset": "mmlu",
+  "question_id": "962",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 12-year-old boy with sickle cell disease and type 1 diabetes mellitus is brought to the office by his mother for an initial visit. The family recently moved to the area. Type 1 diabetes mellitus was diagnosed in the patient 6 years ago. Since that time, he has been treated with insulin and dietary management. His insulin regimen has not changed during the past year; however, his mother says he has been only marginally compliant with his insulin and dietary regimens. His diabetic diary shows home fingerstick blood glucose concentrations ranging from 140–200 mg/dL during the past 3 months. He admits to checking his glucose concentrations infrequently. Measurement of hemoglobin A1c obtained last week was 5.4%. The patient's vital signs are temperature 36.8°C (98.2°F), pulse 72/min, respirations 24/min, and blood pressure 110/64 mm Hg. Physical examination shows no abnormalities. Which of the following is the most likely explanation for the discrepancy between the patient's home fingerstick blood glucose concentrations and his hemoglobin A1c?",
+    "options": {
+      "A": "His daily glucose control is better than recorded",
+      "B": "His glucometer is reading falsely high and should be replaced",
+      "C": "His hemoglobin A1c is likely a result of laboratory error and should be repeated",
+      "D": "His sickle cell disease is affecting his hemoglobin A1c"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's hemoglobin A1c of 5.4% is within the target range for a type 1 diabetic, suggesting good overall glucose control. The fingerstick glucose readings of 140-200 mg/dL are higher than the target range, but not so high as to explain a 5.4% A1c. Therefore, the most likely explanation is that his daily glucose control is better than recorded.",
+          "critical_evidence": "Hemoglobin A1c of 5.4% is within the target range for a type 1 diabetic.",
+          "differential_considered": "Option B is less likely because while glucometer inaccuracy can occur, a 5.4% A1c is not typically explained by a single glucometer error. Option C is possible, but less likely than option A given the A1c is within the target range. Option D is not a likely explanation, as sickle cell disease does not directly affect hemoglobin A1c levels.",
+          "usage": {
+            "prompt_tokens": 530,
+            "generated_tokens": 247,
+            "generation_time_s": 12.47
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's home glucose readings (140-200 mg/dL) are higher than the A1c suggests (5.4% ≈ 7.0% average glucose). This discrepancy indicates his actual glucose control is better than recorded. His sickle cell disease doesn't directly affect A1c, and glucometer accuracy is unlikely to be the sole explanation given the consistent pattern. The patient's non-compliance with monitoring supports the possibility of underreporting.",
+          "critical_evidence": "The patient admits to checking glucose infrequently, suggesting underreporting of readings",
+          "differential_considered": "Sickle cell disease was considered but doesn't directly impact A1c. Laboratory error was considered but unlikely to be consistent. Non-compliance with monitoring is the most plausible explanation.",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.679
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's home glucose readings are consistently elevated (140–200 mg/dL), yet his HbA1c is 5.4%, which is within the normal range for diabetes control. This discrepancy suggests that his actual glucose control is better than his home monitoring indicates, likely due to poor compliance with self-monitoring rather than actual glycemic control. The HbA1c reflects average glucose over 2–3 months, which may be less affected by short-term fluctuations or infrequent testing.",
+          "critical_evidence": "HbA1c of 5.4% is normal for a patient with diabetes, while home glucose readings are consistently elevated, indicating that the patient's true average glucose is likely lower than reported.",
+          "differential_considered": "Options B, C, and D were considered but ruled out: glucometer error is unlikely without evidence of malfunction; HbA1c is not typically affected by laboratory error in this context; sickle cell disease does not directly alter HbA1c measurement in a way that would explain this discrepancy.",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 254,
+            "generation_time_s": 9.095
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 521,
+            "generated_tokens": 165,
+            "generation_time_s": 4.09
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "- B: False readings from the glucometer are unlikely to explain a lower A1c unless the error is consistently underestimating, which is rare and not indicated here.\n    - C: Laboratory error is possible but less likely without mention of a known issue with the lab or recent out-of-range results.\n    - D: Sickle cell disease could theoretically affect red blood cell survival and A1c measurement, but there is no clinical evidence provided linking it to the discrepancy described.",
+          "usage": {
+            "prompt_tokens": 555,
+            "generated_tokens": 343,
+            "generation_time_s": 11.037
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-21198823",
+  "dataset": "pubmedqa",
+  "question_id": "21198823",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can dobutamine stress echocardiography induce cardiac troponin elevation?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Do butamine stress echocardiography is a diagnostic test that uses dobutamine to increase myocardial oxygen demand and assess for inducible ischemia. While dobutamine can cause some degree of myocardial stress and potentially mild troponin release, significant troponin elevation is not a typical or expected finding. The test is designed to detect ischemia, not to cause it.",
+          "critical_evidence": "Do butamine stress echocardiography is designed to detect ischemia, not to cause it.",
+          "differential_considered": "Aortic dissection: While aortic dissection can cause chest pain and potentially affect cardiac function, it is not directly induced by dobutamine stress echocardiography. Myocardial infarction: While dobutamine can increase myocardial oxygen demand, it is not a common cause of myocardial infarction, especially in the absence of pre-existing coronary artery disease. Pericarditis: Pericarditis is inflammation of the pericardium and is not directly induced by dobutamine stress echocardiography.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 235,
+            "generation_time_s": 11.598
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Dobutamine stress echocardiography can induce cardiac troponin elevation because it increases myocardial oxygen demand, which may lead to ischemia in patients with underlying coronary artery disease. The stress response causes myocardial contractility to increase, potentially triggering troponin release if there is inadequate blood flow.",
+          "critical_evidence": "Dobutamine stress echocardiography increases myocardial oxygen demand, which can lead to ischemia and troponin release in patients with coronary artery disease",
+          "differential_considered": "While other factors like age, gender, and pre-existing heart conditions can influence troponin levels, the primary mechanism of troponin elevation during dobutamine stress testing is ischemia from increased myocardial oxygen demand, not the stress test itself",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.567
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Dobutamine stress echocardiography is a pharmacologic stress test that increases myocardial oxygen demand and can cause transient myocardial injury, leading to elevation of cardiac troponins. This is a well-documented phenomenon, especially in patients with underlying coronary artery disease or those who develop ischemia during the test. The elevation is typically mild and transient but clinically significant enough to be recognized in guidelines.",
+          "critical_evidence": "Multiple studies and clinical guidelines confirm that dobutamine stress echocardiography can cause transient troponin elevation due to myocardial stress or ischemia.",
+          "differential_considered": "Other causes of troponin elevation such as acute myocardial infarction or myocarditis were considered but ruled out because the context is a pharmacologic stress test, which is known to cause benign troponin release without structural damage.",
+          "usage": {
+            "prompt_tokens": 230,
+            "generated_tokens": 203,
+            "generation_time_s": 7.104
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 150,
+            "generation_time_s": 3.641
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Dobutamine stress echocardiography involves administering a stressor (dobutamine) to evaluate myocardial perfusion and function. While the test is generally considered safe, the injection can theoretically cause myocardial injury or inflammation, leading to transient troponin elevation in rare cases, especially in individuals with underlying cardiac pathology or in the setting of procedural complications. However, troponin elevations are uncommon and typically not diagnostic of myocardial injury from the stress agent itself.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 253,
+            "generation_time_s": 7.946
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-14655021",
+  "dataset": "pubmedqa_context",
+  "question_id": "14655021",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Juvenile ankylosing spondylitis--is it the same disease as adult ankylosing spondylitis?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Juvenile and adult forms of ankylosing spondylitis (AS) have been shown to have different clinical presentation and outcome in Caucasians. We did this retrospective analysis to see if similar differences exist in the Indian population. Case records of 210 Indian patients diagnosed with AS according to modified New York criteria were reviewed. Data were collected regarding age of onset, clinical features, drug treatment, and outcome at last follow-up. Patients with onset before 17 years of age were classified as having juvenile AS (JAS) and the rest with adult AS (AAS). There were 150 patients with AAS and 60 with JAS. The latter had higher male preponderance, more frequent onset with peripheral arthritis, and greater involvement of hip and knee joints. Valvular dysfunction was seen only in patients with JAS.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case clearly demonstrates differences in the presentation of juvenile ankylosing spondylitis (JAS) and adult ankylosing spondylitis (AAS) in the Indian population. Specifically, JAS is associated with a higher male preponderance, more frequent peripheral arthritis, greater hip and knee joint involvement, and valvular dysfunction, which are not typically seen in AAS. Therefore, JAS is not the same as AAS.",
+          "critical_evidence": "Patients with JAS had higher male preponderance, more frequent onset with peripheral arthritis, and greater involvement of hip and knee joints.",
+          "differential_considered": "While other inflammatory arthritides could present with some overlapping features, the combination of findings (male predominance, peripheral arthritis, hip/knee involvement, valvular dysfunction) strongly points towards a distinct entity, JAS, rather than simply a different presentation of AAS.",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 214,
+            "generation_time_s": 12.699
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates distinct clinical features between juvenile and adult AS in the Indian population, including higher male preponderance, earlier onset with peripheral arthritis, greater hip/knee involvement, and valvular dysfunction only in juvenile cases. These differences confirm that JAS and AAS represent distinct clinical entities with different natural history and treatment patterns.",
+          "critical_evidence": "Valvular dysfunction observed only in juvenile cases demonstrates clear clinical distinction between the two forms",
+          "differential_considered": "While other pediatric rheumatic diseases like juvenile idiopathic arthritis exist, the specific combination of features - early peripheral arthritis, valvular involvement, and distinct age distribution - uniquely identifies JAS as a separate entity from adult AS",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.206
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study explicitly shows that juvenile AS (JAS) and adult AS (AAS) differ significantly in clinical presentation and outcomes in the Indian population, including male preponderance, peripheral arthritis, joint involvement, and valvular dysfunction unique to JAS. These differences indicate they are not the same disease in terms of clinical behavior.",
+          "critical_evidence": "Valvular dysfunction was seen only in patients with JAS, indicating a distinct clinical phenotype.",
+          "differential_considered": "Other spondyloarthropathies were not mentioned as differentials, and the study focused on AS subtypes; thus, the key differential was whether JAS and AAS represent the same disease, which the data clearly refute.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 178,
+            "generation_time_s": 7.47
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not shown in the options. You must generate it based on the clinical case.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 20,
+            "generation_time_s": 0.599
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Valvular dysfunction was seen only in patients with JAS.",
+          "differential_considered": "Other possibilities such as different etiologies or related conditions (e.g., juvenile idiopathic arthritis) were considered but ruled out due to the shared features (such as extraspinal symptoms in JAS), and the fact that the disease is described as 'AS' in both cases.",
+          "usage": {
+            "prompt_tokens": 470,
+            "generated_tokens": 259,
+            "generation_time_s": 9.791
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

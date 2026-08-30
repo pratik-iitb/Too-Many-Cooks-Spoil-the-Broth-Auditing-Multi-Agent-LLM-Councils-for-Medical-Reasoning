@@ -1,0 +1,124 @@
+{
+  "sample_id": "medxpertqa-Text-1101",
+  "dataset": "medxpertqa",
+  "question_id": "Text-1101",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A female patient, aged 11, is evaluated in the emergency department following a fall during dance practice. She is unable to bear weight and presents with knee pain and swelling. Her history reveals two previous episodes of joint swelling and excessive bleeding from minor cuts. Laboratory tests show:\n\n- Bleeding time: 11 minutes\n- Prothrombin time: 12 seconds\n- Partial thromboplastin time: 52 seconds\n\nWhich therapeutic intervention would be most beneficial for this patient's condition?\nAnswer Choices: (A) Factor VIII repletion (B) Platelet transfusion (C) Aminocaproic acid (D) Recombinant factor VIIa (E) Fresh frozen plasma (F) Prothrombin complex concentrate (G) Desmopressin (H) Platelet infusion (I) Vitamin K supplementation (J) Tranexamic acid",
+    "options": {
+      "A": "Factor VIII repletion",
+      "B": "Platelet transfusion",
+      "C": "Aminocaproic acid",
+      "D": "Recombinant factor VIIa",
+      "E": "Fresh frozen plasma",
+      "F": "Prothrombin complex concentrate",
+      "G": "Desmopressin",
+      "H": "Platelet infusion",
+      "I": "Vitamin K supplementation",
+      "J": "Tranexamic acid"
+    },
+    "context": "",
+    "correct_option": "G",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Cardiovascular",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "J",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's prolonged bleeding time (11 minutes), prolonged partial thromboplastin time (PTT, 52 seconds), and history of recurrent joint swelling and excessive bleeding suggest a possible bleeding disorder, most likely von Willebrand disease (vWD). The prolonged PTT points towards a deficiency or dysfunction in the intrinsic coagulation pathway. Tranexamic acid is an antifibrinolytic agent that inhibits the breakdown of blood clots, which is beneficial in conditions with excessive bleeding.",
+          "critical_evidence": "Prolonged bleeding time and prolonged PTT",
+          "differential_considered": "While a platelet disorder (platelet transfusion, platelet infusion) could cause prolonged bleeding time, the prolonged PTT suggests a problem with the coagulation cascade, not just platelet function. Factor VIII repletion (A) would address a specific factor deficiency, but the PTT is prolonged, suggesting a more generalized issue. Vitamin K supplementation (I) would address a vitamin K deficiency, which is less likely given the history. Recombinant factor VIIa (D) is generally reserved for severe bleeding in specific situations and is not the first-line treatment for a suspected bleeding disorder. Fresh frozen plasma (E) contains all coagulation factors, but it's a larger volume and less targeted than tranexamic acid. Desmopressin (G) is used for vWD, but it's not the most appropriate initial intervention given the severity of the bleeding and the need for immediate clot stabilization. Aminocaproic acid (C) is an antifibrinolytic agent, but tranexamic acid is more commonly used in this setting. Prothrombin complex concentrate (F) is used for deficiencies in factors II, VII, IX, and X, which is not the primary issue here.",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 398,
+            "generation_time_s": 16.416
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "G",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's prolonged bleeding time and prothrombin time suggest a coagulation factor deficiency. The normal partial thromboplastin time indicates normal intrinsic pathway function, pointing to a defect in the common pathway. The history of joint swelling and bleeding suggests hemophilia A (factor VIII deficiency). Desmopressin (DDAVP) is the first-line treatment for hemophilia A by promoting the release of stored factor VIII from endothelial cells.",
+          "critical_evidence": "Normal partial thromboplastin time (52 seconds) suggests a defect in the common pathway, consistent with factor VIII deficiency",
+          "differential_considered": "Considered von Willebrand disease (would show prolonged PTT), factor IX deficiency (would show normal PTT but elevated fibrinogen), and other coagulation factor deficiencies. Ruled out von Willebrand disease due to normal PTT. The bleeding time of 11 minutes is within normal range for hemophilia A patients.",
+          "usage": {
+            "prompt_tokens": 497,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.842
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is an 11-year-old female with recurrent joint swelling and bleeding diathesis, consistent with hemophilia A. Laboratory findings show prolonged partial thromboplastin time (PTT) and normal prothrombin time, indicating a factor VIII deficiency. Bleeding time is prolonged, but this is less specific. The most targeted and effective therapy is factor VIII replacement.",
+          "critical_evidence": "Partial thromboplastin time of 52 seconds (prolonged) with normal prothrombin time, strongly suggesting a deficiency in intrinsic pathway factor (factor VIII or IX), and given the age and gender, hemophilia A is the most likely diagnosis.",
+          "differential_considered": "Hemophilia B (factor IX deficiency) was considered but less likely given the clinical context and typical presentation; von Willebrand disease was considered but ruled out by normal bleeding time and lack of mucosal bleeding; platelet disorders were ruled out by normal platelet count (not reported but implied by absence of thrombocytopenia symptoms).",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 246,
+            "generation_time_s": 8.79
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 12,
+            "generation_time_s": 0.45
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 525,
+            "generated_tokens": 357,
+            "generation_time_s": 12.248
+          }
+        }
+      },
+      "vote_distribution": {
+        "J": 1,
+        "G": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "G",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-1012",
+  "dataset": "mmlu",
+  "question_id": "1012",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 7-year-old male is brought to the office for evaluation of school problems. The mother says that the teacher has told her that the patient is inattentive, has difficulty following sequential instructions, and often seems to drift off to sleep during class. A polysomnogram reveals obstructive sleep apnea. The most appropriate management is",
+    "options": {
+      "A": "elevation of the head of the bed",
+      "B": "heart rate and apnea monitoring",
+      "C": "imipramine",
+      "D": "surgical evaluation"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms (inattention, difficulty following instructions, sleepiness) and the polysomnogram confirming obstructive sleep apnea (OSA) strongly suggest that OSA is the primary cause of the school problems. The most appropriate initial management for OSA in children is continuous positive airway pressure (CPAP) therapy, which is best monitored with heart rate and apnea monitoring during the initial titration. This allows for safe and effective adjustment of the pressure.",
+          "critical_evidence": "Polysomnogram revealing obstructive sleep apnea.",
+          "differential_considered": "A: Elevation of the head of the bed might help with mild OSA, but it's unlikely to be sufficient for a child with significant OSA, especially given the severity of the symptoms. C: Imipramine is a tricyclic antidepressant used for enuresis and ADHD, but it's not a first-line treatment for OSA and could have significant side effects. D: Surgical evaluation is generally reserved for cases where CPAP is not tolerated or ineffective, or for specific anatomical abnormalities contributing to OSA, which is not indicated in the initial presentation.",
+          "usage": {
+            "prompt_tokens": 327,
+            "generated_tokens": 261,
+            "generation_time_s": 13.138
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's school problems, including inattention and difficulty following instructions, are directly linked to daytime sleepiness caused by obstructive sleep apnea. This condition severely impacts cognitive function and academic performance. Surgical evaluation is the most appropriate next step because it can address the root cause of the sleep disorder, which is likely contributing to the behavioral and academic issues. Non-surgical options like bed elevation or medication may provide temporary relief but do not address the underlying anatomical obstruction.",
+          "critical_evidence": "Polysomnogram revealing obstructive sleep apnea",
+          "differential_considered": "Considered ADHD due to similar symptoms, but ruled out by the presence of sleep apnea confirmed by polysomnogram. Also considered anxiety or depression, but the sleep apnea is the primary cause of daytime symptoms.",
+          "usage": {
+            "prompt_tokens": 334,
+            "generated_tokens": 194,
+            "generation_time_s": 9.249
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with behavioral symptoms consistent with sleep-disordered breathing, confirmed by polysomnography showing obstructive sleep apnea. The most appropriate next step is surgical evaluation, particularly for tonsillectomy and adenoidectomy, which is the first-line treatment for obstructive sleep apnea in children with anatomical obstruction. Other options are either non-specific (A), monitoring (B), or inappropriate (C) for this condition.",
+          "critical_evidence": "Polysomnogram reveals obstructive sleep apnea, which in children is most commonly due to tonsillar and adenoid hypertrophy, warranting surgical intervention.",
+          "differential_considered": "Other causes of inattention (e.g., ADHD, learning disability) were considered but ruled out as the key diagnostic clue is the polysomnogram confirming OSA, which directly explains the symptoms and requires surgical evaluation as first-line management.",
+          "usage": {
+            "prompt_tokens": 305,
+            "generated_tokens": 213,
+            "generation_time_s": 7.621
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 332,
+            "generated_tokens": 89,
+            "generation_time_s": 2.207
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (apnea monitoring is important but not immediate management for school symptoms), C (imipramine is for anxiety/depression, not apnea-related attention issues), D (surgical evaluation is for anatomical causes but not first-line for school-related symptoms)",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 220,
+            "generation_time_s": 7.068
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

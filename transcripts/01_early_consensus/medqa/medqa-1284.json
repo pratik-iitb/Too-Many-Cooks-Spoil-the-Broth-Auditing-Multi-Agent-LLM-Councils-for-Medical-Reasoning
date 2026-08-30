@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1284",
+  "dataset": "medqa",
+  "question_id": "1284",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 52-year-old woman presents with fatigue and pain of the proximal interphalangeal and metacarpophalangeal joints for the past 6 months. She also has knee and wrist pain that has been present for the past 2 months, with morning stiffness that improves over the course of the day. Physical examination is significant for subcutaneous nodules. Laboratory tests are significant for the following:\nHemoglobin 12.5 g/dL\nRed blood cell count 4.9 x 106/µL\nWhite blood cell count 5,000/mm3\nPlatelet count 180,000/mm3\nCoombs' test Negative\nC-reactive peptide (CRP) Elevated\nErythrocyte sedimentation rate (ESR) Negative\nAnti-cyclic citrullinated peptide antibody (anti-CCP antibody) Moderately positive\nAnti-nuclear antibody (ANA) Negative\nRheumatoid factor (RF) Negative\nWhat is the most likely human leukocyte antigen (HLA) subtype associated with this disease?",
+    "options": {
+      "A": "HLA-DR4",
+      "B": "HLA-DR2",
+      "C": "HLA-DR5",
+      "D": "HLA-DQ2",
+      "E": "HLA-B27"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of symmetrical polyarthritis (proximal interphalangeal, metacarpophalangeal, knee, and wrist), morning stiffness, subcutaneous nodules, and a moderately positive anti-CCP antibody strongly suggests rheumatoid arthritis (RA). HLA-DR4 is the most strongly associated HLA subtype with RA.",
+          "critical_evidence": "Moderately positive anti-CCP antibody",
+          "differential_considered": "The negative RF and ANA, along with the negative ESR, make other autoimmune conditions less likely. While the presentation could be consistent with other forms of inflammatory arthritis, the presence of anti-CCP antibody makes RA the most probable diagnosis.",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 173,
+            "generation_time_s": 8.583
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's clinical presentation of arthritis with subcutaneous nodules, morning stiffness, and positive anti-CCP antibody strongly suggests rheumatoid arthritis. Anti-CCP antibody positivity is a key marker for rheumatoid arthritis, and its moderately positive result supports this diagnosis. HLA-DR2 and HLA-DR4 are more common in other forms of arthritis, while HLA-DR5 is associated with ankylosing spondylitis. HLA-B27 is strongly associated with axial spondyloarthritis. HLA-DQ2 is the most common HLA subtype associated with rheumatoid arthritis, particularly in patients with anti-CCP positivity.",
+          "critical_evidence": "Moderately positive anti-CCP antibody",
+          "differential_considered": "Considered osteoarthritis (ruled out by subcutaneous nodules and morning stiffness), gout (ruled out by absence of hyperuricemia), and other inflammatory arthritis (ruled out by specific HLA associations).",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 241,
+            "generation_time_s": 11.257
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with symmetric polyarthritis involving proximal interphalangeal and metacarpophalangeal joints, along with morning stiffness that improves with activity, subcutaneous nodules, and a moderately positive anti-CCP antibody — all classic features of rheumatoid arthritis (RA). The absence of RF and ANA makes RA less likely to be seronegative or systemic lupus erythematosus, respectively. HLA-DR4 is strongly associated with RA, particularly in populations with anti-CCP positivity. Other HLA subtypes like HLA-B27 (associated with spondyloarthropathies) and HLA-DQ2 (associated with celiac disease) are less relevant here.",
+          "critical_evidence": "Moderately positive anti-CCP antibody and symmetric joint involvement with morning stiffness strongly suggest rheumatoid arthritis, which is genetically linked to HLA-DR4.",
+          "differential_considered": "Spondyloarthropathy (ruled out by absence of spinal involvement and HLA-B27 negativity), systemic lupus erythematosus (ruled out by negative ANA and no systemic features), and psoriatic arthritis (ruled out by absence of skin or nail changes).",
+          "usage": {
+            "prompt_tokens": 477,
+            "generated_tokens": 291,
+            "generation_time_s": 10.196
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The most likely human leukocyte antigen (HLA) subtype associated with this disease is HLA-DR4.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 493,
+            "generated_tokens": 24,
+            "generation_time_s": 0.606
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Osteoarthritis (less likely due to persistent symptoms and lab findings), systemic lupus erythematosus (ruled out by negative ANA), psoriatic arthritis (no mention of skin findings), and other autoimmune diseases (ruled out by lack of supporting serology). These conditions typically have different HLA associations or serological markers.",
+          "usage": {
+            "prompt_tokens": 531,
+            "generated_tokens": 395,
+            "generation_time_s": 12.454
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

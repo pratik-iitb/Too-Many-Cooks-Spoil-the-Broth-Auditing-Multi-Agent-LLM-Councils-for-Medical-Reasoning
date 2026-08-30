@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-17610439",
+  "dataset": "pubmedqa_context",
+  "question_id": "17610439",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do hospitals provide lower quality care on weekends?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To examine the effect of a weekend hospitalization on the timing and incidence of intensive cardiac procedures, and on subsequent expenditures, mortality and readmission rates for Medicare patients hospitalized with acute myocardial infarction (AMI). The primary data are longitudinal, administrative claims for 922,074 elderly, non-rural, fee-for-service Medicare beneficiaries hospitalized with AMI from 1989 to 1998. Annual patient-level cohorts provide information on ex ante health status, procedure use, expenditures, and health outcomes. The patient is the primary unit of analysis. I use ordinary least squares regression to estimate the effect of weekend hospitalization on rates of cardiac catheterization, angioplasty, and bypass surgery (in various time periods subsequent to the initial hospitalization), 1-year expenditures and rates of adverse health outcomes in various periods following the AMI admission. Weekend AMI patients are significantly less likely to receive immediate intensive cardiac procedures, and experience significantly higher rates of adverse health outcomes. Weekend admission leads to a 3.47 percentage point reduction in catheterization at 1 day, a 1.52 point reduction in angioplasty, and a 0.35 point reduction in by-pass surgery (p<.001 in all cases). The primary effect is delayed treatment, as weekend-weekday procedure differentials narrow over time from the initial hospitalization. Weekend patients experience a 0.38 percentage point (p<.001) increase in 1-year mortality and a 0.20 point (p<.001) increase in 1-year readmission with congestive heart failure.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that weekend AMI patients are significantly less likely to receive immediate intensive cardiac procedures and experience higher rates of adverse health outcomes, including mortality and readmission. This indicates that hospitals may provide lower quality care on weekends.",
+          "critical_evidence": "Weekend AMI patients are significantly less likely to receive immediate intensive cardiac procedures, and experience significantly higher rates of adverse health outcomes.",
+          "differential_considered": "While other factors could contribute to poorer outcomes, the study specifically isolates the impact of weekend hospitalization, making it the most direct and compelling evidence for lower quality care.",
+          "usage": {
+            "prompt_tokens": 591,
+            "generated_tokens": 155,
+            "generation_time_s": 9.207
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates statistically significant differences in cardiac procedure rates and adverse outcomes between weekend and weekday hospitalizations, with weekend patients receiving fewer intensive procedures and having higher mortality/readmission rates. These findings directly support the conclusion that hospitals provide lower quality care on weekends.",
+          "critical_evidence": "Weekend patients experienced a 3.47 percentage point reduction in catheterization, 1.52 point reduction in angioplasty, and 0.35 point reduction in bypass surgery, with p<.001 significance in all cases",
+          "differential_considered": "Considered potential confounding factors like patient severity or hospital staffing, but the longitudinal design and patient-level analysis control for these variables, making weekend effect the most likely explanation",
+          "usage": {
+            "prompt_tokens": 577,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.772
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The study demonstrates that weekend hospitalizations for AMI are associated with significantly lower rates of timely intensive cardiac procedures and higher rates of adverse outcomes, including mortality and readmission. These findings suggest systemic quality gaps during weekends, consistent with the question’s premise.",
+          "critical_evidence": "Weekend AMI patients experience a 3.47 percentage point reduction in catheterization at 1 day, 0.38 percentage point increase in 1-year mortality, and 0.20 point increase in 1-year readmission with congestive heart failure — all statistically significant (p<.001).",
+          "differential_considered": "Considered whether differences were due to patient selection or comorbidities, but the study controls for pre-admission health status and uses longitudinal claims data, making confounding unlikely; thus, the observed disparities are attributed to weekend care delivery.",
+          "usage": {
+            "prompt_tokens": 567,
+            "generated_tokens": 212,
+            "generation_time_s": 8.862
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 575,
+            "generated_tokens": 54,
+            "generation_time_s": 1.572
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.97,
+          "clinical_reasoning": "",
+          "critical_evidence": "Weekend AMI patients are significantly less likely to receive immediate intensive cardiac procedures (catheterization, angioplasty, bypass surgery) within one day of admission.",
+          "differential_considered": "I considered whether other factors (such as sicker initial patients, differences in physician availability, or hospital resource allocation) might explain the findings, but the key evidence centers on the delayed provision of critical procedures, which is a well-established marker of lower quality or access to care. Other differentials like patient selection or hospital funding issues are less directly supported by the data presented.",
+          "usage": {
+            "prompt_tokens": 613,
+            "generated_tokens": 256,
+            "generation_time_s": 9.678
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

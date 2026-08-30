@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-100",
+  "dataset": "medqa",
+  "question_id": "100",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 76-year-old woman presents to the office with a generalized weakness for the past month. She has a past medical history significant for uncontrolled hypertension and type 2 diabetes mellitus.  Her temperature is 37.0°C (98.6°F), blood pressure is 135/82 mm Hg, pulse is 90/min, respiratory rate is 17/min, and oxygen saturation is 99% on room air. Physical exam shows no remarkable findings. Her last recorded glomerular filtration rate was 30 mL/min. A radiograph of the patient’s hand is given. Which of the following lab findings is most likely to be found in this patient?",
+    "options": {
+      "A": "Increased PTH, decreased calcium, increased phosphate",
+      "B": "Increased PTH, decreased calcium, decreased phosphate",
+      "C": "Increased PTH, increased calcium, decreased phosphate",
+      "D": "Increased PTH, increased calcium, increased phosphate",
+      "E": "Normal PTH, increased calcium, normal phosphate"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of generalized weakness, uncontrolled hypertension, type 2 diabetes, and a GFR of 30 mL/min strongly suggests chronic kidney disease (CKD). In CKD, the kidneys' ability to activate vitamin D is impaired, leading to decreased calcium absorption and secondary hyperparathyroidism. The decreased kidney function also leads to phosphate retention, resulting in hyperphosphatemia.",
+          "critical_evidence": "The patient's GFR of 30 mL/min is a key indicator of CKD.",
+          "differential_considered": "While other conditions could cause weakness, the combination of CKD risk factors makes CKD the most likely diagnosis. Hypothyroidism and anemia are possible, but the lack of other specific findings makes them less likely than CKD. Therefore, I ruled them out.",
+          "usage": {
+            "prompt_tokens": 438,
+            "generated_tokens": 207,
+            "generation_time_s": 10.241
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's generalized weakness, age, and history of uncontrolled hypertension and diabetes mellitus suggest a metabolic bone disease. Given the radiograph of the hand, which likely shows osteoporosis or osteopenia, the most likely diagnosis is secondary hyperparathyroidism due to chronic kidney disease (CKD). In CKD, the declining glomerular filtration rate (GFR) leads to phosphate wasting and secondary hyperparathyroidism. This results in increased PTH, decreased calcium, and decreased phosphate levels. The patient's GFR of 30 mL/min confirms the presence of CKD, supporting this diagnosis.",
+          "critical_evidence": "The patient's glomerular filtration rate (GFR) of 30 mL/min indicates chronic kidney disease, which is a key factor in the development of secondary hyperparathyroidism.",
+          "differential_considered": "Other causes of hyperparathyroidism such as primary hyperparathyroidism, vitamin D deficiency, or malignancy were considered but ruled out due to the patient's history of CKD and the radiograph findings. Vitamin D deficiency is unlikely given the patient's age and the presence of CKD, which typically leads to secondary hyperparathyroidism rather than primary. Malignancy is less likely in this context without other concerning signs or symptoms.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.568
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is 76 years old with uncontrolled hypertension and type 2 diabetes, and a GFR of 30 mL/min, indicating chronic kidney disease (CKD). In CKD, hypocalcemia and hyperphosphatemia develop due to impaired renal phosphate excretion and reduced 1,25-(OH)2 vitamin D synthesis, leading to secondary hyperparathyroidism. This results in elevated PTH, low calcium, and high phosphate — consistent with option A.",
+          "critical_evidence": "GFR of 30 mL/min indicates stage 3b CKD, which commonly leads to secondary hyperparathyroidism with hypocalcemia and hyperphosphatemia.",
+          "differential_considered": "Primary hyperparathyroidism was considered but ruled out due to absence of hypercalcemia and lack of history of parathyroid disease. Vitamin D deficiency was considered but not confirmed; however, in CKD, the primary driver is renal dysfunction, not vitamin D deficiency alone.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 240,
+            "generation_time_s": 8.42
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 170,
+            "generation_time_s": 4.123
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Severe chronic kidney disease (GFR 30 mL/min) most likely results in high serum phosphate and potentially normal PTH due to desensitization of the parathyroid gland to PTH.",
+          "differential_considered": "Hypercalcemia (A, C) could be considered due to hyperparathyroidism from CKD, but the question's options and lack of symptoms favor normal PTH with high phosphate (not directly listed, but E is the only plausible choice based on typical CKD laboratory pattern).",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 378,
+            "generation_time_s": 11.887
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-11862129",
+  "dataset": "pubmedqa_context",
+  "question_id": "11862129",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do clinical variables predict pathologic radiographs in the first episode of wheezing?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To determine if clinical variables assessed in relation to Albuterol aerosol treatments accurately identify children with pathologic radiographs during their initial episode of bronchospasm. A prospective convenience sample of children with a first episode of wheezing. Data collected included demographics, baseline and post-treatment clinical score and physical examination, number of aerosols, requirement for supplemental oxygen, and disposition. Chest radiographs were obtained and interpreted, and patients were divided into 2 groups based on a pathologic versus nonpathologic radiograph interpretation. Chi2 testing was performed for categoric variables, and the student t test was performed for continuous variables. A discriminant analysis was used to develop a model. Pathologic radiographs were identified in 61 patients (9%). Between groups, a significant difference was noted for pretreatment oxygen saturation only. Clinical score, respiratory rate, and presence of rales both pretreatment and posttreatment were not significantly different between groups. The discriminant analysis correctly predicted 90% of nonpathologic radiographs but only 15% of pathologic radiographs.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that clinical variables like clinical score, respiratory rate, and rales were not significantly different between children with pathologic and nonpathologic radiographs. The discriminant analysis also failed to accurately predict pathologic radiographs, indicating that clinical variables alone are not sufficient to identify children at risk for pathologic radiographs in the first episode of wheezing.",
+          "critical_evidence": "The discriminant analysis correctly predicted 90% of nonpathologic radiographs but only 15% of pathologic radiographs.",
+          "differential_considered": "While other factors could contribute to pathologic radiographs, the study's findings suggest that the clinical variables assessed in this study are not strong predictors of pathologic findings in the initial presentation of wheezing.",
+          "usage": {
+            "prompt_tokens": 467,
+            "generated_tokens": 182,
+            "generation_time_s": 10.826
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that clinical variables assessed in relation to Albuterol aerosol treatments do not accurately identify children with pathologic radiographs during their initial episode of bronchospasm. The discriminant analysis only correctly predicted 15% of pathologic radiographs, indicating poor predictive accuracy. While pretreatment oxygen saturation showed a significant difference between groups, other clinical variables did not, and the overall model performance was limited.",
+          "critical_evidence": "The discriminant analysis correctly predicted 90% of nonpathologic radiographs but only 15% of pathologic radiographs, demonstrating significant imbalance in predictive accuracy.",
+          "differential_considered": "The primary differential is whether clinical variables alone can reliably predict pathologic radiographs. The data shows they cannot, as evidenced by the low predictive accuracy for pathologic cases despite moderate accuracy for nonpathologic cases.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.298
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The discriminant analysis correctly predicted 90% of nonpathologic radiographs but only 15% of pathologic radiographs, indicating poor predictive accuracy for identifying children with pathologic findings. Only pretreatment oxygen saturation showed a significant difference between groups, and even this was not sufficient to reliably predict pathology. The low sensitivity (15%) for pathologic cases renders clinical variables inadequate for prediction.",
+          "critical_evidence": "The discriminant analysis correctly predicted only 15% of pathologic radiographs, demonstrating poor predictive value for identifying children with underlying pathology.",
+          "differential_considered": "Considered asthma, bronchiolitis, pneumonia, and foreign body aspiration; however, the study focused on predicting radiographic pathology, and none of the clinical variables (except oxygen saturation) were significant predictors, making clinical differentiation unreliable.",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 200,
+            "generation_time_s": 8.395
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 60,
+            "generation_time_s": 1.754
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.65,
+          "clinical_reasoning": "",
+          "critical_evidence": "The discriminant analysis correctly predicted only 15% of those with pathologic radiographs, while it correctly predicted 90% of nonpathologic radiographs, demonstrating poor predictive value for clinical variables in the presence of pathologic findings.",
+          "differential_considered": "Asthma, viral bronchitis, and other non-severe respiratory infections were likely in the non-pathologic group, but the poor predictive performance of clinical variables in the pathologic group suggests that physical exam and vital signs alone are insufficient to identify true airway disease on chest radiograph in the initial presentation.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 266,
+            "generation_time_s": 10.115
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

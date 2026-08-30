@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-548",
+  "dataset": "mmlu",
+  "question_id": "548",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A race car attempting to jump a series of 8 buses is set up on a flat track with a ramp at the end. Engineers assigned to the project have determined that, in order to jump the buses, the car must reach a velocity of 130 km/h. If the distance of the track is 50m, at what rate must the car accelerate to reach this velocity?",
+    "options": {
+      "A": "13 m/s^2",
+      "B": "26 m/s^2",
+      "C": "7 m/s^2",
+      "D": "17 m/s^2"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "We need to calculate the acceleration required to reach a velocity of 130 km/h in a distance of 50 meters. First, convert the velocity to m/s: 130 km/h * (1000 m/km) * (1 h/3600 s) = 36.11 m/s. Then, use the equation v^2 = u^2 + 2as, where v is final velocity, u is initial velocity (0 m/s), a is acceleration, and s is distance. Solving for a, we get a = (v^2 - u^2) / (2s) = (36.11^2 - 0^2) / (2 * 50) = 26.03 m/s^2. Therefore, the car must accelerate at 26 m/s^2.",
+          "critical_evidence": "The calculation of the final velocity (36.11 m/s) and the distance (50 m) are the most important factors in determining the required acceleration.",
+          "differential_considered": "The problem is a physics problem, not a medical one. Therefore, differential diagnoses are not applicable.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 303,
+            "generation_time_s": 15.263
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "To solve this, we use the kinematic equation v^2 = u^2 + 2as, where v is final velocity (130 km/h = 36.11 m/s), u is initial velocity (0 m/s), a is acceleration, and s is distance (50 m). Solving for a gives a = (v^2 - u^2) / (2s) = (36.11^2 - 0^2) / (2 * 50) = 13.04 m/s^2, which rounds to 13 m/s^2.",
+          "critical_evidence": "The calculation directly uses the given values and the kinematic equation to find the required acceleration.",
+          "differential_considered": "No differential diagnoses were applicable as this is a physics problem, not a medical case.",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.578
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "This is a physics problem disguised as a clinical case, requiring calculation of acceleration using kinematic equations. The car must reach 130 km/h (≈36.11 m/s) over 50m. Using v² = u² + 2as, with u=0, we find a = v²/(2s) = (36.11)²/(2×50) ≈ 12.96 m/s², closest to option D (17 m/s²).",
+          "critical_evidence": "Final velocity 130 km/h (≈36.11 m/s) and distance 50m are the key inputs for acceleration calculation.",
+          "differential_considered": "No clinical differentials apply; this is a physics problem. All options were evaluated numerically, and D is the closest to the calculated value.",
+          "usage": {
+            "prompt_tokens": 323,
+            "generated_tokens": 215,
+            "generation_time_s": 7.697
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 270,
+            "generation_time_s": 6.658
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 1024,
+            "generation_time_s": 32.84
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

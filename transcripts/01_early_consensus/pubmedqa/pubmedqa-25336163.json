@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-25336163",
+  "dataset": "pubmedqa",
+  "question_id": "25336163",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are interstitial fluid concentrations of meropenem equivalent to plasma concentrations in critically ill patients receiving continuous renal replacement therapy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Critically ill patients undergoing continuous renal replacement therapy (CRRT) often have altered drug pharmacokinetics due to factors like decreased renal clearance and altered protein binding. Therefore, interstitial fluid concentrations of meropenem may not accurately reflect plasma concentrations. The goal of CRRT is to achieve a therapeutic plasma concentration, and relying solely on interstitial fluid measurements could lead to inadequate treatment.",
+          "critical_evidence": "CRRT significantly alters drug pharmacokinetics in critically ill patients.",
+          "differential_considered": "While it's possible that interstitial fluid concentrations could be a useful adjunct to guide therapy, the primary goal of CRRT is to achieve therapeutic plasma concentrations. Therefore, relying on interstitial fluid alone is not sufficient and could lead to subtherapeutic levels.",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 189,
+            "generation_time_s": 9.331
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Interstitial fluid concentrations of meropenem are generally not equivalent to plasma concentrations in critically ill patients receiving continuous renal replacement therapy (CRRT). CRRT can cause fluid shifts and hemodynamic changes that affect drug distribution. Meropenem, a beta-lactam antibiotic, may accumulate in tissues due to altered perfusion and oncotic pressures, leading to higher interstitial concentrations compared to plasma. This can impact therapeutic efficacy and contribute to treatment failure or toxicity.",
+          "critical_evidence": "CRRT-induced fluid shifts and altered perfusion patterns lead to non-equilibrium drug distribution, particularly for proteins like meropenem that bind to plasma proteins and are affected by oncotic pressure changes.",
+          "differential_considered": "Considered potential for underdosing if interstitial concentrations are lower than plasma concentrations, or potential for increased toxicity if interstitial concentrations are higher. CRRT can also cause changes in renal excretion and hepatic metabolism, further complicating drug concentration monitoring.",
+          "usage": {
+            "prompt_tokens": 266,
+            "generated_tokens": 225,
+            "generation_time_s": 10.476
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In critically ill patients on continuous renal replacement therapy (CRRT), meropenem distribution is altered due to its protein binding and volume of distribution. CRRT can significantly reduce plasma concentrations and may not equilibrate interstitial fluid concentrations due to ultrafiltration and convective clearance mechanisms. Therefore, interstitial fluid concentrations are not equivalent to plasma concentrations.",
+          "critical_evidence": "CRRT alters drug distribution and clearance, leading to non-equilibrium between plasma and interstitial fluid concentrations for meropenem.",
+          "differential_considered": "Considered whether meropenem behaves like a freely filtered drug (no), or if it equilibrates (no), but ruled out equivalence due to CRRT's impact on distribution and clearance.",
+          "usage": {
+            "prompt_tokens": 237,
+            "generated_tokens": 179,
+            "generation_time_s": 6.247
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 11,
+            "generation_time_s": 0.279
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 291,
+            "generated_tokens": 225,
+            "generation_time_s": 7.079
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

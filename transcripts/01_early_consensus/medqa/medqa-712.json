@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-712",
+  "dataset": "medqa",
+  "question_id": "712",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old woman comes to the physician because of a 3-month history of mild right upper abdominal pain. She has not had any fevers, chills, or weight loss. There is no personal or family history of serious illness. Medications include transdermal estrogen, which she recently started taking for symptoms related to menopause. Abdominal examination shows no abnormalities. Ultrasonography of the liver shows a well-demarcated, homogeneous, hyperechoic mass surrounded by normal liver tissue. A biopsy of the lesion would put this patient at greatest risk for which of the following complications?",
+    "options": {
+      "A": "Intraperitoneal hemorrhage",
+      "B": "Biliary peritonitis",
+      "C": "Bacteremia",
+      "D": "Metastatic spread",
+      "E": "Anaphylactic shock"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The ultrasound findings of a well-demarcated, homogeneous, hyperechoic mass in the liver, particularly in a patient on transdermal estrogen, strongly suggest a hepatic adenoma. Hepatic adenomas are prone to rupture, leading to intraperitoneal hemorrhage. While other options are possible, they are less likely given the clinical picture.",
+          "critical_evidence": "The ultrasound findings of a well-demarcated, homogeneous, hyperechoic mass in the liver, particularly in a patient on transdermal estrogen.",
+          "differential_considered": "Biliary peritonitis: Less likely given the homogenous nature of the mass and lack of biliary symptoms. Bacteremia: Less likely without signs of infection or inflammation. Metastatic spread: Less likely given the lack of weight loss and no family history of serious illness. Anaphylactic shock: Not relevant to the liver mass.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 220,
+            "generation_time_s": 10.921
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's transdermal estrogen use and the presence of a well-demarcated, homogeneous, hyperechoic liver mass suggest a benign hepatic adenoma, which is a common complication of estrogen use. While intraperitoneal hemorrhage (A) and biliary peritonitis (B) are possible with any liver mass, they are less likely without clinical signs of bleeding or biliary dysfunction. Metastatic spread (D) is unlikely given the benign appearance of the lesion on ultrasound. Anaphylactic shock (E) would not be expected from a liver biopsy. Bacteremia (C) is a significant risk because liver biopsies can introduce bacteria into the bloodstream, especially in patients with underlying liver disease or in the immunocompromised, but the patient's history and presentation do not suggest such conditions. However, the risk of bacteremia remains a critical concern given the invasive nature of the procedure.",
+          "critical_evidence": "The patient's use of transdermal estrogen, which is associated with hepatic adenomas, and the benign ultrasound appearance of the lesion.",
+          "differential_considered": "Hepatic adenoma (most likely), cholangiocarcinoma, hemangioma, and metastatic lesions. Adenoma was ruled out due to benign ultrasound appearance, but the risk of bacteremia from biopsy remains a concern regardless of the diagnosis.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.7
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a hyperechoic liver mass, which is highly suggestive of a hepatic adenoma, especially given her recent initiation of transdermal estrogen. Hepatic adenomas are known to rupture and cause bleeding or infection, but the greatest immediate risk of biopsy is bacteremia due to the potential for introducing bacteria into the bloodstream during the procedure. Other complications like hemorrhage or peritonitis are less likely to be the most immediate concern compared to bacteremia in the context of a biopsy.",
+          "critical_evidence": "The patient is on transdermal estrogen, which increases the risk of hepatic adenoma, and biopsy of a liver mass carries inherent risk of bacteremia due to vascular invasion.",
+          "differential_considered": "Hepatic adenoma (most likely given estrogen use and imaging), focal nodular hyperplasia, hemangioma, or metastatic disease were considered; however, metastatic disease is less likely without systemic symptoms, and hemangioma is typically hypoechoic. Biopsy risk profile favors bacteremia over hemorrhage or peritonitis in this context.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 252,
+            "generation_time_s": 8.845
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 14,
+            "generation_time_s": 0.363
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 264,
+            "generation_time_s": 8.339
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

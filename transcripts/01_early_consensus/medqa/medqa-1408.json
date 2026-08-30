@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1408",
+  "dataset": "medqa",
+  "question_id": "1408",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An HIV-positive 48-year-old man comes to the emergency department because of a 3-month history of recurrent, painful mouth ulcers. This time, the pain is so severe that the patient cannot eat. He has a history of a seizure disorder but currently does not take any medications. He appears very ill. His temperature is 39.0°C (102.2°F). Physical examination shows numerous vesicular ulcerations on the lips and sloughing of the gums, buccal mucosa, and hard palate. Genetic analysis of the pathogen isolated from the lesions shows a mutation in a gene encoding viral phosphotransferases. Which of the following drugs is the most appropriate treatment?",
+    "options": {
+      "A": "Foscarnet",
+      "B": "Acyclovir",
+      "C": "Cidofovir",
+      "D": "Ganciclovir",
+      "E": "Famciclovir"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of recurrent, painful mouth ulcers, fever, and a history of HIV strongly suggests oral herpes simplex virus (HSV) infection, likely a severe form like herpes simplex gingivostomatitis. The genetic analysis showing a mutation in a gene encoding viral phosphotransferases points towards HSV-1, which is the most common cause of oral herpes. Given the severity of the symptoms and the patient's immunocompromised state, a potent antiviral is needed. Famciclovir is a prodrug of penciclovir, a guanosine analog that inhibits viral DNA polymerase, making it a suitable choice for severe HSV infections.",
+          "critical_evidence": "Mutation in a gene encoding viral phosphotransferases points towards HSV-1.",
+          "differential_considered": "While other viruses can cause oral ulcers (e.g., varicella-zoster virus, cytomegalovirus), the clinical picture and genetic findings are most consistent with HSV-1. Foscarnet is an option for acyclovir-resistant HSV, but the question doesn't mention resistance. Ganciclovir is primarily used for CMV infections, and while CMV can cause oral ulcers in immunocompromised patients, it's less likely given the presentation. Cidofovir is also used for CMV, but less commonly for HSV. Acyclovir is a reasonable first-line treatment, but given the severity and the potential for resistance, a more potent agent like famciclovir is preferred.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 340,
+            "generation_time_s": 17.327
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has recurrent painful mouth ulcers with vesicular lesions and a mutation in a gene encoding viral phosphotransferases. This mutation is characteristic of foscarnet-resistant herpes simplex virus (HSV) infection. Foscarnet is the drug of choice for HSV infections with phosphotransferase mutations, as it inhibits viral DNA synthesis and is effective against such resistant strains. Other antiviral drugs like acyclovir, cidofovir, ganciclovir, and famciclovir are not as effective in this specific scenario due to the genetic mutation.",
+          "critical_evidence": "Mutation in a gene encoding viral phosphotransferases",
+          "differential_considered": "Considered HSV-1/HSV-2 infection, cytomegalovirus (CMV), and varicella-zoster virus (VZV), but ruled out CMV and VZV due to the specific mutation and clinical presentation. HSV is the most likely diagnosis given the vesicular ulcers and the genetic finding.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.589
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient is HIV-positive with severe, recurrent oral ulcerations and high fever, suggesting a severe viral infection. The genetic analysis revealing a mutation in a viral phosphotransferase gene points to herpesviruses, particularly herpes simplex virus (HSV), which commonly causes oral ulcerations. However, the mutation suggests resistance to nucleoside analogs like acyclovir, making foscarnet the most appropriate choice as it is not affected by these mutations and is effective against resistant strains.",
+          "critical_evidence": "Mutation in viral phosphotransferase gene indicates resistance to nucleoside analogs (e.g., acyclovir), making foscarnet the best option.",
+          "differential_considered": "Other herpesviruses (e.g., VZV, CMV) were considered, but the clinical presentation (oral vesicular ulcers) is most consistent with HSV. Acyclovir resistance due to phosphotransferase mutation rules out acyclovir and related nucleoside analogs, eliminating B, D, E. Cidofovir is less preferred due to toxicity and not first-line for HSV. Ganciclovir is for CMV, which is less likely here.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 280,
+            "generation_time_s": 9.842
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 12,
+            "generation_time_s": 0.315
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Herpes simplex virus (HSV), varicella-zoster (for which acyclovir is also used), and other mucocutaneous infections, but the clinical presentation most strongly suggests HSV, and acyclovir is first-line therapy for that.",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 231,
+            "generation_time_s": 7.247
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

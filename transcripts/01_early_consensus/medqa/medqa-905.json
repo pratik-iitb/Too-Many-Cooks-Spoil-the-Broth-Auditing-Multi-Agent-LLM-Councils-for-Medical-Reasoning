@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-905",
+  "dataset": "medqa",
+  "question_id": "905",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An American pediatrician travels to Bangladesh on a medical mission. While working in the local hospital's emergency room, she sees a 2-week-old boy who was brought in by his mother with muscle spasms and difficulty sucking. The mother gave birth at home at 38 weeks gestation and was attended to by her older sister who has no training in midwifery. The mother had no prenatal care. She has no past medical history and takes no medications. The family lives on a small fishing vessel on a major river, which also serves as their fresh water supply. The boy's temperature is 99°F (37.2°C), blood pressure is 100/60 mmHg, pulse is 130/min, and respirations are 22/min. On exam, the boy's arms are flexed at the elbow, his knees are extended, and his neck and spine are hyperextended. Tone is increased in the bilateral upper and lower extremities. He demonstrates sustained facial muscle spasms throughout the examination. The umbilical stump is foul-smelling. Cultures are taken, and the appropriate treatment is started. This patient's condition is most likely caused by a toxin with which of the following functions?",
+    "options": {
+      "A": "Binding to MHC II and the T cell receptor simultaneously",
+      "B": "Blocking release of acetylcholine",
+      "C": "Blocking release of GABA and glycine",
+      "D": "Blocking voltage-gated calcium channel opening",
+      "E": "Blocking voltage-gated sodium channel opening"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical presentation of a 2-week-old infant with muscle spasms, difficulty sucking, hypertonia, and a foul-smelling umbilical stump strongly suggests tetanus. Tetanus is caused by the Clostridium tetani toxin, which blocks the release of inhibitory neurotransmitters like GABA and glycine, leading to uncontrolled muscle spasms and rigidity.",
+          "critical_evidence": "The foul-smelling umbilical stump is a classic sign of tetanus, indicating a wound infection with Clostridium tetani.",
+          "differential_considered": "While other conditions could cause muscle spasms, the combination of the infant's age, the lack of prenatal care, the home birth, the foul-smelling umbilical stump, and the specific type of spasms (generalized rigidity) makes tetanus the most likely diagnosis. Other differentials like congenital myotonic dystrophy or other metabolic disorders are less likely given the acute onset and the specific findings.",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 223,
+            "generation_time_s": 11.046
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant's hyperreflexia, muscle spasms, and umbilical stump odor suggest botulism toxin exposure. Botulinum toxin blocks the release of both GABA and glycine, leading to flaccid paralysis and respiratory failure. The umbilical stump odor is a classic sign of infant botulism, which is caused by ingestion of C. botulinum spores. The other options (A-D) relate to mechanisms of immune activation, neuromuscular transmission, or ion channels, which are not consistent with the clinical presentation.",
+          "critical_evidence": "The foul-smelling umbilical stump is the most important finding, strongly suggesting infant botulism caused by C. botulinum toxin blocking GABA and glycine release.",
+          "differential_considered": "Considered: neonatal tetanus (ruling out due to lack of tetanus signs), meningitis, and other metabolic causes. Ruled out: Tetanus would present with rigidity, not hyperreflexia. Meningitis would typically show focal neuro deficits. Metabolic causes like hypoglycemia or electrolyte imbalances were ruled out by normal vital signs and lack of other symptoms.",
+          "usage": {
+            "prompt_tokens": 535,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.586
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant presents with generalized muscle spasms, hyperextension of neck and spine, increased tone, and facial spasms — classic signs of tetany or neonatal tetanus. The key clue is the lack of skilled birth attendance and the presence of a foul-smelling umbilical stump, indicating possible umbilical infection and tetanus toxin exposure. Tetanus toxin blocks inhibitory neurotransmission by inhibiting GABA and glycine release, leading to unopposed motor neuron activity and spasticity. Other options relate to different neurotoxin mechanisms (e.g., botulinum toxin blocks acetylcholine release, but this is not the case here).",
+          "critical_evidence": "Foul-smelling umbilical stump + lack of skilled birth attendance + neonatal muscle spasms = classic presentation of neonatal tetanus.",
+          "differential_considered": "Botulism (blocks acetylcholine release) was considered but ruled out due to absence of flaccid paralysis and lack of foodborne exposure context. Other infections or metabolic causes were less likely given the specific neuromuscular presentation and environmental risk factors.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 260,
+            "generation_time_s": 9.119
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's clinical presentation is consistent with tetanus, which is caused by the bacterium Clostridium tetani. The toxin produced by this bacterium, tetanospasmin, acts by binding to voltage-gated sodium channels on the presynaptic membrane of the neuromuscular junction. This binding prevents the release of acetylcholine, leading to muscle spasms and rigidity. The other options do not fit the clinical picture of tetanus.",
+          "critical_evidence": "The sustained facial muscle spasms throughout the examination are indicative of tetanus.",
+          "differential_considered": "The key differential diagnosis considered was botulism, which is also caused by a toxin produced by a bacterium (Clostridium botulinum). However, the clinical presentation of botulism typically includes symmetric muscle weakness and loss of muscle tone, which is not seen in this patient. Additionally, the history of delivery at home without prenatal care and the foul-smelling umbilical stump suggest a higher risk of tetanus exposure.",
+          "usage": {
+            "prompt_tokens": 533,
+            "generated_tokens": 235,
+            "generation_time_s": 5.677
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "The boy's symptoms of muscle spasms, increased tone, and hyperextension of limbs are classic for botulinum toxin, which blocks voltage-gated sodium channels, causing neuromuscular effects characteristic of neonatal botulism.",
+          "differential_considered": "Alternatives like GABA or glycine blockade cause paralysis, but not the combination of early-onset spasticity and facial spasms. MHC II and calcium channel block toxins are not associated with this presentation. The foul umbilical stump and timing point to botulinum toxin, which primarily acts by blocking sodium channels.",
+          "usage": {
+            "prompt_tokens": 569,
+            "generated_tokens": 301,
+            "generation_time_s": 9.464
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "E": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

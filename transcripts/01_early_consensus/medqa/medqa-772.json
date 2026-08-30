@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-772",
+  "dataset": "medqa",
+  "question_id": "772",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 60-year-old woman is brought to the clinic by her daughter for evaluation. The daughter reports that her mother has recently been having difficulty combing her hair in the mornings. The patient’s family history is significant for an ischemic stroke in her father. The patient’s past medical history is positive for diverticulosis. She takes no medication. Her blood pressure is 120/70 mm Hg, heart rate is 75/min, respiratory rate is 14/min, and temperature is 37.6°C (99.7°F). On physical examination, the patient’s neck is stiff and she also has bilateral shoulder tenderness; muscle strength is intact. Laboratory work is performed and presented below:\nHemoglobin 12.9 g/dL\nHematocrit 37.7% \nLeukocyte count 5,500/mm3\nNeutrophils 65%\nLymphocytes 30%\nMonocytes 5%\nMean corpuscular volume 82.2 μm3\nPlatelet count 190,000/mm3\nErythrocyte sedimentation rate 65 mm/h\nC-reactive protein 44 mg/dL\nFor which of the symptoms below should the patient be screened?",
+    "options": {
+      "A": "Uveitis",
+      "B": "Jaw claudication",
+      "C": "Heliotrope rash",
+      "D": "Gastroesophageal reflux",
+      "E": "Pink plaques with silvery scales"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of neck stiffness, shoulder tenderness, elevated ESR, and CRP strongly suggest polymyalgia rheumatica (PMR). Jaw claudication is a classic symptom of giant cell arteritis (GCA), which is closely associated with PMR. Therefore, screening for GCA is crucial in this patient.",
+          "critical_evidence": "Neck stiffness, shoulder tenderness, elevated ESR, and CRP",
+          "differential_considered": "Uveitis (less likely given the lack of eye pain or vision changes), Heliotrope rash (more typical of dermatomyositis, which is less likely given the lack of muscle weakness), Gastroesophageal reflux (less likely given the neck stiffness and shoulder tenderness), Pink plaques with silvery scales (more typical of psoriasis, which is less likely given the neck stiffness and shoulder tenderness.",
+          "usage": {
+            "prompt_tokens": 545,
+            "generated_tokens": 210,
+            "generation_time_s": 10.395
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's stiff neck and bilateral shoulder tenderness, combined with her age and family history of stroke, suggest possible cervical spine issues or vascular compromise. Given the elevated ESR (65 mm/h) and CRP (44 mg/dL), there may be an inflammatory or systemic component, but the most pressing concern is the potential for vascular pathology. Jaw claudication (B) is a symptom of peripheral artery disease, which could explain the difficulty with daily activities like combing hair and is supported by the patient's age and family history of ischemic stroke. The other options (A, C, D, E) are less directly related to the reported symptoms and clinical findings.",
+          "critical_evidence": "Bilateral shoulder tenderness and stiff neck with age and family history of stroke",
+          "differential_considered": "Uveitis (A), gastroesophageal reflux (D), heliotrope rash (C), and pink plaques with silvery scales (E) were considered but are less likely given the clinical presentation. Vascular issues and cervical spine pathology are more directly supported by the symptoms and history.",
+          "usage": {
+            "prompt_tokens": 525,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.215
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with neck stiffness, bilateral shoulder tenderness, and systemic inflammation (elevated ESR and CRP), along with a family history of stroke. These findings are highly suggestive of giant cell arteritis (GCA), which commonly presents with jaw claudication. Screening for jaw claudication is critical in suspected GCA to aid in early diagnosis and prevent vision loss.",
+          "critical_evidence": "Elevated ESR (65 mm/h) and CRP (44 mg/dL) with constitutional symptoms and neck stiffness strongly suggest giant cell arteritis, which is associated with jaw claudication.",
+          "differential_considered": "Other options like uveitis, heliotrope rash, and pink plaques with silvery scales are associated with systemic lupus erythematosus or psoriasis, which do not fit the inflammatory profile or vascular symptoms. Gastroesophageal reflux is unrelated to the systemic inflammation or vascular findings.",
+          "usage": {
+            "prompt_tokens": 517,
+            "generated_tokens": 227,
+            "generation_time_s": 7.948
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 186,
+            "generation_time_s": 4.456
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "Stiff neck and bilateral shoulder tenderness — classic physical exam findings for giant cell arteritis, which requires urgent screening.",
+          "differential_considered": "Hemolytic anemia (evidenced by low hemoglobin and high reticulocyte count not provided), infections (evidenced by leukocytosis), or non-specific inflammatory states (not supported by the given data). None of the other options (uveitis, jaw claudication, heliotrope rash, or skin plaques with silvery scales) are indicated here. GCA is the most likely diagnosis based on the tender nodules and age.",
+          "usage": {
+            "prompt_tokens": 570,
+            "generated_tokens": 257,
+            "generation_time_s": 7.996
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

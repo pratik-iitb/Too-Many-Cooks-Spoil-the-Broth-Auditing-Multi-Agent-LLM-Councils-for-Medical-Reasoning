@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-331",
+  "dataset": "medqa",
+  "question_id": "331",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old man presents with weakness, loss of appetite, headaches, and irritability. He developed these symptoms gradually over the past 4 months. He was diagnosed with Crohn’s disease, which was moderate at the time of diagnosis 6 months ago. He takes methotrexate 15 mg, which effectively controls his symptoms. The patient’s vital signs include: blood pressure 105/70 mm Hg, heart rate 102/min, respiratory rate 16/min, and temperature 36.4℃ (97.5℉). On physical examination, the patient is pale. His lungs are clear to auscultation. His heart sounds are rhythmic; a short early systolic murmur can be heard over the apex of the heart. The rest of the exam is unremarkable. The patient’s blood test shows the following findings:\nErythrocytes 2.7 x 109/mm3\nHb 9.3 g/dL\nHct 37%\nMean corpuscular hemoglobin  45.2 pg/cell (2.8 fmol/cell)\nMean corpuscular volume 122 µm3 (122 fL)\nReticulocyte count 0.4%\nTotal leukocyte count 3050/mm3\nNeutrophils 62%\nLymphocytes 32%\nEosinophils 1%\nMonocytes 5%\nBasophils 0%\nPlatelet count 199,000/mm3\nWhich of the following drugs should be prescribed to this patient?",
+    "options": {
+      "A": "Riboflavin",
+      "B": "Niacin",
+      "C": "Thiamine pyrophosphate",
+      "D": "Pyridoxine",
+      "E": "Folic acid"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of weakness, loss of appetite, headaches, irritability, pallor, and macrocytic anemia (MCV 122, MCH 45.2) with a low reticulocyte count (0.4%) strongly suggests vitamin B12 deficiency. Methotrexate is a folate antagonist and can cause folate deficiency, which can also lead to macrocytic anemia. While the patient is on methotrexate, the low reticulocyte count indicates that the bone marrow is not responding appropriately to the anemia, suggesting a deficiency in a different vitamin. Folic acid supplementation is the most appropriate initial treatment to address the macrocytic anemia.",
+          "critical_evidence": "Macrocytic anemia (MCV 122, MCH 45.2) with a low reticulocyte count (0.4%) in a patient on methotrexate.",
+          "differential_considered": "While the patient is on methotrexate, the low reticulocyte count suggests a deficiency in a different vitamin. The patient's symptoms could also be due to other causes of anemia, such as iron deficiency, but the macrocytic picture makes this less likely. However, the patient's history of Crohn's disease could also be contributing to malabsorption of B12, so it is important to consider this possibility.",
+          "usage": {
+            "prompt_tokens": 605,
+            "generated_tokens": 312,
+            "generation_time_s": 15.462
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's chronic weakness, anemia (Hb 9.3 g/dL), and reticulocyte count of 0.4% suggest iron deficiency anemia, which is common in patients with Crohn's disease due to malabsorption. Methotrexate therapy can also cause megaloblastic anemia, but the low reticulocyte count and normal MCV (122 fL) rule out this cause. Niacin is the best choice as it can correct megaloblastic anemia and is safe in patients with Crohn's disease.",
+          "critical_evidence": "Low reticulocyte count (0.4%) and normal MCV (122 fL) suggest iron deficiency anemia rather than megaloblastic anemia.",
+          "differential_considered": "Megaloblastic anemia due to vitamin B12 or folate deficiency was considered but ruled out by the normal MCV. Iron deficiency anemia is the most likely diagnosis given the patient's history of Crohn's disease and anemia.",
+          "usage": {
+            "prompt_tokens": 585,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.616
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has macrocytic anemia with low reticulocyte count, suggesting a megaloblastic process. His use of methotrexate, a drug known to interfere with folate metabolism, is a key clue. The anemia is not hemolytic or acute, and the absence of other signs of B12 deficiency (e.g., neurological symptoms) makes folic acid deficiency the most likely cause. Folic acid supplementation is appropriate to correct the deficiency caused by methotrexate.",
+          "critical_evidence": "Methotrexate use and macrocytic anemia with low reticulocyte count point to folic acid deficiency.",
+          "differential_considered": "B12 deficiency was considered but ruled out due to absence of neurological symptoms; iron deficiency was considered but ruled out by normal ferritin (implied by normal MCV and absence of microcytosis); hemolytic anemia was ruled out by normal reticulocyte count and absence of hemolysis markers.",
+          "usage": {
+            "prompt_tokens": 581,
+            "generated_tokens": 238,
+            "generation_time_s": 8.374
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 583,
+            "generated_tokens": 211,
+            "generation_time_s": 5.119
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has anemia with low mean corpuscular hemoglobin (MCH) of 45.2 pg/cell (below normal, ~70-80 pg/cell), but normal hemoglobin and hematocrit, along with a low platelet count (199,000/μL), suggest a vitamin B12 deficiency (pernicious anemia) given his history of Crohn's disease (which can cause malabsorption) and the classic anemia pattern. Folic acid supplementation is contraindicated in B12 deficiency. Riboflavin, niacin, and pyridoxine are B-vitamins but not typically first-line for B12 deficiency. Thiamine is used for Wernicke-Korsakoff syndrome, which is not indicated here.",
+          "critical_evidence": "Low MCH with normal Hb and Hct strongly suggests B12 deficiency, especially in a patient with possible malabsorption due to Crohn's disease.",
+          "differential_considered": "Anemia of chronic disease, iron deficiency anemia, and hemolysis were considered but ruled out due to the absence of elevated ferritin or indirect hemolytic findings, and the classic B12 deficiency workup (not shown but implied by context) would support this diagnosis. His medication regimen does not include B12, and folic acid would worsen B12 deficiency if present.",
+          "usage": {
+            "prompt_tokens": 632,
+            "generated_tokens": 314,
+            "generation_time_s": 9.89
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

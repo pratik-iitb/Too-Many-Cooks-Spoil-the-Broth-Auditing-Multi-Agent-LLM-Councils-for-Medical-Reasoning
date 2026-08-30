@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-20363841",
+  "dataset": "pubmedqa_context",
+  "question_id": "20363841",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do symptoms predict COPD in smokers?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The US Preventive Services Task Force recommends against spirometry in the absence of symptoms. However, as much as 50% of COPD cases in the United States remain undiagnosed. Report of symptoms, smoking history, and spirometric data were collected from subjects screened for a work-related medical evaluation (N = 3,955). Prevalence of airflow obstruction and respiratory symptoms were assessed. Sensitivity, specificity, positive and negative predictive values, and relative risks of predicting symptoms and smoking history for COPD were calculated. Forty-four percent of smokers in our sample had airways obstruction (AO). Of these, 36% reported a diagnosis of or treatment for COPD. Odds ratio (95% CI) for AO with smoking (>or = 20 pack-years) was 3.73 (3.12- 4.45), 1.98 (1.73-2.27) for cough, 1.79 (1.55-2.08) for dyspnea, 1.95 (1.70-2.34) for sputum, and 2.59 (2.26-2.97) for wheeze. Respiratory symptoms were reported by 92% of smokers with AO, 86% smokers with restriction, 76% smokers with normal spirometry, and 73% of nonsmokers. Sensitivity (92% vs 90%), specificity (19% vs 22%), positive (47% vs 40%) and negative (75% vs 80%) predictive values for the presence of one or more symptoms were similar between smokers and all subjects.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case demonstrates a strong association between smoking history and airflow obstruction, which is a key component of COPD. The odds ratios for cough, dyspnea, sputum, and wheeze in smokers with airflow obstruction are significantly elevated, indicating that these symptoms are highly predictive of COPD in smokers. The high prevalence of respiratory symptoms in smokers with airflow obstruction further supports the conclusion that symptoms can predict COPD in smokers.",
+          "critical_evidence": "Odds ratio (95% CI) for AO with smoking (>or = 20 pack-years) was 3.73 (3.12- 4.45)",
+          "differential_considered": "While the US Preventive Services Task Force recommends against spirometry in the absence of symptoms, the clinical case highlights the significant predictive power of symptoms, particularly in smokers. Other conditions like asthma or heart failure could present with similar symptoms, but the strong association with smoking history makes COPD the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 613,
+            "generated_tokens": 235,
+            "generation_time_s": 13.967
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The data shows that 44% of smokers had airflow obstruction, with strong odds ratios for symptoms like cough (1.98) and dyspnea (1.79) in smokers. The high prevalence of symptoms (92% of smokers with AO) and strong association between symptoms and AO suggest symptoms are a reliable predictor of COPD in smokers.",
+          "critical_evidence": "Odds ratio of 1.98 for cough and 1.79 for dyspnea in smokers with AO",
+          "differential_considered": "While 56% of smokers had normal spirometry, the high symptom prevalence (92%) and strong symptom-AO association indicate symptoms remain a valuable predictor despite normal spirometry in some cases",
+          "usage": {
+            "prompt_tokens": 593,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.34
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "While symptoms like cough, dyspnea, and wheeze are associated with airflow obstruction and COPD, the study shows that 64% of smokers with airflow obstruction did not report symptoms, and sensitivity of symptoms for detecting COPD is only 92% — meaning many cases remain undiagnosed. Additionally, specificity is low (19%), indicating many symptomatic individuals without COPD are misclassified. Thus, symptoms alone are insufficient to reliably predict COPD, but not entirely useless.",
+          "critical_evidence": "44% of smokers had airflow obstruction, but only 36% reported a diagnosis or treatment for COPD, and 64% of those with obstruction were asymptomatic.",
+          "differential_considered": "Other causes of airflow obstruction (e.g., asthma, bronchiectasis) were not evaluated, but the study’s focus on smoking history and spirometry limits their relevance. The key differential is whether symptoms reliably identify COPD — which they do not, given low specificity and high rate of asymptomatic cases.",
+          "usage": {
+            "prompt_tokens": 597,
+            "generated_tokens": 246,
+            "generation_time_s": 10.361
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 591,
+            "generated_tokens": 65,
+            "generation_time_s": 1.904
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "The low specificity of respiratory symptoms for COPD, as symptoms are also common in nonsmokers and other conditions, indicates that symptoms do not reliably predict the presence of COPD even in smokers.",
+          "differential_considered": "Other causes of respiratory symptoms such as asthma, bronchitis, or heart failure were not mentioned, but the key point is that symptoms are not specific to COPD in this population. Thus, symptoms cannot be used to predict COPD in smokers with high accuracy.",
+          "usage": {
+            "prompt_tokens": 624,
+            "generated_tokens": 246,
+            "generation_time_s": 9.352
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

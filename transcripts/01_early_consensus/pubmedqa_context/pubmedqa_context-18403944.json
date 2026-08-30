@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-18403944",
+  "dataset": "pubmedqa_context",
+  "question_id": "18403944",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Gluten tolerance in adult patients with celiac disease 20 years after diagnosis?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Celiac disease (CD) is believed to be a permanent intolerance to gluten. A number of patients, however, discontinue the gluten-free diet (GFD) without developing symptoms or signs. The aim of our study was to investigate whether CD patients are capable of developing tolerance to gluten. All 77 adult patients from our hospital known to have biopsy-proven CD for more than 10 years were invited to participate. We investigated symptoms, gluten consumption, antibodies for CD and other autoimmunity, human leukocyte antigen (HLA)-typing, bone mineral density, and performed small bowel biopsies. Tolerance was defined as no immunological or histological signs of CD while consuming gluten. Sixty-six patients accepted participation, but after review of the diagnostic biopsies 53 were found to have true CD. Twenty-three percent of patients had a gluten-containing diet, 15% admitted gluten transgression and 62% followed the GFD. Patients on a GFD had significantly more osteoporosis. Normal small bowel mucosa was found in four of eight on gluten-containing diet and in four of four with gluten transgression. Two patients were considered to have developed tolerance to gluten. One of them was HLA-DQ2/DQ8 negative.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that two patients developed tolerance to gluten, defined as no immunological or histological signs of CD while consuming gluten. This indicates that some patients with celiac disease can develop gluten tolerance. The fact that one of these patients was HLA-DQ2/DQ8 negative further supports the possibility of tolerance.",
+          "critical_evidence": "Two patients were considered to have developed tolerance to gluten.",
+          "differential_considered": "The differential diagnoses considered were other autoimmune conditions and non-celiac gluten sensitivity. However, the study specifically focused on patients with biopsy-proven CD, and the definition of tolerance was based on the absence of CD-related findings, making these other conditions less relevant to the primary question.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 184,
+            "generation_time_s": 10.921
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that two patients developed tolerance to gluten, indicating that while rare, gluten tolerance is possible in some celiac disease patients. However, the majority of patients who discontinued the gluten-free diet (GFD) did not develop tolerance, supporting the idea that CD is generally a lifelong condition requiring strict dietary adherence.",
+          "critical_evidence": "Two patients were considered to have developed tolerance to gluten, showing that it is possible but not common.",
+          "differential_considered": "Other conditions like wheat allergy or non-celiac gluten sensitivity were considered but ruled out by the presence of CD-specific antibodies and histological findings.",
+          "usage": {
+            "prompt_tokens": 518,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.374
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found only two patients developed tolerance to gluten, and one was HLA-DQ2/DQ8 negative, which is highly unusual since HLA-DQ2/DQ8 is strongly associated with celiac disease. This suggests tolerance is rare and not guaranteed, but not impossible, hence 'maybe' is the most cautious and evidence-based answer.",
+          "critical_evidence": "One of the two patients considered tolerant was HLA-DQ2/DQ8 negative, challenging the assumption that tolerance is impossible in celiac disease.",
+          "differential_considered": "Other differentials like non-celiac gluten sensitivity or remission were considered, but the study specifically defined tolerance as absence of immunological/histological signs, ruling out false positives or misdiagnosis.",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 185,
+            "generation_time_s": 7.808
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 516,
+            "generated_tokens": 144,
+            "generation_time_s": 4.201
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possibilities include celiac disease with current healing of the small bowel mucosa (though not confirmed here), false-positive past biopsy, or transient symptoms not linked to celiac. However, the study specifically states that the two on gluten had \"normal small bowel mucosa,\" which is a key finding against active celiac, but not definitive for true tolerance.",
+          "usage": {
+            "prompt_tokens": 556,
+            "generated_tokens": 269,
+            "generation_time_s": 10.277
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

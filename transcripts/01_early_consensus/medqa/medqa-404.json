@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-404",
+  "dataset": "medqa",
+  "question_id": "404",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old man who recently immigrated from Mexico presents to the clinic with fever, a productive cough streaked with blood, back pain, and night sweats. He was found to be HIV-positive 3 years ago but does not know his most recent CD4+ count. With further questioning, the patient notes that he had previously experienced these symptoms when he was in Mexico, but he has no recollection of taking any treatment. Which of the following characteristics would best describe the histology of a lung biopsy specimen obtained from this patient?",
+    "options": {
+      "A": "Cells with increased nuclear-to-cytoplasmic ratio",
+      "B": "Cellular debris and macrophages followed by cystic spaces and cavitation",
+      "C": "Epithelioid cells surrounded by multinucleated giant cells and lymphocytes",
+      "D": "Macrophage filled with fungal microorganisms",
+      "E": "Noncaseating granuloma"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, productive cough with blood, back pain, and night sweats, coupled with his HIV-positive status and history of similar symptoms in Mexico, strongly suggests a diagnosis of tuberculosis (TB). The histology of a lung biopsy in TB typically shows epithelioid cells, multinucleated giant cells, and lymphocytes surrounding the granulomas. This is characteristic of a granulomatous inflammatory response to the Mycobacterium tuberculosis infection.",
+          "critical_evidence": "The combination of HIV-positive status, symptoms suggestive of TB, and a history of similar symptoms in Mexico points towards TB.",
+          "differential_considered": "A: While increased nuclear-to-cytoplasmic ratio can be seen in various conditions, it is not specific to TB. B: This description is more suggestive of fungal infections like aspergillosis or histoplasmosis, which are less likely given the patient's history and lack of specific risk factors. D: This describes a fungal infection, but the patient's history and symptoms are more consistent with TB. E: Noncaseating granulomas are characteristic of sarcoidosis, which is less likely given the patient's HIV status and history of similar symptoms in Mexico.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 284,
+            "generation_time_s": 14.089
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of HIV and recurrent symptoms suggestive of tuberculosis (fever, productive cough with blood, night sweats) points to a likely diagnosis of pulmonary tuberculosis. HIV-positive individuals are at high risk for latent TB infection and reactivation, especially if they have had prior exposure in Mexico. The histologic finding of noncaseating granuloma is characteristic of Mycobacterium tuberculosis infection, which is the most likely cause given the clinical presentation and the patient's HIV status.",
+          "critical_evidence": "HIV-positive status and history of recurrent TB-like symptoms",
+          "differential_considered": "Considered fungal infection (e.g., histoplasmosis) and other granulomatous diseases, but ruled out due to lack of fungal elements in the options and the strong association of noncaseating granulomas with TB in HIV patients.",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.755
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is HIV-positive with recurrent symptoms including fever, hemoptysis, night sweats, and back pain, suggesting opportunistic infection. Given his immigration history and lack of prior treatment, tuberculosis (TB) is a strong consideration, especially in endemic regions like Mexico. Histologically, TB is characterized by granulomas with epithelioid cells, multinucleated giant cells, and lymphocytes. Other options describe different pathologies (e.g., fungal infection, caseating vs. noncaseating granulomas, or necrotizing lesions), which are less specific or less likely in this context.",
+          "critical_evidence": "HIV-positive patient with systemic symptoms and history of similar presentation in endemic region strongly suggests TB, which histologically presents with epithelioid cells and giant cells.",
+          "differential_considered": "Other differentials include Pneumocystis jirovecii pneumonia (PCP), fungal infections (e.g., histoplasmosis), and malignancies; however, PCP typically presents with diffuse interstitial infiltrates and lacks granulomatous histology, while fungal infections often show intracellular organisms (option D) or necrotizing granulomas. Noncaseating granulomas (E) are seen in sarcoidosis or TB but lack the specific epithelioid and giant cell features of active TB, making C the most specific.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 311,
+            "generation_time_s": 10.945
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 23,
+            "generation_time_s": 0.582
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A) Could be seen in lymphoproliferative disorders; C) May suggest a fungal or granulomatous process but not the classic TB; D) Fungal microorganisms would require a specific mycotic focus not indicated; E) Noncaseating granulomas suggest other infections (e.g., histoplasmosis, Kikuchi disease) but are not the hallmark of TB in this context.",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 282,
+            "generation_time_s": 8.885
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "E": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-16647887",
+  "dataset": "pubmedqa",
+  "question_id": "16647887",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are women who are treated for hypothyroidism at risk for pregnancy complications?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hypothyroidism during pregnancy can lead to various complications such as miscarriage, preterm birth, preeclampsia, and fetal growth restriction. Therefore, women with hypothyroidism are at increased risk for pregnancy complications.",
+          "critical_evidence": "Hypothyroidism during pregnancy can lead to miscarriage, preterm birth, preeclampsia, and fetal growth restriction.",
+          "differential_considered": "Hyperthyroidism: While hyperthyroidism can also cause pregnancy complications, hypothyroidism is more directly linked to the specific complications mentioned in the clinical case. Therefore, I considered hyperthyroidism but ultimately chose hypothyroidism as the more relevant answer.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 158,
+            "generation_time_s": 9.531
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Hypothyroidism can lead to elevated TSH levels, which may cause menstrual irregularities and affect ovulation. Untreated hypothyroidism during pregnancy increases risks of miscarriage, preterm birth, and preeclampsia. While some women with well-managed hypothyroidism have normal pregnancies, the condition itself introduces potential complications. Therefore, the risk exists, making the answer 'yes' the most appropriate choice.",
+          "critical_evidence": "Untreated hypothyroidism during pregnancy is associated with increased risks of adverse outcomes such as miscarriage and preterm birth.",
+          "differential_considered": "Considered whether the question implies 'untreated' hypothyroidism, but since it does not specify, the general risk associated with hypothyroidism treatment in pregnancy is still relevant. No other condition directly contradicts the answer 'yes' without additional context.",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 211,
+            "generation_time_s": 11.977
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Untreated or inadequately treated hypothyroidism in women of reproductive age is associated with increased risks of pregnancy complications such as preeclampsia, preterm birth, and miscarriage. Proper thyroid hormone replacement therapy (e.g., levothyroxine) can mitigate these risks, but the question specifically asks about women who are treated, implying treatment may not always be optimal or complete. Therefore, residual risk remains, making 'yes' the most accurate answer.",
+          "critical_evidence": "Multiple large cohort studies and meta-analyses show that even with treatment, suboptimal thyroid hormone levels during pregnancy are linked to adverse outcomes.",
+          "differential_considered": "Considered 'no' (if treatment fully normalizes thyroid function) and 'maybe' (if uncertain about treatment adequacy), but evidence strongly supports that treatment does not eliminate all risk, especially if TSH is not fully controlled.",
+          "usage": {
+            "prompt_tokens": 230,
+            "generated_tokens": 216,
+            "generation_time_s": 9.215
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 10,
+            "generation_time_s": 0.303
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hypothyroidism during pregnancy is associated with increased risks of complications such as preterm birth, low birth weight, preeclampsia, and gestational diabetes. However, the question asks about women who have been treated for hypothyroidism in the past, not those currently untreated. Treatment generally normalizes thyroid hormone levels, reducing the risk compared to untreated cases. Thus, the risk is not absolute and depends on timing and control of treatment, making 'maybe' the best answer.",
+          "critical_evidence": "Women with a history of treated hypothyroidism may still have residual risks if treatment was suboptimal or if thyroid status is not well-maintained during pregnancy.",
+          "differential_considered": "D differentiating between current versus past treatment status, and potential for inadequate thyroid control in the past that could affect pregnancy outcomes. Other differentials (A or B) are less appropriate because current proper treatment typically mitigates risk, but past inadequate treatment could leave some risk, hence 'maybe'.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 238,
+            "generation_time_s": 9.079
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-127",
+  "dataset": "medqa",
+  "question_id": "127",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45 year old construction worker complains of several weeks of diffuse abdominal pain, constipation, generalized fatigue and irritability. His vital signs are normal. On examination you notice some distal extremity weakness and thin, a grey-blue line visible along the margin of the gums (Figure A). Red blood cells demonstrate microcytosis, hypochromasia and basophilic with visible dots (Figure B). What is the most likely diagnosis?",
+    "options": {
+      "A": "Bismuth toxicity",
+      "B": "Arsenic toxicity",
+      "C": "Iron toxicity",
+      "D": "Mercury toxicity",
+      "E": "Lead toxicity"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of abdominal pain, constipation, fatigue, irritability, distal extremity weakness, and the characteristic grey-blue line along the gums (lead line) strongly suggests lead toxicity. The microcytic, hypochromic, basophilic red blood cells with visible dots (poikilocytosis) are also consistent with lead poisoning.",
+          "critical_evidence": "The presence of a lead line along the gums (lead line) is a highly specific sign of lead exposure.",
+          "differential_considered": "Bismuth toxicity can cause abdominal pain and constipation, but the lead line is not a feature. Arsenic toxicity can cause skin changes and gastrointestinal symptoms, but the lead line is not typical. Iron toxicity can cause microcytic anemia, but the lead line is not a feature. Mercury toxicity can cause neurological symptoms, but the lead line is not a feature.",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 219,
+            "generation_time_s": 10.819
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's clinical presentation of microcytic hypochromic anemia with basophilic stippling of red blood cells, along with the grey-blue line along the gums (Lindsay's sign) and distal extremity weakness, strongly suggests arsenic toxicity. Arsenic causes both the characteristic red blood cell abnormalities and neurological symptoms. The other options can be ruled out based on the specific clinical and laboratory findings.",
+          "critical_evidence": "Microcytic hypochromic red blood cells with basophilic stippling",
+          "differential_considered": "Bismuth toxicity was considered but ruled out due to lack of typical gastrointestinal symptoms. Iron toxicity was ruled out because iron toxicity typically causes macrocytic anemia, not microcytic. Mercury and lead toxicity were ruled out due to lack of specific neurological findings consistent with those toxins.",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.503
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with diffuse abdominal pain, constipation, fatigue, irritability, and a characteristic grey-blue line along the gum margin (Burton’s line), along with microcytic, hypochromic anemia with basophilic stippling — all classic signs of lead toxicity. Distal extremity weakness further supports this diagnosis. These findings are highly specific for lead poisoning, especially in a construction worker, a high-risk occupational exposure group.",
+          "critical_evidence": "Grey-blue line along gum margin (Burton’s line) and basophilic stippling in RBCs are pathognomonic for lead toxicity.",
+          "differential_considered": "Arsenic toxicity may cause similar GI symptoms and anemia, but lacks the characteristic gum line and basophilic stippling. Iron toxicity typically causes hemolytic anemia with hyperchromic RBCs, not microcytic hypochromic. Mercury and bismuth toxicity do not produce basophilic stippling or Burton’s line. Lead toxicity is the only option matching all key findings.",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 246,
+            "generation_time_s": 8.618
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 130,
+            "generation_time_s": 3.153
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 244,
+            "generation_time_s": 7.656
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

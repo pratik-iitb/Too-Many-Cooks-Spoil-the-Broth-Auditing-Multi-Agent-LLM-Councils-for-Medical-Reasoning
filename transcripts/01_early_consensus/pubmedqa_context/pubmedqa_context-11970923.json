@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-11970923",
+  "dataset": "pubmedqa_context",
+  "question_id": "11970923",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Convulsions and retinal haemorrhage: should we look further?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The prevalence of retinal haemorrhages after convulsions is not well established. As these haemorrhages are considered characteristic of child abuse, we investigated their occurrence after convulsive episodes to see whether the finding of haemorrhage should prompt further investigation. Prospective study of 153 children (aged 2 months to 2 years), seen in the emergency department after a convulsive episode. After a thorough history and physical examination, a retinal examination was performed by an ophthalmologist. If findings were positive, further investigation was undertaken to rule out systemic disorder or child abuse. One child was found with unilateral retinal haemorrhages following an episode of a simple febrile convulsion. A thorough investigation uncovered no other reason for this finding.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a child with retinal hemorrhages following a convulsive episode. While retinal hemorrhages can be a sign of child abuse, the study found that in this specific case, the hemorrhages were likely due to the convulsion itself, and no other cause was found. Therefore, further investigation is warranted.",
+          "critical_evidence": "The study found that the retinal hemorrhages were likely due to the convulsion itself, and no other cause was found.",
+          "differential_considered": "Child abuse: While retinal hemorrhages are a classic sign of child abuse, the study found no other evidence of abuse. Therefore, child abuse is less likely in this case.",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 177,
+            "generation_time_s": 10.527
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found only one child with unilateral retinal haemorrhages after a febrile convulsion, and no other systemic disorder was identified. Given the low prevalence and the lack of other concerning findings, the haemorrhage does not strongly suggest child abuse or a serious systemic condition. Further investigation is not indicated in this case.",
+          "critical_evidence": "Only one child had unilateral retinal haemorrhages, and no other systemic disorder was found.",
+          "differential_considered": "Child abuse was considered but ruled out due to the absence of other signs of abuse. Febrile convulsions are common in young children and can cause retinal haemorrhages without indicating abuse.",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 174,
+            "generation_time_s": 9.807
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The case describes a rare finding of unilateral retinal hemorrhage following a convulsion in a young child, with no other identifiable cause. Given that retinal hemorrhages are considered characteristic of child abuse, even in the absence of other signs, the presence of this finding warrants further investigation to rule out abuse or systemic disorders. The study’s conclusion supports that such findings should prompt further evaluation.",
+          "critical_evidence": "One child had unilateral retinal hemorrhages after a simple febrile convulsion, with no other explanation found, and the study recommends further investigation for such findings.",
+          "differential_considered": "Other causes of retinal hemorrhage (e.g., trauma, coagulopathy, infection) were considered but ruled out by thorough investigation; the absence of alternative explanations supports the need for further evaluation for abuse.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 197,
+            "generation_time_s": 8.322
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 417,
+            "generated_tokens": 74,
+            "generation_time_s": 2.163
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The key finding is the presence of retinal hemorrhage following a convulsive episode in a child. While retinal hemorrhage is a known marker for child abuse, it is also a rare finding in other conditions such as febrile seizures or minor trauma. The clinical context specifies that the hemorrhage was found after a simple febrile convulsion and that no other systemic cause was identified. This suggests that the retinal hemorrhage is not definitive evidence for abuse and further investigation may be warranted but is not immediately required based solely on this finding.",
+          "critical_evidence": "The ophthalmologist found retinal hemorrhages following a convulsive episode, but no other systemic cause was identified after thorough investigation.",
+          "differential_considered": "Febrile convulsions, minor trauma, or other non-abusive causes of retinal hemorrhage (e.g., retinopathy of prematurity, though less likely at 2-4 years). The absence of alternative systemic pathology after work-up reduces the likelihood that the hemorrhage is due to abuse, making 'maybe' the most appropriate response.",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 252,
+            "generation_time_s": 9.618
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

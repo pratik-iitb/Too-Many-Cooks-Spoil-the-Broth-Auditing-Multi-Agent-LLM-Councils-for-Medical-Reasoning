@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-7860319",
+  "dataset": "pubmedqa",
+  "question_id": "7860319",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Measuring hospital mortality rates: are 30-day data enough?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "While 30-day mortality is a valuable metric, it's not the only factor to consider when evaluating hospital performance. A single 30-day mortality rate can be misleading if it doesn't account for the patient population served, the complexity of the cases treated, or the presence of comorbidities. Therefore, relying solely on 30-day data is insufficient for a comprehensive assessment.",
+          "critical_evidence": "The need to consider patient population, case complexity, and comorbidities when evaluating hospital performance.",
+          "differential_considered": "Other factors like length of stay, readmission rates, and patient satisfaction scores are also important, but 30-day mortality is a key indicator of overall quality of care and is often used as a benchmark.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 196,
+            "generation_time_s": 9.672
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "30-day mortality data may not fully capture long-term outcomes or delayed complications. Hospital mortality rates focus on short-term survival within 30 days, which can mask patients who survive but develop chronic conditions or require extended care. This limitation makes them insufficient for comprehensive evaluation of hospital performance, especially in cases where delayed mortality or complications are common.",
+          "critical_evidence": "The focus on 30-day mortality fails to account for late-onset complications or long-term morbidity that may occur after the 30-day window.",
+          "differential_considered": "Alternative metrics like 1-year mortality or readmission rates provide better insight into overall hospital performance, but they were not considered in the given options.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.511
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hospital mortality rates are best captured by inpatient stay outcomes, which often extend beyond 30 days, especially for complex or critically ill patients. 30-day data may underrepresent true mortality risk due to delayed complications or readmissions. Evidence from large-scale studies and quality metrics (e.g., CMS, NIS) consistently show that 30-day mortality is insufficient for comprehensive hospital performance assessment.",
+          "critical_evidence": "Multiple national and international guidelines recommend using inpatient mortality or longer-term follow-up for accurate hospital performance evaluation.",
+          "differential_considered": "30-day mortality may be adequate for some acute conditions, but not for complex, chronic, or post-operative cases where complications manifest later — thus, it is insufficient as a universal metric.",
+          "usage": {
+            "prompt_tokens": 228,
+            "generated_tokens": 184,
+            "generation_time_s": 6.437
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The clinical reasoning and critical evidence are optional but highly recommended for demonstrating your understanding and thought process.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 20,
+            "generation_time_s": 0.49
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include using 90-day or 1-year mortality as a more accurate measure for overall patient prognosis, but the case does not specify the context or goals of the mortality rate assessment.",
+          "usage": {
+            "prompt_tokens": 282,
+            "generated_tokens": 194,
+            "generation_time_s": 6.095
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-14992556",
+  "dataset": "pubmedqa_context",
+  "question_id": "14992556",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Artefacts in 24-h pharyngeal and oesophageal pH monitoring: is simplification of pH data analysis feasible?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Ambulatory 24-h dual-channel pharyngeal and oesophageal pH monitoring is the standard test for measuring gastro-oesophageal and gastropharyngeal reflux. Artefacts caused by the intake of food may result in falsely positive gastropharyngeal reflux, which necessitates a manual review of 24-h pH data. The purpose of the study was to investigate the influence of meals and whether leaving out meals affected the reliability of the test. Patients referred for otolaryngological complaints, suspected to have been caused by gastro-oesophageal reflux, underwent 24-h dual-channel pH monitoring. The raw unprocessed pH data were corrected by visual inspection of the 24-h tracings (corrected data), by leaving out meals or meals plus a 2-h postprandrial period. The raw pH data were substantially influenced by artefacts of food intake and pseudoreflux. Data obtained by leaving out meals agreed best with manually corrected data. Many of the falsely positive reflux episodes could be removed, thereby inducing a 9%-18% chance of undetected reflux. When examining the fraction of time supine, manually corrected data and data leaving out meals were fully concordant and detected 79% of patients with gastropharyngeal reflux. However, leaving out meals plus a 2-h postprandrial period resulted in 21%-50% falsely negative tests.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that removing meals and the postprandial period significantly improves the reliability of 24-h pH monitoring data by reducing artefacts. This simplification is feasible because the data obtained after removing meals aligns well with manually corrected data, indicating that the majority of falsely positive reflux episodes can be removed. Therefore, simplifying the analysis by omitting meals is a viable approach.",
+          "critical_evidence": "Data obtained by leaving out meals agreed best with manually corrected data.",
+          "differential_considered": "While other factors could influence the results, the study focuses on the impact of meals and the postprandial period, making this the most relevant differential to consider.",
+          "usage": {
+            "prompt_tokens": 557,
+            "generated_tokens": 175,
+            "generation_time_s": 10.458
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that while simplifying pH data analysis by excluding meals can reduce false positives, it also increases the risk of missing true reflux episodes (21-50% false negatives). This trade-off between sensitivity and specificity means simplification is not universally feasible without compromising diagnostic accuracy.",
+          "critical_evidence": "The 21-50% false negative rate when excluding meals plus postprandial period demonstrates the risk of missing actual reflux episodes, which undermines the reliability of simplified analysis.",
+          "differential_considered": "The key differentials are false positives from food artefacts vs. true reflux episodes. The study shows both are significant, making simplified analysis risky without manual review.",
+          "usage": {
+            "prompt_tokens": 563,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.72
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that leaving out meals from the 24-h pH data yields results that closely match manually corrected data, with minimal loss of true reflux detection (only 9%-18% chance of undetected reflux). This suggests that simplification is feasible without significantly compromising diagnostic accuracy, especially for identifying gastropharyngeal reflux. The concordance in supine time and high detection rate (79%) further supports reliability.",
+          "critical_evidence": "Data obtained by leaving out meals agreed best with manually corrected data, with only a 9%-18% chance of undetected reflux.",
+          "differential_considered": "Other simplification methods (e.g., leaving out meals plus 2-h postprandrial period) were considered but ruled out due to high false-negative rates (21%-50%), making them unreliable. Manual correction remains gold standard but is labor-intensive, hence the need for a feasible alternative.",
+          "usage": {
+            "prompt_tokens": 543,
+            "generated_tokens": 223,
+            "generation_time_s": 9.451
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 561,
+            "generated_tokens": 49,
+            "generation_time_s": 1.452
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "leaving out meals plus a 2-h postprandrial period resulted in 21%-50% falsely negative tests",
+          "differential_considered": "Omitting meals is less accurate than manual review, and there is no clear evidence that any form of simplified automated analysis can maintain diagnostic accuracy consistently. Other methods, such as using algorithms to filter artefacts, are not discussed and likely less reliable than manual correction based on visual inspection.",
+          "usage": {
+            "prompt_tokens": 600,
+            "generated_tokens": 240,
+            "generation_time_s": 9.181
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

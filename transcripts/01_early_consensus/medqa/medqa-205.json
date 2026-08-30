@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-205",
+  "dataset": "medqa",
+  "question_id": "205",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 34-year-old woman visits an outpatient clinic with a complaint of pain in her left breast for the last few months. The pain worsens during her menstrual cycle and relieves once the cycle is over. She denies any nipple discharge, skins changes, warmth, erythema, or a palpable mass in the breast. Her family history is negative for breast, endometrial, and ovarian cancer. There is no palpable mass or any abnormality in the physical examination of her breast. A mammogram is ordered which shows a cluster of microcalcifications with a radiolucent center. A breast biopsy is also performed which reveals a lobulocentric proliferation of epithelium and myoepithelium. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Intraductal papilloma",
+      "B": "Fibroadenoma",
+      "C": "Infiltrating ductal carcinoma",
+      "D": "Sclerosing adenosis",
+      "E": "Ductal hyperplasia without atypia"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of cyclical breast pain, absence of palpable mass or skin changes, and the mammogram findings of microcalcifications with a radiolucent center strongly suggest a benign breast condition. The biopsy revealing lobulocentric proliferation of epithelium and myoepithelium further supports this. While other options are possible, they are less likely given the overall clinical picture.",
+          "critical_evidence": "Lobulocentric proliferation of epithelium and myoepithelium on biopsy",
+          "differential_considered": "Intraductal papilloma: Typically presents with nipple discharge, which the patient denies. Fibroadenoma: Usually a palpable mass, which is absent in this case. Infiltrating ductal carcinoma: Would likely present with a palpable mass and/or skin changes, which are not present. Sclerosing adenosis: Can cause microcalcifications, but the biopsy findings of lobulocentric proliferation are more specific for ductal hyperplasia.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 233,
+            "generation_time_s": 11.473
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's cyclical breast pain, microcalcifications with a radiolucent center on mammogram, and lobulocentric proliferation in biopsy are classic features of intraductal papilloma. The absence of mass, nipple discharge, or skin changes supports this diagnosis. The family history and physical exam findings are also consistent with a benign condition.",
+          "critical_evidence": "Cluster of microcalcifications with a radiolucent center on mammogram",
+          "differential_considered": "Fibroadenoma (would show more diffuse architecture), Infiltrating ductal carcinoma (would show more extensive architectural distortion), Sclerosing adenosis (would show dense fibrotic tissue without microcalcifications), Ductal hyperplasia without atypia (would show hyperplasia without atypia, not microcalcifications)",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.353
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with cyclical breast pain, which is classic for benign conditions like ductal hyperplasia without atypia. The mammogram shows microcalcifications with a radiolucent center, and biopsy reveals lobulocentric proliferation of epithelium and myoepithelium — findings consistent with ductal hyperplasia without atypia. This condition is often associated with cyclical symptoms and benign histology.",
+          "critical_evidence": "Biopsy reveals lobulocentric proliferation of epithelium and myoepithelium, which is characteristic of ductal hyperplasia without atypia.",
+          "differential_considered": "Intraductal papilloma (A) typically presents with nipple discharge and may show papillary structures on biopsy; fibroadenoma (B) is usually a palpable mass; infiltrating ductal carcinoma (C) would show invasive growth and is unlikely with benign histology; sclerosing adenosis (D) may cause microcalcifications but typically shows glandular proliferation with fibrosis, not lobulocentric proliferation.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 253,
+            "generation_time_s": 8.833
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 437,
+            "generated_tokens": 207,
+            "generation_time_s": 4.95
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A. Intraductal papilloma (possible, but biopsy would show papillary growth); B. Fibroadenoma (common in younger women, usually firm mass); C. Infiltrating ductal carcinoma (highly unlikely without other symptoms or mass); E. Ductal hyperplasia (pre-cancerous, often not associated with microcalcifications or this specific histology).",
+          "usage": {
+            "prompt_tokens": 466,
+            "generated_tokens": 323,
+            "generation_time_s": 10.085
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

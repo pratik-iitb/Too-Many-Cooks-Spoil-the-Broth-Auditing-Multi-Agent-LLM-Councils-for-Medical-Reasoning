@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1386",
+  "dataset": "medqa",
+  "question_id": "1386",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 4-year-old girl is brought to the physician for a routine checkup. She was recently adopted and has never seen a doctor before. The patient's parents state she was very emaciated when they adopted her and noticed she has trouble seeing in the evening. They also noted that she was experiencing profuse foul-smelling diarrhea as well, which is currently being worked up by a gastroenterologist. Her temperature is 97.8°F (36.6°C), blood pressure is 104/54 mmHg, pulse is 100/min, respirations are 19/min, and oxygen saturation is 98% on room air. The girl appears very thin. She has dry skin noted on physical exam. Laboratory studies are ordered as seen below.\n\nHemoglobin: 12 g/dL\nHematocrit: 36%\nLeukocyte count: 4,500/mm^3 with normal differential\nPlatelet count: 191,000/mm^3\n\nSerum:\nNa+: 139 mEq/L\nCl-: 100 mEq/L\nK+: 3.8 mEq/L\nHCO3-: 28 mEq/L\nBUN: 20 mg/dL\nGlucose: 88 mg/dL\nCreatinine: 0.7 mg/dL\nCa2+: 9.0 mg/dL\n\nWhich of the following findings is also likely to be seen in this patient?",
+    "options": {
+      "A": "Ataxia",
+      "B": "Cheilosis",
+      "C": "Diarrhea",
+      "D": "Perifollicular hemorrhages",
+      "E": "Xerophthalmia"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of malnourishment, emaciation, and recent adoption strongly suggests a possible nutritional deficiency. The dry skin and possible peripheral neuropathy (indicated by ataxia) are also consistent with this. The most likely deficiency given the clinical picture is vitamin A deficiency, which can cause perifollicular hemorrhages.",
+          "critical_evidence": "The patient's history of malnourishment, emaciation, and recent adoption strongly suggests a possible nutritional deficiency.",
+          "differential_considered": "Ataxia (A) could be due to various causes, but in the context of malnourishment and possible vitamin A deficiency, it is a plausible finding. Cheilosis (B) is associated with riboflavin deficiency, which is less likely given the overall presentation. Diarrhea (C) is already being worked up by a gastroenterologist, so it's not the most likely answer. Xerophthalmia (E) is a sign of vitamin A deficiency, but perifollicular hemorrhages are a more direct and common manifestation of vitamin A deficiency in children, especially those with malnourishment.",
+          "usage": {
+            "prompt_tokens": 593,
+            "generated_tokens": 266,
+            "generation_time_s": 13.166
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's dry skin and emaciation suggest dehydration and malnutrition. Severe diarrhea and low serum potassium (3.8 mEq/L) indicate significant electrolyte imbalance. Cheilosis (cheek lesions) is a common finding in patients with severe malnutrition and vitamin B2 deficiency, which often accompanies chronic diarrhea and poor dietary intake. While ataxia could occur with severe vitamin B1 deficiency, it's less likely than cheilosis in this context. Diarrhea is already known, perifollicular hemorrhages are more associated with vitamin A deficiency (xerophthalmia), and xerophthalmia itself is a later stage of vitamin A deficiency.",
+          "critical_evidence": "Serum potassium of 3.8 mEq/L and history of profuse diarrhea",
+          "differential_considered": "Vitamin B2 deficiency (riboflavin) is the most likely cause of cheilosis, which fits the malnutrition and diarrhea history. Vitamin B1 deficiency could cause ataxia but is less likely given the potassium level. Vitamin A deficiency could cause xerophthalmia but is a later stage of the disease.",
+          "usage": {
+            "prompt_tokens": 567,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.146
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a malnourished, recently adopted child with night blindness (nyctalopia), dry skin, and chronic diarrhea. These are classic signs of vitamin A deficiency, which commonly presents with xerophthalmia (dry eyes) and night blindness. The other options are less specific or not classically associated with this presentation. Ataxia is more typical of B12 or folate deficiency, cheilosis with B complex deficiency, perifollicular hemorrhages with vitamin C deficiency, and diarrhea is already noted but not a 'finding' to be added as a new clinical sign.",
+          "critical_evidence": "Night blindness and dry skin are hallmark signs of vitamin A deficiency, which directly supports xerophthalmia as the best answer.",
+          "differential_considered": "Considered vitamin B12/folate deficiency (ataxia, cheilosis), vitamin C deficiency (perifollicular hemorrhages), and malabsorption syndromes (diarrhea), but these do not explain the night blindness and dry skin as specifically as vitamin A deficiency does.",
+          "usage": {
+            "prompt_tokens": 562,
+            "generated_tokens": 253,
+            "generation_time_s": 8.904
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's history of malnutrition, dry skin, and low hemoglobin/hematocrit suggest a nutritional deficiency. Cheilosis, which is inflammation and fissuring of the lips, is a common sign of nutritional deficiencies such as iron, vitamin B12, or folate deficiency. Given the patient's history and presentation, cheilosis is the most likely additional finding.",
+          "critical_evidence": "Cheilosis",
+          "differential_considered": "Ataxia is not typically associated with nutritional deficiencies and is more commonly related to neurologic conditions. Diarrhea is being worked up by a gastroenterologist and is not directly related to nutritional deficiencies. Perifollicular hemorrhages and xerophthalmia are not typically associated with nutritional deficiencies in this context.",
+          "usage": {
+            "prompt_tokens": 565,
+            "generated_tokens": 182,
+            "generation_time_s": 4.365
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 616,
+            "generated_tokens": 1024,
+            "generation_time_s": 31.93
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 1,
+        "B": 3,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

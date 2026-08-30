@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-832",
+  "dataset": "medqa",
+  "question_id": "832",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Cardiac surgery is consulted on a newborn with a large ventricular septal defect. The child has poor weight gain and feeding difficulties. He requires furosemide and captopril to avoid dyspnea. On physical examination his temperature is 36.9°C (98.4°F), pulse rate is 158/min, respiratory rate is 30/min, and blood pressure is 94/62 mm Hg. Chest auscultation reveals a holosystolic murmur along the left lower sternal border and a mid-diastolic low-pitched rumble at the apex. Abdominal examination reveals the presence of hepatomegaly. An echocardiogram confirms a diagnosis of a membranous VSD while hemodynamic studies show a Qp:Qs ratio of 2.8:1. Which of the following is the best management option?",
+    "options": {
+      "A": "Continue medical treatment and provide reassurance about spontaneous closure of the defect",
+      "B": "Addition of digoxin to the current medical regimen with regular follow-up until spontaneous closure occurs",
+      "C": "Surgical closure of the defect",
+      "D": "Transcatheter occlusion of the defect",
+      "E": "Hybrid surgery using both transcatheter device and surgical repair"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The newborn presents with a large VSD, poor weight gain, feeding difficulties, and a significantly elevated Qp:Qs ratio (2.8:1). This indicates significant pulmonary overcirculation due to the VSD. While medical management with furosemide and captopril can alleviate symptoms, it does not address the underlying structural defect. Surgical closure is the definitive treatment for a large VSD, especially in a symptomatic infant, to prevent long-term complications such as pulmonary hypertension and heart failure.",
+          "critical_evidence": "The Qp:Qs ratio of 2.8:1 strongly suggests significant pulmonary overcirculation due to the VSD, indicating the need for definitive intervention.",
+          "differential_considered": "A: While spontaneous closure is possible, the large size of the VSD and the presence of symptoms make this a less likely and potentially dangerous option. B: Digoxin is not a first-line treatment for VSD and does not address the underlying structural problem. D: Transcatheter occlusion is an option for smaller VSDs, but given the size of the defect and the patient's symptoms, surgical repair is generally preferred. E: Hybrid surgery is a more complex approach and not typically the first-line treatment for a large VSD in a newborn.",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 301,
+            "generation_time_s": 15.21
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child has a membranous ventricular septal defect with a Qp:Qs ratio of 2.8:1, indicating significant shunt. The presence of hepatomegaly and poor growth suggests volume overload. While medical therapy with furosemide and captopril is appropriate, surgical closure is the best option as membranous VSDs typically require surgical intervention due to their poor prognosis with medical management alone.",
+          "critical_evidence": "Membranous VSD with Qp:Qs ratio of 2.8:1",
+          "differential_considered": "Considered tetralogy of Fallot, pulmonary valve stenosis, and other congenital heart defects, but membranous VSD with the given echocardiographic findings is the most likely diagnosis requiring surgical closure",
+          "usage": {
+            "prompt_tokens": 484,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.156
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The newborn presents with symptomatic heart failure (poor weight gain, feeding difficulties, need for diuretics and ACE inhibitor), hepatomegaly, and a large VSD with a Qp:Qs ratio of 2.8:1, indicating significant left-to-right shunt. These findings suggest the defect is not likely to close spontaneously and requires intervention to prevent irreversible pulmonary vascular disease. Surgical closure is the gold standard for symptomatic large VSDs in infancy.",
+          "critical_evidence": "Qp:Qs ratio of 2.8:1 and clinical signs of heart failure (dyspnea, hepatomegaly, poor feeding) indicate significant shunt and symptomatic disease requiring surgical intervention.",
+          "differential_considered": "Spontaneous closure is unlikely in a newborn with symptomatic heart failure and large VSD; medical management alone is insufficient. Transcatheter occlusion is not first-line in neonates with large membranous VSDs due to technical challenges and risk of residual shunt or device complications. Hybrid surgery is not indicated here as the defect is large and symptomatic, making surgical repair the optimal approach.",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 268,
+            "generation_time_s": 9.686
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 215,
+            "generation_time_s": 5.208
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A and B involve waiting for spontaneous closure, which is unlikely in a large VSD with clinical signs of heart failure. Option D (transcatheter closure) is appropriate in selected cases but less definitive than surgical repair for a large defect. Option E (hybrid surgery) is not indicated unless there are additional complications not mentioned here.",
+          "usage": {
+            "prompt_tokens": 516,
+            "generated_tokens": 319,
+            "generation_time_s": 10.029
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

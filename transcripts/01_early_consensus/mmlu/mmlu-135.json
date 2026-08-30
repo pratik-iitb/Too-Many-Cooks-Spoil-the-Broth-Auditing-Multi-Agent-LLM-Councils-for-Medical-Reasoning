@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-135",
+  "dataset": "mmlu",
+  "question_id": "135",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "What size of cannula would you use in a patient who needed a rapid blood transfusion (as of 2020 medical knowledge)?",
+    "options": {
+      "A": "18 gauge.",
+      "B": "20 gauge.",
+      "C": "22 gauge.",
+      "D": "24 gauge."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In a rapid blood transfusion, the goal is to minimize the risk of complications such as trauma and infection. A smaller gauge cannula (20 gauge) is preferred over larger gauges (18, 22, or 24 gauge) to reduce the risk of these complications. A 20 gauge cannula provides adequate blood flow for a rapid transfusion while minimizing trauma.",
+          "critical_evidence": "The need for a rapid blood transfusion.",
+          "differential_considered": "While 18 gauge could be used, 20 gauge is generally preferred for rapid transfusions due to the lower risk of complications. 22 and 24 gauge are too large and would increase the risk of trauma and infection. Therefore, 20 gauge is the best option.",
+          "usage": {
+            "prompt_tokens": 291,
+            "generated_tokens": 198,
+            "generation_time_s": 10.641
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "For rapid blood transfusion, a larger cannula size is required to achieve higher flow rates. An 18 gauge cannula provides the largest diameter among the options, allowing for faster administration of blood products. This is critical in emergency situations where time is of the essence to maintain hemodynamic stability.",
+          "critical_evidence": "Larger gauge size directly correlates with higher flow rates, which is essential for rapid transfusion",
+          "differential_considered": "While smaller gauges (20, 22, 24) may be used for slower infusions or in specific clinical scenarios, they are not optimal for rapid transfusion. These sizes would unnecessarily prolong the transfusion process and increase patient risk.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 290,
+            "generation_time_s": 14.967
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "For rapid blood transfusion, larger gauge cannulas (smaller diameter numbers) are preferred to maximize flow rate and minimize transfusion time. An 18-gauge cannula provides the highest flow capacity among the options, which is critical in emergent or massive transfusion scenarios. Smaller gauges (20–24) are insufficient for rapid volume replacement.",
+          "critical_evidence": "18-gauge cannula is the standard of care for rapid blood transfusion in 2020 guidelines due to its optimal flow rate and safety profile in emergency settings.",
+          "differential_considered": "Considered 20-gauge for moderate transfusion, 22-gauge for routine IV access, and 24-gauge for pediatric or low-volume needs — all inadequate for rapid transfusion; ruled out based on flow rate requirements.",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 204,
+            "generation_time_s": 8.026
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 282,
+            "generated_tokens": 73,
+            "generation_time_s": 1.929
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 183,
+            "generation_time_s": 6.082
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-260",
+  "dataset": "medqa",
+  "question_id": "260",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old man presents to the emergency department with vomiting. He states that he has experienced severe vomiting starting last night that has not been improving. He states that his symptoms improve with hot showers. The patient has presented to the emergency department with a similar complaints several times in the past as well as for intravenous drug abuse. His temperature is 99.5°F (37.5°C), blood pressure is 127/68 mmHg, pulse is 110/min, respirations are 22/min, and oxygen saturation is 98% on room air. Physical exam is deferred as the patient is actively vomiting. Which of the following is associated with the most likely diagnosis?",
+    "options": {
+      "A": "Alcohol use",
+      "B": "Marijuana use",
+      "C": "Substance withdrawal",
+      "D": "Toxin ingestion",
+      "E": "Viral gastroenteritis"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of intravenous drug abuse, coupled with the symptom relief with hot showers, strongly suggests opioid withdrawal. Opioid withdrawal is a common cause of vomiting in individuals with a history of IV drug use. The elevated pulse and respiratory rate also support this diagnosis.",
+          "critical_evidence": "History of intravenous drug abuse and relief of symptoms with hot showers.",
+          "differential_considered": "Alcohol use: While alcohol can cause vomiting, the relief with hot showers is less typical. Marijuana use: Less likely to cause severe vomiting and relief with hot showers. Toxin ingestion: Possible, but the history of IV drug use makes withdrawal more likely. Viral gastroenteritis: Less likely given the patient's history and the specific relief with hot showers.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 193,
+            "generation_time_s": 9.525
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of recurrent vomiting with improvement from hot showers, along with past presentations for IV drug abuse, strongly suggests substance withdrawal. Alcohol and marijuana use are less likely given the specific pattern of symptoms. Viral gastroenteritis typically doesn't improve with hot showers and is less common in chronic drug abusers. Toxin ingestion would usually present with other symptoms. The physical exam is deferred due to active vomiting, limiting further assessment.",
+          "critical_evidence": "History of recurrent vomiting with improvement from hot showers and past IV drug abuse",
+          "differential_considered": "Considered alcohol use (less likely with hot shower relief), marijuana use (similar pattern but less common in IV abusers), viral gastroenteritis (non-specific symptoms), toxin ingestion (wouldn't explain hot shower relief), and substance withdrawal (best fits the pattern of chronic drug abuse and hot shower improvement).",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.012
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has recurrent episodes of severe vomiting that improve with hot showers, a classic sign of opioid withdrawal. His history of intravenous drug abuse further supports substance withdrawal as the most likely diagnosis. Other options like viral gastroenteritis or toxin ingestion lack the specific symptom pattern and history of recurrent episodes. Alcohol use and marijuana use are less likely given the specific symptom trigger (hot showers) and history.",
+          "critical_evidence": "Symptoms improve with hot showers, a hallmark of opioid withdrawal, combined with history of IV drug abuse.",
+          "differential_considered": "Viral gastroenteritis (acute, self-limited, no specific trigger), toxin ingestion (acute onset, no specific relief), alcohol use (typically associated with hangover, not hot shower relief), marijuana use (not associated with hot shower relief), and substance withdrawal (best fits all findings).",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 204,
+            "generation_time_s": 7.14
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 9,
+            "generation_time_s": 0.24
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's recurrent episodes of vomiting, especially in the context of a history of intravenous drug abuse, and the symptom improvement with hot showers, are highly suggestive of withdrawal syndrome, particularly from substances like alcohol or benzodiazepines. The absence of fever, hypotension, or other typical infectious or toxic signs makes viral gastroenteritis and toxin ingestion less likely. While both alcohol and marijuana use could be considered, the classic presentation of withdrawal (e.g., nausea, vomiting, agitated confusion or anxiety) aligns better with substance withdrawal, especially given his IV drug history.",
+          "critical_evidence": "Symptom improvement with hot showers is a hallmark of withdrawal from alcohol or certain drugs, and the patient's history of intravenous drug abuse increases the likelihood of withdrawal.",
+          "differential_considered": "Alcohol use (A) and marijuana use (B) are possible, but hot shower response is not typical for marijuana withdrawal. Viral gastroenteritis (E) usually presents with more systemic symptoms like diarrhea and malaise. Toxin ingestion (D) would expect acute onset and other specific toxic features absent here.",
+          "usage": {
+            "prompt_tokens": 434,
+            "generated_tokens": 259,
+            "generation_time_s": 8.032
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

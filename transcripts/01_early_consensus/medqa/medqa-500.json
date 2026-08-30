@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-500",
+  "dataset": "medqa",
+  "question_id": "500",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old G1P0 woman presents to an obstetrician for her first prenatal visit. She has been pregnant for about 10 weeks and is concerned about how pregnancy will affect her health. Specifically, she is afraid that her complicated medical history will be adversely affected by her pregnancy. Her past medical history is significant for mild polycythemia, obesity hypoventilation syndrome, easy bleeding, multiple sclerosis, and aortic regurgitation. Which of these disorders is most likely to increase in severity during the course of the pregnancy?",
+    "options": {
+      "A": "Easy bleeding",
+      "B": "Heart murmur",
+      "C": "Hypoventilation",
+      "D": "Multiple sclerosis",
+      "E": "Polycythemia"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of polycythemia makes it the most likely condition to increase in severity during pregnancy. Pregnancy causes increased blood volume and oxygen demand, which can exacerbate polycythemia, leading to higher hematocrit levels and potential complications like thrombosis.",
+          "critical_evidence": "Polycythemia",
+          "differential_considered": "Easy bleeding: While pregnancy can cause bleeding, it's not directly linked to polycythemia. Heart murmur: Aortic regurgitation can be affected by pregnancy, but the primary concern is the polycythemia. Hypoventilation: Pregnancy can worsen hypoventilation, but the polycythemia is a more direct and significant concern. Multiple sclerosis: MS is typically stable during pregnancy, although there can be some fluctuations.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 201,
+            "generation_time_s": 9.952
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Pregnancy increases the risk of bleeding due to hormonal changes that affect platelet function and coagulation. Polycythemia may worsen with pregnancy, but it's generally manageable. Multiple sclerosis can have variable courses but pregnancy doesn't typically worsen it. Aortic regurgitation may be monitored but pregnancy usually doesn't exacerbate it. Obesity hypoventilation syndrome can be aggravated by pregnancy-related weight gain, but the most significant risk is from increased bleeding.",
+          "critical_evidence": "Hormonal changes during pregnancy that affect platelet function and coagulation",
+          "differential_considered": "Polycythemia, obesity hypoventilation syndrome, and aortic regurgitation were considered but ruled out as the most likely to worsen. Multiple sclerosis was considered but pregnancy typically doesn't exacerbate it. Heart murmur is a finding of aortic regurgitation but pregnancy doesn't typically worsen it.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.675
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Obesity hypoventilation syndrome (OHS) is known to worsen during pregnancy due to increased metabolic demands, reduced diaphragmatic excursion, and weight gain, leading to further hypoventilation and potential respiratory failure. While other conditions like polycythemia or MS may have variable effects, OHS has a well-documented tendency to exacerbate in pregnancy. The patient’s concern about worsening health is clinically relevant here.",
+          "critical_evidence": "Obesity hypoventilation syndrome is known to worsen during pregnancy due to increased metabolic demands and mechanical compression of the diaphragm.",
+          "differential_considered": "Polycythemia may be exacerbated by pregnancy but is less consistently severe than OHS; MS typically remains stable or may show mild exacerbation; easy bleeding is not typically worsened by pregnancy; heart murmurs are often benign and not inherently progressive.",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 206,
+            "generation_time_s": 7.247
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 35,
+            "generation_time_s": 0.862
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "Polycythemia, particularly when mild, can progress to polycythemia major during pregnancy due to the body's increased demand for red blood cells and expansion of blood volume. Other conditions listed either have stable or potentially improving symptoms (e.g., easy bleeding may decrease due to hormonal changes, aortic regurgitation may worsen but not necessarily due to pregnancy, multiple sclerosis and hypoventilation syndrome are not typically worsened by pregnancy). The most significant pregnancy-related change in her condition is therefore expected to be in polycythemia.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 253,
+            "generation_time_s": 7.985
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

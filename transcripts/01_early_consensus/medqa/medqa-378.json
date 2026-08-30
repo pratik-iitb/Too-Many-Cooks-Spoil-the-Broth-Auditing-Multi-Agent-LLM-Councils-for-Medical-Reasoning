@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-378",
+  "dataset": "medqa",
+  "question_id": "378",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old obese man presents to the emergency department with chest pain, shortness of breath, and a fever. He states that for the past week he has generally felt ill and has had a cough, sore throat, and fever. Starting today, he began experiencing chest pain and shortness of breath. The patient is otherwise healthy and has no significant past medical history. His temperature is 102°F (38.9°C), blood pressure is 120/85 mmHg, pulse is 119/min, respirations are 26/min, and oxygen saturation is 100% on room air. The patient’s ECG is seen in Figure A, and his chest radiograph is seen in Figure B. Which of the following is likely to be found in this patient on confirmatory testing?",
+    "options": {
+      "A": "Angiography demonstrating vessel narrowing",
+      "B": "Biopsy demonstrating necrosis",
+      "C": "CT angiogram demonstrating an embolus in the pulmonary vasculature",
+      "D": "CT chest demonstrating thickening of the pericardium",
+      "E": "Sputum culture demonstrating a gram positive organism"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of chest pain, shortness of breath, fever, and cough, along with the ECG findings (likely showing signs of pulmonary edema or strain), and the chest radiograph (likely showing infiltrates or consolidation) strongly suggest a pulmonary embolism (PE). The patient's obesity and recent illness could be risk factors for PE. A CT angiogram is the gold standard for diagnosing PE.",
+          "critical_evidence": "The combination of chest pain, shortness of breath, fever, and the ECG findings (likely showing signs of pulmonary edema or strain) points towards a pulmonary embolism.",
+          "differential_considered": "Angiography (A) is invasive and not the first-line diagnostic test for PE. Biopsy (B) is not relevant to the acute presentation. Pericardial thickening (D) is not a typical finding in acute PE. Sputum culture (E) would be more relevant if pneumonia was suspected, but the clinical picture is more suggestive of PE.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 243,
+            "generation_time_s": 12.743
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's sudden onset of chest pain, shortness of breath, and fever after a week of illness suggests a possible pulmonary embolism. The rapid heart rate and elevated temperature support systemic inflammation, while the normal oxygen saturation rules out acute respiratory distress syndrome. A CT angiogram would most directly demonstrate an embolus in the pulmonary vasculature, which aligns with the clinical presentation.",
+          "critical_evidence": "The sudden onset of symptoms and the presence of fever and respiratory distress strongly suggest a pulmonary embolism.",
+          "differential_considered": "While acute pericarditis (option D) or pneumonia (option E) could be considered, the rapid development of symptoms and the absence of typical signs of pericarditis or pneumonia make pulmonary embolism the most likely diagnosis. Angiography (option A) is less specific than CT angiogram for detecting emboli, and biopsy (option B) is not indicated in this setting.",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.665
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute chest pain, dyspnea, fever, and systemic symptoms suggestive of a pulmonary embolism (PE), especially in the context of obesity and recent respiratory illness. The ECG (Figure A) likely shows sinus tachycardia and possibly S1Q3T3 or right axis deviation, and the chest radiograph (Figure B) may show a wedge-shaped opacity or no significant infiltrate, both consistent with PE. Confirmatory testing for PE is a CT pulmonary angiogram, which directly visualizes emboli in the pulmonary vasculature.",
+          "critical_evidence": "The combination of acute chest pain, dyspnea, fever, tachycardia, and risk factors (obesity) strongly suggests pulmonary embolism, which is best confirmed by CT angiogram demonstrating an embolus.",
+          "differential_considered": "Pneumonia (ruled out by lack of infiltrate on CXR and absence of purulent sputum), myocardial infarction (ruled out by absence of ST elevation on ECG), pericarditis (ruled out by lack of pericardial thickening on CXR), and sepsis (ruled out by absence of systemic signs beyond fever and tachycardia).",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 295,
+            "generation_time_s": 10.355
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 13,
+            "generation_time_s": 0.34
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Pneumonia, pneumonia, myocardial infarction, pericarditis, but these are less likely to explain the acute onset of both chest pain and shortness of breath with fever and the described clinical context of possible embolic event",
+          "usage": {
+            "prompt_tokens": 489,
+            "generated_tokens": 243,
+            "generation_time_s": 7.658
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

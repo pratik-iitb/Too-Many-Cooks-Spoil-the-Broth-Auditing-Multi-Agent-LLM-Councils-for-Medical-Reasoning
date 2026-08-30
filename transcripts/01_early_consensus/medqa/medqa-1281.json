@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1281",
+  "dataset": "medqa",
+  "question_id": "1281",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 53-year-old woman with type 2 diabetes mellitus is admitted for evaluation of recurrent episodes of nausea, tremors, and excessive sweating. She works as a nurse and reports self-measured blood glucose levels below 50 mg/dL on several occasions. Her family history is positive for borderline personality disorder. The only medication listed in her history is metformin. Which of the following is the most appropriate next step in management?",
+    "options": {
+      "A": "Report the patient to her employer",
+      "B": "Ask the patient if she is taking any medications other than metformin",
+      "C": "Search the patient's belongings for insulin",
+      "D": "Measure glycated hemoglobin concentration",
+      "E": "Measure serum C-peptide concentration"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms (nausea, tremors, excessive sweating) and history of hypoglycemia (blood glucose < 50 mg/dL) strongly suggest a possible insulin deficiency or inappropriate insulin action. While the patient is on metformin, it is not a primary treatment for insulin deficiency. The first step is to rule out other potential causes of hypoglycemia, such as medication interactions or non-adherence to her diabetes management plan. Asking the patient if she is taking any other medications is crucial to identify potential drug-induced hypoglycemia or other contributing factors.",
+          "critical_evidence": "The patient's symptoms and history of hypoglycemia (blood glucose < 50 mg/dL) strongly suggest a possible insulin deficiency or inappropriate insulin action.",
+          "differential_considered": "A: Reporting to the employer is premature without further investigation. C: While insulin is a possibility, it's not the first step. D: HbA1c is a good measure of long-term glycemic control, but not helpful in the acute setting of hypoglycemia. E: C-peptide is helpful in differentiating between type 1 and type 2 diabetes, but not the immediate priority in this case.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 278,
+            "generation_time_s": 13.76
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of nausea, tremors, and excessive sweating with self-measured blood glucose levels below 50 mg/dL suggest possible hypoglycemia. While metformin alone doesn't typically cause hypoglycemia, the patient's symptoms and low glucose levels warrant investigating other medications she might be taking that could contribute to this. Asking about additional medications is the most appropriate next step to identify potential causes of her symptoms.",
+          "critical_evidence": "Self-measured blood glucose levels below 50 mg/dL",
+          "differential_considered": "Considered hypoglycemia due to medication use, but ruled out insulin use as the primary cause since it's not listed in her history. Also considered borderline personality disorder as a potential factor, but it's not directly related to her current symptoms. The key differentiator is the need to identify other medications that could cause hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.702
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent hypoglycemic symptoms (nausea, tremors, sweating) and self-reported blood glucose levels below 50 mg/dL, which strongly suggests hypoglycemia. Given her history of type 2 diabetes and use of metformin alone (which does not cause hypoglycemia), the most likely explanation is surreptitious insulin use or another hypoglycemic agent. The next most appropriate step is to ask about other medications to identify potential causes. Reporting to employer (A) or searching belongings (C) are inappropriate without further investigation. Glycated hemoglobin (D) and C-peptide (E) are useful but not immediate next steps; C-peptide may help differentiate insulin use from endogenous hypoglycemia, but it requires prior suspicion of exogenous insulin, which is not yet confirmed.",
+          "critical_evidence": "Self-reported blood glucose levels below 50 mg/dL with associated symptoms of hypoglycemia in a patient on metformin alone.",
+          "differential_considered": "Other causes of hypoglycemia (e.g., sulfonylureas, insulin use, reactive hypoglycemia) were considered, but the most likely explanation is exogenous insulin use, which requires confirmation through medication history before proceeding to invasive or investigative steps.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 309,
+            "generation_time_s": 10.851
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 51,
+            "generation_time_s": 1.248
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Recurrent episodes of nausea, tremors, and excessive sweating with self-measured blood glucose below 50 mg/dL while on metformin",
+          "differential_considered": "Options B, C, and E could be considered in a broader workup, but the acute symptoms strongly suggest hypoglycemia, which should be confirmed first with a blood glucose measurement. Family history of BPD is not clinically relevant here.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 287,
+            "generation_time_s": 9.064
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

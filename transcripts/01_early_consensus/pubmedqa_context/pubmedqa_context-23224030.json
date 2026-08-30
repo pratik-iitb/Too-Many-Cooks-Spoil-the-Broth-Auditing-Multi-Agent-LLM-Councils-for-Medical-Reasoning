@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-23224030",
+  "dataset": "pubmedqa_context",
+  "question_id": "23224030",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do European people with type 1 diabetes consume a high atherogenic diet?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Individuals with type 1 diabetes have a high risk of developing cardiovascular diseases, and it has been reported that they consume a high atherogenic diet. We examined how nutrient intake and adherence to current European nutritional recommendations evolved in a large cohort of European individuals with type 1 diabetes over a period of 7 years.SUBJECTS/ We analysed data from the EURODIAB Prospective Complications Study, a European multicentre prospective cohort study. Standardized 3-day dietary records were employed in individuals with type 1 diabetes. One thousand one hundred and two patients (553 men, 549 women, baseline age 33 ± 10 years, duration 15 ± 9 years) had complete nutritional data available at baseline and after 7 years. We calculated mean differences in reported nutrients over time and adjusted these for age, gender, HbA1c and BMI with ANOVA models. Compared to baseline, there were minor changes in nutrients. Reported protein (-0.35% energy (en), fat (-1.07% en), saturated fat (-0.25% en) and cholesterol (-7.42 mg/1000 kcal) intakes were lower, whereas carbohydrate (+1.23% en) and fibre (+0.46 g/1000 kcal) intakes were higher at the 7-year follow-up. European recommendations for adequate nutrient intakes were followed in individuals with type 1 diabetes for protein (76% at baseline and 78% at follow-up), moderately for fat (34, 40%), carbohydrate (34, 41%) and cholesterol (39, 47%), but poorly for fibre (1.4, 2.4%) and saturated fat (11, 13%).",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that European individuals with type 1 diabetes followed European recommendations for protein, carbohydrate, and cholesterol intake, but poorly for fiber and saturated fat. While they reported lower intakes of fat, saturated fat, and cholesterol, the overall dietary pattern did not appear to be significantly atherogenic based on the reported nutrient intakes.",
+          "critical_evidence": "Reported protein (-0.35% energy (en), fat (-1.07% en), saturated fat (-0.25% en) and cholesterol (-7.42 mg/1000 kcal) intakes were lower, whereas carbohydrate (+1.23% en) and fibre (+0.46 g/1000 kcal) intakes were higher at the 7-year follow-up.",
+          "differential_considered": "A high atherogenic diet could be associated with increased cardiovascular risk. However, the study showed that individuals with type 1 diabetes were not significantly deviating from European dietary recommendations, suggesting that their diet was not inherently atherogenic.",
+          "usage": {
+            "prompt_tokens": 635,
+            "generated_tokens": 253,
+            "generation_time_s": 15.003
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The data shows that while individuals with type 1 diabetes in Europe had higher carbohydrate and fiber intake over 7 years, they actually reduced their fat, saturated fat, and cholesterol intake. This indicates a shift toward a more heart-healthy diet rather than a high atherogenic diet. The poor adherence to fiber and saturated fat recommendations suggests some room for improvement, but the overall trend is toward healthier dietary patterns.",
+          "critical_evidence": "The 7-year follow-up showed reduced fat (-1.07% energy), saturated fat (-0.25% energy), and cholesterol (-7.42 mg/1000 kcal) intakes compared to baseline, indicating a move away from atherogenic dietary patterns.",
+          "differential_considered": "While the question could be interpreted as asking about general dietary habits, the data specifically shows a trend toward healthier eating patterns over time, making 'no' the most accurate response based on the observed dietary changes.",
+          "usage": {
+            "prompt_tokens": 613,
+            "generated_tokens": 222,
+            "generation_time_s": 12.492
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that despite minor changes over 7 years, individuals with type 1 diabetes in Europe still consumed diets with high levels of saturated fat and cholesterol, which are key components of atherogenic diets. Adherence to fiber and saturated fat recommendations was very poor, indicating continued risk factors for cardiovascular disease.",
+          "critical_evidence": "Adherence to fiber (1.4% to 2.4%) and saturated fat (11% to 13%) recommendations was poor, indicating continued consumption of atherogenic dietary components despite overall minor changes in nutrient intake.",
+          "differential_considered": "Considered whether dietary changes over 7 years might have improved adherence, but the data show minimal improvement and continued poor adherence to key protective nutrients, making 'maybe' or 'no' unsupported.",
+          "usage": {
+            "prompt_tokens": 611,
+            "generated_tokens": 193,
+            "generation_time_s": 8.142
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 611,
+            "generated_tokens": 63,
+            "generation_time_s": 1.849
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Atherogenic diet implies high intake of saturated fat and cholesterol, which did not show significant increases; however, the lack of clear data and the minor changes prevent a definitive \"no\" answer. Other possibilities like increased sugar or refined carbs were not highlighted in the provided context.",
+          "usage": {
+            "prompt_tokens": 645,
+            "generated_tokens": 243,
+            "generation_time_s": 9.263
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

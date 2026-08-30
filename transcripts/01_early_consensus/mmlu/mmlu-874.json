@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-874",
+  "dataset": "mmlu",
+  "question_id": "874",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 3-year-old boy with chronic granulomatous disease is brought to the physician because of a 3-week history of fever and warm, red lumps under both arms. His temperature is 38°C (100.4°F). Physical examination shows enlarged, 3-cm, erythematous axillary lymph nodes bilaterally. On palpation, the nodes are tender, fluctuant, and movable. Examination of a fine-needle aspirate from one of the nodes shows gram-positive cocci in clusters. Cultures of the aspirate grow yellow, βhemolytic colonies that are catalase and coagulase positive. A polymerase chain reaction test shows mecA-positive organisms. Which of the following is the most appropriate pharmacotherapy for this patient?",
+    "options": {
+      "A": "Ciprofloxacin",
+      "B": "Penicillin G",
+      "C": "Rifampin",
+      "D": "Vancomycin"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has chronic granulomatous disease (CGD), which impairs the ability of phagocytes to kill catalase-positive organisms. The Gram stain and culture results indicate *Staphylococcus aureus*, which is catalase-positive. Given the patient's CGD, the most appropriate treatment is penicillin G, which is effective against methicillin-sensitive *Staphylococcus aureus* (MSSA). While the organism is methicillin-resistant *Staphylococcus aureus* (MRSA), penicillin G is still the preferred initial treatment for CGD patients.",
+          "critical_evidence": "The presence of catalase-positive organisms in a patient with CGD strongly suggests *Staphylococcus aureus*, and the culture confirms this. The mecA-positive result indicates MRSA, but penicillin G is still the preferred initial treatment for CGD patients.",
+          "differential_considered": "The differential diagnoses considered include other bacterial infections, fungal infections, and viral infections. However, the Gram stain and culture results strongly point towards a bacterial infection, specifically *Staphylococcus aureus*. The patient's CGD makes them highly susceptible to catalase-positive organisms, and the clinical presentation is consistent with a localized infection. Therefore, other differentials are less likely.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 283,
+            "generation_time_s": 14.269
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has chronic granulomatous disease (CGD), a genetic disorder characterized by impaired phagocytic function, leading to recurrent pyogenic infections. The clinical findings of warm, red, tender, movable lymph nodes with gram-positive cocci in clusters, yellow β-hemolytic colonies, catalase and coagulase positivity, and mecA positivity strongly suggest Staphylococcus aureus. Methicillin-resistant S. aureus (MRSA) is the most likely organism, and MRSA is typically treated with β-lactam antibiotics. Penicillin G is appropriate for MRSA, while ciprofloxacin, rifampin, and vancomycin are less ideal due to resistance patterns and lack of direct activity against MRSA. Penicillin G is the best choice for MRSA in this context.",
+          "critical_evidence": "mecA-positive organisms",
+          "differential_considered": "Considered: Streptococcus pyogenes (coagulase-positive but not catalase-positive), Staphylococcus epidermidis (coagulase-negative), and other gram-positive cocci. Ruled out: Streptococcus pyogenes due to catalase negativity, Staphylococcus epidermidis due to coagulase negativity, and other gram-positive cocci due to the combination of catalase positivity, coagulase positivity, and mecA positivity, which strongly points to MRSA.",
+          "usage": {
+            "prompt_tokens": 417,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.531
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has chronic granulomatous disease, predisposing him to recurrent infections with catalase-positive, coagulase-positive gram-positive cocci, which are characteristic of Staphylococcus aureus. The PCR test showing mecA positivity confirms methicillin-resistant S. aureus (MRSA) infection. MRSA is resistant to penicillin and other beta-lactams, making vancomycin the appropriate first-line agent. Ciprofloxacin is not recommended in children under 18 due to safety concerns, and rifampin is not effective as monotherapy for serious MRSA infections.",
+          "critical_evidence": "mecA-positive organisms on PCR test confirms MRSA infection.",
+          "differential_considered": "Other gram-positive cocci like Streptococcus pyogenes (beta-hemolytic, but catalase-negative) were considered, but the catalase and coagulase positivity rules them out. MRSA is the definitive diagnosis based on PCR and culture findings.",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 234,
+            "generation_time_s": 8.475
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The clinical presentation of a 3-year-old boy with fever and erythematous axillary lymph nodes that are tender, fluctuant, and movable, along with the identification of gram-positive cocci in clusters on fine-needle aspirate, suggests an infection with group A Streptococcus. The presence of β-hemolytic colonies that are catalase and coagulase positive, along with mecA-positive organisms detected by PCR, indicates methicillin-resistant Staphylococcus aureus (MRSA). Penicillin G is the most appropriate pharmacotherapy for this patient as it is effective against MRSA and is recommended for serious infections caused by this organism.",
+          "critical_evidence": "The presence of β-hemolytic colonies that are catalase and coagulase positive.",
+          "differential_considered": "None of the other options listed are effective against MRSA, which is the most likely causative organism in this clinical scenario.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 223,
+            "generation_time_s": 5.524
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Gram-positive coccoid organisms on aspirate, β-hemolytic growth, catalase positive, and mecA positive indicating methicillin-resistant Staphylococcus aureus (MRSA).",
+          "differential_considered": "Other options (ciprofloxacin, penicillin G, vancomycin) are less appropriate because ciprofloxacin is ineffective against MRSA, penicillin G is ineffective due to lack of penicillinase production in MRSA, and vancomycin is reserved for vancomycin-resistant organisms (VRE) not indicated here. Rifampin is essential for MRSA coverage.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 356,
+            "generation_time_s": 11.435
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

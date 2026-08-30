@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-3",
+  "dataset": "medqa",
+  "question_id": "3",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old woman presents to the emergency department in a state of confusion and disorientation that started this morning. She is accompanied by her husband who says that she has been unwell for about one week. She has been complaining of fatigue. Her husband says that this morning, she also complained that her urine was dark red in color and that there were some red spots over her legs. He did notice some changes in her level of consciousness that worsened over time and he decided to bring her in today. She does not have a significant medical history. Physical examination shows petechiae over her arms and legs. She is conscious but drowsy and disoriented and unable to answer the physician’s questions appropriately. Her temperature is 38.3°C (100.9°F), blood pressure is 160/100 mm Hg, pulse rate is 90/min, and respiratory rate is 20/min.\nLaboratory studies show:\nHemoglobin 10 g/dL\nLeukocyte count 9,000/mm3\nPlatelet count 30,000/mm3\nBleeding time 10 min\nProthrombin time 12 s\nActivated partial thromboplastin time 30 s\nD-dimer 0.4 mg/L (normal < 0.5 mg/L)\nSerum fibrinogen 350 mg/dL (normal 200–400 mg/dL)\nSerum bilirubin (indirect) 2.2 mg/dL\nSerum creatinine 1.5 mg/dL\nSerum LDH 1,010 U/L\nBased on her history, and her physical and laboratory findings, which of the following is the most likely pathophysiology for her presentation?",
+    "options": {
+      "A": "Systemic activation of blood coagulation",
+      "B": "GPIIb/IIIa deficiency and failure of platelet aggregation",
+      "C": "E. coli-mediated endothelial damage and formation of microthrombi",
+      "D": "Decreased ADAMTS13 causing platelet adhesion and formation of microthrombi",
+      "E": "Antiplatelet antibodies"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with thrombocytopenia, petechiae, dark red urine, and elevated indirect bilirubin and LDH, suggesting hemolysis. The elevated creatinine indicates kidney injury. The D-dimer is normal, making disseminated intravascular coagulation (DIC) less likely. The clinical picture is most consistent with thrombotic thrombocytopenic purpura (TTP). TTP is characterized by microangiopathic hemolytic anemia (MAHA), thrombocytopenia, neurological symptoms, fever, and renal dysfunction. The normal D-dimer makes TTP more likely than DIC.",
+          "critical_evidence": "The combination of thrombocytopenia, MAHA (elevated indirect bilirubin and LDH), neurological symptoms, and renal dysfunction strongly suggests TTP.",
+          "differential_considered": "DIC was considered, but the normal D-dimer makes it less likely. Hemolytic uremic syndrome (HUS) is a possibility, but the neurological symptoms are more prominent in TTP. Liver failure was considered, but the liver function tests are not severely deranged, and the clinical picture is more consistent with TTP.",
+          "usage": {
+            "prompt_tokens": 674,
+            "generated_tokens": 257,
+            "generation_time_s": 12.653
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's petechiae, low platelet count, and elevated D-dimer suggest systemic blood coagulation activation. The normal fibrinogen and prothrombin time indicate intrinsic and common coagulation pathways are not severely activated, but the D-dimer elevation and platelet dysfunction point to disseminated intravascular coagulation (DIC).",
+          "critical_evidence": "D-dimer 0.4 mg/L (normal < 0.5 mg/dL) and platelet count 30,000/mm3",
+          "differential_considered": "Considered sepsis, disseminated intravascular coagulation (DIC), and thrombotic thrombocytopenic purpura, but ruled out GPIIb/IIIa deficiency (not supported by bleeding time) and ADAMTS13 deficiency (not indicated by other findings). E. coli endothelial damage is less likely given no direct evidence of infection.",
+          "usage": {
+            "prompt_tokens": 660,
+            "generated_tokens": 226,
+            "generation_time_s": 10.424
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with thrombocytopenia, petechiae, dark urine (suggesting hemolysis), and neurological symptoms (confusion, drowsiness), along with elevated LDH and indirect bilirubin — all consistent with thrombotic thrombocytopenic purpura (TTP). The key laboratory finding is the normal platelet count in the context of microangiopathic hemolytic anemia and thrombocytopenia, which points to ADAMTS13 deficiency as the underlying cause of platelet adhesion and microthrombi formation. The other options do not explain the constellation of findings as comprehensively.",
+          "critical_evidence": "Thrombocytopenia (30,000/mm3), hemolytic anemia (elevated LDH 1,010 U/L, indirect bilirubin 2.2 mg/dL), and neurological symptoms with petechiae — classic for TTP, which is caused by ADAMTS13 deficiency.",
+          "differential_considered": "Other differentials like DIC (ruled out by normal PT, aPTT, and low D-dimer), E. coli sepsis (no fever or systemic infection signs), or autoimmune thrombocytopenia (no splenomegaly or autoantibodies) were considered but do not explain the hemolytic and neurological features. GPIIb/IIIa deficiency (B) and antiplatelet antibodies (E) are less likely without prior history or specific lab markers. Systemic coagulation activation (A) is not supported by normal PT/aPTT and low D-dimer.",
+          "usage": {
+            "prompt_tokens": 660,
+            "generated_tokens": 378,
+            "generation_time_s": 13.133
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 658,
+            "generated_tokens": 16,
+            "generation_time_s": 0.422
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "- B (GPIIb/IIIa deficiency) could cause bleeding and abnormal clotting, but does not typically explain the anemia or dark urine.\n    - C (E. coli-mediated DIC) and D (ADAMTS13 deficiency) are possible, but the case does not mention hemolytic anemia or RBC fragmentation (schistocytes), which would support those diagnoses.\n    - E (antiplatelet therapy) is less likely given the severe bleeding and lab abnormalities, which are more consistent with a systemic clotting disturbance rather than drug effect.",
+          "usage": {
+            "prompt_tokens": 710,
+            "generated_tokens": 395,
+            "generation_time_s": 12.3
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 3,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

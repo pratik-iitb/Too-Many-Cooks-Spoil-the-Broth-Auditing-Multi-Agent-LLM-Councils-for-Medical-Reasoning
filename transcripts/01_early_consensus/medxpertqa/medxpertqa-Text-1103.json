@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-1103",
+  "dataset": "medxpertqa",
+  "question_id": "Text-1103",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 75-year-old woman is brought to the emergency department by her daughter after becoming unresponsive while watching television. On examination, the patient withdraws from painful stimuli but is non-verbal and keeps her eyes closed. An emergency head CT reveals an intracranial hemorrhage. After ICU admission and intubation, her daughter provides additional history: the patient has diabetes and a previous stroke, and takes warfarin and metformin regularly. The daughter mentions that approximately one month ago, the patient modified her diet based on recommendations from a television show. Which dietary item most likely contributed to the patient's current condition?\nAnswer Choices: (A) Cranberry juice (B) Pomegranate juice (C) Green leafy vegetables (D) Grapefruit juice (E) Ginger root (F) Spinach (G) St. John’s wort (H) Fish oil supplements (I) Turmeric supplements (J) Garlic supplements",
+    "options": {
+      "A": "Cranberry juice",
+      "B": "Pomegranate juice",
+      "C": "Green leafy vegetables",
+      "D": "Grapefruit juice",
+      "E": "Ginger root",
+      "F": "Spinach",
+      "G": "St. John’s wort",
+      "H": "Fish oil supplements",
+      "I": "Turmeric supplements",
+      "J": "Garlic supplements"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "medical_task": "Diagnosis",
+      "body_system": "Nervous",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is taking warfarin, an anticoagulant, and has a history of stroke, increasing the risk of intracranial hemorrhage. Grapefruit juice is a known inhibitor of CYP3A4, an enzyme that metabolizes warfarin. This interaction can significantly increase warfarin levels, leading to increased bleeding risk and potentially intracranial hemorrhage. The recent dietary change is a key factor to consider.",
+          "critical_evidence": "The patient's use of warfarin and the recent dietary change.",
+          "differential_considered": "While other options could theoretically interact with warfarin, the clinical scenario strongly points to grapefruit juice due to its well-established interaction with warfarin and the patient's recent dietary modification. The other options are less likely to have such a significant and rapid effect on warfarin metabolism.",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 193,
+            "generation_time_s": 7.996
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's intracranial hemorrhage is likely due to warfarin-induced bleeding, and grapefruit juice is known to inhibit CYP3A4 enzymes, increasing warfarin levels and prolonging its anticoagulant effect. This interaction is a well-documented cause of hemorrhagic complications in patients on warfarin.",
+          "critical_evidence": "Grapefruit juice's inhibition of CYP3A4 enzymes leading to increased warfarin bioavailability",
+          "differential_considered": "Other options (e.g., green leafy vegetables, fish oil) are generally not associated with warfarin interactions, and the patient's history of diabetes and warfarin use makes grapefruit juice the most plausible dietary trigger.",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.889
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is on warfarin, and her unresponsiveness with intracranial hemorrhage suggests a bleeding complication. Cranberry juice is known to significantly increase INR due to its vitamin K antagonism and antiplatelet effects, especially when consumed in large quantities. The timing (one month ago) aligns with a delayed onset of warfarin toxicity from dietary changes. Other options like grapefruit juice or green leafy vegetables have less direct or consistent impact on INR compared to cranberry juice.",
+          "critical_evidence": "The patient is on warfarin and has a recent dietary change involving cranberry juice, which is a known potent inhibitor of vitamin K metabolism and can cause significant INR elevation leading to bleeding.",
+          "differential_considered": "Other causes of intracranial hemorrhage such as hypertension, anticoagulant overdose, or trauma were considered, but the dietary modification and warfarin use make cranberry juice the most likely culprit. Grapefruit juice can interact with warfarin but less potently than cranberry juice. Green leafy vegetables contain vitamin K, which would theoretically counteract warfarin, not enhance bleeding risk.",
+          "usage": {
+            "prompt_tokens": 473,
+            "generated_tokens": 268,
+            "generation_time_s": 9.574
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 10,
+            "generation_time_s": 0.385
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 531,
+            "generated_tokens": 316,
+            "generation_time_s": 10.841
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

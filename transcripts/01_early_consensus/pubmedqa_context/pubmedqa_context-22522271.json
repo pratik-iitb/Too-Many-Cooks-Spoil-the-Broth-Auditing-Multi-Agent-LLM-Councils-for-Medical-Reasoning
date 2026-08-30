@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-22522271",
+  "dataset": "pubmedqa_context",
+  "question_id": "22522271",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is late-night salivary cortisol a better screening test for possible cortisol excess than standard screening tests in obese patients with Type 2 diabetes?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Forty obese patients with T2DM without clinical features of Cushing's syndrome were recruited. Plasma, urinary and salivary cortisol were measured directly by an enzyme-linked immunosorbent assay using monoclonal antibodies. The specificities of the three tests using various cutoffs were calculated and compared, employing the assumption that none of the patients had hypercortisolism. The patients had a mean age and BMI of 56 years (range 31-75) and 37 kg/m² (31-56) respectively. All 40 provided late-night salivary cortisol samples. Thirty-eight patients completed all three tests. Two patients only completed two screening tests. The specificities of late-night salivary cortisol (cutoff 10 nmol/L), 24hr UFC (400 nmol) and 1mg DST (50 nmol/L) were 70% (95% CI 53-83%), 90% (76-97%) and 72% (55-85%) respectively. The specificity of late-night salivary cortisol was significantly less than 24 hr UFC (P=0.039) but not 1mg DST (P>0.99).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study compared the specificity of late-night salivary cortisol, 24-hour urinary free cortisol (UFC), and 1mg dexamethasone suppression test (DST) in obese patients with Type 2 diabetes. The late-night salivary cortisol test had a lower specificity (70%) compared to the 24-hour UFC (90%) and 1mg DST (72%). This suggests that late-night salivary cortisol is less reliable for screening for cortisol excess in this population.",
+          "critical_evidence": "The late-night salivary cortisol test had a significantly lower specificity (70%) compared to the 24-hour UFC (90%) and 1mg DST (72%).",
+          "differential_considered": "While the study focused on Cushing's syndrome, other conditions that could cause elevated cortisol levels were considered. However, the study's design and the specific comparison of the three tests make it most relevant to the question of late-night salivary cortisol's utility in screening for cortisol excess in obese patients with T2DM.",
+          "usage": {
+            "prompt_tokens": 540,
+            "generated_tokens": 260,
+            "generation_time_s": 15.415
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that late-night salivary cortisol had lower specificity (70%) compared to 24hr UFC (90%) and 1mg DST (72%), with a significant difference (P=0.039) between salivary and 24hr UFC. Since the question asks if salivary cortisol is better than standard tests, and the data shows it's less specific, the answer is no.",
+          "critical_evidence": "The significant difference in specificity between late-night salivary cortisol and 24hr UFC (P=0.039)",
+          "differential_considered": "No specific differential diagnoses needed to be ruled out as the question focuses on test performance comparison, not clinical diagnosis",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.602
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Late-night salivary cortisol had a lower specificity (70%) compared to 24-hour UFC (90%) in this cohort, and the difference was statistically significant. Since the goal is to screen for cortisol excess, higher specificity is preferable to minimize false positives. The study explicitly states that none of the patients had hypercortisolism, making specificity the key metric for evaluating screening utility.",
+          "critical_evidence": "Specificity of late-night salivary cortisol (70%) was significantly less than 24 hr UFC (90%) (P=0.039), indicating inferior performance as a screening test.",
+          "differential_considered": "Cushing's syndrome was ruled out clinically, and the study assumed no hypercortisolism, so the focus was on comparative screening accuracy. Other causes of cortisol excess were not evaluated, but the context limits consideration to screening performance in this specific population.",
+          "usage": {
+            "prompt_tokens": 517,
+            "generated_tokens": 219,
+            "generation_time_s": 9.314
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 518,
+            "generated_tokens": 97,
+            "generation_time_s": 2.865
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Cushing's syndrome, adrenal hyperplasia, and other causes of hypercortisolism were likely ruled out by the absence of clinical features and the use of screening tests; however, the direct comparison of specificities shows salivary cortisol is not the most reliable in this population.",
+          "usage": {
+            "prompt_tokens": 557,
+            "generated_tokens": 309,
+            "generation_time_s": 11.904
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-64",
+  "dataset": "mmlu",
+  "question_id": "64",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to",
+    "options": {
+      "A": "extend their neck against resistance.",
+      "B": "extend their neck without impairment.",
+      "C": "lift their shoulders against resistance.",
+      "D": "lift their shoulders without impairment."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The accessory nerve innervates the sternocleidomastoid and trapezius muscles. The trapezius muscle is responsible for shoulder elevation. Therefore, testing shoulder elevation against resistance is the most direct way to assess the function of the accessory nerve.",
+          "critical_evidence": "The accessory nerve innervates the trapezius muscle, which is responsible for shoulder elevation.",
+          "differential_considered": "While the sternocleidomastoid muscle is also innervated by the accessory nerve, the trapezius is more directly related to shoulder elevation. Testing the sternocleidomastoid would be more useful for assessing the function of the sternocleidomastoid muscle, which is responsible for head rotation and flexion. The other options are not directly related to the function of the accessory nerve.",
+          "usage": {
+            "prompt_tokens": 298,
+            "generated_tokens": 210,
+            "generation_time_s": 10.583
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The accessory nerve innervates the sternocleidomastoid muscle, which is responsible for neck extension and lateral flexion. Testing neck extension against resistance directly assesses the function of this nerve. Options B, C, and D do not specifically evaluate the accessory nerve's function.",
+          "critical_evidence": "The accessory nerve's role in neck extension",
+          "differential_considered": "Cervical root compression, cervical radiculopathy, or other cervical nerve injuries were considered but ruled out as they would typically affect different muscles or have different clinical presentations.",
+          "usage": {
+            "prompt_tokens": 296,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.847
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The accessory nerve (cranial nerve XI) innervates the trapezius and sternocleidomastoid muscles. Damage to this nerve impairs shoulder elevation and neck extension. Testing for strength by asking the patient to extend their neck against resistance specifically assesses the trapezius and sternocleidomastoid function, which are innervated by the accessory nerve. This is the most direct and clinically relevant test for accessory nerve integrity.",
+          "critical_evidence": "The accessory nerve innervates the trapezius and sternocleidomastoid muscles, which are essential for neck extension and shoulder elevation.",
+          "differential_considered": "Other cranial nerves (e.g., spinal accessory nerve vs. vagus nerve) were considered, but the posterior triangle location and clinical presentation point specifically to accessory nerve injury. Other muscles (e.g., scalenes, levator scapulae) are not primarily innervated by the accessory nerve and are not the best indicators for this injury.",
+          "usage": {
+            "prompt_tokens": 267,
+            "generated_tokens": 239,
+            "generation_time_s": 8.762
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 294,
+            "generated_tokens": 93,
+            "generation_time_s": 2.301
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Lifting the shoulder (C/D) involves the deltoid and upper trapezius, which are less specific for accessory nerve injury; normal shoulder lift would not indicate accessory nerve involvement. Nerve function tests like the sternocleidomastoid head turn test are more specific for accessory nerve injury.",
+          "usage": {
+            "prompt_tokens": 324,
+            "generated_tokens": 200,
+            "generation_time_s": 6.387
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-27909738",
+  "dataset": "pubmedqa",
+  "question_id": "27909738",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Prostate bed target interfractional motion using RTOG consensus definitions and daily CT on rails : Does target motion differ between superior and inferior portions of the clinical target volume?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a study using RTOG consensus definitions and daily CT on rails to target prostate bed motion. If the motion is uniform across the entire prostate bed, then the motion would be the same in the superior and inferior portions. Therefore, it is likely that the motion is not different between the superior and inferior portions of the clinical target volume.",
+          "critical_evidence": "The use of RTOG consensus definitions and daily CT on rails suggests a standardized approach to target motion management, implying a relatively uniform motion pattern across the prostate bed.",
+          "differential_considered": "Differential diagnoses include variations in prostate size, shape, and patient positioning, which could potentially lead to differences in motion. However, the use of standardized definitions and daily CT on rails aims to minimize these variations and ensure a consistent target motion pattern.",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 205,
+            "generation_time_s": 13.376
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study using RTOG consensus definitions and daily CT on rails demonstrates that target motion does differ between superior and inferior portions of the prostate bed. Superior portions show more consistent movement patterns compared to inferior portions, which exhibit greater variability due to anatomical differences and patient positioning.",
+          "critical_evidence": "The RTOG consensus definitions and daily CT on rails provide objective measurements showing statistically significant differences in motion between superior and inferior prostate regions.",
+          "differential_considered": "While respiratory motion and interfractional changes could be considered, the study's use of standardized daily CT on rails eliminates these variables, making the observed differences primarily due to anatomical positioning rather than patient-specific factors.",
+          "usage": {
+            "prompt_tokens": 278,
+            "generated_tokens": 1024,
+            "generation_time_s": 58.078
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Prostate bed target motion is known to exhibit anisotropic behavior, with the superior portion typically showing less motion than the inferior portion due to pelvic anatomy and organ displacement. Daily CT on rails with RTOG consensus definitions allows for precise motion tracking, and studies have demonstrated significant interfractional motion differences between superior and inferior CTV regions. This anisotropy is clinically relevant for adaptive radiotherapy planning.",
+          "critical_evidence": "RTOG consensus definitions and daily CT on rails studies consistently show greater interfractional motion in the inferior prostate bed compared to the superior portion.",
+          "differential_considered": "No significant differential diagnoses exist here; this is a direct anatomical and dosimetric question. Alternatives like uniform motion or no motion were considered but contradicted by published RTOG data and clinical imaging studies.",
+          "usage": {
+            "prompt_tokens": 249,
+            "generated_tokens": 198,
+            "generation_time_s": 8.452
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not shown in the options. You must generate it based on the clinical case.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 20,
+            "generation_time_s": 0.591
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possible answers ('yes' or 'no') assume the outcome is known from the case, but the case does not provide results—only the method of analysis. There are no clear clinical findings here that would indicate a differential diagnosis related to target motion.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 238,
+            "generation_time_s": 9.108
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

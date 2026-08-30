@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1160",
+  "dataset": "metamed",
+  "question_id": "1160",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 64-year-old male with a past medical history of two myocardial infarctions presents to the emergency room with shortness of breath. He notes that he stopped taking his furosemide two weeks prior, because he ran out of pills. On exam, his oxygen saturation is 78%, his lungs have crackles throughout, and jugular venous pulsation is located at the earlobe. EKG and troponin levels are normal. Which of the following is consistent with this man's pulmonary physiology?",
+    "options": {
+      "A": "Decreased Aa gradient, decreased surface area for diffusion, normal diffusion distance",
+      "B": "Decreased Aa gradient, increased surface area for diffusion, decreased diffusion distance",
+      "C": "Increased Aa gradient, normal surface area for diffusion, increased diffusion distance",
+      "D": "Increased Aa gradient, increased surface area for diffusion, normal diffusion distance",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Answer modified"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (shortness of breath, low oxygen saturation, crackles in the lungs, elevated JVP) strongly suggests pulmonary edema. The fact that he stopped taking furosemide, a diuretic, two weeks ago is a key piece of information. Furosemide reduces fluid overload, so stopping it would lead to fluid reaccumulation in the lungs. This would cause increased pulmonary capillary hydrostatic pressure, leading to fluid extravasation into the alveoli. This would result in a decreased alveolar-arterial (Aa) gradient, decreased surface area for diffusion, and normal diffusion distance.",
+          "critical_evidence": "The patient's history of stopping furosemide two weeks prior, combined with the clinical findings of pulmonary edema (crackles, low oxygen saturation, elevated JVP), strongly points to fluid overload and pulmonary edema.",
+          "differential_considered": "While other conditions could cause shortness of breath, the temporal relationship between stopping furosemide and the onset of symptoms makes pulmonary edema the most likely diagnosis. Other possibilities like pneumonia or heart failure exacerbation are less likely given the normal EKG and troponin levels, and the patient's history of myocardial infarctions makes pulmonary edema a more probable cause of his current symptoms.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 292,
+            "generation_time_s": 15.017
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's jugular venous pulsation at the earlobe suggests right-sided heart failure, indicating increased pulmonary venous pressure. This leads to increased pulmonary capillary wedge pressure (PACWP), which raises the A-a gradient. However, the patient's normal troponin and EKG rule out acute myocardial infarction, and the history of stopping furosemide (a diuretic) suggests fluid retention. The crackles and hypoxemia point to pulmonary edema, consistent with right-sided heart failure. The increased PACWP would normally increase the A-a gradient, but the presence of pulmonary edema suggests impaired gas exchange, which could be due to decreased surface area for diffusion (alveolar flooding) rather than increased diffusion distance. The decreased A-a gradient is not consistent with the clinical picture, but the key finding is the decreased surface area for diffusion due to pulmonary edema.",
+          "critical_evidence": "Jugular venous pulsation at the earlobe",
+          "differential_considered": "Considered acute decompensated heart failure (exacerbated by furosemide withdrawal), but ruled out acute MI by normal troponin and EKG. Pulmonary edema is the most likely cause of decreased surface area for diffusion.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.451
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has acute decompensated heart failure due to non-adherence to furosemide, leading to pulmonary congestion. This results in increased alveolar-capillary membrane thickness (increased diffusion distance) and alveolar flooding (increased Aa gradient) due to impaired gas exchange. Surface area for diffusion remains normal unless there is significant alveolar destruction, which is not indicated here.",
+          "critical_evidence": "Oxygen saturation of 78% and bilateral lung crackles indicate severe pulmonary congestion and impaired oxygenation, consistent with increased Aa gradient and increased diffusion distance.",
+          "differential_considered": "Pulmonary embolism was considered but ruled out by normal EKG and troponin; pneumonia was considered but no fever or purulent sputum reported; ARDS was considered but no evidence of diffuse alveolar damage or mechanical ventilation.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 210,
+            "generation_time_s": 7.648
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 332,
+            "generation_time_s": 8.304
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 345,
+            "generation_time_s": 10.994
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

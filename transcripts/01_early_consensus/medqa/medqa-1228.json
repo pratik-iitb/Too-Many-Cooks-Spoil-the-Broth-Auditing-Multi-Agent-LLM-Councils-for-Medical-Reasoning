@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1228",
+  "dataset": "medqa",
+  "question_id": "1228",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An otherwise healthy 49-year-old man presents to his primary care physician for follow-up for a high HbA1C. 3 months ago, his HbA1c was 8.9% on routine screening. Today, after lifestyle modifications, it is 8.1% and his serum glucose is 270 mg/dL. Which of the following is the best initial therapy for this patient's condition?",
+    "options": {
+      "A": "Metformin",
+      "B": "Metformin added to basal insulin",
+      "C": "Metformin added to an insulin secretagogue",
+      "D": "Metformin added to a glucagon-like peptide 1 (GLP-1) agonist",
+      "E": "Metformin added to a dipeptidyl peptidase-4 (DPP-4) inhibitor"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has type 2 diabetes, indicated by the elevated HbA1c and fasting glucose. The first-line treatment for type 2 diabetes is metformin, as it is effective, inexpensive, and has a good safety profile. The other options are typically added if metformin alone is insufficient to achieve glycemic control.",
+          "critical_evidence": "The patient has type 2 diabetes, indicated by the elevated HbA1c and fasting glucose.",
+          "differential_considered": "While the patient's glucose is elevated, it is not at a level that would immediately warrant insulin or GLP-1 agonists. The patient has not yet tried metformin, which is the first-line treatment for type 2 diabetes. Therefore, other options are not the best initial therapy.",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 197,
+            "generation_time_s": 11.388
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's HbA1c has improved from 8.9% to 8.1% with lifestyle changes, but fasting glucose remains elevated at 270 mg/dL. This suggests the need for additional glucose-lowering therapy beyond lifestyle modifications. GLP-1 agonists are effective in reducing HbA1c and fasting glucose, particularly in patients with a BMI >25 kg/m², and they also promote weight loss, which may be beneficial given the patient's age and potential comorbidities. DPP-4 inhibitors are a reasonable alternative but GLP-1 agonists offer additional cardiovascular benefits and weight management.",
+          "critical_evidence": "Elevated fasting glucose despite lifestyle modifications and improvement in HbA1c",
+          "differential_considered": "Considered insulin resistance, type 2 diabetes, and other metabolic disorders. Ruled out new onset of severe stress or infection as the patient has been stable for 3 months. No evidence of severe hypoglycemia or ketoacidosis.",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 242,
+            "generation_time_s": 11.24
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 49-year-old with newly diagnosed type 2 diabetes (HbA1c 8.9% 3 months ago, now 8.1%) and is otherwise healthy. His current glucose is 270 mg/dL, indicating suboptimal control despite lifestyle modifications. According to ADA guidelines, metformin is the first-line agent for type 2 diabetes, especially in overweight or obese patients without contraindications. No evidence of severe hyperglycemia or complications necessitates insulin or other agents at this stage.",
+          "critical_evidence": "HbA1c of 8.1% indicates uncontrolled diabetes, but the patient is otherwise healthy and has only recently started lifestyle modifications, making metformin the appropriate first-line pharmacologic agent.",
+          "differential_considered": "Other options (B-E) involve combination therapy or agents not indicated as first-line. Insulin or secretagogues are reserved for failure to achieve targets with metformin alone. GLP-1 agonists and DPP-4 inhibitors are adjuncts, not first-line, and not indicated for this patient’s current status.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 267,
+            "generation_time_s": 9.317
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 98,
+            "generation_time_s": 2.384
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 269,
+            "generation_time_s": 8.429
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

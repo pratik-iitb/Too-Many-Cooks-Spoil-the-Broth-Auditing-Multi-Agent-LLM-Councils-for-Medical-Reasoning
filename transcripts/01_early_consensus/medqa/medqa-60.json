@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-60",
+  "dataset": "medqa",
+  "question_id": "60",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 60-year-old woman with a history of atrial arrhythmia arrives in the emergency department with complaints of tinnitus, headache, visual disturbances, and severe diarrhea. The patient is given oxygen by nasal cannula. ECG leads, pulse oximeter and an automated blood pressure cuff are applied. The patient suddenly faints. Her ECG indicates the presence of a multifocal ventricular tachycardia with continuous change in the QRS electrical axis. Which of the following drugs is most likely responsible for this patient's symptoms?",
+    "options": {
+      "A": "Digoxin",
+      "B": "Quinidine",
+      "C": "Lidocaine",
+      "D": "Amiodarone",
+      "E": "Verapamil"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of tinnitus, headache, visual disturbances, and severe diarrhea, coupled with a history of atrial arrhythmia, strongly suggests digitalis toxicity. The sudden syncope with a multifocal ventricular tachycardia (MVT) with a changing QRS axis is a classic sign of digitalis toxicity. Quinidine can also cause arrhythmias, but the constellation of symptoms points more strongly to digitalis toxicity.",
+          "critical_evidence": "The combination of atrial arrhythmia history, tinnitus, headache, visual disturbances, severe diarrhea, and MVT with a changing QRS axis is highly suggestive of digitalis toxicity.",
+          "differential_considered": "Digoxin toxicity is the most likely cause given the patient's history and symptoms. While other drugs can cause arrhythmias, the specific combination of symptoms is more characteristic of digitalis toxicity. Amiodarone can cause QT prolongation and torsades de pointes, but the diarrhea and visual disturbances are less typical. Verapamil can cause bradycardia and hypotension, but the MVT is less common. Quinidine can cause QT prolongation and torsades de pointes, but the diarrhea and visual disturbances are less typical.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 271,
+            "generation_time_s": 13.761
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's multifocal ventricular tachycardia with changing QRS axis suggests a drug-induced arrhythmia. Quinidine is a class I antiarrhythmic that can cause ventricular tachycardia, especially with multifocal foci and axis changes. The other options (digoxin, lidocaine, amiodarone, verapamil) are less likely to cause this specific pattern of arrhythmia.",
+          "critical_evidence": "Multifocal ventricular tachycardia with continuous change in QRS axis",
+          "differential_considered": "Considered digoxin toxicity (which typically causes monomorphic ventricular tachycardia), lidocaine (which can cause polymorphic VT but usually with different morphology), amiodarone (which can cause QT prolongation but less commonly VT), and verapamil (which can cause AV block but not VT). The specific pattern of multifocal VT with axis changes best matches quinidine toxicity.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.503
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with syncope and multifocal ventricular tachycardia with changing QRS axis, a hallmark of digoxin toxicity. Her symptoms (tinnitus, headache, visual disturbances, diarrhea) are classic for digoxin toxicity, and the ECG findings are consistent with digoxin-induced arrhythmias. Other antiarrhythmics listed are less likely to cause this specific combination of symptoms and ECG pattern.",
+          "critical_evidence": "Multifocal ventricular tachycardia with changing QRS axis is a classic ECG finding in digoxin toxicity, and the patient’s symptoms (tinnitus, headache, diarrhea) are well-documented signs of digoxin toxicity.",
+          "differential_considered": "Quinidine, lidocaine, amiodarone, and verapamil were considered but ruled out because they do not typically cause the specific constellation of symptoms (tinnitus, headache, diarrhea) or the characteristic ECG pattern of changing QRS axis in multifocal VT. Digoxin is the only agent among the options known to cause this specific combination.",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 257,
+            "generation_time_s": 9.013
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 118,
+            "generation_time_s": 2.839
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Quinidine (B) and amiodarone (D) could theoretically cause arrhythmias, but the ECG pattern and patient's history point more strongly to digoxin toxicity (A). Lidocaine (C) and verapamil (E) are less likely to cause this specific ECG change.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 309,
+            "generation_time_s": 9.641
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

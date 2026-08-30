@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-418",
+  "dataset": "medqa",
+  "question_id": "418",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 26-year-old gravida-1-para-0 (G-1-P-0) presents for a routine prenatal check-up at 16 weeks gestation. The patient has no concerns but is excited to learn the gender of the baby. Genetic testing was performed that showed an XY genotype; however, an ultrasound does not reveal the development of external male genitalia. Which of the following is responsible for the initial step of the development of male characteristics?",
+    "options": {
+      "A": "Formation of the genital ridge",
+      "B": "Formation of the paramesonephric duct",
+      "C": "Conversion of testosterone to DHT",
+      "D": "SRY gene product",
+      "E": "Production of anti-Mullerian hormone"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has an XY genotype, indicating a male fetus. The initial step in male development is the SRY gene product, which is located on the Y chromosome and initiates the development of the testes. The other options are involved in subsequent steps in male differentiation.",
+          "critical_evidence": "XY genotype",
+          "differential_considered": "The patient has an XY genotype, indicating a male fetus. The initial step in male development is the SRY gene product, which is located on the Y chromosome and initiates the development of the testes. The other options are involved in subsequent steps in male differentiation.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 222,
+            "generation_time_s": 10.993
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has an XY genotype but lacks external male genitalia, indicating a failure in the masculinization process. The SRY gene on the Y chromosome is the master switch that initiates male development by triggering the formation of the testes and the paramesonephric duct. Without SRY, the default female pathway is activated, but in this case, the absence of external male genitalia suggests a defect in the downstream process. The SRY gene product is the initial trigger for male development, making it the most critical step. While testosterone conversion to DHT and anti-Mullerian hormone are important, they occur after SRY activation. The paramesonephric duct and genital ridge formation are downstream events. Thus, the SRY gene product is the earliest and most critical factor in male development.",
+          "critical_evidence": "XY genotype with absence of external male genitalia",
+          "differential_considered": "Considered androgen insensitivity syndrome (AIS) and partial androgen deficiency, but ruled out because the absence of external male genitalia at 16 weeks gestation suggests a defect in the initial step of male development, not a downstream defect in androgen action. The presence of XY genotype confirms the presence of a Y chromosome, but the lack of external male genitalia indicates a failure in the SRY-dependent pathway.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.674
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is XY (genetically male) but lacks external male genitalia, indicating a likely disorder of sexual development. The initial step in male sexual differentiation is the expression of the SRY gene on the Y chromosome, which triggers testis formation. Without SRY, testes do not form, and male development does not proceed. The other options describe downstream events (e.g., DHT conversion, AMH production) or structures (genital ridge, paramesonephric duct) that occur after SRY activation.",
+          "critical_evidence": "XY genotype confirms genetic male sex, but absence of external male genitalia suggests failure of early male differentiation, pointing to SRY gene dysfunction as the root cause.",
+          "differential_considered": "Considered options like C (DHT conversion) and E (AMH) as downstream events that require prior testis development; B (paramesonephric duct) is female-specific; A (genital ridge) is an early structure but not the initiating factor. SRY is the key determinant of testis formation and thus the initial step.",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 252,
+            "generation_time_s": 8.85
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 109,
+            "generation_time_s": 2.654
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (paramesonephric duct) – but this is derived from the testis, which is not present; C and D (testosterone/DHT and SRY) – these are produced after the genital ridge forms; E (AMH) – indicates the absence of testes, not the cause. Only A explains the origin of the male differentiation pathway.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 302,
+            "generation_time_s": 9.511
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

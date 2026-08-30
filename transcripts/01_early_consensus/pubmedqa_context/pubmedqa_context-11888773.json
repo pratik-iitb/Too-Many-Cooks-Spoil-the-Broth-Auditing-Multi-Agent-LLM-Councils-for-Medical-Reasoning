@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-11888773",
+  "dataset": "pubmedqa_context",
+  "question_id": "11888773",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Stage I non-small cell lung carcinoma: really an early stage?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "We review our results on surgical treatment of patients with stage I non-small cell lung carcinoma and we attempted to clarify the prognostic significance of some surgical--pathologic variables. From 1993 to 1999, 667 patients received curative lung resection and complete hilar and mediastinal lymphadenectomy for non-small cell lung cancer. Of these, there were 436 Stage I disease (65%), of whom 144 T1N0 and 292 T2N0. No patients had pre- or postoperative radio- or chemotherapy. Prognostic significance of the following independent variables was tested using univariate (log-rank) and multivariate (Cox proportional-hazards) analysis: type of resection (sublobar vs lobectomy vs pneumonectomy), histology (squamous cell vs adenocarcinoma), tumour size (<or=3cm vs>3cm), histologic vascular invasion, visceral pleura involvement, positive bronchial resection margin, general T status. Overall 5-year survival was 63%. In both univariate and multivariate survival analysis, significant prognostic factors were histology (adenocarcinoma 65% vs squamous cell carcinoma 51%), tumour size (<or=3cm 67% vs>3cm 46%), and the presence of negative resection margin. Five-year survival by general T status was 66% in T1N0 vs 55% in T2N0 disease (P=0.19).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes Stage I non-small cell lung carcinoma, which is defined as a tumor limited to the lung and without lymph node involvement. The provided data indicates that 65% of patients with non-small cell lung cancer are diagnosed at Stage I. Therefore, it is indeed an early stage.",
+          "critical_evidence": "65% of patients with non-small cell lung cancer are diagnosed at Stage I.",
+          "differential_considered": "While other stages of lung cancer exist, the case specifically focuses on Stage I, making it the most relevant and accurate answer.",
+          "usage": {
+            "prompt_tokens": 569,
+            "generated_tokens": 160,
+            "generation_time_s": 9.465
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Stage I non-small cell lung carcinoma is not necessarily an early stage with favorable prognosis. While the overall 5-year survival is 63%, the analysis shows significant prognostic factors like tumor size (>3cm) reducing survival to 46%, and negative resection margin being a poor prognostic factor. The T2N0 group has significantly lower survival (55%) compared to T1N0 (66%), indicating that even within Stage I, tumor characteristics impact outcomes.",
+          "critical_evidence": "The 19% lower survival in T2N0 patients compared to T1N0 (P=0.19) demonstrates that not all Stage I tumors have equal prognosis, challenging the assumption that Stage I is uniformly favorable.",
+          "differential_considered": "While the case is clearly non-small cell lung carcinoma, the analysis shows that tumor size and resection margin status are critical differentiators within Stage I. These factors should be considered when assessing prognosis, not just the stage classification.",
+          "usage": {
+            "prompt_tokens": 574,
+            "generated_tokens": 232,
+            "generation_time_s": 12.96
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Stage I NSCLC is defined as localized disease with no lymph node involvement (N0), and the study shows that even within Stage I, T1N0 and T2N0 have distinct survival outcomes (66% vs 55% at 5 years), indicating that 'Stage I' is not homogeneous. However, the overall 5-year survival of 63% for Stage I patients is still considered favorable and consistent with current staging guidelines, which classify Stage I as early-stage disease. The question asks whether Stage I is 'really an early stage,' and the data support that it remains prognostically favorable compared to later stages.",
+          "critical_evidence": "Overall 5-year survival for Stage I NSCLC was 63%, with T1N0 at 66% and T2N0 at 55%, both significantly higher than later stages, confirming early-stage classification.",
+          "differential_considered": "Considered whether Stage I might be misclassified or heterogeneous, but the data show consistent survival advantage over Stage II and beyond, supporting its classification as early stage.",
+          "usage": {
+            "prompt_tokens": 566,
+            "generated_tokens": 256,
+            "generation_time_s": 10.721
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 572,
+            "generated_tokens": 75,
+            "generation_time_s": 2.185
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "The lack of significant difference in 5-year survival between T1N0 and T2N0 in Stage I NSCLC (P=0.19) challenges the strict interpretation of Stage I as uniformly 'early' due to possible overlap in biology or prognostic factors between T1 and T2 subtypes.",
+          "differential_considered": "Differentials include whether the tumour's histologic subtype (T1N0 vs T2N0) or other factors like margin status or vascular invasion are more important than the anatomic tumour classification within Stage I. However, the statistical insignificance of T1N0 vs T2N0 in survival means anatomic T1 vs T2 within Stage I may not reliably define a significantly better prognosis, complicating the label of 'early.'",
+          "usage": {
+            "prompt_tokens": 608,
+            "generated_tokens": 385,
+            "generation_time_s": 14.576
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

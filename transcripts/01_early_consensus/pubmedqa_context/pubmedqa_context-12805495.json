@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-12805495",
+  "dataset": "pubmedqa_context",
+  "question_id": "12805495",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can patients be anticoagulated after intracerebral hemorrhage?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Warfarin increases both the likelihood and the mortality of intracerebral hemorrhage (ICH), particularly in patients with a history of prior ICH. In light of this consideration, should a patient with both a history of ICH and a clear indication for anticoagulation such as nonvalvular atrial fibrillation be anticoagulated? In the absence of data from a clinical trial, we used a decision-analysis model to compare the expected values of 2 treatment strategies-warfarin and no anticoagulation-for such patients. We used a Markov state transition decision model stratified by location of hemorrhage (lobar or deep hemispheric). Effectiveness was measured in quality-adjusted life years (QALYs). Data sources included English language literature identified through MEDLINE searches and bibliographies from selected articles, along with empirical data from our own institution. The base case focused on a 69-year-old man with a history of ICH and newly diagnosed nonvalvular atrial fibrillation. For patients with prior lobar ICH, withholding anticoagulation therapy was strongly preferred, improving quality-adjusted life expectancy by 1.9 QALYs. For patients with prior deep hemispheric ICH, withholding anticoagulation resulted in a smaller gain of 0.3 QALYs. In sensitivity analyses for patients with deep ICH, anticoagulation could be preferred if the risk of thromboembolic stroke is particularly high.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case highlights the increased risk of ICH with warfarin, especially in patients with a history of ICH. The decision-analysis model suggests that withholding anticoagulation is strongly preferred for patients with lobar ICH, improving quality-adjusted life expectancy. Therefore, anticoagulation after intracerebral hemorrhage is generally not recommended.",
+          "critical_evidence": "Warfarin increases both the likelihood and the mortality of intracerebral hemorrhage (ICH), particularly in patients with a history of prior ICH.",
+          "differential_considered": "While the case mentions atrial fibrillation as an indication for anticoagulation, the risk of ICH outweighs the benefit in this scenario, especially given the patient's history. Other potential causes of ICH are not directly addressed in the case, but the focus is on the anticoagulation decision.",
+          "usage": {
+            "prompt_tokens": 535,
+            "generated_tokens": 199,
+            "generation_time_s": 12.778
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The decision to anticoagulate patients with a history of intracerebral hemorrhage (ICH) and atrial fibrillation is complex. The clinical case highlights that warfarin increases both the likelihood and mortality of ICH, especially in those with prior ICH. While atrial fibrillation is a clear indication for anticoagulation, the risk of bleeding complications from anticoagulants in patients with ICH may outweigh the benefits. The decision analysis model showed that withholding anticoagulation improved quality-adjusted life expectancy by 1.9 QALYs for lobar ICH and by 0.3 QALYs for deep hemispheric ICH. Given these findings, the answer is'maybe' because the decision depends on the location of the hemorrhage and individual patient factors.",
+          "critical_evidence": "The decision analysis model results showing improved quality-adjusted life expectancy with withholding anticoagulation in patients with prior ICH, particularly for lobar ICH.",
+          "differential_considered": "The key differential is the location of the intracerebral hemorrhage (lobar vs. deep hemispheric), as the model outcomes differ significantly based on this factor. The patient's age (69 years) and the presence of nonvalvular atrial fibrillation are secondary considerations in this decision.",
+          "usage": {
+            "prompt_tokens": 567,
+            "generated_tokens": 1024,
+            "generation_time_s": 54.502
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case highlights that warfarin increases mortality and risk of recurrent ICH, particularly in patients with prior ICH. Decision-analysis modeling showed that withholding anticoagulation significantly improves QALYs for both lobar and deep ICH, with the largest benefit for lobar ICH. Anticoagulation is only potentially preferred in deep ICH if thromboembolic risk is exceptionally high, which is not the default scenario.",
+          "critical_evidence": "Withholding anticoagulation improved quality-adjusted life expectancy by 1.9 QALYs for prior lobar ICH and 0.3 QALYs for prior deep ICH, indicating a strong preference for non-anticoagulation in most cases.",
+          "differential_considered": "The differential included anticoagulation for stroke prevention in atrial fibrillation vs. risk of recurrent hemorrhage; ruled out anticoagulation due to clear evidence of net harm in prior ICH patients, unless thromboembolic risk is exceptionally high.",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 242,
+            "generation_time_s": 10.235
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 565,
+            "generated_tokens": 55,
+            "generation_time_s": 1.618
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The decision hinges on whether the ICH was lobar (where withholding is strongly preferred) or deep (where high stroke risk might outweigh bleeding risk), but the case lacks this detail.",
+          "usage": {
+            "prompt_tokens": 600,
+            "generated_tokens": 245,
+            "generation_time_s": 9.323
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

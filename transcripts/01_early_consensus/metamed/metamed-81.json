@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-81",
+  "dataset": "metamed",
+  "question_id": "81",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 23-year-old man presents with sudden loss of consciousness while pitching in a baseball game. There is no history of injury. Consciousness is regained after cardiopulmonary resuscitation. Past medical history is negative for any neurological and cardiovascular problems. Physical examination reveals a prominent A wave on the jugular venous pulse and a double apical impulse. There are no audible murmurs. An S4 is present. What is the most likely diagnosis?",
+    "options": {
+      "A": "Hypertrophic cardiomyopathy",
+      "B": "Aortic stenosis",
+      "C": "Takotsubo cardiomyopathy",
+      "D": "Restrictive cardiomyopathy",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's sudden loss of consciousness during exertion, along with a prominent A wave, double apical impulse, and S4, strongly suggests hypertrophic cardiomyopathy (HCM). The prominent A wave indicates increased resistance to right atrial filling, which can occur in HCM due to left ventricular outflow obstruction. The double apical impulse is a classic sign of left ventricular hypertrophy. The S4 is also consistent with a stiff left ventricle.",
+          "critical_evidence": "Prominent A wave on the jugular venous pulse and double apical impulse",
+          "differential_considered": "Aortic stenosis: While aortic stenosis can cause exertional syncope and a murmur, the absence of a murmur makes this less likely. Takotsubo cardiomyopathy: This typically presents with chest pain and ECG changes, which are not mentioned in the case. Restrictive cardiomyopathy: This is less likely given the prominent A wave and double apical impulse, which are more characteristic of HCM. The patient's age is also less typical for restrictive cardiomyopathy.",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 242,
+            "generation_time_s": 12.61
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The prominent A wave on the jugular venous pulse suggests increased venous pressure, while the double apical impulse indicates left ventricular dysfunction. The presence of an S4 suggests left ventricular end systolic dysfunction. These findings are consistent with acute left ventricular dysfunction, which is characteristic of Takotsubo cardiomyopathy (apical ballooning), also known as stress-induced cardiomyopathy.",
+          "critical_evidence": "Double apical impulse with prominent A wave",
+          "differential_considered": "Hypertrophic cardiomyopathy (would show different ECG findings and no S4), Aortic stenosis (would show murmur), Restrictive cardiomyopathy (would show different physical exam findings)",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.119
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a young athlete who experienced sudden cardiac arrest with no prior cardiac history. Key physical findings include a prominent A wave (suggesting right atrial pressure elevation) and a double apical impulse (indicative of left ventricular hypertrophy), both consistent with hypertrophic cardiomyopathy. The absence of murmurs and S4 makes other conditions less likely.",
+          "critical_evidence": "Double apical impulse and prominent A wave are classic signs of left ventricular hypertrophy and right atrial pressure elevation, respectively, strongly pointing to hypertrophic cardiomyopathy.",
+          "differential_considered": "Aortic stenosis was considered but ruled out due to absence of murmurs; Takotsubo and restrictive cardiomyopathy are less likely in a young, athletic individual without prior stress or systemic disease; no evidence of myocarditis or arrhythmia supports other causes.",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 207,
+            "generation_time_s": 7.266
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 134,
+            "generation_time_s": 3.248
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Sudden loss of consciousness with need for CPR and the combination of S4, double apical impulse, and prominent jugular A wave.",
+          "differential_considered": "Aortic stenosis (less likely in young adults), Takotsubo (typically in older women or during emotional stress), restrictive cardiomyopathy (no classic signs here).",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 258,
+            "generation_time_s": 10.934
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

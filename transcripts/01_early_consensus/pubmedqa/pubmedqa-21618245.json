@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-21618245",
+  "dataset": "pubmedqa",
+  "question_id": "21618245",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does surgery or radiation therapy impact survival for patients with extrapulmonary small cell cancers?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Extrapulmonary small cell lung cancer (ESLSC) is a highly aggressive cancer with a high propensity for early metastasis. Surgery is generally not indicated for ESLSC due to its widespread nature at diagnosis. Radiation therapy can be used for local control, but its impact on overall survival is less clear compared to other types of lung cancer. Studies have shown that surgery does not improve survival in ESLSC, and radiation therapy is typically used in combination with chemotherapy.",
+          "critical_evidence": "ESLSC is characterized by early and widespread metastasis, making surgery generally ineffective.",
+          "differential_considered": "Other types of lung cancer (e.g., non-small cell lung cancer) may have different treatment approaches, but the question specifically asks about ESLSC. While radiation therapy can be used for local control, it doesn't significantly impact overall survival in ESLSC compared to chemotherapy.",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 219,
+            "generation_time_s": 10.81
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Extrapulmonary small cell carcinoma is rare and typically has a very poor prognosis. While both surgery and radiation therapy are standard treatments for small cell lung cancer, their impact on survival in extrapulmonary cases is limited due to the advanced stage at diagnosis and the aggressive nature of the disease. Studies show that these treatments may offer some benefit but are not curative. The key evidence is the rarity of extrapulmonary small cell cancer and the lack of curative intent in treatment protocols.",
+          "critical_evidence": "Extrapulmonary small cell carcinoma is almost always diagnosed at an advanced stage with limited treatment options",
+          "differential_considered": "Considered other primary small cell cancers that might present extrapulmonarily, but ruled out based on the aggressive nature of small cell carcinoma which typically originates in the lungs",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.441
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Extrapulmonary small cell carcinoma (EPSCC) is an aggressive malignancy with limited treatment options. Multiple studies demonstrate that combined modality therapy, including surgery and/or radiation, improves survival compared to systemic therapy alone. Surgery may be curative in localized disease, while radiation is often used for palliation or definitive local control, both contributing to survival benefit.",
+          "critical_evidence": "Randomized trials and meta-analyses show improved overall survival with multimodal therapy including surgery and radiation in localized EPSCC.",
+          "differential_considered": "Considered other aggressive malignancies (e.g., sarcomas, carcinoid tumors) but ruled them out due to histopathological confirmation of small cell carcinoma and extrapulmonary location, which aligns with EPSCC’s known response to multimodal therapy.",
+          "usage": {
+            "prompt_tokens": 232,
+            "generated_tokens": 197,
+            "generation_time_s": 6.88
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not displayed here to avoid any potential cheating.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 13,
+            "generation_time_s": 0.327
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A and B assume all extrapulmonary small cell cancers are uniformly responsive to these treatments, which is unlikely given the heterogeneity of small cell cancers and their rareness outside the lung. B is incorrect because small cell cancers, even extrapulmonary, often have poor prognosis and may respond to aggressive therapy. C is the most accurate because the effect of surgery or radiation on survival in extrapulmonary small cell cancers is not universally established and may depend on tumor type and location.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 278,
+            "generation_time_s": 8.71
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

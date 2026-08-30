@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1022",
+  "dataset": "medqa",
+  "question_id": "1022",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 57-year-old man presents to the emergency department because of pain in the center of his chest that is radiating down his left arm and up the left side of his neck. The pain started suddenly 30 minutes ago while the patient was at work. The patient describes the pain as squeezing in nature, 10/10 in intensity, and is associated with nausea and difficulty breathing. He has had type 2 diabetes mellitus for 15 years, hypertension for 10 years, and dyslipidemia, but he denies any history of a cardiac problem. He has a 40-pack-year history of smoking but does not drink alcohol. Vital signs include: blood pressure 80/40 mm Hg, regular pulse 90/min, and temperature 37.2°C (98.9°F). Chest auscultation reveals diffuse bilateral rales with no murmurs. ECG reveals convex ST-segment elevation in leads V1 to V6 and echocardiogram shows anterolateral hypokinesis, retrograde blood flow into the left atrium, and an ejection fraction of 45%. Which of the following best describe the mechanism of this patient’s illness?",
+    "options": {
+      "A": "Occlusion of the right coronary artery, with infarction of the conduction system",
+      "B": "Occlusion of the left anterior descending artery with rupture of a papillary muscle",
+      "C": "Occlusion of the left anterior descending artery with interventricular septal rupture",
+      "D": "Ventricular free wall rupture",
+      "E": "Mitral leaflet thickening and fibrosis"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of chest pain radiating to the left arm and neck, along with nausea and difficulty breathing, strongly suggests an acute myocardial infarction (MI). The ECG findings of ST-segment elevation in leads V1-V6 indicate an anterior wall MI, likely due to occlusion of the left anterior descending (LAD) artery. The echocardiogram showing anterolateral hypokinesis, retrograde blood flow into the left atrium, and a reduced ejection fraction (45%) further supports this diagnosis. The patient's history of diabetes, hypertension, and dyslipidemia are all risk factors for coronary artery disease.",
+          "critical_evidence": "ECG showing ST-segment elevation in leads V1-V6 and echocardiogram showing anterolateral hypokinesis, retrograde blood flow into the left atrium, and a reduced ejection fraction (45%) strongly suggest an anterior wall MI due to LAD occlusion.",
+          "differential_considered": "A: Occlusion of the right coronary artery, with infarction of the conduction system: While RCA occlusion can cause inferior MI and potentially affect the conduction system, the ECG findings (ST elevation in V1-V6) are more consistent with LAD occlusion. B: Occlusion of the left anterior descending artery with rupture of a papillary muscle: LAD occlusion can cause papillary muscle rupture, leading to mitral regurgitation. However, the echocardiogram findings of retrograde blood flow into the left atrium are more suggestive of a mechanical complication of LAD occlusion, such as rupture of the interventricular septum or papillary muscle. C: Occlusion of the left anterior descending artery with interventricular septal rupture: Interventricular septal rupture is a possible complication of LAD occlusion, but the retrograde blood flow into the left atrium is more specific to papillary muscle rupture. D: Ventricular free wall rupture: Ventricular free wall rupture is a catastrophic complication of MI, often presenting with sudden cardiac arrest. While possible, the patient's presentation is more consistent with a mechanical complication of LAD occlusion. E: Mitral leaflet thickening and fibrosis: Mitral leaflet thickening and fibrosis are chronic conditions that do not typically cause acute chest pain and ST-segment elevation on ECG. These findings are not consistent with the acute presentation of the patient.",
+          "usage": {
+            "prompt_tokens": 549,
+            "generated_tokens": 490,
+            "generation_time_s": 24.261
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's ECG showing ST-segment elevation in leads V1-V6 and echocardiogram findings of retrograde blood flow into the left atrium strongly suggest an acute anterior myocardial infarction. The retrograde flow indicates papillary muscle rupture, which is commonly seen with left anterior descending (LAD) artery occlusion. The ejection fraction of 45% is mildly reduced but not severely compromised, ruling out complete ventricular dysfunction. The patient's history of smoking and diabetes increases cardiovascular risk, supporting atherosclerotic coronary artery disease as the cause.",
+          "critical_evidence": "Retrograde blood flow into the left atrium on echocardiogram",
+          "differential_considered": "Considered pericarditis (ruled out by ST elevation pattern), pulmonary embolism (ruled out by chest pain radiation pattern and ECG findings), and valvular heart disease (mitral valve issues are less likely given the ST elevation pattern).",
+          "usage": {
+            "prompt_tokens": 550,
+            "generated_tokens": 232,
+            "generation_time_s": 10.77
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic acute myocardial infarction symptoms, ST-elevation in V1-V6 (indicating anterior wall MI), and echocardiographic findings of anterolateral hypokinesis with retrograde flow into the left atrium — consistent with mitral regurgitation due to papillary muscle rupture. This is a known complication of anterior MI, especially involving the left anterior descending artery (LAD). The hypotension and signs of heart failure support acute mechanical complication.",
+          "critical_evidence": "Echocardiogram showing anterolateral hypokinesis and retrograde blood flow into the left atrium — indicative of acute mitral regurgitation from papillary muscle rupture.",
+          "differential_considered": "Occlusion of the right coronary artery (A) is unlikely as ST elevation is in V1-V6 (anterior), not inferior. Interventricular septal rupture (C) would cause hemodynamic instability and specific murmur, not retrograde flow into LA. Free wall rupture (D) presents with pericardial tamponade, not mitral regurgitation. Mitral leaflet thickening (E) is chronic, not acute.",
+          "usage": {
+            "prompt_tokens": 534,
+            "generated_tokens": 276,
+            "generation_time_s": 9.673
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's presentation is consistent with acute myocardial infarction (AMI) given the chest pain radiating to the arm and neck, associated with nausea and dyspnea. The ECG shows ST-segment elevation in leads V1 to V6, indicative of an anterior wall AMI. The echocardiogram reveals anterolateral hypokinesis and retrograde blood flow into the left atrium, which are consistent with a large anterior wall AMI. The most likely cause of this patient's illness is an occlusion of the left anterior descending artery (LAD), which supplies the anterior wall of the left ventricle. Given the patient's history of hypertension, dyslipidemia, and smoking, atherosclerosis is the most likely etiology of the LAD occlusion. The presence of interventricular septal rupture is suggested by the echocardiogram findings of retrograde blood flow into the left atrium, which can occur due to a large anterior wall AMI with septal involvement.",
+          "critical_evidence": "The critical evidence supporting the diagnosis is the ECG showing ST-segment elevation in leads V1 to V6, indicating an anterior wall myocardial infarction.",
+          "differential_considered": "The key differential diagnoses considered were right coronary artery occlusion and papillary muscle rupture, but these are less likely given the ECG findings and the absence of supporting evidence for these conditions.",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 330,
+            "generation_time_s": 7.929
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "ECG showing ST-segment elevation in leads V1 to V6 and echocardiogram showing retrograde flow into the left atrium and right ventricular hypokinesis",
+          "differential_considered": "ST-elevation in leads V1-V6 points to right coronary artery occlusion (RCA), not LAD occlusion. Ruptured papillary muscle or free wall rupture are less likely given the ECG and echo findings. Mitral changes are not indicated here.",
+          "usage": {
+            "prompt_tokens": 583,
+            "generated_tokens": 332,
+            "generation_time_s": 10.382
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

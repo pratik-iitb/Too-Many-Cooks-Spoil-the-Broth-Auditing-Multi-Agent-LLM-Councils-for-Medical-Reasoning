@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1231",
+  "dataset": "medqa",
+  "question_id": "1231",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A pharmaceutical corporation is developing a research study to evaluate a novel blood test to screen for breast cancer. They enrolled 800 patients in the study, half of which have breast cancer. The remaining enrolled patients are age-matched controls who do not have the disease. Of those in the diseased arm, 330 are found positive for the test. Of the patients in the control arm, only 30 are found positive. What is this test’s sensitivity?",
+    "options": {
+      "A": "370 / (30 + 370)",
+      "B": "370 / (70 + 370)",
+      "C": "330 / (330 + 70)",
+      "D": "330 / (330 + 30)",
+      "E": "330 / (400 + 400)"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Sensitivity is defined as the ability of a test to correctly identify individuals with the disease (true positives). In this case, the test is positive in 330 of the 800 patients with breast cancer (330/800 = 0.4125 or 41.25%). The test is also positive in 30 of the 400 control patients (30/400 = 0.075 or 7.5%). Sensitivity is calculated as the number of true positives divided by the total number of patients with the disease (true positives + false negatives). Therefore, sensitivity = 330 / (330 + 30) = 330/360 = 370/400.",
+          "critical_evidence": "The number of patients with breast cancer (330) and the number of patients without breast cancer (30) who test positive for the test.",
+          "differential_considered": "While other tests might be considered, the question specifically asks for the sensitivity of the *novel blood test* for breast cancer. The provided data directly relates to the test's performance in identifying those with the disease.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 296,
+            "generation_time_s": 14.595
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Sensitivity is the proportion of true positives correctly identified by the test. In this case, 330 out of 400 diseased patients tested positive, so the sensitivity is 330/(330+30) = 330/360 = 0.9167 or 91.67%. This represents the test's ability to correctly identify breast cancer cases.",
+          "critical_evidence": "330 diseased patients tested positive out of 400 total diseased patients",
+          "differential_considered": "No differential diagnoses needed as the question focuses solely on calculating test sensitivity, which is a straightforward statistical measure based on the provided data.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.443
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "Sensitivity is defined as the proportion of true positives among all actual cases. In this case, 400 patients have breast cancer (half of 800), and 330 tested positive. Therefore, sensitivity = true positives / total cases = 330 / (330 + 70), where 70 are false negatives (400 - 330).",
+          "critical_evidence": "330 true positives out of 400 total cases (diseased patients) directly defines sensitivity.",
+          "differential_considered": "Other options misrepresent numerator or denominator by including controls or false positives, which are irrelevant to sensitivity calculation.",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 172,
+            "generation_time_s": 6.023
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "To calculate the sensitivity of a test, we use the formula: Sensitivity = (True Positives) / (True Positives + False Negatives). In this case, the true positives are the 330 patients with breast cancer who tested positive, and the false negatives are the 70 patients with breast cancer who tested negative. Therefore, the sensitivity is 330 / (330 + 70) = 330 / 400 = 0.825. This means the test has a sensitivity of 82.5%.",
+          "critical_evidence": "The single most important finding that supports the answer is the true positive rate of 82.5%.",
+          "differential_considered": "None of the options provided listed any differential diagnoses, so none were considered or ruled out.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 182,
+            "generation_time_s": 4.391
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.99,
+          "clinical_reasoning": "Sensitivity is defined as the proportion of true positives correctly identified by the test in the diseased population. In this case, the diseased group has 400 patients (half of 800), and 330 of them are true positives detected by the test. Therefore, sensitivity = 330 / 400. Option D matches this calculation using 330/(330+30), where 30 is the number of false negatives (assuming all non-positive in the diseased group are false negatives, though the exact number of false negatives isn't given, the standard approach uses the total diseased cases as the denominator).",
+          "critical_evidence": "330 out of 400 actual breast cancer cases are detected by the test (true positives).",
+          "differential_considered": "Other options either use the wrong population (controls), an incorrect numerator (false positives), or an incorrect denominator (not the total diseased cases).",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 216,
+            "generation_time_s": 6.786
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 1,
+        "D": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

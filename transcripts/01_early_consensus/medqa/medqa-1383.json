@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1383",
+  "dataset": "medqa",
+  "question_id": "1383",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old homeless man presents to the emergency department complaining of pain in his right knee and fever. The patient is having difficulty walking and looks visibly uncomfortable. On examination, he is disheveled but his behavior is not erratic. The patient’s right knee is erythematous, edematous, and warm, with evidence of a 3 cm wound that is weeping purulent fluid. The patient has a decreased range of motion secondary to pain and swelling. The wound is cultured and empiric antibiotic therapy is initiated. Four minutes into the patient’s antibiotic therapy, he develops a red, pruritic rash on his face and neck. What is the most likely antibiotic this patient is being treated with?",
+    "options": {
+      "A": "Linezolid",
+      "B": "Penicillin G",
+      "C": "Vancomycin",
+      "D": "Gentamicin",
+      "E": "Erythromycin"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's rapid onset of a red, pruritic rash on his face and neck after starting antibiotic therapy strongly suggests a drug hypersensitivity reaction, specifically a fixed drug eruption. Erythromycin is a common cause of this type of reaction. The other antibiotics are less likely to cause this specific type of reaction.",
+          "critical_evidence": "The rapid onset of a red, pruritic rash on the face and neck after starting antibiotic therapy.",
+          "differential_considered": "Linezolid: While linezolid can cause various adverse reactions, a fixed drug eruption is less common. Penicillin G: Penicillin is a common cause of allergic reactions, but the rash is less likely to be a fixed drug eruption. Vancomycin: Vancomycin can cause red man syndrome, but this is usually a more generalized reaction. Gentamicin: Gentamicin is more likely to cause nephrotoxicity or ototoxicity than a fixed drug eruption. Erythromycin: Erythromycin is a well-known cause of fixed drug eruptions, which present with a characteristic rash at the same site with each subsequent exposure.",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 264,
+            "generation_time_s": 13.084
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed a red, pruritic rash 4 minutes after starting antibiotic therapy. Linezolid is a known cause of drug eruption, particularly erythema multiforme, which matches the clinical presentation. Penicillin G, Vancomycin, and Gentamicin are less likely to cause such a rapid onset of cutaneous reaction, and Erythromycin's typical reaction is usually delayed. The rapid onset and pruritic nature strongly suggest a drug eruption from Linezolid.",
+          "critical_evidence": "The rapid onset of a red, pruritic rash within 4 minutes of antibiotic initiation",
+          "differential_considered": "Considered septic arthritis, cellulitis, and other infectious causes of knee pain and fever, but ruled out due to the timing of rash onset. Also considered delayed drug reactions from other antibiotics, but Linezolid's rapid onset of erythema multiforme is the most consistent explanation.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.557
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed a red, pruritic rash on the face and neck within 4 minutes of starting antibiotic therapy, which is consistent with an immediate hypersensitivity reaction. Vancomycin is well-known to cause 'red man syndrome' — a flushing, pruritus, and erythema typically occurring within minutes of infusion — especially if infused too rapidly. The other antibiotics listed are less likely to cause such a rapid, localized cutaneous reaction. The patient’s clinical context (homeless, wound infection, empiric antibiotics) supports vancomycin use for suspected methicillin-resistant organisms, but the reaction is the key clue.",
+          "critical_evidence": "Rash developing within 4 minutes of antibiotic administration is highly suggestive of an immediate hypersensitivity reaction, most classically associated with vancomycin infusion.",
+          "differential_considered": "Linezolid and erythromycin can cause rash but not typically within 4 minutes. Penicillin G and gentamicin are less likely to cause such a rapid, localized reaction. Red man syndrome is the classic presentation for vancomycin, making it the most likely culprit.",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 259,
+            "generation_time_s": 9.113
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 178,
+            "generation_time_s": 4.285
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Development of a pruritic, erythematous rash shortly after starting antibiotics, indicating drug-induced hypersensitivity.",
+          "differential_considered": "Penicillin G (beta-lactam) could cause a rash but often appears later (e.g., 10 days post-exposure). Other antibiotics like linezolid or vancomycin are less likely to cause such a rapid cutaneous reaction. Gentamicin is an aminoglycoside and less commonly associated with immediate cutaneous reactions. Thus, the rapid onset suggests a different class, making erythromycin the most likely culprit among the options.",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 495,
+            "generation_time_s": 15.471
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

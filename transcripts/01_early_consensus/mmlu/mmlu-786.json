@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-786",
+  "dataset": "mmlu",
+  "question_id": "786",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following karyotypes is not compatible with survival to birth?",
+    "options": {
+      "A": "47,XY,+13",
+      "B": "47,XX,+18",
+      "C": "47,XY,+21",
+      "D": "45,Y"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks for the karyotype NOT compatible with survival to birth. Trisomy 13 (47,XY,+13), Trisomy 18 (47,XX,+18), and Trisomy 21 (47,XY,+21) are all well-known trisomies associated with significant morbidity and mortality, often leading to early death. A 45,Y karyotype indicates a male with only one X chromosome, which is incompatible with life. Therefore, 45,Y is not compatible with survival to birth.",
+          "critical_evidence": "The presence of only one sex chromosome (X) in a male is incompatible with life.",
+          "differential_considered": "Trisomy 13, Trisomy 18, and Trisomy 21 are all known to cause severe developmental abnormalities and are associated with high mortality rates in utero or shortly after birth. While other chromosomal abnormalities can cause developmental issues, the presence of only one sex chromosome is a definitive contraindication to survival.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 255,
+            "generation_time_s": 12.854
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Option D (45,Y) represents Turner syndrome, which is incompatible with life. This karyotype lacks an X chromosome entirely, resulting in severe developmental abnormalities and non-viability. While options A (47,XY,+13), B (47,XX,+18), and C (47,XY,+21) represent trisomies that can result in various degrees of survival to birth, the complete absence of an X chromosome in option D leads to lethality.",
+          "critical_evidence": "The complete absence of an X chromosome in 45,Y karyotype",
+          "differential_considered": "While all options represent chromosomal abnormalities, 45,Y is the only one that cannot result in a viable pregnancy. The other options represent trisomies that can lead to conditions like Patau syndrome (A), Edwards syndrome (B), and Klinefelter syndrome with trisomy 21 (C), all of which can result in survival to birth, albeit with significant health challenges.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 234,
+            "generation_time_s": 11.129
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Karyotype 45,Y represents a male with only one X chromosome and no second sex chromosome, which is incompatible with life due to the absence of essential genes on the X chromosome. The other options (A, B, C) are trisomies that, while severe, can occasionally result in live births, albeit with significant morbidity. 45,Y is a monosomy X condition in males, which is lethal in utero.",
+          "critical_evidence": "45,Y is a monosomy X condition in males, which is lethal in utero due to lack of essential X-linked genes.",
+          "differential_considered": "Considered trisomies 13, 18, and 21 (A, B, C) which are viable but severely affected; ruled out as they can survive to birth, unlike 45,Y which is lethal.",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 213,
+            "generation_time_s": 7.613
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 143,
+            "generation_time_s": 3.527
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "All other options represent forms of chromosomal abnormalities that, while potentially life-threatening, are sometimes seen in medical contexts where partial or specific extra/missing chromosomes may allow limited survival to term; 45,Y is universally incompatible due to the complete absence of both X and Y chromosomes necessary for typical female development and viability.",
+          "usage": {
+            "prompt_tokens": 307,
+            "generated_tokens": 291,
+            "generation_time_s": 9.321
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

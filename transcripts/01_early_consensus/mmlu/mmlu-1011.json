@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1011",
+  "dataset": "mmlu",
+  "question_id": "1011",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 16-month-old girl is brought to the emergency department by emergency medical technicians because of a generalized tonic-clonic seizure that began 25 minutes ago and has continued despite administration of 0.5 mg/kg rectal diazepam 10 minutes ago. The patient was at home at the time of the seizure. In the emergency department, she is given an additional 0.5 mg/kg dose of diazepam intravenously and the convulsion terminates. Within 2 minutes, her oxygen saturation drops to 75% and she appears cyanotic. Respirations are 10/min and shallow. She receives bag-valve-mask ventilation, followed by intubation and mechanical ventilation. Medical history is unremarkable. She takes no medications. Temperature is 39.1°C (102.5°F). Which of the following is the most likely underlying cause of the patient's respiratory insufficiency?",
+    "options": {
+      "A": "Airway occlusion",
+      "B": "Encephalitis",
+      "C": "Medication-induced suppression of central respiratory drive",
+      "D": "Meningitis"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient experienced a seizure, followed by respiratory depression and cyanosis after receiving intravenous diazepam. This clinical picture strongly suggests medication-induced respiratory depression. The rapid onset of respiratory failure after the seizure and diazepam administration is highly suggestive of this cause.",
+          "critical_evidence": "The rapid onset of respiratory depression and cyanosis immediately following intravenous diazepam administration.",
+          "differential_considered": "A: Airway occlusion is less likely given the history of a normal medical history and no reported choking or trauma. B: Encephalitis and D: Meningitis are possible, but the rapid onset of respiratory failure immediately after the seizure and diazepam administration makes medication-induced respiratory depression more likely. While these conditions can cause seizures, they typically don't present with such an acute and direct link to the medication.",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 205,
+            "generation_time_s": 10.311
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's respiratory insufficiency is most likely due to medication-induced suppression of central respiratory drive. Despite receiving diazepam, which is a respiratory depressant, the seizure persisted and led to respiratory failure. The cyanosis and low oxygen saturation suggest inadequate ventilation, which aligns with respiratory depression caused by benzodiazepines. The high temperature may contribute to metabolic acidosis, further depressing respiratory drive.",
+          "critical_evidence": "The patient's cyanosis and low oxygen saturation after seizure termination, combined with the administration of diazepam, indicate respiratory depression as the primary cause.",
+          "differential_considered": "While encephalitis and meningitis could cause seizures, they would typically present with other neurological signs like focal deficits or altered consciousness. Airway occlusion was ruled out by the successful intubation. The timing of respiratory failure after seizure termination and diazepam administration points to medication-induced respiratory depression as the most likely cause.",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 223,
+            "generation_time_s": 10.612
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient experienced a prolonged seizure followed by immediate post-ictal respiratory depression, which occurred shortly after receiving two doses of benzodiazepines. The rapid onset of hypoxia and shallow breathing after seizure termination is classic for benzodiazepine-induced suppression of central respiratory drive, especially in a young child. No other systemic or neurological causes (like encephalitis or meningitis) are supported by the clinical presentation, which lacks fever-related focal signs, altered mental status beyond post-ictal state, or meningeal signs.",
+          "critical_evidence": "Immediate post-ictal respiratory depression following benzodiazepine administration in a child with no other underlying illness.",
+          "differential_considered": "Encephalitis and meningitis were considered but ruled out due to absence of focal neurological deficits, meningeal signs, or prolonged fever beyond the acute post-ictal phase. Airway occlusion was considered but not supported by clinical findings such as lack of secretions or obstruction signs. Medication-induced suppression is the most direct and temporally linked cause.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 250,
+            "generation_time_s": 8.952
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The most likely underlying cause of the patient's respiratory insufficiency is medication-induced suppression of central respiratory drive.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 445,
+            "generated_tokens": 23,
+            "generation_time_s": 0.591
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 484,
+            "generated_tokens": 284,
+            "generation_time_s": 9.139
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

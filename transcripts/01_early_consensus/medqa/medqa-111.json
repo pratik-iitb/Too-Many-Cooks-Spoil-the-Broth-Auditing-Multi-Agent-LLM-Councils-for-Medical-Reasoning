@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-111",
+  "dataset": "medqa",
+  "question_id": "111",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 10-year-old boy is referred to a pediatric neurologist by his pediatrician for lower extremity weakness. The boy is healthy with no past medical history, but his parents began to notice that he was having difficulty at football practice the previous day. Over the course of the past 24 hours, the boy has become increasingly clumsy and has been “tripping over himself.” On further questioning, the boy had a viral illness the previous week and was out of school for 2 days. Today, the patient’s temperature is 99.3°F (37.4°C), blood pressure is 108/72 mmHg, pulse is 88/min, respirations are 12/min. On motor exam, the patient has 5/5 strength in hip flexion, 5/5 strength in knee extension and flexion, 3/5 strength in foot dorsiflexion, and 5/5 strength in foot plantarflexion. The findings are the same bilaterally. On gait exam, the patient exhibits foot drop in both feet. Which of the following areas would the patient most likely have diminished sensation?",
+    "options": {
+      "A": "Anteromedial thigh",
+      "B": "First dorsal webspace of foot",
+      "C": "Lateral foot",
+      "D": "Lateral plantar foot",
+      "E": "Medial plantar foot"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with foot drop, which indicates weakness in dorsiflexion of the foot. The most likely cause of foot drop in a child is a lesion affecting the common fibular (peroneal) nerve. The common fibular nerve innervates the muscles responsible for dorsiflexion. The first dorsal webspace is innervated by the superficial branch of the common fibular nerve. Therefore, diminished sensation in the first dorsal webspace is the most likely finding.",
+          "critical_evidence": "Foot drop and the patient's age and recent viral illness strongly suggest a common fibular nerve injury.",
+          "differential_considered": "A: Anteromedial thigh - Weakness in hip flexion is not consistent with foot drop. B: First dorsal webspace of foot - This is the most likely location of sensory deficit given the foot drop. C: Lateral foot - While the lateral foot is innervated by the superficial fibular nerve, the primary motor deficit is dorsiflexion. D: Lateral plantar foot - The lateral plantar foot is innervated by the tibial nerve, which controls plantarflexion and toe flexion, not dorsiflexion. E: Medial plantar foot - The medial plantar foot is innervated by the medial plantar branch of the tibial nerve, which controls toe flexion, not dorsiflexion.",
+          "usage": {
+            "prompt_tokens": 507,
+            "generated_tokens": 316,
+            "generation_time_s": 15.543
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with foot drop bilaterally, indicating weakness in the muscles responsible for dorsiflexion of the foot. This weakness is most likely due to a peripheral neuropathy affecting the anterior compartment of the leg, which innervates the muscles involved in dorsiflexion. The diminished sensation would most likely be in the lateral plantar foot, as this area corresponds to the distribution of the sural nerve, which is a branch of the tibial nerve and is commonly affected in conditions like tarsal tunnel syndrome or neuropathies affecting the posterior tibial nerve.",
+          "critical_evidence": "Bilateral foot drop with preserved plantarflexion strength suggests a lesion in the anterior compartment of the leg, affecting the muscles responsible for dorsiflexion.",
+          "differential_considered": "Considered central nervous system issues (e.g., stroke, trauma) but ruled out due to normal strength in hip flexion, knee extension/flexion, and normal vital signs. Viral illness is unlikely to cause this specific pattern of weakness. Peripheral neuropathy is the most likely explanation.",
+          "usage": {
+            "prompt_tokens": 507,
+            "generated_tokens": 254,
+            "generation_time_s": 11.685
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.515
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 99,
+            "generation_time_s": 2.385
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of foot drop (e.g., neuromuscular disorders, tibial nerve issues, or peripheral neuropathy) were considered but are less likely given the described pattern and the recent history of a viral illness, making a central (spinal) etiology more probable. The preserved strength in knee extension and flexion argues against high cervical or lumbar cord lesions affecting those muscles more severely.",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 260,
+            "generation_time_s": 8.095
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

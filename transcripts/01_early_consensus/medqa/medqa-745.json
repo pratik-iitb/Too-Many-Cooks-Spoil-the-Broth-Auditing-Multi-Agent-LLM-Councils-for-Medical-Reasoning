@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-745",
+  "dataset": "medqa",
+  "question_id": "745",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old woman presents to the urgent care center with 4 days of abdominal pain and increasingly frequent bloody diarrhea. She states that she is currently having 6 episodes of moderate volume diarrhea per day with streaks of blood mixed in. She says she recently returned from a long camping trip with her friends where they cooked all of their own food and drank water from nearby streams. Physical examination is negative for acute tenderness, rebound tenderness, or abnormal bowel sounds. Her vital signs include temperature 38.0°C (100.4°F), blood pressure 106/74 mm Hg, heart rate 94/min, and respiratory rate 14/min. Given the following options, which is the most likely pathogen responsible for her presentation?",
+    "options": {
+      "A": "Clostridium difficile",
+      "B": "Campylobacter",
+      "C": "E. coli 0157:H7",
+      "D": "Salmonella",
+      "E": "Shigella"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's recent camping trip with raw food and stream water consumption strongly suggests a waterborne illness. Bloody diarrhea, fever, and abdominal pain are common symptoms of bacterial infections. Campylobacter is a common cause of food poisoning with these symptoms, especially in outbreaks linked to contaminated water sources.",
+          "critical_evidence": "Recent camping trip with raw food and stream water consumption",
+          "differential_considered": "Clostridium difficile: While possible, the recent travel history makes it less likely. E. coli 0157:H7: Typically presents with severe bloody diarrhea and hemolytic uremic syndrome (HUS), which are not mentioned. Salmonella: Can cause bloody diarrhea, but the recent travel history is more suggestive of Campylobacter. Shigella: Usually presents with more localized abdominal pain and fever, and is less commonly associated with bloody diarrhea in the absence of dysentery.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 217,
+            "generation_time_s": 10.732
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's presentation of bloody diarrhea with a history of consuming stream water during a camping trip strongly suggests a waterborne enteric pathogen. Shigella is the most likely cause due to its association with bloody diarrhea and waterborne transmission, which aligns with the camping history. While other options like Campylobacter, E. coli 0157:H7, and Salmonella are possible, Shigella's classic presentation of dysentery with blood and mucus in stool is most consistent. Clostridium difficile is less likely as it typically presents with pseudomembranous colitis and is not typically waterborne.",
+          "critical_evidence": "Bloody diarrhea with streaks of blood in stool and camping history with stream water exposure",
+          "differential_considered": "Campylobacter (usually causes bloody diarrhea but less commonly with streaks), E. coli 0157:H7 (hemorrhagic colitis but less commonly with frequent episodes), Salmonella (more typically with fever and abdominal cramps), Clostridium difficile (pseudomembranous colitis, not typically waterborne)",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.498
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with bloody diarrhea, fever, and a recent exposure to contaminated water during camping, which is highly suggestive of a bacterial enteric pathogen. The absence of systemic signs like severe abdominal tenderness or high fever makes C. difficile and Shigella less likely. E. coli O157:H7 and Salmonella typically cause more systemic illness or severe diarrhea without the specific context of waterborne exposure. Campylobacter is a common cause of traveler’s diarrhea with bloody stools and fever, especially after exposure to contaminated water or undercooked meat.",
+          "critical_evidence": "Recent camping with stream water exposure and bloody diarrhea with fever point to Campylobacter as the most likely pathogen.",
+          "differential_considered": "C. difficile was ruled out due to lack of recent antibiotic use and absence of prior diarrhea. Shigella is less likely due to lack of systemic signs and absence of recent person-to-person contact. E. coli O157:H7 and Salmonella are less likely given the absence of severe systemic symptoms and the context of waterborne exposure rather than foodborne.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 255,
+            "generation_time_s": 8.933
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 105,
+            "generation_time_s": 2.541
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "C. difficile (possible if recent antibiotics), E. coli O157:H7 (less likely without red flags), Salmonella (possible but less strongly indicated by the blood), Campylobacter (possible but less classic for bloody diarrhea), Shigella (highly likely due to bloody diarrhea and environmental exposure)",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 274,
+            "generation_time_s": 8.586
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 1,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1321",
+  "dataset": "medqa",
+  "question_id": "1321",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 21-year-old man is admitted to the intensive care unit for respiratory failure requiring mechanical ventilation. His minute ventilation is calculated to be 7.0 L/min, and his alveolar ventilation is calculated to be 5.1 L/min. Which of the following is most likely to decrease the difference between minute ventilation and alveolar ventilation?",
+    "options": {
+      "A": "Increasing the respiratory rate",
+      "B": "Increasing the partial pressure of inhaled oxygen",
+      "C": "Decreasing the physiologic dead space",
+      "D": "Decreasing the affinity of hemoglobin for oxygen",
+      "E": "Increasing the respiratory depth"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's minute ventilation (7.0 L/min) is less than his alveolar ventilation (5.1 L/min). This indicates a dead space ventilation problem, where air is inhaled but does not participate in gas exchange. Decreasing the physiologic dead space will improve alveolar ventilation, thus decreasing the difference between minute and alveolar ventilation.",
+          "critical_evidence": "Minute ventilation (7.0 L/min) is less than alveolar ventilation (5.1 L/min).",
+          "differential_considered": "A: Increasing the respiratory rate might help, but it's less likely to be the primary issue given the already low alveolar ventilation. B: Increasing the partial pressure of inhaled oxygen will primarily affect oxygenation, not ventilation. D: Decreasing the affinity of hemoglobin for oxygen will also primarily affect oxygenation, not ventilation. E: Increasing the respiratory depth might help, but it's less likely to be the primary issue given the already low alveolar ventilation.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 240,
+            "generation_time_s": 11.861
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The difference between minute ventilation and alveolar ventilation represents physiologic dead space. Physiologic dead space is the volume of air that is ventilated but does not participate in gas exchange. Decreasing physiologic dead space directly reduces this difference by increasing the proportion of ventilated air that reaches the alveolar-capillary membrane for gas exchange.",
+          "critical_evidence": "The calculation of alveolar ventilation (5.1 L/min) being less than minute ventilation (7.0 L/min) confirms the presence of physiologic dead space.",
+          "differential_considered": "Options A, B, D, and E would not directly address the underlying cause of the dead space. Increasing respiratory rate or depth (A, E) might increase ventilation but not necessarily reduce dead space. Increasing oxygen pressure (B) affects alveolar gas composition but not dead space volume. Decreasing hemoglobin affinity (D) affects oxygen transport, not ventilation.",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 226,
+            "generation_time_s": 10.507
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Minute ventilation (VE) minus alveolar ventilation (VA) equals dead space ventilation (VDS). The difference of 1.9 L/min suggests significant physiologic dead space. Reducing dead space (e.g., by improving ventilation-perfusion matching or reducing anatomical dead space) directly decreases this gap. Other options do not affect the VDS component.",
+          "critical_evidence": "Minute ventilation (7.0 L/min) minus alveolar ventilation (5.1 L/min) = 1.9 L/min, indicating increased dead space ventilation.",
+          "differential_considered": "Options A, B, D, and E were considered but ruled out: increasing respiratory rate or depth increases VE but not VA; increasing FiO2 or decreasing hemoglobin affinity for oxygen affects oxygenation, not ventilation efficiency; only reducing dead space directly narrows the VE-VA gap.",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 211,
+            "generation_time_s": 7.395
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 11,
+            "generation_time_s": 0.278
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Alveolar ventilation is minute ventilation minus the dead space. Increasing or decreasing the physiologic dead space directly affects the difference between the two. Since the question asks what would decrease the difference, reducing dead space would bring minute ventilation closer to alveolar ventilation.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 229,
+            "generation_time_s": 7.177
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

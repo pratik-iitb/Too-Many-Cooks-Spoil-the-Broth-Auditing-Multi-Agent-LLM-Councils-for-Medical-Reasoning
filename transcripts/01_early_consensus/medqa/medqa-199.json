@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-199",
+  "dataset": "medqa",
+  "question_id": "199",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 20-year-old female arrives at the urgent care clinic at her university’s health plan asking for an HIV test. She is an undergraduate at the university and just started having sexual intercourse with her new boyfriend. They use protection only occasionally so she wants to get tested to make sure everything is okay. She has never been tested for STDs before. She reports no symptoms and has not seen a physician regularly for any medical conditions in the past. Her family history is uncertain because she was adopted. Her HIV immunoassay and HIV-1/HIV-2 differentiation immunoassay both come back positive. She asks on the phone, “Doctor, tell it to me straight. Do I have AIDS?” Which of the following is the most accurate response?",
+    "options": {
+      "A": "We have to get a confirmatory PCR test to see if you have AIDS.",
+      "B": "You do not have AIDS because you just started having sex recently.",
+      "C": "You have AIDS but this disease is now a manageable condition.",
+      "D": "We need your partner's information to be sure of your diagnosis.",
+      "E": "We need additional bloodwork to see if you have AIDS."
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a positive HIV immunoassay and HIV-1/HIV-2 differentiation immunoassay, indicating a positive HIV test. However, a positive immunoassay alone is not diagnostic of HIV infection. A confirmatory PCR test is necessary to confirm the presence of HIV RNA, which is the gold standard for diagnosis. Therefore, the most accurate response is to order a confirmatory PCR test.",
+          "critical_evidence": "Positive HIV immunoassay and HIV-1/HIV-2 differentiation immunoassay",
+          "differential_considered": "While the patient's recent sexual activity increases the likelihood of HIV, a positive immunoassay requires confirmation. Other STIs are possible, but the immediate priority is to confirm the HIV diagnosis. Therefore, other STIs are not the most immediate concern.",
+          "usage": {
+            "prompt_tokens": 469,
+            "generated_tokens": 199,
+            "generation_time_s": 9.837
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient tested positive for HIV using immunoassays, which are highly sensitive but not specific. While a positive result indicates HIV infection, AIDS (Acquired Immunodeficiency Syndrome) is defined by the presence of HIV and the development of specific opportunistic infections or cancers. Since the patient has no symptoms and has not progressed to this stage, she has HIV but not AIDS. HIV is now a manageable condition with antiretroviral therapy.",
+          "critical_evidence": "The patient's lack of symptoms and recent sexual initiation suggest she is in the early stages of HIV infection, not AIDS.",
+          "differential_considered": "Other STDs were considered but ruled out due to the specific HIV test results. The absence of symptoms and lack of medical history support a recent HIV infection rather than AIDS.",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.041
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a positive HIV immunoassay and HIV-1/HIV-2 differentiation test, which indicates HIV infection, but not necessarily AIDS. AIDS is diagnosed based on CD4+ T-cell count <200 cells/mm³ or presence of opportunistic infections. Additional bloodwork (e.g., CD4 count and viral load) is required to determine if she meets criteria for AIDS. The other options are incorrect because AIDS diagnosis requires more than just initial immunoassay results, and timing of sexual exposure does not negate the diagnosis.",
+          "critical_evidence": "Positive HIV immunoassay and HIV-1/HIV-2 differentiation test confirm HIV infection, but not AIDS; diagnosis of AIDS requires additional lab data.",
+          "differential_considered": "False-positive HIV test (ruled out by positive differentiation test), early HIV infection (not yet AIDS), and other STIs (not relevant to AIDS diagnosis).",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 220,
+            "generation_time_s": 7.668
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 102,
+            "generation_time_s": 2.449
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "False positive from screening tests (HIV and HIV subtype assays), and she has no symptoms or history indicating AIDS. Other options are either incorrect (B), speculative (D), or premature (C).",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 201,
+            "generation_time_s": 6.238
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

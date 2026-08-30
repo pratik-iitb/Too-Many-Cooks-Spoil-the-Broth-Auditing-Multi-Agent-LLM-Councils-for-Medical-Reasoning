@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-26419377",
+  "dataset": "pubmedqa_context",
+  "question_id": "26419377",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are pelvic anatomical structures in danger during arthroscopic acetabular labral repair?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The purpose of this study was to evaluate safe depth for suture anchor insertion during acetabular labral repair and to determine the neighbouring structures at risk during drilling and anchor insertion. Ten human cadaveric hips (six males and four females) were obtained. Acetabular labral surface was prepared and marked for right hips as 12, 1 and 3 o'clock positions, for left hips 12, 11 and 9 o'clock positions. Those were defined as anterior, anterior-superior and superior zones, respectively. These labral positions were drilled at defined zones. After measurements, depth of the bone at 10° and 20° drill angles on zones was compared statistically. Acetabular bone widths at investigated labral insertion points did not statistically differ. A total of 14 injuries in 60 penetrations occurred (23.3 %) with free drill penetrations, and no injuries occurred with stopped drill penetrations. The bone depth was gradually decreasing from 10° to 20° drill angles and from anterior to superior inserting zones without significant importance. The risk of perforation to the pelvic cavity started with 20 mm drill depth, and the mean depth for all insertions was calculated as 31.7 mm (SD 2.6).",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study indicates that the risk of perforation to the pelvic cavity starts at 20mm drill depth, and the mean depth for all insertions was 31.7mm. The study also found that the bone depth was gradually decreasing from 10° to 20° drill angles and from anterior to superior inserting zones without significant importance. Therefore, the pelvic cavity is not in danger during arthroscopic acetabular labral repair.",
+          "critical_evidence": "The risk of perforation to the pelvic cavity starts with 20mm drill depth.",
+          "differential_considered": "The risk of injury to the pelvic cavity is a concern during any surgical procedure involving drilling near the pelvic region. However, the study's findings suggest that the risk is relatively low, starting at 20mm drill depth, and the mean depth is 31.7mm, which is not a significant risk.",
+          "usage": {
+            "prompt_tokens": 540,
+            "generated_tokens": 226,
+            "generation_time_s": 13.337
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that while there were no injuries with stopped drill penetrations, 23.3% of free drill penetrations resulted in injuries. The risk of pelvic cavity perforation starts at 20mm depth, and the mean insertion depth was 31.7mm. This indicates that while pelvic structures are not always in danger, there is a significant risk depending on drilling technique and depth.",
+          "critical_evidence": "The 23.3% injury rate with free drill penetrations and the 20mm depth threshold for pelvic cavity perforation risk",
+          "differential_considered": "Ruled out absolute danger (option A) due to the 76.7% safe rate with proper technique. Ruled out no danger (option B) due to the documented injury rate and depth-related risk. The answer is'maybe' because the danger depends on drilling technique and depth.",
+          "usage": {
+            "prompt_tokens": 529,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.125
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrated that drill penetrations beyond 20 mm depth pose a risk of perforating into the pelvic cavity, and the mean insertion depth was 31.7 mm, indicating that anatomical structures are indeed at risk during the procedure. The risk is not negligible, especially given the 23.3% injury rate with free drill penetrations.",
+          "critical_evidence": "The risk of perforation to the pelvic cavity started with 20 mm drill depth, and the mean depth for all insertions was 31.7 mm.",
+          "differential_considered": "Considered 'no' or 'maybe' as potential answers, but ruled them out because the study explicitly quantified risk at specific depths and showed a significant injury rate with free penetrations, making 'yes' the most accurate reflection of clinical danger.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 201,
+            "generation_time_s": 8.4
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 527,
+            "generated_tokens": 73,
+            "generation_time_s": 2.13
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "A total of 14 injuries in 60 penetrations occurred with free drill penetrations, and the bone depth was gradually decreasing from 10° to 20° drill angles and from anterior to superior zones.",
+          "differential_considered": "Other zones (e.g., more posterior) are less likely to approach the pelvis, but the case explicitly shows that even at 20°, injuries occur, and the depth near the superior labral zone approaches the pelvis. This supports the risk in the described procedure at these angles and insertion points.",
+          "usage": {
+            "prompt_tokens": 559,
+            "generated_tokens": 266,
+            "generation_time_s": 10.082
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "C": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

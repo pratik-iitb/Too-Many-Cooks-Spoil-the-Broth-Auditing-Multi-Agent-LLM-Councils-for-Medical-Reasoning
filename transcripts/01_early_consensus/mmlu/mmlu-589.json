@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-589",
+  "dataset": "mmlu",
+  "question_id": "589",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "How many CO2 and ATP molecules are formed during one complete turn of the tricarboxylic acid cycle (Krebs' cycle)?",
+    "options": {
+      "A": "2CO2 and 2ATP",
+      "B": "2CO2 and 16ATP",
+      "C": "2CO2 and 12ATP",
+      "D": "2CO2 and 1ATP"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The tricarboxylic acid cycle (TCA cycle), also known as the Krebs cycle, produces 2 molecules of carbon dioxide (CO2) per turn. It also generates 1 ATP (or GTP), 3 NADH, and 1 FADH2 per turn. The question asks for the number of ATP molecules formed, and the correct answer is 16 ATP, which is the net ATP production from NADH and FADH2 through oxidative phosphorylation.",
+          "critical_evidence": "The TCA cycle produces 1 ATP per turn, and the question asks for the total ATP produced per turn.",
+          "differential_considered": "The question is a straightforward recall question about the TCA cycle. Other options are incorrect because they either misstate the number of CO2 or ATP produced, or they are incorrect in their overall ATP yield.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 208,
+            "generation_time_s": 10.516
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "One complete turn of the tricarboxylic acid cycle produces 2 CO2 molecules and 12 ATP molecules. This occurs through the oxidation of acetyl-CoA, generating CO2 and high-energy electrons that are used to produce ATP via oxidative phosphorylation. The cycle also produces GTP, which is functionally equivalent to ATP.",
+          "critical_evidence": "The standard biochemistry of the Krebs cycle shows that each turn produces 2 CO2 molecules and 12 ATP molecules (including 2 from succinyl-CoA synthetase and 10 from NADH and FADH2 oxidation).",
+          "differential_considered": "Options A, B, and D incorrectly state the number of ATP molecules produced. The key differentiator is recognizing that the Krebs cycle produces 12 ATP molecules per turn, not 2, 16, or 1. This is a fundamental metabolic pathway fact that distinguishes option C as correct.",
+          "usage": {
+            "prompt_tokens": 311,
+            "generated_tokens": 241,
+            "generation_time_s": 11.482
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "One complete turn of the TCA cycle oxidizes one acetyl-CoA, producing 2 CO2 molecules as waste products and generating 1 ATP (or GTP) via substrate-level phosphorylation. The other ATP equivalents (NADH and FADH2) are produced but not directly counted as ATP in this context. Option A correctly reflects the direct ATP and CO2 yield per cycle turn.",
+          "critical_evidence": "Each acetyl-CoA entering the TCA cycle releases 2 CO2 molecules and produces 1 ATP (or GTP) directly via succinyl-CoA synthetase.",
+          "differential_considered": "Options B and C overestimate ATP yield by including the indirect ATP from NADH and FADH2, which are not produced per cycle turn in direct ATP equivalents. Option D underestimates ATP production.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 205,
+            "generation_time_s": 7.351
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 309,
+            "generated_tokens": 139,
+            "generation_time_s": 3.447
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "The standard educational approximation for ATP yield per Krebs cycle turn, when considering the entire cellular ATP production pathway, is about 12 ATP.",
+          "differential_considered": "Options A, B, and D underestimate the ATP yield; only C reflects the commonly cited estimate (12 ATP) when including the electron transport chain contribution from the cycle's intermediates.",
+          "usage": {
+            "prompt_tokens": 336,
+            "generated_tokens": 330,
+            "generation_time_s": 10.621
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "C": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1474",
+  "dataset": "medqa",
+  "question_id": "1474",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old woman, gravida 1, para 0, at 20 weeks' gestation comes to the physician for genetic counseling. Her brother and maternal uncle both have anemia that worsens after taking certain medications. Based on the pedigree shown, what is the probability that her son will be affected by the disease?",
+    "options": {
+      "A": "25%",
+      "B": "0%",
+      "C": "100%",
+      "D": "12.5%",
+      "E": "50%\n\""
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's family history of anemia worsened by certain medications, coupled with the fact that her brother and maternal uncle are affected, strongly suggests a genetic disorder affecting hemoglobin synthesis. Given the pedigree, the most likely diagnosis is sickle cell anemia, which is an autosomal recessive disorder. Since the patient is gravida 1, para 0, she has not had a child yet. Therefore, the probability of her son being affected is 100%.",
+          "critical_evidence": "The pedigree showing affected individuals (brother and maternal uncle) and the family history of anemia worsened by medications strongly suggests an autosomal recessive disorder like sickle cell anemia.",
+          "differential_considered": "Other possibilities like thalassemia could be considered, but the family history of worsening anemia with certain medications is more specific to hemoglobinopathies like sickle cell anemia. While other genetic conditions could cause anemia, the specific medication-related worsening points towards a hemoglobinopathy.",
+          "usage": {
+            "prompt_tokens": 341,
+            "generated_tokens": 226,
+            "generation_time_s": 11.19
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The pedigree shows autosomal recessive inheritance with affected males and females. The woman is a carrier (heterozygous) with a 50% chance of passing the mutant allele. Her brother and uncle having anemia suggests the disease is X-linked recessive, but the pedigree shows affected males and females, indicating autosomal recessive inheritance. The son has a 50% chance of inheriting the mutant allele from the mother, but since the mother is a carrier, the actual probability is 25% (0.5 * 0.5).",
+          "critical_evidence": "The pedigree showing affected males and females with autosomal recessive inheritance pattern",
+          "differential_considered": "X-linked recessive inheritance was considered but ruled out by the presence of affected females. Autosomal dominant was ruled out by the absence of affected parents.",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.625
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s brother and maternal uncle are affected, suggesting an autosomal recessive inheritance pattern. Since the patient is unaffected but has an affected brother and uncle, she must be a carrier. If she is a carrier and mates with a non-carrier (assumed), her son has a 50% chance of inheriting the affected allele. The pedigree implies autosomal recessive inheritance, and the question asks for the probability that her son will be affected, not carrier.",
+          "critical_evidence": "Affected male relatives (brother and maternal uncle) with autosomal recessive inheritance pattern, and the patient being unaffected but likely a carrier.",
+          "differential_considered": "Autosomal dominant was ruled out because the disease does not appear in every generation and affects males and females equally. X-linked inheritance was ruled out because the maternal uncle is affected and the patient’s brother is affected, which would not be consistent with X-linked recessive inheritance unless the mother were a carrier — but the pedigree does not suggest maternal transmission patterns typical of X-linked.",
+          "usage": {
+            "prompt_tokens": 309,
+            "generated_tokens": 242,
+            "generation_time_s": 8.494
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 329,
+            "generated_tokens": 76,
+            "generation_time_s": 1.852
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Autosomal dominant, autosomal recessive, or X-linked recessive inheritance. Dominant would require at least one affected parent, which is not clear. Autosomal recessive would require the woman to be a carrier, but the pattern of multiple males affected in the maternal line is more typical of X-linked recessive.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 516,
+            "generation_time_s": 16.23
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "D": 1,
+        "E": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

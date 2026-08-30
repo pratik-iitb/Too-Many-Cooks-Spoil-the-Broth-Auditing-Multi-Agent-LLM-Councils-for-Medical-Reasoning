@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1008",
+  "dataset": "medqa",
+  "question_id": "1008",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 7-year-old girl is brought to the pediatrician by her parents for red papules over her left thigh and swelling in the right axilla for the past few days. Her parents say that she had a cat bite on her left thigh 2 weeks ago. Her temperature is 38.6°C (101.4°F), pulse is 90/min, and respirations are 22/min. On her physical examination, hepatosplenomegaly is present with a healing area of erythema on her left hand. Her laboratory studies show:\nHemoglobin 12.9 gm/dL\nLeukocyte count 9,300/mm3\nPlatelet count 167,000/mm3\nESR 12 mm/hr\nWhich of the following is the most appropriate next step in management?",
+    "options": {
+      "A": "Doxycycline + rifampin",
+      "B": "Rifampin + azithromycin",
+      "C": "No treatment is required",
+      "D": "Surgical excision of the lymph node",
+      "E": "Azithromycin as a single agent"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a history of a cat bite, fever, hepatosplenomegaly, and a healing area of erythema on her hand. This clinical picture is highly suggestive of cat scratch disease (CSD), also known as Bartonellosis. The most appropriate treatment for CSD is a combination of doxycycline and rifampin. This combination is effective against Bartonella henselae, the causative agent of CSD.",
+          "critical_evidence": "The combination of a cat bite, fever, hepatosplenomegaly, and a healing area of erythema on the hand strongly suggests cat scratch disease (CSD).",
+          "differential_considered": "While other conditions could present with fever and hepatosplenomegaly, the history of a cat bite makes CSD the most likely diagnosis. Other differentials like viral infections or bacterial infections are less likely given the specific constellation of symptoms and the cat bite history. Therefore, I ruled out other differentials.",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 238,
+            "generation_time_s": 11.751
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient has a cat bite with lymphadenopathy and elevated leukocytes, suggesting possible cellulitis or lymphadenitis. The presence of hepatosplenomegaly and a healing erythema on the hand raises concern for cat scratch disease (CSD), which is caused by Bartonella henselae. CSD typically presents with lymphadenopathy, fever, and splenomegaly after a cat scratch, and is treated with rifampin and azithromycin. The high leukocyte count supports an infectious process, and the ESR is mildly elevated, consistent with inflammation. Doxycycline alone is less effective against B. henselae, and surgical excision is not indicated without a confirmed diagnosis. Azithromycin alone may not fully cover the organism, and no treatment is inappropriate given the clinical signs.",
+          "critical_evidence": "Elevated leukocyte count (9,300/mm3) and clinical history of cat bite with lymphadenopathy",
+          "differential_considered": "Cellulitis, lymphadenitis, cat scratch disease (Bartonella henselae), and possible sepsis. Cat scratch disease is the most likely diagnosis given the history and presentation, and it requires specific antibiotic therapy.",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.934
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with a history of cat bite, fever, regional lymphadenopathy (right axilla), and hepatosplenomegaly, consistent with cat scratch disease (CSD) caused by Bartonella henselae. The absence of significant leukocytosis or elevated ESR suggests a mild to moderate infection. Rifampin plus azithromycin is the recommended empiric therapy for CSD in children with systemic symptoms, especially when there is evidence of systemic spread (hepatosplenomegaly).",
+          "critical_evidence": "History of cat bite + fever + regional lymphadenopathy + hepatosplenomegaly = classic presentation of cat scratch disease.",
+          "differential_considered": "Other differentials like bacterial lymphadenitis (e.g., Staphylococcus, Streptococcus) were considered but ruled out by the absence of purulent drainage, lack of severe systemic signs, and the presence of hepatosplenomegaly which is atypical for bacterial lymphadenitis. Viral causes (e.g., Epstein-Barr) were considered but lack of B symptoms and absence of lymphocytosis make them less likely.",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 269,
+            "generation_time_s": 9.417
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 16,
+            "generation_time_s": 0.407
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Active cellulitis (would warrant broader antibiotics like option A), but the case states the bite is healed and symptoms are now mild (swelling and mild fever), so starting a single macrolide (E) could be appropriate if no signs of spreading infection. Other options (A, B, C) are less appropriate due to the current mild presentation and known bite history.",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 500,
+            "generation_time_s": 15.499
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

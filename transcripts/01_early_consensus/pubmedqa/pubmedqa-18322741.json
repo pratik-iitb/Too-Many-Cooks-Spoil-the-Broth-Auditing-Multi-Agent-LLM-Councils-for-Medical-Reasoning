@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-18322741",
+  "dataset": "pubmedqa",
+  "question_id": "18322741",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does laparoscopic surgery decrease the risk of atrial fibrillation after foregut surgery?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Laparoscopic surgery is generally associated with less postoperative pain, faster recovery, and reduced complications compared to open surgery. Studies have shown a potential association between foregut surgery and an increased risk of atrial fibrillation (AF). Laparoscopic surgery may mitigate some of these risks by reducing inflammation and stress on the cardiovascular system. Therefore, it is likely to decrease the risk of AF.",
+          "critical_evidence": "Laparoscopic surgery is generally associated with less postoperative pain, faster recovery, and reduced complications compared to open surgery.",
+          "differential_considered": "While other factors could contribute to AF, the evidence suggests that laparoscopic surgery may offer a protective effect against it, especially in the context of foregut surgery.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 184,
+            "generation_time_s": 9.304
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Laparoscopic surgery has been associated with lower rates of postoperative atrial fibrillation compared to open surgery due to reduced trauma to the abdominal cavity and less inflammation. The minimally invasive approach preserves cardiac function better and reduces systemic inflammatory response, which are key factors in atrial fibrillation development after surgery.",
+          "critical_evidence": "Studies show laparoscopic techniques reduce postoperative inflammation and preserve cardiac integrity better than open approaches",
+          "differential_considered": "While patient-specific factors like age and comorbidities affect outcomes, the question focuses on surgical technique impact, not individual patient variables",
+          "usage": {
+            "prompt_tokens": 262,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.569
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.75,
+          "clinical_reasoning": "Laparoscopic surgery is associated with less postoperative inflammation and reduced surgical trauma compared to open surgery, which may theoretically lower the risk of atrial fibrillation. However, evidence is inconsistent across studies, with some showing benefit and others showing no significant difference. Therefore, the best answer is 'maybe' due to conflicting data.",
+          "critical_evidence": "Multiple studies show mixed results: some report reduced AF risk with laparoscopy, while others find no significant difference, indicating insufficient consensus.",
+          "differential_considered": "Considered 'yes' and 'no' based on individual study outcomes, but ruled out as definitive due to lack of consistent evidence across large meta-analyses.",
+          "usage": {
+            "prompt_tokens": 233,
+            "generated_tokens": 171,
+            "generation_time_s": 6.076
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 10,
+            "generation_time_s": 0.253
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Open foregut surgery is more likely to cause hemodynamic changes and blood loss leading to AF, but other factors like age, comorbidities, or specific surgical maneuvers might influence AF risk equally in both approaches. However, the current evidence does not support a definitive \"yes\" or \"no\" answer, making \"maybe\" the best choice.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 255,
+            "generation_time_s": 8.185
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

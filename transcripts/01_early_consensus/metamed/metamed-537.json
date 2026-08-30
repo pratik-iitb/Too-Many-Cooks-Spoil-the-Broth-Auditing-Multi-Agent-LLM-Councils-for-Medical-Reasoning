@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-537",
+  "dataset": "metamed",
+  "question_id": "537",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 31-year-old male comes to your office for his annual exam. He states that he received all of his recommended vaccinations prior to beginning college, but has not had any vaccines in the past 13 years. His medical history is significant for intermittent, exercise-induced asthma. He has been sexually active in the past with multiple female partners. In addition to an influenza vaccine, which vaccine should be administered to this patient during this visit?",
+    "options": {
+      "A": "Pneumococcal vaccine",
+      "B": "Tetanus, diphtheria, and acellular pertussis booster (Tdap) vaccine",
+      "C": "Haemophilus influenza B (HIB) vaccine",
+      "D": "Human papillomavirus (HPV) vaccine",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is 31 years old and has not had a Tdap booster in the past 13 years. Given his age and lack of recent Tdap vaccination, a Tdap booster is indicated to protect against pertussis. The other vaccines are either not routinely recommended for this age group or are not indicated based on the patient's history.",
+          "critical_evidence": "The patient is 31 years old and has not had a Tdap booster in the past 13 years.",
+          "differential_considered": "Pneumococcal vaccine: While recommended for adults, it's not a priority in this specific scenario. HIB vaccine: Typically given in childhood, not a routine adult booster. HPV vaccine: Recommended for young adults, but the patient is 31, and the benefits are less pronounced at this age compared to the Tdap booster. Therefore, Tdap is the most appropriate choice.",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 235,
+            "generation_time_s": 16.947
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient is 31 years old with no recent vaccines, and has been sexually active with multiple partners. The Tdap vaccine is recommended for adults who have not received a tetanus booster in the past 10 years, and is also indicated for those who have close contact with infants or have occupational exposure to pertussis. Given the patient's age and potential exposure to infants through his work or social interactions, Tdap is the most appropriate vaccine to administer. The other options are not indicated: pneumococcal vaccine is for older adults or those with certain medical conditions; HIB vaccine is not routinely recommended for adults; HPV vaccine is most effective when given before sexual debut, and the patient's history suggests he may have already been exposed; influenza vaccine is already mentioned as received.",
+          "critical_evidence": "Age 31 with no recent vaccines and potential exposure to infants",
+          "differential_considered": "Considered pneumococcal, HIB, and HPV vaccines but ruled them out due to age appropriateness and patient history. Influenza vaccine was already administered.",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 251,
+            "generation_time_s": 21.112
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 31-year-old male who has not received any vaccines in 13 years, making him due for routine adult vaccines. Tdap is recommended for adults aged 19 and older who have not previously received it, especially since he is sexually active and may be at risk for pertussis exposure. The other vaccines are either not indicated (HIB, pneumococcal for this age group unless high-risk) or not routinely recommended for this age and risk profile (HPV is primarily for adolescents/young adults before age 26, though may be considered in some cases, but Tdap is the most urgent and universally recommended adult booster).",
+          "critical_evidence": "The patient has not received any vaccines in 13 years, and Tdap is indicated for adults aged 19+ who have not previously received it.",
+          "differential_considered": "HPV was considered but is not routinely recommended for men over 26 unless in high-risk groups; pneumococcal and HIB are not indicated for healthy adults without specific risk factors; Tdap is the most appropriate for routine adult catch-up vaccination.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 265,
+            "generation_time_s": 10.77
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 223,
+            "generation_time_s": 6.189
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Pneumococcal vaccine (A) is usually recommended for adults with certain risk factors (e.g., immunocompromised states), but no such risks are mentioned here. HPV (D) is for preventing cervical and anogenital cancers, which are not indicated for a male with this presentation. Asthma (C) is managed with inhalers, not vaccination. Thus, Tdap is the best choice given his vaccination gap and lack of recent booster.",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 307,
+            "generation_time_s": 10.955
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

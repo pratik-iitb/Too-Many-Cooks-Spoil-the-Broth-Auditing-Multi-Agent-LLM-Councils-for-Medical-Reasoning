@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-570",
+  "dataset": "medqa",
+  "question_id": "570",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 40-year-old man with persistent moderate asthma presents for a pulmonary function test. His ratio of forced expiratory volume in one second (FEV1) to forced vital capacity (FVC) is 0.69, and his FEV1 is 65% of his predicted values. What other findings can be expected in the remainder of his pulmonary function test?",
+    "options": {
+      "A": "Decreased diffusion limitation of carbon monoxide (DLCO)",
+      "B": "Increase in FEV1 with methacholine",
+      "C": "Decrease in FEV1 with albuterol",
+      "D": "Increase in fractional exhalation of nitric oxide",
+      "E": "Decrease in total lung capacity"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of moderate asthma and a FEV1/FVC ratio of 0.69, indicating obstructive lung disease. The FEV1 of 65% predicted further confirms this. In asthma, bronchodilator responsiveness is a key diagnostic feature. Albuterol is a short-acting beta-agonist (SABA) that causes bronchodilation. Therefore, an increase in FEV1 with albuterol is expected in a patient with asthma.",
+          "critical_evidence": "The patient's FEV1/FVC ratio of 0.69 indicates obstructive lung disease, and the FEV1 of 65% predicted confirms this. The question asks about expected findings in the remainder of the PFTs, and the expected response to a bronchodilator is a key piece of information.",
+          "differential_considered": "A: Decreased diffusion limitation of carbon monoxide (DLCO) is more typical of emphysema or interstitial lung disease, not asthma. B: An increase in FEV1 with methacholine is more suggestive of asthma, but the question asks about the expected response to a bronchodilator. C: A decrease in FEV1 with albuterol is expected in asthma due to bronchodilation. D: An increase in fractional exhalation of nitric oxide is more suggestive of asthma, but the question asks about the expected response to a bronchodilator. E: A decrease in total lung capacity is more typical of restrictive lung disease, not asthma.",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 354,
+            "generation_time_s": 17.389
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's FEV1/FVC ratio of 0.69 and FEV1 being 65% of predicted values suggest obstructive lung disease, likely asthma. In obstructive lung diseases, airway responsiveness is often increased, meaning that bronchodilators like albuterol can improve lung function. Therefore, a decrease in FEV1 after albuterol administration is expected, indicating reversible airflow obstruction.",
+          "critical_evidence": "FEV1/FVC ratio of 0.69 and FEV1 65% of predicted values",
+          "differential_considered": "Considered restrictive lung disease (e.g., fibrosis) which would show decreased FEV1/FVC ratio but without improvement with bronchodilators, but ruled out by the presence of obstructive pattern. Also considered COPD, but the FEV1/FVC ratio is more consistent with asthma than COPD.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 216,
+            "generation_time_s": 9.945
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has moderate persistent asthma with reduced FEV1 (65% predicted) and a preserved FEV1/FVC ratio (0.69), indicating obstructive lung disease. In asthma, bronchodilators like albuterol typically cause a significant improvement in FEV1, which is a hallmark of reversible airway obstruction. The other options reflect findings more consistent with other lung conditions or are not expected in asthma.",
+          "critical_evidence": "FEV1/FVC ratio of 0.69 is consistent with obstructive lung disease, and FEV1 at 65% predicted confirms moderate asthma. Reversibility with bronchodilators (albuterol) is diagnostic of asthma.",
+          "differential_considered": "Chronic obstructive pulmonary disease (COPD) was considered but ruled out because FEV1/FVC is preserved (not <0.7) and the patient is young (40 years old) with no smoking history implied. Restrictive lung disease was considered but ruled out because FEV1/FVC is not reduced below 0.7, and DLCO is typically normal or increased in asthma, not decreased.",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 272,
+            "generation_time_s": 9.468
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 18,
+            "generation_time_s": 0.446
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 353,
+            "generation_time_s": 10.986
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-5",
+  "dataset": "mmlu",
+  "question_id": "5",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A patient suffers a broken neck with damage to the spinal cord at the level of the sixth cervical vertebra.",
+    "options": {
+      "A": "They will be unable to breathe without life support.",
+      "B": "They will only be able to breathe quietly.",
+      "C": "It is impossible to predict an effect on breathing.",
+      "D": "Breathing will be unaffected."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "A cervical spinal cord injury at the C6 level is likely to cause significant disruption of the phrenic nerve, which innervates the diaphragm. Damage to the phrenic nerve can lead to paralysis of the diaphragm, resulting in the inability to breathe effectively or at all. This is a common and serious complication of cervical spine injuries.",
+          "critical_evidence": "Damage to the spinal cord at the C6 level, which is likely to affect the phrenic nerve.",
+          "differential_considered": "While a complete spinal cord injury at C6 could cause respiratory failure, other factors like the severity of the fracture, associated injuries, and the patient's pre-existing respiratory conditions could influence the outcome. However, the likelihood of respiratory compromise is high given the location of the injury.",
+          "usage": {
+            "prompt_tokens": 299,
+            "generated_tokens": 202,
+            "generation_time_s": 11.098
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "A spinal cord injury at the C6 level can result in complete or incomplete tetraplegia. Since C6 is above the respiratory control centers in the brainstem, complete injury at this level would lead to respiratory paralysis, requiring ventilatory support. Even incomplete injuries at this level can result in significant respiratory dysfunction due to damage to the phrenic nerve (C3-C5) which controls diaphragm function. The patient's inability to breathe without life support is the most likely outcome given the cervical level of injury.",
+          "critical_evidence": "Damage to the phrenic nerve (C3-C5) which controls diaphragm function",
+          "differential_considered": "Considered incomplete tetraplegia with preserved respiratory drive but ruled out due to the cervical level of injury affecting phrenic nerve control. Also considered high cervical injury with preserved respiratory drive but determined that C6 is above the respiratory centers, making complete respiratory paralysis likely.",
+          "usage": {
+            "prompt_tokens": 298,
+            "generated_tokens": 224,
+            "generation_time_s": 11.535
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The sixth cervical vertebra (C6) is located in the cervical spine, which houses the phrenic nerve root (C3-C5) that innervates the diaphragm. Although C6 is not directly part of the phrenic nerve, damage at C6 can still compromise respiratory function if the injury extends to C3-C5 or causes spinal shock. In severe cervical spinal cord injuries, respiratory muscles may be paralyzed, necessitating mechanical ventilation. The clinical presentation implies significant spinal cord damage, which often leads to respiratory failure without intervention.",
+          "critical_evidence": "Spinal cord injury at C6 can disrupt neural pathways critical for diaphragm function, especially if the injury is complete or involves higher cervical segments.",
+          "differential_considered": "Differential diagnoses such as isolated cervical fracture without cord injury or incomplete spinal cord injury were considered, but the case specifies 'damage to the spinal cord,' implying significant neurological compromise, which strongly supports respiratory failure.",
+          "usage": {
+            "prompt_tokens": 269,
+            "generated_tokens": 227,
+            "generation_time_s": 8.529
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 296,
+            "generated_tokens": 79,
+            "generation_time_s": 2.062
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and D are incorrect because injuries above C4 usually spare the phrenic nerve supply to the diaphragm, and B is not a known effect of cervical spinal cord injury at this level. Only C acknowledges possible variability in respiratory involvement.",
+          "usage": {
+            "prompt_tokens": 327,
+            "generated_tokens": 215,
+            "generation_time_s": 7.994
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

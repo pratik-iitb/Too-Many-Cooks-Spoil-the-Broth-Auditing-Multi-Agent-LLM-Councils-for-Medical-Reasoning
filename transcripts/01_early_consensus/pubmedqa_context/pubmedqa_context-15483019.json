@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-15483019",
+  "dataset": "pubmedqa_context",
+  "question_id": "15483019",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is eligibility for a chemotherapy protocol a good prognostic factor for invasive bladder cancer after radical cystectomy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To assess whether eligibility to an adjuvant chemotherapy protocol in itself represents a good prognostic factor after radical cystectomy for bladder cancer. Between April 1984 and May 1989, our institution entered 35 patients with invasive bladder cancer into the Swiss Group for Clinical and Epidemiological Cancer Research (SAKK) study 09/84. They were randomly assigned to either observation or three postoperative courses of cisplatin monotherapy after cystectomy. This study had a negative result. The outcome of these 35 patients (protocol group) was compared with an age- and tumor-stage-matched cohort (matched group; n = 35) who also underwent cystectomy during the same period, but were not entered into the SAKK study, as well as the remaining 57 patients treated during the study period for the same indication (remaining group). Median overall survival decreased from 76.3 months in the protocol group to 52.1 months in the matched group and to 20.3 months in the remaining group. The respective times of median recurrence-free survival were 67.2, 16.0, and 9.4 months. Tumor progression occurred in 46% of the protocol group compared with 69% in the matched group and 65% in the remaining group (P<.05). Cancer-related death was noted in 40% of the protocol group, 57% in the matched group, and 56% in the remaining group.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study showed that patients who received adjuvant chemotherapy after radical cystectomy had significantly worse outcomes compared to those who did not. Specifically, they had shorter overall survival, recurrence-free survival, and a higher rate of cancer-related death. Therefore, eligibility for chemotherapy is not a good prognostic factor.",
+          "critical_evidence": "Median overall survival decreased from 76.3 months in the protocol group to 52.1 months in the matched group and to 20.3 months in the remaining group.",
+          "differential_considered": "While other factors might influence prognosis, the study's results clearly indicate that chemotherapy, in this specific context, is associated with poorer outcomes. Other factors like tumor grade, stage, and patient comorbidities could also play a role, but the chemotherapy protocol itself is a significant negative prognostic factor.",
+          "usage": {
+            "prompt_tokens": 586,
+            "generated_tokens": 210,
+            "generation_time_s": 12.605
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that patients eligible for chemotherapy had worse outcomes compared to those not eligible, with significantly shorter median overall survival and recurrence-free survival. The data shows that the protocol group had higher rates of tumor progression and cancer-related death, indicating that chemotherapy eligibility is not a good prognostic factor in this context.",
+          "critical_evidence": "The 46% tumor progression rate in the protocol group compared to 69% in the matched group (P<.05) demonstrates that chemotherapy eligibility was associated with worse outcomes.",
+          "differential_considered": "No other factors were considered as the question specifically asks about chemotherapy eligibility as a prognostic factor, and the data directly addresses this question.",
+          "usage": {
+            "prompt_tokens": 570,
+            "generated_tokens": 1024,
+            "generation_time_s": 58.023
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that patients eligible for adjuvant chemotherapy (protocol group) had worse outcomes than those not eligible (matched group) and significantly worse than the remaining group. Median survival and recurrence-free survival were lower in the protocol group, and tumor progression was higher, indicating that eligibility for chemotherapy was not a good prognostic factor but rather associated with poorer outcomes.",
+          "critical_evidence": "Median overall survival decreased from 76.3 months in the protocol group to 52.1 months in the matched group and to 20.3 months in the remaining group, with significantly higher tumor progression in the protocol group (46% vs 69% in matched group, P<.05).",
+          "differential_considered": "Considered whether eligibility for chemotherapy might reflect better prognosis (e.g., less aggressive disease), but the data show worse outcomes in the protocol group, suggesting eligibility was not a prognostic advantage and may have been a marker of more aggressive disease or other confounding factors.",
+          "usage": {
+            "prompt_tokens": 563,
+            "generated_tokens": 239,
+            "generation_time_s": 10.224
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 568,
+            "generated_tokens": 84,
+            "generation_time_s": 2.498
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "The protocol group had the highest median overall survival and the lowest cancer-related deaths, but the study was negative due to randomization and possible selection bias.",
+          "differential_considered": "Differential considerations included whether eligibility indicated less advanced disease or better patient tolerance to cisplatin, but the study design (random assignment with a negative result) suggests that observed benefit was due to the nature of the protocol participants rather than the eligibility as a predictor. Other factors such as tumor stage or pathologic features were not compared directly.",
+          "usage": {
+            "prompt_tokens": 601,
+            "generated_tokens": 292,
+            "generation_time_s": 11.259
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

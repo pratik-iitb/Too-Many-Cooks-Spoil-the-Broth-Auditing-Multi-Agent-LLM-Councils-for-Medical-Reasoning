@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-732",
+  "dataset": "medqa",
+  "question_id": "732",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year old Thai gentleman comes to your clinic with complaints of recent fevers, chills, anorexia, and epigastric pain. He also endorses chronic diarrhea. He recently immigrated to the United States. On physical exam, he is febrile to 101 degrees with tender hepatomegaly and mild scleral icterus. He has no sick contacts. When asked about diet, he states that in Thailand he used to regularly consume a dish called \"Koi pla\", which contains raw fish. Microscopic examination of his stool reveals parasitic eggs, as seen in Figure A. Given his history, which of the following is the most likely infectious agent?",
+    "options": {
+      "A": "Teania solium",
+      "B": "Chlonorchis sinensis",
+      "C": "Trypanosoma cruzi",
+      "D": "Trypanosoma brucei",
+      "E": "Ascaris lumbricoides"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of consuming raw fish in Thailand, along with the presence of parasitic eggs in his stool, strongly suggests a parasitic infection. The microscopic examination of the stool revealing eggs is a key piece of evidence. The most likely parasitic infection given this history is *Chlonorchis sinensis*, the Chinese liver fluke, which is commonly contracted from consuming raw or undercooked freshwater fish.",
+          "critical_evidence": "Presence of parasitic eggs in the stool, especially in a patient with a history of consuming raw fish in Thailand.",
+          "differential_considered": "Teania solium (tapeworm) is possible, but the eggs are not typically seen in stool samples. Trypanosoma cruzi and Trypanosoma brucei are transmitted by insects and don't typically present with eggs in stool. Ascaris lumbricoides is a common intestinal roundworm, but the eggs are usually found in the stool, and the history of raw fish consumption is not a typical risk factor.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 242,
+            "generation_time_s": 11.965
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of consuming raw fish in Thailand and the presence of parasitic eggs in stool strongly suggest a zoonotic infection. Chlonorchis sinensis (B) is the definitive host of the freshwater snail intermediate host, and raw fish consumption is a known risk factor. The other options are less likely: Teania solium (A) is associated with pork tapeworms, not raw fish; Trypanosoma cruzi (C) and Trypanosoma brucei (D) are transmitted by insects, not food; Ascaris lumbricoides (E) is a roundworm typically acquired through soil contamination.",
+          "critical_evidence": "Consumption of raw fish (Koi pla) in Thailand",
+          "differential_considered": "Teania solium (pork tapeworm), Trypanosoma cruzi (Chagas disease), Trypanosoma brucei (African trypanosomiasis), Ascaris lumbricoides (roundworm) - all ruled out due to lack of supporting evidence (no pork consumption, no insect exposure, no soil contact).",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.604
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s history of consuming raw fish ('Koi pla') in Thailand, along with chronic diarrhea, fever, hepatomegaly, and icterus, strongly suggests a liver fluke infection. Microscopic stool eggs confirm parasitic etiology. Among the options, Clonorchis sinensis is endemic in Southeast Asia and commonly associated with raw fish consumption. Other options like T. solium (pork tapeworm) or A. lumbricoides (roundworm) are less likely given the liver involvement and egg morphology. Trypanosomiasis is transmitted via vectors or blood transfusion, not foodborne, and does not present with stool eggs.",
+          "critical_evidence": "Consumption of raw fish ('Koi pla') in Thailand + stool eggs + hepatomegaly + icterus = Clonorchis sinensis",
+          "differential_considered": "T. solium (pork tapeworm) was considered but ruled out due to lack of neurologic symptoms and absence of cysticercosis signs. A. lumbricoides is common but typically causes intestinal symptoms without liver involvement. Trypanosoma species are not associated with stool eggs or foodborne transmission. T. brucei causes African sleeping sickness, not relevant to this patient’s geography or presentation.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 300,
+            "generation_time_s": 10.514
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's recent travel history to Thailand, consumption of raw fish dish (koi pla), and presence of parasitic eggs in the stool are suggestive of an infection with Chlonorchis sinensis, a liver fluke. The hepatomegaly and scleral icterus further support a liver pathology. Chlonorchis sinensis infection is known to cause cholangitis, biliary obstruction, and liver abscesses. The other options are less likely given the patient's history and clinical presentation.",
+          "critical_evidence": "The presence of parasitic eggs in the stool",
+          "differential_considered": "Teania solium (pork tapeworm) is less likely as it is not commonly associated with raw fish consumption. Trypanosoma cruzi (Chagas disease) and Trypanosoma brucei (sleeping sickness) are not typically associated with hepatomegaly or scleral icterus. Ascaris lumbricoides (roundworm) infection does not usually present with hepatomegaly or scleral icterus and is not commonly associated with raw fish consumption.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 253,
+            "generation_time_s": 6.115
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (Clonorchis) and E (Ascaris) are liver and intestinal worms from contaminated water, not raw fish; C and D are trypanosomatid infections, which are not food-related. These are ruled out due to the specific dietary history and the nature of the eggs observed.",
+          "usage": {
+            "prompt_tokens": 448,
+            "generated_tokens": 269,
+            "generation_time_s": 8.472
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

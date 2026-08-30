@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-624",
+  "dataset": "mmlu",
+  "question_id": "624",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "What is the most likely outcome of this modification?\n﻿\nAn RNA strand that normally produces a transmembrane protein that facilitates potassium entry into muscle cells is modified to produce a different strand. The original strand is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUAACAGA… \n\nThe modified sequence is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUACCAGA…",
+    "options": {
+      "A": "Absence of the protein",
+      "B": "Production of a similar-sized but dysfunctional protein",
+      "C": "No change",
+      "D": "Production of a larger, likely dysfunctional protein"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The modification introduces a change from uracil (U) to adenine (A) in the mRNA sequence. This change will result in a different amino acid being incorporated into the protein. Since the original protein is a transmembrane protein that facilitates potassium entry, a single amino acid change is likely to disrupt its function, leading to a similar-sized but dysfunctional protein.",
+          "critical_evidence": "The change from uracil (U) to adenine (A) in the mRNA sequence.",
+          "differential_considered": "A: Absence of the protein is unlikely given the single amino acid change. C: No change is incorrect as the sequence has been modified. D: A larger protein is not necessarily expected from a single amino acid change, and the change is more likely to disrupt function than to increase size significantly.",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 203,
+            "generation_time_s": 10.247
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The modification introduces a premature stop codon (UAA) at position 30, which would truncate the protein prematurely. This would result in a shorter, likely non-functional protein compared to the original, which would be similar in size but dysfunctional due to missing critical domains or amino acids.",
+          "critical_evidence": "The insertion of 'UAA' creates a stop codon, which halts translation before the original protein is complete.",
+          "differential_considered": "Options C and D are unlikely because the change alters the sequence and introduces a stop codon. Option A is incorrect because the modified sequence still contains the start codon and sufficient length for translation to begin, though truncated.",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 170,
+            "generation_time_s": 8.112
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The modification changes a single nucleotide from 'U' to 'C' at position 15 (counting from the start of the coding sequence), which alters the codon from UAC to UCC. This changes the amino acid from tyrosine (Tyr) to serine (Ser), a conservative substitution. While the protein's size remains unchanged, the altered amino acid may disrupt the transmembrane domain or ion channel function, leading to a dysfunctional protein.",
+          "critical_evidence": "The single nucleotide change results in a conservative amino acid substitution (Tyr → Ser) that may impair protein function without altering protein size.",
+          "differential_considered": "Absence of protein (A) is unlikely as the sequence is still translatable. No change (C) is incorrect due to the amino acid substitution. Production of a larger protein (D) is ruled out as no stop codon or frameshift is introduced.",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 221,
+            "generation_time_s": 7.923
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 19,
+            "generation_time_s": 0.483
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (A, B, C) assume minimal or no change in the protein, but a single nucleotide change in the middle or at the end of the sequence is more likely to disrupt function, especially if it causes a frameshift, making C the most likely cause of dysfunction rather than outright absence or no change.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 259,
+            "generation_time_s": 8.347
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

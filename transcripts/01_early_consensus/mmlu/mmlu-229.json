@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-229",
+  "dataset": "mmlu",
+  "question_id": "229",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "If a patient is cyanosed, what might their oxygen saturation level be?",
+    "options": {
+      "A": "98% or above.",
+      "B": "94% or above.",
+      "C": "80% or below.",
+      "D": "85% or above."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cyanosis indicates a low oxygen saturation level in the blood. A normal oxygen saturation is generally considered to be 98% or above. Therefore, a cyanosed patient would likely have an oxygen saturation of 80% or below.",
+          "critical_evidence": "Cyanosis is a clinical sign of hypoxemia (low blood oxygen).",
+          "differential_considered": "A: 98% or above is not cyanosis. B: 94% or above is not cyanosis. D: 85% or above is not cyanosis. Cyanosis is defined as a bluish discoloration of the skin and mucous membranes due to an increased amount of deoxygenated hemoglobin in the blood.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 186,
+            "generation_time_s": 9.702
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cyanosis refers to a bluish discoloration of the skin, mucous membranes, and nail beds due to reduced oxygen saturation in arterial blood. This clinical finding indicates severe hypoxemia, which typically corresponds to an oxygen saturation level below 90%. Among the options, only C (80% or below) accurately reflects the hypoxemic state associated with cyanosis. While 85% or above (option D) might be borderline, clinical cyanosis is generally observed when saturation drops below 90%, making option C the most appropriate choice.",
+          "critical_evidence": "Cyanosis is a direct clinical sign of hypoxemia, typically occurring when oxygen saturation falls below 90%",
+          "differential_considered": "Considered conditions include chronic obstructive pulmonary disease (COPD), pneumonia, heart failure, and anemia. These conditions can all lead to hypoxemia and cyanosis, but the underlying mechanism of cyanosis as a sign of severe hypoxemia remains consistent across these diagnoses.",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.616
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cyanosis is a clinical sign of hypoxemia, typically indicating oxygen saturation below 85%. While some cyanosis may occur at 85-90%, it is generally associated with saturation levels below 80% in most clinical contexts. The presence of cyanosis implies significant oxygen desaturation, making 80% or below the most appropriate threshold.",
+          "critical_evidence": "Cyanosis is a visible sign of deoxygenated hemoglobin in the blood, typically appearing when saturation falls below 85% and becomes clinically apparent below 80%.",
+          "differential_considered": "Differential diagnoses such as methemoglobinemia or polycythemia were considered, but cyanosis in this context is most directly linked to hypoxemia, not abnormal hemoglobin function or increased RBC count, which do not typically cause cyanosis unless accompanied by low saturation.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 214,
+            "generation_time_s": 7.608
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 278,
+            "generated_tokens": 13,
+            "generation_time_s": 0.334
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A, B, and D suggest oxygen saturation levels that are normal or near-normal, which would not typically cause cyanosis unless there is an underlying shunt or other abnormal oxygenation process, but the question does not provide such details and cyanosis most strongly suggests low oxygenation. Thus, C is the best answer based on the information given.",
+          "usage": {
+            "prompt_tokens": 309,
+            "generated_tokens": 203,
+            "generation_time_s": 6.509
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

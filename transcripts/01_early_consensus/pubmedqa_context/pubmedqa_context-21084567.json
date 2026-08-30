@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-21084567",
+  "dataset": "pubmedqa_context",
+  "question_id": "21084567",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are stroke patients' reports of home blood pressure readings reliable?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Home blood pressure (BP) monitoring is gaining increasing popularity among patients and may be useful in hypertension management. Little is known about the reliability of stroke patients' records of home BP monitoring. To assess the reliability of home BP recording in hypertensive patients who had suffered a recent stroke or transient ischaemic attack. Thirty-nine stroke patients (mean age 73 years) randomized to the intervention arm of a trial of home BP monitoring were included. Following instruction by a research nurse, patients recorded their BPs at home and documented them in a booklet over the next year. The booklet readings over a month were compared with the actual readings downloaded from the BP monitor and were checked for errors or selective bias in recording. A total of 1027 monitor and 716 booklet readings were recorded. Ninety per cent of booklet recordings were exactly the same as the BP monitor readings. Average booklet readings were 0.6 mmHg systolic [95% confidence interval (95% CI) -0.6 to 1.8] and 0.3 mmHg diastolic (95% CI -0.3 to 0.8) lower than those on the monitor.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that 90% of the booklet readings matched the BP monitor readings, with only a small average difference. This suggests that home blood pressure recordings are reasonably reliable in stroke patients.",
+          "critical_evidence": "Ninety percent of booklet recordings were exactly the same as the BP monitor readings.",
+          "differential_considered": "While the study focused on stroke patients, it's possible that the reliability of home BP monitoring could vary based on factors like patient education, motivation, and the quality of the monitoring devices. However, the high degree of agreement between the two methods suggests that the observed reliability is generally applicable to stroke patients.",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 171,
+            "generation_time_s": 10.14
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that while 90% of home blood pressure readings matched the monitor readings, there was a consistent underreporting of both systolic and diastolic values by an average of 0.6 mmHg and 0.3 mmHg respectively. This systematic bias suggests that stroke patients may not be reliably reporting their true blood pressure values, potentially leading to underestimation of their hypertension severity and inadequate treatment.",
+          "critical_evidence": "The consistent underreporting of blood pressure values by an average of 0.6 mmHg systolic and 0.3 mmHg diastolic, with 95% confidence intervals indicating statistically significant differences, demonstrates a systematic bias in patient-reported readings.",
+          "differential_considered": "Considered potential explanations such as patient anxiety, fear of medication side effects, or misunderstanding of equipment use, but the consistent pattern of underreporting across multiple readings suggests these are less likely than a systematic reporting bias related to patient awareness or social desirability.",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.412
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that 90% of booklet recordings matched the actual monitor readings exactly, with only minor average differences (0.6 mmHg systolic and 0.3 mmHg diastolic), indicating high reliability. The small discrepancies are within acceptable clinical limits and suggest patients accurately recorded their readings without significant bias.",
+          "critical_evidence": "90% of booklet recordings were exactly the same as the BP monitor readings, with minimal average differences.",
+          "differential_considered": "Potential selective bias or error in recording was considered, but the study found no significant bias, ruling out unreliable reporting.",
+          "usage": {
+            "prompt_tokens": 477,
+            "generated_tokens": 155,
+            "generation_time_s": 6.525
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 496,
+            "generated_tokens": 53,
+            "generation_time_s": 1.557
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "I considered whether stroke patients might have systematically underestimated or overestimated their readings due to cognitive impairment or forgetfulness, but the close agreement and the fact that discrepancies were minimal and not statistically significant argue against this. Other factors like device error or improper use were not reported, further supporting the reliability of patient reports in this context.",
+          "usage": {
+            "prompt_tokens": 527,
+            "generated_tokens": 196,
+            "generation_time_s": 7.452
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

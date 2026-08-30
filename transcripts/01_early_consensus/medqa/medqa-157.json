@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-157",
+  "dataset": "medqa",
+  "question_id": "157",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 17-year-old woman is rushed into the emergency department by her father who found her collapsed in her bedroom 15 minutes before the ambulance's arrival. There was an empty bottle of clomipramine in her bedroom which her mother takes for her depression. Vital signs include the following: respiratory rate 8/min, pulse 130/min, and blood pressure 100/60 mm Hg. On physical examination, the patient is unresponsive to vocal and tactile stimuli. Oral mucosa and tongue are dry, and the bladder is palpable. A bedside electrocardiogram (ECG) shows widening of the QRS complexes. Which of the following would be the best course of treatment in this patient?",
+    "options": {
+      "A": "Sodium bicarbonate",
+      "B": "Lidocaine",
+      "C": "Induced vomiting",
+      "D": "Norepinephrine",
+      "E": "Diazepam"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a history of clomipramine ingestion, unresponsiveness, bradycardia, hypotension, dry oral mucosa, palpable bladder, and widened QRS complexes. This clinical picture strongly suggests tricyclic antidepressant (TCA) overdose. The widened QRS complexes are a critical finding indicating sodium channel blockade, a hallmark of TCA toxicity. Sodium bicarbonate is the first-line treatment for TCA overdose to address the QRS widening and hypotension.",
+          "critical_evidence": "Widening of the QRS complexes on ECG",
+          "differential_considered": "While other options might be considered in a broader overdose scenario, the QRS widening points directly to TCA toxicity, making sodium bicarbonate the priority. Benzodiazepines (Diazepam) could be considered for seizures, but the primary concern is the cardiac toxicity. Lidocaine is not typically used in TCA overdose. Norepinephrine is a vasopressor and might be needed later, but sodium bicarbonate addresses the immediate life-threatening cardiac conduction abnormality. Induced vomiting is contraindicated in altered mental status and potential aspiration risk.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 252,
+            "generation_time_s": 12.417
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's QRS widening on ECG suggests possible drug toxicity, particularly from clomipramine (TCA) which can cause QT prolongation. The patient's vital signs (low BP, tachycardia) and physical findings (dry mucosa) support a toxic reaction. Lidocaine is the best choice to treat the arrhythmia and improve myocardial contractility. Other options like sodium bicarbonate (metabolic alkalosis) or norepinephrine (hypotension) are less appropriate without evidence of those conditions. Diazepam might be considered for agitation but is not the primary treatment for arrhythmia.",
+          "critical_evidence": "Widening of QRS complexes on ECG",
+          "differential_considered": "Considered serotonin syndrome, other TCA toxicity, and cardiac arrhythmias, but ruled out due to lack of evidence of hyperthermia, confusion, or other symptoms. Clomipramine toxicity is the most likely cause given the empty bottle found.",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.96
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with signs of severe toxicity consistent with clomipramine overdose, including QRS widening on ECG, hypotension, tachycardia, and altered mental status. Clomipramine is a tricyclic antidepressant (TCA) that causes sodium channel blockade, leading to QRS widening and potentially life-threatening arrhythmias. Sodium bicarbonate is the first-line treatment for TCA overdose with QRS widening, as it corrects intracellular acidosis and shifts the sodium equilibrium potential, thereby reducing sodium channel blockade and stabilizing cardiac conduction.",
+          "critical_evidence": "QRS widening on ECG is a hallmark of TCA toxicity and indicates the need for sodium bicarbonate to correct the sodium channel blockade.",
+          "differential_considered": "Other options like induced vomiting (C) are contraindicated in unconscious patients due to risk of aspiration; lidocaine (B) is used for refractory ventricular arrhythmias but not first-line for QRS widening; norepinephrine (D) is for hypotension but not the primary treatment for QRS widening; diazepam (E) is not effective for TCA-induced arrhythmias and may worsen respiratory depression.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 284,
+            "generation_time_s": 9.89
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 87,
+            "generation_time_s": 2.096
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 287,
+            "generation_time_s": 8.916
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

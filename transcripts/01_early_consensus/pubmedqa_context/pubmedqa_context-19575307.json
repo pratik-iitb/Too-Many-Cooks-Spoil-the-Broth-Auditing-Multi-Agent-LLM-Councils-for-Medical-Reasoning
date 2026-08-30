@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-19575307",
+  "dataset": "pubmedqa_context",
+  "question_id": "19575307",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does glomerular hyperfiltration in pregnancy damage the kidney in women with more parities?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "We aimed to investigate the glomerular hyperfiltration due to pregnancy in women with more parities. Five hundred women aged 52.57 +/- 8.08 years, without a history of hypertension, diabetes mellitus or complicated pregnancy were involved in the study. They were divided into three groups. Group 1: women with no or one parity (n = 76); group 2: women with two or three parities (n = 333); group 3: women with four or more parities (n = 91). Laboratory parameters and demographical data were compared between the three groups. Mean age, serum urea and serum creatinine were similar between three groups. Patients in group 3 had significantly higher GFR values compared to groups 1 and 2 (109.44 +/- 30.99, 110.76 +/- 30.22 and 121.92 +/- 34.73 mL/min/1.73 m(2) for groups 1, 2 and 3, respectively; P = 0.008 for group 1 vs group 3; P = 0.002 for group 2 vs group 3).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study clearly demonstrates a significant increase in glomerular filtration rate (GFR) in women with four or more parities compared to those with fewer parities. This suggests that repeated pregnancies lead to increased glomerular hyperfiltration, which could potentially damage the kidneys over time. The higher GFR in the group with more parities is statistically significant.",
+          "critical_evidence": "Patients in group 3 had significantly higher GFR values compared to groups 1 and 2 (109.44 +/- 30.99, 110.76 +/- 30.22 and 121.92 +/- 34.73 mL/min/1.73 m(2) for groups 1, 2 and 3, respectively; P = 0.008 for group 1 vs group 3; P = 0.002 for group 2 vs group 3).",
+          "differential_considered": "While the study focuses on the impact of parities on GFR, other factors like age and pre-existing kidney conditions could also influence GFR. However, the study controls for age and pre-existing conditions, making the parities the most likely factor driving the observed difference in GFR.",
+          "usage": {
+            "prompt_tokens": 529,
+            "generated_tokens": 303,
+            "generation_time_s": 18.247
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that women with more parities (group 3) had significantly higher GFR values compared to groups 1 and 2, suggesting glomerular hyperfiltration increases with parity. However, the question asks if this hyperfiltration damages the kidney. While elevated GFR can indicate compensatory hyperfiltration, it does not necessarily imply kidney damage. The absence of hypertension, diabetes, or complicated pregnancies suggests no overt kidney disease, and the study does not provide evidence of structural or functional kidney damage. Thus, the answer is'maybe' because hyperfiltration may be adaptive but not necessarily harmful in this context.",
+          "critical_evidence": "Group 3 had significantly higher GFR (121.92 mL/min/1.73 m²) compared to groups 1 and 2 (P = 0.008 and P = 0.002), indicating increased glomerular filtration but no evidence of kidney damage.",
+          "differential_considered": "Differential diagnoses such as chronic kidney disease or nephrotic syndrome were ruled out due to the absence of hypertension, diabetes, or complicated pregnancies, which are common risk factors for kidney damage.",
+          "usage": {
+            "prompt_tokens": 508,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.987
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that women with four or more parities had higher GFR values, which is consistent with glomerular hyperfiltration in pregnancy. However, the question asks whether this hyperfiltration damages the kidney. The study did not report any evidence of kidney damage (e.g., proteinuria, declining renal function, or structural changes) in these women, and serum creatinine and urea were unchanged across groups, suggesting no functional impairment. Thus, hyperfiltration does not appear to cause damage in this population.",
+          "critical_evidence": "Mean serum creatinine and urea were similar across all groups, indicating no evidence of renal dysfunction despite higher GFR in higher parity groups.",
+          "differential_considered": "Kidney damage due to hyperfiltration was considered, but ruled out by the absence of elevated creatinine or urea and no mention of proteinuria or structural changes, which would be expected if damage occurred.",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 219,
+            "generation_time_s": 9.594
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 72,
+            "generation_time_s": 2.136
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.7,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Kidney damage (e.g., as assessed by albumin-creatinine ratio, eGFR decline postpartum, or urinary abnormalities) was not measured, so we cannot infer damage from the data provided. Other differentials like hypertension or diabetes were excluded because the case states there is no history of these conditions.",
+          "usage": {
+            "prompt_tokens": 537,
+            "generated_tokens": 262,
+            "generation_time_s": 10.067
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

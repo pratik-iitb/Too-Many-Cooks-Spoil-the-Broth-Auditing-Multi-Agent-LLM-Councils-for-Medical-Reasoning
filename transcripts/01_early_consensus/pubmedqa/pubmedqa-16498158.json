@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa-16498158",
+  "dataset": "pubmedqa",
+  "question_id": "16498158",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is atropine needed with ketamine sedation?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Atropine is an anticholinergic medication used to treat bradycardia and reduce secretions. Ketamine sedation can cause tachycardia and increased secretions. Therefore, atropine is generally not needed unless there is a specific indication for its use, such as symptomatic bradycardia or excessive secretions.",
+          "critical_evidence": "Ketamine sedation can cause tachycardia and increased secretions.",
+          "differential_considered": "Differential diagnoses considered include bradycardia, which would warrant atropine. However, the case does not mention any bradycardia, and the potential for increased secretions is more common with ketamine sedation, making atropine unnecessary in the absence of these specific findings.",
+          "usage": {
+            "prompt_tokens": 251,
+            "generated_tokens": 170,
+            "generation_time_s": 10.228
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.8,
+          "clinical_reasoning": "Ketamine sedation typically causes bradycardia and hypotension due to its alpha-2 agonist effects. Atropine is used to counteract these effects by blocking muscarinic receptors and increasing heart rate. However, in controlled clinical settings where the patient's vital signs are closely monitored, the risk of severe bradycardia with ketamine may be managed without atropine. Given the lack of specific clinical findings indicating severe bradycardia or hypotension, and considering that atropine is not routinely indicated for ketamine sedation in standard protocols, atropine is likely not needed.",
+          "critical_evidence": "Ketamine's alpha-2 agonist effects leading to bradycardia, which can be managed through monitoring rather than pharmacological intervention in controlled settings",
+          "differential_considered": "Considered whether the patient has pre-existing cardiac conditions that might increase the risk of bradycardia with ketamine, but no such conditions were mentioned. Also considered if the patient is receiving high doses of ketamine, but the context suggests standard sedation protocols are being followed.",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.952
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Atropine is not routinely required with ketamine sedation because ketamine does not cause significant bradycardia or secretomotor effects that atropine typically addresses. Ketamine is known to cause tachycardia and increased secretions, which are counteracted by other agents like anticholinergics only if clinically indicated. Routine use of atropine is not supported by evidence for ketamine sedation unless there is a specific indication such as bradycardia or severe secretions.",
+          "critical_evidence": "Ketamine does not cause significant vagal stimulation or bradycardia, making atropine unnecessary in routine use.",
+          "differential_considered": "Bradycardia or excessive secretions might prompt atropine use, but these are not typical with ketamine sedation; thus, they are not relevant differentials in the absence of such findings.",
+          "usage": {
+            "prompt_tokens": 225,
+            "generated_tokens": 215,
+            "generation_time_s": 9.171
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 252,
+            "generated_tokens": 10,
+            "generation_time_s": 0.302
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 228,
+            "generation_time_s": 8.737
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-624",
+  "dataset": "medxpertqa",
+  "question_id": "Text-624",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 67-year-old female with a history of breast cancer and hemorrhagic stroke 12 months ago presents with dyspnea and chest pain. Her vital signs show: blood pressure 88/46 mmHg, heart rate 110/min, oxygen saturation 92% on room air, respiratory rate 22/min, and temperature 99.0°F. A CTA reveals a large saddle pulmonary embolism. Which of the following represents the most appropriate acute therapeutic intervention?\nAnswer Choices: (A) Heparin (B) TPA (C) Enoxaparin (D) IVC filter (E) Dabigatran (F) Rivaroxaban (G) Warfarin (H) Aspirin (I) Fondaparinux (J) Low molecular weight heparin",
+    "options": {
+      "A": "Heparin",
+      "B": "TPA",
+      "C": "Enoxaparin",
+      "D": "IVC filter",
+      "E": "Dabigatran",
+      "F": "Rivaroxaban",
+      "G": "Warfarin",
+      "H": "Aspirin",
+      "I": "Fondaparinux",
+      "J": "Low molecular weight heparin"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Cardiovascular",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a large saddle pulmonary embolism (PE) and hemodynamic instability (hypotension, tachycardia, hypoxemia). In this scenario, thrombolysis with TPA is indicated to rapidly dissolve the clot and improve pulmonary blood flow. While anticoagulation is important, it is not the primary initial treatment for a massive PE with hemodynamic instability.",
+          "critical_evidence": "Large saddle pulmonary embolism and hemodynamic instability (hypotension, tachycardia, hypoxemia)",
+          "differential_considered": "While anticoagulation is a mainstay of PE treatment, the patient's hemodynamic instability suggests a high-risk PE requiring thrombolysis. Other options like anticoagulants (heparin, enoxaparin, fondaparinux, LMWH, DOACs, warfarin) are not the primary acute intervention in this situation. An IVC filter is used for patients with contraindications to anticoagulation or recurrent PE despite anticoagulation. Aspirin and warfarin are not appropriate for acute PE treatment.",
+          "usage": {
+            "prompt_tokens": 473,
+            "generated_tokens": 242,
+            "generation_time_s": 10.081
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with dyspnea and chest pain secondary to a large saddle pulmonary embolism confirmed by CTA. The most effective acute treatment for pulmonary embolism is direct thrombin inhibition with unfractionated heparin (Heparin) or low molecular weight heparin (LMWH). Given the age and history of cancer, LMWH might be preferred to avoid bleeding complications, but unfractionated heparin is highly effective and appropriate in this setting. TPA is for ischemic stroke, not pulmonary embolism, and filters are not first-line therapy.",
+          "critical_evidence": "CTA revealing a large saddle pulmonary embolism",
+          "differential_considered": "Considered stroke due to TIA (supported by stroke history), but TPA is not indicated for pulmonary embolism. Considered cancer-related complications, but the primary diagnosis is pulmonary embolism requiring anticoagulation.",
+          "usage": {
+            "prompt_tokens": 480,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.848
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a large saddle pulmonary embolism with hemodynamic instability (hypotension, tachycardia), indicating acute pulmonary hypertension and right heart strain. In such cases, thrombolytic therapy (TPA) is indicated for rapid clot dissolution and hemodynamic stabilization. Anticoagulants alone are insufficient in unstable patients with massive PE. IVC filters are not therapeutic and are reserved for contraindications to anticoagulation. Warfarin and DOACs require time to take effect and are not appropriate for acute stabilization.",
+          "critical_evidence": "Hemodynamic instability (BP 88/46 mmHg, HR 110/min) with large saddle PE indicates massive pulmonary embolism requiring thrombolysis.",
+          "differential_considered": "Considered IVC filter (for anticoagulation contraindication), warfarin (delayed effect), and anticoagulants (LMWH, fondaparinux, DOACs) — but all are inappropriate for acute hemodynamic instability. TPA is the only option for rapid thrombolysis in massive PE with shock.",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 266,
+            "generation_time_s": 9.499
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 11,
+            "generation_time_s": 0.416
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "CTA revealing a large saddle pulmonary embolism",
+          "differential_considered": "Atrial fibrillation, hypercoagulable state, deep vein thrombosis (all less acute or not directly indicated here), and other anticoagulant/platelet inhibitor options; TPA (B) is contraindicated in PE. The acute treatment must be anticoagulation, with LMWH being preferred in many cases due to ease of administration and rapid action.",
+          "usage": {
+            "prompt_tokens": 510,
+            "generated_tokens": 300,
+            "generation_time_s": 10.262
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-433",
+  "dataset": "medqa",
+  "question_id": "433",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old patient presents to a medical office for a consultation regarding a mole on her nose that is increasing in size. She also complains of frequent headaches, which she associates with stress on the job. She works as a civil engineer and spends much of her time outside. Her past medical history is positive for bronchial asthma; nevertheless, her vitals are stable. The mole is 8 mm in diameter, has irregular borders, and is brown in color. A biopsy is performed and sent for genetic analysis. A mutation is found. A mutation in which gene is characteristic of this patient’s main diagnosis?",
+    "options": {
+      "A": "c-MYC",
+      "B": "APC",
+      "C": "BRAF",
+      "D": "DCC",
+      "E": "BCL-2"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of a rapidly growing, irregularly bordered, brown mole on the nose, along with a history of bronchial asthma, strongly suggests melanoma. The genetic analysis finding of a mutation in a specific gene is crucial for diagnosis. BRAF mutations are common in melanoma, particularly in the subtype of melanoma that presents with a mole.",
+          "critical_evidence": "The presence of a rapidly growing, irregularly bordered, brown mole on the nose, along with a history of bronchial asthma, strongly suggests melanoma.",
+          "differential_considered": "While other skin cancers like basal cell carcinoma and squamous cell carcinoma are possible, the description of the mole (irregular borders, brown color) and the patient's age make melanoma more likely. The patient's asthma is not directly related to the skin cancer diagnosis, but it is a relevant medical history to consider for overall health management.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 217,
+            "generation_time_s": 11.035
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's mole is 8 mm with irregular borders and brown color, suggesting a dysplastic nevus. The finding of a genetic mutation supports a diagnosis of melanoma, and BRAF mutations are common in melanomas. The other options (c-MYC, APC, DCC, BCL-2) are not typically associated with melanoma.",
+          "critical_evidence": "BRAF mutation found in the biopsy",
+          "differential_considered": "Considered other melanoma-associated mutations (c-MYC, APC) but ruled them out due to their rarity in melanoma. DCC and BCL-2 are not relevant to melanoma pathology.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 167,
+            "generation_time_s": 7.819
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a rapidly growing, irregularly bordered mole (8 mm) on the nose, which is highly suspicious for melanoma. The biopsy reveals a mutation, and BRAF V600E mutation is the most common genetic alteration in melanoma, especially in cutaneous melanoma. The patient’s occupational exposure to UV radiation (civil engineer working outdoors) further supports melanoma as the likely diagnosis. Other options like c-MYC, APC, DCC, and BCL-2 are associated with other malignancies or pathways, not melanoma.",
+          "critical_evidence": "The mole is 8 mm in diameter with irregular borders and brown color — classic features of melanoma, and BRAF mutation is the most characteristic genetic alteration in this context.",
+          "differential_considered": "Dermatofibroma, seborrheic keratosis, and benign nevus were considered but ruled out due to size, irregular borders, and clinical progression. Melanoma was the most likely diagnosis given the clinical features and genetic findings.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 245,
+            "generation_time_s": 8.621
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's presentation of a changing mole and history of bronchial asthma raises concern for a potential skin malignancy. The biopsy findings of a mutation in the BRAF gene are characteristic of melanoma, which is known to be associated with mutations in the BRAF gene. This gene encodes for a protein that plays a role in cell growth and division, and mutations can lead to uncontrolled cell proliferation, which is a hallmark of cancer. The patient's symptoms and genetic findings are most consistent with melanoma, making BRAF the correct answer.",
+          "critical_evidence": "The mutation in the BRAF gene found in the biopsy.",
+          "differential_considered": "Other options such as c-MYC, APC, DCC, and BCL-2 were considered but ruled out based on the absence of association with melanoma and the specific genetic findings in this patient.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 200,
+            "generation_time_s": 4.854
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A, B, D, and E are less likely as the primary diagnosis given the clinical presentation of a suspicious mole and the context of genetic analysis for melanoma. Melanoma is most classically linked to BRAF mutations.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 224,
+            "generation_time_s": 7.077
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

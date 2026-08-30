@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-1461",
+  "dataset": "medqa",
+  "question_id": "1461",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 24-year-old woman calls her gynecologist complaining of vaginal odor and vaginal discharge. She had an intrauterine device placed last year and does not use condoms with her boyfriend. She has a past medical history of constipation and depression. She recently was successfully treated for a urinary tract infection with a 2-day course of antibiotics. Physical exam demonstrates an off-white vaginal discharge and a strong odor. Pelvic exam demonstrates an absence of cervical motion tenderness and no adnexal tenderness. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Anaerobic bacteria overgrowth within the vagina",
+      "B": "Inflammatory bacterial infection",
+      "C": "Insufficiently treated urinary tract infection",
+      "D": "Physiologic discharge secondary to normal hormonal fluctuations",
+      "E": "Pregnancy within the uterine tubes"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of vaginal odor and discharge, along with the presence of an intrauterine device (IUD), strongly suggest bacterial vaginosis (BV). The absence of cervical motion tenderness and adnexal tenderness makes pelvic inflammatory disease (PID) less likely. The recent UTI treatment is less likely to be the primary cause of the current symptoms.",
+          "critical_evidence": "The presence of an intrauterine device (IUD) and off-white vaginal discharge with a strong odor are highly suggestive of bacterial vaginosis.",
+          "differential_considered": "Inflammatory bacterial infection (B): While possible, the absence of cervical motion tenderness and adnexal tenderness makes this less likely. Insufficiently treated urinary tract infection (C): The patient was recently treated for a UTI, and the symptoms are more consistent with BV. Physiologic discharge secondary to normal hormonal fluctuations (D): This is less likely given the presence of a strong odor and off-white discharge. Pregnancy within the uterine tubes (E): This is not a typical presentation of pregnancy and is less likely given the other findings.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 259,
+            "generation_time_s": 12.829
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient presents with vaginal odor and off-white discharge, which are classic signs of anaerobic bacterial vaginosis. The presence of an IUD may contribute to this condition by altering vaginal flora. The recent UTI treatment and lack of condom use suggest a possible reinfection or insufficient treatment of an underlying bacterial imbalance. The absence of pelvic tenderness supports a non-inflammatory or non-septic cause, ruling out inflammatory bacterial infection or pregnancy. Hormonal fluctuations are less likely given the specific symptoms and recent medical history.",
+          "critical_evidence": "Off-white vaginal discharge with strong odor",
+          "differential_considered": "Inflammatory bacterial infection (ruled out by lack of tenderness) and pregnancy (ruled out by absence of adnexal tenderness and age appropriateness) were considered but not supported by evidence. Insufficiently treated UTI is less likely as the symptoms are primarily vaginal, not urinary.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 217,
+            "generation_time_s": 10.128
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with vaginal odor and discharge, along with an off-white discharge and no signs of pelvic inflammatory disease (no cervical motion or adnexal tenderness). These findings are consistent with bacterial vaginosis, which is caused by anaerobic bacterial overgrowth. Her recent antibiotic use for UTI may have disrupted vaginal flora, predisposing her to this condition. Other options lack supporting evidence: pregnancy is unlikely without missed period or other signs; UTI is resolved; physiologic discharge lacks odor; and inflammatory infection would typically show tenderness.",
+          "critical_evidence": "Off-white vaginal discharge with strong odor in the absence of pelvic tenderness is classic for bacterial vaginosis, which is caused by anaerobic bacterial overgrowth.",
+          "differential_considered": "Considered UTI recurrence (ruled out by resolution and no systemic symptoms), pelvic inflammatory disease (ruled out by lack of tenderness), and physiologic discharge (ruled out by odor and discharge). Pregnancy and inflammatory infection were considered but lack supporting evidence.",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 242,
+            "generation_time_s": 8.492
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 162,
+            "generation_time_s": 3.936
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.87,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (Inflammatory bacterial infection), D (Physiologic discharge), C (Insufficiently treated UTI), E (Tubal pregnancy), and she has no signs of pregnancy on exam (implied by lack of cervical motion tenderness/adnexal findings). These are all less likely than the post-antibiotic perturbation leading to vaginal dysbiosis.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 286,
+            "generation_time_s": 9.035
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

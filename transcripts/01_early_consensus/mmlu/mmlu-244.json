@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-244",
+  "dataset": "mmlu",
+  "question_id": "244",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "If a blood unit has been out of refrigeration for longer than the accepted time limit, you should:",
+    "options": {
+      "A": "transfuse it as soon as possible and annotate the patient's notes with the time of administration.",
+      "B": "dispose of the contents in the sluice area, keeping the bag for record purposes.",
+      "C": "return it to the blood bank and inform them of why you have done so.",
+      "D": "refrigerate for a minimum of 12 hours and then administer it."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "A blood unit that has been out of refrigeration for an extended period is considered unsafe for transfusion due to the risk of bacterial growth and potential contamination. Disposing of the contents in the sluice area is the safest course of action to prevent potential harm to the patient. While returning it to the blood bank is a good practice, it doesn't address the immediate safety concern.",
+          "critical_evidence": "Blood units are only safe for transfusion when stored at the correct temperature (typically 2-6°C). Prolonged exposure outside this temperature range increases the risk of bacterial growth and contamination.",
+          "differential_considered": "A: Transfusing the blood unit could expose the patient to harmful bacteria, leading to transfusion-related sepsis. C: While informing the blood bank is important, it doesn't address the immediate safety concern of a potentially contaminated blood product. D: Refrigerating the blood unit for 12 hours is not sufficient to ensure its safety after an extended period of being out of refrigeration.",
+          "usage": {
+            "prompt_tokens": 332,
+            "generated_tokens": 246,
+            "generation_time_s": 13.04
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Blood units must be within the accepted temperature range to prevent bacterial growth and ensure patient safety. Once out of refrigeration beyond the allowed time, the unit becomes compromised. Transfusing it poses infection risk. Disposing of the contents while retaining the bag for documentation ensures compliance with safety protocols and maintains accurate records.",
+          "critical_evidence": "Blood must be stored at 2-6°C; prolonged temperature excursions allow bacterial proliferation, risking transfusion-transmitted infections.",
+          "differential_considered": "Options A (transfuse) risks patient harm; C (returning to bank) may delay proper disposal; D (refrigeration) does not address the compromised unit. B is the only safe, compliant action.",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 177,
+            "generation_time_s": 8.897
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Blood products must be stored at appropriate temperatures to maintain safety and efficacy. If a unit is out of refrigeration beyond the accepted time limit, it poses a significant risk of bacterial growth or degradation, making it unsafe for transfusion. Disposal is the safest course of action to prevent potential transfusion reactions or complications.",
+          "critical_evidence": "Blood products have strict temperature requirements; exceeding the acceptable out-of-refrigeration time compromises safety and is not reversible by refrigeration.",
+          "differential_considered": "Options A, C, and D were considered but ruled out: transfusing (A) risks patient harm; returning to blood bank (C) is not feasible if the unit is compromised; refrigerating (D) does not restore safety after exceeding time limits.",
+          "usage": {
+            "prompt_tokens": 300,
+            "generated_tokens": 184,
+            "generation_time_s": 6.9
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 26,
+            "generation_time_s": 0.708
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Blood units have specific temperature and time requirements to minimize the risk of bacterial growth and hemolysis. If a blood unit has been out of refrigeration for longer than the accepted time limit, it is generally unsafe for transfusion and should be disposed of properly. Option B correctly describes the recommended disposal procedure while keeping the bag for documentation, which aligns with standard infection control protocols.",
+          "critical_evidence": "",
+          "differential_considered": "Options A and D suggest unsafe transfusion practices due to potential bacterial growth or hemolysis. Option C is appropriate if the blood is truly unsafe, but the case states it has been out of refrigeration too long, making C only relevant if returning for analysis, which is not indicated here. Thus, B is the best action for safety and documentation.",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 213,
+            "generation_time_s": 7.255
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-627",
+  "dataset": "medqa",
+  "question_id": "627",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 72-year-old woman is brought to the emergency department by her son after he noticed that she was slurring her speech. He also noticed that she appeared to have difficulty using her fork about halfway through dinner when the speech problems started. He brought her to the emergency department immediately and he estimates that only 1 hour has passed since the beginning of the symptoms. An immediate exam is conducted. A medication is administered to ameliorate the effects of this patient's condition that would not be available for use if the patient had presented significantly later. An hour later the patient's condition becomes significantly worse and new deficits are found. Which of the following agents should be used at this point?",
+    "options": {
+      "A": "Aminocaproic acid",
+      "B": "Antivenin",
+      "C": "Plasma transfusion",
+      "D": "Protamine sulfate",
+      "E": "Vitamin K"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute onset of slurred speech and difficulty using a fork, suggesting a possible stroke or TIA. The rapid worsening of symptoms and the appearance of new deficits after an hour strongly suggest an evolving ischemic stroke. Aminocaproic acid is a tranexamic acid that is used to treat bleeding disorders. The patient's symptoms are suggestive of a stroke, not a bleeding disorder. Therefore, aminocaproic acid is not indicated.",
+          "critical_evidence": "Rapidly worsening symptoms and new deficits after an hour suggest an evolving ischemic stroke.",
+          "differential_considered": "Antivenin: Not indicated for stroke symptoms. Plasma transfusion: Not indicated for stroke symptoms. Protamine sulfate: Used to reverse heparin overdose, not relevant to the presentation. Vitamin K: Used to reverse warfarin overdose, not relevant to the presentation.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 212,
+            "generation_time_s": 10.488
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's sudden onset of slurred speech and difficulty using a fork suggests a possible stroke or hemorrhagic event. The administration of a medication to ameliorate the condition indicates that time is critical. Given the rapid progression of symptoms and the need for immediate intervention, aminocaproic acid is likely used to prevent further bleeding by inhibiting platelet aggregation, which is crucial in managing hemorrhagic complications. The other options are not relevant to the described symptoms and progression.",
+          "critical_evidence": "The patient's condition worsening within an hour and the need for immediate intervention to prevent further neurological damage.",
+          "differential_considered": "Stroke, hemorrhagic event, or other acute neurological conditions were considered, but the rapid onset and progression of symptoms point more strongly to a bleeding event requiring aminocaproic acid.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 197,
+            "generation_time_s": 9.164
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute-onset slurred speech and motor dysfunction (difficulty using a fork), consistent with an ischemic stroke. The critical time-sensitive intervention is thrombolysis (e.g., alteplase), which is only effective within 4.5 hours of symptom onset. However, the question implies that a specific agent was administered early (likely tPA) and then the condition worsened an hour later, suggesting hemorrhagic transformation or reperfusion injury. The worsening condition and timing suggest the need for reversal of anticoagulation if anticoagulants were involved — but since no anticoagulant is mentioned, the most likely scenario is that the patient received tPA and then developed hemorrhagic transformation. In such cases, no reversal agent is available, but if the patient had been on warfarin and developed bleeding, vitamin K would be used. However, the most plausible interpretation is that the patient received tPA and then deteriorated — in which case no agent is indicated. But among the options, vitamin K is the only one that can reverse anticoagulation, and if the patient had been on warfarin, it would be the correct agent. Given the context, the best answer is vitamin K, as it is the only agent among the options that can reverse anticoagulation and is used in cases of bleeding due to warfarin. The other options are for different conditions (e.g., aminocaproic acid for bleeding due to fibrinolysis, protamine for heparin, antivenin for venom, plasma for coagulopathy).",
+          "critical_evidence": "The patient’s acute neurological deficits and the timing of symptom onset suggest an ischemic stroke, and the worsening after tPA administration suggests hemorrhagic transformation — but among the given options, vitamin K is the only agent that can reverse anticoagulation if warfarin was involved, which is a common scenario in stroke patients on anticoagulants.",
+          "differential_considered": "Ischemic stroke (most likely), hemorrhagic stroke (due to tPA complication), warfarin-related bleeding (if patient was on anticoagulant), other causes of stroke (e.g., TIA, metabolic encephalopathy). Ruled out: TIA (symptoms persisted >1 hour), metabolic encephalopathy (no history of liver disease or toxins), hemorrhagic stroke (no history of trauma or bleeding diathesis).",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 534,
+            "generation_time_s": 18.716
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 14,
+            "generation_time_s": 0.362
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Thrombosis, liver failure, other drug-induced coagulopathy, but these would not explain the rapid onset and would not be treated as urgently with vitamin K in the first hour.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 246,
+            "generation_time_s": 7.679
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

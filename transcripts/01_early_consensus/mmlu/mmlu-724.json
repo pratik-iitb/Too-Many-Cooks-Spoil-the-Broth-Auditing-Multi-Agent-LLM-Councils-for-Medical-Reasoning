@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-724",
+  "dataset": "mmlu",
+  "question_id": "724",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Asp235Phe in a molecular report indicates that:",
+    "options": {
+      "A": "asparagine has been replaced by phenylalanine.",
+      "B": "phenylalanine has been replaced by asparagine.",
+      "C": "aspartic acid has been replaced by phenylalanine.",
+      "D": "phenylalanine has been replaced by aspartic acid."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The Asp235Phe mutation indicates that the amino acid Asparagine (Asp) at position 235 in the protein sequence has been replaced by Phenylalanine (Phe). This is a direct substitution, where one amino acid is directly replaced by another.",
+          "critical_evidence": "The report explicitly states 'Asp235Phe', indicating a direct substitution of Asparagine by Phenylalanine.",
+          "differential_considered": "Options B, C, and D describe substitutions in the opposite direction (Phenylalanine to Asparagine, Phenylalanine to Aspartic Acid, and Aspartic Acid to Phenylalanine, respectively). These are less likely given the direct substitution described in the report.",
+          "usage": {
+            "prompt_tokens": 292,
+            "generated_tokens": 186,
+            "generation_time_s": 9.506
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The notation Asp235Phe indicates a substitution mutation where phenylalanine (Phe) replaces asparagine (Asn) at position 235 in the protein sequence. This is a point mutation where the wild-type amino acid asparagine is replaced by phenylalanine, which matches option B. The numbering (235) refers to the position in the protein sequence, confirming this is a specific amino acid substitution.",
+          "critical_evidence": "The notation Asp235Phe directly indicates the substitution of asparagine with phenylalanine at position 235",
+          "differential_considered": "Other options suggest different amino acid substitutions (Asp to Phe, Phe to Asp, or Asp to Asn). These would represent different mutations. The correct interpretation is that the mutation changes asparagine to phenylalanine, which is option B.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.13
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The notation 'Asp235Phe' follows standard genetic nomenclature where 'Asp' stands for aspartic acid and 'Phe' for phenylalanine, indicating a substitution of aspartic acid with phenylalanine at position 235. This is a single amino acid substitution mutation, and the notation clearly implies the original amino acid (Asp) is replaced by the new one (Phe).",
+          "critical_evidence": "The standard IUPAC amino acid single-letter code: Asp = aspartic acid, Phe = phenylalanine.",
+          "differential_considered": "No differential diagnoses are relevant here as this is a straightforward interpretation of a molecular variant notation; alternatives like asparagine (Asn) or phenylalanine (Phe) being misinterpreted as the original or substituted amino acid were ruled out by standard genetic nomenclature.",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 218,
+            "generation_time_s": 7.919
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 301,
+            "generated_tokens": 19,
+            "generation_time_s": 0.49
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and B describe incorrect substitution directions (asparagine to Phe or Phe to Asn), while D describes Phe replacing Asp but with the wrong amino acid in the first part. Only C matches the reported mutation.",
+          "usage": {
+            "prompt_tokens": 332,
+            "generated_tokens": 204,
+            "generation_time_s": 6.645
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

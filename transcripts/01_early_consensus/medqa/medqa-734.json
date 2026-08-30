@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-734",
+  "dataset": "medqa",
+  "question_id": "734",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 66-year-old male with a history of deep venous thrombosis is admitted to the hospital with shortness of breath and pleuritic chest pain. He is treated with an anticoagulant, but he develops significant hematochezia. His BP is now 105/60 and HR is 117; both were within normal limits on admission. The effects of the anticoagulant are virtually completely reversed with the administration of protamine. Which of the following was the anticoagulant most likely administered to this patient?",
+    "options": {
+      "A": "Warfarin",
+      "B": "Enoxaparin",
+      "C": "Heparin",
+      "D": "Bivalirudin",
+      "E": "Dabigatran"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of hematochezia (blood in the stool) after starting an anticoagulant, coupled with the rapid reversal of anticoagulation with protamine, strongly suggests a heparin overdose or a reaction to heparin. Warfarin has a slow onset of action and is not rapidly reversible. Enoxaparin and bivalirudin are low molecular weight heparins and direct thrombin inhibitors, respectively, and are not typically reversed with protamine. Dabigatran is a direct oral anticoagulant (DOAC) and is not rapidly reversible with protamine.",
+          "critical_evidence": "The rapid reversal of anticoagulation with protamine is the most critical evidence pointing towards heparin.",
+          "differential_considered": "Warfarin: The slow onset of action makes it less likely. Enoxaparin/Bivalirudin: These are not typically reversed with protamine. Dabigatran: Not rapidly reversible with protamine.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 227,
+            "generation_time_s": 11.222
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed hematochezia after receiving an anticoagulant, which is a common side effect of heparin. Heparin, when administered intravenously, can cause gastrointestinal bleeding, including hematochezia. The rapid reversal of the anticoagulant effects with protamine further supports the use of heparin, as protamine is specifically used to reverse the effects of heparin. Warfarin, another anticoagulant, does not require protamine for reversal and typically causes different bleeding manifestations. The patient's history of deep venous thrombosis and the context of the clinical presentation align with heparin use.",
+          "critical_evidence": "The administration of protamine to reverse the anticoagulant effects",
+          "differential_considered": "Warfarin and dabigatran were ruled out because they do not require protamine for reversal. Bivalirudin is used in cardiac procedures and is not typically associated with hematochezia. Enoxaparin, while a low-molecular-weight heparin, is less likely to cause significant gastrointestinal bleeding compared to unfractionated heparin.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.534
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient developed hematochezia after anticoagulation, and the effect was rapidly reversed by protamine, which is specific for heparin. This strongly suggests heparin was the anticoagulant used. Warfarin and direct oral anticoagulants (DOACs) are not reversed by protamine. Enoxaparin is a low-molecular-weight heparin, but protamine is still effective. Bivalirudin is a direct thrombin inhibitor and not reversed by protamine.",
+          "critical_evidence": "The anticoagulant effect was virtually completely reversed with protamine administration.",
+          "differential_considered": "Warfarin (not reversed by protamine), DOACs (not reversed by protamine), Enoxaparin (reversed by protamine but less commonly used in acute settings), and Bivalirudin (not reversed by protamine).",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 218,
+            "generation_time_s": 7.636
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 162,
+            "generation_time_s": 3.928
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 292,
+            "generation_time_s": 9.18
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

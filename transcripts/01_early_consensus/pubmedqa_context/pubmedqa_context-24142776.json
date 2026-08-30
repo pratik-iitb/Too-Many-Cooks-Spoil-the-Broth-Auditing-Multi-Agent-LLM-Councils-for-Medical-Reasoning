@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-24142776",
+  "dataset": "pubmedqa_context",
+  "question_id": "24142776",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Steroids in aminoglycoside-containing ear drops: do they reduce cochlear toxicity?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To determine whether betamethasone (BM) reduces the cochlear toxicity of otic gentamicin (GM) if given together. Controlled animal study. Thirty-four mice were assigned at random to receive intratympanic injections of either 0.1 % BM (11 mice), 0.3% GM (13 mice), or a combination of both (GM/BM) with benzalkonium chloride (10 mice) in the left ear (treated) and saline on the right (untreated). Six injections were given on alternate days. Auditory brainstem response thresholds were assessed at 1 month, 2 months, and>2 months. There was a significantly greater degree of hearing loss in the BM-treated ears compared to the untreated ears (6.48 dB hearing loss, P = .007) and in the GM-treated ears compared to untreated ears (6.59 dB hearing loss, P = .010,). However, otic GM/BM and benzalkonium chloride did not cause significant additional hearing loss compared with the untreated ears (3.56 dB hearing loss, P = .242).",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that betamethasone (BM) alone increased hearing loss in the treated ears compared to untreated ears. Gentamicin (GM) alone also caused hearing loss. However, the combination of GM and BM did not cause significantly more hearing loss than GM alone. This suggests that BM does not reduce cochlear toxicity from gentamicin.",
+          "critical_evidence": "The study showed that otic GM/BM did not cause significant additional hearing loss compared with the untreated ears.",
+          "differential_considered": "While the study doesn't directly address the question of whether BM reduces cochlear toxicity, the lack of significant additional hearing loss in the GM/BM group suggests that BM might not be protective. Other factors could influence cochlear toxicity, but the data presented doesn't support BM's protective effect.",
+          "usage": {
+            "prompt_tokens": 503,
+            "generated_tokens": 203,
+            "generation_time_s": 12.051
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The study found that both BM and GM individually caused significant hearing loss compared to untreated ears, but the combination of GM/BM did not cause additional significant hearing loss. This suggests that while steroids may not prevent cochlear toxicity from aminoglycosides, they do not exacerbate the damage when used together.",
+          "critical_evidence": "The combination of GM/BM and benzalkonium chloride did not cause significant additional hearing loss compared with the untreated ears (3.56 dB hearing loss, P =.242).",
+          "differential_considered": "Other factors like benzalkonium chloride's preservative effect were considered but did not show significant additional toxicity. The study design with controlled animal models and randomization strengthens the validity of the findings.",
+          "usage": {
+            "prompt_tokens": 496,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.413
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that betamethasone alone caused significant hearing loss compared to untreated ears, while the combination of gentamicin and betamethasone did not cause significantly more hearing loss than untreated ears. This suggests steroids do not reduce cochlear toxicity when combined with aminoglycosides — in fact, steroids alone are toxic. The key finding is that the combination group’s hearing loss was not significantly worse than untreated controls, indicating no protective effect.",
+          "critical_evidence": "Otic GM/BM and benzalkonium chloride did not cause significant additional hearing loss compared with untreated ears (3.56 dB hearing loss, P = .242).",
+          "differential_considered": "Considered whether steroids might protect against aminoglycoside toxicity — but the data show steroids alone are ototoxic, and the combination is not significantly more toxic than untreated ears, so protection is not supported.",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 219,
+            "generation_time_s": 9.23
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 494,
+            "generated_tokens": 85,
+            "generation_time_s": 2.479
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possibilities such as different anti-inflammatory drugs or alternative delivery methods were not studied here, so the evidence is limited to the given data. We ruled out other drugs because the context only provides results for betamethasone and gentamicin together.",
+          "usage": {
+            "prompt_tokens": 531,
+            "generated_tokens": 232,
+            "generation_time_s": 8.845
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-499",
+  "dataset": "medqa",
+  "question_id": "499",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old woman presents to your office complaining of difficulty swallowing, and she describes that \"there is something in the back of her throat\". Furthermore, she also feels an \"achy\" chest pain that has been getting progressively worse over the last few weeks. She denies having any fever, shortness of breath, cough, abdominal pain, heartburn, nausea, or vomiting. The patient has a history of wrist fracture as a child, migraines, and a recent diagnosis of myasthenia gravis. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Benign tumor of the thymus",
+      "B": "Superior vena cava syndrome",
+      "C": "Anaplastic thyroid cancer",
+      "D": "Mediastinitis",
+      "E": "Thyroglossal duct cyst"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's age, dysphagia, and chest pain, especially in the context of a recent diagnosis of myasthenia gravis, strongly suggest a thymoma. Myasthenia gravis is often associated with thymic abnormalities, and thymomas are the most common thymic tumor. The 'something in the back of the throat' sensation is also consistent with a mass in the mediastinum.",
+          "critical_evidence": "The patient's recent diagnosis of myasthenia gravis.",
+          "differential_considered": "B: Superior vena cava syndrome is less likely given the absence of facial swelling, shortness of breath, and other typical symptoms. C: Anaplastic thyroid cancer is less likely because the patient denies any neck pain or swelling, and the symptoms are more suggestive of a mediastinal mass. D: Mediastinitis is less likely given the absence of fever, recent surgery, or other signs of infection. E: Thyroglossal duct cyst is less likely because it typically presents in childhood and is usually associated with a palpable mass in the midline of the neck, which is not mentioned in the case.",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 265,
+            "generation_time_s": 13.121
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of myasthenia gravis and the sensation of a foreign body in the throat, along with the absence of typical symptoms of other conditions, suggest a thyroglossal duct cyst. This is a common congenital anomaly that can present with a mass in the midline neck, often associated with myasthenia gravis.",
+          "critical_evidence": "History of myasthenia gravis",
+          "differential_considered": "Benign thymus tumor (less common in young women without other symptoms), superior vena cava syndrome (would present with more severe symptoms), anaplastic thyroid cancer (uncommon at this age), mediastinitis (not typical in this presentation)",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 178,
+            "generation_time_s": 8.29
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of dysphagia, retrosternal ache, and progressive worsening over weeks, combined with a history of myasthenia gravis, strongly suggest a mediastinal mass compressing structures. Myasthenia gravis is often associated with thymic abnormalities, including thymomas. The absence of fever, cough, or systemic signs makes infections (like mediastinitis) or aggressive malignancies (like anaplastic thyroid cancer) less likely. Superior vena cava syndrome would present with more acute, severe symptoms including facial swelling and arm edema, which are absent. Thyroglossal duct cysts are typically midline neck masses, not associated with retrosternal pain or myasthenia gravis.",
+          "critical_evidence": "History of myasthenia gravis + progressive retrosternal dysphagia + no systemic signs = high likelihood of thymic pathology.",
+          "differential_considered": "Mediastinitis (ruled out by absence of fever/cough), anaplastic thyroid cancer (ruled out by lack of neck mass/hoarseness), superior vena cava syndrome (ruled out by absence of acute vascular symptoms), thyroglossal duct cyst (ruled out by location and lack of neck mass).",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 298,
+            "generation_time_s": 10.45
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 165,
+            "generation_time_s": 4.008
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Progressive chest pain and the association with myasthenia gravis raise concern for a compressive process such as superior vena cava syndrome, especially given the upper airway complaint.",
+          "differential_considered": "Thymoma (A), anaplastic thyroid cancer (C), thyroglossal cyst (E), and mediastinitis (D) were considered but are less likely based on the symptom pattern and lack of neck mass, fever, or laryngeal/thyroid involvement.",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 321,
+            "generation_time_s": 10.099
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

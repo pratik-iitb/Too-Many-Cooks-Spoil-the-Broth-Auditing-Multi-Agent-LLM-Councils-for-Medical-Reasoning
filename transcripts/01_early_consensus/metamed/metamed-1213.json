@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1213",
+  "dataset": "metamed",
+  "question_id": "1213",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 65-year-old man comes to the physician because of a 1-week history of yellowish discoloration of his skin and generalized pruritus. Examination shows jaundice of the skin and scleral icterus. Urinalysis shows a normal concentration of bilirubin and urobilinogen. Which of the following is the most likely underlying cause of these findings?",
+    "options": {
+      "A": "Absent UDP-glucuronosyltransferase activity",
+      "B": "Increased hemoglobin breakdown",
+      "C": "Increased intestinal bilirubin reabsorption",
+      "D": "Defective hepatic bile excretion",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "F",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Question modified"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with jaundice (yellowish skin and scleral icterus) and pruritus, suggesting a cholestatic process. Normal bilirubin and urobilinogen levels in the urine point towards a problem with bile excretion rather than increased bilirubin production or breakdown. The absence of conjugated bilirubin in the urine further supports this.",
+          "critical_evidence": "Normal bilirubin and urobilinogen levels in the urine.",
+          "differential_considered": "A: Absent UDP-glucuronosyltransferase activity (would cause unconjugated hyperbilirubinemia, which is not present). B: Increased hemoglobin breakdown (would cause increased unconjugated bilirubin and increased urobilinogen, which is not present). C: Increased intestinal bilirubin reabsorption (would cause increased conjugated bilirubin and urobilinogen, which is not present). E: None of the above is incorrect because option D is the most likely cause.",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 222,
+            "generation_time_s": 11.188
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with jaundice and pruritus, which are classic signs of hepatic dysfunction. While increased hemoglobin breakdown (B) could elevate bilirubin, the normal urinalysis showing no bilirubin or urobilinogen suggests the liver is not processing and excreting bilirubin properly. The absence of intestinal reabsorption (C) is unlikely since the bilirubin is not even reaching the intestines in adequate amounts. UDP-glucuronosyltransferase deficiency (A) would affect drug metabolism, not bilirubin processing. The most likely explanation is defective hepatic bile excretion (D), as the liver is failing to conjugate and secrete bilirubin into bile, leading to systemic deposition and jaundice.",
+          "critical_evidence": "Normal urinalysis with no bilirubin or urobilinogen",
+          "differential_considered": "Hemolytic anemia (ruled out by normal urinalysis), Gilbert syndrome (rare in 65-year-olds), cholestasis, and other hepatic disorders. The absence of elevated bilirubin in urine points away from hemolytic disorders and toward hepatic failure.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.668
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with jaundice and pruritus, with normal urinary bilirubin and urobilinogen, suggesting impaired hepatic excretion of bile rather than increased hemolysis or enterohepatic circulation. The absence of urobilinogen in urine points to a defect in bile excretion, as urobilinogen is derived from bilirubin metabolism in the gut. This pattern is most consistent with cholestatic liver disease or biliary obstruction.",
+          "critical_evidence": "Normal urinary bilirubin and urobilinogen levels in the presence of jaundice and pruritus strongly suggest defective hepatic bile excretion.",
+          "differential_considered": "Increased hemoglobin breakdown (B) would typically cause elevated urobilinogen and may not explain the absence of urobilinogen. Absent UDP-glucuronosyltransferase (A) causes unconjugated hyperbilirubinemia with elevated urobilinogen. Increased intestinal reabsorption (C) would also elevate urobilinogen. None of these fit the clinical picture.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 263,
+            "generation_time_s": 9.3
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 18,
+            "generation_time_s": 0.465
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Absent UDP-glucuronosyltransferase (UGT) activity (impaired conjugation); B: Hemolysis (urinalysis would show elevated bilirubin); C: Intestinal reabsorption (would not cause icterus without hepatobiliary involvement); E: Other causes of cholestasis (e.g., drugs, infections). The lack of elevated urinary bilirubin makes options A or D more likely, but the generalized icterus and lack of evidence for hemolysis or excretion issues favor a hepatic clearance defect, making D the best answer.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 307,
+            "generation_time_s": 9.899
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "F",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

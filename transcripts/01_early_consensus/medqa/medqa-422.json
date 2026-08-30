@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-422",
+  "dataset": "medqa",
+  "question_id": "422",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 62-year-old woman presents to her primary care physician for her annual check-up. She has no current complaints and says that she has been healthy over the last year. Her past medical history is significant for obesity and diabetes that is well controlled on metformin. She does not smoke and drinks socially. Selected lab results are shown below:\n\nHigh-density lipoprotein: 48 mg/dL\nLow-density lipoprotein: 192 mg/dL\nTriglycerides: 138 mg/dL\n\nGiven these results, the patient is placed on the drug that will be the best therapy for these findings. Which of the following is a potential side effect of this treatment?",
+    "options": {
+      "A": "Gallstones",
+      "B": "Gastrointestinal upset",
+      "C": "Hepatotoxicity",
+      "D": "Malabsorption",
+      "E": "Pruritus"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has hyperlipidemia, specifically high LDL and triglycerides, and low HDL. The most appropriate initial treatment for this patient is a statin. The most common side effect of statins is gastrointestinal upset. While other options are possible, they are less likely given the patient's presentation and the typical side effect profile of statins.",
+          "critical_evidence": "The patient has hyperlipidemia, specifically high LDL and triglycerides, and low HDL. The most appropriate initial treatment for this patient is a statin.",
+          "differential_considered": "Gallstones: While statins can increase the risk of gallstones, the patient's presentation doesn't strongly suggest this. Hepatotoxicity: Statins can cause hepatotoxicity, but it's less common than GI upset. Malabsorption: Statins don't typically cause malabsorption. Pruritus: Pruritus is a less common side effect of statins than GI upset.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 231,
+            "generation_time_s": 11.453
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's high triglyceride level (138 mg/dL) and low HDL (48 mg/dL) indicate a need for lipid-lowering therapy. Given these elevated triglycerides, the most appropriate initial treatment would be a fibrates or a combination of fibrates and niacin, both of which can lower triglycerides. These medications are known to increase the risk of gallstone formation, making gallstones the most likely side effect. The other options are less relevant: gastrointestinal upset could occur with niacin, but is not a primary side effect of fibrates; hepatotoxicity is more associated with statins; malabsorption is not a common side effect of these drugs; and pruritus is not a typical side effect of lipid-lowering medications.",
+          "critical_evidence": "Elevated triglycerides (138 mg/dL) with low HDL (48 mg/dL) indicating the need for lipid-lowering therapy",
+          "differential_considered": "Statins (for LDL reduction) were considered but ruled out as the primary treatment due to the high triglyceride level. Fibrates or niacin are more appropriate for this lipid profile, and these are associated with gallstone formation.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.739
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has elevated LDL (192 mg/dL) and is at risk for atherosclerotic cardiovascular disease, given her age, obesity, and diabetes. Statins are first-line therapy for LDL reduction. Common side effects include gastrointestinal upset, which is mild and often transient. Other options are less likely: gallstones (A) are not a direct side effect of statins; hepatotoxicity (C) is rare; malabsorption (D) is not typical; pruritus (E) is more associated with bile acid sequestrants or other agents.",
+          "critical_evidence": "LDL of 192 mg/dL in a 62-year-old with diabetes and obesity indicates significant cardiovascular risk, warranting statin therapy, which commonly causes gastrointestinal upset.",
+          "differential_considered": "Considered other lipid-lowering agents (e.g., ezetimibe, fibrates, bile acid sequestrants) but statins are first-line for LDL reduction in high-risk patients. Ruled out other side effects based on pharmacology and prevalence.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 254,
+            "generation_time_s": 8.927
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's elevated LDL level suggests a need for lipid-lowering therapy. Statins are the first-line treatment for high cholesterol. One of the potential side effects of statins is gallstones. Therefore, gallstones are a possible side effect of the drug prescribed to this patient.",
+          "critical_evidence": "The patient's elevated LDL level",
+          "differential_considered": "None, the patient's symptoms and lab results are consistent with the need for statin therapy and the known side effect of gallstones.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 127,
+            "generation_time_s": 3.099
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 270,
+            "generation_time_s": 8.511
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

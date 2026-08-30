@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-221",
+  "dataset": "mmlu",
+  "question_id": "221",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Wound drainage should be assessed for volume and consistency:",
+    "options": {
+      "A": "each time post-operative observations are undertaken.",
+      "B": "daily.",
+      "C": "every hour.",
+      "D": "only when the wound dressing is changed."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Wound drainage assessment is crucial for monitoring wound healing and detecting potential complications. While daily assessment is important, it's not frequent enough to catch early changes in drainage. Hourly assessment is too frequent for routine care. Assessing drainage each time post-operative observations are undertaken provides a more comprehensive and timely evaluation.",
+          "critical_evidence": "Wound drainage should be assessed for volume and consistency.",
+          "differential_considered": "Daily assessment (B) might be sufficient for stable wounds, but the case mentions 'post-operative observations,' implying a more dynamic situation where changes could occur quickly. Hourly assessment (C) is excessive for routine monitoring and could lead to unnecessary interventions. Only changing the dressing (D) might miss early signs of infection or other issues.",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 194,
+            "generation_time_s": 9.801
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Wound drainage assessment is critical for detecting changes in infection status, exudate levels, or wound healing progress. Assessing drainage each time post-operative observations are undertaken ensures timely identification of worsening conditions, such as increased purulent output or foul odor, which could indicate infection. This frequency balances clinical relevance with practicality, as it aligns with routine monitoring without requiring excessive intervention.",
+          "critical_evidence": "Timely detection of worsening drainage can prevent complications and guide early intervention.",
+          "differential_considered": "Options B (daily) and C (every hour) may miss critical changes, while D (only when dressing is changed) could delay assessment of new drainage patterns. Option A provides the most consistent monitoring.",
+          "usage": {
+            "prompt_tokens": 273,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.541
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Wound drainage assessment is a critical component of post-operative care to detect complications like infection or hemorrhage. Daily assessment provides a consistent, clinically relevant frequency without being overly burdensome, allowing for trend recognition while maintaining practicality. More frequent monitoring (e.g., hourly) is unnecessary unless there is active bleeding or high suspicion of complications, and less frequent monitoring (e.g., only at dressing changes) may miss early signs of deterioration.",
+          "critical_evidence": "Standard post-operative wound care guidelines recommend daily assessment of wound drainage volume and consistency to monitor for complications.",
+          "differential_considered": "Hourly monitoring was considered but ruled out as excessive for routine cases; assessment only at dressing changes was considered but ruled out as insufficient for early detection of complications.",
+          "usage": {
+            "prompt_tokens": 244,
+            "generated_tokens": 183,
+            "generation_time_s": 6.896
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 271,
+            "generated_tokens": 11,
+            "generation_time_s": 0.297
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options C (every hour) and D (only at dressing changes) are less frequent or too infrequent for routine monitoring, and A (each time post-op observations) is too broad without context. Daily assessment (B) aligns with standard practice for ongoing wound evaluation.",
+          "usage": {
+            "prompt_tokens": 303,
+            "generated_tokens": 188,
+            "generation_time_s": 6.034
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

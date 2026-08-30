@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-379",
+  "dataset": "medqa",
+  "question_id": "379",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old woman with a 1-year history of medically-managed Graves disease visits her endocrinologist to discuss her desire to become pregnant and whether pregnancy is safe with her medications. Her temperature is 98.4°F (36.9°C), blood pressure is 110/66 mmHg, pulse is 78/min, respirations are 12/min. The endocrinologist advises that the patient may pursue pregnancy, but first needs to be switched to a new medication for her Graves disease. Which of the following is a possible side effect in this new medication that is not a risk in her old medication?",
+    "options": {
+      "A": "Agranulocytosis",
+      "B": "Aplastic anemia",
+      "C": "Fulminant hepatic necrosis",
+      "D": "Skin rash",
+      "E": "Thyroid storm"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has Graves' disease and is considering pregnancy. The endocrinologist is advising a medication switch. Agranulocytosis, aplastic anemia, and skin rash are common side effects of many medications, including some used to treat Graves' disease. Fulminant hepatic necrosis is a rare but serious side effect associated with certain medications, particularly those that are metabolized by the liver. Thyroid storm is a complication of uncontrolled hyperthyroidism, which is being managed in this patient.",
+          "critical_evidence": "Fulminant hepatic necrosis is a rare but serious side effect associated with certain medications, particularly those that are metabolized by the liver.",
+          "differential_considered": "Agranulocytosis, aplastic anemia, and skin rash are common side effects of many medications, including some used to treat Graves' disease. Thyroid storm is a complication of uncontrolled hyperthyroidism, which is being managed in this patient.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 224,
+            "generation_time_s": 11.098
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The new medication for Graves disease, typically methimazole or propylthiouracil, can cause agranulocytosis (severe neutropenia) as a rare but serious side effect. The original medication, levothyroxine, does not carry this risk. The other options (aplastic anemia, fulminant hepatic necrosis, skin rash, and thyroid storm) are not specific to the new antithyroid medications. Thyroid storm is a severe complication of untreated hyperthyroidism, not medication-related.",
+          "critical_evidence": "Agranulocytosis is a known, rare but serious side effect of methimazole and propylthiouracil, while levothyroxine does not cause this complication.",
+          "differential_considered": "Other antithyroid medications were ruled out as they are not associated with agranulocytosis. Thyroid storm was ruled out as it is a complication of untreated hyperthyroidism, not medication use.",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.663
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has Graves disease and is planning pregnancy, requiring a switch to a safer antithyroid medication. Propylthiouracil (PTU), often used in pregnancy, carries a risk of agranulocytosis, which is not a known risk with methimazole (the likely old medication). Methimazole is generally avoided in the first trimester due to teratogenicity, but agranulocytosis is not a known risk with it. PTU is preferred in pregnancy for this reason, despite its own risks. The other options are not specific to this medication switch or are not associated with antithyroid drugs in this context.",
+          "critical_evidence": "The patient is planning pregnancy and needs to switch medications — PTU is preferred over methimazole in pregnancy due to lower risk of fetal malformations, but carries a risk of agranulocytosis, which methimazole does not.",
+          "differential_considered": "Other antithyroid drugs like methimazole (old) and PTU (new) were considered. Agranulocytosis is a known risk of PTU but not methimazole. Skin rash, hepatic necrosis, and thyroid storm are not specific to this medication switch or are not unique to one drug over the other.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 301,
+            "generation_time_s": 10.578
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 145,
+            "generation_time_s": 3.531
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Agranulocytosis (A), aplastic anemia (B), and thyroid storm (E) are not typical side effects of common new antithyroid medications and would be more concerning or directly related to Graves' disease itself or its treatment. Fulminant hepatic necrosis (C) is extremely rare in thyroid drug therapy and not specific to a likely switch described in the case.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 323,
+            "generation_time_s": 10.174
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

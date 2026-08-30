@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-682",
+  "dataset": "metamed",
+  "question_id": "682",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 40-year-old man presents to the emergency department with altered mental status. He has a history of cirrhosis of the liver secondary to alcoholism. He started becoming more confused a few days ago and it has been getting gradually worse. His temperature is 98.8°F (37.1°C), blood pressure is 134/90 mmHg, pulse is 83/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam reveals a distended abdomen that is non-tender. Neurological exam is notable for a confused patient and asterixis. Laboratory values are ordered as seen below.\n\nSerum:\nNa+: 139 mEq/L\nCl-: 100 mEq/L\nK+: 3.3 mEq/L\nHCO3-: 22 mEq/L\nBUN: 20 mg/dL\nGlucose: 59 mg/dL\nCreatinine: 1.1 mg/dL\nCa2+: 10.2 mg/dL\n\nWhich of the following is the best next treatment for this patient?",
+    "options": {
+      "A": "Dextrose",
+      "B": "Lactulose",
+      "C": "Potassium",
+      "D": "Rifaximin",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with altered mental status, a history of cirrhosis, and asterixis, strongly suggesting hepatic encephalopathy. Lactulose is the first-line treatment for hepatic encephalopathy as it reduces ammonia levels by promoting its excretion in the stool. Dextrose is not the primary treatment for hepatic encephalopathy and could worsen it. Potassium is not indicated based on the provided lab values. Rifaximin is a second-line treatment for hepatic encephalopathy.",
+          "critical_evidence": "The presence of asterixis in a patient with cirrhosis and altered mental status is highly suggestive of hepatic encephalopathy.",
+          "differential_considered": "While hypoglycemia (glucose 59 mg/dL) could contribute to altered mental status, the asterixis points more strongly towards hepatic encephalopathy. Hypoglycemia is also easily corrected with dextrose, making it a less likely primary cause given the other findings.",
+          "usage": {
+            "prompt_tokens": 521,
+            "generated_tokens": 221,
+            "generation_time_s": 13.555
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's altered mental status, asterixis, and history of cirrhosis with alcoholism suggest hepatic encephalopathy. The low serum glucose (59 mg/dL) and normal electrolytes (except K+) point to metabolic acidosis rather than hypoglycemia. Lactulose is the best treatment as it reduces ammonia absorption in hepatic encephalopathy. Dextrose would be used for hypoglycemia, which is not the primary issue here. Potassium is not indicated as the K+ is only slightly low. Rifaximin is not a standard treatment for hepatic encephalopathy. No other options are appropriate.",
+          "critical_evidence": "Asterixis on neurological exam is a classic sign of hepatic encephalopathy",
+          "differential_considered": "Considered: CVA, electrolyte imbalance, metabolic acidosis. Ruled out: Hypoglycemia (despite low glucose) due to normal insulin levels and normal lactate. Metabolic acidosis is present (low HCO3-), but lactulose is still appropriate as it addresses the underlying cause of ammonia toxicity in hepatic encephalopathy.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.835
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has cirrhosis, progressive confusion, asterixis, and hypoglycemia (glucose 59 mg/dL), which are classic signs of hepatic encephalopathy. Hypoglycemia can exacerbate encephalopathy and must be corrected immediately. Dextrose is the best next step to treat hypoglycemia and improve mental status. Other options like lactulose or rifaximin are used for chronic management, not acute correction.",
+          "critical_evidence": "Glucose: 59 mg/dL — confirms hypoglycemia, which is a reversible cause of altered mental status in this patient.",
+          "differential_considered": "Other differentials like sepsis, metabolic encephalopathy, or drug intoxication were considered, but the presence of asterixis, cirrhosis, and hypoglycemia strongly point to hepatic encephalopathy. Hypoglycemia is the most urgent and treatable reversible cause here.",
+          "usage": {
+            "prompt_tokens": 493,
+            "generated_tokens": 239,
+            "generation_time_s": 8.894
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 503,
+            "generated_tokens": 124,
+            "generation_time_s": 3.254
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has cirrhosis with alcoholic etiology and is presenting with altered mental status and asterixis, classic signs of hepatic encephalopathy. Hypoglycemia (59 mg/dL) is a critical finding that must be corrected urgently in this setting to prevent further neurological deterioration. Treatment with glucose (dextrose) is standard to raise blood sugar levels and improve encephalopathy symptoms.",
+          "critical_evidence": "Severe hypoglycemia (59 mg/dL) in a patient with cirrhosismaking glucose administration necessary to prevent neurologic worsening.",
+          "differential_considered": "Alcoholic hepatitis, sepsis, drug intoxication, but the key concern is hepatic encephalopathy due to cirrhosis, which is acutely managed with glucose supplementation. Other options are inappropriate: lactulose is for ammonia control (not indicated here), potassium is contraindicated in the setting of possible hypokalemia from diuretic use in cirrhotic patients, Rifaximin is for bacterial infections (not indicated), and E/F is only appropriate if no clear treatment is justified, which is not the case.",
+          "usage": {
+            "prompt_tokens": 549,
+            "generated_tokens": 272,
+            "generation_time_s": 8.655
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

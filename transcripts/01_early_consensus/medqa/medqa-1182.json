@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1182",
+  "dataset": "medqa",
+  "question_id": "1182",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 26-year-old woman is brought to the ED by her fiance with cyanosis and shortness of breath. Gradually over the last few days she has also experienced headaches, fatigue, and dizziness. Her past medical history is significant only for mild anemia attributed to menorrhagia, for which she takes an iron supplement. Per her fiance, she was recently laid-off, but is very excited about her new entrepreneurial endeavor of selling silk scarfs that she dyes in their basement. She is afebrile, tachypneic, and tachycardic, and her oxygen saturation is 85% on room air, which seems high for her perceived degree of cyanosis. An arterial blood gas is drawn and the patient's blood is chocolate-colored. After a few minutes on 6 liters nasal canula, her oxygen saturation is still 85%. In addition to maintaining her airway, breathing, and circulation, what treatment should this patient also receive?",
+    "options": {
+      "A": "Sodium bicarbonate",
+      "B": "Pralidoxime",
+      "C": "Deferoxamine",
+      "D": "Dimercaprol",
+      "E": "Methylene blue"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's chocolate-colored blood, cyanosis, shortness of breath, and low oxygen saturation despite supplemental oxygen strongly suggest methemoglobinemia. Methemoglobinemia impairs oxygen delivery to tissues, causing cyanosis and hypoxia. Methylene blue is the antidote for methemoglobinemia.",
+          "critical_evidence": "Chocolate-colored blood",
+          "differential_considered": "While the patient's anemia could contribute to her symptoms, the chocolate-colored blood is a key indicator of methemoglobinemia, which is not typically associated with iron deficiency anemia. Other causes of cyanosis like carbon monoxide poisoning or severe respiratory failure are less likely given the patient's history and the response to oxygen. Therefore, methemoglobinemia is the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 195,
+            "generation_time_s": 9.7
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's chocolate-colored blood and persistent low oxygen saturation despite high clinical cyanosis strongly suggest methemoglobinemia, a condition where hemoglobin is oxidized to methemoglobin. This impairs oxygen transport and explains the cyanosis. Methylene blue is the antidote for methemoglobinemia as it reduces methemoglobin back to hemoglobin. Other options like sodium bicarbonate (A) are for metabolic acidosis, pralidoxime (B) for cholinesterase inhibition, deferoxamine (C) for iron overload, and dimercaprol (D) for arsenic poisoning are not appropriate for this scenario.",
+          "critical_evidence": "Chocolate-colored blood and persistent cyanosis despite high clinical signs",
+          "differential_considered": "Considered carbon monoxide poisoning (ruled out by no headache and normal mental status), methanol toxicity (ruled out by no ethanol smell on breath), and other causes of anemia, but methemoglobinemia best fits the clinical picture.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 236,
+            "generation_time_s": 11.043
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.941
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with cyanosis, shortness of breath, and a history of menorrhagia with iron supplementation. The chocolate-colored blood suggests iron overload, likely due to repeated iron supplementation. The lack of improvement with supplemental oxygen and the high oxygen saturation despite cyanosis raises concern for a condition that does not involve oxygen delivery. Deferoxamine is the treatment of choice for iron poisoning, which is consistent with the patient's presentation and history. Therefore, the patient should also receive Deferoxamine.",
+          "critical_evidence": "The chocolate-colored blood",
+          "differential_considered": "Iron poisoning was considered due to the patient's history of iron supplementation and the chocolate-colored blood. Other differentials such as methemoglobinemia were ruled out due to the lack of improvement with oxygen and the patient's history.",
+          "usage": {
+            "prompt_tokens": 466,
+            "generated_tokens": 189,
+            "generation_time_s": 4.595
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Arterial blood gas showing hypoxemia and chocolate-colored blood with a history of exposure to a potentially toxic silk dye process.",
+          "differential_considered": "Anemia (ruled out due to acute life-threatening presentation and evidence of poisoning), pulmonary embolism (no D d-dimer mentioned or risk factors emphasized), acute respiratory failure (no clear cause other than poisoning), and other toxic ingestions (but cyanide is most consistent with her exposure history).",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 291,
+            "generation_time_s": 9.192
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

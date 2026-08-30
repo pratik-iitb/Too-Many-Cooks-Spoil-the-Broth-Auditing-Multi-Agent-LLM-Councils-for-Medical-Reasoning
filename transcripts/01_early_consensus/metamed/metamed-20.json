@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-20",
+  "dataset": "metamed",
+  "question_id": "20",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 60-year-old woman is brought to the clinic by her daughter for evaluation. The daughter reports that her mother has recently been having difficulty combing her hair in the mornings. The patient’s family history is significant for an ischemic stroke in her father. The patient’s past medical history is positive for diverticulosis. She takes no medication. Her blood pressure is 120/70 mm Hg, heart rate is 75/min, respiratory rate is 14/min, and temperature is 37.6°C (99.7°F). On physical examination, the patient’s neck is stiff and she also has bilateral shoulder tenderness; muscle strength is intact. Laboratory work is performed and presented below:\nHemoglobin 12.9 g/dL\nHematocrit 37.7% \nLeukocyte count 5,500/mm3\nNeutrophils 65%\nLymphocytes 30%\nMonocytes 5%\nMean corpuscular volume 82.2 μm3\nPlatelet count 190,000/mm3\nErythrocyte sedimentation rate 65 mm/h\nC-reactive protein 44 mg/dL\nFor which of the symptoms below should the patient be screened?",
+    "options": {
+      "A": "Jaw claudication",
+      "B": "Heliotrope rash",
+      "C": "Gastroesophageal reflux",
+      "D": "Pink plaques with silvery scales",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of neck stiffness, shoulder tenderness, elevated ESR, and CRP strongly suggest polymyalgia rheumatica (PMR). Jaw claudication is a classic symptom of giant cell arteritis (GCA), which is closely associated with PMR. Therefore, screening for GCA is crucial in this patient.",
+          "critical_evidence": "Neck stiffness, shoulder tenderness, elevated ESR, and CRP",
+          "differential_considered": "Heliotrope rash is associated with dermatomyositis, which is less likely given the patient's age and lack of muscle weakness. Gastroesophageal reflux is a common condition but doesn't explain the neck stiffness and elevated inflammatory markers. Pink plaques with silvery scales are characteristic of psoriasis, which is not the primary concern given the acute onset and inflammatory markers.",
+          "usage": {
+            "prompt_tokens": 559,
+            "generated_tokens": 206,
+            "generation_time_s": 15.767
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's symptoms of morning hair combing difficulty, stiff neck, and bilateral shoulder tenderness suggest possible cervical spine issues or musculoskeletal problems rather than the listed options. None of the options (A-F) directly align with the clinical presentation. The elevated ESR and CRP indicate inflammation, but the specific symptoms point to neck or shoulder concerns rather than the conditions described in the options.",
+          "critical_evidence": "Bilateral shoulder tenderness and neck stiffness are the most relevant findings that suggest musculoskeletal involvement rather than the conditions listed in the options.",
+          "differential_considered": "Considered cervical osteoarthritis, cervical spondylosis, or other musculoskeletal conditions. Ruled out cardiovascular issues (jaw claudication), skin conditions (heliotrope rash, pink plaques), and gastrointestinal issues (GERD) based on the clinical presentation and absence of relevant symptoms or findings.",
+          "usage": {
+            "prompt_tokens": 538,
+            "generated_tokens": 1024,
+            "generation_time_s": 63.426
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with neck stiffness, bilateral shoulder tenderness, and systemic inflammation (elevated ESR and CRP), suggesting a possible systemic inflammatory or autoimmune condition. The difficulty combing hair may indicate scalp involvement, which is consistent with giant cell arteritis (GCA), a condition that often presents with jaw claudication. Given her age (>50) and systemic inflammation, GCA is a likely diagnosis, and jaw claudication is a key symptom to screen for.",
+          "critical_evidence": "Elevated ESR (65 mm/h) and CRP (44 mg/dL) in a 60-year-old patient with neck stiffness and shoulder tenderness strongly suggest giant cell arteritis, which commonly presents with jaw claudication.",
+          "differential_considered": "Other differentials like rheumatoid arthritis (no joint involvement noted), polymyalgia rheumatica (shoulder pain + systemic inflammation, but no fever or ESR/CRP this high), or infection (no fever or localized signs) were considered but ruled out due to lack of supporting features. GCA remains the most likely diagnosis given the age, systemic inflammation, and atypical presentation.",
+          "usage": {
+            "prompt_tokens": 530,
+            "generated_tokens": 274,
+            "generation_time_s": 11.493
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 536,
+            "generated_tokens": 117,
+            "generation_time_s": 3.159
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Rheumatoid arthritis (RA), infections, and malignancy were considered but are less supported by the current presentation compared to SLE, which would warrant screening for heliotrope rash. No evidence supports the other options.",
+          "usage": {
+            "prompt_tokens": 583,
+            "generated_tokens": 245,
+            "generation_time_s": 8.732
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

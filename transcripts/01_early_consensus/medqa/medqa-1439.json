@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1439",
+  "dataset": "medqa",
+  "question_id": "1439",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 61-year-old female with congestive heart failure and type 2 diabetes is brought to the emergency room by her husband because of an altered mental status. He states he normally helps her be compliant with her medications, but he had been away for several days. On physical exam, her temperature is 37.2 C, BP 85/55, and HR 130. Serum glucose is 500 mg/dL. Which of the following is the first step in the management of this patient?",
+    "options": {
+      "A": "IV ½ NS",
+      "B": "IV NS",
+      "C": "IV D5W",
+      "D": "Subcutaneous insulin injection",
+      "E": "IV insulin"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with altered mental status, hypotension, tachycardia, and hyperglycemia. This clinical picture is highly suggestive of diabetic ketoacidosis (DKA) or hyperosmolar hyperglycemic state (HHS). The first priority is to address the dehydration and hypotension with intravenous fluids. NS is the preferred initial fluid for volume resuscitation in this setting.",
+          "critical_evidence": "Hypotension (BP 85/55) and tachycardia (HR 130) indicate significant volume depletion.",
+          "differential_considered": "DKA/HHS: While DKA/HHS are likely, the initial priority is to address the hypotension and dehydration. Insulin and other DKA/HHS treatments can be initiated after fluid resuscitation has begun.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 193,
+            "generation_time_s": 9.575
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's serum glucose of 500 mg/dL indicates severe hyperglycemia, which is likely causing significant osmotic diuresis and hypovolemia. This explains the hypotension (BP 85/55) and tachycardia (HR 130). The altered mental status is consistent with hyperglycemic hyperosmolar nonketotic coma (HHNC), a medical emergency requiring rapid correction of hyperglycemia. Insulin is the first-line treatment for HHNC, and subcutaneous insulin would be too slow to reverse the acute hyperglycemic state. IV insulin is necessary to rapidly lower blood glucose levels and prevent further neurological deterioration.",
+          "critical_evidence": "Serum glucose of 500 mg/dL",
+          "differential_considered": "Considered hypoglycemia, but ruled out by the high glucose level. Considered dehydration from heart failure, but the primary driver here is hyperglycemia. Considered sepsis, but no evidence of infection in the case presentation. HHNC is the most likely diagnosis given the combination of hyperglycemia, altered mental status, and hypotension.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.684
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with severe hyperglycemia (500 mg/dL) and altered mental status, likely due to diabetic ketoacidosis (DKA) or hyperosmolar hyperglycemic state (HHS), complicated by hypotension and tachycardia. In acute hyperglycemic emergencies, especially with altered mental status, IV insulin is the first-line agent to rapidly correct hyperglycemia and prevent further complications. Fluid resuscitation (with NS) is also critical, but insulin must be administered first to avoid cerebral edema risk if fluid is given without insulin in severe hyperglycemia.",
+          "critical_evidence": "Serum glucose of 500 mg/dL with altered mental status and hemodynamic instability strongly suggests acute hyperglycemic emergency requiring immediate insulin therapy.",
+          "differential_considered": "DKA and HHS were considered; however, the absence of ketones (not reported) and the presence of hypotension and tachycardia favor HHS. Both require insulin, but HHS is more common in older patients with type 2 diabetes. Other causes like stroke or infection were considered but less likely given the hyperglycemia and hemodynamic instability.",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 282,
+            "generation_time_s": 9.912
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 70,
+            "generation_time_s": 1.711
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.99,
+          "clinical_reasoning": "The patient presents with altered mental status, very high serum glucose (500 mg/dL), and is known to have type 2 diabetes. Hyperglycemia of this magnitude is a medical emergency, especially in a diabetic, and requires immediate correction with intravenous insulin to prevent complications such as diabetic ketoacidosis or seizures.",
+          "critical_evidence": "Serum glucose of 500 mg/dL in a diabetic patient with altered mental status indicates severe hyperglycemia likely requiring urgent IV insulin administration.",
+          "differential_considered": "Other differentials such as hypoglycemia, dehydration, or drug intoxication are less likely given the context of recent medication nonadherence and the extremely high glucose level. Without evidence of hypoglycemia or another acute issue, the priority is to address the hyperglycemic crisis.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 201,
+            "generation_time_s": 6.366
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "E": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

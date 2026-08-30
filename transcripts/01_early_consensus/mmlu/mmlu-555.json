@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-555",
+  "dataset": "mmlu",
+  "question_id": "555",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A descript amount of 2-bromobutane is placed into a strong solution of ethanol and allowed to complete a reaction. The result of this reaction produces a major product of 2-butene and a minor product of 1-butene. Which of the following descriptions of the starting compound explains why 2-butene is the major product?",
+    "options": {
+      "A": "Carbon 3 has less hydrogen atoms",
+      "B": "1-butene rearranges to 2-butene in solution",
+      "C": "Ethanol prefers the second carbon in any chain",
+      "D": "Cyclic aromatization"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The reaction involves the addition of 2-bromobutane to ethanol. The major product is 2-butene, while the minor product is 1-butene. This indicates that the reaction favors the formation of the more substituted alkene. The more substituted alkene is generally the major product due to steric hindrance. Ethanol is a protic solvent, and the reaction proceeds via an SN1 mechanism. The more substituted carbocation is more stable, and therefore, the more substituted alkene is favored. The more substituted carbocation is formed at the carbon with the greater number of alkyl groups attached. In 2-bromobutane, the carbon with the bromine atom is the more substituted carbon, leading to the formation of the more stable 2-butene.",
+          "critical_evidence": "The formation of 2-butene as the major product indicates that the more substituted alkene is favored due to the stability of the carbocation intermediate.",
+          "differential_considered": "A: Carbon 3 has less hydrogen atoms - This is incorrect because the carbon with the bromine atom is the more substituted carbon, leading to the formation of the more stable 2-butene. B: 1-butene rearranges to 2-butene in solution - While rearrangement can occur, the primary reason for the major product being 2-butene is the stability of the more substituted carbocation. D: Cyclic aromatization - This is not relevant to the reaction described in the clinical case.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 335,
+            "generation_time_s": 16.865
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The reaction of 2-bromobutane with ethanol follows an SN1 mechanism, where the carbocation intermediate is formed. In this case, the secondary carbocation at carbon 2 is more stable than the primary carbocation at carbon 1 due to hyperconjugation and inductive effects. This stability favors the formation of 2-butene as the major product through elimination, while 1-butene forms as a minor product. Option A correctly identifies that carbon 3 (the secondary carbon) has less hydrogen atoms compared to carbon 1, making it the more stable carbocation center.",
+          "critical_evidence": "The formation of 2-butene as the major product indicates that the reaction follows an SN1 mechanism with carbocation rearrangement, where the secondary carbocation is more stable than the primary carbocation.",
+          "differential_considered": "Options B, C, and D were considered but ruled out. B suggests rearrangement from 1-butene to 2-butene, which is not relevant as 1-butene is the minor product. C implies ethanol's preference for the second carbon, which is not a factor in this reaction. D mentions cyclic aromatization, which is not applicable to this simple alkene formation reaction.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 286,
+            "generation_time_s": 13.616
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The reaction involves 2-bromobutane undergoing elimination to form alkenes. The major product is 2-butene, which follows Zaitsev's rule — the more substituted alkene is favored. Carbon 3 in 2-bromobutane (the beta-carbon adjacent to the bromine) has more hydrogens than carbon 1, making the formation of 2-butene (disubstituted) thermodynamically and kinetically favored over 1-butene (monosubstituted).",
+          "critical_evidence": "Zaitsev's rule predicts that the more substituted alkene (2-butene) is the major product due to greater stability.",
+          "differential_considered": "Option B is incorrect because 1-butene does not rearrange to 2-butene in solution. Option C is chemically nonsensical — ethanol does not prefer any specific carbon. Option D is irrelevant as no aromatization occurs in this reaction.",
+          "usage": {
+            "prompt_tokens": 321,
+            "generated_tokens": 232,
+            "generation_time_s": 8.363
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 15,
+            "generation_time_s": 0.385
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possible mechanisms (like E1) were considered but E2 is favored for primary alkyl halides in polar aprotic solvents (ethanol can act as a solvent or weak base here). Rearrangement pathways (like Wagner-Meerwein) are unlikely because 2-bromobutane is a secondary halide, which typically does not rearrange significantly under dehydrohalogenation conditions.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 336,
+            "generation_time_s": 10.801
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

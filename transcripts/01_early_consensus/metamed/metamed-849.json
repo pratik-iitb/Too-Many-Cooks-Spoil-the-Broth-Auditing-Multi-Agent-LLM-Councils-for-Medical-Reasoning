@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-849",
+  "dataset": "metamed",
+  "question_id": "849",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 36-year-old man presents to his physician for a regular checkup, and he expresses an intent to quit smoking. He is a financial director with a 15-pack-year history of smoking who tried quitting several times. He tried different nicotine replacement products, none of which helped him. The patient has gastrointestinal reflux disease and takes omeprazole. The medical history is significant for a head trauma after which he had two seizure episodes. He does not have a history of any other disorders. Currently, he is not on any antiepileptic medication. He heard from his friend about an antidepressant that efficiently helps with smoking cessation. He would like to try this medication, and asks his physician for an advice. Which of the following statements regarding the use of the mentioned medication is correct?",
+    "options": {
+      "A": "Omeprazole interferes with bupropion metabolism and should be taken one hour prior to omeprazole consumption.",
+      "B": "Bupropion is only effective when used together with nicotine replacement products.",
+      "C": "Bupropion lowers the seizure threshold and it should not be taken by patients with a history of seizure disorder.",
+      "D": "The physician may prescribe bupropion for this patient only after a full cardiac workup is performed.",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Bupropion is known to lower the seizure threshold, making it contraindicated in patients with a history of seizure disorder. The patient has a history of seizures, so this is a critical contraindication. The other options are incorrect.",
+          "critical_evidence": "The patient's history of two seizure episodes after a head trauma.",
+          "differential_considered": "Omeprazole interaction: While omeprazole can affect some medications, the primary concern with bupropion is its potential to increase seizure risk, not a direct interaction with omeprazole. Nicotine replacement product efficacy: The patient has already tried nicotine replacement products without success, so this is not the primary concern. Cardiac workup: While a cardiac workup might be considered in some patients, it is not a mandatory prerequisite for prescribing bupropion in this scenario, especially given the seizure history.",
+          "usage": {
+            "prompt_tokens": 504,
+            "generated_tokens": 211,
+            "generation_time_s": 10.495
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a history of seizures and is currently not on antiepileptic medication. Bupropion can lower the seizure threshold and may be contraindicated in patients with a history of seizures. However, the patient's current seizure history is not on antiepileptic medication, but the risk remains. Omeprazole does not interfere with bupropion metabolism, so option A is incorrect. Bupropion can be used alone for smoking cessation, so option B is incorrect. The need for a cardiac workup before prescribing bupropion is not supported by the information provided, so option D is incorrect. Therefore, the correct answer is E: None of the above.",
+          "critical_evidence": "The patient's history of seizures and the potential risk of bupropion lowering the seizure threshold.",
+          "differential_considered": "No specific differential diagnoses were considered as the focus was on the appropriateness of bupropion use in this patient.",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.644
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of two seizure episodes following head trauma and is currently not on antiepileptic medication. Bupropion is known to lower the seizure threshold, and its use is contraindicated in patients with a history of seizures. This makes option C the correct and safest choice. Other options are either incorrect or not clinically relevant in this context.",
+          "critical_evidence": "History of two seizure episodes after head trauma.",
+          "differential_considered": "Other smoking cessation options like varenicline or nicotine replacement were ineffective, but bupropion's contraindication in seizure history makes it inappropriate. Options A, B, and D are either false or not evidence-based in this case.",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 177,
+            "generation_time_s": 6.608
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "Bupropion is an antidepressant that has been found to be effective in smoking cessation. It is not contraindicated in patients with a history of seizures, and it does not require a cardiac workup before prescribing. Therefore, all of the provided statements are incorrect.",
+          "critical_evidence": "The effectiveness of bupropion in smoking cessation",
+          "differential_considered": "None of the provided options were considered differentials.",
+          "usage": {
+            "prompt_tokens": 504,
+            "generated_tokens": 114,
+            "generation_time_s": 2.801
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Bupropion's association with seizures makes it contraindicated here, so options A, B, C, and D are incorrect. The best answer is E (None of the above), as bupropion is not appropriate in this patient.",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 210,
+            "generation_time_s": 6.831
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 1,
+        "E": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

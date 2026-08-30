@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-109",
+  "dataset": "mmlu",
+  "question_id": "109",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A patient is admitted after a head injury and sinks rapidly into a coma. An MRI scan indicates an extradural haemorrhage because extravasated blood can be detected between the",
+    "options": {
+      "A": "skull bones and dura mater.",
+      "B": "dura mater and arachnoid.",
+      "C": "arachnoid and pia mater.",
+      "D": "pia mater and brain surface."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "An extradural hemorrhage (EDH) is a collection of blood between the skull and the dura mater. The MRI finding of extravasated blood between the skull bones and dura mater strongly supports this diagnosis. The other options describe different layers of the meninges, and while blood can be present in these locations, it's not the primary location for an EDH.",
+          "critical_evidence": "Extravasated blood between the skull bones and dura mater",
+          "differential_considered": "A subdural hematoma (between the dura and arachnoid) is a possible differential, but the MRI finding points more directly to the location between the skull and dura. A subarachnoid hemorrhage (between the arachnoid and pia mater) is also possible, but the description of extravasated blood is more consistent with an EDH.",
+          "usage": {
+            "prompt_tokens": 304,
+            "generated_tokens": 213,
+            "generation_time_s": 18.203
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's extradural haemorrhage is located between the skull bones and dura mater, as indicated by the MRI scan. This is the most likely location for a severe head injury causing rapid coma, as the dura mater is the outermost layer of the meninges, and bleeding in this space can lead to increased intracranial pressure and neurological deterioration.",
+          "critical_evidence": "Extravasated blood detected between the skull bones and dura mater",
+          "differential_considered": "Considered intraparenchymal and subdural hemorrhages, but ruled out due to the specific location of bleeding indicated by MRI. Intraparenchymal would be within the brain tissue, while subdural bleeding occurs between the dura and arachnoid layers.",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 195,
+            "generation_time_s": 15.923
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Extradural haemorrhage, also known as epidural hematoma, results from bleeding between the skull and the dura mater, typically due to trauma causing arterial rupture. The rapid decline into coma suggests acute bleeding, consistent with this diagnosis. The MRI finding of blood between skull bones and dura mater directly matches the definition of extradural haemorrhage.",
+          "critical_evidence": "MRI shows extravasated blood between the skull bones and dura mater — the defining location of extradural haemorrhage.",
+          "differential_considered": "Subdural haemorrhage (between dura and arachnoid) was considered but ruled out because it typically presents with slower onset and is associated with venous bleeding, not the rapid coma seen here. Intracerebral and subarachnoid bleeds were also considered but do not fit the anatomical location described.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 212,
+            "generation_time_s": 10.625
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 10,
+            "generation_time_s": 0.533
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options B and C describe spaces within the meninges where haemorrhage is less likely to cause immediate coma; A describes blood between skull bones and dura, which is possible but less commonly associated with rapid loss of consciousness compared to subdural or intracerebral haemorrhage. The key finding points to a haemorrhage affecting brain function, making D the most appropriate choice if the MRI shows bleeding adjacent to the brain surface (e.g., subdural or epidural haemorrhage).",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 286,
+            "generation_time_s": 15.609
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

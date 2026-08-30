@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1125",
+  "dataset": "medqa",
+  "question_id": "1125",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 47-year-old man presents to his ophthalmologist for abnormal vision. The patient was discharged from the hospital 2 weeks ago after a motor vehicle accident where he was given 1L of blood. He also underwent several surgical procedures including enucleation of the right globe and exploratory abdominal laparotomy to stop internal bleeding. Currently, he states that he has noticed decreased vision in his left eye. The patient has a past medical history of poorly controlled diabetes, asthma, and atopic dermatitis. His temperature is 98.9°F (37.2°C), blood pressure is 167/108 mmHg, pulse is 90/min, respirations are 14/min, and oxygen saturation is 97% on room air. Physical exam is notable for 20/200 vision in the patient's left eye, which is worse than usual. The patient's left eye appears red and irritated. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Anterior uveitis",
+      "B": "Diabetic retinopathy",
+      "C": "Normal post-operative visual adaptations",
+      "D": "Seasonal allergies",
+      "E": "Sympathetic ophthalmia"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's recent enucleation of the right globe, combined with the development of decreased vision in the left eye, strongly suggests sympathetic ophthalmia. This is a rare but serious condition where the immune system attacks the healthy eye after the removal of the fellow eye.",
+          "critical_evidence": "Recent enucleation of the right globe and subsequent decreased vision in the left eye.",
+          "differential_considered": "A: Anterior uveitis is possible, but less likely given the recent surgery and the nature of the vision loss. B: Diabetic retinopathy is a possibility given the patient's history, but the acute onset of vision loss after surgery makes it less probable. C: Normal post-operative visual adaptations are unlikely given the severity of the vision loss (20/200). D: Seasonal allergies are not a likely cause of such significant vision loss, especially in the context of recent surgery.",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 225,
+            "generation_time_s": 11.125
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's left eye is red, irritated, and has decreased vision (20/200), which is worse than usual. Given his history of trauma and surgery, this could be post-operative inflammation or sympathetic ophthalmia, a rare but serious condition where inflammation spreads from the injured eye to the healthy one. While diabetic retinopathy and anterior uveitis are possible, the sudden onset and bilateral nature (injury to one eye with symptoms in the other) strongly suggest sympathetic ophthalmia. Seasonal allergies are unlikely given the eye symptoms and lack of typical allergic signs. Normal post-operative adaptations are less likely due to the severity of vision loss.",
+          "critical_evidence": "The bilateral nature of the symptoms (trauma to right eye with left eye showing symptoms) is the most critical evidence supporting sympathetic ophthalmia.",
+          "differential_considered": "Diabetic retinopathy (ruled out by lack of typical diabetic symptoms and poor glycemic control not causing acute vision loss), anterior uveitis (less likely due to unilateral trauma), seasonal allergies (not supported by typical allergic signs), normal post-operative adaptations (not explained by severe vision loss)",
+          "usage": {
+            "prompt_tokens": 470,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.625
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of enucleation of the right eye and now presents with decreased vision in the left eye, which is the fellow eye. This temporal relationship, combined with the presence of inflammation (red, irritated eye) and the absence of other common causes like diabetic retinopathy or allergies, strongly suggests sympathetic ophthalmia. This is an autoimmune condition triggered by intraocular trauma or surgery, leading to inflammation in the contralateral eye.",
+          "critical_evidence": "Enucleation of the right globe followed by decreased vision in the left eye (fellow eye) with ocular inflammation.",
+          "differential_considered": "Diabetic retinopathy was considered but ruled out due to lack of diabetic retinopathy history or signs; seasonal allergies were ruled out by absence of systemic symptoms and lack of bilateral involvement; anterior uveitis is possible but less likely without systemic triggers or prior trauma; normal post-op adaptation is implausible given the acute vision loss and inflammation.",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 229,
+            "generation_time_s": 8.037
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 133,
+            "generation_time_s": 3.23
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A, C, D — Anterior uveitis can cause eye redness and vision loss but is unlikely after enucleation and does not explain the timing or the specific eye involvement. Diabetic retinopathy is unrelated to the surgical history. Seasonal allergies would not cause a severe, sudden vision change post-enucleation.",
+          "usage": {
+            "prompt_tokens": 502,
+            "generated_tokens": 259,
+            "generation_time_s": 8.149
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

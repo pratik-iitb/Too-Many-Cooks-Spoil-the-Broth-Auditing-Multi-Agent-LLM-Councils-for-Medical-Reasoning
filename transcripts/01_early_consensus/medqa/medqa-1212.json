@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1212",
+  "dataset": "medqa",
+  "question_id": "1212",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An investigator studying renal physiology uses para-aminohippuric acid (PAH) to estimate the renal plasma flow in a human volunteer. An intravenous infusion of 400 mg of PAH solution is administered to the subject; effective renal plasma flow is calculated to be 600 ml/min. Next, an intravenous infusion of 1000 mg of PAH solution is administered to the subject; effective renal plasma flow is calculated to be 400 mL/min. Which of the following explains the measured decline in the calculated effective renal plasma flow?",
+    "options": {
+      "A": "Decreased serum protein binding",
+      "B": "Increased plasma oncotic pressure",
+      "C": "Efferent arteriole dilation",
+      "D": "Afferent arteriole dilation",
+      "E": "Decreased PAH clearance"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The effective renal plasma flow (ERPF) is calculated by the formula: ERPF = (PAH dose administered) / (PAH clearance). The decrease in ERPF from 600 ml/min to 400 ml/min suggests a decrease in PAH clearance. The most likely cause of decreased PAH clearance is efferent arteriole dilation, which reduces the glomerular capillary pressure and thus the filtration rate, leading to decreased PAH clearance.",
+          "critical_evidence": "The decrease in ERPF from 600 ml/min to 400 ml/min.",
+          "differential_considered": "A: Decreased serum protein binding: While protein binding can affect drug distribution, it doesn't directly explain a change in renal plasma flow. B: Increased plasma oncotic pressure: Increased oncotic pressure would generally increase, not decrease, renal plasma flow. E: Decreased PAH clearance: While decreased clearance could cause a decrease in ERPF, it's less likely than efferent arteriole dilation, which is a more direct mechanism for reducing glomerular filtration rate and thus clearance. D: Afferent arteriole dilation: Afferent arteriole dilation would increase glomerular filtration rate and thus increase ERPF, not decrease it.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 293,
+            "generation_time_s": 14.575
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The decline in effective renal plasma flow (from 600 to 400 mL/min) with increased PAH infusion suggests that the body's ability to clear PAH is decreasing. PAH is a large, unbound molecule that is primarily cleared by glomerular filtration. If the clearance rate decreases with higher PAH input, it indicates that the filtration rate is not increasing proportionally, which would occur if the glomerular filtration rate (GFR) were normal. Instead, this pattern suggests that the GFR is actually decreasing, which would lead to lower renal plasma flow. This is consistent with decreased PAH clearance, as the amount of PAH excreted in the urine would be limited by the reduced filtration rate.",
+          "critical_evidence": "The decrease in effective renal plasma flow with increased PAH infusion indicates that the glomerular filtration rate is decreasing, leading to reduced clearance of PAH.",
+          "differential_considered": "Options A (decreased protein binding) and B (increased plasma oncotic pressure) were considered but ruled out because PAH is a large molecule that is not significantly protein-bound, and changes in oncotic pressure would not directly affect filtration rate. Option C (efferent arteriole dilation) was considered but ruled out because dilation of the efferent arteriole would increase GFR, not decrease it. Option D (afferent arteriole dilation) was considered but ruled out because dilation of the afferent arteriole would decrease GFR, but this would not explain the observed pattern of PAH clearance. Option E (decreased PAH clearance) was the most consistent explanation for the observed data.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.203
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "PAH clearance is used to estimate renal plasma flow (RPF) because PAH is almost completely cleared from the plasma by the kidneys. However, at high concentrations, PAH may saturate the tubular transport mechanisms, leading to a decrease in its clearance and thus an underestimation of RPF. The observed decline from 600 mL/min to 400 mL/min with increased PAH dose suggests saturation of the tubular transport system, not a true change in renal plasma flow.",
+          "critical_evidence": "The calculated RPF decreased with increasing PAH dose, indicating saturation of PAH tubular secretion, not a physiological change in renal perfusion.",
+          "differential_considered": "Options A, B, C, and D involve hemodynamic or protein binding changes that would not explain a dose-dependent decline in PAH clearance. These are ruled out because the phenomenon is specific to PAH concentration-dependent saturation of renal tubular transport, not vascular or protein binding effects.",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 231,
+            "generation_time_s": 8.361
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 85,
+            "generation_time_s": 2.085
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The effective renal plasma flow (ERPF) is inversely proportional to the infused PAH clearance when serum protein binding is constant. The increase in PAH dose from 400 mg to 1000 mg led to a decrease in calculated ERPF, indicating that the measured PAH clearance itself is changing, most likely due to altered plasma protein binding or other factors affecting the PAH distribution, but the most direct explanation based on the described relationship is decreased PAH clearance (E).",
+          "critical_evidence": "The effective renal plasma flow is calculated to be lower when a higher dose of PAH is administered, which contradicts the expected linear relationship if PAH clearance were constant and suggests a change in the clearance of PAH, likely due to altered plasma protein binding or plasma volume changes.",
+          "differential_considered": "Options A and B relate to protein binding and oncotic pressure, which could theoretically affect PAH distribution but are less directly supported by the observed dose-response trend. C and D (arteriole dilation) would not explain the inverse relationship between PAH dose and calculated flow. Thus, decreased PAH clearance (E) best explains the result.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 266,
+            "generation_time_s": 8.414
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "E": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-844",
+  "dataset": "metamed",
+  "question_id": "844",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 54-year-old man comes to the physician for a routine health maintenance examination. He was diagnosed with type 2 diabetes mellitus 1 year ago. His only medication is metformin. His serum glucose is 186 mg/dL and his hemoglobin A1c is 7.6%. The physician prescribes an additional antidiabetic drug and counsels the patient on its delayed onset of action. At a follow-up appointment 4 weeks later, the patient reports that his home blood glucose readings have improved. He also mentions that he has had a weight gain of 4 kg (8.8 lb). The patient has most likely been treated with which of the following drugs?",
+    "options": {
+      "A": "Empagliflozin",
+      "B": "Liraglutide",
+      "C": "Rosiglitazone",
+      "D": "Glyburide",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's improved blood glucose levels and weight gain after starting a new medication suggest a GLP-1 receptor agonist. GLP-1 receptor agonists are known to promote weight loss, while other options like sulfonylureas (glyburide) and thiazolidinediones (rosiglitazone) are associated with weight gain.",
+          "critical_evidence": "The patient's weight gain of 4 kg (8.8 lb) after starting a new medication is a strong indicator of a GLP-1 receptor agonist.",
+          "differential_considered": "Empagliflozin is an SGLT2 inhibitor, which typically causes weight loss, not weight gain. Rosiglitazone is a thiazolidinedione, which is known to cause weight gain. Glyburide is a sulfonylurea, which is also known to cause weight gain. Therefore, these options are less likely.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 225,
+            "generation_time_s": 11.204
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's weight gain of 4 kg (8.8 lb) suggests a drug that can cause weight gain, which is characteristic of GLP-1 receptor agonists like liraglutide. The delayed onset of action mentioned by the physician also aligns with GLP-1 agonists, which typically take several weeks to reach full effect. The other options can be ruled out: metformin alone would not cause weight gain, empagliflozin is a SGLT2 inhibitor that can cause weight loss, rosiglitazone is a thiazolidinedione that can cause weight gain but is less likely in this context, and glyburide is a sulfonylurea that would not explain the weight gain. The weight gain is the most critical evidence pointing to a GLP-1 receptor agonist.",
+          "critical_evidence": "Weight gain of 4 kg (8.8 lb)",
+          "differential_considered": "Considered metformin (already used), empagliflozin (weight loss), rosiglitazone (weight gain but less likely), glyburide (no weight gain). Ruled out based on clinical profile and typical side effect profiles.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.897
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has type 2 diabetes on metformin with suboptimal glycemic control (HbA1c 7.6%), and after adding a second agent, his glucose improved but he gained 4 kg. Rosiglitazone, a thiazolidinedione, is known to cause weight gain as a common adverse effect, while improving glycemic control. Other options like empagliflozin (weight loss), liraglutide (weight loss), and glyburide (no significant weight gain) are less consistent with this presentation.",
+          "critical_evidence": "Weight gain of 4 kg after initiation of a new antidiabetic agent, which is a hallmark adverse effect of rosiglitazone.",
+          "differential_considered": "Empagliflozin and liraglutide are associated with weight loss, making them unlikely. Glyburide does not typically cause significant weight gain. None of the above is incorrect, but rosiglitazone fits best with the clinical scenario.",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 242,
+            "generation_time_s": 8.913
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 108,
+            "generation_time_s": 2.762
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options like liraglutide or empagliflozin are less likely due to expected weight loss; D (glyburide) has a rapid onset but the question emphasizes delayed onset. E (none) is less likely as the symptoms suggest a specific therapy. F is not appropriate as the case is clearly treatable with a standard medication.",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 612,
+            "generation_time_s": 20.215
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-22537902",
+  "dataset": "pubmedqa_context",
+  "question_id": "22537902",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Colorectal cancer with synchronous liver metastases: does global management at the same centre improve results?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Synchronous liver metastases (SLM) occur in 20% of colorectal cancers (CRC). Resection of SLM and CLC can be undertaken at different centres (separate management, SM) or at the same centre (global management, GM). Retrospective study of SLM and CRC resections carried out during 01/2000 - 12/2006 by SM or GM, using a combined or delayed strategy. Morphologic characteristics and type of CRC and SLM resection were similar for the GM (n = 45) or SM (n = 66) groups. In patients with delayed liver resection (62 SM, 17 GM), chemotherapy prior to liver surgery was used in 92% and 38% of SM and GM patients (P<0.0001) and the median delay between procedures was 212 and 182 days, respectively (P = 0.04). First step of liver resection was more often performed during colorectal surgery in the GM group (62 vs. 6% for SM, P<0.0001) and the mean number of procedures (CRC+SLM) was lower (1.6 vs. 2.3, P = 0.003). Three-month mortality was 3% for GM and 0% for SM (n.s.). Overall survival rates were 67% and 51% for SM and GM at 3 years (n.s.), and 35 and 31% at 5 years (n.s.). Disease-free survival to 5 years was higher in SM patients (14% vs. 11%, P = 0.009).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study suggests that global management (GM) of synchronous liver metastases (SLM) in colorectal cancer (CRC) improves outcomes compared to separate management (SM). This is supported by the lower mean number of procedures, higher disease-free survival, and a trend towards improved overall survival in the GM group. The higher rate of chemotherapy prior to liver resection in the SM group also suggests that delaying surgery may be beneficial.",
+          "critical_evidence": "Disease-free survival to 5 years was higher in SM patients (14% vs. 11%, P = 0.009).",
+          "differential_considered": "While the study doesn't directly address the potential for complications or resource constraints associated with GM, the observed improvements in disease-free survival and the trend towards improved overall survival suggest that the benefits of GM outweigh the risks in this specific patient population. Other potential complications of GM, such as increased surgical time or potential for delayed diagnosis of other cancers, are not directly addressed in the study, but the overall positive trend suggests that GM is the better option.",
+          "usage": {
+            "prompt_tokens": 639,
+            "generated_tokens": 261,
+            "generation_time_s": 15.515
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study shows that while global management had some advantages like earlier liver resection and lower procedure count, the 3-month mortality was 3% for GM vs 0% for SM (n.s.), and 5-year disease-free survival was significantly higher in SM (14% vs 11%). The delayed strategy with chemotherapy in SM showed better outcomes, suggesting that centralized management may not always be superior.",
+          "critical_evidence": "5-year disease-free survival was significantly higher in SM patients (14% vs 11%, P = 0.009)",
+          "differential_considered": "No major differentials needed - the data directly compares GM vs SM approaches. The key finding is the significantly better disease-free survival in SM despite similar procedure outcomes.",
+          "usage": {
+            "prompt_tokens": 608,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.342
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows no statistically significant difference in overall survival or 3-month mortality between global management (GM) and separate management (SM) of colorectal cancer with synchronous liver metastases. However, disease-free survival was higher in SM patients, and chemotherapy use and procedural delays differed significantly between groups, suggesting that GM may not confer a clear advantage. The lack of consistent benefit across all endpoints supports a 'maybe' answer.",
+          "critical_evidence": "Overall survival rates were 67% and 51% for SM and GM at 3 years (n.s.), and 35 and 31% at 5 years (n.s.), indicating no significant difference in survival outcomes.",
+          "differential_considered": "Considered whether GM improves survival or outcomes, but ruled it out due to lack of statistical significance in survival metrics, despite procedural advantages in GM. Also considered disease-free survival, which favored SM, further supporting uncertainty.",
+          "usage": {
+            "prompt_tokens": 612,
+            "generated_tokens": 221,
+            "generation_time_s": 9.068
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 606,
+            "generated_tokens": 8,
+            "generation_time_s": 0.226
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.87,
+          "clinical_reasoning": "",
+          "critical_evidence": "Overall survival rates were 67% and 51% for GM and SM at 3 years (n.s.)",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 641,
+            "generated_tokens": 180,
+            "generation_time_s": 5.668
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

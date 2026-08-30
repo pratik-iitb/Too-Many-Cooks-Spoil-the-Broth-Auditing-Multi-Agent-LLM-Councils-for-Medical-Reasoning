@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-962",
+  "dataset": "medqa",
+  "question_id": "962",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old man presents to his primary care provider with recent swelling in his legs that has now spread to the lower part of his thighs. He sometimes has difficulty putting on his shoes and pants. He also noticed puffiness under his eyes over the last 3 weeks. A 24-hour urine collection confirms proteinuria of 5 g/day. Electron microscopy of a renal biopsy specimen reveals subepithelial deposits with a spike and dome pattern. Which of the following is associated with this patient’s condition?",
+    "options": {
+      "A": "HIV infection",
+      "B": "High HbA1C",
+      "C": "Hepatitis B infection",
+      "D": "Hodgkin's lymphoma",
+      "E": "Monoclonal protein spike"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of edema, proteinuria (5 g/day), and subepithelial deposits with a spike and dome pattern on renal biopsy strongly suggests membranous nephropathy. A monoclonal protein spike is a common finding in patients with membranous nephropathy, particularly those with underlying plasma cell dyscrasias such as amyloidosis or multiple myeloma.",
+          "critical_evidence": "Subepithelial deposits with a spike and dome pattern on renal biopsy is highly suggestive of membranous nephropathy.",
+          "differential_considered": "HIV infection is associated with various kidney diseases, but not typically with this specific pattern of glomerular deposits. High HbA1C is associated with diabetic nephropathy, which presents differently. Hepatitis B infection can cause membranous nephropathy, but a monoclonal protein spike is less common. Hodgkin's lymphoma is associated with various renal manifestations, but membranous nephropathy is not the most typical presentation.",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 226,
+            "generation_time_s": 11.209
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's proteinuria, leg swelling, and puffiness under the eyes suggest nephrotic syndrome. Electron microscopy findings of subepithelial deposits with a spike and dome pattern are characteristic of monoclonal gammopathy, often seen in conditions like multiple myeloma or amyloidosis. While HIV, hepatitis B, and Hodgkin's lymphoma can cause proteinuria, none match the specific microscopic pattern. High HbA1C is unrelated to the clinical picture.",
+          "critical_evidence": "Electron microscopy showing subepithelial deposits with a spike and dome pattern",
+          "differential_considered": "HIV infection (can cause nephropathy but not this pattern), hepatitis B (hepatitis can affect kidneys but not this pattern), Hodgkin's lymphoma (lymphoma can cause proteinuria but not this pattern), high HbA1C (diabetes is not indicated by proteinuria or leg swelling)",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.304
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with nephrotic syndrome (heavy proteinuria, edema) and electron microscopy shows subepithelial spikes and domes, which is pathognomonic for membranous nephropathy. This condition is most commonly associated with a monoclonal protein spike (e.g., anti-PLA2R antibodies or IgG4-related disease, or less commonly, monoclonal gammopathy). Other options like HIV, hepatitis B, or Hodgkin’s lymphoma are not typically associated with this specific histopathology. High HbA1c is associated with diabetes, which can cause nephropathy but not this specific electron microscopic pattern.",
+          "critical_evidence": "Electron microscopy reveals subepithelial deposits with a spike and dome pattern — diagnostic of membranous nephropathy, which is frequently associated with monoclonal protein spikes or autoimmune mechanisms.",
+          "differential_considered": "HIV, hepatitis B, and Hodgkin’s lymphoma were considered but ruled out because they are not associated with the characteristic spike and dome pattern on electron microscopy. High HbA1c was considered as a cause of nephropathy but does not explain the specific histopathology.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 275,
+            "generation_time_s": 9.677
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 109,
+            "generation_time_s": 2.623
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Lupus nephritis (A, C), Hodgkin's lymphoma (D), and high HbA1C (B) were considered, but the histologic finding most strongly suggests a paraneoplastic process, particularly multiple myeloma, which is associated with a monoclonal protein (option E).",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 361,
+            "generation_time_s": 11.265
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

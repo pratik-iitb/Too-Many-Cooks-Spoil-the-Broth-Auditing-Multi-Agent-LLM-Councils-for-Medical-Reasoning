@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-387",
+  "dataset": "mmlu",
+  "question_id": "387",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Glucose is transported into the muscle cell:",
+    "options": {
+      "A": "via protein transporters called GLUT4.",
+      "B": "only in the presence of insulin.",
+      "C": "via hexokinase.",
+      "D": "via monocarbylic acid transporters."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Glucose transport into muscle cells is primarily facilitated by GLUT4 transporters, which are insulin-dependent. While insulin is important, GLUT4 is the main mechanism for glucose uptake in muscle tissue. Hexokinase is an enzyme that phosphorylates glucose, but it doesn't directly transport it into the cell.",
+          "critical_evidence": "GLUT4 transporters are the primary mechanism for glucose uptake into muscle cells, and this process is insulin-dependent.",
+          "differential_considered": "Option B is incorrect because glucose transport is not solely dependent on insulin. While insulin stimulates GLUT4 translocation, glucose can still enter muscle cells to a limited extent without insulin. Option C is incorrect because hexokinase is an enzyme that phosphorylates glucose, not a transporter. Option D is incorrect because monocarboxylic acid transporters are involved in the transport of monocarboxylic acids, not glucose.",
+          "usage": {
+            "prompt_tokens": 278,
+            "generated_tokens": 213,
+            "generation_time_s": 12.738
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Glucose uptake into muscle cells is primarily mediated by GLUT4 transporters, which are regulated by insulin and activated during muscle contraction and insulin stimulation. This mechanism is critical for glucose utilization in skeletal muscle, especially during exercise and postprandial states. While insulin is necessary for GLUT4 translocation to the plasma membrane, the question focuses on the transporter itself, not the regulatory mechanism. Hexokinase (C) is involved in glucose phosphorylation in the liver, and monocarboxylate transporters (D) handle metabolites like lactate, not glucose. Therefore, GLUT4 (A) is the correct answer.",
+          "critical_evidence": "GLUT4 transporters are the primary glucose transporters in muscle cells, specifically translocated to the plasma membrane in response to insulin and muscle activity.",
+          "differential_considered": "Options B (insulin) and C (hexokinase) were considered but ruled out because the question asks about the transporter, not the regulatory mechanism or phosphorylation pathway. Option D (monocarboxylate transporters) is incorrect as they handle different metabolites.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 257,
+            "generation_time_s": 15.631
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Glucose enters muscle cells primarily through GLUT4 transporters, which are insulin-responsive and facilitate glucose uptake during insulin signaling. While insulin enhances GLUT4 translocation to the membrane, glucose can still enter under some basal conditions. Hexokinase catalyzes the first step of glycolysis but does not transport glucose into the cell. Monocarboxylic acid transporters handle lactate and other organic acids, not glucose.",
+          "critical_evidence": "GLUT4 is the primary glucose transporter in muscle cells and is regulated by insulin, making it the correct mechanism for glucose transport into muscle.",
+          "differential_considered": "Option B is partially true but incomplete — glucose can enter muscle cells without insulin under basal conditions. Option C is incorrect as hexokinase is an intracellular enzyme, not a transporter. Option D is incorrect as monocarboxylic acid transporters are for lactate, not glucose.",
+          "usage": {
+            "prompt_tokens": 250,
+            "generated_tokens": 215,
+            "generation_time_s": 8.377
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 110,
+            "generation_time_s": 3.013
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.99,
+          "clinical_reasoning": "The question concerns the mechanism of glucose transport into muscle cells. While insulin is necessary to activate GLUT4 transporters for glucose uptake in muscle (especially during rest or after stimulation), basal glucose entry into muscle cells primarily occurs via alternative pathways such as the glucose transporter GLUT1, which is a constitutive protein. Among the given options, hexokinase is an enzyme that catalyzes the first step of glycolysis and is involved in initial glucose entry, though it does not transport glucose. However, since the other options are incorrect (GLUT4 is for insulin-stimulated uptake in adipose and some muscle, but not the main initial transport; monocarbylic acid transporters are unrelated; and while insulin is important, the question likely refers to the enzyme or transporter directly involved in the process of glucose entering the cell, which is initiated by hexokinase binding glucose).",
+          "critical_evidence": "The initial step of muscle glucose uptake involves glucose binding to hexokinase, initiating glycolysis.",
+          "differential_considered": "Options A and D refer to specific transporters (GLUT4 and monocarbylic acid transporters), which are not the main routes for glucose entry into resting muscle cells. Option B is partially correct for insulin-dependent pathways but not the general process described in the case. Option C, while not a transporter, is the key enzyme enabling glucose entry at the cellular level, making it the best available answer from the list.",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 328,
+            "generation_time_s": 14.012
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

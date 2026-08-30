@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-952",
+  "dataset": "medqa",
+  "question_id": "952",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In a healthy patient with no renal abnormalities, several mechanisms are responsible for moving various filtered substances into and out of the tubules. Para-aminohippurate (PAH) is frequently used to estimate renal blood flow when maintained at low plasma concentrations. The following table illustrates the effect of changing plasma PAH concentrations on PAH excretion:\nPlasma PAH concentration (mg/dL) Urinary PAH concentration (mg/dL)\n0 0\n10 60\n20 120\n30 150\n40 180\nWhich of the following mechanisms best explains the decrease in PAH excretion with the increase in plasma concentration greater than 20 mg/dL?",
+    "options": {
+      "A": "Saturation of PAH transport carriers",
+      "B": "Increased diffusion rate of PAH",
+      "C": "Decreased glomerular filtration of PAH",
+      "D": "Increased flow rate of tubular contents",
+      "E": "Increased rate of PAH reabsorption"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The table shows a linear relationship between plasma PAH concentration and urinary PAH concentration up to 20 mg/dL. Beyond this point, the urinary PAH concentration plateaus, indicating that the transport capacity of PAH is saturated. This means that the rate of PAH transport into the tubules is limited by the number of available transport carriers.",
+          "critical_evidence": "The plateau in urinary PAH excretion at a plasma concentration of 20 mg/dL.",
+          "differential_considered": "B: Increased diffusion rate of PAH - This is unlikely because diffusion is a passive process and would not be limited by the number of transport carriers. C: Decreased glomerular filtration of PAH - While GFR can affect PAH clearance, the data suggests a saturation of transport, not a filtration problem. D: Increased flow rate of tubular contents - Increased flow would generally increase excretion, not decrease it. E: Increased rate of PAH reabsorption - This would also lead to increased excretion, not decreased excretion.",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 238,
+            "generation_time_s": 12.51
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The data shows that PAH excretion increases with plasma concentration up to 20 mg/dL but levels off at higher concentrations. This pattern is characteristic of saturation of transport carriers - as plasma PAH concentration increases beyond a certain point, all available transporters are occupied, and further increases in plasma concentration do not lead to increased tubular secretion. The linear relationship up to 20 mg/dL suggests active transport is occurring, while the leveling off indicates carrier saturation rather than passive diffusion or changes in flow rate.",
+          "critical_evidence": "The leveling off of urinary PAH excretion at 180 mg/dL when plasma concentration increases from 30 to 40 mg/dL demonstrates that transport capacity is being reached",
+          "differential_considered": "Options B (diffusion) and D (flow rate) were ruled out because diffusion would not show a threshold effect, and flow rate would affect all concentrations equally. Option C (glomerular filtration) was ruled out because the patient has normal renal function. Option E (reabsorption) was ruled out because PAH is not typically reabsorbed in the renal tubules.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 260,
+            "generation_time_s": 12.156
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "PAH is a substance that is almost completely cleared from the blood by the kidneys via active tubular secretion, not passive diffusion. At low plasma concentrations, excretion increases linearly with concentration, indicating maximal transport capacity is not yet reached. However, above 20 mg/dL, excretion plateaus (e.g., 30 mg/dL → 150 mg/dL, 40 mg/dL → 180 mg/dL), suggesting saturation of the transport system. This is consistent with carrier-mediated transport reaching its maximum rate.",
+          "critical_evidence": "The plateau in urinary PAH excretion at higher plasma concentrations (20–40 mg/dL) indicates saturation of active transport mechanisms, not increased filtration or diffusion.",
+          "differential_considered": "Options B, C, D, and E were considered but ruled out: diffusion rate (B) is not rate-limiting for PAH; glomerular filtration (C) is not the primary mechanism for PAH clearance; tubular flow rate (D) is not altered by plasma concentration; and reabsorption (E) is minimal for PAH since it is actively secreted.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 272,
+            "generation_time_s": 9.572
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The initial increase in PAH excretion with rising plasma concentrations is due to the enhanced diffusion of PAH from the blood into the tubular lumen. However, as the plasma PAH concentration further increases beyond 20 mg/dL, the transport carriers become saturated. This saturation leads to a decrease in the excretion of PAH, as the carriers cannot accommodate any more molecules, resulting in a plateau in the urinary PAH concentration.",
+          "critical_evidence": "Saturation of PAH transport carriers",
+          "differential_considered": "Decreased glomerular filtration of PAH was considered as a potential cause, but the initial increase in PAH excretion with rising plasma concentrations makes this less likely. Increased flow rate of tubular contents and increased rate of PAH reabsorption are not supported by the data provided.",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 191,
+            "generation_time_s": 4.645
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The table shows that as plasma PAH increases beyond 20 mg/dL, urinary PAH excretion does not increase proportionally, peaking at 30 mg/dL and then plateauing. This suggests that at higher plasma concentrations, PAH is being reabsorbed in the tubules rather than excreted in proportion to its filtered load. Since PAH is filtered by the glomerulus and then actively transported by tubular cells, its renal excretion should rise with plasma concentration up to the capacity of tubular reabsorption. The plateau in urine after plasma exceeds 20 mg/dL indicates saturation of reabsorption mechanisms, so the decrease in excess urinary excretion is due to increased PAH reabsorption, not filtration or tubular flow changes.",
+          "critical_evidence": "The non-proportional increase in urinary PAH with plasma PAH above 20 mg/dL, reaching a maximum at 30 mg/dL, then leveling off, indicates increased tubular reabsorption as the limiting factor.",
+          "differential_considered": "Options A, C, and D relate to transport, filtration, or tubular flow, but the key finding is the plateau in excretion with rising plasma, which is most consistent with increased reabsorption (option E).",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 294,
+            "generation_time_s": 9.263
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-617",
+  "dataset": "medqa",
+  "question_id": "617",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An 8-year-old girl presents to her primary care provider with several months of headaches and impaired vision. Physical exam reveals a female in the 10th percentile for height and 43rd percentile for weight; cranial nerve testing demonstrates bitemporal hemianopsia. She undergoes a head CT, which shows suprasellar calcifications (Figure A). Given her likely diagnosis, which of the following are also derived from the same germ cell layer?",
+    "options": {
+      "A": "Adrenal chromaffin cells, schwann cells, eccrine sweat glands, astrocytes",
+      "B": "Thyroid follicular cells, alimentary canal, trachea",
+      "C": "Muscle, bone, red blood cells",
+      "D": "Thymus, urinary bladder, colon",
+      "E": "Mesenchyme, smooth muscle, cartilage"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of headaches, impaired vision, and suprasellar calcifications on CT scan strongly suggests craniopharyngioma. Craniopharyngiomas are tumors that arise from Rathke's pouch, which is an embryonic structure derived from the ectoderm. The other options are derived from different germ layers: thyroid follicular cells (endoderm), alimentary canal (endoderm), muscle, bone, and red blood cells (mesoderm), thymus and urinary bladder (endoderm), and mesenchyme, smooth muscle, and cartilage (mesoderm). Therefore, adrenal chromaffin cells, schwann cells, and eccrine sweat glands are derived from the ectoderm.",
+          "critical_evidence": "Suprasellar calcifications on CT scan are highly suggestive of craniopharyngioma.",
+          "differential_considered": "While other tumors can cause similar symptoms, the suprasellar location and calcifications are more characteristic of craniopharyngioma. Other possibilities like pituitary adenomas are less likely given the age of the patient and the presence of calcifications. Meningiomas are also less likely to present with calcifications in this location.",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 277,
+            "generation_time_s": 13.719
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The suprasellar calcifications and bitemporal hemianopsia strongly suggest a pineal gland tumor, which arises from the neural crest, a germ cell layer. The neural crest gives rise to structures like schwann cells, adrenal chromaffin cells, and astrocytes, all of which are derived from the same germ layer. The other options involve different germ layers or cell types not associated with pineal gland development.",
+          "critical_evidence": "Suprasellar calcifications and bitemporal hemianopsia strongly suggest a pineal gland tumor",
+          "differential_considered": "Considered pituitary apoplexy, craniopharyngioma, and other suprasellar masses, but ruled out based on the specific calcification pattern and visual field defect consistent with a pineal gland tumor",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 200,
+            "generation_time_s": 9.335
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of bitemporal hemianopsia, suprasellar calcifications, and growth parameters suggests a pituitary tumor (likely craniopharyngioma), which arises from Rathke’s pouch — an endodermal derivative. Thyroid follicular cells, trachea, and alimentary canal all originate from endoderm, the same germ layer as Rathke’s pouch. Other options involve mesoderm (C, E) or ectoderm (A, D), which are incorrect.",
+          "critical_evidence": "Suprasellar calcifications and bitemporal hemianopsia strongly suggest a craniopharyngioma, which arises from Rathke’s pouch (endoderm).",
+          "differential_considered": "Pituitary adenoma, hypothalamic hamartoma, or other suprasellar lesions were considered, but the calcifications and bitemporal hemianopsia are most consistent with craniopharyngioma. Growth parameters and gender do not support other endocrine tumors or congenital anomalies.",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 254,
+            "generation_time_s": 8.917
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 26,
+            "generation_time_s": 0.649
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include craniopharyngioma (ectodermal), but the key is the pituitary tumor, so A is optimal as it includes related ectodermal and mesodermal cells from the same embryologic region as the pituitary.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 288,
+            "generation_time_s": 8.995
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1463",
+  "dataset": "medqa",
+  "question_id": "1463",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 43-year-old Caucasian male spent the past month on a business trip in the Caribbean. Two weeks following his return, he began experiencing diarrhea, pain in his abdomen, and a headache. He presents to the hospital and is noted to be febrile with prominent rose-colored spots on his chest and abdomen. Following recovery, the patient may become a carrier of the bacteria with the bacteria heavily localized to the:",
+    "options": {
+      "A": "Gallbladder",
+      "B": "Spleen",
+      "C": "CD4 T-helper cells",
+      "D": "Lungs",
+      "E": "Sensory ganglia"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's travel history to the Caribbean, followed by diarrhea, abdominal pain, headache, and rose-colored spots (erythema migrans) strongly suggests a tick-borne illness, specifically *Rickettsia rickettsii*, the causative agent of Rocky Mountain Spotted Fever (RMSF). RMSF is characterized by the bacteria residing in the endothelial cells of blood vessels, particularly in the skin, heart, and brain. The gallbladder is a common site of bacterial localization in RMSF.",
+          "critical_evidence": "Rose-colored spots on the chest and abdomen, along with the travel history to the Caribbean, are highly suggestive of RMSF.",
+          "differential_considered": "While the symptoms could potentially be caused by other infections, the combination of travel history, rash, and systemic symptoms makes RMSF the most likely diagnosis. Other possibilities like viral gastroenteritis or other tick-borne illnesses are less likely given the specific rash and the patient's presentation.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 235,
+            "generation_time_s": 11.647
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, rose-colored spots (petechiae), and gastrointestinal symptoms after travel to the Caribbean strongly suggests a bacterial infection. The presence of petechiae indicates a systemic illness, and the localization of bacteria to a specific organ is critical. While the gallbladder, spleen, and sensory ganglia are possible sites, the lungs are the most likely location given the patient's history of diarrhea and the typical spread of certain bacteria to the lungs. CD4 T-helper cells are immune cells, not a site of bacterial localization. The lungs are a common site for bacterial dissemination in cases of severe infection.",
+          "critical_evidence": "The patient's gastrointestinal symptoms and the presence of rose-colored spots (petechiae) suggest a systemic bacterial infection, with the lungs being a common site for bacterial dissemination.",
+          "differential_considered": "Considered: Typhoid fever, leptospirosis, Q fever. Ruled out: Gallbladder involvement (no cholecystitis symptoms), spleen involvement (no splenomegaly), sensory ganglia involvement (no neurological symptoms).",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.748
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s history of travel to the Caribbean, followed by fever and rose-colored macules (suggestive of typhoid fever), points to Salmonella typhi infection. After recovery, carriers of S. typhi often harbor the bacteria in the gallbladder, which can lead to recurrent infection or transmission. Other options like spleen (B) are sites of acute infection, not chronic carriage; CD4 cells (C) are for HIV; lungs (D) for pneumonia; sensory ganglia (E) for herpes viruses.",
+          "critical_evidence": "Rose-colored macules and fever after travel to endemic areas are classic for typhoid fever caused by Salmonella typhi, which commonly leads to gallbladder carriage post-recovery.",
+          "differential_considered": "Other differentials like dengue, malaria, or viral exanthems were considered but ruled out by the specific rash pattern and temporal association with travel and fever. Typhoid fever is the most likely diagnosis, and gallbladder carriage is the hallmark of post-recovery carrier state.",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 247,
+            "generation_time_s": 8.693
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 11,
+            "generation_time_s": 0.281
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include gastroenteritis (A, B), but the presence of a localized bacterial infection in the lungs is the most supported by the symptoms and the context of returning from a tropical location; other organs like the spleen or gallbladder are not typically the primary site for these symptoms.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 275,
+            "generation_time_s": 8.667
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

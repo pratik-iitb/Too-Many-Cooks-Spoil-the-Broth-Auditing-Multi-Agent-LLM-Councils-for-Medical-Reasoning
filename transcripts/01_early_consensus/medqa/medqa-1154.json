@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1154",
+  "dataset": "medqa",
+  "question_id": "1154",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old man presents to the emergency room complaining of malaise. Two hours prior to presentation, he developed muscle cramps and nausea. He has had 3 episodes of non-bloody watery stools since his symptoms started. He reports that he has experienced similar symptoms multiple times over the past 5 years since he started working at his local zoo as a reptilian caretaker. His medical history is unremarkable. He takes fish oil and a multivitamin daily. His temperature is 101°F (38.3°C), blood pressure is 130/90 mmHg, pulse is 90/min, and respirations are 17/min. On exam, he demonstrates sensitivity to bright light. He is tired-appearing but alert and fully oriented. A stool sample and culture demonstrates abundant non-lactose fermenting, oxidase-negative, and H2S-producing gram-negative bacilli. The pathogen responsible for this patient’s condition relies on a virulence factor with which of the following mechanisms of action?",
+    "options": {
+      "A": "ADP ribosylation of elongation factor 2",
+      "B": "Binding the Fc region of host immunoglobulins",
+      "C": "Blocking antibody attack on the O antigen",
+      "D": "Cleaving immunoglobulin A molecules",
+      "E": "Cleaving lecithin"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms (malaise, muscle cramps, nausea, watery stools, photophobia) and the stool culture results (non-lactose fermenting, oxidase-negative, H2S-producing gram-negative bacilli) strongly suggest *Vibrio cholerae* infection. The key virulence factor of *Vibrio cholerae* is cholera toxin, which cleaves host cell membrane phospholipids, specifically lecithin (phosphatidylcholine). This leads to increased cAMP levels, resulting in massive watery diarrhea.",
+          "critical_evidence": "The stool culture results (non-lactose fermenting, oxidase-negative, H2S-producing gram-negative bacilli) are highly suggestive of *Vibrio cholerae*.",
+          "differential_considered": "Other possible causes of watery diarrhea include *E. coli* (especially enterotoxigenic *E. coli* or ETEC), *Shigella*, and *Campylobacter*. However, the specific stool culture results, particularly the H2S production and the absence of lactose fermentation, make *Vibrio cholerae* the most likely diagnosis. The photophobia is also more consistent with cholera than other diarrheal pathogens.",
+          "usage": {
+            "prompt_tokens": 497,
+            "generated_tokens": 282,
+            "generation_time_s": 13.925
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The stool culture shows non-lactose fermenting, oxidase-negative, H2S-producing gram-negative bacilli, consistent with Salmonella species. Salmonella uses ADP ribosylation of elongation factor 2 (EF-2) to inhibit protein synthesis in host cells, contributing to its virulence. This mechanism is supported by the clinical presentation of gastrointestinal symptoms and the pathogen's characteristics.",
+          "critical_evidence": "The stool culture demonstrating non-lactose fermenting, oxidase-negative, H2S-producing gram-negative bacilli strongly suggests Salmonella species, which are known to use ADP ribosylation of EF-2 as a virulence factor.",
+          "differential_considered": "Considered Shigella, Yersinia, and other gram-negative bacilli, but ruled out due to the specific culture findings and the patient's history of reptilian exposure, which increases the likelihood of Salmonella.",
+          "usage": {
+            "prompt_tokens": 502,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.514
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.783
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 25,
+            "generation_time_s": 0.63
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of H2S-producing diarrhea (e.g., E. coli O157:H7, Salmonella, Campylobacter) were considered but ruled out due to the specific description of Shigella's toxin mechanism and the non-bloody, inflammatory diarrhea; Shigella's edema toxin is the most likely explanation.",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 262,
+            "generation_time_s": 11.441
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

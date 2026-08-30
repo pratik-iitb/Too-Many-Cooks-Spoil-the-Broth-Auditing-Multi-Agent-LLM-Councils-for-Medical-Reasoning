@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19578820",
+  "dataset": "pubmedqa_context",
+  "question_id": "19578820",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are opioid dependence and methadone maintenance treatment (MMT) documented in the medical record?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Opioid-dependent patients often have co-occurring chronic illnesses requiring medications that interact with methadone. Methadone maintenance treatment (MMT) is typically provided separately from medical care. Hence, coordination of medical care and substance use treatment is important to preserve patient safety. To identify potential safety risks among MMT patients engaged in medical care by evaluating the frequency that opioid dependence and MMT documentation are missing in medical records and characterizing potential medication-methadone interactions. Among patients from a methadone clinic who received primary care from an affiliated, but separate, medical center, we reviewed electronic medical records for documentation of methadone, opioid dependence, and potential drug-methadone interactions. The proportions of medical records without opioid dependence and methadone documentation were estimated and potential medication-methadone interactions were identified. Among the study subjects (n = 84), opioid dependence documentation was missing from the medical record in 30% (95% CI, 20%-41%) and MMT documentation was missing from either the last primary care note or the last hospital discharge summary in 11% (95% CI, 5%-19%). Sixty-nine percent of the study subjects had at least 1 medication that potentially interacted with methadone; 19% had 3 or more potentially interacting medications.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case states that opioid dependence documentation was missing from the medical record in 30% of the study subjects. This indicates that opioid dependence is not always documented in the medical record. Therefore, the answer is no.",
+          "critical_evidence": "Opioid dependence documentation was missing from the medical record in 30% of the study subjects.",
+          "differential_considered": "While the case focuses on opioid dependence and MMT documentation, other conditions could be present. However, the primary focus is on the documented presence or absence of these specific conditions, making the absence of documentation the most relevant finding.",
+          "usage": {
+            "prompt_tokens": 534,
+            "generated_tokens": 165,
+            "generation_time_s": 9.898
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case explicitly states that opioid dependence and methadone maintenance treatment (MMT) documentation are missing from medical records in 30% and 11% of patients respectively. This indicates a documented issue with incomplete medical record keeping for these patients, which directly answers the question about whether these elements are documented. The high percentages of missing documentation (30% for opioid dependence, 11% for MMT) demonstrate that documentation is not consistently present, making the answer 'no' the most accurate choice.",
+          "critical_evidence": "The study found that opioid dependence documentation was missing in 30% of medical records and MMT documentation was missing in 11% of records, demonstrating that documentation is frequently absent.",
+          "differential_considered": "No differential diagnoses needed to be considered as this is a straightforward question about documentation status, not a clinical diagnosis. The answer is based on statistical evidence of missing documentation rather than individual patient assessment.",
+          "usage": {
+            "prompt_tokens": 536,
+            "generated_tokens": 220,
+            "generation_time_s": 12.492
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The case explicitly states that opioid dependence documentation was missing in 30% of records and MMT documentation was missing in 11% of records, indicating that documentation is frequently incomplete. This directly supports the answer 'no' — opioid dependence and MMT are not consistently documented. The presence of potential drug interactions further underscores the clinical importance of accurate documentation.",
+          "critical_evidence": "Opioid dependence documentation was missing in 30% (95% CI, 20%-41%) of medical records.",
+          "differential_considered": "Considered 'maybe' (C) due to partial documentation in some cases, but the high rate of missing documentation (30% for dependence, 11% for MMT) makes 'no' the best answer. 'Yes' (A) is incorrect because the data shows significant documentation gaps.",
+          "usage": {
+            "prompt_tokens": 516,
+            "generated_tokens": 207,
+            "generation_time_s": 8.801
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 534,
+            "generated_tokens": 51,
+            "generation_time_s": 1.513
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The main differential was whether the absence of opioid dependence documentation would compromise safety compared to other missing information. However, without knowing the specific medications, the lack of opioid dependence documentation leaves a critical gap in understanding the patient's substance use, making it the most critical missing piece for safe care.",
+          "usage": {
+            "prompt_tokens": 566,
+            "generated_tokens": 229,
+            "generation_time_s": 8.808
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

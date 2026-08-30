@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-9602458",
+  "dataset": "pubmedqa_context",
+  "question_id": "9602458",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does the Child Health Computing System adequately identify children with cerebral palsy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "This paper assesses the usefulness of the Child Health Computing System as a source of information about children with cerebral palsy. A comparative survey of information held on the Child Health Computing System (CHCS) and the Northern Ireland Cerebral Palsy Register (NICPR) in one Health and Social Services Board in Northern Ireland was carried out. The sample comprised children with cerebral palsy aged 5-9 years. Of the 135 cases recorded on the NICPR, 47 per cent were not found on the CHCS; the majority of these children had no computer record of any medical diagnosis. Of the 82 cases recorded on the CHCS, 10 (12 per cent) were not found on the NICPR; five of these cases (6 per cent) were found on follow-up not to have CP.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that 47% of children with cerebral palsy (CP) on the Northern Ireland Cerebral Palsy Register (NICPR) were not found on the Child Health Computing System (CHCS). This suggests the CHCS is not adequately identifying children with CP. The fact that many of these missing cases had no computer record further supports this conclusion.",
+          "critical_evidence": "47% of children with CP on the NICPR were not found on the CHCS.",
+          "differential_considered": "While other conditions could present similarly, the specific finding of a significant number of CP cases missing from the CHCS points to a problem with the system's ability to identify CP, rather than a general lack of awareness of CP in the population.",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 194,
+            "generation_time_s": 11.462
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The CHCS under-identifies children with cerebral palsy, as 47% of NICPR cases were missing from CHCS. This indicates the system fails to capture all cases, suggesting it does not adequately identify all children with cerebral palsy.",
+          "critical_evidence": "47% of NICPR cases not found in CHCS",
+          "differential_considered": "Alternative systems might have different coverage, but the CHCS itself shows significant under-identification, making it inadequate as a sole source for identifying all cerebral palsy cases.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.18
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The CHCS failed to identify 47% of children with cerebral palsy recorded in the NICPR, indicating significant under-recording. Additionally, 12% of CHCS records were not found in NICPR, with some later proven not to have CP, suggesting potential false positives or incomplete data. This demonstrates inadequate identification capability.",
+          "critical_evidence": "Of the 135 cases on NICPR, 47% were not found on CHCS, with most lacking any medical diagnosis in the system.",
+          "differential_considered": "False negatives (missed cases) and false positives (non-CP cases misclassified) were considered; however, the high rate of missed cases (47%) outweighs the false positives, making the system inadequate for reliable identification.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 191,
+            "generation_time_s": 7.997
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.8,
+          "clinical_reasoning": "The Child Health Computing System (CHCS) does not adequately identify children with cerebral palsy. The survey found that a significant number of children with cerebral palsy were not found on the CHCS, and many of these children had no computer record of any medical diagnosis. This indicates a failure in the system's ability to accurately identify and record cases of cerebral palsy, which is crucial for appropriate healthcare management and services.",
+          "critical_evidence": "The majority of children with cerebral palsy were not found on the CHCS, indicating a lack of accurate identification.",
+          "differential_considered": "None of the options provided are correct as the CHCS does not adequately identify children with cerebral palsy, regardless of the specific criteria used for identification.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 174,
+            "generation_time_s": 5.01
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 291,
+            "generation_time_s": 10.984
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-715",
+  "dataset": "medqa",
+  "question_id": "715",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old man presents to the emergency department with chest pain and difficulty breathing for the last 3 hours. He denies cough, nasal discharge or congestion, sneezing, and palpitations. There is no history of recent surgery or hospitalization but he mentions that he was diagnosed with a psychiatric disorder 6 months ago and has been on medication, as prescribed by the psychiatrist. His past medical history is negative for any cardiac or respiratory conditions. His temperature is 38.1°C (100.5°F), pulse is 112/min, blood pressure is 128/84 mm Hg, and respiratory rate is 24/min. Auscultation of the chest reveals crackles and a decreased intensity of breath sounds over the right infrascapular region. The heart sounds are normal and there are no murmurs. His plasma D-dimer level is elevated. A contrast-enhanced computed tomography (CT) of the chest shows a filling defect in 2 segmental pulmonary arteries on the right side. Which of the following medications is most likely to cause the condition found in this man?",
+    "options": {
+      "A": "Alprazolam",
+      "B": "Chlorpromazine",
+      "C": "Haloperidol",
+      "D": "Lithium",
+      "E": "Valproic acid"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of chest pain, difficulty breathing, elevated D-dimer, and a filling defect in the pulmonary arteries on CT scan strongly suggests pulmonary embolism (PE). Among the listed medications, chlorpromazine is known to increase the risk of venous thromboembolism (VTE), including PE, due to its effects on platelet aggregation and coagulation factors. The other medications are less strongly associated with VTE.",
+          "critical_evidence": "The presence of a filling defect in the pulmonary arteries on CT scan is highly suggestive of a pulmonary embolism.",
+          "differential_considered": "Alprazolam: While anxiety can be a risk factor for PE, alprazolam itself is not a direct cause. Haloperidol: Similar to chlorpromazine, haloperidol can increase the risk of VTE, but chlorpromazine is more commonly associated with this side effect. Lithium: Lithium is not typically associated with an increased risk of VTE. Valproic acid: Valproic acid can increase the risk of VTE, but chlorpromazine is more commonly associated with this side effect.",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 264,
+            "generation_time_s": 13.074
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's elevated D-dimer level and CT findings of pulmonary artery filling defects suggest pulmonary embolism. Lithium, a common medication for psychiatric disorders, can cause thrombocytopenia and increase the risk of thromboembolic events. The other antipsychotic medications listed (alprazolam, chlorpromazine, haloperidol, valproic acid) are less commonly associated with this specific complication.",
+          "critical_evidence": "Elevated D-dimer and pulmonary artery filling defects on CT",
+          "differential_considered": "Considered cardiac causes of chest pain and dyspnea, but ruled out by normal heart sounds and absence of murmurs. Psychiatric medications were prioritized due to the patient's history of psychiatric disorder and the known side effect profile of lithium.",
+          "usage": {
+            "prompt_tokens": 490,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.686
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute chest pain, dyspnea, fever, tachycardia, and CT evidence of pulmonary embolism (PE) with filling defects. His psychiatric history and medication use are critical. Among the options, chlorpromazine is a well-known cause of hypercoagulable state and thrombosis, including PE, due to its effects on platelet aggregation and endothelial function. Other options like alprazolam, haloperidol, lithium, and valproic acid have less established links to PE, though haloperidol can rarely cause thrombosis. The presence of fever and crackles may suggest superimposed infection, but the CT findings and elevated D-dimer point to PE as the primary diagnosis.",
+          "critical_evidence": "Contrast-enhanced CT showing filling defects in segmental pulmonary arteries confirms pulmonary embolism, and chlorpromazine is the most likely psychiatric medication among the options to cause this.",
+          "differential_considered": "Other differentials like pneumonia or myocardial infarction were considered but ruled out by absence of cough, normal heart sounds, and lack of ECG changes. PE is the most likely diagnosis given the clinical presentation and imaging findings.",
+          "usage": {
+            "prompt_tokens": 471,
+            "generated_tokens": 281,
+            "generation_time_s": 9.864
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 488,
+            "generated_tokens": 84,
+            "generation_time_s": 2.053
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Pulmonary embolism (from anticoagulant use or hypercoagulable state), atrial fibrillation (not directly caused by these meds), and other psychiatric medication side effects (e.g., valproic acid can cause thrombocytopenia but not directly PE risk). Alprazolam and haloperidol can both cause thrombosis risk, but haloperidol is more classically linked to this scenario in the context of a recent psychiatric medication start or change.",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 370,
+            "generation_time_s": 11.652
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

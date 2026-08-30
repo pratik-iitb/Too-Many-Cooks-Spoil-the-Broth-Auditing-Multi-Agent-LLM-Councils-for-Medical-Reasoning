@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-590",
+  "dataset": "medqa",
+  "question_id": "590",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An investigator is studying the effect of antihypertensive drugs on cardiac output and renal blood flow. For comparison, a healthy volunteer is given a placebo and a continuous infusion of para-aminohippuric acid (PAH) to achieve a plasma concentration of 0.02 mg/ml. His urinary flow rate is 1.5 ml/min and the urinary concentration of PAH is measured to be 8 mg/ml. His hematocrit is 50%. Which of the following values best estimates cardiac output in this volunteer?",
+    "options": {
+      "A": "3 L/min",
+      "B": "6 L/min",
+      "C": "8 L/min",
+      "D": "1.2 L/min",
+      "E": "4 L/min"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clearance of para-aminohippuric acid (PAH) is used to estimate cardiac output. Clearance is calculated as (Urine PAH concentration x Urine flow rate) / Plasma PAH concentration. In this case, the clearance is (8 mg/ml * 1.5 ml/min) / 0.02 mg/ml = 60 ml/min. Since 1 L = 1000 ml, this is equal to 6 L/min. This is a standard method for estimating cardiac output in a controlled setting.",
+          "critical_evidence": "Clearance of PAH is used to estimate cardiac output.",
+          "differential_considered": "While other factors can influence cardiac output, the provided information is specific to PAH clearance, making it the most reliable estimate in this scenario. Other factors like renal function and blood volume are not directly addressed in the given data.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 224,
+            "generation_time_s": 11.099
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.612
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.886
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 189,
+            "generation_time_s": 4.579
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The para-aminobenzoic acid (PAH) infusion allows calculation of plasma PAH concentration using the measured urinary PAH and urine flow. Urinary PAH excretion reflects filtered plasma PAH (since glomerular filtration is the main route for PAH), adjusted by urinary PAH concentration and renal plasma flow. Using the formula for filtered load (F = U × C), where U is urine PAH flow (1.5 ml/min × 8 mg/ml = 12 mg/min filtered), and knowing the plasma concentration (0.02 mg/ml), we estimate GFR as filtered load divided by plasma concentration (12 mg/min ÷ 0.02 mg/ml = 600 ml/min). However, to estimate cardiac output (CO), we use the renal plasma flow (RPF) and hematocrit: RPF = GFR × (1/hematocrit) = 600 ml/min ÷ 0.5 = 1200 ml/min = 1.2 L/min. This matches option D for RPF, but the question asks for CO. In healthy volunteers, CO is typically about 5 times RPF (CO = 5 × RPF), so 1.2 L/min × 5 = 6 L/min (option B), which aligns with the standard physiologic relationship between renal and cardiac output in resting state.",
+          "critical_evidence": "The measured urinary PAH concentration and infusion rate allow calculation of renal plasma flow, which when adjusted for hematocrit provides a reasonable estimate of cardiac output in a healthy volunteer.",
+          "differential_considered": "Other options may result from miscalculations (e.g., confusing RPF with CO), but the standard physiologic approximation (CO ≈ 5 × RPF) supports option B as the best estimate for CO.",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 409,
+            "generation_time_s": 12.87
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

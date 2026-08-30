@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-300",
+  "dataset": "medqa",
+  "question_id": "300",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 3-year-old boy is brought to the emergency department for nausea and vomiting for 1 day. His maternal uncle had a seizure disorder and died in childhood. He appears fatigued. Respirations are 32/min. Examination shows diffuse weakness in the extremities. Serum studies show a low pH, elevated lactate concentration, and normal blood glucose. A metabolic condition characterized by a defect in oxidative phosphorylation is suspected. Microscopic examination of a muscle biopsy specimen of this patient is most likely to show which of the following findings?",
+    "options": {
+      "A": "Fibrofatty replacement of normal muscle fibers",
+      "B": "Muscle atrophy with perimysial inflammation",
+      "C": "Intermyofibrillar accumulation of glycogen",
+      "D": "Endomysial inflammation with T cell infiltration",
+      "E": "Subsarcolemmal accumulation of mitochondria"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical presentation of a 3-year-old boy with nausea, vomiting, fatigue, elevated lactate, low pH, and a family history of seizure disorder strongly suggests a mitochondrial disorder. Mitochondrial disorders are characterized by defects in oxidative phosphorylation, leading to energy deficiency in tissues. Muscle biopsy in these conditions typically shows accumulation of mitochondria beneath the sarcolemma (subsarcolemmal).",
+          "critical_evidence": "Subsarcolemmal accumulation of mitochondria",
+          "differential_considered": "A: Fibrofatty replacement of normal muscle fibers is more characteristic of muscular dystrophies. B: Muscle atrophy with perimysial inflammation is more typical of inflammatory myopathies. C: Intermyofibrillar accumulation of glycogen is seen in glycogen storage diseases. D: Endomysial inflammation with T cell infiltration is seen in inflammatory myopathies.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 215,
+            "generation_time_s": 10.651
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's metabolic condition with low pH, elevated lactate, and normal glucose suggests lactic acidosis due to impaired oxidative phosphorylation. This pattern is consistent with mitochondrial dysfunction, where mitochondria fail to produce sufficient ATP, leading to anaerobic metabolism and lactate accumulation. The presence of diffuse weakness and fatigue further supports a mitochondrial myopathy. Among the options, sub-sarcolemmal accumulation of mitochondria (option E) is the most direct finding of mitochondrial dysfunction, as it reflects impaired mitochondrial biogenesis or function within muscle fibers.",
+          "critical_evidence": "Elevated lactate concentration with normal blood glucose indicates anaerobic metabolism due to mitochondrial dysfunction",
+          "differential_considered": "Considered metabolic myopathies like McArdle's disease, carnitine deficiency, and mitochondrial disorders. Ruled out lactic acidosis due to sepsis or renal failure because of normal glucose. Ruled out glycogen storage diseases due to lack of glycogen accumulation finding. Ruled out inflammatory myopathies due to absence of perimysial inflammation or T cell infiltration.",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.695
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with metabolic acidosis, elevated lactate, hypoglycemia (normal glucose), and diffuse weakness — classic features of a mitochondrial disorder. The family history of a seizure disorder in a relative suggests a possible inherited metabolic condition. Muscle biopsy in mitochondrial myopathies typically shows subsarcolemmal accumulation of mitochondria, which is a hallmark finding. Other options describe findings more typical of glycogen storage diseases, inflammatory myopathies, or lipid storage disorders, which do not fit the clinical and biochemical profile.",
+          "critical_evidence": "Elevated lactate with normal glucose and metabolic acidosis strongly suggest a defect in oxidative phosphorylation, pointing to a mitochondrial disorder.",
+          "differential_considered": "Glycogen storage diseases (C) were considered but ruled out due to normal glucose; inflammatory myopathies (B, D) were considered but lack supporting evidence of inflammation or immune infiltration; fibrofatty replacement (A) is seen in lipid storage myopathies, which are not consistent with the lactate elevation and acidosis.",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 247,
+            "generation_time_s": 8.664
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 15,
+            "generation_time_s": 0.387
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Acute metabolic encephalopathy and myopathy with elevated lactate and low pH pointing to a defect in mitochondrial function",
+          "differential_considered": "Fibrofatty replacement (Cherenkov degeneration), muscle atrophy with inflammation (neonatal or inflammatory myopathies), and intermyofibrillar glycogen accumulation (glycogen storage diseases) were considered but are not characteristic of mitochondrial disorders; the key finding is the accumulation of mitochondria in the muscle cells on biopsy.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 282,
+            "generation_time_s": 8.871
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

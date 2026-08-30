@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1000",
+  "dataset": "mmlu",
+  "question_id": "1000",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 22-year-old woman comes to the office because of a 3-day history of cold symptoms and a 1-week history of progressive fatigue. Six weeks ago, she received a kidney transplant from a living, related donor. Immediately after the operation, she received monoclonal anti-CD3 therapy. Current medications are azathioprine, cyclosporine, and prednisone. Her temperature is 39°C (102.2°F). Physical examination shows a well-healed surgical scar. Serum studies show that her urea nitrogen and creatinine concentrations have tripled. A diagnosis of allograft rejection is suspected. In addition, this patient's clinical presentation is best explained by an infection with which of the following agents?",
+    "options": {
+      "A": "Adenovirus",
+      "B": "BK virus",
+      "C": "Epstein-Barr virus",
+      "D": "Herpes simplex virus"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a kidney transplant recipient on immunosuppressants (azathioprine, cyclosporine, and prednisone) and has a history of recent allograft rejection. The acute onset of fever, elevated BUN and creatinine, and fatigue strongly suggest a possible infection. BK virus is a common cause of allograft nephropathy and can present with fever, renal dysfunction, and fatigue, especially in the early post-transplant period. While other viruses can cause similar symptoms, BK virus is particularly relevant in this clinical context.",
+          "critical_evidence": "The patient's recent kidney transplant, immunosuppression, and acute renal dysfunction with fever and fatigue strongly point towards BK virus as the most likely infectious cause.",
+          "differential_considered": "Adenovirus: While adenovirus can cause respiratory and renal infections, it's less common in the immediate post-transplant period compared to BK virus. Epstein-Barr virus: EBV is more likely to cause lymphoproliferative disorders or mononucleosis, which are less likely given the acute presentation. Herpes simplex virus: HSV can cause various infections, but it's less likely to cause the specific combination of renal dysfunction and fever seen in this patient.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 281,
+            "generation_time_s": 14.128
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's rapid onset of symptoms, fever, and progressive fatigue align with a viral infection. Given the recent kidney transplant and immunosuppressive therapy, BK virus is a common cause of acute rejection and infection in transplant recipients. The tripled urea and creatinine levels suggest possible rejection, but the viral infection is the most likely explanation for the acute symptoms. BK virus is known to cause acute rejection and is more likely than other options in this context.",
+          "critical_evidence": "Tripled urea and creatinine levels indicating possible allograft rejection",
+          "differential_considered": "Adenovirus, Epstein-Barr virus, and Herpes simplex virus were considered but ruled out due to less likelihood of causing acute rejection and matching the clinical presentation. BK virus is the most common cause of acute rejection in kidney transplant recipients.",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.998
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a kidney transplant recipient on immunosuppression, presenting with fever, rising creatinine, and acute graft dysfunction — classic signs of acute rejection. However, the key clue is the rapid onset of symptoms and the context of recent anti-CD3 therapy, which increases susceptibility to viral infections. Adenovirus is a well-known cause of acute kidney transplant rejection and fulminant infection, especially in immunocompromised patients, and can cause rapid renal dysfunction and fever. Other viruses like BK virus typically cause interstitial nephritis or hemorrhagic cystitis later, EBV causes lymphoproliferative disease, and HSV causes localized skin or mucosal lesions — none fit as well as adenovirus for this acute, systemic presentation with graft dysfunction.",
+          "critical_evidence": "Rapidly rising creatinine and urea nitrogen with fever in a post-transplant patient on immunosuppression strongly suggest adenoviral infection as a cause of acute graft dysfunction.",
+          "differential_considered": "BK virus was considered but typically causes later-onset nephropathy without acute fever or rapid renal failure. EBV causes lymphoproliferative disease, not acute renal failure. HSV causes localized lesions, not systemic renal dysfunction. Acute rejection is also a possibility, but the question asks for the infection best explaining the presentation, and adenovirus is the most likely viral cause of acute renal failure in this context.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 319,
+            "generation_time_s": 11.442
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 127,
+            "generation_time_s": 3.159
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of renal dysfunction (e.g., drug toxicity, decompensated pre-existing CKD, or acute rejection) were considered, but the timing and immunosuppression context point to BK virus as the most likely infectious agent.",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 293,
+            "generation_time_s": 9.441
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

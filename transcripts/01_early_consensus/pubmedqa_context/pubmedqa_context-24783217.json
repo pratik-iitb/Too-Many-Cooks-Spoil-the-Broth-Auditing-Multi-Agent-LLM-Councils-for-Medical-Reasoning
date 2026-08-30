@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-24783217",
+  "dataset": "pubmedqa_context",
+  "question_id": "24783217",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can ki-67 play a role in prediction of breast cancer patients' response to neoadjuvant chemotherapy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Currently the choice of breast cancer therapy is based on prognostic factors. The proliferation marker Ki-67 is used increasingly to determine the method of therapy. The current study analyses the predictive value of Ki-67 in foreseeing breast cancer patients' responses to neoadjuvant chemotherapy. This study includes patients with invasive breast cancer treated between 2008 and 2013. The clinical response was assessed by correlating Ki-67 to histological examination, mammography, and ultrasonography findings. The average Ki-67 value in our patients collectively (n = 77) is 34.9 ± 24.6%. The average Ki-67 value is the highest with 37.4 ± 24.0% in patients with a pCR. The Ki-67 values do not differ significantly among the 3 groups: pCR versus partial pathological response versus stable disease/progress (P = 0.896). However, Ki-67 values of patients with luminal, Her2 enriched, and basal-like cancers differed significantly from each other. Furthermore, within the group of luminal tumors Ki-67 values of patients with versus without pCR also differed significantly.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study investigates the predictive value of Ki-67 in predicting breast cancer patients' response to neoadjuvant chemotherapy. The results show that Ki-67 values differ significantly between luminal, Her2 enriched, and basal-like cancers, and within the luminal tumor group, Ki-67 values differ between patients with and without pCR. This suggests that Ki-67 can be a useful predictor of response to chemotherapy in breast cancer, particularly within specific subtypes.",
+          "critical_evidence": "Ki-67 values of patients with luminal, Her2 enriched, and basal-like cancers differed significantly from each other.",
+          "differential_considered": "While the study doesn't directly compare Ki-67 to other prognostic factors, the significant differences observed between cancer subtypes suggest that Ki-67 might be a valuable addition to the current prognostic assessment, rather than a replacement for existing methods.",
+          "usage": {
+            "prompt_tokens": 522,
+            "generated_tokens": 223,
+            "generation_time_s": 13.364
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study shows that while Ki-67 levels differ among tumor subtypes (luminal, Her2 enriched, basal-like), there is no significant difference in Ki-67 levels between patients achieving pathological complete response (pCR) versus other response groups. This suggests Ki-67 alone cannot reliably predict response to neoadjuvant chemotherapy in breast cancer patients.",
+          "critical_evidence": "The statistical analysis showed no significant difference in Ki-67 values among pCR, partial response, and stable disease groups (P = 0.896), indicating Ki-67 is not a reliable predictor of treatment response.",
+          "differential_considered": "Other prognostic factors like tumor subtype (luminal vs Her2 vs basal-like) were found to be more relevant than Ki-67 levels, but these were not the focus of the question about neoadjuvant chemotherapy response prediction.",
+          "usage": {
+            "prompt_tokens": 508,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.882
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that Ki-67 values differ significantly among molecular subtypes (luminal, Her2 enriched, basal-like) and within luminal tumors with vs. without pCR, suggesting potential predictive value. However, overall Ki-67 does not significantly distinguish pCR from partial response or stable disease, limiting its broad predictive utility.",
+          "critical_evidence": "Within the luminal group, Ki-67 values differed significantly between patients with vs. without pCR, indicating subtype-specific predictive value.",
+          "differential_considered": "Considered whether Ki-67 universally predicts response (ruled out due to lack of overall significance across response groups) or has no value (ruled out due to subtype-specific significance).",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 181,
+            "generation_time_s": 7.688
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 110,
+            "generation_time_s": 3.219
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.65,
+          "clinical_reasoning": "",
+          "critical_evidence": "The finding that Ki-67 values significantly differ among luminal tumors with and without pCR, but not across all tumor subtypes together, indicates that its predictive role is subtype-dependent, not universal.",
+          "differential_considered": "Differentials include considering other standard predictive biomarkers (e.g., HER2, ER status), but the context focuses on Ki-67. The lack of overall predictive significance but subtype-specific significance suggests that Ki-67 alone is not sufficient for broad prediction, but may have value in specific populations.",
+          "usage": {
+            "prompt_tokens": 537,
+            "generated_tokens": 237,
+            "generation_time_s": 9.094
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

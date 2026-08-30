@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-1005",
+  "dataset": "medqa",
+  "question_id": "1005",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 14-year-old girl presents with pain in her right lower abdomen. She says the pain is sudden, severe, colicky, and associated with nausea and vomiting. Physical examination reveals tachycardia, point tenderness, and rebound tenderness in the right iliac region. Emergency laparotomy reveals an inflamed appendix. Her blood pressure is 128/84, heart rate is 92/min, and respiratory rate is 16/min. Her complete blood cell count shows an increase in the number of cells seen in the provided picture. What is the main function of these cells?",
+    "options": {
+      "A": "Phagocytosis",
+      "B": "Allergic reaction",
+      "C": "Blood clotting",
+      "D": "Transplant rejection",
+      "E": "Antigen presentation"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs and symptoms consistent with acute appendicitis, including right lower quadrant pain, nausea, vomiting, tachycardia, point tenderness, and rebound tenderness. The laparotomy confirmed the diagnosis. The elevated white blood cell count (WBC) indicates an inflammatory response, suggesting infection. Phagocytosis is the primary function of neutrophils, a type of WBC, which are crucial for engulfing and destroying bacteria and cellular debris in the context of an infection like appendicitis.",
+          "critical_evidence": "Elevated white blood cell count (WBC) in the complete blood cell count (CBC) strongly suggests an inflammatory response, which is characteristic of infection.",
+          "differential_considered": "Differential diagnoses considered include other causes of abdominal pain such as gastroenteritis, ovarian cysts, ectopic pregnancy (less likely given the patient's age), and inflammatory bowel disease. However, the localized right lower quadrant pain, point tenderness, and rebound tenderness are highly suggestive of appendicitis, making it the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 243,
+            "generation_time_s": 12.0
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute appendicitis, a condition characterized by inflammation of the appendix. The elevated white blood cell count is a hallmark of acute inflammation, and neutrophils are the primary cells responsible for phagocytosis, which is essential for fighting bacterial infections. The clinical findings of tachycardia, point tenderness, and rebound tenderness further support acute appendicitis. The presence of an inflamed appendix confirmed by laparotomy solidifies the diagnosis.",
+          "critical_evidence": "The complete blood cell count showing an increase in the number of cells, which is consistent with acute inflammation and infection.",
+          "differential_considered": "Other causes of acute abdominal pain such as gastroenteritis, ovarian torsion, or ectopic pregnancy were considered but ruled out based on the physical exam findings and laparoscopic confirmation of appendicitis.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 206,
+            "generation_time_s": 9.527
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with acute appendicitis, confirmed by laparotomy. The CBC shows increased white blood cells, particularly neutrophils, which are key responders to bacterial infection and inflammation. Neutrophils primarily function in phagocytosis to destroy pathogens. The clinical context of acute inflammation and infection strongly supports this function.",
+          "critical_evidence": "Increased white blood cells (neutrophilia) in the CBC, consistent with acute bacterial infection from appendicitis.",
+          "differential_considered": "Other differentials like ovarian torsion or ectopic pregnancy were considered but ruled out by the classic presentation of right lower quadrant pain, rebound tenderness, and laparotomy findings consistent with appendicitis.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 175,
+            "generation_time_s": 6.14
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 103,
+            "generation_time_s": 2.477
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Allergic reaction could cause leukocytosis but not the clinical presentation of appendicitis. Blood clotting and transplant rejection are unrelated to the acute inflammatory process seen here. Thus, the findings are most consistent with an infectious/inflammatory process, making phagocytosis by neutrophils the best answer.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 250,
+            "generation_time_s": 7.761
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

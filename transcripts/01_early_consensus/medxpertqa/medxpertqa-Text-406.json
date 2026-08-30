@@ -1,0 +1,124 @@
+{
+  "sample_id": "medxpertqa-Text-406",
+  "dataset": "medxpertqa",
+  "question_id": "Text-406",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old woman visits her primary care physician complaining of fatigue and nausea. She has also observed that her skin has become darker than usual. On examination, the physician notes jaundice, and liver enzyme tests reveal elevated AST and ALT levels. Further evaluation confirms a diagnosis of hepatitis B (HBV). Concerned about transmitting the disease to her loved ones, she asks about the routes through which HBV can be spread. Which of the following transmission routes are possible for HBV? (I) blood, (II) sexual contact, (III) maternal-fetal, (IV) breastfeeding?\nAnswer Choices: (A) I, II, IV (B) II, III, IV (C) I, II, III (D) I, III only (E) I only (F) II, III (G) II, IV only (H) I, II, III, IV (I) I, II only (J) III, IV only",
+    "options": {
+      "A": "I, II, IV",
+      "B": "II, III, IV",
+      "C": "I, II, III",
+      "D": "I, III only",
+      "E": "I only",
+      "F": "II, III",
+      "G": "II, IV only",
+      "H": "I, II, III, IV",
+      "I": "I, II only",
+      "J": "III, IV only"
+    },
+    "context": "",
+    "correct_option": "H",
+    "metadata": {
+      "medical_task": "Basic Science",
+      "body_system": "Other / NA",
+      "question_type": "Understanding"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "H",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with fatigue, nausea, jaundice, and elevated liver enzymes, indicating a possible liver issue. Given the diagnosis of Hepatitis B, we need to identify the common routes of transmission. Bloodborne transmission (I), sexual contact (II), and mother-to-child transmission (III) are well-established routes for HBV. Breastfeeding (IV) is generally not considered a significant route of HBV transmission.",
+          "critical_evidence": "The diagnosis of Hepatitis B (HBV)",
+          "differential_considered": "While other conditions could cause jaundice and elevated liver enzymes, the presence of HBV strongly points to this as the primary cause. Other conditions like autoimmune hepatitis or drug-induced liver injury are less likely given the context of the case.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 191,
+            "generation_time_s": 7.901
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "H",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hepatitis B virus (HBV) is primarily transmitted through blood-to-blood contact, sexual contact, and from mother to child (maternal-fetal transmission). Breastfeeding can also transmit HBV if the mother has active infection and bleeding nipples. The patient's elevated liver enzymes and jaundice confirm HBV infection, and all transmission routes mentioned (I, II, III, IV) are possible. While IV (breastfeeding) is less common, it is still a documented route of transmission.",
+          "critical_evidence": "The patient's elevated AST and ALT levels, along with jaundice, confirm HBV infection, which is known to be transmitted through blood, sexual contact, maternal-fetal transmission, and breastfeeding.",
+          "differential_considered": "Other causes of liver enzyme elevation and jaundice were considered, such as alcohol use, other viral hepatitis (HCV, A), and medications, but HBV was confirmed by testing and is the most likely diagnosis given the transmission routes and clinical presentation.",
+          "usage": {
+            "prompt_tokens": 517,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.857
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "Hepatitis B virus (HBV) is transmitted through blood, sexual contact, and maternal-fetal routes. Breastfeeding is generally considered safe if the mother is not actively bleeding or has cracked nipples, as HBV is not transmitted via breast milk alone. However, the question asks for possible transmission routes, and maternal-fetal transmission is well-documented. The case does not indicate breastfeeding is occurring or is unsafe, so we include all established routes. Option C includes I, II, and III, which are all correct transmission routes for HBV.",
+          "critical_evidence": "HBV is known to be transmitted via blood, sexual contact, and maternal-fetal transmission, as per CDC and WHO guidelines.",
+          "differential_considered": "Other viral hepatitis (e.g., HCV, HEV) were considered but ruled out due to the specific clinical presentation and confirmed HBV diagnosis. HBV is not typically transmitted via casual contact or airborne routes, which were not listed in the options.",
+          "usage": {
+            "prompt_tokens": 489,
+            "generated_tokens": 231,
+            "generation_time_s": 8.259
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "H",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 39,
+            "generation_time_s": 1.337
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other viral hepatitis (A, C, D) could cause similar symptoms, but the question specifically asks about HBV transmission. We ruled out airborne or casual contact as these are not valid for HBV.",
+          "usage": {
+            "prompt_tokens": 545,
+            "generated_tokens": 213,
+            "generation_time_s": 7.309
+          }
+        }
+      },
+      "vote_distribution": {
+        "H": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "H",
+    "correct_option": "H",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

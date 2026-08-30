@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1257",
+  "dataset": "medqa",
+  "question_id": "1257",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "You see a patient with new-onset neurologic deficits in the ED. What neurological exam findings would you expect if the patient's MRI angiography is as shown in Figure A? (left-sided lesion labeled with arrow)",
+    "options": {
+      "A": "Hemiparesis greatest in the arms with aphasia",
+      "B": "Clumsy hand-dysarthria",
+      "C": "Vertigo, nystagmus, and cranial nerve palsies",
+      "D": "Hemiparesis greatest in the legs without aphasia",
+      "E": "Sensory deficits only"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The MRI angiography showing a lesion on the left side suggests a stroke. Given the new-onset neurologic deficits, the most likely presentation is a left-sided stroke affecting the motor cortex. Hemiparesis greatest in the arms is consistent with a lesion in the motor cortex controlling the arm and face. Aphasia, if present, would further support a left hemisphere lesion.",
+          "critical_evidence": "The left-sided lesion on the MRI angiography strongly suggests a stroke in the left hemisphere.",
+          "differential_considered": "B: Clumsy hand-dysarthria could be a sign of a stroke, but the question specifies new-onset deficits, making a more focal presentation more likely. C: Vertigo, nystagmus, and cranial nerve palsies are more suggestive of a brainstem stroke. D: Hemiparesis greatest in the legs is less common in acute ischemic stroke. E: Sensory deficits only are less specific and could be caused by various conditions.",
+          "usage": {
+            "prompt_tokens": 341,
+            "generated_tokens": 241,
+            "generation_time_s": 11.95
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The left-sided lesion in the MRI angiography suggests a left hemisphere lesion, which typically causes hemiparesis in the right side of the body. The presence of a lesion in the brain's white matter or deep structures would likely result in motor deficits rather than sensory deficits. The absence of language deficits (aphasia) suggests the lesion is not in the dominant language-dominant hemisphere, which in most right-handed individuals is the left hemisphere. Therefore, the most likely presentation would be hemiparesis greatest in the legs without aphasia.",
+          "critical_evidence": "Left-sided lesion in the brain",
+          "differential_considered": "Considered stroke, tumor, or vascular malformation. Ruled out right hemisphere dominant language deficits since the lesion is left-sided. Ruled out sensory-only deficits as the lesion is in motor-dominant areas.",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.708
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The lesion is in the left middle cerebral artery (MCA) territory, which typically causes contralateral hemiparesis with greater involvement of the face and arms than legs, but option D is the best available choice among the options given. Aphasia is not expected here because the lesion is not in the dominant hemisphere’s language area (Broca’s or Wernicke’s area), which is typically supplied by the anterior cerebral artery or posterior cerebral artery branches. The lesion is not in the brainstem or cerebellum, so vertigo or cranial nerve palsies are unlikely. Sensory deficits alone are not typical for MCA strokes. The best match among the options is hemiparesis with leg involvement predominating, which is consistent with MCA territory stroke patterns.",
+          "critical_evidence": "The lesion is in the left MCA territory, which classically causes contralateral hemiparesis with more proximal limb involvement (arms > legs) — but since option D is the only one that matches the expected pattern of hemiparesis without aphasia, and aphasia is not expected in this location, it is the best answer.",
+          "differential_considered": "I considered aphasia (A) — ruled out because lesion is not in language areas. Vertigo and cranial nerve palsies (C) — ruled out because lesion is not in brainstem or cerebellum. Sensory deficits only (E) — ruled out because MCA strokes typically cause motor deficits. Clumsy hand and dysarthria (B) — ruled out because these are more typical of cerebellar or posterior fossa lesions.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 365,
+            "generation_time_s": 12.822
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 19,
+            "generation_time_s": 0.475
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (arm involvement) is less likely for a left-sided lesion; B (hand-dysarthria) suggests a cortical hand or basal ganglia involvement with speech, which is not indicated; C (neurological signs of vertigo/CNS) implies a brainstem or cerebellar lesion, not a vascular territory; E (sensory only) is less common for a cortical vascular lesion. The absence of aphasia and cranial nerve symptoms points away from A, B, C, and E, making D the most appropriate answer.",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 301,
+            "generation_time_s": 9.511
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

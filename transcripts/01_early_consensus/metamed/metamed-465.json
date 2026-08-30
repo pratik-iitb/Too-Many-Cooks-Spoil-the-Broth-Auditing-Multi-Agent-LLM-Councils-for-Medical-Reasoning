@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-465",
+  "dataset": "metamed",
+  "question_id": "465",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 56-year-old patient is being treated with oral amoxicillin for community-acquired pneumonia. The plasma clearance of the drug is calculated as 15.0 L/h. Oral bioavailability of the drug is 75%. Sensitivity analysis of a sputum culture shows a minimal inhibitory concentration of 1 μg/mL for the causative pathogen. The target plasma concentration is 2 mg/L. If the drug is administered twice per day, which of the following dosages should be administered at each dosing interval to maintain a steady state?",
+    "options": {
+      "A": "270 mg",
+      "B": "480 mg",
+      "C": "240 mg",
+      "D": "540 mg\n\"",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 1024,
+            "generation_time_s": 69.064
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "To maintain steady state, the daily dose must equal the daily clearance. With a clearance of 15.0 L/h and two doses per day, each dose must be 15.0 L/h * 12 h = 180 mg. Considering 75% bioavailability, the actual dose needed is 180 mg / 0.75 = 240 mg. However, the target concentration is 2 mg/L, and the MIC is 1 μg/mL (1000 μg = 1 mg), so the dose must be adjusted to achieve this concentration. The correct calculation is 2 mg/L * 15.0 L/h = 30 mg/h, and with two doses, 60 mg total, adjusted for bioavailability: 60 mg / 0.75 = 80 mg. This calculation error suggests reevaluation, but the closest option matching the required dose is 480 mg, which is twice the calculated amount, indicating a possible miscalculation in the options provided.",
+          "critical_evidence": "The target plasma concentration of 2 mg/L and the MIC of 1 μg/mL indicate the required dose to achieve therapeutic levels.",
+          "differential_considered": "No specific differentials were needed as the question focuses on steady-state dosing based on given parameters.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 1024,
+            "generation_time_s": 60.345
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "To maintain a steady-state plasma concentration, the dose must account for clearance, bioavailability, and desired target concentration. The maintenance dose is calculated as: (target concentration × clearance) / bioavailability. Plugging in: (2 mg/L × 15 L/h) / 0.75 = 40 mg/h. Since the drug is given twice daily, the dose per interval is 40 mg/h × 2 h = 80 mg? Wait — correction: the formula is (target × clearance) / bioavailability, and since dosing is twice daily, we need to calculate the total daily dose first: (2 × 15) / 0.75 = 40 mg/h? No — units: target is mg/L, clearance is L/h, so (mg/L × L/h) = mg/h, which is mg per hour. But dosing is twice daily, so we need to calculate the total daily dose as (target × clearance) / bioavailability = (2 × 15) / 0.75 = 40 mg/h? That’s not right — actually, the formula is: Dose = (target concentration × clearance) / bioavailability. But this gives mg/h, which is not correct. Let’s recast: The correct formula for maintenance dose is: Dose = (target concentration × clearance) / bioavailability. But clearance is 15 L/h, target is 2 mg/L, so 2 × 15 = 30 mg/h. Then divide by bioavailability 0.75 → 30 / 0.75 = 40 mg/h. But that’s the rate — for twice daily dosing, we need to calculate the total daily dose: 40 mg/h × 24 h = 960 mg/day. Then divide by 2 → 480 mg per dose. This matches option B. The key is that the formula gives the total daily dose as (C × CL) / F, then divide by dosing frequency. So 480 mg per dose is correct.",
+          "critical_evidence": "The target plasma concentration (2 mg/L), plasma clearance (15.0 L/h), and oral bioavailability (75%) are used to calculate the required dose using the formula: Dose = (target × clearance) / bioavailability, then adjusted for dosing frequency (twice daily).",
+          "differential_considered": "No differential diagnoses are relevant here — this is a straightforward pharmacokinetic calculation for antibiotic dosing. No other clinical scenarios or confounding factors are indicated in the case.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 581,
+            "generation_time_s": 29.323
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 286,
+            "generation_time_s": 11.8
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "To maintain a steady-state plasma concentration, we must calculate the required dose per administration based on the half-life and target plasma level, then account for bioavailability and frequency. The target is 2 mg/L; however, the usual approach is to first determine the total daily dose needed to maintain this level at steady state, considering clearance and volume of distribution. But since the question provides plasma clearance (15 L/h) and dosing interval (twice daily), we should use the formula for steady-state trough concentration (Ctrough = Dose × F / (Cl × n × t), where n=2 doses/day and t=24h). However, without knowing the patient's body weight or the drug's volume of distribution, we cannot accurately calculate the required dose. The available data are insufficient to determine the correct dose for this drug in this patient.",
+          "critical_evidence": "The lack of information about the patient's body weight or the volume of distribution for amoxicillin prevents accurate dose calculation.",
+          "differential_considered": "Options A-D assume we can calculate the dose with the given data, but the necessary pharmacokinetic parameters (like body weight or Vd) are missing, making these options invalid. The correct answer is that the information is insufficient.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 289,
+            "generation_time_s": 11.183
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 1,
+        "B": 3,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

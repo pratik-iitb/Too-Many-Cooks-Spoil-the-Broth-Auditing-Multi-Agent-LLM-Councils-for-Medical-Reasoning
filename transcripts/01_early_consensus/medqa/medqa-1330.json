@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1330",
+  "dataset": "medqa",
+  "question_id": "1330",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 39-year-old man presents to his primary care physician because he has been having severe headaches and fever for the last 2 days. He also says his right eyelid has been painlessly swelling and is starting to block his vision from that eye. He recently returned from a tour of the world where he visited Thailand, Ethiopia, and Brazil. Otherwise his past medical history is unremarkable. On presentation, his temperature is 102°F (38.8°C), blood pressure is 126/81 mmHg, pulse is 125/min, and respirations are 13/min. Physical exam reveals a nontender swelling of the right eyelid, lymphadenopathy, and an indurated red patch with surrounding erythema and local swelling on his left leg. Which of the following drugs should be used to treat this patient's condition?",
+    "options": {
+      "A": "Benznidazole",
+      "B": "Diethylcarbamazine",
+      "C": "Ivermectin",
+      "D": "Mebendazol",
+      "E": "Sodium stibogluconate"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's travel history to Thailand, Ethiopia, and Brazil, along with the symptoms of fever, headache, eyelid swelling, lymphadenopathy, and a red patch on the leg, strongly suggests a parasitic infection, specifically Chagas disease (American trypanosomiasis). Benznidazole is the first-line treatment for Chagas disease.",
+          "critical_evidence": "The patient's travel history to endemic areas for Chagas disease is the most critical piece of evidence.",
+          "differential_considered": "Diethylcarbamazine is used for filarial infections, Ivermectin for parasitic infections like strongyloidiasis and onchocerciasis, Mebendazole for helminthic infections, and Sodium stibogluconate for leishmaniasis. While some of these could present with similar symptoms, the travel history makes Chagas disease the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 218,
+            "generation_time_s": 10.789
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of fever, headache, and eyelid swelling with vision loss are consistent with visceral leishmaniasis, a parasitic infection transmitted by sandflies. The indurated red patch on the leg and lymphadenopathy further support this diagnosis. Benznidazole is the first-line treatment for visceral leishmaniasis, while the other options target different parasitic infections that are less likely given the clinical presentation.",
+          "critical_evidence": "The nontender swelling of the right eyelid with vision loss is a classic sign of ocular involvement in leishmaniasis, which is strongly associated with Benznidazole treatment.",
+          "differential_considered": "Considered malaria, dengue, and other tropical infections, but ruled out due to lack of fever pattern, rash, and other specific symptoms. The sandfly bite history and geographic exposure to endemic areas (Thailand, Ethiopia, Brazil) strongly support leishmaniasis.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 229,
+            "generation_time_s": 10.63
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, headache, unilateral eyelid swelling with visual obstruction, and a localized indurated lesion on the leg — classic signs of cutaneous leishmaniasis. His recent travel to endemic areas (Thailand, Ethiopia, Brazil) supports this diagnosis. Treatment requires antimonial drugs like sodium stibogluconate, which is effective for visceral and cutaneous forms. Other options target different parasites (e.g., ivermectin for filariasis, benznidazole for Chagas).",
+          "critical_evidence": "Travel history to endemic regions + localized cutaneous lesion + systemic symptoms (fever, headache) strongly suggest cutaneous leishmaniasis.",
+          "differential_considered": "Dengue (no rash, no joint pain, no bleeding), cellulitis (no fever spike, no systemic signs), and lymphoma (no lymphadenopathy pattern, no weight loss) were considered but ruled out by localized lesion, travel history, and rapid onset.",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 236,
+            "generation_time_s": 8.274
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 225,
+            "generation_time_s": 5.387
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A, B, C, and E are treatments for different parasitic infections (onchocerciasis, leishmaniasis, strongyloidiasis, and river blindness, respectively), but the clinical presentation most closely matches filarial lymphadenitis, making D the best choice.",
+          "usage": {
+            "prompt_tokens": 480,
+            "generated_tokens": 330,
+            "generation_time_s": 10.264
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1049",
+  "dataset": "medqa",
+  "question_id": "1049",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old woman comes to the physician because of a 14-hour history of left flank pain associated with dark urine. Her temperature is 37.2°C (99°F). The abdomen is soft with normal bowel sounds. There is guarding on the left lateral side and tenderness to palpation over the left costophrenic angle. An x-ray of the abdomen shows an 8-mm kidney stone. In addition to adequate hydration, which of the following diets should be advised for this patient?",
+    "options": {
+      "A": "High-oxalate diet",
+      "B": "Vitamin C supplementation",
+      "C": "Low-protein diet",
+      "D": "Low-calcium diet",
+      "E": "High-sodium diet"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a kidney stone, which is a common cause of flank pain and hematuria (dark urine). A high-oxalate diet is recommended for patients with kidney stones, particularly those caused by calcium oxalate stones, as oxalate is a major component of these stones. The other options are not directly related to the management of kidney stones.",
+          "critical_evidence": "The presence of a kidney stone on x-ray strongly suggests a diagnosis of nephrolithiasis (kidney stone disease).",
+          "differential_considered": "While other conditions could cause flank pain, the presence of a kidney stone on imaging makes it the most likely diagnosis. A low-protein diet is not typically recommended for kidney stone management unless there is underlying kidney disease. Vitamin C supplementation can increase oxalate levels and potentially worsen kidney stone formation. A low-calcium diet is not generally recommended as it can increase the risk of calcium phosphate stones. A high-sodium diet is not recommended as it can increase calcium excretion and potentially worsen kidney stone formation.",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 249,
+            "generation_time_s": 12.294
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a 14-hour history of left flank pain with dark urine and tenderness at the left costophrenic angle, suggesting a kidney stone. An 8-mm stone is confirmed on x-ray. Kidney stones form from supersaturation of urine with calcium oxalate, cystine, or uric acid. While hydration is key, dietary advice should target stone formation. A low-calcium diet reduces urinary calcium excretion, which can decrease stone formation risk by reducing supersaturation. High-calcium diets increase urinary calcium, potentially promoting stone formation. Vitamin C and oxalate-rich foods may increase oxalate excretion but are less directly implicated here. Protein and sodium levels don't strongly correlate with this type of stone. Thus, a low-calcium diet is the most evidence-based dietary intervention.",
+          "critical_evidence": "8-mm kidney stone confirmed on x-ray, indicating calcium oxalate stone formation",
+          "differential_considered": "Considered UTI, pyelonephritis, but tenderness at costophrenic angle and flank pain suggest stone rather than infection. No evidence of infection on exam or labs.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.51
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.777
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 14,
+            "generation_time_s": 0.354
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered possibilities such as infection, bladder stones, or urolithiasis not related to diet, but the x-ray confirms a kidney stone, and the most actionable dietary advice for prevention is to reduce oxalate intake. Protein restriction and sodium intake are not standard recommendations for stone prevention in this scenario.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 239,
+            "generation_time_s": 7.528
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

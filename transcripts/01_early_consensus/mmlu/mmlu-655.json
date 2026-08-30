@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-655",
+  "dataset": "mmlu",
+  "question_id": "655",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "If a gas occupies 0.1L at 200atm, what will its volume be at 1atm?",
+    "options": {
+      "A": "slightly less than 20L",
+      "B": "20L",
+      "C": "slightly more than 20L",
+      "D": "2000L"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "This is a Boyle's Law problem. Boyle's Law states that the volume of a gas is inversely proportional to the pressure applied to it, assuming the temperature and amount of gas remain constant. Therefore, if the pressure is halved, the volume will double.",
+          "critical_evidence": "Boyle's Law: P1V1 = P2V2",
+          "differential_considered": "The problem is a straightforward application of Boyle's Law, so other conditions are not relevant. Other conditions would have been considered if the problem was more complex.",
+          "usage": {
+            "prompt_tokens": 294,
+            "generated_tokens": 155,
+            "generation_time_s": 7.975
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Using Boyle's Law (P1V1 = P2V2), we can calculate the new volume when pressure decreases from 200atm to 1atm. The volume should increase by a factor of 200 (200atm / 1atm = 200). Therefore, 0.1L × 200 = 20L. This is a straightforward application of gas law principles.",
+          "critical_evidence": "Boyle's Law relationship showing inverse proportionality between pressure and volume at constant temperature",
+          "differential_considered": "No differential diagnoses needed - this is a straightforward gas law calculation. The key consideration was correctly applying the inverse relationship between pressure and volume.",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 172,
+            "generation_time_s": 8.344
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "This is a Boyle’s Law problem: P1V1 = P2V2. Given P1 = 200 atm, V1 = 0.1 L, and P2 = 1 atm, solving for V2 gives V2 = (200 * 0.1) / 1 = 20 L. No deviation from ideal gas behavior is indicated, so the volume is exactly 20 L.",
+          "critical_evidence": "Boyle’s Law calculation: V2 = (P1 * V1) / P2 = (200 * 0.1) / 1 = 20 L.",
+          "differential_considered": "No differential diagnoses apply as this is a physics-based calculation, not a clinical case. Options A, C, and D are incorrect due to misapplication of the law or arithmetic error.",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 210,
+            "generation_time_s": 7.667
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 10,
+            "generation_time_s": 0.262
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other gas laws (like Charles's or Gay-Lussac's) are irrelevant here unless temperature changes, which is not mentioned. No information about gas type or temperature variation suggests an alternative explanation.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 239,
+            "generation_time_s": 7.819
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

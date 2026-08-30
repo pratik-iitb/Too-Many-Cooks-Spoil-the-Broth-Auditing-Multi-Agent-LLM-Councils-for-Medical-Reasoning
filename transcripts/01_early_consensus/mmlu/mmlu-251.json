@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-251",
+  "dataset": "mmlu",
+  "question_id": "251",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following is not associated with an increase in the work of breathing?",
+    "options": {
+      "A": "Rise in respiratory rate.",
+      "B": "Noisy breathing.",
+      "C": "Increase in the use of accessory muscles.",
+      "D": "A respiratory rate of 16 breaths per minute."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "An increased work of breathing is characterized by increased respiratory effort. A respiratory rate of 16 breaths per minute is within the normal range for adults (12-20 breaths per minute), so it is not indicative of increased work of breathing. The other options (rise in respiratory rate, noisy breathing, and use of accessory muscles) are all signs of increased respiratory effort.",
+          "critical_evidence": "A respiratory rate of 16 breaths per minute.",
+          "differential_considered": "A rise in respiratory rate (could indicate respiratory distress), Noisy breathing (could indicate stridor or wheezing, both signs of increased work of breathing), and Increase in the use of accessory muscles (a clear sign of increased work of breathing). I ruled them out because a normal respiratory rate is not associated with increased work of breathing.",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 209,
+            "generation_time_s": 10.928
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The work of breathing refers to the muscular effort required to inflate and deflate the lungs. An increase in respiratory rate (A) and use of accessory muscles (C) directly increases the work of breathing. Noisy breathing (B) may indicate airway obstruction but doesn't necessarily increase the work of breathing. A respiratory rate of 16 breaths per minute (D) is within the normal range for adults at rest, so it doesn't represent an increase in work of breathing.",
+          "critical_evidence": "Normal respiratory rate of 16 breaths per minute is within the physiological range for adults",
+          "differential_considered": "Considered tachypnea (increased respiratory rate), dyspnea (shortness of breath), and airway obstruction. Ruled out tachypnea as the question asks about increase in work of breathing, not rate. Ruled out dyspnea as it specifically refers to perceived shortness of breath. Ruled out airway obstruction as noisy breathing doesn't necessarily indicate increased work of breathing.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 240,
+            "generation_time_s": 11.445
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "An increase in the work of breathing typically manifests as tachypnea (elevated respiratory rate), use of accessory muscles, and noisy breathing (e.g., stridor, wheezing). A respiratory rate of 16 breaths per minute is within the normal range (12-20 breaths/min) and does not indicate increased work of breathing.",
+          "critical_evidence": "Normal respiratory rate of 16 breaths per minute is not indicative of increased work of breathing.",
+          "differential_considered": "Considered conditions like asthma, COPD exacerbation, or pneumonia, which would present with tachypnea, accessory muscle use, and noisy breathing — all of which are excluded by option D.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 179,
+            "generation_time_s": 6.865
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.8,
+          "clinical_reasoning": "The patient's tachypnea, use of accessory muscles, and noisy breathing are indicative of increased work of breathing. A respiratory rate of 16 breaths per minute is within the normal range for an adult and does not necessarily indicate increased work of breathing.",
+          "critical_evidence": "The patient's tachypnea and use of accessory muscles are the key findings that suggest increased work of breathing.",
+          "differential_considered": "The normal respiratory rate of 16 breaths per minute is within the normal range and does not directly indicate increased work of breathing. However, it can be a sign of respiratory distress if accompanied by other signs of increased work of breathing.",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 172,
+            "generation_time_s": 4.277
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Increased respiratory rate (options A and D) is directly associated with an increased work of breathing as it reflects a higher demand for oxygen and CO2 removal. Noisy breathing (B) and use of accessory muscles (C) are also physiological responses to increased work of breathing, indicating compensatory or compensatory-for-dysfunction mechanisms. A normal respiratory rate (16 bpm, assuming a resting normal is ~12-16) in the absence of other respiratory distress does not necessarily imply increased work of breathing, making D the best answer if the case implies baseline respiratory rate without symptoms. However, if the case does not specify baseline values, D could still be correct because a rate at or near normal but in a context of distress would not increase it further.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 297,
+            "generation_time_s": 9.725
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-90",
+  "dataset": "medqa",
+  "question_id": "90",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 35-year-old woman presents with increased anxiety and a reeling sensation. Her complaint started 30 minutes ago with increased sweating and palpitations and is gradually worsening. On examination, the blood pressure was found to be 194/114 mm Hg. She had normal blood pressure at the local pharmacy 5 days ago. She currently works as an event manager and her job involves a lot of stress. The family history is significant for thyroid carcinoma in her father. Which of the following is most likely in this person?",
+    "options": {
+      "A": "Increased urine metanephrines",
+      "B": "Decreased hemoglobin",
+      "C": "Decreased TSH levels",
+      "D": "Decreased C-peptide",
+      "E": "Increased serum serotonin"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of acute onset anxiety, palpitations, sweating, and significantly elevated blood pressure (194/114 mmHg) strongly suggests a hypertensive crisis. Given her family history of thyroid carcinoma, hyperthyroidism is a significant concern. Hyperthyroidism can cause a thyrotoxicosis, which can manifest with anxiety, palpitations, sweating, and hypertension. Decreased TSH levels would support this diagnosis.",
+          "critical_evidence": "The combination of acute onset anxiety, palpitations, sweating, and significantly elevated blood pressure in a patient with a family history of thyroid carcinoma points towards hyperthyroidism.",
+          "differential_considered": "A: Increased urine metanephrines is associated with pheochromocytoma, which typically presents with episodic hypertension, headaches, and sweating. While the patient has hypertension and sweating, the acute onset and anxiety are less typical. B: Decreased hemoglobin is associated with anemia, which can cause fatigue and weakness, but not typically acute anxiety and palpitations. D: Decreased C-peptide is associated with type 1 diabetes, which can cause hyperglycemia and related symptoms, but not typically acute anxiety and palpitations. E: Increased serum serotonin is associated with serotonin syndrome, which can cause anxiety, agitation, and autonomic instability, but the hypertension is less common and the family history is not directly relevant.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 310,
+            "generation_time_s": 15.328
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of anxiety, palpitations, and elevated blood pressure suggest possible sympathetic nervous system activation. Given her family history of thyroid carcinoma, pheochromocytoma is a relevant consideration as it can cause episodic catecholamine release leading to hypertension and symptoms. Increased urine metanephrines would be expected in this scenario.",
+          "critical_evidence": "Family history of thyroid carcinoma",
+          "differential_considered": "Considered pheochromocytoma, essential hypertension, and stress-related symptoms. Pheochromocytoma is most strongly supported by the family history and symptoms, making it the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.668
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute anxiety, palpitations, sweating, and markedly elevated blood pressure (194/114 mm Hg), consistent with a catecholamine surge. Her family history of thyroid carcinoma is a red herring in this context. The most likely cause is a catecholamine-secreting tumor (pheochromocytoma), which typically presents with episodic hypertension and autonomic symptoms. While metanephrines (A) are diagnostic, they are not the most likely 'finding' in this context without testing. The key is that pheochromocytoma is associated with increased catecholamines, which suppress TSH via negative feedback — hence, decreased TSH levels (C) are a hallmark of pheochromocytoma. Other options (B, D, E) are not directly linked to this acute presentation.",
+          "critical_evidence": "Markedly elevated blood pressure (194/114 mm Hg) with acute anxiety, sweating, and palpitations — classic for pheochromocytoma, which causes decreased TSH due to catecholamine-mediated suppression of the HPT axis.",
+          "differential_considered": "Other causes of hypertension (e.g., primary hyperaldosteronism, Cushing’s, or acute stress) were considered, but the acute onset with autonomic symptoms and family history of endocrine tumor make pheochromocytoma most likely. Thyroid carcinoma is not directly relevant to acute catecholamine surge. Decreased TSH is the most specific biochemical marker for pheochromocytoma in this context.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 370,
+            "generation_time_s": 12.982
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 143,
+            "generation_time_s": 3.471
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 306,
+            "generation_time_s": 9.633
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

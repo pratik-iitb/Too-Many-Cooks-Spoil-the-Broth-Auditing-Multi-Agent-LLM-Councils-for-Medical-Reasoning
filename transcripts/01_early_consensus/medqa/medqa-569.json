@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-569",
+  "dataset": "medqa",
+  "question_id": "569",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 29-year-old African American female presents to your office with extreme fatigue and bilateral joint pain. Serologies demonstrate the presence of rheumatoid factor along with anti-Smith and anti-dsDNA antibodies. A VDRL syphilis test is positive. You order a coagulation profile, which reveals normal bleeding time, normal PT, and prolonged PTT as well as normal platelet count. Further evaluation is most likely to reveal which of the following?",
+    "options": {
+      "A": "Palmar rash",
+      "B": "HLA-B27 positivity",
+      "C": "Factor VIII deficiency",
+      "D": "History of multiple spontaneous abortions",
+      "E": "Immune thrombocytopenia"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fatigue, bilateral joint pain, positive rheumatoid factor, anti-Smith, anti-dsDNA antibodies, and a positive VDRL test strongly suggests Systemic Lupus Erythematosus (SLE). The prolonged PTT with normal PT and platelet count points towards a possible lupus anticoagulant or a factor deficiency. A history of multiple spontaneous abortions is a common complication of SLE, particularly in women of childbearing age, due to antiphospholipid antibodies.",
+          "critical_evidence": "History of multiple spontaneous abortions",
+          "differential_considered": "A: Palmar rash is common in SLE, but not the most specific finding. B: HLA-B27 is associated with spondyloarthropathies, not SLE. C: Factor VIII deficiency would cause a prolonged PTT, but the presence of other SLE-specific antibodies makes this less likely. E: Immune thrombocytopenia is a possible complication of SLE, but the prolonged PTT is more suggestive of lupus anticoagulant or other factor deficiency.",
+          "usage": {
+            "prompt_tokens": 359,
+            "generated_tokens": 246,
+            "generation_time_s": 12.137
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's serologies show rheumatoid factor, anti-Smith, and anti-dsDNA antibodies, suggesting systemic lupus erythematosus (SLE). The VDRL positive for syphilis is concerning but less likely given the other autoimmune markers. The prolonged PTT with normal PT and platelets points to antiphospholipid syndrome, which is associated with SLE and can cause recurrent pregnancy loss. The absence of palmar rash, HLA-B27, and factor VIII deficiency makes those less likely. Immune thrombocytopenia is possible but the PTT is prolonged, not platelet count, which is more consistent with antiphospholipid syndrome.",
+          "critical_evidence": "Prolonged PTT with normal platelets and the autoimmune serologies strongly suggest antiphospholipid syndrome, which is associated with recurrent pregnancy loss.",
+          "differential_considered": "SLE was the primary diagnosis based on serologies, but antiphospholipid syndrome was considered due to the PTT result. Palmar rash and HLA-B27 are more specific to other conditions like arthritis, while factor VIII deficiency would typically present with bleeding, not joint pain. Immune thrombocytopenia is more platelet-focused.",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 293,
+            "generation_time_s": 13.661
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fatigue, joint pain, and a positive VDRL, along with autoantibodies (rheumatoid factor, anti-Smith, anti-dsDNA). The coagulation profile shows a prolonged PTT with normal platelets, suggesting a factor deficiency. Anti-Smith and anti-dsDNA antibodies point toward SLE, but the PTT prolongation is most consistent with Factor VIII deficiency, which can occur in SLE due to autoantibodies targeting clotting factors. The other options are less directly supported: palmar rash is not specific, HLA-B27 is for spondyloarthropathies, spontaneous abortions are possible in SLE but not diagnostic, and ITP would show thrombocytopenia, which is absent.",
+          "critical_evidence": "Prolonged PTT with normal platelets and presence of anti-dsDNA and anti-Smith antibodies strongly suggest SLE-associated Factor VIII deficiency.",
+          "differential_considered": "SLE with lupus anticoagulant (which can cause PTT prolongation) was considered, but Factor VIII deficiency is more specific for this PTT pattern in the context of SLE. ITP was ruled out due to normal platelet count. HLA-B27 and palmar rash are not relevant to this presentation. Spontaneous abortions are a possible complication of SLE but not the most likely next finding.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 320,
+            "generation_time_s": 11.137
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 365,
+            "generated_tokens": 13,
+            "generation_time_s": 0.329
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (HLA-B27) is more specific for spondyloarthritis, C (Factor VIII deficiency) is unrelated to the serologic and clinical picture, D (history of spontaneous abortions) is a possible SLE symptom but not diagnostic alone, and E (immune thrombocytopenia) would show low platelets, which is not supported by the normal platelet count.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 287,
+            "generation_time_s": 9.15
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

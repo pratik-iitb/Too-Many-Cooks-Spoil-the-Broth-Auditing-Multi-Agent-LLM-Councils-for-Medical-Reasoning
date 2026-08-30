@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-620",
+  "dataset": "metamed",
+  "question_id": "620",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 48-year-old man seeks evaluation at a clinic with a complaint of breathlessness for the past couple of weeks. He says that he finds it difficult to walk a few blocks and has to rest. He also complains of a cough for the past 3 months, which is dry and hacking in nature. The medical history is relevant for an idiopathic arrhythmia for which he takes amiodarone daily. He is a non-smoker and does not drink alcohol. He denies any use of illicit drugs. The vital signs are as follows: heart rate 98/min, respiratory rate 16/min, temperature 37.6°C (99.68°F), and blood pressure 132/70 mm Hg. The physical examination is significant for inspiratory crackles over the lung bases. An echocardiogram shows a normal ejection fraction. A chest radiograph is performed and shown below. Which of the following findings will most likely be noted on spirometry?",
+    "options": {
+      "A": "Decreased FEV1 and normal FVC",
+      "B": "Decreased FEV1 and FVC with decreased FEV1/FVC ratio",
+      "C": "Decreased FEV1 and FVC with normal FEV1/FVC ratio",
+      "D": "Increased FEV1 and FVC",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with breathlessness, a chronic dry cough, and inspiratory crackles on lung auscultation. The chest radiograph (not provided, but implied to show interstitial lung disease) suggests a restrictive lung disease pattern. Given the history of amiodarone use, amiodarone-induced pulmonary toxicity is a strong consideration. Spirometry in restrictive lung disease typically shows a decreased FEV1 and FVC, but the FEV1/FVC ratio is normal or increased. This is because both FEV1 and FVC are reduced proportionally.",
+          "critical_evidence": "The presence of inspiratory crackles and the chest radiograph findings (implied interstitial lung disease) strongly suggest a restrictive lung disease pattern.",
+          "differential_considered": "COPD is less likely given the patient's non-smoking history and the absence of chronic bronchitis symptoms. Heart failure is less likely given the normal ejection fraction on echocardiogram. Interstitial lung disease is a strong possibility given the clinical presentation and the patient's medication history. Pneumonia is less likely given the chronic nature of the cough and the absence of fever or productive cough.",
+          "usage": {
+            "prompt_tokens": 522,
+            "generated_tokens": 274,
+            "generation_time_s": 16.126
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient has chronic cough with inspiratory crackles and normal ejection fraction, suggesting chronic obstructive pulmonary disease (COPD). Spirometry in COPD typically shows decreased FEV1 and FVC with a reduced FEV1/FVC ratio due to airflow limitation. The presence of crackles indicates airway obstruction rather than restrictive lung disease.",
+          "critical_evidence": "Inspiratory crackles over lung bases",
+          "differential_considered": "Idiopathic arrhythmia (ruling out cardiac cause due to normal ejection fraction), COPD (best explanation for chronic cough and crackles), asthma (less likely due to acute onset), interstitial lung disease (less likely without restrictive pattern)",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 176,
+            "generation_time_s": 8.832
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 48-year-old non-smoker with progressive breathlessness, dry hacking cough, and inspiratory crackles, along with long-term amiodarone use — a known cause of interstitial lung disease (ILD). Spirometry in ILD typically shows restrictive pattern (decreased FVC and FEV1) with a reduced FEV1/FVC ratio due to impaired lung compliance and diffusion. The normal ejection fraction and absence of cardiac causes support pulmonary etiology.",
+          "critical_evidence": "Amiodarone-induced lung disease (AILD) is a leading cause of ILD in this demographic, presenting with cough, dyspnea, and crackles — consistent with restrictive lung disease on spirometry.",
+          "differential_considered": "Other differentials like asthma or COPD were considered but ruled out due to absence of smoking, normal FEV1/FVC ratio in early stages, and presence of inspiratory crackles and ILD pattern on imaging. Cardiogenic causes were excluded by normal ejection fraction.",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 245,
+            "generation_time_s": 9.338
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 510,
+            "generated_tokens": 17,
+            "generation_time_s": 0.445
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Inspiratory crackles on physical examination",
+          "differential_considered": "Atelectasis or infection (ruled out due to chronicity and absence of fever or recent respiratory infection); Cardiac causes (ruled out by normal echo and absence of other cardiac symptoms); Pulmonary fibrosis or COPD (supported by chronic cough and dyspnea plus crackles); Asthma (less likely due to chronicity and lack of acute exacerbation).",
+          "usage": {
+            "prompt_tokens": 546,
+            "generated_tokens": 232,
+            "generation_time_s": 7.914
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

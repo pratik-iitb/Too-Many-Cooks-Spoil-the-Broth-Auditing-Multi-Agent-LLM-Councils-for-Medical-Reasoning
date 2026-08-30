@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-405",
+  "dataset": "medqa",
+  "question_id": "405",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 54-year-old man comes to the physician for a health maintenance examination. He feels well. He is 173 cm (5 ft 8 in) tall and weighs 84 kg (185 lb); BMI is 28 kg/m2. His vital signs are within normal limits. Physical examination shows no abnormalities. Serum lipid studies show:\nTotal cholesterol 280 mg/dL\nHDL-cholesterol 30 mg/dL\nLDL-cholesterol 195 mg/dL\nTriglycerides 275 mg/dL\nTreatment with atorvastatin and cholestyramine is initiated. Which of the following changes is most likely induced by both agents?\"",
+    "options": {
+      "A": "Increased lipoprotein lipase activity",
+      "B": "Increased LDL receptor expression",
+      "C": "Increased hepatic bile salt synthesis",
+      "D": "Decreased hepatic de novo cholesterol synthesis",
+      "E": "Increased cholesterol levels in hepatocytes"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has hyperlipidemia, specifically high LDL cholesterol and triglycerides, and low HDL cholesterol. Atorvastatin is a statin that inhibits HMG-CoA reductase, the rate-limiting enzyme in cholesterol synthesis. This leads to increased LDL receptor expression on hepatocytes, which then increases LDL uptake from the bloodstream. Cholestyramine is a bile acid sequestrant that binds bile acids in the intestine, leading to increased hepatic bile salt synthesis to replace the bound bile acids. The question asks for the change induced by BOTH agents.",
+          "critical_evidence": "The patient's high LDL cholesterol and the use of atorvastatin (a statin) strongly suggest increased LDL receptor expression.",
+          "differential_considered": "While cholestyramine increases bile salt synthesis, the primary mechanism of action of atorvastatin is to increase LDL receptor expression. Therefore, the combined effect of both drugs is most likely to be increased LDL receptor expression.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 225,
+            "generation_time_s": 11.498
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Atorvastatin is a statin that inhibits hepatic HMG-CoA reductase, reducing cholesterol synthesis, while cholestyramine is a bile acid sequestrant that binds bile acids in the intestine, leading to increased hepatic cholesterol re-export. Together, they lower LDL cholesterol by reducing both de novo cholesterol synthesis and increasing cholesterol efflux via bile acids. The most direct effect of both agents is decreased hepatic de novo cholesterol synthesis.",
+          "critical_evidence": "Atorvastatin's mechanism of action is inhibition of HMG-CoA reductase, which is central to cholesterol synthesis.",
+          "differential_considered": "Considered potential effects of cholestyramine (increased bile salt synthesis) and atorvastatin (increased LDL receptor expression), but neither is the primary mechanism of both drugs together. The combined effect is most clearly the reduction of de novo cholesterol synthesis.",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 222,
+            "generation_time_s": 10.731
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has elevated LDL and triglycerides with low HDL, indicating dyslipidemia. Atorvastatin (a statin) increases LDL receptor expression in the liver, enhancing LDL clearance. Cholestyramine (a bile acid sequestrant) also indirectly upregulates LDL receptors by reducing hepatic cholesterol, thereby lowering LDL. Both agents converge on increasing LDL receptor expression as a key mechanism for LDL reduction.",
+          "critical_evidence": "Both atorvastatin and cholestyramine reduce LDL cholesterol by increasing hepatic LDL receptor expression, a shared pharmacologic effect.",
+          "differential_considered": "Other options like increased lipoprotein lipase (A) or decreased de novo synthesis (D) are not shared mechanisms; cholestyramine does not directly affect bile salt synthesis (C) or increase hepatocyte cholesterol (E).",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 211,
+            "generation_time_s": 7.537
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 142,
+            "generation_time_s": 3.456
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options like increased lipase activity (A) or bile salt synthesis (C) are not primary mechanisms for these drugs. Increased LDL receptor expression (B) is mainly from cholestyramine, not atorvastatin. Increased cholesterol in hepatocytes (E) would be the opposite effect of both drugs. The key is the reduction in cholesterol synthesis by atorvastatin, which is the primary target of both agents in the context of this patient's high cholesterol.",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 622,
+            "generation_time_s": 19.556
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-831",
+  "dataset": "medqa",
+  "question_id": "831",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 57-year-old woman presents complaining of feeling sleepy all the time. She reports having an uncontrollable urge to take multiple naps during the day and sometimes sees strange shadows in front of her before falling asleep. Although she awakens feeling refreshed and energized, she often finds herself ‘stuck’ and cannot move for a while after waking up. She also mentions she is overweight and has failed to lose weight despite multiple attempts at dieting and using exercise programs. No significant past medical history. No current medications. The patient denies smoking, alcohol consumption, or recreational drug usage. Family history reveals that both her parents were overweight, and her father had hypertension. Her vital signs include: pulse 84/min, respiratory rate 16/min, and blood pressure 128/84 mm Hg. Her body mass index (BMI) is 36 kg/m2. Physical examination is unremarkable. Which of the following medications is the best course of treatment in this patient?",
+    "options": {
+      "A": "Melatonin",
+      "B": "Methylphenidate",
+      "C": "Alprazolam",
+      "D": "Orlistat",
+      "E": "Continuous positive airway pressure (CPAP)"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of excessive daytime sleepiness, cataplexy (uncontrollable urge to take naps and being 'stuck' after waking), and obesity strongly suggest narcolepsy with cataplexy. CPAP is not a treatment for narcolepsy. The other options are not appropriate for this diagnosis.",
+          "critical_evidence": "The patient's uncontrolled urge to take multiple naps during the day and the 'stuck' sensation after waking up are highly suggestive of cataplexy, a key feature of narcolepsy with cataplexy.",
+          "differential_considered": "Melatonin is used for sleep disorders, but not specifically for narcolepsy. Methylphenidate is a stimulant and could potentially worsen daytime sleepiness in narcolepsy. Alprazolam is a benzodiazepine and is not a first-line treatment for narcolepsy. Orlistat is a lipase inhibitor used for weight loss, but it does not address the underlying sleep disorder. CPAP is used for obstructive sleep apnea, which is not the primary diagnosis here.",
+          "usage": {
+            "prompt_tokens": 469,
+            "generated_tokens": 257,
+            "generation_time_s": 12.681
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's primary symptoms of excessive daytime sleepiness, hallucinations before sleep, and post-waking paralysis are consistent with narcolepsy, but her BMI and weight loss failure suggest a possible metabolic component. Orlistat (D) is the only medication that addresses both the sleep-related symptoms (by reducing weight, which may alleviate sleep apnea) and the weight management issue. While melatonin (A) could help with sleep, it doesn't address weight, and methylphenidate (B) is a stimulant that would counteract her need for sleep. Alprazolam (C) is a sedative that would worsen daytime sleepiness. CPAP (E) is a treatment for sleep apnea but is not a medication.",
+          "critical_evidence": "BMI of 36 kg/m2 indicates severe obesity, which is a key factor in her weight loss failure and likely contributes to her sleep issues.",
+          "differential_considered": "Narcolepsy, sleep apnea, and idiopathic hypersomnia were considered, but the weight and BMI make sleep apnea and metabolic issues more likely. No drug history or significant past medical history rules out other causes, but the weight is the most critical differentiating factor.",
+          "usage": {
+            "prompt_tokens": 469,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.735
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.995
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 467,
+            "generated_tokens": 158,
+            "generation_time_s": 3.834
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Sleep apnea (most likely), generalized fatigue syndrome, depression, or other metabolic disorders. However, the key issue is her obesity and weight loss resistance, making pharmacotherapy for weight management the best targeted intervention.",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 294,
+            "generation_time_s": 9.235
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "D": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-345",
+  "dataset": "mmlu",
+  "question_id": "345",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Complete the following: A variation of serial peak flow readings over a two week period are considered diagnostic in . . .",
+    "options": {
+      "A": ". . . asthma.",
+      "B": ". . . COPD.",
+      "C": ". . . pneumonia.",
+      "D": ". . . tuberculosis."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Serial peak flow measurements are a key diagnostic tool for asthma. Changes in peak flow readings over time can indicate airway obstruction and inflammation, which are hallmarks of asthma. While COPD can also cause airway obstruction, peak flow is more sensitive and specific for asthma.",
+          "critical_evidence": "Serial peak flow readings over a two-week period are considered diagnostic in asthma.",
+          "differential_considered": "COPD: While COPD can cause airway obstruction, peak flow is more sensitive and specific for asthma. Pneumonia and tuberculosis are less likely to be diagnosed based on serial peak flow readings alone. Therefore, asthma is the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 168,
+            "generation_time_s": 8.403
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Serial peak flow readings over a two-week period are most indicative of COPD due to the chronic nature of airflow limitation and variable symptoms. COPD typically presents with progressive airflow obstruction and variable airflow limitation, which can be assessed through serial peak flow measurements. Asthma may also show variability, but it usually has a more episodic pattern. Pneumonia and tuberculosis are acute conditions that typically present with more specific symptoms like fever, productive cough, or localized chest pain, which are not mentioned here. The serial nature of the peak flow readings aligns best with COPD's chronic airflow obstruction.",
+          "critical_evidence": "The chronic, variable airflow limitation over two weeks is the most critical evidence supporting COPD.",
+          "differential_considered": "Asthma was considered but ruled out due to its more episodic nature. Pneumonia and tuberculosis were ruled out due to lack of acute symptoms and fever, which are more typical of these conditions.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 222,
+            "generation_time_s": 10.609
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Serial peak flow measurements over two weeks are used to assess variability in airflow, which is a hallmark of asthma. This variability reflects reversible airway obstruction, a key diagnostic criterion. COPD typically shows less variability and more fixed obstruction, while pneumonia and tuberculosis are acute infections with different diagnostic criteria.",
+          "critical_evidence": "Asthma is diagnosed in part by demonstrating diurnal or weekly variation in peak flow readings, indicating reversible airflow obstruction.",
+          "differential_considered": "COPD was considered but ruled out due to lack of significant variability and presence of fixed airflow limitation; pneumonia and tuberculosis were excluded as they are infectious processes without airflow variability as a diagnostic feature.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 164,
+            "generation_time_s": 5.913
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 130,
+            "generation_time_s": 3.573
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The mention of serial (repeated over time) peak flow readings suggests monitoring of a chronic airway disease. Asthma is commonly diagnosed using serial peak flow data to assess variability and reversibility, unlike acute infections (pneumonia, tuberculosis) which are diagnosed via other methods (e.g., sputum, imaging, culture). COPD typically shows a gradual decline in peak flow but less reliance on serial trends for diagnosis compared to asthma's pattern of variability and exacerbations.",
+          "critical_evidence": "",
+          "differential_considered": "Pneumonia and tuberculosis present with more acute symptoms and require different diagnostic approaches (e.g., sputum analysis, chest X-ray, or tuberculin test), whereas asthma diagnosis often involves tracking changes in peak flow over several days or weeks.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 222,
+            "generation_time_s": 7.171
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-936",
+  "dataset": "medqa",
+  "question_id": "936",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 53-year-old woman presented to her PCP with one week of difficulty falling asleep, despite having good sleep hygiene. She denies changes in her mood, weight loss, and anhedonia. She has had difficulty concentrating and feels tired throughout the day. Recently, she was fired from her previous job. What medication would be most helpful for this patient?",
+    "options": {
+      "A": "Quetiapine",
+      "B": "Zolpidem",
+      "C": "Diphenhydramine",
+      "D": "Diazepam",
+      "E": "Citalopram"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with insomnia, difficulty concentrating, and fatigue, likely related to recent job loss. Zolpidem is a hypnotic medication specifically designed to treat insomnia. While other options might have some sedative effects, they are not the primary treatment for insomnia and could have more significant side effects or be less effective for this specific presentation.",
+          "critical_evidence": "The patient's primary complaint is difficulty falling asleep, indicating a need for a sleep aid.",
+          "differential_considered": "Quetiapine (A) is an atypical antipsychotic, not a first-line treatment for insomnia and could cause sedation, but is not the most appropriate choice given the lack of psychotic symptoms. Diphenhydramine (C) is an antihistamine with sedative properties, but its use for chronic insomnia is discouraged due to tolerance and side effects. Diazepam (D) is a benzodiazepine, which can be effective for insomnia but carries a risk of dependence and withdrawal. Citalopram (E) is an SSRI antidepressant, which is not indicated for acute insomnia without other symptoms like depression or anxiety.",
+          "usage": {
+            "prompt_tokens": 339,
+            "generated_tokens": 261,
+            "generation_time_s": 12.93
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient presents with insomnia, fatigue, and difficulty concentrating, which are consistent with sleep-onset insomnia and potential psychophysiological insomnia. Given the lack of mood changes or significant weight loss, this is less consistent with depression or anxiety disorders. Quetiapine is an atypical antipsychotic with sedating properties that can help with both sleep and anxiety, making it a reasonable first-line choice. While Zolpidem is more specific for sleep, the patient's psychosocial stressor (job loss) suggests a need for broader symptom management. Diphenhydramine and Diazepam are less appropriate due to potential for dependence and cognitive impairment. Citalopram is antidepressant and not primarily indicated for insomnia.",
+          "critical_evidence": "The presence of psychosocial stressor (job loss) combined with sleep disturbance suggests a need for both sedation and anxiety management",
+          "differential_considered": "Considered depression, anxiety, and psychophysiological insomnia. Ruled out based on lack of mood changes, weight loss, and anhedonia. Job loss suggests situational stress rather than organic sleep disorder.",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.255
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute insomnia (1 week) and daytime fatigue, likely secondary to recent job loss and stress. She has no mood symptoms or anhedonia, making major depressive disorder less likely. Sleep hygiene is intact, so pharmacologic intervention for insomnia is appropriate. Zolpidem is a first-line, short-term treatment for acute insomnia without significant mood symptoms. Other options target different conditions: quetiapine (mood/stress), diphenhydramine (short-term, antihistamine), diazepam (anxiolytic, not first-line for insomnia), citalopram (antidepressant, not indicated without depression).",
+          "critical_evidence": "Recent job loss as a stressor causing acute insomnia without mood symptoms.",
+          "differential_considered": "Major depressive disorder was considered but ruled out due to absence of mood symptoms, weight loss, or anhedonia. Anxiety disorder was possible but not confirmed; zolpidem is preferred over benzodiazepines (diazepam) for insomnia due to lower abuse potential and better safety profile.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 253,
+            "generation_time_s": 8.89
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 74,
+            "generation_time_s": 1.8
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B: Zolpidem",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 326,
+            "generation_time_s": 10.244
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

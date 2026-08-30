@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-997",
+  "dataset": "medqa",
+  "question_id": "997",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 50-year-old obese woman presents for a follow-up appointment regarding microcalcifications found in her left breast on a recent screening mammogram. The patient denies any recent associated symptoms. The past medical history is significant for polycystic ovarian syndrome (PCOS), for which she takes metformin. Her menarche occurred at age 11, and the patient still has regular menstrual cycles. The family history is significant for breast cancer in her mother at the age of 72. The review of systems is notable for a 6.8 kg (15 lb) weight loss in the past 2 months. The vital signs include: temperature 37.0°C (98.6°F), blood pressure 130/70 mm Hg, pulse 82/min, respiratory rate 17/min, and oxygen saturation 98% on room air. On physical examination, the patient is alert and cooperative. The breast examination reveals no palpable masses, lymphadenopathy, or evidence of skin retraction. An excisional biopsy of the left breast is performed, and histologic examination demonstrates evidence of non-invasive malignancy. Which of the following is the most appropriate course of treatment for this patient?",
+    "options": {
+      "A": "Observation with bilateral mammograms every 6 months",
+      "B": "Tamoxifen",
+      "C": "Radiotherapy",
+      "D": "Lumpectomy",
+      "E": "Bilateral mastectomy"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has non-invasive breast cancer (DCIS). Lumpectomy is the standard of care for early-stage, non-invasive breast cancer, offering excellent local control with comparable outcomes to mastectomy. While other options are possible, lumpectomy is the most appropriate initial treatment given the non-invasive nature of the cancer and the patient's overall health.",
+          "critical_evidence": "The histologic examination demonstrates evidence of non-invasive malignancy.",
+          "differential_considered": "Observation (A) might be considered for very low-risk DCIS, but the patient's weight loss and the presence of DCIS warrant more active intervention. Tamoxifen (B) is typically used for hormone receptor-positive invasive breast cancer, not DCIS. Radiotherapy (C) is generally reserved for invasive cancers or as adjuvant therapy after lumpectomy for high-risk DCIS. Bilateral mastectomy (E) is generally not indicated for DCIS unless there are other risk factors or the patient prefers it, but it is not the first-line treatment.",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 254,
+            "generation_time_s": 12.547
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a non-invasive breast malignancy (DCIS) with no evidence of lymph node involvement or distant metastasis. Given the absence of symptoms, the small size of the lesion, and the fact that it was detected incidentally on screening, the most appropriate initial treatment is lumpectomy with possible radiation therapy. This approach is standard for DCIS and preserves the breast while ensuring local control.",
+          "critical_evidence": "Histologic demonstration of non-invasive malignancy (DCIS) with no evidence of lymphadenopathy or metastatic spread",
+          "differential_considered": "Considered other benign breast conditions like fibrocystic disease or fibroadenomas, but ruled out due to the histologic evidence of malignancy. Also considered ductal carcinoma in situ (DCIS) versus invasive cancer, but DCIS was confirmed by biopsy. No evidence of distant metastasis or lymph node involvement supports a localized disease.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 220,
+            "generation_time_s": 10.231
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has non-invasive breast malignancy (likely ductal carcinoma in situ) confirmed by biopsy, with no evidence of invasion or metastasis. Given her age, obesity, and lack of symptoms, the most appropriate treatment is lumpectomy with radiation to preserve breast tissue and achieve local control. Observation is inappropriate for confirmed malignancy, tamoxifen is not first-line for DCIS, radiotherapy alone is insufficient without surgery, and bilateral mastectomy is excessive without contraindications.",
+          "critical_evidence": "Histologic examination demonstrates evidence of non-invasive malignancy (DCIS), requiring surgical excision with possible adjuvant radiation.",
+          "differential_considered": "Metastatic disease was ruled out by absence of symptoms, normal vitals, and no lymphadenopathy. Benign calcifications were ruled out by biopsy showing malignancy. No indication for systemic therapy (tamoxifen) or bilateral mastectomy without high-risk features (e.g., BRCA, bilateral disease).",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 233,
+            "generation_time_s": 8.156
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The most appropriate course of treatment for this patient is:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 513,
+            "generated_tokens": 12,
+            "generation_time_s": 0.319
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Excisional biopsy of the left breast demonstrating non-invasive ductal carcinoma",
+          "differential_considered": "A (observation) is appropriate for some low-risk or stable cases but is less definitive than surgical management in this biopsy-proven case. B (tamoxifen) is for hormone receptor-positive invasive cancer or high-risk features not present here. C (radiotherapy) is often considered after surgery for some invasive or high-risk cases. E (bilateral mastectomy) is over-aggressive given the single lesion. The patient's weight loss may warrant further evaluation but does not override the biopsy findings.",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 256,
+            "generation_time_s": 8.035
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

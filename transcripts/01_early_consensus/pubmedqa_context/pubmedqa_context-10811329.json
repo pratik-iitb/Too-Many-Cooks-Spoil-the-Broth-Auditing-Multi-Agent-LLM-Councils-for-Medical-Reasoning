@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-10811329",
+  "dataset": "pubmedqa_context",
+  "question_id": "10811329",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are 99mTc leukocyte scintigraphy and SBFT studies useful in children suspected of having inflammatory bowel disease?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The goal of this retrospective study was to assess whether 99mTc-white blood cell (WBC) scintigraphy and upper gastrointestinal small bowel follow-through (UGI-SBFT) could exclude inflammation in children suspected of having inflammatory bowel disease (IBD). Of a population of 313 children who had a 99mTc-WBC scan, 130 children were studied exclusively to rule out IBD. Sixty-nine colonoscopies with biopsies were done within a short time interval of the 99mTc-WBC scans. There were also 51 controls studied with 99mTc-WBC scintigraphy. Of the 130 children studied to exclude IBD, the final diagnosis was Crohn's disease in 27, ulcerative colitis in nine, miscellaneous colitis in 13, probably normal in 42, and normal in 39. The 99mTc-WBC scans were positive in all but three newly diagnosed Crohn's disease, ulcerative colitis, or miscellaneous colitis children. The false-negative 99mTc-WBC studies were seen in children with mild inflammation on biopsies and normal UGI-SBFT studies. In the 46 children with a true-positive 99mTc-WBC scan, 81% (17/21) of UGI-SBFT studies were normal. In five children with equivocal UGI-SBFT studies, the 99mTc-WBC scan correctly predicted if inflammation was present in the terminal ileum.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study suggests that 99mTc-WBC scintigraphy and UGI-SBFT can be useful in excluding IBD in children. The high sensitivity of the 99mTc-WBC scan in detecting inflammation, combined with the ability of UGI-SBFT to identify abnormalities, makes these tests valuable tools in the diagnostic workup of suspected IBD.",
+          "critical_evidence": "The study found that in 46 children with a true-positive 99mTc-WBC scan, 81% of UGI-SBFT studies were normal, indicating that the tests can be used to exclude IBD.",
+          "differential_considered": "While other conditions could cause similar symptoms, the study focuses specifically on IBD, and the findings support the utility of these tests in excluding it.",
+          "usage": {
+            "prompt_tokens": 603,
+            "generated_tokens": 211,
+            "generation_time_s": 12.675
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that while 99mTc-WBC scans are highly sensitive for detecting IBD, they have limitations in children. The false-negative rate in mild inflammation and the 81% normal UGI-SBFT in true-positive cases suggest these tests alone may not be sufficient. The equivocal UGI-SBFT results further indicate the need for additional diagnostic tools.",
+          "critical_evidence": "The 81% normal UGI-SBFT in children with true-positive 99mTc-WBC scans demonstrates that these tests don't always correlate, suggesting they should be used together rather than independently.",
+          "differential_considered": "IBD vs. non-IBD colitis - the study shows that 42+39=81 children were probably normal, indicating the need to differentiate between true IBD and other causes of colitis.",
+          "usage": {
+            "prompt_tokens": 588,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.642
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "While 99mTc-WBC scintigraphy showed high sensitivity in detecting inflammation in children with suspected IBD, it had false negatives in cases of mild inflammation. UGI-SBFT was often normal in true-positive scans, suggesting limited utility in excluding inflammation. The equivocal results in some cases further limit reliability, making 'maybe' the most balanced answer.",
+          "critical_evidence": "False-negative 99mTc-WBC scans occurred in children with mild inflammation and normal UGI-SBFT, indicating these tests cannot reliably exclude IBD.",
+          "differential_considered": "Crohn's disease, ulcerative colitis, and miscellaneous colitis were considered; however, the presence of false negatives and variable UGI-SBFT results across diagnoses suggests these tests are not definitive for exclusion.",
+          "usage": {
+            "prompt_tokens": 583,
+            "generated_tokens": 196,
+            "generation_time_s": 8.363
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 586,
+            "generated_tokens": 58,
+            "generation_time_s": 1.726
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The case describes a study where 99mTc leukocyte scintigraphy and UGI-SBFT were used to exclude IBD in children, but the results showed that many with positive WBC scans had normal follow-through, and false negatives were seen in children with mild inflammation. This suggests these studies are not reliable for confirming or excluding IBD, making a definitive 'yes' or 'no' less appropriate. The best answer is 'maybe' due to their limited utility in this context.",
+          "critical_evidence": "The finding that 81% of children with positive WBC scans on the scintigraphy had normal UGI-SBFT, indicating poor sensitivity for detecting IBD.",
+          "differential_considered": "Other imaging modalities (e.g., MRI, endoscopy) are more definitive for IBD; 99mTc-WBC scintigraphy and UGI-SBFT have limited sensitivity and specificity, so they are not primary tools for diagnosis or exclusion of IBD.",
+          "usage": {
+            "prompt_tokens": 628,
+            "generated_tokens": 235,
+            "generation_time_s": 8.982
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

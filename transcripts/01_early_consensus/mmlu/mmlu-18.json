@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-18",
+  "dataset": "mmlu",
+  "question_id": "18",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Oxygenated blood is carried to the heart by which of the following structures?",
+    "options": {
+      "A": "Aorta",
+      "B": "Carotid arteries",
+      "C": "Inferior vena cava",
+      "D": "Pulmonary veins"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Oxygenated blood is carried from the lungs to the heart. The aorta is the main artery that carries oxygenated blood from the left ventricle to the rest of the body. The carotid arteries supply blood to the brain, the inferior vena cava carries deoxygenated blood from the body to the heart, and the pulmonary veins carry oxygenated blood from the lungs to the heart.",
+          "critical_evidence": "Oxygenated blood is carried to the heart.",
+          "differential_considered": "Carotid arteries: These supply blood to the brain, not the heart. Inferior vena cava: This carries deoxygenated blood, not oxygenated blood. Pulmonary veins: These carry oxygenated blood from the lungs to the heart, but the question asks about the structure that carries oxygenated blood to the heart from the lungs, which is the pulmonary veins.",
+          "usage": {
+            "prompt_tokens": 270,
+            "generated_tokens": 209,
+            "generation_time_s": 11.219
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Oxygenated blood returns from the lungs to the heart via the pulmonary veins, which empty into the left atrium. The aorta carries oxygenated blood away from the heart to the body (option A is incorrect). Carotid arteries supply oxygenated blood to the head and neck (option B is incorrect). The inferior vena cava carries deoxygenated blood from the lower body to the right atrium (option C is incorrect).",
+          "critical_evidence": "Pulmonary veins are the only vessels that carry oxygenated blood directly into the heart.",
+          "differential_considered": "No differential diagnoses needed - the question is anatomical, not clinical. The key is understanding the pulmonary circulation pathway.",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.863
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Oxygenated blood returns from the lungs to the heart via the pulmonary veins, which deliver it to the left atrium. The aorta carries oxygenated blood away from the heart, but not to it. Carotid arteries supply oxygenated blood to the brain, and the inferior vena cava returns deoxygenated blood from the lower body to the heart.",
+          "critical_evidence": "Pulmonary veins are the only vessels that carry oxygenated blood directly to the heart (specifically the left atrium).",
+          "differential_considered": "Aorta and carotid arteries carry oxygenated blood away from the heart, not to it; inferior vena cava carries deoxygenated blood. All are incorrect except pulmonary veins.",
+          "usage": {
+            "prompt_tokens": 247,
+            "generated_tokens": 183,
+            "generation_time_s": 6.995
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 274,
+            "generated_tokens": 81,
+            "generation_time_s": 2.162
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 301,
+            "generated_tokens": 421,
+            "generation_time_s": 14.13
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "D": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1412",
+  "dataset": "medqa",
+  "question_id": "1412",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 3-year-old boy is brought to a respiratory specialist. The family physician referred the child because of recurrent respiratory infections over the past 2 years. Chest X-rays showed a lesion of < 2 cm that includes glands and cysts in the upper lobe of the right lung. Diseases affecting the immune system were investigated and ruled out. No family history of any pulmonary disease or congenital malformations exists. He was born at full term via a normal vaginal delivery with an APGAR score of 10. Which of the following should be highly considered for effective management of this child’s condition?",
+    "options": {
+      "A": "Antibiotics",
+      "B": "Bronchoscopy",
+      "C": "Observance",
+      "D": "Lobectomy",
+      "E": "Pneumonectomy"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with recurrent respiratory infections and a lung lesion on chest X-ray. Given the lack of family history, congenital malformations, or immune system disorders, the most likely diagnosis is a congenital pulmonary airway malformation (CPAM). CPAMs are typically benign and asymptomatic, and management often involves observation. Antibiotics are not indicated as the problem is not infectious. Bronchoscopy is not the first line of management for a suspected CPAM, especially if it is small and asymptomatic. Lobectomy or pneumonectomy are overly aggressive interventions for a lesion of this size and with no evidence of significant symptoms or complications.",
+          "critical_evidence": "The lesion is < 2 cm and the child is asymptomatic.",
+          "differential_considered": "Infectious causes (e.g., pneumonia, bronchitis) were ruled out by the family physician. Other congenital lung abnormalities (e.g., bronchopulmonary sequestration) were considered, but the description of glands and cysts in the lesion is more suggestive of a CPAM. Immunodeficiency was ruled out by the family physician.",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 259,
+            "generation_time_s": 12.893
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The child has recurrent respiratory infections with a small upper lobe lesion showing glands and cysts, but no immune system abnormalities or family history of pulmonary disease. Given the lack of concerning findings and the absence of progressive disease, active surveillance (observance) is the most appropriate initial approach. This allows monitoring for growth or change in the lesion while avoiding unnecessary interventions.",
+          "critical_evidence": "No progressive disease, normal birth history, and absence of immune system abnormalities",
+          "differential_considered": "Considered lymphangioma, hemangioma, and congenital cystic adenomatoid malformation, but ruled out due to normal immune function and absence of congenital malformations in family history",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 173,
+            "generation_time_s": 8.06
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with recurrent respiratory infections and a chest X-ray lesion <2 cm in the upper lobe of the right lung, including glands and cysts. No immune deficiency, family history, or congenital anomalies are present. The lesion is small and localized, and given the absence of systemic symptoms or progressive disease, active intervention is not indicated. Observation is appropriate for monitoring a stable, non-progressive lesion without evidence of malignancy or infection.",
+          "critical_evidence": "Lesion size <2 cm with no systemic signs or immune deficiency, and no family history or congenital anomalies.",
+          "differential_considered": "Cystic fibrosis, tuberculosis, or congenital lung malformation were considered but ruled out by absence of immune deficiency, family history, and lack of systemic symptoms. Malignancy is unlikely given the child’s age and benign appearance of the lesion.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 208,
+            "generation_time_s": 7.288
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 89,
+            "generation_time_s": 2.158
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Diseases such as cystic fibrosis (due to recurrent infections and possible abnormal lung radiograph), congenital lung malformations, or immune deficiencies were considered but ruled out due to normal birth, no family history, and negative immune workup. A surgical option (D or E) is unlikely given the small, non-obstructive nature of the lesion. Bronchoscopy (B) may be useful for further evaluation but is not the primary management initially without more concerning symptoms or findings.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 270,
+            "generation_time_s": 8.449
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

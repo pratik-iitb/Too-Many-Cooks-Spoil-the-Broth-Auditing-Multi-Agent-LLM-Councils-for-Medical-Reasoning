@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-622",
+  "dataset": "mmlu",
+  "question_id": "622",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A scientist, using electrodes, is stimulating a group of neurons in the hypothalamus and recording their membrane potential changes. She observes a sharp rise in membrane potential when she first stimulates them, the the difference of 100mV. When she tries another stimulation immediately after the first, there is no response. However, when she increase the amount of voltage she supplies to the second shock, she observes a similar response to the first. What time period of stimulation would the second shock be characterized in regards to membrane potential?",
+    "options": {
+      "A": "Depolarization",
+      "B": "Repolarization",
+      "C": "Hyperpolarization",
+      "D": "Resting potential"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The initial sharp rise in membrane potential upon stimulation indicates depolarization. The subsequent lack of response to the same stimulation suggests that the neurons are either refractory or have reached their threshold. Increasing the voltage to the second shock then elicits a response, indicating that the neurons are now capable of responding to the stimulus. This pattern is characteristic of a depolarizing stimulus.",
+          "critical_evidence": "The initial sharp rise in membrane potential upon stimulation.",
+          "differential_considered": "Repolarization: The initial depolarization is followed by a return to the resting membrane potential, which is not what is observed. Hyperpolarization: This would result in a decrease in membrane potential, not an increase. Resting potential: This is the baseline membrane potential and not what is observed during stimulation.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 195,
+            "generation_time_s": 9.836
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The initial sharp rise in membrane potential represents a depolarization event, where the neuron's membrane potential moves away from its resting potential. The lack of response to the first subsequent stimulation suggests a refractory period, but increasing the voltage to achieve a similar response indicates the neuron is returning to a state where it can respond again, which aligns with the characteristics of depolarization. The key evidence is the initial sharp rise in potential followed by the need for increased voltage to elicit a response, indicating the neuron is not in a hyperpolarized or repolarized state but rather in a state where it can be depolarized again with sufficient stimulus.",
+          "critical_evidence": "The sharp rise in membrane potential followed by the need for increased voltage to elicit a similar response",
+          "differential_considered": "Hyperpolarization (C) was considered but ruled out because it would not allow the neuron to respond to increased voltage. Repolarization (B) was considered but ruled out because it represents returning to the resting potential, not a new depolarization. Resting potential (D) was considered but ruled out because the neuron showed a response to stimulation, indicating it was not in a resting state.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.599
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The neuron initially responds to the first stimulus with a depolarization (100mV rise), but fails to respond to the second stimulus immediately after. This indicates the neuron is in a refractory period, likely the absolute refractory period, where it cannot fire again. Increasing the stimulus strength to elicit a response suggests the neuron is hyperpolarized (more negative than resting potential) during this interval, requiring stronger depolarization to reach threshold. This is consistent with hyperpolarization being the state during the refractory period after an action potential.",
+          "critical_evidence": "The second stimulus fails to elicit a response until voltage is increased, indicating the neuron is hyperpolarized and requires stronger depolarization to reach threshold.",
+          "differential_considered": "Depolarization (A) is ruled out because the second stimulus does not trigger a response. Repolarization (B) is a phase of returning to resting potential, but the neuron still needs stronger stimulation, suggesting it is not simply repolarizing. Resting potential (D) is the baseline, but the neuron is not at baseline—it is hyperpolarized, requiring more stimulus to fire.",
+          "usage": {
+            "prompt_tokens": 335,
+            "generated_tokens": 271,
+            "generation_time_s": 9.709
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 83,
+            "generation_time_s": 2.062
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Repolarization (B) and hyperpolarization (C) are not associated with a transient increase in membrane potential. Resting potential (D) is the baseline and not a response to stimulation. These alternatives do not fit the described phenomenon.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 206,
+            "generation_time_s": 6.642
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-15095519",
+  "dataset": "pubmedqa",
+  "question_id": "15095519",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are patients with diabetes receiving the same message from dietitians and nurses?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks if patients with diabetes receive the same message from dietitians and nurses. It's highly likely that there will be discrepancies, as dietitians and nurses have different scopes of practice and expertise. Nurses are often focused on medication management and basic patient education, while dietitians provide specialized nutritional counseling. Therefore, it's probable that they deliver different messages.",
+          "critical_evidence": "The inherent differences in training, scope of practice, and expertise between dietitians and nurses.",
+          "differential_considered": "While it's possible that both professionals are providing the same information, the differences in their roles and responsibilities make it more likely that they will have different messages. Therefore, I ruled out the possibility of them providing the same message.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 197,
+            "generation_time_s": 9.748
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Patients with diabetes often receive conflicting dietary advice from dietitians and nurses due to differing specializations. Dietitians focus on long-term glycemic control through carbohydrate counting and meal planning, while nurses may emphasize immediate blood glucose management and insulin administration. This discrepancy can lead to confusion and non-adherence.",
+          "critical_evidence": "The differing approaches of dietitians and nurses in diabetes care create inconsistent messaging",
+          "differential_considered": "No specific differential diagnoses needed - this is a communication issue between healthcare providers rather than a medical diagnosis",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.645
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In diabetes management, dietitians typically emphasize nutritional education and meal planning, while nurses often focus on medication adherence, blood glucose monitoring, and lifestyle modifications. These roles often lead to divergent messaging, even if both aim for glycemic control. The clinical case implies a potential disconnect in communication or patient understanding between these two key providers.",
+          "critical_evidence": "The case explicitly questions whether patients receive the same message from dietitians and nurses, implying a potential inconsistency in care delivery.",
+          "differential_considered": "Considered 'yes' if care was perfectly coordinated, but ruled out due to inherent role differences; 'maybe' was considered but less likely given the explicit questioning of message consistency.",
+          "usage": {
+            "prompt_tokens": 229,
+            "generated_tokens": 172,
+            "generation_time_s": 6.017
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 87,
+            "generation_time_s": 2.114
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 173,
+            "generation_time_s": 5.457
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

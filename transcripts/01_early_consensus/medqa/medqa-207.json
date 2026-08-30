@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-207",
+  "dataset": "medqa",
+  "question_id": "207",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 48-year-old man comes to the physician because of a 3-month history of fatigue, polyuria, and blurry vision. His BMI is 33 kg/m2 and his blood pressure is 147/95 mm Hg. Laboratory studies show a serum glucose concentration of 192 mg/dL and hemoglobin A1c concentration of 7.2%. Urinalysis shows 1+ glucose, 1+ protein, and no ketones. Which of the following is the most appropriate pharmacotherapy to prevent cardiovascular disease in this patient?",
+    "options": {
+      "A": "Lisinopril therapy",
+      "B": "Sleeve gastrectomy",
+      "C": "Aspirin therapy",
+      "D": "Insulin therapy",
+      "E": "Gemfibrozil therapy"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with symptoms and lab findings consistent with type 2 diabetes mellitus (T2DM), including fatigue, polyuria, blurry vision, elevated glucose and HbA1c, and proteinuria. Given his elevated blood pressure and history of T2DM, the primary goal is to prevent cardiovascular disease (CVD). ACE inhibitors like lisinopril are first-line agents for patients with T2DM and hypertension to reduce the risk of CVD.",
+          "critical_evidence": "The patient has both T2DM and hypertension, making him at high risk for CVD.",
+          "differential_considered": "Sleeve gastrectomy is a bariatric surgery and is not a first-line treatment for T2DM or hypertension. Aspirin therapy is not indicated for all patients with T2DM and hypertension, and its use should be individualized based on risk factors. Insulin therapy is used to manage hyperglycemia in T2DM but does not address the patient's hypertension. Gemfibrozil is a fibrate used to lower triglycerides and is not a primary treatment for CVD prevention in this scenario.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 262,
+            "generation_time_s": 12.927
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with diabetes mellitus (elevated glucose and A1c), not cardiovascular disease directly. While cardiovascular risk is present (hypertension, obesity), the question asks for prevention of cardiovascular disease in a diabetic patient. Aspirin therapy is the most effective pharmacotherapy to prevent cardiovascular events in patients with diabetes, especially those with established risk factors like hypertension and obesity. Sleeve gastrectomy and insulin therapy address diabetes but are not primarily for cardiovascular prevention. Lisinopril and gemfibrozil have limited cardiovascular benefits in this context. Aspirin is the best choice for primary prevention of cardiovascular disease in this patient.",
+          "critical_evidence": "Hemoglobin A1c of 7.2% confirms diabetes mellitus, which is the primary diagnosis. The patient's obesity and hypertension further increase cardiovascular risk, making aspirin therapy appropriate for prevention.",
+          "differential_considered": "Considered sleeve gastrectomy (for weight loss) and insulin therapy (for diabetes control), but neither is the best option for cardiovascular prevention. Lisinopril (A) and gemfibrozil (E) have limited cardiovascular benefits compared to aspirin. The patient's diabetes is the primary focus for cardiovascular prevention.",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.336
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has type 2 diabetes (elevated glucose and HbA1c), obesity, and hypertension — all major risk factors for cardiovascular disease. Lisinopril, an ACE inhibitor, is recommended for diabetic patients with hypertension to reduce cardiovascular events and slow renal disease progression. Other options are less appropriate: insulin is not first-line for prevention; aspirin is not routinely recommended for primary prevention in this population without additional risk factors; gemfibrozil is not indicated for primary CVD prevention in type 2 diabetes; sleeve gastrectomy is for weight loss, not immediate CVD prevention.",
+          "critical_evidence": "The patient has type 2 diabetes, obesity, and hypertension — all conditions that increase cardiovascular risk, making antihypertensive therapy with an ACE inhibitor like lisinopril the most appropriate first-line intervention to prevent cardiovascular events.",
+          "differential_considered": "Type 1 diabetes was ruled out due to age and lack of autoimmune markers; insulin therapy was considered but not first-line for prevention; aspirin was considered but not indicated for primary prevention in this low-risk profile; gemfibrozil was considered for dyslipidemia but not indicated for primary CVD prevention in this patient without clear lipid abnormalities.",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 283,
+            "generation_time_s": 9.881
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 22,
+            "generation_time_s": 0.543
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (lisinopril) and C (aspirin) target blood pressure and antiplatelet activity, respectively, but do not address the primary issue of uncontrolled diabetes driving CVD risk. B and E are surgical or pharmacologic agents for lipid management, not diabetes control. Without evidence of established CVD or clear indication for another agent, improving glycemic control with insulin is most appropriate.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 349,
+            "generation_time_s": 10.865
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

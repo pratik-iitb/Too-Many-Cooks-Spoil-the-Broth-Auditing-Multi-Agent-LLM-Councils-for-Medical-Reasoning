@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-224",
+  "dataset": "metamed",
+  "question_id": "224",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 61-year-old man comes to the emergency department because of a 2-day history of a productive cough and worsening shortness of breath. He has had frequent episodes of a productive cough over the past 3 years. He had smoked 2 packs of cigarettes daily for 30 years but quit 1 year ago. He appears distressed. Pulse oximetry on room air shows an oxygen saturation of 91%. Chest auscultation reveals diffuse wheezes and coarse crackles. A chest x-ray shows increased lung lucency bilaterally and flattening of the diaphragm. Which of the following is the most appropriate initial pharmacotherapy?",
+    "options": {
+      "A": "Prednisone and albuterol",
+      "B": "Albuterol and montelukast",
+      "C": "Prednisone and tiotropium",
+      "D": "Albuterol and theophylline",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a history of chronic productive cough, smoking history, and acute worsening of respiratory symptoms with hypoxemia. The chest x-ray findings of increased lung lucency and flattened diaphragm are highly suggestive of emphysema, a component of COPD. The initial management of COPD exacerbations involves bronchodilators and corticosteroids.",
+          "critical_evidence": "The chest x-ray findings of increased lung lucency and flattened diaphragm strongly suggest emphysema, a component of COPD.",
+          "differential_considered": "While pneumonia could be considered, the chronic productive cough and smoking history make COPD a more likely diagnosis. Asthma is less likely given the chronic nature of the symptoms and the lack of a history of episodic wheezing. Pneumothorax is less likely given the diffuse wheezes and crackles, and the chest x-ray findings are more consistent with emphysema than pneumothorax.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 221,
+            "generation_time_s": 11.583
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient presents with acute exacerbation of chronic obstructive pulmonary disease (COPD) with hypoxemia (SpO2 91%), wheezes, and crackles. The chest X-ray showing increased lung lucency and diaphragm flattening supports this diagnosis. Albuterol is appropriate for bronchodilation, while prednisone addresses the inflammatory component of COPD. Tiotropium or montelukast would be for maintenance therapy, not acute exacerbation. Theophylline is less first-line in acute exacerbations.",
+          "critical_evidence": "Chest X-ray showing increased lung lucency bilaterally and flattening of the diaphragm",
+          "differential_considered": "Considered pneumonia, asthma, and interstitial lung disease, but the history of smoking and chronic cough over 3 years with current exacerbation points strongly to COPD. The acute exacerbation with hypoxemia and respiratory distress supports the need for bronchodilators and corticosteroids.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 1024,
+            "generation_time_s": 60.154
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chronic productive cough, recent worsening dyspnea, wheezes, crackles, and hypoxemia, along with imaging findings of hyperinflation and diaphragmatic flattening — highly suggestive of COPD exacerbation. The most appropriate initial therapy is systemic corticosteroids (prednisone) to reduce airway inflammation and bronchodilators (albuterol) for rapid bronchodilation. This combination is standard for acute COPD exacerbations.",
+          "critical_evidence": "Chest x-ray showing increased lung lucency and diaphragmatic flattening, along with chronic smoking history and recurrent productive cough, strongly supports COPD as the underlying diagnosis.",
+          "differential_considered": "Asthma was considered but ruled out due to chronicity of symptoms (>3 years), smoking history, and imaging findings inconsistent with asthma. Pneumonia was considered but excluded by absence of fever, focal findings, and lack of consolidation on CXR. Heart failure was considered but ruled out by absence of peripheral edema or JVD, and crackles are more consistent with airway disease than pulmonary edema.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 261,
+            "generation_time_s": 11.403
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not provided in the options.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 10,
+            "generation_time_s": 0.298
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Asthma, heart failure, pneumonia, but the history and imaging point strongly to COPD, and the question specifically asks for pharmacotherapy appropriate for this context. The listed options do not appropriately address COPD with exacerbation (lack of inhaled corticosteroid), so E is best.",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 316,
+            "generation_time_s": 10.972
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

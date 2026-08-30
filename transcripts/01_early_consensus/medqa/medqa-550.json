@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-550",
+  "dataset": "medqa",
+  "question_id": "550",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 72-year-old female recently fractured her hip in a fall. She suffers from regular joint pain in her fingers, and hip X-rays reveal low bone mineral density. She has a history of diabetes mellitus and was diagnosed 2 years ago with end-stage renal disease. Serum phosphate levels are markedly elevated. Which of the following likely contributes to her orthopedic problems?",
+    "options": {
+      "A": "Decreased serum aldosterone",
+      "B": "Increased serum parathyroid hormone",
+      "C": "Increased serum glucose",
+      "D": "Chronic hypertension",
+      "E": "Chronic hypovolemia"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's elevated serum phosphate, low bone mineral density, and hip fracture strongly suggest secondary hyperparathyroidism. Elevated phosphate levels suppress calcium levels, which in turn stimulates the parathyroid glands to produce more parathyroid hormone (PTH). PTH increases calcium levels by mobilizing calcium from bone, leading to bone weakening and increased fracture risk. The patient's end-stage renal disease is a common cause of hyperphosphatemia, which then leads to secondary hyperparathyroidism.",
+          "critical_evidence": "Markedly elevated serum phosphate levels",
+          "differential_considered": "A: Decreased serum aldosterone would not directly cause elevated phosphate or bone loss. C: Increased serum glucose is a factor in diabetes but not directly linked to the orthopedic problems. D: Chronic hypertension is not a primary cause of hyperphosphatemia or secondary hyperparathyroidism. E: Chronic hypovolemia is not a primary cause of hyperphosphatemia or secondary hyperparathyroidism.",
+          "usage": {
+            "prompt_tokens": 345,
+            "generated_tokens": 235,
+            "generation_time_s": 11.677
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's elevated serum phosphate levels are a key clue. In renal disease, impaired phosphate excretion leads to hyperphosphatemia, which stimulates parathyroid hormone (PTH) secretion to restore calcium balance. PTH causes bone resorption, weakening bones and increasing fracture risk. The hip fracture and low bone mineral density align with this mechanism. Diabetes and hypertension are present but less directly linked to bone mineral loss in this context.",
+          "critical_evidence": "Serum phosphate levels are markedly elevated",
+          "differential_considered": "While diabetes mellitus can contribute to joint pain and hypertension is common in renal disease, neither directly explains the bone mineral density loss. Chronic hypovolemia (option E) is unlikely given the context of renal failure and hypertension, which typically cause volume overload, not hypovolemia. Decreased aldosterone (A) would affect potassium, not bone metabolism. Increased glucose (C) is a given but not the primary driver here. Only increased PTH (B) directly explains the bone changes.",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.754
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has end-stage renal disease (ESRD), which impairs phosphate excretion, leading to hyperphosphatemia. This triggers secondary hyperparathyroidism as a compensatory mechanism to maintain calcium homeostasis, which in turn contributes to bone resorption and osteoporosis, worsening her orthopedic problems. The elevated serum phosphate is a key clue supporting this mechanism.",
+          "critical_evidence": "Markedly elevated serum phosphate levels in the context of ESRD",
+          "differential_considered": "Decreased aldosterone (A) would cause sodium retention and hypokalemia, not directly related to bone disease. Increased glucose (C) and hypertension (D) are not primary drivers of bone loss in this context. Chronic hypovolemia (E) is not indicated and not causally linked to bone mineral density loss.",
+          "usage": {
+            "prompt_tokens": 318,
+            "generated_tokens": 203,
+            "generation_time_s": 7.166
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's elevated serum phosphate levels and history of end-stage renal disease suggest secondary hyperparathyroidism as a cause of her orthopedic problems. Increased serum parathyroid hormone (PTH) is a compensatory response to hypocalcemia, which can be caused by low bone mineral density. In this case, the low bone mineral density is likely a result of chronic kidney disease (CKD), leading to impaired phosphate excretion and subsequent secondary hyperparathyroidism. This condition can cause bone pain and fractures, as seen in the patient's hip fracture.",
+          "critical_evidence": "Elevated serum phosphate levels",
+          "differential_considered": "Decreased serum aldosterone was considered but ruled out due to the patient's history of end-stage renal disease, which typically leads to hyperkalemia rather than hypokalemia. Increased serum glucose, chronic hypertension, and chronic hypovolemia were also considered but do not directly contribute to the patient's orthopedic problems in the context of her clinical presentation and laboratory findings.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 236,
+            "generation_time_s": 5.737
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Osteoporosis due to age and possible vitamin D deficiency (common in ESRD), but the most directly supported cause of her fracture risk is the increased bone resorption from elevated PTH due to ESRD. Other systemic causes of bone loss (e.g., C) are less specific here.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 276,
+            "generation_time_s": 8.711
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

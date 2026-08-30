@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-906",
+  "dataset": "medqa",
+  "question_id": "906",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old man comes to the physician because of right wrist pain after a fall from a ladder. Physical examination shows decreased grip strength and tenderness between the tendons of extensor pollicis longus and extensor pollicis brevis. X-ray of the right wrist shows no abnormalities. This patient is at increased risk for which of the following complications?",
+    "options": {
+      "A": "Paralysis of the abductor pollicis brevis muscle",
+      "B": "Osteoarthritis of the radiocarpal joint",
+      "C": "Avascular necrosis of the lunate bone",
+      "D": "Hypesthesia of the hypothenar eminence",
+      "E": "Contracture of the palmar aponeurosis\n\""
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's right wrist pain after a fall, decreased grip strength, and tenderness between the tendons of extensor pollicis longus and extensor pollicis brevis strongly suggest a ligamentous injury, specifically a sprain or strain of the extensor pollicis longus and brevis tendons. The location of the tenderness is crucial. The extensor pollicis longus and brevis tendons are responsible for extending the thumb. A disruption of these tendons can lead to weakness and potential paralysis of the abductor pollicis brevis muscle, which is innervated by the median nerve. The absence of abnormalities on X-ray rules out fractures or dislocations.",
+          "critical_evidence": "Tenderness between the tendons of extensor pollicis longus and extensor pollicis brevis.",
+          "differential_considered": "Osteoarthritis of the radiocarpal joint is less likely given the acute onset after a fall and the specific location of tenderness. Avascular necrosis of the lunate bone is not directly related to the described symptoms. Hypesthesia of the hypothenar eminence is not directly related to the described symptoms. Contracture of the palmar aponeurosis is not directly related to the described symptoms.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 293,
+            "generation_time_s": 14.467
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's tenderness between extensor pollicis longus and brevis tendons, combined with decreased grip strength after a fall, suggests possible damage to the extensor tendon sheath. This injury pattern is classically associated with lunate bone avascular necrosis due to compromised blood supply from the disrupted tendon sheath. While osteoarthritis (B) could develop later, it's not an immediate risk. Paralysis of abductor pollicis brevis (A) is unlikely given the tendon involvement. Hypesthesia (D) would require nerve damage, which isn't indicated. Contracture of palmar aponeurosis (E) is less likely without specific flexion contracture. The direct tendon sheath injury makes avascular necrosis of the lunate the most immediate and likely complication.",
+          "critical_evidence": "Tenderness between extensor pollicis longus and brevis tendons",
+          "differential_considered": "Osteoarthritis (B) - ruled out by normal X-ray; other tendon injuries - ruled out by specific tendon sheath tenderness; nerve injury - ruled out by lack of hypesthesia; aponeurosis contracture - ruled out by absence of flexion contracture",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.572
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has right wrist pain after trauma, with tenderness between extensor pollicis longus and extensor pollicis brevis — a classic location for scaphoid fracture. Although X-ray is negative, scaphoid fractures are often missed on initial imaging and carry a risk of avascular necrosis due to its limited blood supply. The other options are not directly associated with this specific anatomic location or mechanism of injury.",
+          "critical_evidence": "Tenderness between extensor pollicis longus and extensor pollicis brevis — a key sign suggestive of scaphoid fracture, which is at risk for avascular necrosis if undiagnosed or untreated.",
+          "differential_considered": "Other wrist fractures (e.g., lunate, triquetrum) were considered but ruled out by the specific tenderness location and negative X-ray. Soft tissue injuries or ligamentous sprains were less likely given the specific tenderness and mechanism. Osteoarthritis and contracture are chronic conditions not consistent with acute trauma. Nerve injury (hypothenar hypesthesia) would present with sensory deficits, not localized tenderness in that region.",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 273,
+            "generation_time_s": 9.565
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 106,
+            "generation_time_s": 2.554
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (osteoarthritis), C (avascular necrosis), D (hypesthesia), E (contracture) — these are less likely given the mechanism and specific tenderness location. Osteoarthritis would typically present with joint space narrowing and osteophytes, not acute tenderness or grip strength loss. Hypesthesia and contracture are sensory or structural issues not directly linked to this injury pattern. A vascular injury (paralysis of abductor pollicis brevis) is a classic complication of such a fall.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 349,
+            "generation_time_s": 10.864
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

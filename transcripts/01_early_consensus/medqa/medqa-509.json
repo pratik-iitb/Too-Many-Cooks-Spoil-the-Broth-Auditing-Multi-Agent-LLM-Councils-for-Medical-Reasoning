@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-509",
+  "dataset": "medqa",
+  "question_id": "509",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Following the death of an 18-year-old woman, the task force determines a fatal drug interaction as the cause. The medical error is attributed to the fatigue of the treating resident. The report includes information regarding the resident’s work hours: The resident received the patient at the 27th hour of his continuous duty. Over the preceding month, he had been on duty a maximum of 76 hours per week and had provided continuity of care to patients up to a maximum of 30 hours on the same shift. He had only had 1 day per week free from patient care and educational obligations, and he had rested a minimum of 12 hours between duty periods. Regarding this particular case, which of the following is in violation of the most recent standards set by the Accreditation Council for Graduate Medical Education (ACGME)?",
+    "options": {
+      "A": "The duty hour during which this resident received the patient",
+      "B": "The maximum number of hours per week this resident was on duty",
+      "C": "The minimum rest hours this resident had between duty periods",
+      "D": "The number of days per week this resident was free from patient care and educational obligations",
+      "E": "The maximum number of hours allowed for continued patient care"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The ACGME standards prioritize the maximum number of hours allowed for continued patient care, especially for residents. The resident's 27th hour of duty, coupled with the fact that he had been on duty for 76 hours the previous week, indicates a clear violation of this standard. While the other options also present concerns, the maximum hours allowed for continued patient care is the most direct violation of the ACGME standards.",
+          "critical_evidence": "The resident received the patient at the 27th hour of his continuous duty.",
+          "differential_considered": "A: The duty hour during which this resident received the patient - While concerning, this is a specific instance and doesn't necessarily violate the overall standard. B: The maximum number of hours per week this resident was on duty - This is a weekly limit, and the resident's weekly hours were within the allowed range. C: The minimum rest hours this resident had between duty periods - The resident had a minimum of 12 hours rest, which is generally acceptable. D: The number of days per week this resident was free from patient care and educational obligations - The resident had one day free, which is a minimum requirement, but not the primary violation in this case.",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 296,
+            "generation_time_s": 14.959
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The ACGME has established limits on duty hours to prevent fatigue-related errors. The resident worked 76 hours per week, which exceeds the ACGME's recommended maximum of 80 hours per week for residents in training. This high weekly duty hour exceeds the standard, making it the most significant violation.",
+          "critical_evidence": "The resident worked 76 hours per week, which is above the ACGME's 80-hour weekly limit",
+          "differential_considered": "While fatigue from long duty periods and lack of rest days are concerns, the ACGME specifically regulates weekly duty hours as the primary standard. The 76-hour weekly duty exceeds the 80-hour limit, making it the most critical violation.",
+          "usage": {
+            "prompt_tokens": 473,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.699
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The ACGME limits residents to a maximum of 16 consecutive hours of duty, and the case describes the resident receiving the patient at the 27th hour of continuous duty, which clearly exceeds this limit. This fatigue-induced error directly led to the fatal drug interaction, making this the most critical violation. Other options, while potentially problematic, do not represent the most immediate or severe breach under current ACGME standards.",
+          "critical_evidence": "The resident received the patient at the 27th hour of continuous duty, exceeding the ACGME’s 16-hour maximum consecutive duty limit.",
+          "differential_considered": "Other options (B, C, D, E) were considered but ruled out because the ACGME’s current standards allow up to 76 hours/week, 30 hours of continuity, 12 hours rest, and 1 day off per week — none of which are violated in this case, whereas option A is explicitly and severely in violation.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 234,
+            "generation_time_s": 8.252
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 471,
+            "generated_tokens": 41,
+            "generation_time_s": 1.018
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "the resident received the patient at the 27th hour of his continuous duty",
+          "differential_considered": "Options B, C, and D could be related to broader ACGME compliance issues, but the explicit mention of the 27-hour continuous duty directly points to a violation of per-shift limits, making A the best answer for this case.",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 226,
+            "generation_time_s": 7.13
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "B": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

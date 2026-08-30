@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-741",
+  "dataset": "mmlu",
+  "question_id": "741",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following karyotypes is diagnostic of Down syndrome",
+    "options": {
+      "A": "46,XX,der(14;21)(q10;q10)pat+21",
+      "B": "47,XY,+13",
+      "C": "45,XX,rob,(14;21)(q10;q10)",
+      "D": "46,XY,t(2;3)(q21;q12)"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Down syndrome is most commonly caused by trisomy 21, which is a full extra copy of chromosome 21. The karyotype 46,XX,der(14;21)(q10;q10)pat+21 indicates a Robertsonian translocation between chromosomes 14 and 21, where the long arms of both chromosomes are fused, resulting in a total of three copies of the long arm of chromosome 21. This is a common cause of Down syndrome.",
+          "critical_evidence": "46,XX,der(14;21)(q10;q10)pat+21",
+          "differential_considered": "Option B (47,XY,+13) represents Trisomy 13 (Patau syndrome), which is a different chromosomal abnormality. Option C (45,XX,rob,(14;21)(q10;q10)) represents a Robertsonian translocation between chromosomes 14 and 21, which can lead to Down syndrome, but the 'pat+21' indicates a partial extra chromosome 21, not a full trisomy. Option D (46,XY,t(2;3)(q21;q12)) represents a translocation between chromosomes 2 and 3, which is not associated with Down syndrome.",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 325,
+            "generation_time_s": 16.655
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Down syndrome is caused by trisomy 21, resulting in a karyotype of 47,XX or 47,XY with an extra chromosome 21. Option A shows a derivative chromosome (der) formed by the fusion of 14 and 21, indicating a translocation that resulted in trisomy 21, which is diagnostic for Down syndrome. The other options show different chromosomal abnormalities (trisomy 13, monosomy X, and translocation between chromosomes 2 and 3) that are not characteristic of Down syndrome.",
+          "critical_evidence": "The presence of a derivative chromosome (der) formed by the fusion of 14 and 21, indicating a translocation that resulted in trisomy 21",
+          "differential_considered": "Options B (trisomy 13), C (monosomy X), and D (translocation between chromosomes 2 and 3) were ruled out as they represent different chromosomal abnormalities not associated with Down syndrome",
+          "usage": {
+            "prompt_tokens": 312,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.34
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Down syndrome is caused by trisomy 21, which can present as full trisomy 21 (47,XX,+21 or 47,XY,+21), mosaic trisomy 21, or translocation involving chromosome 21. Option A shows a derivative chromosome 14;21 with both chromosomes 14 and 21 involved, and the notation 'pat+21' indicates paternal origin of the extra 21 material, consistent with a Robertsonian translocation carrier. This is a known translocation form of Down syndrome. The other options involve chromosomes 13 (B) or translocations between 2 and 3 (D), which are not associated with Down syndrome. Option C is a Robertsonian translocation between 14 and 21, but lacks the +21 indicating trisomy 21, so it would not cause Down syndrome unless the individual inherited the translocated chromosome with the extra 21 material.",
+          "critical_evidence": "The presence of der(14;21)(q10;q10)pat+21 indicates a Robertsonian translocation involving chromosome 21 with paternal origin, leading to trisomy 21 — the genetic basis of Down syndrome.",
+          "differential_considered": "Option B (trisomy 13) causes Patau syndrome, not Down syndrome. Option D (t(2;3)) is unrelated to Down syndrome. Option C (rob(14;21)) without +21 does not cause trisomy 21 and thus does not cause Down syndrome unless the individual inherited the translocated chromosome with the extra 21 material — which is not indicated here.",
+          "usage": {
+            "prompt_tokens": 299,
+            "generated_tokens": 391,
+            "generation_time_s": 14.561
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 223,
+            "generation_time_s": 6.452
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (46,XX but with two extra chromosomes) is not typical for Down syndrome, which is usually 47,XX,add(21). B (47,XY,+13) and D (a structural rearrangement not involving 21) are not characteristic of Down syndrome and would suggest other genetic disorders.",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 255,
+            "generation_time_s": 8.372
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-986",
+  "dataset": "mmlu",
+  "question_id": "986",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 57-year-old man receives radiation therapy for a squamous cell carcinoma of the lung. Despite therapy, the tumor progressively increases in size, and he dies 6 months later. His tumor cells contain a point mutation in the p53 gene (TP53), leading to an inactive gene product. Based on this finding, the progressive tumor growth despite irradiation therapy is most likely to be related to a defect in cell cycle arrest in which of the following phases of the cell cycle?",
+    "options": {
+      "A": "G0",
+      "B": "G1",
+      "C": "G2",
+      "D": "M"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's tumor cells have a p53 mutation, leading to an inactive p53 protein. p53 is a tumor suppressor gene that plays a crucial role in cell cycle arrest, particularly in G1 and G2 phases. If p53 is non-functional, cells can bypass these checkpoints and continue dividing, leading to uncontrolled growth and tumor progression. The fact that the tumor progressed despite radiation therapy, which typically targets actively dividing cells, further supports the role of p53 in cell cycle arrest.",
+          "critical_evidence": "p53 mutation leading to an inactive gene product",
+          "differential_considered": "G1: While p53 is important in G1, the question asks about the *most likely* phase where the defect would lead to progressive tumor growth despite irradiation. G2 arrest is more directly related to DNA damage repair, and while p53 can influence G2, the primary role of p53 is in G1 and G2. M: While p53 can influence M phase, the primary role of p53 is in G1 and G2. Therefore, G0 is not the most likely answer.",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 280,
+            "generation_time_s": 14.155
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The p53 gene is a tumor suppressor that normally regulates the cell cycle by inducing cell cycle arrest at checkpoints, particularly in G1 phase. When mutated, p53 cannot halt cell division, allowing cells to progress through the cell cycle despite DNA damage. Radiation therapy typically induces DNA damage, which should trigger p53-mediated arrest in G1 phase. The persistent tumor growth despite irradiation suggests the G1 checkpoint is defective, as the tumor cells fail to arrest and repair DNA damage, leading to continued proliferation.",
+          "critical_evidence": "The p53 mutation leading to an inactive gene product directly impairs its ability to induce G1 phase arrest, which is critical for radiation sensitivity.",
+          "differential_considered": "Other phases (G0, G2, M) are less likely because p53 primarily functions in G1 checkpoint control. G0 is a resting phase with low proliferation, G2 and M phases are late in the cycle and less responsive to DNA damage signals. The p53 defect specifically explains G1 arrest failure.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 240,
+            "generation_time_s": 11.462
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The p53 protein is a critical tumor suppressor that induces cell cycle arrest in G1 phase in response to DNA damage, allowing time for DNA repair or triggering apoptosis if damage is irreparable. Radiation therapy causes DNA damage, and inactivation of p53 due to mutation prevents G1 arrest, enabling damaged cells to continue cycling and promoting tumor progression. This explains the resistance to radiation and progressive tumor growth.",
+          "critical_evidence": "Point mutation in the p53 gene (TP53) leading to an inactive gene product",
+          "differential_considered": "G2 and M phase checkpoints are also regulated by p53, but G1 arrest is the primary mechanism for p53-mediated response to DNA damage. G0 is a quiescent phase not directly regulated by p53. The clinical scenario of radiation resistance and progressive growth points to failure of G1 checkpoint, not G2 or M.",
+          "usage": {
+            "prompt_tokens": 323,
+            "generated_tokens": 217,
+            "generation_time_s": 7.788
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 62,
+            "generation_time_s": 1.545
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other phases (G0, G2, M) have less direct association with radiation-induced cell cycle checkpoints for tumor suppression; G1 is the primary checkpoint controlled by p53.",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 191,
+            "generation_time_s": 6.16
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-46",
+  "dataset": "mmlu",
+  "question_id": "46",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The physician directs the medical assistant to complete a request form for an X-ray study of the fibula. The procedure will be performed on which of the following structures?",
+    "options": {
+      "A": "Heel",
+      "B": "Lower leg",
+      "C": "Toes",
+      "D": "Thigh"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The fibula is a bone located in the lower leg. The request for an X-ray of the fibula indicates the area of interest is the lower leg. The heel is part of the foot, the toes are part of the foot, and the thigh is part of the upper leg.",
+          "critical_evidence": "The request specifies an X-ray of the fibula, which is a bone in the lower leg.",
+          "differential_considered": "Heel: The heel is part of the foot, not the lower leg. Toes: The toes are part of the foot, not the lower leg. Thigh: The thigh is part of the upper leg, not the lower leg.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 184,
+            "generation_time_s": 9.274
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The fibula is a bone located in the lower leg, specifically on the outer side. An X-ray of the fibula would therefore be a study of the lower leg, making option B the correct choice. The heel (A) is part of the foot, the toes (C) are also part of the foot, and the thigh (D) contains the femur, not the fibula.",
+          "critical_evidence": "The fibula is a bone in the lower leg",
+          "differential_considered": "No differential diagnoses needed as the question is straightforward anatomical identification. The key consideration was the correct anatomical location of the fibula within the leg structure.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.852
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The fibula is one of the two long bones in the lower leg, running parallel to the tibia. An X-ray of the fibula is therefore focused on the lower leg region, not the thigh, heel, or toes. The case explicitly refers to an X-ray of the fibula, which anatomically resides in the lower leg.",
+          "critical_evidence": "The fibula is located in the lower leg, between the knee and ankle.",
+          "differential_considered": "Thigh (femur) was ruled out because the fibula is not in the thigh; heel and toes were ruled out because they do not contain the fibula.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 163,
+            "generation_time_s": 6.014
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 34,
+            "generation_time_s": 0.861
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The heel (A) and toes (C) are distal to the fibula, while the thigh (D) is proximal and unrelated. Only the lower leg (B) contains the fibula, making it the correct answer.",
+          "usage": {
+            "prompt_tokens": 312,
+            "generated_tokens": 190,
+            "generation_time_s": 6.233
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

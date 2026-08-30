@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-15919266",
+  "dataset": "pubmedqa",
+  "question_id": "15919266",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Adjuvant radiation of stage III thymoma: is it necessary?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Stage III thymoma indicates advanced disease with regional lymph node involvement. Adjuvant radiation therapy is a standard treatment for stage III thymoma to reduce the risk of recurrence and improve survival. Therefore, adjuvant radiation is generally considered necessary.",
+          "critical_evidence": "Stage III thymoma",
+          "differential_considered": "While other treatment options exist, adjuvant radiation is the most common and evidence-based approach for stage III thymoma to improve long-term outcomes. Other options like surgery alone or chemotherapy are generally not preferred as the primary treatment for stage III disease due to the high risk of recurrence.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 161,
+            "generation_time_s": 7.954
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Stage III thymoma typically involves significant invasion of adjacent structures and potential lymph node metastases, which increases the risk of local recurrence. Adjuvant radiation therapy is recommended in such cases to target residual disease and prevent recurrence. Given the high risk of local recurrence with this stage, adjuvant radiation is considered necessary.",
+          "critical_evidence": "Stage III extent of disease with lymph node involvement",
+          "differential_considered": "Considered other histologies like myasthenia gravis (thymoma mimic), but thymoma itself at this stage requires adjuvant therapy",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.501
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Stage III thymoma is locally advanced but resectable; adjuvant radiation is not routinely recommended for all stage III cases due to lack of clear benefit in randomized trials. However, it may be considered in select patients with high-risk features such as incomplete resection or positive margins. The decision is individualized, making 'maybe' the most appropriate answer.",
+          "critical_evidence": "Stage III thymoma is resectable but carries a higher risk of recurrence; adjuvant radiation is not universally indicated but may be considered based on risk stratification.",
+          "differential_considered": "Stage I/II thymoma (where radiation is rarely needed) and stage IV (where systemic therapy is preferred) were considered, but stage III falls in a gray zone where adjuvant radiation is not standard but may be used selectively.",
+          "usage": {
+            "prompt_tokens": 229,
+            "generated_tokens": 201,
+            "generation_time_s": 7.031
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 92,
+            "generation_time_s": 2.232
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: \"yes\" (if the tumor has aggressive features or is node-positive); B: \"no\" (if the tumor is low-risk and radiation is not standard); C: \"maybe\" (since standard guidelines require more data, such as nodal involvement or tumor type).",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 217,
+            "generation_time_s": 6.819
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

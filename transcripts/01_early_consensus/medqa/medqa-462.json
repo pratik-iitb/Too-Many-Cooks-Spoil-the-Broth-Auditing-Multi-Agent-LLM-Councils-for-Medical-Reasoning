@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-462",
+  "dataset": "medqa",
+  "question_id": "462",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 65-year-old woman presents with memory problems for the past few weeks. Patient vividly describes how she forgot where she put her car keys this morning and did not remember to wish her grandson a happy birthday last week. Patient denies any cognitive problems, bowel/bladder incontinence, tremors, gait problems, or focal neurologic signs. Patient mentions she wants to take Ginkgo because her friend told her that it can help improve her brain function and prevent memory loss. Past medical history is significant for an acute cardiac event several years ago. Current medications are aspirin, carvedilol, and captopril. Patient denies any history of smoking, alcohol or recreational drug use. Patient is a widow, lives alone, and is able to perform all activities of daily living (ADLs) easily. No significant family history. Patient is afebrile and vital signs are within normal limits. Physical examination is unremarkable. Which of the following would be the most appropriate response to this patient’s request to take Ginkgo?",
+    "options": {
+      "A": "\"Yes, ginkgo is widely used for improving brain function and memory.\"",
+      "B": "\"No, taking ginkgo will increase your risk for bleeding.\"",
+      "C": "\"Yes, gingko may not help with your memory, but there is no risk of adverse events so it is safe to take.\"",
+      "D": "“No, herbal preparations are unsafe because they are not regulated by the FDA.”",
+      "E": "“No, you have Alzheimer's disease and need to start donepezil.”"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with memory complaints, but no other neurological deficits. Ginkgo is known to increase the risk of bleeding, especially in patients taking aspirin and other antiplatelet medications. Therefore, advising the patient to take Ginkgo would be inappropriate and potentially dangerous.",
+          "critical_evidence": "The patient is taking aspirin, carvedilol, and captopril, all of which increase the risk of bleeding.",
+          "differential_considered": "Alzheimer's disease: While memory loss is a key symptom, the patient denies other cognitive problems and has a normal physical exam. Therefore, it is less likely to be Alzheimer's disease at this stage. Vascular dementia: The patient has a history of cardiac event, which could be a risk factor. However, the patient denies focal neurologic signs, and the physical exam is unremarkable, making this less likely than a medication-related side effect.",
+          "usage": {
+            "prompt_tokens": 542,
+            "generated_tokens": 221,
+            "generation_time_s": 11.227
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has mild memory complaints but denies other cognitive issues. While Ginkgo biloba is sometimes used for cognitive support, it is not FDA-approved for memory enhancement and has limited evidence for efficacy. More importantly, the patient is already taking aspirin, which increases bleeding risk. Ginkgo can potentiate anticoagulant effects and may increase bleeding risk in patients on blood thinners. Given the patient's history of cardiac event and current aspirin use, the potential for increased bleeding is a significant safety concern. Therefore, the most appropriate response is to warn about bleeding risks rather than endorse Ginkgo use.",
+          "critical_evidence": "Patient is taking aspirin, which increases bleeding risk; Ginkgo can potentiate anticoagulant effects",
+          "differential_considered": "Considered possible causes of memory complaints (e.g., mild cognitive impairment, anxiety, depression), but ruled out due to lack of other neurologic findings and patient's denial of other symptoms. No evidence of dementia or other serious neurologic illness.",
+          "usage": {
+            "prompt_tokens": 546,
+            "generated_tokens": 241,
+            "generation_time_s": 11.1
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is on aspirin, carvedilol, and captopril, which increases her risk of bleeding. Ginkgo biloba is known to have anticoagulant properties and can significantly increase bleeding risk when combined with antiplatelet or antihypertensive medications. Her symptoms are non-specific and do not suggest Alzheimer’s disease or other neurodegenerative conditions requiring donepezil. There is no evidence that ginkgo is effective for her symptoms, and the risk-benefit ratio clearly favors against its use.",
+          "critical_evidence": "Patient is on aspirin and other cardiovascular medications, increasing bleeding risk with ginkgo.",
+          "differential_considered": "Alzheimer’s disease was considered but ruled out due to lack of focal signs, no family history, and preserved ADLs. Other causes of memory complaints (e.g., depression, vitamin B12 deficiency) were not evaluated but not supported by the presentation. Ginkgo’s safety and efficacy were the focus.",
+          "usage": {
+            "prompt_tokens": 518,
+            "generated_tokens": 233,
+            "generation_time_s": 8.54
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is concerned about memory loss and is considering taking ginkgo to improve her brain function. However, ginkgo has been shown to have anticoagulant properties, which can increase the risk of bleeding, especially in patients who are already on other medications that have similar effects. Given the patient's medical history of a cardiac event and current medications, it is important to avoid any potential drug interactions or increased bleeding risk. Therefore, advising against the use of ginkgo is the most appropriate response.",
+          "critical_evidence": "The patient's concern about memory loss and request to take ginkgo.",
+          "differential_considered": "Alzheimer's disease was considered as a possible diagnosis, but the patient's symptoms do not meet the criteria for this condition. Other herbal supplements were also considered, but ginkgo was chosen as the focus due to its potential for significant interactions with the patient's current medications.",
+          "usage": {
+            "prompt_tokens": 544,
+            "generated_tokens": 209,
+            "generation_time_s": 5.353
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Dementia (such as Alzheimer's) is a key consideration, but the exam is unremarkable and she has no risk factors for dementia. There is no evidence to support ginkgo for her mild, non-specific memory issues, and potential bleeding risk with her current medications makes A and B less appropriate. D is overly broad and not tailored to her current presentation. E is not supported by the clinical findings (no evidence of dementia).",
+          "usage": {
+            "prompt_tokens": 580,
+            "generated_tokens": 278,
+            "generation_time_s": 8.681
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

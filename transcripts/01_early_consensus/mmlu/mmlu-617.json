@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-617",
+  "dataset": "mmlu",
+  "question_id": "617",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Mg(OH)2 is slowly dissolved in 500 mL of 25 oC water until the solution becomes fully saturated. Which of the following occurs when 10.0 mL of 0.1 M HCl is added?",
+    "options": {
+      "A": "MgCl2 precipitates",
+      "B": "Mg(OH)2 precipitates",
+      "C": "Ksp for Mg(OH)2 increases",
+      "D": "[H2O] increases"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question describes the dissolution of magnesium hydroxide (Mg(OH)2) in water to form a saturated solution. Adding hydrochloric acid (HCl) will increase the concentration of hydrogen ions (H+). Since Mg(OH)2 is a base, it will react with the H+ ions to form Mg2+ and 2OH- ions. The formation of Mg2+ and OH- ions will lead to the precipitation of MgCl2, as the solubility product (Ksp) of Mg(OH)2 is less than the product of the concentrations of Mg2+ and OH- ions in the saturated solution.",
+          "critical_evidence": "The formation of MgCl2 indicates that the hydroxide ions (OH-) from Mg(OH)2 are reacting with the hydrogen ions (H+) from HCl.",
+          "differential_considered": "B: Mg(OH)2 precipitates - This is incorrect because the solution is already saturated with Mg(OH)2. Adding HCl will not cause it to precipitate further. C: Ksp for Mg(OH)2 increases - The Ksp of Mg(OH)2 remains constant regardless of the concentration of Mg2+ and OH- ions in solution. D: [H2O] increases - While the addition of HCl will increase the concentration of H+ ions, the primary reaction is the formation of MgCl2, not a significant change in the amount of water present.",
+          "usage": {
+            "prompt_tokens": 319,
+            "generated_tokens": 330,
+            "generation_time_s": 16.613
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Adding HCl to the saturated Mg(OH)2 solution will react with the hydroxide ions to form MgCl2, which is soluble in water. This shifts the equilibrium of the dissolution reaction to the left, causing Mg(OH)2 to precipitate out of the solution as MgCl2.",
+          "critical_evidence": "The reaction between HCl and OH- to form soluble MgCl2",
+          "differential_considered": "Other options like Mg(OH)2 precipitating (B) or Ksp increasing (C) are incorrect because the addition of acid shifts the equilibrium to favor the formation of MgCl2, not Mg(OH)2. The concentration of water ([H2O]) remains constant (D).",
+          "usage": {
+            "prompt_tokens": 320,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.973
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "Adding HCl to a saturated Mg(OH)2 solution protonates OH⁻ ions, reducing [OH⁻] and shifting the equilibrium to favor more Mg(OH)2 dissolution. However, if the added acid is insufficient to fully neutralize the OH⁻, the solution may become supersaturated, leading to precipitation. In this case, the small volume and concentration of HCl added likely causes only partial neutralization, resulting in Mg(OH)2 precipitation due to the common ion effect and reduced solubility product equilibrium.",
+          "critical_evidence": "The addition of HCl reduces [OH⁻], causing the ion product to exceed Ksp, triggering precipitation of Mg(OH)2.",
+          "differential_considered": "Options A, C, and D were ruled out: MgCl2 does not precipitate as it is soluble; Ksp is temperature-dependent and unchanged at 25°C; [H2O] remains essentially constant as water is the solvent and not consumed in the reaction.",
+          "usage": {
+            "prompt_tokens": 295,
+            "generated_tokens": 234,
+            "generation_time_s": 8.427
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 318,
+            "generated_tokens": 110,
+            "generation_time_s": 2.722
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 345,
+            "generated_tokens": 344,
+            "generation_time_s": 11.058
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

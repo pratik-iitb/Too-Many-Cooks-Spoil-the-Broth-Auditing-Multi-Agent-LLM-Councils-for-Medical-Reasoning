@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-606",
+  "dataset": "medqa",
+  "question_id": "606",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old woman, gravida 1, at 26 weeks gestation presents to the physician during a prenatal visit. She feels well. Her pregnancy has been uncomplicated. Her initial laboratory tests at 8 weeks confirmed her blood type as B-. Her partner is blood type A+. At the clinic, her temperature is 37.2°C (99.0°F), and blood pressure is 108/60 mm Hg. Pelvic examination shows a uterus consistent in size with a 24-week gestation. Fetal heartbeats are normal. A sample of blood is collected for blood type screening and verification. Regarding Rh D immunoglobulin (RhoGam) administration, the most appropriate next step is which of the following?",
+    "options": {
+      "A": "At 28 weeks gestation if anti-D screen is negative",
+      "B": "At 28 weeks gestation if anti-D screen is positive",
+      "C": "Within 72 hours after birth if anti-D screen is negative",
+      "D": "Within 72 hours after birth if anti-D screen is positive",
+      "E": "Rh D immunoglobulin (RhoGam) is not required in this patient regardless of test results"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is Rh-negative (B-) and her partner is Rh-positive (A+). This means she is at risk of Rh isoimmunization. RhoGAM is administered to prevent Rh isoimmunization in Rh-negative mothers. The timing of RhoGAM administration depends on the results of the anti-D antibody screen. If the anti-D screen is negative, RhoGAM is given at 28 weeks gestation. If the anti-D screen is positive, RhoGAM is given within 72 hours of delivery.",
+          "critical_evidence": "The patient is Rh-negative (B-) and her partner is Rh-positive (A+).",
+          "differential_considered": "The patient is currently asymptomatic and has an uncomplicated pregnancy. While the risk of alloimmunization exists, the immediate need for RhoGAM is determined by the anti-D antibody screen. Therefore, the timing of RhoGAM administration is dependent on the results of the anti-D antibody screen, not the gestational age alone.",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 246,
+            "generation_time_s": 12.152
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is Rh-negative (B-) and her partner is Rh-positive (A+). There is a risk of fetal hemolysis if the fetus is Rh-positive, which would occur in this case. Since the initial blood type was confirmed at 8 weeks and no anti-D screen was mentioned, the standard protocol is to administer RhoGam within 72 hours after birth if the fetus is Rh-positive. The anti-D screen will determine if the fetus is Rh-positive, and if positive, RhoGam must be given immediately postpartum to prevent sensitization.",
+          "critical_evidence": "The patient is Rh-negative and the fetus may be Rh-positive due to the father's Rh-positive blood type.",
+          "differential_considered": "Other Rh incompatibility scenarios were considered, but the key issue is the potential for fetal hemolysis due to Rh-positive status. No other differentials were relevant to the RhD immunoglobulin decision.",
+          "usage": {
+            "prompt_tokens": 470,
+            "generated_tokens": 223,
+            "generation_time_s": 10.372
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is Rh-negative (B-) and pregnant, with no history of sensitization. Routine Rh D immunoglobulin (RhoGam) prophylaxis is recommended at 28 weeks gestation to prevent isoimmunization against fetal Rh-positive blood. This is standard care for all Rh-negative pregnant women regardless of partner's Rh status, as the fetus may be Rh-positive. The anti-D screen at 28 weeks is performed to confirm no sensitization before administering RhoGam.",
+          "critical_evidence": "The patient is Rh-negative (B-) and currently at 26 weeks gestation, making her eligible for routine RhoGam at 28 weeks gestation.",
+          "differential_considered": "Other options (B, C, D) are incorrect because RhoGam is not given if anti-D screen is positive (indicating sensitization), and it is not given postpartum unless there is evidence of fetal-maternal hemorrhage. Option E is incorrect because Rh-negative mothers require prophylaxis regardless of partner's Rh status.",
+          "usage": {
+            "prompt_tokens": 453,
+            "generated_tokens": 246,
+            "generation_time_s": 8.611
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 20,
+            "generation_time_s": 0.508
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options either specify incorrect timing (B, D), unnecessary interventions (C), or an unnecessary concern (E), which is ruled out because the presence of an Rh+ father during a Rh- pregnancy necessitates Rh immunoprophylaxis if the screen is positive or, if the screen is negative (suggesting possible exposure), it is still recommended at the standard time (28 weeks) to prevent Rh sensitization.",
+          "usage": {
+            "prompt_tokens": 504,
+            "generated_tokens": 308,
+            "generation_time_s": 9.677
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

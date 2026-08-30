@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-17076091",
+  "dataset": "pubmedqa_context",
+  "question_id": "17076091",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does obstructive sleep apnea affect aerobic fitness?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "We sought to determine whether patients with obstructive sleep apnea (OSA) had an objective change in aerobic fitness during cycle ergometry compared to a normal population. The most accurate test of aerobic fitness is measurement of maximum oxygen consumption (VO2max) with cycle ergometry. We performed a retrospective cohort analysis (247 patients with OSA) of VO2max from annual cycle ergometry tests compared to a large control group (normative data from 1.4 million US Air Force tests) in a tertiary care setting. Overall, individuals with OSA had increased VO2max when compared to the normalized US Air Force data (p<.001). Patients with an apnea-hypopnea index of greater than 20 demonstrated a decreased VO2max as compared to normalized values (p<.001). No differences in VO2max were observed after either medical or surgical therapy for OSA.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case indicates that individuals with OSA had increased VO2max compared to the normative data, but patients with an apnea-hypopnea index (AHI) > 20 demonstrated a decreased VO2max. This suggests that OSA can affect aerobic fitness, but the effect is not uniform and depends on the severity of the condition.",
+          "critical_evidence": "Patients with an apnea-hypopnea index of greater than 20 demonstrated a decreased VO2max as compared to normalized values (p<.001).",
+          "differential_considered": "While the case focuses on OSA, other conditions that affect aerobic fitness (e.g., cardiovascular disease, obesity) were not explicitly considered, but the study design and findings are specific to OSA.",
+          "usage": {
+            "prompt_tokens": 438,
+            "generated_tokens": 196,
+            "generation_time_s": 11.609
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that patients with OSA had increased VO2max compared to the normative data, but those with a high apnea-hypopnea index (>20) showed decreased VO2max. Since the question asks if OSA affects aerobic fitness in general, and the majority of OSA patients showed increased VO2max, the answer is yes. The effect of OSA on aerobic fitness depends on the severity of the condition.",
+          "critical_evidence": "Patients with an apnea-hypopnea index of greater than 20 demonstrated a decreased VO2max as compared to normalized values (p<.001).",
+          "differential_considered": "No other conditions were mentioned in the context that would affect aerobic fitness in a similar way. The study specifically focused on OSA and its impact on VO2max, so other potential causes of decreased aerobic fitness were not relevant to this analysis.",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.312
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that overall, patients with OSA had increased VO2max compared to normative data, suggesting preserved or enhanced aerobic fitness. However, those with severe OSA (AHI >20) showed decreased VO2max, indicating that severity matters. Since the question asks generally whether OSA affects aerobic fitness, and the overall cohort showed no negative impact, the best answer is 'no'.",
+          "critical_evidence": "Overall, individuals with OSA had increased VO2max when compared to the normalized US Air Force data (p<.001).",
+          "differential_considered": "Considered whether OSA universally impairs aerobic fitness, but the data show a paradoxical increase in VO2max overall, with only severe cases showing impairment — thus ruling out a universal negative effect.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 195,
+            "generation_time_s": 8.224
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Based on the provided clinical case, individuals with obstructive sleep apnea (OSA) have an increased aerobic fitness as compared to a normalized US Air Force data. This suggests that OSA does affect aerobic fitness positively. However, patients with a higher apnea-hypopnea index showed a decreased VO2max, indicating that severe OSA may have a negative impact on aerobic fitness. Therefore, the answer is yes, OSA does affect aerobic fitness.",
+          "critical_evidence": "Patients with OSA had increased VO2max compared to normalized US Air Force data, which indicates a positive effect on aerobic fitness.",
+          "differential_considered": "None of the options provided in the case seem to be incorrect, as all point towards a potential impact of OSA on aerobic fitness. The key is to understand the relationship between the severity of OSA and its effect on aerobic fitness, which is clearly indicated in the case.",
+          "usage": {
+            "prompt_tokens": 438,
+            "generated_tokens": 210,
+            "generation_time_s": 6.065
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "No differences in VO2max were observed after either medical or surgical therapy for OSA,",
+          "differential_considered": "The main differential is between short-term effects of OSA (such as acute physiological responses during sleep) and long-term effects on aerobic fitness. The study's results are ambiguous regarding the true impact of OSA on aerobic fitness in the general population, as the increase in VO2max in the OSA group prior to therapy could reflect confounding factors or transient effects rather than a true impairment.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 329,
+            "generation_time_s": 12.454
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

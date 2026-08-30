@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-822",
+  "dataset": "medqa",
+  "question_id": "822",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 62-year-old woman is brought to the emergency department because of the sudden onset of severe left eye pain, blurred vision, nausea, and vomiting. She has had an upper respiratory tract infection for the past 2 days and has been taking phenylephrine to control symptoms. Examination shows a rock-hard, injected left globe and a fixed, mid-dilated pupil on the left. Gonioscopy shows that the iris meets the cornea at an angle of 10° (N = 20–45°). Systemic pharmacotherapy is initiated. Which of the following is most likely to occur in this patient?",
+    "options": {
+      "A": "Epithelial keratopathy",
+      "B": "Xerostomia",
+      "C": "Bradycardia",
+      "D": "Metabolic acidosis",
+      "E": "Diaphoresis"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of sudden severe eye pain, blurred vision, nausea, vomiting, a rock-hard injected globe, and a fixed, mid-dilated pupil strongly suggests acute angle-closure glaucoma. Phenylephrine, a decongestant, can cause pupillary dilation, which can precipitate angle closure in susceptible individuals. Epithelial keratopathy is a common finding in acute angle-closure glaucoma due to the elevated intraocular pressure damaging the corneal epithelium.",
+          "critical_evidence": "Rock-hard, injected left globe and fixed, mid-dilated pupil on the left, gonioscopy showing an angle of 10° (N = 20–45°)",
+          "differential_considered": "Xerostomia (B): While possible with certain medications, it doesn't directly explain the acute eye findings. Bradycardia (C): Not typically associated with acute angle-closure glaucoma. Metabolic acidosis (D): Not a direct consequence of acute angle-closure glaucoma. Diaphoresis (E): While possible, it's a less specific finding than epithelial keratopathy in this context.",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 268,
+            "generation_time_s": 13.235
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a fixed, mid-dilated pupil and a 10° angle between the iris and cornea, suggesting acute angle-closure glaucoma. The use of phenylephrine, a sympathomimetic drug, likely exacerbated the condition by causing pupil dilation and iris adhesion. The sudden onset of severe eye pain, blurred vision, and systemic symptoms (nausea, vomiting) align with acute glaucoma. Epithelial keratopathy is a direct consequence of elevated intraocular pressure (IOP) damaging the corneal epithelium, making it the most likely complication. The other options (xerostomia, bradycardia, metabolic acidosis, diaphoresis) are less directly related to the acute glaucomatous process.",
+          "critical_evidence": "Gonioscopy showing a 10° angle between the iris and cornea, indicating acute angle-closure glaucoma",
+          "differential_considered": "Considered: Subarachnoid hemorrhage (ruled out by absence of headache and focal neuro deficits), optic neuritis (ruled out by absence of visual field defects and optic neuropathy), and other causes of acute glaucoma. The use of phenylephrine and the specific clinical findings strongly support acute angle-closure glaucoma with potential for epithelial keratopathy.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.352
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute angle-closure glaucoma, evidenced by severe eye pain, blurred vision, nausea/vomiting, fixed mid-dilated pupil, and a narrow anterior chamber angle (10°). Systemic pharmacotherapy (likely beta-blockers or carbonic anhydrase inhibitors) is initiated, but the most immediate and common systemic effect of acute angle-closure glaucoma is diaphoresis due to sympathetic activation from the pain and stress response. Other options are less directly related to the acute presentation.",
+          "critical_evidence": "Fixed, mid-dilated pupil and narrow anterior chamber angle (10°) confirm acute angle-closure glaucoma, which triggers a sympathetic response leading to diaphoresis.",
+          "differential_considered": "Acute open-angle glaucoma was ruled out due to the narrow angle on gonioscopy. Other causes of eye pain (e.g., corneal abrasion, uveitis) were excluded by the presence of a fixed pupil and narrow angle. Epithelial keratopathy, xerostomia, and bradycardia are not typical acute manifestations of this condition.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 267,
+            "generation_time_s": 9.359
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 14,
+            "generation_time_s": 0.361
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 1024,
+            "generation_time_s": 31.92
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

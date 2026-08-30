@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-20187289",
+  "dataset": "pubmedqa_context",
+  "question_id": "20187289",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Prescriptions as a proxy for asthma in children: a good choice?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Stock et al. (Eur Respir J 25:47-53, 2005) recently estimated asthma prevalence in Germany using claims data on prescriptions and hospital diagnoses and found high prevalence peaks in infants. Our objective was to critically assess and discuss various aspects of identifying children with asthma using prescription data. We replicated the selection procedure of Stock et al. using data on 290,919 children aged 0-17 years insured in the Gmünder ErsatzKasse (GEK) in 2005. Asthma prevalence was also estimated in a sample of 17,641 children aged 0-17 years participating in the German Health Interview and Examination Survey for Children and Adolescents (KiGGS) from 2003 to 2006. In children aged 0-4 years insured in the GEK, prevalences were found to range from 11.7 to 17.7% for boys and from 7.2 to 11.1% for girls when the criteria of Stock et al. were applied. A steady decline in prevalences was observed in older age groups. Asthma prevalence estimated in the KiGGS data showed a quite different distribution. In the age group 0-4 years, prevalences were found to range from 0 to 2.6% in boys and from 0 to 1.0% in girls; in children>4 years, prevalences were found to increase with increasing age.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study highlights discrepancies between prescription data and KiGGS data in estimating asthma prevalence in children. The prescription data, based on medication use, overestimated asthma prevalence, especially in younger children. The KiGGS data, based on self-reported symptoms and physician diagnoses, provided a more accurate picture, particularly in older children. Therefore, using prescriptions as a proxy for asthma in children is not a good choice.",
+          "critical_evidence": "The study found significant differences in asthma prevalence estimates between prescription data and KiGGS data, with prescription data overestimating prevalence, especially in younger children.",
+          "differential_considered": "Differential diagnoses considered include other respiratory conditions (e.g., viral upper respiratory infections, allergies) that might be treated with asthma medications. However, the study focuses specifically on asthma and the limitations of using prescriptions as a proxy for it.",
+          "usage": {
+            "prompt_tokens": 579,
+            "generated_tokens": 213,
+            "generation_time_s": 12.629
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Prescription data alone may not accurately identify all children with asthma, especially in infants, due to potential underdiagnosis or misdiagnosis. The significant discrepancy between prescription-based prevalence (11.7-17.7% in boys, 7.2-11.1% in girls) and KiGGS data (0-2.6% in boys, 0-1.0% in girls) suggests that relying solely on prescriptions could overestimate asthma prevalence. While prescriptions can serve as a useful proxy, they should be combined with clinical assessments for accurate diagnosis.",
+          "critical_evidence": "The large difference between prescription-based prevalence (11.7-17.7% in boys) and KiGGS data (0-2.6% in boys) demonstrates that prescription data alone cannot reliably identify all children with asthma, particularly in younger age groups.",
+          "differential_considered": "Underdiagnosis in KiGGS vs. overdiagnosis in prescription data; the study's finding that prescription-based prevalence is significantly higher than clinical diagnosis suggests that prescriptions may not capture the full clinical picture of asthma in children.",
+          "usage": {
+            "prompt_tokens": 560,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.384
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Prescription data as a proxy for asthma in children shows significant discrepancies with gold-standard survey data (KiGGS), particularly in young children where prescription-based prevalence is much higher than survey-based prevalence. This suggests prescription data may overestimate asthma prevalence due to factors like overprescription, misdiagnosis, or non-specific use of asthma medications. The divergence in age-specific patterns further undermines its reliability as a proxy.",
+          "critical_evidence": "In children aged 0-4 years, prescription-based asthma prevalence ranged from 7.2–17.7% in GEK data, while KiGGS survey data showed 0–2.6% in boys and 0–1.0% in girls — a stark contrast indicating poor validity of prescription data as a proxy.",
+          "differential_considered": "Other potential explanations like underdiagnosis in surveys or overprescription in claims data were considered, but the magnitude of discrepancy between two independent datasets (GEK claims vs. KiGGS survey) strongly suggests prescription data is not a reliable proxy, ruling out confounding factors as the primary cause.",
+          "usage": {
+            "prompt_tokens": 553,
+            "generated_tokens": 255,
+            "generation_time_s": 10.728
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 558,
+            "generated_tokens": 87,
+            "generation_time_s": 2.54
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other diagnostic methods (e.g., clinical interviews, spirometry) are more accurate for diagnosing asthma in older children and adults, but the case specifically addresses the appropriateness of using prescriptions as a proxy in infants, where the data do not align with established diagnoses.",
+          "usage": {
+            "prompt_tokens": 588,
+            "generated_tokens": 285,
+            "generation_time_s": 10.767
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

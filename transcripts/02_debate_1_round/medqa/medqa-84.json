@@ -1,0 +1,211 @@
+{
+  "sample_id": "medqa-84",
+  "dataset": "medqa",
+  "question_id": "84",
+  "category": "02_debate_1_round",
+  "question": {
+    "text": "A 26-year-old woman (gravida 3 para 1) with no prenatal care delivers a boy at 37 weeks gestation. His Apgar score is 5 at 1 minute and 8 at 5 minutes. His weight is 2.1 kg (4.2 lb) and length is 47 cm (1 ft 7 in). The mother’s history is significant for chronic pyelonephritis, atrial fibrillation, and gastroesophageal reflux disease. She has a 5-pack-year smoking history and also reports alcohol consumption during pregnancy. Examination of the infant shows a short depressed nasal bridge, wide nose, brachydactyly, and a short neck. Ophthalmoscopy reveals bilateral cataracts. What is the most likely cause of the newborn’s symptoms?",
+    "options": {
+      "A": "Omeprazole",
+      "B": "Gentamicin",
+      "C": "Alcohol",
+      "D": "Atenolol",
+      "E": "Warfarin"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant's physical features (short nasal bridge, wide nose, brachydactyly, short neck, and cataracts) strongly suggest Fetal Alcohol Syndrome (FAS). The mother's alcohol consumption during pregnancy is a significant risk factor for FAS. While other options could potentially cause some of these findings, the constellation of features points most strongly to FAS.",
+          "critical_evidence": "The infant's physical features (short nasal bridge, wide nose, brachydactyly, short neck, and cataracts) are highly suggestive of Fetal Alcohol Syndrome (FAS).",
+          "differential_considered": "Omeprazole (A) is a proton pump inhibitor used to treat GERD, and while it can have some side effects, it is not typically associated with the specific physical features described in the infant. Gentamicin (B) is an aminoglycoside antibiotic that can cause ototoxicity and nephrotoxicity, but not the described physical features. Atenolol (D) is a beta-blocker used to treat hypertension and atrial fibrillation, and while it can have side effects, it is not typically associated with the specific physical features described in the infant. Warfarin (E) is an anticoagulant that can cause fetal warfarin syndrome (nasal hypoplasia, stippled epiphyses, and other skeletal abnormalities), but the described features are more characteristic of FAS.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 319,
+            "generation_time_s": 15.795
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The infant's bilateral cataracts and other physical findings are consistent with fetal exposure to gentamicin, a nephrotoxic antibiotic commonly used to treat pyelonephritis. The mother's history of chronic pyelonephritis is the strongest supporting evidence for this diagnosis.",
+          "critical_evidence": "Bilateral cataracts in a newborn are a classic sign of fetal exposure to gentamicin",
+          "differential_considered": "While alcohol, smoking, and atrial fibrillation are risk factors, they don't directly cause cataracts. Omeprazole and atenolol are unlikely to cause cataracts in utero. Warfarin (E) is an anticoagulant that could cause bleeding but not cataracts.",
+          "usage": {
+            "prompt_tokens": 433,
+            "generated_tokens": 187,
+            "generation_time_s": 8.735
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant presents with classic features of fetal alcohol syndrome (FAS), including growth restriction, facial dysmorphisms (short depressed nasal bridge, wide nose, short neck), brachydactyly, and bilateral cataracts. The mother’s alcohol consumption during pregnancy is a direct etiological factor. While other teratogens are listed, none match the constellation of findings as precisely as alcohol.",
+          "critical_evidence": "Bilateral cataracts and facial dysmorphisms (short depressed nasal bridge, wide nose, short neck) are hallmark features of fetal alcohol syndrome.",
+          "differential_considered": "Gentamicin (B) can cause sensorineural hearing loss and renal toxicity but not cataracts or facial dysmorphisms. Atenolol (D) causes growth restriction and congenital heart defects but not cataracts or facial dysmorphisms. Warfarin (E) causes skeletal abnormalities and hemorrhage, not cataracts. Omeprazole (A) is not associated with these findings. Alcohol (C) is the only teratogen known to cause all observed features.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 257,
+            "generation_time_s": 9.02
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "your step-by-step clinical reasoning",
+          "critical_evidence": "the most important finding that supports your answer",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 99,
+            "generation_time_s": 2.414
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "The mother's alcohol consumption during pregnancy is the most critical risk factor for the newborn's cataracts, brachydactyly, and other features consistent with congenital hypothyroidism.",
+          "differential_considered": "Other options (A, B, D, E) are unrelated to the described neonatal features. While cataracts and hypothyroidism can rarely be associated with maternal medications or anticoagulant effects, the strongest and most established association here is with alcohol exposure in utero.",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 295,
+            "generation_time_s": 9.298
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "B": 1,
+        "A": 2
+      },
+      "agreement_ratio": 0.4,
+      "position_changes": []
+    },
+    {
+      "round": 1,
+      "kind": "debate",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "While Panelist B's argument about gentamicin is compelling, the constellation of features, particularly the facial dysmorphisms (short nasal bridge, wide nose, short neck) and cataracts, is more strongly associated with FAS. The mother's history of alcohol consumption during pregnancy is a direct etiological factor, making FAS the most likely diagnosis.",
+          "critical_evidence": "The infant's facial dysmorphisms (short nasal bridge, wide nose, short neck) and cataracts are hallmark features of fetal alcohol syndrome.",
+          "counter_argument": "Panelist B's argument about gentamicin is valid, but the overall clinical picture points more strongly to FAS given the mother's alcohol history and the specific facial features.",
+          "usage": {
+            "prompt_tokens": 1066,
+            "generated_tokens": 197,
+            "generation_time_s": 10.367
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "Upon reviewing my colleagues' arguments, I recognize that while gentamicin exposure could cause cataracts, the constellation of facial dysmorphisms (short nasal bridge, wide nose, brachydactyly, short neck) and growth restriction (2.1 kg at 37 weeks) strongly align with Fetal Alcohol Syndrome (FAS). Alcohol consumption during pregnancy is a direct and well-documented teratogen for FAS, and the mother's history of alcohol use during pregnancy is the most consistent explanation for these findings. The cataracts, while concerning, are less specific to gentamicin exposure in this context than the facial features and growth parameters.",
+          "critical_evidence": "The infant's facial dysmorphisms (short depressed nasal bridge, wide nose, brachydactyly, short neck) and growth restriction (2.1 kg at 37 weeks) are hallmark features of Fetal Alcohol Syndrome (FAS).",
+          "counter_argument": "While gentamicin exposure could cause cataracts, the combination of facial dysmorphisms and growth restriction is more consistent with Fetal Alcohol Syndrome than antibiotic exposure.",
+          "usage": {
+            "prompt_tokens": 1124,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.762
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "The constellation of findings — including bilateral cataracts, facial dysmorphisms (short depressed nasal bridge, wide nose, short neck), and brachydactyly — remains most consistent with Fetal Alcohol Syndrome. While gentamicin can cause cataracts, it does not typically cause the full spectrum of facial dysmorphisms or brachydactyly seen here. Alcohol exposure is the only teratogen in the options that explains all features simultaneously.",
+          "critical_evidence": "Bilateral cataracts and facial dysmorphisms (short depressed nasal bridge, wide nose, short neck) are hallmark features of Fetal Alcohol Syndrome, and the mother’s alcohol consumption during pregnancy is the only teratogen in the options that explains this full constellation.",
+          "counter_argument": "Gentamicin can cause cataracts, but it does not typically cause the full spectrum of facial dysmorphisms or brachydactyly seen here, and there is no evidence the mother received gentamicin during pregnancy.",
+          "usage": {
+            "prompt_tokens": 1101,
+            "generated_tokens": 245,
+            "generation_time_s": 8.689
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "",
+          "usage": {
+            "prompt_tokens": 1122,
+            "generated_tokens": 102,
+            "generation_time_s": 2.548
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.97,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "While gentamicin can cause ophthalmologic abnormalities, the combination of facial features and cataracts is not typical of its effects, and the question emphasizes the mother's alcohol use as a reported history, making FAS the more likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 1187,
+            "generated_tokens": 248,
+            "generation_time_s": 7.748
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": [
+        {
+          "model": "rnj1_8b",
+          "model_name": "Rnj1-8b",
+          "from": "B",
+          "to": "C"
+        }
+      ]
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_debate_consensus",
+    "n_debate_rounds": 1,
+    "escalated": false
+  }
+}

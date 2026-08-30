@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-494",
+  "dataset": "medqa",
+  "question_id": "494",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old man with a past medical history of hypertension, hyperlipidemia, and insulin dependent diabetes mellitus presents to the ED with a sudden onset of substernal chest pain and pressure that radiated into his neck and down his left arm. The pain started a few hours ago while he was watching television. It was not relieved by rest. He was given aspirin by EMS en route to the hospital. His current medications are glargine insulin, hydrochlorothiazide, and atorvastatin. He has not had any similar episodes previously. His family history is significant for an uncle who had a heart attack at age 45. He drinks one drink every other day and has a 25-pack-year smoking history. His temperature is 99.0°F (37.2°C), blood pressure is 150/90 mmHg, pulse is 63/minute, respirations are 22/minute, and point-of-care glucose level is 110 mg/dl. Troponin level is elevated. EKG is shown in Figure A. What is the most likely etiology of this patient’s presentation?",
+    "options": {
+      "A": "Left main coronary artery occlusion",
+      "B": "Right main coronary artery occlusion",
+      "C": "Left circumflex artery occlusion",
+      "D": "Left anterior descending artery occlusion",
+      "E": "Coronary vasospasm"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic symptoms of acute coronary syndrome (ACS), including substernal chest pain radiating to the neck and left arm, unrelieved by rest, and a family history of early heart disease. The elevated troponin level confirms myocardial injury. The EKG shows ST-segment elevation in leads V1-V4, indicating an anterior wall myocardial infarction. Given the location of the ST-segment elevation, the most likely culprit artery is the left anterior descending (LAD) artery, which supplies the anterior wall of the left ventricle.",
+          "critical_evidence": "ST-segment elevation in leads V1-V4 strongly suggests an anterior wall myocardial infarction, which is most commonly caused by LAD occlusion.",
+          "differential_considered": "Left main coronary artery occlusion: While possible, left main occlusion typically presents with more diffuse ST-segment changes and hemodynamic instability. Right main coronary artery occlusion: Less likely to cause ST-segment elevation in V1-V4. Left circumflex artery occlusion: Can cause lateral or posterior MI, but less likely to present with isolated anterior ST-segment elevation. Coronary vasospasm: Can cause transient ST-segment elevation, but the patient's history and troponin elevation make this less likely.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 293,
+            "generation_time_s": 14.513
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's classic presentation of substernal chest pain radiating to the left arm, elevated troponin, and EKG findings consistent with ST-elevation in leads V3-V6 strongly suggest an acute anterior wall myocardial infarction. The left anterior descending (LAD) artery supplies the anterior wall, making it the most likely occluded vessel.",
+          "critical_evidence": "ST-elevation in leads V3-V6 on EKG",
+          "differential_considered": "Considered right main artery (ruled out by pain distribution), left circumflex (less likely given pain pattern), vasospasm (ruled out by elevated troponin), and left main (ruled out by pain location and EKG pattern)",
+          "usage": {
+            "prompt_tokens": 511,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.482
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic ischemic chest pain radiating to neck and left arm, elevated troponin, and a history of risk factors including diabetes, smoking, and family history. The EKG (Figure A) would likely show ST-segment elevation in anterior leads (V1-V4), which is pathognomonic for left anterior descending artery (LAD) occlusion. This is the most common culprit artery in acute myocardial infarction with anterior wall involvement.",
+          "critical_evidence": "ST-segment elevation in anterior leads (V1-V4) on EKG, consistent with LAD occlusion.",
+          "differential_considered": "Right main occlusion (B) would cause inferior or right ventricular infarction; circumflex occlusion (C) causes inferior wall MI; left main occlusion (A) typically presents with more severe, unstable angina and often has ST elevation in multiple leads but is less common as initial presentation; vasospasm (E) is less likely given the prolonged pain and elevated troponin, and typically presents with reversible ST changes.",
+          "usage": {
+            "prompt_tokens": 494,
+            "generated_tokens": 254,
+            "generation_time_s": 8.919
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 509,
+            "generated_tokens": 147,
+            "generation_time_s": 3.571
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A, C, and E (coronary vasospasm) were considered but are less likely given the acute, time-course of symptoms and the typical EKG pattern for LAD occlusion. B (right main occlusion) is less likely as right-sided infarcts usually have different EKG and symptom patterns.",
+          "usage": {
+            "prompt_tokens": 545,
+            "generated_tokens": 263,
+            "generation_time_s": 8.296
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-181",
+  "dataset": "medqa",
+  "question_id": "181",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 15-year-old Caucasian female presents with Parkinson-like symptoms. Serum analysis shows increased levels of free copper and elevated liver enzymes. What test would prove most helpful in diagnosing the patient's underlying disease?",
+    "options": {
+      "A": "Serum detection of anti-myelin antibodies",
+      "B": "Slit lamp examination",
+      "C": "Vitamin B12 test",
+      "D": "CT scan",
+      "E": "Reflex test"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of Parkinson-like symptoms, elevated free copper, and elevated liver enzymes strongly suggests Wilson's disease. A slit lamp examination is crucial in Wilson's disease to detect Kayser-Fleischer rings, which are copper deposits in the cornea and are a hallmark of the disease.",
+          "critical_evidence": "Kayser-Fleischer rings in the cornea",
+          "differential_considered": "A: Serum detection of anti-myelin antibodies is relevant for demyelinating diseases like multiple sclerosis, which doesn't fit the clinical picture. C: Vitamin B12 test is useful for diagnosing B12 deficiency, which can cause neurological symptoms, but doesn't explain the elevated copper and liver enzymes. D: CT scan is a general imaging tool and wouldn't be the most specific test to diagnose Wilson's disease. E: Reflex test is a basic neurological assessment, but not diagnostic for the underlying cause of the Parkinson-like symptoms.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 241,
+            "generation_time_s": 11.91
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's Parkinson-like symptoms combined with elevated free copper and liver enzymes suggest a possible autoimmune disorder affecting the nervous system. Increased copper levels may indicate Wilson's disease or an autoimmune process affecting copper metabolism, while elevated liver enzymes point to potential liver involvement. Anti-myelin antibodies would directly indicate an autoimmune attack on myelin, which is central to Parkinson's symptoms and could explain the clinical presentation.",
+          "critical_evidence": "The presence of anti-myelin antibodies would directly confirm an autoimmune process affecting the nervous system, which is the most likely explanation for the Parkinson-like symptoms in this context.",
+          "differential_considered": "Wilson's disease, autoimmune encephalitis, and drug-induced parkinsonism were considered, but the most direct test to distinguish autoimmune involvement is anti-myelin antibody detection.",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 191,
+            "generation_time_s": 8.895
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's Parkinson-like symptoms combined with elevated free copper and liver enzymes strongly suggest Wilson disease, a genetic disorder of copper metabolism. Vitamin B12 deficiency can cause neurological symptoms resembling Parkinsonism, but it does not explain the copper elevation or liver enzyme abnormalities. Testing for vitamin B12 levels is a logical first step to rule out this mimic. Other options (anti-myelin antibodies, slit lamp, CT, reflex test) are not directly relevant to copper metabolism or liver dysfunction.",
+          "critical_evidence": "Elevated free copper and liver enzymes are hallmark features of Wilson disease, and vitamin B12 deficiency is a key differential that must be ruled out first due to its potential to cause similar neurological symptoms.",
+          "differential_considered": "Wilson disease (most likely), vitamin B12 deficiency (considered due to neurological symptoms), and other copper-related disorders. Ruled out: autoimmune encephalitis (no antibody evidence), Wilson disease is supported by copper and liver findings, but vitamin B12 test is the most immediate diagnostic step to exclude a common mimic.",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 249,
+            "generation_time_s": 8.733
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 101,
+            "generation_time_s": 2.43
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Wilson's disease (copper accumulation), Parkinson's disease (not supported by lab findings), vitamin B12 deficiency (can cause movement symptoms), other metabolic or neurodegenerative disorders (not indicated by the lab results), and other copper-related syndromes (ruled out due to the specific clinical context and lab findings).",
+          "usage": {
+            "prompt_tokens": 339,
+            "generated_tokens": 268,
+            "generation_time_s": 8.364
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

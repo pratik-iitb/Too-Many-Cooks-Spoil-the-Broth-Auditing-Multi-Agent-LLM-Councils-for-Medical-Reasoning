@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-312",
+  "dataset": "medqa",
+  "question_id": "312",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 77-year-old woman presents to a general medical clinic with progressive frontal headaches. Her symptoms began 2 months ago and have increased in intensity and frequency. She reports that her headaches are worse in the morning and often wake her from sleep. Her vital signs are stable. Neurologic examination reveals no focal deficits, but brain imaging reveals a mass lesion and biopsy is performed, with histology depicted in Figure A. Which of the following is true regarding this patient's illness?",
+    "options": {
+      "A": "It is the most common primary brain tumor",
+      "B": "The specimen demonstrates psammoma bodies",
+      "C": "The patient's disease would be consistent with the MRI shown in Figure B",
+      "D": "The tumor arises from arachnoid cells external to the brain",
+      "E": "The patient's prognosis is good since the tumor is slow-growing"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of progressive frontal headaches, worse in the morning, and a mass lesion on brain imaging strongly suggests meningioma. The presence of psammoma bodies on biopsy is a characteristic feature of meningiomas. The other options are less likely given the clinical picture.",
+          "critical_evidence": "The presence of psammoma bodies on biopsy.",
+          "differential_considered": "A: While meningiomas are common, they are not the *most* common primary brain tumor. B: Psammoma bodies are highly suggestive of meningioma. C: The MRI in Figure B would likely show a meningioma. D: Meningiomas arise from arachnoid cap cells, not external to the brain. E: While meningiomas can be slow-growing, the prognosis depends on the tumor's location and size, not just its growth rate.",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 221,
+            "generation_time_s": 10.97
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's progressive frontal headaches with morning worsening and no focal neurologic deficits suggest a slow-growing intracranial mass. The presence of a mass lesion on imaging and the histology showing psammoma bodies strongly indicates a meningioma. Meningiomas are the most common primary brain tumors (Option A is partially correct but not the best answer), and they arise from arachnoid cells (Option D is incorrect as they arise from meningothelial cells, not arachnoid cells). The presence of psammoma bodies in the histology confirms the diagnosis of a meningioma (Option B is correct). While meningiomas are typically slow-growing (Option E is partially correct), the prognosis depends on the grade and location, and the patient's symptoms suggest a more aggressive or symptomatic tumor, making the prognosis less uniformly good.",
+          "critical_evidence": "The histology demonstrating psammoma bodies is the key evidence supporting the diagnosis of a meningioma.",
+          "differential_considered": "Considered: Primary brain tumors (gliomas, metastases), secondary causes of headaches (bleeding, aneurysms), and other intracranial masses. Ruled out: Metastases (no focal deficits, stable vitals), primary brain tumors with different histology (e.g., oligodendrogliomas, astrocytomas).",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.739
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s presentation of progressive frontal headaches worsening in the morning, along with a mass lesion on imaging, is highly suggestive of a meningioma. Histology showing psammoma bodies is a hallmark feature of meningiomas, supporting this diagnosis. While other options may be partially true, psammoma bodies are the most specific and diagnostic histological finding in this context.",
+          "critical_evidence": "Histology depicts psammoma bodies, which are pathognomonic for meningiomas.",
+          "differential_considered": "Metastatic disease, glioma, and pituitary adenoma were considered but ruled out by the absence of systemic symptoms, lack of contrast enhancement pattern typical of gliomas, and absence of pituitary signs. The histology definitively points to meningioma.",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 193,
+            "generation_time_s": 6.794
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 125,
+            "generation_time_s": 3.047
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include glioma (most likely given the mass lesion), meningioma, metastasis, or other primary brain tumors. However, without histopathologic details, the only statement that can be definitively supported by the imaging is that a mass lesion is present, consistent with a brain tumor, but not enough to specify the type or prognosis. Thus, C is the best answer as it directly relates to the imaging result.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 265,
+            "generation_time_s": 8.354
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

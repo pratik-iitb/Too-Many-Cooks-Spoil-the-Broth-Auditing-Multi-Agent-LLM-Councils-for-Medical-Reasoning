@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1366",
+  "dataset": "medqa",
+  "question_id": "1366",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 64-year-old man presents to his primary care physician for follow-up of a severe, unrelenting, productive cough of 2 years duration. The medical history includes type 2 diabetes mellitus, which is well-controlled with insulin. He has a 25-pack-year smoking history and is an active smoker. The blood pressure is 135/88 mm Hg, the pulse is 94/min, the temperature is 36.9°C (98.5°F), and the respiratory rate is 18/min. Bilateral wheezes and crackles are heard on auscultation. A chest X-ray reveals cardiomegaly, increased lung markings, and a flattened diaphragm. Which of the following is most likely in this patient?",
+    "options": {
+      "A": "Increased right ventricle compliance",
+      "B": "Increased pulmonary arterial resistance",
+      "C": "Increased cerebral vascular resistance",
+      "D": "Decreased carbon dioxide content of the arterial blood",
+      "E": "Increased pH of the arterial blood"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's chronic productive cough, smoking history, and chest X-ray findings (cardiomegaly, increased lung markings, flattened diaphragm) strongly suggest chronic obstructive pulmonary disease (COPD), specifically emphysema. The most likely consequence of emphysema is increased pulmonary vascular resistance due to destruction of the alveolar-capillary interface, leading to pulmonary hypertension.",
+          "critical_evidence": "The combination of chronic productive cough, smoking history, and radiographic findings (cardiomegaly, increased lung markings, flattened diaphragm) is highly suggestive of COPD, particularly emphysema.",
+          "differential_considered": "A: Increased right ventricle compliance is more characteristic of pulmonary hypertension due to left heart failure, which is less likely given the patient's well-controlled diabetes. C: Increased cerebral vascular resistance is not a direct consequence of COPD. D: Decreased carbon dioxide content of the arterial blood is not a typical finding in COPD; patients often retain CO2. E: Increased pH of the arterial blood is not a typical finding in COPD; patients often have respiratory acidosis.",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 254,
+            "generation_time_s": 12.59
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's history of smoking, chronic cough, and radiographic findings of cardiomegaly and increased lung markings suggest chronic obstructive pulmonary disease (COPD) with possible cor pulmonale. Cor pulmonale is right-sided heart failure due to pulmonary hypertension, which increases pulmonary arterial resistance. This explains the right ventricular hypertrophy and the associated symptoms.",
+          "critical_evidence": "Bilateral wheezes and crackles on auscultation, along with the history of smoking and chronic cough, strongly suggest COPD, which can lead to cor pulmonale.",
+          "differential_considered": "While diabetes and hypertension are present, they are less likely to cause the specific findings of COPD-related cor pulmonale. The patient's smoking history and chronic cough make COPD the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 197,
+            "generation_time_s": 9.117
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a long smoking history, chronic productive cough, bilateral wheezes and crackles, and chest X-ray findings of cardiomegaly, increased lung markings, and flattened diaphragm — all consistent with chronic obstructive pulmonary disease (COPD) with cor pulmonale. Cor pulmonale is characterized by right ventricular hypertrophy and increased pulmonary arterial resistance due to chronic hypoxia and pulmonary vascular remodeling. The other options do not align with the pathophysiology of cor pulmonale.",
+          "critical_evidence": "Chest X-ray findings of cardiomegaly, increased lung markings, and flattened diaphragm — classic signs of chronic lung disease with right heart strain (cor pulmonale).",
+          "differential_considered": "Chronic bronchitis and emphysema were considered, but the X-ray findings and chronic cough point to COPD with cor pulmonale. Pulmonary hypertension (increased pulmonary arterial resistance) is the hallmark of cor pulmonale, making B the best answer. Other options (e.g., cerebral vascular resistance, CO2 content, pH) are not directly related to this specific pathophysiology.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 270,
+            "generation_time_s": 9.497
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not provided in the options.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 10,
+            "generation_time_s": 0.265
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Pulmonary hypertension (due to COPD or idiopathic pulmonary fibrosis) was considered, but other options like increased cerebral or arterial CO2 resistance are less supported by the clinical findings. Decreased arterial CO2 content (D) would suggest respiratory failure, which is not the primary focus here. Increased pH (E) could occur in respiratory acidosis but is not the underlying cause of his symptoms. Increased right ventricle compliance (A) is unlikely given the imaging findings of pulmonary hypertension and right heart enlargement.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 306,
+            "generation_time_s": 9.544
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

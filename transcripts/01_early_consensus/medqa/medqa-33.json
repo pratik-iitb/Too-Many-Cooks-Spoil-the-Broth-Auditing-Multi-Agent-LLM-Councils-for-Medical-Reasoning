@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-33",
+  "dataset": "medqa",
+  "question_id": "33",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 56-year-old man presents for a follow-up regarding his management for type 2 diabetes mellitus (DM). He was diagnosed with type 2 DM about 7 years ago and was recently started on insulin therapy because oral agents were insufficient to control his glucose levels. He is currently following a regimen combining insulin lispro and neutral protamine Hagedorn (NPH) insulin. He is taking insulin lispro 3 times a day before meals and NPH insulin once in the morning. He has been on this regimen for about 2 months. He says that his glucose reading at night averages around 200 mg/dL and remains close to 180 mg/dL before his shot of NPH in the morning. The readings during the rest of the day range between 100–120 mg/dL. The patient denies any changes in vision or tingling or numbness in his hands or feet. His latest HbA1C level was 6.2%. Which of the following adjustments to his insulin regimen would be most effective in helping this patient achieve better glycemic control?",
+    "options": {
+      "A": "Add another dose of insulin lispro in the evening.",
+      "B": "Add another dose of NPH in the evening.",
+      "C": "Add insulin glargine to the current regime.",
+      "D": "Replace lispro with insulin aspart.",
+      "E": "Reduce a dose of insulin lispro."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's nocturnal hyperglycemia (200 mg/dL) and morning hyperglycemia (180 mg/dL) despite a morning NPH dose suggest that the NPH insulin is not providing adequate coverage overnight. Adding a long-acting insulin like insulin glargine would provide a more consistent basal insulin level, addressing the nocturnal hyperglycemia. The HbA1c of 6.2% indicates good overall control, and the patient denies symptoms of hypoglycemia or neuropathy, making other adjustments less likely to be the most effective.",
+          "critical_evidence": "The patient's nocturnal hyperglycemia (200 mg/dL) and morning hyperglycemia (180 mg/dL) despite a morning NPH dose.",
+          "differential_considered": "Adding another dose of insulin lispro in the evening (A) might worsen postprandial hyperglycemia. Adding another dose of NPH in the evening (B) is unlikely to be effective as the morning NPH dose is already contributing to the morning hyperglycemia. Replacing lispro with insulin aspart (D) might not address the nocturnal hyperglycemia as effectively as a basal insulin. Reducing a dose of insulin lispro (E) might not be sufficient to control the nocturnal hyperglycemia, and could lead to hypoglycemia during the day.",
+          "usage": {
+            "prompt_tokens": 522,
+            "generated_tokens": 296,
+            "generation_time_s": 14.61
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's high fasting glucose in the morning (180 mg/dL) and elevated nighttime glucose (200 mg/dL) suggest poor basal insulin coverage. The current regimen with lispro before meals and NPH in the morning provides inadequate overnight and early morning control. Adding a lispro dose in the evening would better cover the postprandial and nocturnal glucose excursions by acting while the NPH is still active, improving overall glycemic control.",
+          "critical_evidence": "Elevated fasting and nighttime glucose levels despite NPH coverage indicate insufficient basal insulin action.",
+          "differential_considered": "Considered insulin resistance, dawn phenomenon, and diet/lifestyle factors, but ruled out as the patient's HbA1c is within target range and no symptoms of neuropathy are present.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.546
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has persistent nocturnal hyperglycemia (average 200 mg/dL) and elevated fasting glucose (180 mg/dL) despite insulin lispro (mealtime) and NPH (intermediate-acting) insulin. This pattern suggests inadequate basal insulin coverage during the night. Adding insulin glargine, a long-acting insulin, would provide more consistent basal coverage and address the nocturnal hyperglycemia without disrupting mealtime control. The HbA1c of 6.2% is acceptable, but the pattern of glucose readings indicates room for improvement in nocturnal control.",
+          "critical_evidence": "Nighttime glucose averaging 200 mg/dL and fasting glucose of 180 mg/dL before NPH indicate insufficient basal insulin coverage.",
+          "differential_considered": "Adding lispro (A) or NPH (B) might worsen hypoglycemia risk or not address the root issue. Replacing lispro (D) is unnecessary as it’s effective for prandial control. Reducing lispro (E) could worsen postprandial control. Glargine (C) is the best choice for addressing nocturnal hyperglycemia with minimal risk of hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 291,
+            "generation_time_s": 10.185
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 510,
+            "generated_tokens": 18,
+            "generation_time_s": 0.461
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "- Insufficient basal insulin coverage (best supported by his glucose pattern)\n    - Possible overcorrection or incorrect NPH dose\n    - Hypoglycemia risk with more prandial insulin",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 358,
+            "generation_time_s": 11.246
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

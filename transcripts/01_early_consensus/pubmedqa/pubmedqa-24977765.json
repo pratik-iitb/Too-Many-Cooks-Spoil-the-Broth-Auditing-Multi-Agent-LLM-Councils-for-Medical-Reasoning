@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-24977765",
+  "dataset": "pubmedqa",
+  "question_id": "24977765",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are pediatric concussion patients compliant with discharge instructions?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The question lacks specific clinical data to determine compliance. It's possible patients are compliant, non-compliant, or somewhere in between. Without further information, a definitive answer is not possible.",
+          "critical_evidence": "Lack of specific clinical information",
+          "differential_considered": "If the case included information about the patient's symptoms, reported adherence to instructions, or observed behavior, the answer could be more definitive. For example, if the patient reported feeling well and following instructions, the answer would be 'A'. If the patient reported symptoms and did not follow instructions, the answer would be 'B'.",
+          "usage": {
+            "prompt_tokens": 251,
+            "generated_tokens": 211,
+            "generation_time_s": 10.428
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Pediatric concussion patients often struggle with adherence to discharge instructions due to cognitive impairments, memory deficits, and the complex nature of post-injury management. While some may follow instructions, the high prevalence of non-compliance in this population, combined with the potential for delayed symptom onset, suggests that compliance cannot be assumed. The lack of objective markers for compliance and the variability in patient understanding and motivation support the 'no' option as the most cautious and evidence-based choice.",
+          "critical_evidence": "The complex nature of concussion management and the cognitive impairments common in pediatric patients make compliance with discharge instructions inherently uncertain.",
+          "differential_considered": "Considered factors include age-related cognitive development, patient motivation, and the potential for delayed symptom presentation. These factors collectively increase the likelihood of non-compliance compared to adult concussion patients.",
+          "usage": {
+            "prompt_tokens": 252,
+            "generated_tokens": 197,
+            "generation_time_s": 9.176
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Pediatric concussion patients often face challenges with adherence due to age-related cognitive and behavioral factors, such as difficulty understanding complex instructions or lack of perceived severity. Compliance is not universally poor, but it is frequently suboptimal, making 'maybe' the most balanced and evidence-based choice. Studies show variable compliance rates, with no consistent trend toward full adherence.",
+          "critical_evidence": "Pediatric patients frequently demonstrate inconsistent adherence to concussion protocols due to developmental immaturity and lack of long-term memory for follow-up instructions.",
+          "differential_considered": "Full compliance (A) is unlikely due to known pediatric adherence challenges; complete non-compliance (B) is also inaccurate as some children do follow instructions. Therefore, 'maybe' best reflects the nuanced reality.",
+          "usage": {
+            "prompt_tokens": 223,
+            "generated_tokens": 182,
+            "generation_time_s": 6.364
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 250,
+            "generated_tokens": 71,
+            "generation_time_s": 1.726
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.65,
+          "clinical_reasoning": "Pediatric concussion patients often have cognitive and emotional symptoms that may impair their ability to fully understand or remember discharge instructions. While some may comply, compliance is variable due to age-related communication challenges and potential post-injury mental fog. The best answer reflects this uncertainty rather than a definitive 'yes' or 'no'.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 163,
+            "generation_time_s": 5.131
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

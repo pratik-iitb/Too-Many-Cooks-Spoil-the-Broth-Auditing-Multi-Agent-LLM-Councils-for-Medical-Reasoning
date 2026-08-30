@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-784",
+  "dataset": "mmlu",
+  "question_id": "784",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following disorders does not show X-linked inheritance?",
+    "options": {
+      "A": "Duchenne muscular dystrophy",
+      "B": "Tay-Sachs disease",
+      "C": "Haemophilia A",
+      "D": "Haemophilia B"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Duchenne muscular dystrophy, Haemophilia A, and Haemophilia B are all X-linked recessive disorders. Tay-Sachs disease is an autosomal recessive disorder. Therefore, Tay-Sachs disease does not follow X-linked inheritance.",
+          "critical_evidence": "Tay-Sachs disease is an autosomal recessive disorder, while the others are X-linked recessive.",
+          "differential_considered": "Duchenne muscular dystrophy, Haemophilia A, and Haemophilia B are all X-linked recessive disorders, making them likely candidates. Autosomal recessive disorders like Cystic Fibrosis and Sickle Cell Anemia were considered, but they were ruled out because they are not X-linked.",
+          "usage": {
+            "prompt_tokens": 273,
+            "generated_tokens": 181,
+            "generation_time_s": 9.112
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Duchenne muscular dystrophy, Haemophilia A, and Haemophilia B are all X-linked recessive disorders caused by mutations in genes on the X chromosome. Tay-Sachs disease, however, is an autosomal recessive disorder caused by mutations in the HEXA gene on chromosome 15, not an X-linked condition.",
+          "critical_evidence": "Tay-Sachs disease is caused by mutations in the HEXA gene on chromosome 15, not on the X chromosome.",
+          "differential_considered": "None of the other options (A, C, D) are X-linked disorders, but they were considered to confirm that B is the correct answer. All three (A, C, D) are X-linked recessive disorders, while B is autosomal recessive.",
+          "usage": {
+            "prompt_tokens": 274,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.396
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Duchenne muscular dystrophy, Haemophilia A, and Haemophilia B are all X-linked recessive disorders, primarily affecting males. Tay-Sachs disease, however, is an autosomal recessive disorder caused by mutations in the HEXA gene, and thus does not follow X-linked inheritance patterns.",
+          "critical_evidence": "Tay-Sachs disease is inherited in an autosomal recessive manner, unlike the X-linked inheritance of the other three disorders.",
+          "differential_considered": "Considered all three X-linked disorders (A, C, D) as they are classic examples of X-linked inheritance; ruled out Tay-Sachs (B) because it is autosomal recessive, not X-linked.",
+          "usage": {
+            "prompt_tokens": 245,
+            "generated_tokens": 175,
+            "generation_time_s": 6.245
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.8,
+          "clinical_reasoning": "Duchenne muscular dystrophy is an X-linked recessive disorder characterized by progressive muscle weakness and wasting. Tay-Sachs disease is an autosomal recessive disorder characterized by the accumulation of GM2 ganglioside in the central nervous system. Haemophilia A and Haemophilia B are both X-linked recessive disorders characterized by deficiencies in clotting factors VIII and IX, respectively. However, Tay-Sachs disease does not show X-linked inheritance, making it the correct answer.",
+          "critical_evidence": "Tay-Sachs disease is autosomal recessive.",
+          "differential_considered": "None of the other options were considered differentials as they all show X-linked inheritance patterns.",
+          "usage": {
+            "prompt_tokens": 272,
+            "generated_tokens": 177,
+            "generation_time_s": 4.378
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Duchenne muscular dystrophy (A), haemophilia A (C), and haemophilia B (D) are all known to be X-linked recessive disorders, meaning they primarily affect males unless a carrier female has a spontaneous mutation. Tay-Sachs disease (B) is an autosomal recessive disorder, not X-linked, so it does not follow X-linked inheritance patterns.",
+          "critical_evidence": "Tay-Sachs disease is autosomal recessive, unlike the other options which are X-linked.",
+          "differential_considered": "I considered the inheritance patterns of each disorder: X-linked recessive (A, C, D) vs. autosomal recessive (B). Tay-Sachs is classic autosomal recessive, so it does not fit the X-linked criteria.",
+          "usage": {
+            "prompt_tokens": 301,
+            "generated_tokens": 193,
+            "generation_time_s": 6.208
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

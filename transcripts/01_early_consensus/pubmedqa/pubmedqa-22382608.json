@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-22382608",
+  "dataset": "pubmedqa",
+  "question_id": "22382608",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "SPECT study with I-123-Ioflupane (DaTSCAN) in patients with essential tremor. Is there any correlation with Parkinson's disease?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "DaTSCAN (I-123-Ioflupane) is a radiopharmaceutical used to visualize dopaminergic neurons in the brain. In Parkinson's disease, there is a loss of these neurons, leading to a reduction in the uptake of the radiotracer in the striatum. Therefore, a SPECT study with DaTSCAN can be used to assess the presence and severity of dopaminergic neuron loss, which can be correlated with Parkinson's disease. A reduced uptake in the striatum suggests a possible Parkinson's disease.",
+          "critical_evidence": "DaTSCAN is used to visualize dopaminergic neurons and their loss in Parkinson's disease.",
+          "differential_considered": "Essential tremor is a neurological disorder characterized by rhythmic shaking. While tremor can be a symptom of Parkinson's disease, the DaTSCAN scan is primarily used to assess dopaminergic neuron loss, which is a hallmark of Parkinson's disease. Therefore, a DaTSCAN scan is more useful in differentiating between essential tremor and Parkinson's disease, and can be correlated with Parkinson's disease.",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 267,
+            "generation_time_s": 15.829
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Essential tremor and Parkinson's disease are distinct disorders with different clinical presentations. While both can show hypodense striatal lesions on SPECT, essential tremor typically presents with action tremor, whereas Parkinson's disease is characterized by resting tremor. I-123-Ioflupane binding patterns help differentiate these conditions, with essential tremor showing more widespread hypometabolism in the striatum compared to the focal involvement seen in Parkinson's disease.",
+          "critical_evidence": "The I-123-Ioflupane binding patterns demonstrate more widespread hypometabolism in essential tremor compared to the focal involvement seen in Parkinson's disease",
+          "differential_considered": "Considered Parkinson's disease due to its tremor presentation, but ruled out based on tremor type (action vs resting) and SPECT findings showing more generalized hypometabolism consistent with essential tremor",
+          "usage": {
+            "prompt_tokens": 276,
+            "generated_tokens": 438,
+            "generation_time_s": 24.536
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "DaTSCAN is used to assess dopaminergic neuron loss in Parkinson's disease, which typically shows reduced uptake in the striatum. Essential tremor, however, is a movement disorder without significant dopaminergic dysfunction, and DaTSCAN results are usually normal in these patients. Therefore, there is no correlation between DaTSCAN findings and essential tremor in terms of dopaminergic involvement.",
+          "critical_evidence": "DaTSCAN is normal in essential tremor, indicating no dopaminergic deficit, which is a hallmark of Parkinson's disease.",
+          "differential_considered": "Parkinson's disease was considered as a differential, but ruled out because DaTSCAN findings are negative in essential tremor, and the clinical presentation lacks other Parkinsonian features such as bradykinesia or rigidity.",
+          "usage": {
+            "prompt_tokens": 249,
+            "generated_tokens": 194,
+            "generation_time_s": 8.175
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 274,
+            "generated_tokens": 58,
+            "generation_time_s": 1.697
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 302,
+            "generated_tokens": 268,
+            "generation_time_s": 10.133
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-940",
+  "dataset": "medqa",
+  "question_id": "940",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old African American female presents to her primary care physician with uveitis, cough, and arthralgias in her ankles and legs. Bloodwork reveals elevated angiotensin converting enzyme levels, and skin PPD testing shows no observable induration after 48 hours. The patient demonstrates reduced FEV1 and FVC upon spirometry. FEV1/FVC is 85%. Which of the following would you expect to see upon chest X-ray:",
+    "options": {
+      "A": "Enlarged hilar lymph nodes",
+      "B": "Kerley B Lines",
+      "C": "Bilateral diaphragmatic elevation.",
+      "D": "Pleural effusion",
+      "E": "Fluid in alveolar walls"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of uveitis, cough, arthralgias, elevated ACE levels, and reduced FEV1/FVC ratio strongly suggests sarcoidosis. Sarcoidosis commonly affects the lungs, leading to bilateral hilar lymphadenopathy (BHL) on chest X-ray. The absence of induration on PPD testing makes tuberculosis less likely.",
+          "critical_evidence": "Elevated ACE levels and the constellation of symptoms (uveitis, cough, arthralgias) are highly suggestive of sarcoidosis.",
+          "differential_considered": "Tuberculosis (TB) is a differential diagnosis for uveitis, cough, and arthralgias. However, the negative PPD result makes TB less likely. While other conditions can cause lung disease and elevated ACE, sarcoidosis is the most probable given the overall clinical picture.",
+          "usage": {
+            "prompt_tokens": 370,
+            "generated_tokens": 214,
+            "generation_time_s": 10.596
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's reduced FEV1 and FVC with an FEV1/FVC ratio of 85% suggests significant airflow obstruction, which is consistent with conditions like chronic obstructive pulmonary disease (COPD) or interstitial lung disease. Kerley B lines on chest X-ray are characteristic of these conditions, appearing as horizontal lines on the lung bases. The elevated angiotensin converting enzyme levels may suggest an allergic or hypersensitivity reaction, but the primary pulmonary findings point to restrictive or obstructive lung disease. The absence of pleural effusion, enlarged hilar lymph nodes, or diaphragmatic elevation is less consistent with the primary pulmonary symptoms and test results.",
+          "critical_evidence": "FEV1/FVC ratio of 85% indicating airflow obstruction",
+          "differential_considered": "Considered sarcoidosis (given African American ethnicity and elevated ACE), drug-induced interstitial lung disease, and allergic bronchopulmonary aspergillosis, but ruled out due to normal PPD testing and lack of specific clinical features. Pulmonary fibrosis and COPD were also considered but the most consistent finding is the restrictive pattern suggested by the FEV1/FVC ratio.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 271,
+            "generation_time_s": 12.596
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with uveitis, arthralgias, elevated ACE, and pulmonary involvement (reduced FEV1/FVC ratio of 85% suggests obstructive pattern, but ACE elevation and uveitis point toward sarcoidosis). Chest X-ray in sarcoidosis most commonly shows hilar lymphadenopathy. Other findings like Kerley B lines (B) suggest heart failure, diaphragmatic elevation (C) is seen in chronic lung disease, pleural effusion (D) and alveolar wall fluid (E) are not typical in early sarcoidosis.",
+          "critical_evidence": "Elevated angiotensin converting enzyme (ACE) and uveitis are classic for sarcoidosis, which frequently presents with hilar lymphadenopathy on chest X-ray.",
+          "differential_considered": "Sarcoidosis is the most likely diagnosis given the constellation of symptoms and lab findings. Other differentials like tuberculosis (negative PPD) and connective tissue diseases were considered but ruled out by negative PPD and absence of typical autoantibodies or systemic features.",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 254,
+            "generation_time_s": 8.884
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 14,
+            "generation_time_s": 0.352
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Reduced FEV1 and FVC with an FEV1/FVC ratio of 85% indicating restrictive lung disease, likely secondary to a systemic process such as TB or sarcoidosis.",
+          "differential_considered": "Sarcoidosis (can cause uveitis and restrictive lung disease but often has positive PPD), tuberculosis (can cause uveitis, elevated ACE, and interstitial changes on CXR), and other autoimmune/infectious causes. The absence of PPD reaction makes TB less likely, and the combination of uveitis with lung restriction is most consistent with interstitial lung disease from a systemic process.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 379,
+            "generation_time_s": 11.894
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

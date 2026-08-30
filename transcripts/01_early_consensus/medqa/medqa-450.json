@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-450",
+  "dataset": "medqa",
+  "question_id": "450",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 64-year-old man presents to the emergency department with the complaints of nausea and muscle weakness for the past 24 hours. He further adds that he is significantly aware of his heartbeat. He was diagnosed with type II diabetes mellitus 20 years ago and hypertension 15 years ago for which he is taking metformin and captopril. He occasionally takes naproxen for his knee pain. He does not smoke but drinks alcohol occasionally. His father and sister also have diabetes. His vitals include a temperature of 37.1°C (98.8°F), blood pressure of 145/92 mm Hg, and a regular pulse of 87/min. His body mass index (BMI) is 32.5 kg/m2. Physical examination is insignificant except for grade 4 weakness in both lower limbs. Fingerstick blood glucose is 200 mg/dL. An ECG is ordered and shows peaked T waves.\nLab studies show:\nBlood pH 7.32\nSerum bicarbonate 19 mEq/L\nSerum sodium 135 mEq/L\nSerum chloride 107 mEq/L\nSerum potassium 6.5 mEq/L\nUrine anion gap 20 meq/L\nWhich of the following is the primary defect responsible for this patient’s condition?",
+    "options": {
+      "A": "Increased ketogenesis",
+      "B": "Decreased aldosterone secretion",
+      "C": "Impaired distal tubule acidification in the kidneys",
+      "D": "Decreased bicarbonate reabsorption in the proximal tubules",
+      "E": "Metformin overdose"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyperkalemia (K+ 6.5 mEq/L), metabolic acidosis (pH 7.32, bicarbonate 19 mEq/L), and an elevated urine anion gap (20 meq/L). The ECG showing peaked T waves further supports the hyperkalemia. The most likely cause of this presentation is impaired distal tubule acidification in the kidneys, leading to potassium retention. This is consistent with acute kidney injury or medications that affect renal function.",
+          "critical_evidence": "The combination of hyperkalemia, metabolic acidosis, and elevated urine anion gap strongly suggests impaired distal tubule acidification.",
+          "differential_considered": "A: Increased ketogenesis is less likely given the lack of significant ketonuria or ketonemia. B: Decreased aldosterone secretion would typically cause hypokalemia, not hyperkalemia. D: Decreased bicarbonate reabsorption in the proximal tubules would cause metabolic acidosis, but not typically hyperkalemia. E: Metformin overdose is possible, but the ECG findings of peaked T waves are more suggestive of hyperkalemia than metformin toxicity. While metformin can cause lactic acidosis, the hyperkalemia is more prominent here.",
+          "usage": {
+            "prompt_tokens": 565,
+            "generated_tokens": 284,
+            "generation_time_s": 14.671
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's metabolic acidosis is evident from a low pH (7.32) and low bicarbonate (19 mEq/L), which suggests impaired bicarbonate reabsorption in the proximal tubules. The ECG showing peaked T waves further supports metabolic acidosis, as this is a classic finding in metabolic acidosis due to the shift of potassium into cells. The serum potassium level of 6.5 mEq/L is within normal range, ruling out hyperkalemia, and the urine anion gap of 20 meq/L is consistent with a metabolic acidosis. The patient's history of type 2 diabetes and the presence of hyperglycemia (blood glucose 200 mg/dL) suggest a metabolic acidosis secondary to diabetic ketoacidosis or renal tubular acidosis. However, the absence of ketones in the case description and the absence of typical diabetic ketoacidosis findings (e.g., hyperglycemia, ketonuria) make diabetic ketoacidosis less likely. The most consistent explanation for the metabolic acidosis is impaired bicarbonate reabsorption in the proximal tubules, which is a hallmark of proximal renal tubular acidosis.",
+          "critical_evidence": "The low bicarbonate level (19 mEq/L) and low pH (7.32) are the most critical findings supporting impaired bicarbonate reabsorption in the proximal tubules.",
+          "differential_considered": "Diabetic ketoacidosis was considered but ruled out due to the absence of ketones and typical findings. Metformin overdose was considered but ruled out due to the absence of other associated symptoms (e.g., lactic acidosis, hypoglycemia). Hypokalemia was ruled out by the normal potassium level. Cushing's syndrome and renal tubular acidosis were considered, but the most consistent explanation is proximal renal tubular acidosis.",
+          "usage": {
+            "prompt_tokens": 551,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.678
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyperkalemia (K+ 6.5 mEq/L), metabolic acidosis (pH 7.32, HCO3 19 mEq/L), and peaked T waves on ECG — classic findings of type 1 renal tubular acidosis (RTA). The urine anion gap of 20 mEq/L (positive) supports RTA type 1, as it indicates impaired H+ secretion in the distal tubule. Metformin and diabetes are risk factors for RTA, but the key defect is impaired distal tubule acidification, not ketogenesis, aldosterone deficiency, or bicarbonate reabsorption issues.",
+          "critical_evidence": "Peaked T waves on ECG + hyperkalemia + metabolic acidosis + positive urine anion gap = Type 1 RTA",
+          "differential_considered": "Metformin overdose (E) is unlikely as the patient is on chronic metformin without acute overdose signs; decreased aldosterone (B) would cause hyperkalemia but not typically with normal urine anion gap; impaired proximal bicarbonate reabsorption (D) causes type 2 RTA with negative urine anion gap; ketogenesis (A) would cause metabolic acidosis with ketones, not this presentation.",
+          "usage": {
+            "prompt_tokens": 542,
+            "generated_tokens": 301,
+            "generation_time_s": 10.591
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 549,
+            "generated_tokens": 217,
+            "generation_time_s": 5.234
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with ECG findings of peaked T waves, acidosis (pH 7.32, low bicarbonate), and an elevated anion gap (20 mEq/L), which are classic for distal tubular acidosis. His history of long-standing diabetes and current hyperglycemia can exacerbate the acid-base disturbance but the anion gap and low urine H+ excretion point to impaired renal acid excretion. The other options do not directly explain the acidosis and anion gap elevation.",
+          "critical_evidence": "Urine anion gap of 20 mEq/L indicates metabolic acidosis with a reduced anion excretion, most consistent with distal tubular acidification defect.",
+          "differential_considered": "Diabetic ketoacidosis (A) would show much higher serum ketones, which are not mentioned. Hypernatremia (not present) and electrolyte abnormalities (e.g., K+, Na+, Cl-) are secondary to the acid-base disturbance but not the primary cause. Metformin overdose (E) could cause lactic acidosis but does not explain the anion gap. Decreased aldosterone (B) and decreased proximal bicarbonate reabsorption (D) are less likely given the ECG and anion gap pattern.",
+          "usage": {
+            "prompt_tokens": 591,
+            "generated_tokens": 292,
+            "generation_time_s": 9.177
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

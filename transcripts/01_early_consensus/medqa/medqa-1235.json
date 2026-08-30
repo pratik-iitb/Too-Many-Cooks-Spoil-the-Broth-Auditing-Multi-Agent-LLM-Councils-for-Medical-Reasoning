@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1235",
+  "dataset": "medqa",
+  "question_id": "1235",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An 89-year-old female with a history of type II diabetes mellitus, hypertension, and a recent stroke is seen in her long-term care facility by a geriatrician. Her medications include lisinopril, hydrochlorothiazide, and warfarin. Although the patient's speech is slurred, she reports feeling well overall, except for burning pain on her left foot. Her left foot is shown in Figure A. Which of the following would have been the most effective way to prevent this patient's symptoms?",
+    "options": {
+      "A": "Twice daily massage of the heal with lotion",
+      "B": "Repositioning every 2 hours",
+      "C": "Repositioning every 6 hours",
+      "D": "Repositioning once per day",
+      "E": "Discontinue warfarin therapy"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation suggests a pressure ulcer (likely a stage 1 or 2 ulcer) on her left foot. Pressure ulcers are primarily caused by prolonged pressure on bony prominences. Repositioning every 2 hours is the most effective way to prevent pressure ulcers by redistributing pressure and reducing the duration of pressure on any one area. While massage and lotion can be helpful adjuncts, they are not the primary preventative measure.",
+          "critical_evidence": "The patient's history of diabetes and recent stroke increases her risk for pressure ulcers due to decreased sensation and mobility.",
+          "differential_considered": "A: Massage alone is insufficient to prevent pressure ulcers, especially in a patient with limited mobility. C and D: Repositioning less frequently than every 2 hours would not provide adequate pressure relief. E: While warfarin is a risk factor for bleeding, the primary cause of the foot pain is likely pressure, not bleeding. Discontinuing warfarin would not address the underlying issue of pressure on the foot.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 246,
+            "generation_time_s": 12.121
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's slurred speech and burning foot pain suggest possible pressure injury or neuropathy. Given her age, diabetes, and stroke history, peripheral neuropathy is a likely cause of the foot pain. Pressure injuries are common in long-term care settings and can lead to serious complications. Repositioning every 2 hours is the most effective way to prevent pressure injuries in this patient, as it reduces pressure on the foot and promotes circulation. While warfarin is an anticoagulant that could theoretically increase bleeding risk with pressure injuries, the immediate concern is the existing injury. Discontinuing warfarin would not address the current symptoms and could be dangerous if the patient has an underlying clot. Massage and less frequent repositioning would be less effective at preventing pressure injuries.",
+          "critical_evidence": "The patient's burning foot pain and slurred speech suggest possible pressure injury or neuropathy, both of which can be prevented through proper repositioning.",
+          "differential_considered": "Considered: pressure injury, peripheral neuropathy, stroke-related complications. Ruled out: Warfarin discontinuation is not the best first-line intervention as it could be dangerous if the patient has an underlying clot. Massage and less frequent repositioning would be less effective at preventing pressure injuries.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.51
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is an elderly woman with a recent stroke and burning pain on her left foot, which is suggestive of pressure injury or ischemic neuropathy. Given her immobility and stroke history, pressure ulcer prevention is critical. Repositioning every 2 hours is standard of care to relieve pressure and prevent skin breakdown. The other options are either ineffective (A, C, D) or inappropriate (E, as warfarin is likely necessary for stroke prevention).",
+          "critical_evidence": "The patient’s recent stroke and immobility place her at high risk for pressure injuries, making repositioning the most effective preventive measure.",
+          "differential_considered": "Diabetic neuropathy was considered, but the acute presentation and location suggest mechanical pressure injury. Warfarin discontinuation was ruled out as it is indicated for stroke prevention unless bleeding is present, which is not described.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 209,
+            "generation_time_s": 7.319
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 144,
+            "generation_time_s": 3.493
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 1024,
+            "generation_time_s": 31.989
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

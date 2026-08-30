@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-478",
+  "dataset": "mmlu",
+  "question_id": "478",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "If the activity of an enzyme is constant over a broad range of pH values, it is likely that",
+    "options": {
+      "A": "only ionizing groups on the enzyme participate in the reaction",
+      "B": "only ionizing groups on the substrate participate in the reaction",
+      "C": "ionizing groups on both the enzyme and substrate participate in the reaction",
+      "D": "no ionizing groups on the enzyme or substrate participate in the reaction"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Enzyme activity is highly sensitive to pH. If an enzyme's activity is constant over a broad pH range, it suggests that the catalytic site is shielded from the pH changes by non-polar or hydrophobic groups. Ionizing groups, such as those involved in proton transfer, are directly affected by pH changes and would cause a significant change in activity.",
+          "critical_evidence": "Enzyme activity is constant over a broad range of pH values.",
+          "differential_considered": "Option B is incorrect because the substrate's ionization state is not the primary determinant of enzyme activity in this scenario. Option C is incorrect because if both enzyme and substrate have ionizing groups, the pH would affect both, and the activity would not be constant over a broad range. Option D is incorrect because if no ionizing groups are involved, the enzyme would be affected by pH changes, and the activity would not be constant over a broad range.",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 226,
+            "generation_time_s": 11.328
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Enzyme activity remaining constant over a broad pH range suggests that ionizing groups on both the enzyme and substrate are involved in the reaction. This is because pH affects the ionization state of amino acid side chains in the enzyme (active site) and functional groups in the substrate. If only one or neither participated, pH changes would disrupt binding or catalysis. The stability of activity indicates compensatory mechanisms, likely involving protonation/deprotonation of both enzyme and substrate groups.",
+          "critical_evidence": "The broad pH tolerance indicates that both enzyme and substrate ionization states are maintained under varying conditions, suggesting their participation in catalysis.",
+          "differential_considered": "Options A and B are too narrow, as they imply only one component is involved. Option D contradicts the pH-buffering capacity of enzymes. Only option C accounts for the observed pH insensitivity through mutual compensation of ionization states.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 214,
+            "generation_time_s": 10.126
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Enzyme activity remaining constant across a broad pH range suggests that the enzyme's active site is not sensitive to protonation states, implying that ionizing groups on the enzyme itself are not critical for catalysis. However, if the substrate's ionizing groups are involved, their protonation state may be buffered or compensated for by the environment, leading to stable activity. This is consistent with the substrate being the primary determinant of pH sensitivity.",
+          "critical_evidence": "Constant enzyme activity across a broad pH range implies the enzyme is not pH-sensitive, but the substrate may still contain ionizing groups that are functionally involved in the reaction.",
+          "differential_considered": "Option A is incorrect because if only enzyme ionizing groups were involved, activity would vary with pH. Option C is unlikely as both enzyme and substrate ionizing groups would typically cause pH sensitivity. Option D is incorrect because ionizing groups are often essential for catalysis, even if their effect is buffered.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 225,
+            "generation_time_s": 8.017
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 312,
+            "generated_tokens": 19,
+            "generation_time_s": 0.481
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options B and C suggest the substrate or both enzyme and substrate have unique roles in pH independence, but the enzyme's pH tolerance is the key factor here. D is unlikely because most enzymes require some optimal pH for activity, even if broad. Ruled out B and C because the substrate's ionization is not the main determinant of enzyme activity across such a wide pH range.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 255,
+            "generation_time_s": 8.165
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

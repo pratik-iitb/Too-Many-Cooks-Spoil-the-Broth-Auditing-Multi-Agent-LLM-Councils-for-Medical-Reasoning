@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-25981682",
+  "dataset": "pubmedqa_context",
+  "question_id": "25981682",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Preparing patients at high risk of falls for discharge home after rehabilitation: Do we meet the guidelines?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Medical records of 121 people who received inpatient rehabilitation were retrospectively screened; records of 50 people discharged home and at high falls risk (fall in last 12 months, fall preceding/during admission) were audited. Data extracted included falls risk identification during rehabilitation and in discharge documentation; falls risk factors assessed; and fall prevention strategies implemented. Discharge documentation correctly identified falls risk for just nine of the 50 people. Patients at high falls risk had a median of 8.0 (interquartile range 6-10) of 17 risk factors. There was limited evidence of assessment for osteoporosis (n = 8), footwear (n = 4) and visual assessment in the previous 2 years (n = 1). Patients received a median of 6.5 (interquartile range 5-9) out of 16 possible strategies. Common strategies were mobility (n = 48), strength (n = 44) and Personal Activity of Daily Living training (n = 43). For 12 risk factors, if the factor was present, there was evidence of a strategy in more than 80% of records.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case highlights a significant gap in discharge documentation regarding falls risk assessment and prevention strategies for patients at high risk. The audit revealed that only nine out of fifty patients had their falls risk correctly identified in discharge documentation. Furthermore, there was limited evidence of assessment for key risk factors like osteoporosis, footwear, and visual acuity. Given these findings, it is highly unlikely that the guidelines are being met.",
+          "critical_evidence": "Only nine of the 50 patients had their falls risk correctly identified in discharge documentation.",
+          "differential_considered": "While other factors could contribute to falls, the primary issue is the inadequate documentation of falls risk assessment and prevention strategies, which is a direct violation of the guidelines. Therefore, other factors are less relevant to the core problem.",
+          "usage": {
+            "prompt_tokens": 543,
+            "generated_tokens": 196,
+            "generation_time_s": 11.649
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The data shows that only 18% of high-risk patients had their falls risk correctly identified in discharge documentation, and despite having multiple risk factors, most patients received inadequate fall prevention strategies. The low documentation accuracy and insufficient implementation of evidence-based strategies indicate non-compliance with clinical guidelines for fall risk management.",
+          "critical_evidence": "Only 18% of high-risk patients had correct falls risk identification in discharge documentation",
+          "differential_considered": "No differential diagnoses needed - this is a quality of care assessment rather than a clinical diagnosis. The key issue is documentation and implementation of fall prevention protocols, not patient-specific medical conditions.",
+          "usage": {
+            "prompt_tokens": 511,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.025
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The audit reveals significant gaps in falls risk identification and prevention strategies. Only 9 out of 50 high-risk patients had correct discharge documentation of falls risk, and most lacked assessment of key risk factors like osteoporosis, footwear, and vision. Additionally, while some strategies were implemented, they were not comprehensive or tailored to individual risk profiles, indicating non-compliance with best practice guidelines.",
+          "critical_evidence": "Discharge documentation correctly identified falls risk for just nine of the 50 high-risk patients.",
+          "differential_considered": "Considered 'maybe' due to partial implementation of strategies, but the systemic failure in risk identification and documentation outweighs any partial compliance, making 'no' the most accurate reflection of guideline adherence.",
+          "usage": {
+            "prompt_tokens": 507,
+            "generated_tokens": 180,
+            "generation_time_s": 7.538
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 509,
+            "generated_tokens": 117,
+            "generation_time_s": 3.377
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Differentials such as misinterpretation of guidelines by staff or incomplete documentation processes were considered, but the most critical issue is the overall lack of comprehensive guideline adherence in falls risk management.",
+          "usage": {
+            "prompt_tokens": 551,
+            "generated_tokens": 216,
+            "generation_time_s": 8.169
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

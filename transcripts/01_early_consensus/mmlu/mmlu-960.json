@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-960",
+  "dataset": "mmlu",
+  "question_id": "960",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old nurse comes to the emergency department because of nervousness, dizziness, palpitations, and excess perspiration for the past 3 hours. She has had similar episodes over the past 6 months. The symptoms improve following ingestion of orange juice or soft drinks. She says that she has had a great deal of stress. She has been drinking two alcoholic beverages daily for the past month; before this time, she seldom drank alcohol. Examination shows no abnormalities. Her serum glucose concentration is 30 mg/dL. Intravenous glucose is administered, and the patient's symptoms improve. Which of the following is the most appropriate next step in diagnosis?",
+    "options": {
+      "A": "Measurement of serum proinsulin and insulin antibodies",
+      "B": "Measurement of serum cortisol and ACTH concentrations",
+      "C": "Measurement of serum growth hormone and plasma somatomedin-C concentrations",
+      "D": "Measurement of serum insulin and C-peptide concentrations"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms (nervousness, dizziness, palpitations, sweating) that improve with orange juice or soft drinks, along with the history of increased alcohol consumption and stress, strongly suggest hypoglycemia. The low serum glucose concentration (30 mg/dL) further supports this diagnosis. Measuring insulin and C-peptide levels is the most direct way to confirm the diagnosis of insulin-dependent diabetes mellitus (IDDM), also known as Type 1 diabetes, which is characterized by a deficiency of insulin production. This is because insulin and C-peptide are co-secreted by pancreatic beta cells.",
+          "critical_evidence": "Serum glucose concentration of 30 mg/dL",
+          "differential_considered": "A: Measurement of serum proinsulin and insulin antibodies is useful for diagnosing Type 1 diabetes, but it is not the immediate next step when hypoglycemia is suspected. B: Measurement of serum cortisol and ACTH concentrations is relevant for diagnosing adrenal insufficiency, which can cause hypoglycemia, but the patient's response to glucose makes this less likely. C: Measurement of serum growth hormone and plasma somatomedin-C concentrations is relevant for diagnosing acromegaly or growth hormone deficiency, which are not typically associated with the acute presentation of hypoglycemia. D: Measurement of serum insulin and C-peptide concentrations is the most direct and appropriate next step to confirm the diagnosis of insulin-dependent diabetes mellitus (Type 1) given the clinical presentation and the confirmed hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 335,
+            "generation_time_s": 16.917
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of hypoglycemia (nervousness, dizziness, palpitations, sweating) and improvement with glucose administration suggest low blood sugar. The serum glucose of 30 mg/dL is critically low, indicating severe hypoglycemia. Since the patient has a history of stress and recent alcohol use, and symptoms improve with sugar, the most likely diagnosis is reactive hypoglycemia. Measurement of insulin and C-peptide will help determine if there is endogenous insulin production, which is essential for diagnosing reactive hypoglycemia.",
+          "critical_evidence": "Serum glucose concentration of 30 mg/dL",
+          "differential_considered": "Considered alcohol withdrawal, panic disorder, and electrolyte imbalances, but ruled out due to lack of supporting evidence. Alcohol withdrawal typically presents with tremors and confusion, not the described symptoms. Panic disorder would not be relieved by glucose. Electrolyte imbalances would not cause hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 235,
+            "generation_time_s": 11.209
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with episodic hypoglycemia, symptoms relieved by oral glucose, and a serum glucose of 30 mg/dL, consistent with insulinoma. The absence of physical exam abnormalities and the improvement with IV glucose support this. Measurement of serum insulin and C-peptide is critical to differentiate insulinoma from other causes of hypoglycemia, as insulinoma typically shows elevated insulin and C-peptide levels during hypoglycemia.",
+          "critical_evidence": "Serum glucose of 30 mg/dL with symptoms relieved by glucose ingestion and no other abnormalities strongly suggests endogenous insulin excess, most likely insulinoma.",
+          "differential_considered": "Other causes like reactive hypoglycemia (ruled out by symptom relief with glucose and history of stress), alcohol-induced hypoglycemia (alcohol use is recent and not sufficient to cause this pattern), and adrenal insufficiency (no signs of cortisol deficiency or ACTH abnormality) were considered but do not fit the clinical picture.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 240,
+            "generation_time_s": 8.608
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 109,
+            "generation_time_s": 2.715
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Adrenal insufficiency (B) could cause hypoglycemia, but the classic and most specific presentation here points to diabetes. Growth hormone (C) and insulin antibodies (A) are not indicated without more evidence of hyperglycemia or hormonal dysfunction. No need for stress testing (not listed) or other endocrine workup at this stage.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 276,
+            "generation_time_s": 8.878
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

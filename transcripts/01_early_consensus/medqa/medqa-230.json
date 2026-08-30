@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-230",
+  "dataset": "medqa",
+  "question_id": "230",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 46-year-old woman presents to the emergency department with 1 day of painful leg swelling. She is otherwise healthy and takes only oral contraceptive pills. The patient does not regularly follow up with her primary doctor and is generally not medically compliant. Her temperature is 98.0°F (36.7°C), blood pressure is 122/78 mm Hg, pulse is 70/min, respirations are 13/min, and oxygen saturation is 99% on room air. Lower extremity examination shows mild calf swelling on her left leg, but otherwise is unremarkable. An ultrasound is performed as seen in Figure A. Which of the following is the most appropriate course of action?",
+    "options": {
+      "A": "Alteplase",
+      "B": "Heparin",
+      "C": "Observation",
+      "D": "Rivaroxaban",
+      "E": "Warfarin"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute leg swelling and a history of oral contraceptive pill use, which increases the risk of deep vein thrombosis (DVT). The ultrasound findings (Figure A, not provided) are crucial. If the ultrasound shows a DVT, anticoagulation is indicated. However, if the ultrasound is negative, observation is the most appropriate initial step. The patient's vital signs are stable, and there are no signs of systemic illness. Therefore, observation is the safest and most appropriate initial course of action.",
+          "critical_evidence": "The ultrasound findings (Figure A) are the most critical evidence to determine the next step.",
+          "differential_considered": "DVT: The patient's symptoms and risk factors (oral contraceptive pills) strongly suggest DVT. However, the ultrasound is needed to confirm the diagnosis. If the ultrasound is negative, other causes of leg swelling (e.g., cellulitis, lymphedema) should be considered. Other causes of leg swelling were not mentioned in the case, so they were not considered.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 253,
+            "generation_time_s": 12.494
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient presents with a single day of painful leg swelling with no other concerning symptoms or risk factors for DVT. Given her age, lack of medical compliance, and absence of known thrombophilic conditions, the most appropriate initial step is observation. This allows for monitoring of symptoms and clinical progression while avoiding unnecessary anticoagulation that could lead to bleeding complications.",
+          "critical_evidence": "Single day duration of swelling with no other risk factors or symptoms",
+          "differential_considered": "Considered DVT, phlebitis, and lymphedema, but ruled out based on absence of risk factors and lack of clinical evidence supporting acute onset. No need for immediate anticoagulation without additional risk factors.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.506
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute unilateral leg swelling and pain, a classic presentation for deep vein thrombosis (DVT). Given her use of oral contraceptives (a known thrombotic risk factor) and the absence of contraindications to anticoagulation, immediate anticoagulation is indicated. Ultrasound findings (not shown, but implied by context) likely confirm DVT. Heparin is preferred over warfarin or DOACs in the acute setting due to rapid onset of action and ability to be administered in the ED. Observation is inappropriate given the high clinical suspicion for DVT. Alteplase is reserved for massive PE or iliofemoral DVT with complications. Rivaroxaban is a DOAC but not first-line in acute presentation without prior anticoagulation history.",
+          "critical_evidence": "Unilateral leg swelling with pain in a patient on oral contraceptives, with ultrasound likely confirming DVT.",
+          "differential_considered": "Other causes of leg swelling (e.g., cellulitis, lymphedema, Baker’s cyst) were considered but ruled out by absence of fever, erythema, or systemic signs, and the ultrasound findings (implied) confirming DVT.",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 283,
+            "generation_time_s": 9.909
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 100,
+            "generation_time_s": 2.418
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "DVT (if present), pulmonary embolism (but no respiratory symptoms), arterial thrombosis (no vascular compromise noted), and other less likely causes such as lymphedema or vascular malformations. However, without positive findings or risk factors, these are unlikely and observation is warranted.",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 256,
+            "generation_time_s": 8.07
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

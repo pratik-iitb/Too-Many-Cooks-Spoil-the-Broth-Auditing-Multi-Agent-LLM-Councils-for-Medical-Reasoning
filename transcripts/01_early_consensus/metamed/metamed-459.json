@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-459",
+  "dataset": "metamed",
+  "question_id": "459",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An otherwise healthy 29-year-old man presents to his family physician with a slowly growing left neck mass for the past 5 weeks. He denies fever or recent upper respiratory tract infections. His temperature is 37.1°C (98.7°F), the blood pressure is 115/72 mm Hg, and the pulse are 82/min. On examination, a 4-cm (1.5 in), firm, non-tender mass is detected on the mid-left neck. Excisional biopsy of the mass reveals Hodgkin’s cells. The patient is referred to the oncology department and chemotherapy is started. After the first cycle of chemotherapy, the patient notices that his urine becomes red. The urine tests are positive for blood on further analysis. Which of the following is the most likely cause of this patient condition?",
+    "options": {
+      "A": "Bleomycin",
+      "B": "Cyclophosphamide",
+      "C": "Doxorubicin",
+      "D": "Etoposide",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is undergoing chemotherapy for Hodgkin's lymphoma. The onset of hematuria (red urine) after the first cycle of chemotherapy strongly suggests a drug-induced hemorrhagic cystitis. Cyclophosphamide is known to cause hemorrhagic cystitis due to its metabolite acrolein, which irritates the bladder lining. Bleomycin, doxorubicin, and etoposide are less commonly associated with this side effect.",
+          "critical_evidence": "The onset of hematuria after the first cycle of chemotherapy is highly suggestive of drug-induced hemorrhagic cystitis.",
+          "differential_considered": "Bleomycin can cause pulmonary toxicity, but hematuria is not a typical side effect. Doxorubicin is known for cardiotoxicity, but hematuria is not a common manifestation. Etoposide is less likely to cause hemorrhagic cystitis compared to cyclophosphamide.",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 213,
+            "generation_time_s": 12.413
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "Bleomycin is a platinum-based chemotherapy drug that can cause pneumonitis and pulmonary fibrosis, leading to respiratory symptoms and blood in urine due to hemoptysis. The patient's history of a neck mass consistent with Hodgkin's lymphoma and subsequent chemotherapy initiation aligns with bleomycin use, which is commonly used in such cases. The presence of blood in urine suggests a pulmonary source, consistent with bleomycin-induced lung injury.",
+          "critical_evidence": "Bleomycin's association with pulmonary toxicity and hemoptysis",
+          "differential_considered": "Other chemotherapy drugs like cyclophosphamide, doxorubicin, and etoposide are less likely to cause blood in urine as a primary manifestation. Bleomycin's specific pulmonary side effect profile makes it the most probable cause.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 198,
+            "generation_time_s": 10.909
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed hematuria after the first cycle of chemotherapy, which is a known adverse effect of cyclophosphamide. Cyclophosphamide metabolites can cause hemorrhagic cystitis, leading to hematuria. Other agents like bleomycin cause pulmonary toxicity, doxorubicin causes cardiotoxicity and can cause red urine due to its metabolites, but not typically hematuria, and etoposide is not associated with hematuria. The red urine is likely due to blood, not pigment, making cyclophosphamide the most likely culprit.",
+          "critical_evidence": "The patient developed hematuria after the first cycle of chemotherapy, which is a classic adverse effect of cyclophosphamide.",
+          "differential_considered": "Bleomycin (pulmonary toxicity), doxorubicin (cardiotoxicity, red urine from metabolites but not hematuria), etoposide (myelosuppression, no hematuria) were considered but ruled out based on clinical presentation and known toxicities.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 249,
+            "generation_time_s": 10.401
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 80,
+            "generation_time_s": 2.303
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (cyclophosphamide-induced hemorrhagic cystitis), C (doxorubicin-induced nephropathy), D (etoposide-related side effects), but these are less likely to cause hematuria specifically in this setting compared to bleomycin. Other causes would require different risk profiles or symptom patterns.",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 288,
+            "generation_time_s": 10.916
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "sample_id": "medxpertqa-Text-320",
+  "dataset": "medxpertqa",
+  "question_id": "Text-320",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A male patient, aged 42, who underwent heart transplantation 5 years ago, requires emergency appendectomy. During anesthetic induction, he receives ketamine. What is the most probable immediate cardiac response to this medication?\nAnswer Choices: (A) Reduced coronary blood flow (B) Enhanced myocardial oxygen consumption (C) Increased stroke volume (D) Prolonged QT interval (E) Decreased heart rate (F) Decreased contractility (G) Decreased preload (H) Increased heart rate (I) Increased systemic vascular resistance (J) Increase contractility",
+    "options": {
+      "A": "Reduced coronary blood flow",
+      "B": "Enhanced myocardial oxygen consumption",
+      "C": "Increased stroke volume",
+      "D": "Prolonged QT interval",
+      "E": "Decreased heart rate",
+      "F": "Decreased contractility",
+      "G": "Decreased preload",
+      "H": "Increased heart rate",
+      "I": "Increased systemic vascular resistance",
+      "J": "Increase contractility"
+    },
+    "context": "",
+    "correct_option": "F",
+    "metadata": {
+      "medical_task": "Basic Science",
+      "body_system": "Cardiovascular",
+      "question_type": "Understanding"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Ketamine is a dissociative anesthetic known to increase myocardial oxygen consumption due to its sympathomimetic effects, leading to increased heart rate, contractility, and systemic vascular resistance. This increased demand on the heart can be detrimental in a patient with a transplanted heart, which may have reduced reserve capacity.",
+          "critical_evidence": "Ketamine's sympathomimetic effects increase myocardial oxygen consumption.",
+          "differential_considered": "A: Reduced coronary blood flow is less likely with ketamine, as it generally increases heart rate and contractility, potentially improving coronary perfusion. C: Increased stroke volume is possible, but the primary concern is the increased oxygen demand. D: Prolonged QT interval is not a typical immediate effect of ketamine. E: Decreased heart rate is the opposite of ketamine's effect. F: Decreased contractility is also the opposite of ketamine's effect. G: Decreased preload is not a direct effect of ketamine. H: Increased heart rate is a direct effect of ketamine. I: Increased systemic vascular resistance is a direct effect of ketamine. J: Increase contractility is a direct effect of ketamine.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 278,
+            "generation_time_s": 11.548
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Ketamine is a non-depolarizing NMDA receptor antagonist that can prolong the QT interval, increasing the risk of torsades de pointes. In a patient with a history of heart transplantation, this arrhythmia risk is particularly concerning due to potential for myocardial fibrosis and electrical instability. The other options (A-H, J) relate to hemodynamic changes but ketamine's primary cardiac effect is QT prolongation.",
+          "critical_evidence": "Ketamine's mechanism of action as a potassium channel blocker that prolongs the QT interval",
+          "differential_considered": "While other anesthetic agents could affect cardiac function, ketamine's specific mechanism of QT prolongation makes it the most likely answer. Other options like increased heart rate (H) or decreased contractility (F) are not primary effects of ketamine.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.826
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "H",
+          "confidence": 0.95,
+          "clinical_reasoning": "Ketamine is a potent sympathomimetic agent that causes rapid increases in heart rate and blood pressure due to its alpha-adrenergic stimulation. In a heart transplant recipient, who may have underlying cardiovascular compromise, this hemodynamic response is particularly relevant. While ketamine can increase myocardial oxygen demand, the most immediate and consistent cardiovascular effect is tachycardia.",
+          "critical_evidence": "Ketamine's primary hemodynamic effect is stimulation of the sympathetic nervous system, leading to increased heart rate and systemic vascular resistance.",
+          "differential_considered": "Other options like decreased contractility (F) or reduced coronary flow (A) are less likely as immediate effects; ketamine does not typically cause bradycardia (E) or QT prolongation (D) in this context. Increased stroke volume (C) and contractility (J) may occur secondarily but are not the most immediate response.",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 218,
+            "generation_time_s": 7.78
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 35,
+            "generation_time_s": 1.189
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options such as increased contractility (J), increased stroke volume (C), or increased systemic vascular resistance (I) are less likely as the primary effect of ketamine in this setting. Prolonged QT interval (D) and reduced coronary blood flow (A) are possible but less immediate or specific to the anesthetic context here. Enhanced myocardial oxygen consumption (B) and decreased preload (G) may occur but are not the most direct or immediate response. Decreased contractility (F) is possible but not the most likely first-line effect of ketamine on the heart in this case.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 356,
+            "generation_time_s": 12.126
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 1,
+        "H": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "F",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

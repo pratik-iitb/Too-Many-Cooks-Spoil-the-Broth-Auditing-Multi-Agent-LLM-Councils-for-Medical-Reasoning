@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-151",
+  "dataset": "mmlu",
+  "question_id": "151",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following is true about a thyroid swelling?",
+    "options": {
+      "A": "It always elevates on swallowing",
+      "B": "Lymph node enlargement is a good prognostic sign",
+      "C": "An ultrasound of the swelling is the best test to determine whether the nodule is actively secreting hormone",
+      "D": "A functioning nodule on isotope scanning is unlikely to be due to cancer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "A thyroid swelling can be caused by various conditions, including benign nodules, goiters, and thyroid cancer. Option A is incorrect because thyroid swellings do not always elevate on swallowing. Lymph node enlargement is not a good prognostic sign in thyroid cancer, as it indicates metastasis. Option B is incorrect. An isotope scan can help determine if a nodule is functioning (secreting hormone), but it is not definitive for cancer. Option C is incorrect. A functioning nodule on isotope scanning is more likely to be due to a benign adenoma than cancer.",
+          "critical_evidence": "A functioning nodule on isotope scanning is more likely to be due to a benign adenoma than cancer.",
+          "differential_considered": "A: Benign nodule, goiter, thyroid cancer. B: Lymph node enlargement is a good prognostic sign. C: An ultrasound of the swelling is the best test to determine whether the nodule is actively secreting hormone. D: A functioning nodule on isotope scanning is unlikely to be due to cancer.",
+          "usage": {
+            "prompt_tokens": 302,
+            "generated_tokens": 251,
+            "generation_time_s": 12.89
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "Thyroid nodules that are actively secreting hormones often show increased uptake on thyroid scans, while cancerous nodules typically do not. This makes option D the most accurate statement regarding the relationship between isotope scanning and cancer diagnosis.",
+          "critical_evidence": "Functioning thyroid nodules show increased uptake on isotope scanning, which helps differentiate them from non-functioning nodules that are more likely to be cancerous.",
+          "differential_considered": "Considered differentials include benign thyroid nodules, thyroid cancer, and other thyroid disorders. Isotope scanning helps distinguish between functioning and non-functioning nodules, with functioning nodules being less likely to be cancer.",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 167,
+            "generation_time_s": 8.444
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "A functioning nodule on isotope scanning (hot nodule) is typically benign and rarely malignant, as most cancers are 'cold' nodules that do not take up radioactive iodine. This is a key principle in thyroid nodule evaluation. The other options are incorrect: not all thyroid swellings elevate with swallowing (e.g., some are extrathyroidal), lymph node enlargement is often a poor prognostic sign in thyroid cancer, ultrasound is excellent for morphology but not for assessing hormone secretion, and hormone secretion status is best assessed by isotope scan or serum TSH/FT4.",
+          "critical_evidence": "Hot nodules on isotope scanning are almost always benign and rarely cancerous.",
+          "differential_considered": "Considered thyroid cancer (cold nodule), benign adenomas (hot nodules), Hashimoto’s thyroiditis, and lymphadenopathy; ruled out cancer for hot nodules based on established clinical evidence.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 221,
+            "generation_time_s": 7.942
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 306,
+            "generated_tokens": 10,
+            "generation_time_s": 0.26
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thyroid nodules can vary in their characteristics, and ultrasound is the most sensitive and non-invasive imaging modality to assess whether a nodule is actively secreting hormones (hormonally active nodule). While lymph node enlargement is sometimes associated with thyroid cancer, it is not specific or the best test for hormonal secretion. Isotope scanning is useful for differentiating between benign and malignant function, but ultrasound is preferred as the first-line test for this purpose. Option A is incorrect because not all thyroid swellings elevate on swallowing, and options B and D address prognosis and etiology, which are less directly relevant to the immediate diagnostic workup for hormone secretion.",
+          "critical_evidence": "",
+          "differential_considered": "Other differentials include benign cysts, inflammation, or metastatic disease, but the question specifically concerns hormone secretion, which is best evaluated by ultrasound. Thyroid function tests and isotope scanning are useful but less specific for this issue.",
+          "usage": {
+            "prompt_tokens": 333,
+            "generated_tokens": 255,
+            "generation_time_s": 8.405
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

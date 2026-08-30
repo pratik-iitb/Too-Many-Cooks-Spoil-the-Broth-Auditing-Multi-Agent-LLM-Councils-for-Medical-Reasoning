@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1312",
+  "dataset": "medqa",
+  "question_id": "1312",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old woman presents to the emergency department with a sudden onset of nausea, vomiting, and pain in the upper abdomen for the past 3 hours. She reports that the pain has increased in severity over these 3 hours and frequently radiates to the back. She was diagnosed as HIV positive 2 years ago. She was placed on raltegravir/tenofovir/emtricitabine 1 year ago, but because of treatment failure, her antiretroviral therapy was changed to abacavir/didanosine/dolutegravir/enfuvirtide/fosamprenavir 3 months ago. Her temperature is 37.8°C (100.0°F), heart rate is 110/min, respiratory rate is 18/min, and blood pressure is 124/80 mm Hg. Abdominal examination shows tenderness in the upper abdomen, but there is an absence of guarding or rigidity. Ultrasonography of the abdomen shows an edematous pancreas and an absence of gallstones. Laboratory studies show:\nSerum glucose 120 mg/dL\nSerum aspartate aminotransferase 74 U/L\nSerum alanine aminotransferase 88 U/L\nSerum amylase 800 U/L\nSerum triglyceride 125 mg/dL\nIn addition to pain control, which of the following is an appropriate initial step in treatment?",
+    "options": {
+      "A": "Discontinue abacavir",
+      "B": "Discontinue didanosine",
+      "C": "Discontinue dolutegravir",
+      "D": "Discontinue enfuvirtide",
+      "E": "Discontinue fosamprenavir"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation is highly suggestive of acute pancreatitis, likely drug-induced given her recent change in antiretroviral therapy. Didanosine is a known cause of pancreatitis, especially in individuals with HIV. While other medications can cause pancreatitis, didanosine is a more common culprit in this clinical context. Discontinuing didanosine is the most appropriate initial step to address the likely cause of the pancreatitis.",
+          "critical_evidence": "The patient's recent change in antiretroviral therapy to a regimen including didanosine, combined with the clinical presentation of acute pancreatitis, strongly suggests didanosine as the likely cause.",
+          "differential_considered": "Acute pancreatitis can be caused by gallstones, alcohol, hypertriglyceridemia, and other medications. However, the ultrasound ruled out gallstones, and the triglyceride level is normal. While alcohol use is not explicitly mentioned, the patient's age and lack of other risk factors make it less likely. The other medications listed are less commonly associated with pancreatitis than didanosine.",
+          "usage": {
+            "prompt_tokens": 578,
+            "generated_tokens": 253,
+            "generation_time_s": 12.521
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's elevated serum amylase level (800 U/L) and edematous pancreas on ultrasound strongly suggest acute pancreatitis. Didanosine (ddI) is a known cause of pancreatitis in HIV patients, especially when used in combination with other antiretrovirals. While all drugs in the current regimen could potentially contribute, ddI has the strongest association with acute pancreatitis. The other antiretrovirals (abacavir, dolutegravir, enfuvirtide, and fosamprenavir) have less frequent and less severe pancreatitis risks.",
+          "critical_evidence": "Serum amylase 800 U/L with edematous pancreas on ultrasound",
+          "differential_considered": "Considered viral hepatitis, gallstones, alcohol use, and other causes of pancreatitis, but ruled out by the absence of gallstones on ultrasound and the patient's history. The HIV antiretroviral regimen is the most likely cause given the clinical context.",
+          "usage": {
+            "prompt_tokens": 575,
+            "generated_tokens": 235,
+            "generation_time_s": 10.934
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute pancreatitis, evidenced by severe epigastric pain radiating to the back, elevated amylase (800 U/L), and an edematous pancreas on ultrasound. Didanosine is known to cause pancreatitis as a rare but serious adverse effect, especially in patients with HIV on antiretroviral therapy. Discontinuing didanosine is the most appropriate initial step to address the suspected drug-induced pancreatitis.",
+          "critical_evidence": "Elevated serum amylase (800 U/L) and ultrasound showing edematous pancreas confirm acute pancreatitis, and didanosine is a known cause of this complication.",
+          "differential_considered": "Other differentials like gallstones (ruled out by ultrasound), alcohol use (not reported), or hypertriglyceridemia (triglyceride 125 mg/dL is normal) were considered but did not explain the acute presentation. Didanosine-induced pancreatitis is the most likely drug-related cause given the clinical context and timing of ART initiation.",
+          "usage": {
+            "prompt_tokens": 570,
+            "generated_tokens": 251,
+            "generation_time_s": 8.805
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 573,
+            "generated_tokens": 13,
+            "generation_time_s": 0.344
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Ultrasonography showing an edematous pancreas",
+          "differential_considered": "Other causes of pancreatitis (e.g., gallstones, alcohol, drugs other than her current regimen) were ruled out due to normal or unmentioned imaging, no history of alcohol use, and absence of gallstones. Her current medication changes are under investigation, but the immediate concern is the pancreatitis, likely drug-related, with enfuvirtide being the most probable culprit.",
+          "usage": {
+            "prompt_tokens": 621,
+            "generated_tokens": 310,
+            "generation_time_s": 9.778
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

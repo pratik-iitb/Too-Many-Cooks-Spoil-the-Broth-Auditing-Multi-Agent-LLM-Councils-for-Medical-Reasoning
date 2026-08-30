@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-192",
+  "dataset": "medqa",
+  "question_id": "192",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 65-year-old male who is being treated for depression visits your emergency room complaining of being unable to urinate. In addition, the patient complains of tachycardia and dry mouth. He has no history of benign prostatic hyperplasia and reports of only being on one psychiatric medication. What type of psychiatric medication would cause such a side effect profile?",
+    "options": {
+      "A": "Monoamine oxidase inhibitor",
+      "B": "Serotonin norepinephrine receptor inhibitor",
+      "C": "Aminoketone",
+      "D": "Selective serotonin reuptake inhibitor",
+      "E": "Tricyclic antidepressant"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of urinary retention, tachycardia, and dry mouth strongly suggest anticholinergic toxicity. Tricyclic antidepressants (TCAs) are known for their significant anticholinergic effects, which can cause these symptoms. While other options can have some anticholinergic effects, TCAs are the most likely culprit given the constellation of symptoms and the patient's medication history.",
+          "critical_evidence": "Urinary retention, tachycardia, and dry mouth are classic anticholinergic toxidrome symptoms.",
+          "differential_considered": "Monoamine oxidase inhibitors (MAOIs) can cause hypertensive crisis, but the presentation is less specific. Serotonin norepinephrine receptor inhibitors (SNRIs) and selective serotonin reuptake inhibitors (SSRIs) are less likely to cause such a pronounced anticholinergic toxidrome. Aminoketone is not a psychiatric medication.",
+          "usage": {
+            "prompt_tokens": 343,
+            "generated_tokens": 217,
+            "generation_time_s": 10.708
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's symptoms of urinary retention, tachycardia, and dry mouth are consistent with anticholinergic side effects. Selective serotonin reuptake inhibitors (SSRIs) are known to cause these side effects due to their anticholinergic properties. Monoamine oxidase inhibitors (MAOIs) and tricyclic antidepressants (TCAs) also have anticholinergic effects but are less commonly associated with urinary retention compared to SSRIs. Serotonin norepinephrine reuptake inhibitors (SNRIs) and aminoketones are less likely to cause these specific symptoms.",
+          "critical_evidence": "The combination of urinary retention and dry mouth points strongly to anticholinergic effects, which are more commonly associated with SSRIs than other antidepressant classes.",
+          "differential_considered": "Benign prostatic hyperplasia was ruled out by the patient's history. Other causes of urinary retention like bladder obstruction or neurological issues were not considered as the primary focus was on psychiatric medication side effects.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.957
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute urinary retention, tachycardia, and dry mouth — classic signs of anticholinergic toxicity. These symptoms are strongly associated with tricyclic antidepressants (TCAs), which have significant anticholinergic side effects. The absence of benign prostatic hyperplasia and use of only one psychiatric medication further support TCA as the likely culprit. Other antidepressants listed have less pronounced anticholinergic effects.",
+          "critical_evidence": "Urinary retention, tachycardia, and dry mouth are hallmark anticholinergic effects of tricyclic antidepressants.",
+          "differential_considered": "Monoamine oxidase inhibitors (A) can cause hypertensive crisis but not typically urinary retention. SNRIs (B) and SSRIs (D) have minimal anticholinergic effects. Aminoketone (C) is not a standard psychiatric medication. Thus, TCA (E) is the only class with such a side effect profile.",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 235,
+            "generation_time_s": 8.195
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 144,
+            "generation_time_s": 3.44
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 267,
+            "generation_time_s": 8.276
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

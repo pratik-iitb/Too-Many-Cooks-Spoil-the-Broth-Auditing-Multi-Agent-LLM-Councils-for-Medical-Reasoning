@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-7860319",
+  "dataset": "pubmedqa_context",
+  "question_id": "7860319",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Measuring hospital mortality rates: are 30-day data enough?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "We compare 30-day and 180-day postadmission hospital mortality rates for all Medicare patients and those in three categories of cardiac care: coronary artery bypass graft surgery, acute myocardial infarction, and congestive heart failure. DATA SOURCES/ Health Care Financing Administration (HCFA) hospital mortality data for FY 1989. Using hospital level public use files of actual and predicted mortality at 30 and 180 days, we constructed residual mortality measures for each hospital. We ranked hospitals and used receiver operating characteristic (ROC) curves to compare 0-30, 31-180, and 0-180-day postadmission mortality. For the admissions we studied, we found a broad range of hospital performance when we ranked hospitals using the 30-day data; some hospitals had much lower than predicted 30-day mortality rates, while others had much higher than predicted mortality rates. Data from the time period 31-180 days postadmission yield results that corroborate the 0-30 day postadmission data. Moreover, we found evidence that hospital performance on one condition is related to performance on the other conditions, but that the correlation is much weaker in the 31-180-day interval than in the 0-30-day period. Using ROC curves, we found that the 30-day data discriminated the top and bottom fifths of the 180-day data extremely well, especially for AMI outcomes.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study indicates that 30-day mortality rates are more predictive of overall hospital performance and outcomes compared to 180-day mortality rates. The correlation between performance on different cardiac conditions is stronger in the 0-30 day period than in the 31-180 day period, suggesting that 30-day data is more informative for assessing hospital quality.",
+          "critical_evidence": "The study found that the 30-day data discriminated the top and bottom fifths of the 180-day data extremely well, especially for AMI outcomes.",
+          "differential_considered": "While 180-day mortality is a valuable metric, the study's findings suggest that 30-day mortality provides a more accurate and reliable assessment of hospital performance, especially in the context of cardiac care. Therefore, 30-day data is more useful.",
+          "usage": {
+            "prompt_tokens": 577,
+            "generated_tokens": 226,
+            "generation_time_s": 13.348
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study demonstrates that while 30-day mortality data can identify hospitals with significantly better or worse outcomes, the correlation between 30-day and 180-day performance is weaker. The ROC analysis shows 30-day data effectively discriminate the top and bottom fifths of 180-day outcomes, but the evidence suggests 180-day data provide more comprehensive information about hospital performance across the full post-discharge period.",
+          "critical_evidence": "The weaker correlation in the 31-180-day interval compared to the 0-30-day period indicates that 30-day data alone may not fully capture long-term hospital performance.",
+          "differential_considered": "Alternative approaches to measuring hospital quality (e.g., using only 180-day data) were considered, but the evidence supports that 30-day data have value while acknowledging their limitations in representing full post-discharge outcomes.",
+          "usage": {
+            "prompt_tokens": 549,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.04
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that 30-day mortality data effectively discriminates hospital performance across 180-day outcomes, especially for acute myocardial infarction, and correlates strongly with longer-term mortality. The ROC curve analysis confirms that 30-day data reliably identifies top and bottom performing hospitals, making it sufficient for measuring hospital mortality trends.",
+          "critical_evidence": "ROC curves showed that 30-day data discriminated the top and bottom fifths of the 180-day data extremely well, especially for AMI outcomes.",
+          "differential_considered": "Considered 'maybe' (C) due to weaker correlation in 31-180 days, but the strong discrimination power of 30-day data and its consistency across conditions make 'no' (B) unsupported.",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 193,
+            "generation_time_s": 8.072
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 547,
+            "generated_tokens": 52,
+            "generation_time_s": 1.521
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "We considered whether the case might argue for using only 30-day data due to its strong discrimination, but ruled this out because the question specifically asks if 30-day data is \"enough,\" and the evidence shows limitations in capturing the full mortality trajectory and intercondition correlations over time.",
+          "usage": {
+            "prompt_tokens": 587,
+            "generated_tokens": 261,
+            "generation_time_s": 9.881
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

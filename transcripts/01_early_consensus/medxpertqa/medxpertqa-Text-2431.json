@@ -1,0 +1,124 @@
+{
+  "sample_id": "medxpertqa-Text-2431",
+  "dataset": "medxpertqa",
+  "question_id": "Text-2431",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which sequence of treatment techniques is correctly arranged from the lowest to the highest monitor units (MU) required to deliver the same dose prescription to a specific target?\nAnswer Choices: (A) VMAT, 3D CRT with dose modulation, fixed-gantry IMRT (B) 3D CRT, VMAT, fixed-gantry IMRT with dose modulation (C) Fixed-gantry IMRT, 3D CRT, VMAT (D) Fixed-gantry IMRT, VMAT, 3D CRT (E) 3D CRT, VMAT, fixed-gantry IMRT (F) VMAT, fixed-gantry IMRT, 3D CRT (G) 3D CRT with dose modulation, VMAT, fixed-gantry IMRT (H) VMAT, 3D CRT, fixed-gantry IMRT (I) VMAT, fixed-gantry IMRT with dose modulation, 3D CRT (J) 3D CRT, fixed-gantry IMRT, VMAT",
+    "options": {
+      "A": "VMAT, 3D CRT with dose modulation, fixed-gantry IMRT",
+      "B": "3D CRT, VMAT, fixed-gantry IMRT with dose modulation",
+      "C": "Fixed-gantry IMRT, 3D CRT, VMAT",
+      "D": "Fixed-gantry IMRT, VMAT, 3D CRT",
+      "E": "3D CRT, VMAT, fixed-gantry IMRT",
+      "F": "VMAT, fixed-gantry IMRT, 3D CRT",
+      "G": "3D CRT with dose modulation, VMAT, fixed-gantry IMRT",
+      "H": "VMAT, 3D CRT, fixed-gantry IMRT",
+      "I": "VMAT, fixed-gantry IMRT with dose modulation, 3D CRT",
+      "J": "3D CRT, fixed-gantry IMRT, VMAT"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Other / NA",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "VMAT (Volumetric Modulated Arc Therapy) generally requires fewer MU than 3D CRT (3-dimensional Conformal Radiation Therapy) or fixed-gantry IMRT (Intensity Modulated Radiation Therapy). Dose modulation is typically applied to 3D CRT or IMRT, not VMAT. Therefore, VMAT should be delivered first, followed by 3D CRT with dose modulation, and then fixed-gantry IMRT.",
+          "critical_evidence": "VMAT generally requires fewer MU than 3D CRT or fixed-gantry IMRT.",
+          "differential_considered": "3D CRT and fixed-gantry IMRT both require more MU than VMAT. IMRT with dose modulation requires more MU than standard IMRT. However, the question asks for the *lowest* MU to deliver the same dose, making VMAT the most efficient option.",
+          "usage": {
+            "prompt_tokens": 643,
+            "generated_tokens": 218,
+            "generation_time_s": 9.016
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "VMAT (Volumetric Modulated Arc Therapy) typically requires the highest number of monitor units (MUs) due to its complex dose shaping capabilities. 3D CRT with dose modulation involves more complex beam shaping than standard 3D CRT but less than VMAT. Fixed-gantry IMRT (Intensity Modulated Radiation Therapy) with dose modulation generally requires the fewest MUs as it uses a single static field with intensity modulation. Therefore, the correct sequence from lowest to highest MU is VMAT, 3D CRT with dose modulation, fixed-gantry IMRT.",
+          "critical_evidence": "VMAT's dynamic delivery and complex dose shaping inherently requires more MUs than static techniques like IMRT",
+          "differential_considered": "Other options incorrectly order the techniques by MU requirements, either placing IMRT before 3D CRT or VMAT, or failing to account for the MU differences between VMAT and IMRT",
+          "usage": {
+            "prompt_tokens": 624,
+            "generated_tokens": 220,
+            "generation_time_s": 9.658
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "VMAT and fixed-gantry IMRT with dose modulation are more complex and efficient delivery techniques requiring fewer monitor units (MU) compared to 3D CRT, which is simpler and less modulated. The correct sequence from lowest to highest MU is 3D CRT, then VMAT, then fixed-gantry IMRT with dose modulation, as the latter involves more beam shaping and modulation, increasing MU requirements.",
+          "critical_evidence": "VMAT and IMRT techniques are more efficient in dose delivery per MU compared to 3D CRT, which requires more MU for the same dose due to lack of modulation and beam shaping.",
+          "differential_considered": "Other options incorrectly order techniques by MU efficiency; for example, placing IMRT before VMAT or 3D CRT before VMAT contradicts known physics principles of MU efficiency in radiation therapy delivery.",
+          "usage": {
+            "prompt_tokens": 595,
+            "generated_tokens": 203,
+            "generation_time_s": 7.289
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 622,
+            "generated_tokens": 233,
+            "generation_time_s": 7.639
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "G",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 669,
+            "generated_tokens": 1024,
+            "generation_time_s": 36.421
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "G": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

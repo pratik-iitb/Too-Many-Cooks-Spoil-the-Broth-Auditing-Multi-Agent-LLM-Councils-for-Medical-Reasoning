@@ -1,0 +1,178 @@
+================================================================================
+Debate Rounds 1-3  -  Per-Member Debate Prompt
+================================================================================
+
+Rebuilt from scratch for each council member at each debate round. This is
+single-turn prompt injection, not a multi-turn chat: the model is handed one
+flat prompt containing its own previous answer, its colleagues' previous
+answers, and the running vote tally. No conversation history object is passed
+to the model.
+
+Placeholders
+------------
+  {QUESTION_TEXT}         the case description (constant across rounds)
+  {CONTEXT_BLOCK}         "" except for PubMedQA-with-context, where it is
+                          literally "\n\nRELEVANT CONTEXT:\n<abstract>\n"
+  {OPTIONS_STR}           options, one per line, sorted, "<letter>: <text>"
+  {VALID_LETTERS}         option letters, sorted, comma-separated
+  {OWN_PREVIOUS_LABEL}    "Initial" at Round 1; otherwise the previous round number
+  {OWN_PREVIOUS_*}        this member's own previous selected option, confidence,
+                          clinical reasoning and critical evidence
+  {SUMMARY_BLOCK}         present from Round 2 onward only (format below)
+  {COLLEAGUES_BLOCK}      the other four members' previous-round responses,
+                          relabelled "Panelist A" through "Panelist D"
+  {VOTE_DIST}             the previous round's vote distribution, rendered as a
+                          Python dict literal, e.g. {'D': 2, 'B': 1, 'A': 2}
+
+The row of "=" characters shown below as a separator is, in the actual prompt,
+a run of 55 U+2550 (BOX DRAWINGS DOUBLE HORIZONTAL) characters.
+
+================================================================================
+PROMPT (verbatim template)
+================================================================================
+
+One annotation has been added that is NOT part of the prompt: the
+"<- Rounds 2 and 3 only" marker on the SUMMARY OF PRIOR DISCUSSION ROUNDS line.
+Everything else below is the template exactly as assembled.
+
+You are a medical expert on a clinical consultation panel. You are participating in a structured debate with your colleagues to reach the best clinical decision.
+
+CLINICAL CASE:
+{QUESTION_TEXT}{CONTEXT_BLOCK}
+
+OPTIONS:
+{OPTIONS_STR}
+
+=======================================================
+YOUR PREVIOUS POSITION (Round {OWN_PREVIOUS_LABEL}):
+  You selected: {OWN_PREVIOUS_OPTION}
+  Your confidence: {OWN_PREVIOUS_CONF}
+  Your reasoning: {OWN_PREVIOUS_REASON}
+  Your key evidence: {OWN_PREVIOUS_EVIDENCE}
+=======================================================
+
+SUMMARY OF PRIOR DISCUSSION ROUNDS:                    <- Rounds 2 and 3 only
+{SUMMARY_BLOCK}
+
+COLLEAGUE RESPONSES FROM PREVIOUS ROUND:
+
+--- Panelist A ---
+Selected: {A_selected}
+Confidence: {A_confidence}
+Reasoning: {A_reasoning}
+Key Evidence: {A_evidence}
+
+--- Panelist B ---
+Selected: {B_selected}
+Confidence: {B_confidence}
+Reasoning: {B_reasoning}
+Key Evidence: {B_evidence}
+
+--- Panelist C ---
+Selected: {C_selected}
+Confidence: {C_confidence}
+Reasoning: {C_reasoning}
+Key Evidence: {C_evidence}
+
+--- Panelist D ---
+Selected: {D_selected}
+Confidence: {D_confidence}
+Reasoning: {D_reasoning}
+Key Evidence: {D_evidence}
+
+CURRENT VOTE DISTRIBUTION: {VOTE_DIST}
+
+=======================================================
+INSTRUCTIONS:
+Review your colleagues' reasoning carefully and critically.
+
+Consider:
+1. Do any colleagues present clinical evidence you missed or overlooked?
+2. Are there flaws in your own reasoning that their arguments expose?
+3. Are there flaws in THEIR reasoning that you can identify?
+4. Does the clinical evidence more strongly support one answer over others?
+
+You MAY change your position if genuinely persuaded by clinical evidence.
+Do NOT simply agree with the majority without strong clinical justification.
+Maintain your position if you believe your evidence is stronger.
+
+Respond ONLY with a valid JSON object (no extra text before or after):
+{
+  "updated_selected_option": "<{VALID_LETTERS}>",
+  "changed_position": true or false,
+  "confidence": <0.0 to 1.0>,
+  "reasoning_update": "<explain what changed your mind OR why you hold firm, 2-4 sentences>",
+  "critical_evidence": "<the single strongest clinical evidence for your current position>",
+  "counter_argument": "<1-2 sentence rebuttal to the strongest opposing argument>"
+}
+=======================================================
+
+================================================================================
+SUMMARY_BLOCK format (Rounds 2 and 3)
+================================================================================
+
+Deterministic text extraction, not an LLM summary. One line per debate round
+completed so far:
+
+  Round <n>: Votes=<vote dict>, Agreement=<pct>, Position changes: <changes>
+
+The summary covers EVERY completed round, including the most recent one, which
+is therefore described here and also shown in full in the colleague block below
+it. At Round 2 the block holds one line (Round 1); at Round 3 it holds two
+(Rounds 1 and 2).
+
+Position changes name the model KEY, not the display name, and use a Unicode
+arrow U+2192:
+
+  Round 1: Votes={'D': 2, 'B': 1, 'A': 2}, Agreement=40%, Position changes: medgemma_4b changed C→D; rnj1_8b changed D→B
+
+When a round produced no changes the list reads "none".
+
+================================================================================
+NOTES
+================================================================================
+
+1. Colleague labelling. The four colleagues are shown as Panelist A, B, C, D and
+   their model names are never printed in this prompt. The label assignment is
+   DETERMINISTIC, not randomised: colleagues appear in the fixed panel order
+   (MedGemma-4B, Rnj1-8B, Qwen3-VL-8B, OpenBioLLM-8B, Olmo3-7B) with the
+   recipient removed, and letters are assigned by position in that reduced list.
+   The mapping is therefore stable for a given recipient across all questions and
+   all rounds, and it is recoverable from the panel order alone. Anyone measuring
+   positional or identity effects should account for this.
+
+2. Self-reference. The recipient is shown its OWN previous answer in the YOUR
+   PREVIOUS POSITION block. This is what makes a debate round "single-turn with
+   state". From Round 2 onward the "Your reasoning:" line of that block is empty
+   for most recipients, for the same reason the colleague blocks are; see note 4.
+
+3. Visible majority. The running vote tally, including the recipient's own vote,
+   is shown to every member. It is a social signal available to the model
+   independently of any clinical argument.
+
+4. Empty reasoning lines from Round 2 onward. The "Reasoning:" line of each
+   colleague block, and the "Your reasoning:" line of the recipient's own
+   previous-position block, are both populated from a clinical_reasoning field.
+   At Round 1 the colleagues' Round-0 responses carry that field, so the line is
+   full. From Round 2 onward the colleagues' previous responses are debate
+   responses, which carry reasoning_update rather than clinical_reasoning, and
+   most models did not emit a clinical_reasoning key in the debate format.
+
+   Measured over the colleague blocks actually rendered, that line is empty in
+   91.9% of them at Round 2 and 91.8% at Round 3. Only OpenBioLLM-8b (25.8% of
+   its debate responses) and Olmo3-7b (9.1%) ever populate the field at all;
+   MedGemma-4b, Rnj1-8b and Qwen3-VL-8b never do. The recipient's own
+   "Your reasoning:" line is empty at the same rate.
+
+   The argument content visible to a member at Rounds 2 and 3 is therefore
+   carried by the "Key Evidence:" lines and the SUMMARY_BLOCK. This is a
+   property of the run as executed and is preserved as-is in the transcripts.
+
+5. One template for all three rounds. What differs across rounds is which previous
+   position is shown, whether SUMMARY_BLOCK is present, and which round the
+   colleague responses are drawn from (always the immediately preceding one).
+
+6. Convergence. At the end of each debate round the members' updated_selected_option
+   values are tallied. If the modal option holds at least 3 votes, the council
+   returns it. Otherwise the next round fires, up to a maximum of three. See
+   "How a question was resolved" in ../README.md.

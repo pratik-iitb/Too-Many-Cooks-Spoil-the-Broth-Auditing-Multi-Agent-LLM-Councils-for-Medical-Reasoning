@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-699",
+  "dataset": "medqa",
+  "question_id": "699",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 67-year-old male with a past medical history of diabetes and hypertension, and a 40-pack-year smoking history, presents to the emergency room with right-sided weakness. He is unable to move the right side of his face and his right arm. You ask him to repeat a sentence and he is unable to do so. He speaks gibberish and cannot follow your commands. This patient's clinical presentation is most likely related to occlusion of which of the following in Figure A?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4",
+      "E": "5"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with right-sided weakness (hemiparesis), facial droop, and aphasia (inability to repeat a sentence and speak gibberish), indicating a left-sided stroke. The most likely location for a stroke causing these symptoms is the middle cerebral artery (MCA) territory, specifically the area supplied by the MCA branches that control the face and arm. The MCA is the most common artery involved in stroke.",
+          "critical_evidence": "Right-sided weakness (hemiparesis), facial droop, and aphasia strongly suggest a left MCA stroke.",
+          "differential_considered": "A left ACA stroke could cause weakness and sensory loss, but less likely to cause aphasia. A left PCA stroke could cause sensory loss and Horner's syndrome, but not typically the combination of hemiparesis, facial droop, and aphasia. A left cerebellar stroke would cause ataxia and incoordination, not hemiparesis and aphasia. A left thalamic stroke could cause sensory loss and pain, but not typically the combination of hemiparesis, facial droop, and aphasia.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 275,
+            "generation_time_s": 13.621
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's right-sided weakness, facial drooping, slurred speech, and inability to follow commands strongly suggest a cerebrovascular event. Given the patient's age, smoking history, and hypertension, a thrombotic occlusion of the right internal carotid artery (option A) is the most likely cause. This would explain the unilateral hemiparesis and speech difficulties consistent with a right-sided stroke.",
+          "critical_evidence": "Right-sided weakness and facial drooping",
+          "differential_considered": "Considered transient ischemic attack (TIA), but the patient's inability to repeat a sentence and significant weakness suggests a more acute event. Ruled out left-sided issues as symptoms are right-sided. Hypertensive encephalopathy was considered but facial drooping and arm weakness are not typical findings.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 197,
+            "generation_time_s": 9.206
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with right-sided hemiparesis, facial droop, and global aphasia (inability to speak coherently and follow commands), which are classic signs of left hemisphere stroke. The left middle cerebral artery (MCA) supplies the territory responsible for motor and language functions in the dominant hemisphere. Occlusion of the left MCA would explain the combination of motor deficits on the right side and aphasia. The figure likely depicts vascular territories, and option B corresponds to the left MCA territory.",
+          "critical_evidence": "Global aphasia and right hemiparesis in a right-handed patient strongly suggest left MCA territory involvement.",
+          "differential_considered": "Basilar artery occlusion (could cause brainstem symptoms) and posterior cerebral artery occlusion (would cause visual field deficits) were considered but ruled out due to absence of visual or cranial nerve deficits. Internal carotid artery occlusion is less specific and typically presents with more global deficits; MCA occlusion is the most likely cause given the classic triad of motor, sensory, and aphasia deficits.",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 252,
+            "generation_time_s": 8.862
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 75,
+            "generation_time_s": 1.831
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possibilities such as carotid artery stenosis (option A or D) could cause right-sided ischemia, but they do not typically cause aphasia unless there is severe subcortical involvement. A large vessel occlusion (e.g., option A or D) might be considered, but the cortical symptoms are more specific to MCA occlusion (option B).",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 269,
+            "generation_time_s": 8.499
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

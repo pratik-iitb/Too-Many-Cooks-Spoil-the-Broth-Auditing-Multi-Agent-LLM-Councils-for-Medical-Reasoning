@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-765",
+  "dataset": "metamed",
+  "question_id": "765",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old man presents to his primary care provider for two weeks of low-grade fever and sore throat. Upon further questioning, the patient is found to have unprotected sex with both men and women with 3-5 partners per month. On workup, he is found to have an HIV viral load of 15,000 copies/mL with a CD4+ of 170 cells/mm^3. He is started on medical therapy. What should be included in his medication regimen?",
+    "options": {
+      "A": "Azithromycin",
+      "B": "Fluconazole",
+      "C": "Folinic acid",
+      "D": "Tetrahydrofolic acid",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a low CD4+ count (170 cells/mm^3) and a high viral load (15,000 copies/mL), indicating advanced HIV infection. The patient is already on antiretroviral therapy (ART). Folinic acid (leucovorin) is a crucial component of ART regimens, particularly for patients with low CD4 counts, as it helps prevent the bone marrow suppression caused by some ART medications like methotrexate.",
+          "critical_evidence": "The patient's low CD4+ count (170 cells/mm^3) and high viral load (15,000 copies/mL) indicate advanced HIV infection and the need for ART.",
+          "differential_considered": "Azithromycin is an antibiotic and not typically part of standard HIV treatment. Fluconazole is an antifungal and not indicated in this case. Folinic acid is a necessary component of ART regimens for patients with low CD4 counts to prevent bone marrow suppression. Therefore, the other options are not appropriate.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 253,
+            "generation_time_s": 13.346
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with HIV with a detectable viral load and low CD4 count, indicating active infection. The symptoms of fever and sore throat are consistent with HIV-related opportunistic infections but do not suggest a specific bacterial or parasitic infection requiring azithromycin, fluconazole, folinic acid, or tetrahydrofolic acid. These medications are not first-line treatments for HIV. Folinic acid and tetrahydrofolic acid are supportive therapies for bone marrow suppression but are not indicated for HIV treatment. Therefore, none of the listed options are appropriate for this patient's HIV management.",
+          "critical_evidence": "HIV viral load of 15,000 copies/mL and CD4+ of 170 cells/mm^3 indicating active disease requiring antiretroviral therapy",
+          "differential_considered": "Considered bacterial pharyngitis, mononucleosis, and other viral infections, but ruled out as no specific signs/symptoms suggest these conditions. The key finding is the HIV diagnosis with detectable viral load, which requires antiretroviral therapy rather than the listed medications.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.594
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has confirmed HIV infection with a viral load of 15,000 copies/mL and CD4+ count of 170 cells/mm³, indicating active disease requiring antiretroviral therapy (ART). None of the listed options (Azithromycin, Fluconazole, Folinic acid, Tetrahydrofolic acid) are components of standard HIV ART regimens or indicated for this patient’s presentation. These agents are used for bacterial infections, fungal prophylaxis, or folate supplementation, which are not indicated here.",
+          "critical_evidence": "HIV viral load of 15,000 copies/mL and CD4+ of 170 cells/mm³ confirm active HIV infection requiring ART, not adjunctive antimicrobials or vitamins.",
+          "differential_considered": "Considered opportunistic infections (e.g., bacterial or fungal) given the symptoms and low CD4, but no evidence of active infection requiring antibiotics or antifungals. Folinic acid and tetrahydrofolic acid are not indicated for HIV management unless there is documented folate deficiency, which is not mentioned.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 265,
+            "generation_time_s": 10.217
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 195,
+            "generation_time_s": 4.893
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 284,
+            "generation_time_s": 9.797
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

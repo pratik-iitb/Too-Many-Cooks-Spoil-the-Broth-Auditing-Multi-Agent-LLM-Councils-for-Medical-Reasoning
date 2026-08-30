@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-743",
+  "dataset": "mmlu",
+  "question_id": "743",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following would result in Angelman syndrome?",
+    "options": {
+      "A": "Maternal UPD 15",
+      "B": "Paternal UPD 15",
+      "C": "Deletion in the paternally derived chromosome 15",
+      "D": "A mutation in the SNRPN promoter"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Angelman syndrome is caused by a deletion or mutation in the UBE3A gene on the maternally inherited chromosome 15. Maternal uniparental disomy (UPD) of chromosome 15, where both copies of chromosome 15 are inherited from the mother, is a common cause of Angelman syndrome. Paternal UPD is not typically associated with Angelman syndrome.",
+          "critical_evidence": "Maternal UPD 15 is a known cause of Angelman syndrome.",
+          "differential_considered": "Paternal UPD 15 is not a typical cause of Angelman syndrome. Deletion in the paternally derived chromosome 15 is a cause of Prader-Willi syndrome, not Angelman syndrome. A mutation in the SNRPN promoter is associated with Prader-Willi syndrome, not Angelman syndrome.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 213,
+            "generation_time_s": 10.969
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Angelman syndrome is caused by a deletion in the maternally inherited chromosome 15q11-q13 region. This deletion leads to the absence of UBE3A gene expression from the maternal allele, which is critical for normal brain development. Option C correctly identifies this specific chromosomal deletion pattern, while the other options represent different genetic conditions. Maternal UPD 15 (A) and paternal UPD 15 (B) refer to uniparental disomy, which would result in overexpression of the UBE3A gene rather than deletion. A mutation in the SNRPN promoter (D) affects splicing but is not the primary cause of Angelman syndrome.",
+          "critical_evidence": "Deletion in the paternally derived chromosome 15q11-q13 region",
+          "differential_considered": "Considered Prader-Willi syndrome (caused by paternal deletion of 15q11-q13) but ruled it out because Angelman syndrome specifically requires maternal deletion. Also considered UBE3A mutations but ruled them out as they represent point mutations rather than the critical deletion pattern seen in Angelman syndrome.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.397
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Angelman syndrome is caused by loss of function of the maternal UBE3A gene on chromosome 15, typically due to mutations in the SNRPN promoter region, which silences the maternal allele. While other mechanisms like maternal UPD 15 or paternal deletion can also cause the syndrome, the SNRPN promoter mutation is a direct molecular cause and is the most specific genetic alteration among the options. The other options either represent alternative mechanisms or are less directly causative.",
+          "critical_evidence": "The SNRPN promoter mutation leads to loss of maternal UBE3A expression, which is the core pathogenic mechanism in Angelman syndrome.",
+          "differential_considered": "Maternal UPD 15 (A) and paternal deletion (C) are also causes, but they are not the most direct molecular mechanism. Paternal UPD 15 (B) typically causes Prader-Willi syndrome, not Angelman. Option D is the most precise genetic cause among the listed choices.",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 235,
+            "generation_time_s": 8.582
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Angelman syndrome is typically caused by maternal UPD 15, which is a form of uniparental disomy where two copies of chromosome 15 are inherited from the mother. This results in a lack of expression of genes on the maternal chromosome 15, including the UBE3A gene, which is implicated in the development of Angelman syndrome. The other options do not lead to Angelman syndrome.",
+          "critical_evidence": "The presence of maternal UPD 15",
+          "differential_considered": "Paternal UPD 15 is not associated with Angelman syndrome; it leads to Prader-Willi syndrome. Deletion in the paternally derived chromosome 15 also results in Prader-Willi syndrome, not Angelman syndrome. A mutation in the SNRPN promoter is associated with Prader-Willi syndrome, not Angelman syndrome.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 202,
+            "generation_time_s": 5.082
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "A mutation in the SNRPN promoter on the paternally derived chromosome leads to loss of UBE3B function, the hallmark of Angelman syndrome.",
+          "differential_considered": "Deletions or UPD of chromosome 15 (options A, B, C) are associated with Prader-Willi syndrome or other chromosomal disorders, not Angelman syndrome, which is caused by loss of the SNRPN gene's expression.",
+          "usage": {
+            "prompt_tokens": 312,
+            "generated_tokens": 271,
+            "generation_time_s": 8.863
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

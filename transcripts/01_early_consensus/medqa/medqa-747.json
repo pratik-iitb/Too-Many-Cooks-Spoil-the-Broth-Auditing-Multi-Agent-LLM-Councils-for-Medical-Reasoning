@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-747",
+  "dataset": "medqa",
+  "question_id": "747",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 20-year-old man presents to clinic with complaints of a rash (Figure A). He is a wrestler for a local college, and several of his teammates have had a similar rash. You are considering treatment with terbinafine. What is the mechanism of action of this drug?",
+    "options": {
+      "A": "Inhibition of pyrimidine synthesis",
+      "B": "Inhibition of squalene epoxidase",
+      "C": "Pore formation secondary to ergosterol binding",
+      "D": "Inhibition of 1,3-beta-glucan synthase",
+      "E": "Disruption of microtubule function"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (rash, wrestler, teammates with similar rash) strongly suggests a fungal infection, specifically tinea corporis (ringworm). Terbinafine is an antifungal medication. The mechanism of action of terbinafine is to inhibit squalene epoxidase, an enzyme involved in ergosterol synthesis, which is essential for fungal cell membrane integrity.",
+          "critical_evidence": "The clinical presentation of a rash in a wrestler with similar cases among teammates is highly suggestive of a fungal infection, and terbinafine is a common treatment for tinea corporis.",
+          "differential_considered": "While other fungal infections are possible, the wrestler setting and the description of the rash make tinea corporis the most likely diagnosis. Other options like bacterial infections or allergic reactions are less likely given the context and the fact that teammates are also affected. Therefore, I ruled them out.",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 217,
+            "generation_time_s": 10.747
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Terbinafine is an azole antifungal that binds ergosterol, a component of fungal cell membranes, leading to pore formation and disruption of membrane integrity. This mechanism specifically targets fungal pathogens, which is relevant for a rash in a wrestler where tinea corporis (ringworm) is a common cause. The other options relate to bacterial or protozoal infections (A: bacterial DNA synthesis, B: bacterial lipid metabolism, D: fungal cell wall synthesis, E: eukaryotic cytoskeletal function).",
+          "critical_evidence": "The drug's mechanism of action is specific to fungal cell membranes via ergosterol binding",
+          "differential_considered": "Considered tinea corporis (ringworm) as the most likely cause given the wrestler's exposure, but ruled out bacterial or viral causes based on the drug's antifungal mechanism",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.591
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is a young male wrestler with a rash that is likely contagious among teammates, suggesting a fungal infection such as tinea corporis. Terbinafine is an antifungal agent commonly used for dermatophyte infections. Its mechanism of action is inhibition of squalene epoxidase, which blocks ergosterol synthesis in fungi, leading to cell membrane disruption. This aligns with the clinical context and the drug’s known pharmacology.",
+          "critical_evidence": "Terbinafine specifically inhibits squalene epoxidase, a key enzyme in fungal ergosterol biosynthesis, which is the correct mechanism of action.",
+          "differential_considered": "Other differentials like bacterial folliculitis or viral exanthems were considered but ruled out due to the contagious nature among teammates and the typical presentation of a dermatophyte infection, which terbinafine targets.",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 209,
+            "generation_time_s": 7.334
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 68,
+            "generation_time_s": 1.654
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 293,
+            "generation_time_s": 9.198
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

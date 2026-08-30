@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-755",
+  "dataset": "medqa",
+  "question_id": "755",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 66-year-old man is brought into the emergency department by his daughter for a change in behavior. Yesterday the patient seemed more confused than usual and was asking the same questions repetitively. His symptoms have not improved over the past 24 hours, thus the decision to bring him in today. Last year, the patient was almost completely independent but he then suffered a \"series of falls,\" after which his ability to care for himself declined. After this episode he was no longer able to cook for himself or pay his bills but otherwise had been fine up until this episode. The patient has a past medical history of myocardial infarction, hypertension, depression, diabetes mellitus type II, constipation, diverticulitis, and peripheral neuropathy. His current medications include metformin, insulin, lisinopril, hydrochlorothiazide, sodium docusate, atorvastatin, metoprolol, fluoxetine, and gabapentin. On exam you note a confused man who is poorly kept. He has bruises over his legs and his gait seems unstable. He is alert to person and place, and answers some questions inappropriately. The patient's pulse is 90/minute and his blood pressure is 170/100 mmHg. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Normal aging",
+      "B": "Alzheimer's dementia",
+      "C": "Lewy body dementia",
+      "D": "Vascular dementia",
+      "E": "Presbycusis"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of acute confusion, recent falls, and a history of vascular risk factors (hypertension, MI, diabetes) strongly suggests vascular dementia. The gradual decline in function after a period of relative stability is also characteristic of vascular dementia. The patient's medications also do not point to any other diagnosis.",
+          "critical_evidence": "The patient's history of myocardial infarction, hypertension, diabetes mellitus type II, and recent falls, combined with the acute onset of confusion, is highly suggestive of vascular dementia.",
+          "differential_considered": "Alzheimer's dementia is a possibility, but the acute onset and history of falls are less typical. Lewy body dementia can present with fluctuating cognition and visual hallucinations, which are not mentioned in the case. Presbycusis is a sensorineural hearing loss and does not cause cognitive decline. Therefore, vascular dementia is the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 526,
+            "generated_tokens": 224,
+            "generation_time_s": 15.022
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of falls last year, combined with progressive decline in self-care and the presence of vascular risk factors (hypertension, diabetes, peripheral neuropathy), suggests a vascular etiology. Vascular dementia often follows cerebrovascular events and presents with fluctuating cognitive symptoms and parkinsonian features.",
+          "critical_evidence": "History of falls and progressive decline after cerebrovascular events",
+          "differential_considered": "Alzheimer's (present but secondary to vascular damage), Lewy body (less likely without parkinsonian features), and normal aging (ruled out by significant cognitive decline and functional impairment)",
+          "usage": {
+            "prompt_tokens": 536,
+            "generated_tokens": 157,
+            "generation_time_s": 7.477
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute confusion, recent falls, and a history of cerebrovascular risk factors (hypertension, MI), supporting a vascular etiology. His cognitive decline is abrupt and associated with physical instability and bruises, consistent with cerebrovascular events. The history of prior falls and functional decline suggests a progressive but potentially stepwise cognitive decline, which aligns with vascular dementia. Other dementias (Alzheimer’s, Lewy body) typically present with more insidious onset and different symptom profiles (e.g., visual hallucinations, parkinsonism in Lewy body).",
+          "critical_evidence": "History of myocardial infarction, hypertension, and recent falls with acute confusion and gait instability strongly suggest vascular etiology.",
+          "differential_considered": "Alzheimer’s dementia (insidious onset, no acute change), Lewy body dementia (fluctuating cognition, parkinsonism, hallucinations not present), and normal aging (no functional decline or acute confusion) were considered but ruled out due to acute presentation and vascular risk factors.",
+          "usage": {
+            "prompt_tokens": 514,
+            "generated_tokens": 245,
+            "generation_time_s": 8.624
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 534,
+            "generated_tokens": 205,
+            "generation_time_s": 4.904
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "Acute onset of confusion, unsteady gait, and physical injuries consistent with recent stroke",
+          "differential_considered": "Alzheimer's dementia (typically progressive, no acute stroke-like onset), Lewy body dementia (may have delirium but less likely given the acute focal neurological signs), Normal aging (rarely presents with new acute cognitive and motor changes), Vascular dementia (common in this age group and associated with prior falls and stroke risk factors, supports acute onset of neurologic deficit), Presbycusis (auditory deficit, not relevant to his presentation",
+          "usage": {
+            "prompt_tokens": 563,
+            "generated_tokens": 299,
+            "generation_time_s": 9.67
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

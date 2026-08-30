@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-707",
+  "dataset": "mmlu",
+  "question_id": "707",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "With an increasing number of sprints the:",
+    "options": {
+      "A": "anaerobic contribution progressively increases.",
+      "B": "pH of the muscle falls below 6.0.",
+      "C": "blood glucose concentration falls below 3 mmol/L.",
+      "D": "relative contribution of aerobic metabolism increases."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "As the number of sprints increases, the body relies more on anaerobic metabolism to meet the increased energy demands. This leads to a greater contribution of anaerobic metabolism to the total energy production.",
+          "critical_evidence": "Increasing number of sprints",
+          "differential_considered": "Option B is incorrect because the pH of the muscle does not fall below 6.0 during intense exercise. Option C is incorrect because blood glucose concentration does not fall below 3 mmol/L during intense exercise. Option D is incorrect because the relative contribution of aerobic metabolism decreases as the number of sprints increases.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 158,
+            "generation_time_s": 8.097
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "With increasing sprint intensity and duration, the body's demand for energy exceeds aerobic metabolism's ability to supply it. Anaerobic metabolism becomes the primary energy source, leading to increased production of lactate and hydrogen ions, which lowers muscle pH. However, the question specifies 'increasing number of sprints,' not prolonged high-intensity effort. Short, repeated sprints allow for partial recovery between efforts, maintaining aerobic contribution. But as the number of sprints increases, the cumulative fatigue reduces the body's ability to clear lactate, progressively increasing anaerobic contribution. This aligns with the concept of 'lactate accumulation' during repeated high-intensity efforts.",
+          "critical_evidence": "The progressive increase in anaerobic contribution with repeated sprints is supported by exercise physiology principles where each subsequent sprint leads to greater lactate accumulation due to incomplete oxidative metabolism.",
+          "differential_considered": "Options B (pH below 6.0) is too extreme and not typical for short sprints; C (blood glucose <3 mmol/L) is unlikely in a well-nourished athlete; D (increasing aerobic contribution) contradicts the anaerobic shift with repeated efforts.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.226
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "As the number of sprints increases, the intensity and duration of anaerobic activity rise, leading to greater reliance on anaerobic metabolism. This results in increased lactic acid production, which contributes to muscle fatigue and acidosis. The other options are either physiologically implausible or not directly related to the progressive nature of sprinting.",
+          "critical_evidence": "Anaerobic metabolism becomes the dominant energy pathway during high-intensity, short-duration exercise like sprints, especially as fatigue sets in.",
+          "differential_considered": "Options B, C, and D were considered but ruled out: pH falling below 6.0 is extreme and not typical in healthy athletes; blood glucose rarely falls below 3 mmol/L during sprints unless prolonged or in pathological states; and aerobic contribution does not increase with more sprints — it may decrease as fatigue accumulates.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 208,
+            "generation_time_s": 7.562
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 73,
+            "generation_time_s": 1.838
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "With increased sprint intensity, the body shifts from predominantly aerobic metabolism to a higher reliance on anaerobic metabolism. However, the relative contribution of aerobic metabolism does not decrease but rather adapts to support the increased energy demand until anaerobic capacity is overwhelmed. The question asks about the 'relative contribution' increasing, which is not typical, but among the options, the best fit is that aerobic metabolism's role adapts and may increase in certain intensities or in the context of overall energy supply, especially as the body integrates both systems. The other options are less likely: pH falling below 6.0 is a sign of severe anaerotic acidosis, not a gradual shift; blood glucose is not directly tied to sprint metabolism in this context; and while anaerobic contribution increases, the question specifically asks about the 'relative' contribution of aerobic, making D the best answer if interpreted as adaptation within the metabolic mix during high-intensity exercise.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 334,
+            "generation_time_s": 10.867
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-18243752",
+  "dataset": "pubmedqa",
+  "question_id": "18243752",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Should chest wall irradiation be included after mastectomy and negative node breast cancer?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Based on current guidelines, chest wall irradiation is generally not recommended after mastectomy for early-stage breast cancer with negative lymph nodes. The risk of long-term complications from radiation outweighs the potential benefit in this scenario. The primary treatment for early-stage breast cancer is surgery and adjuvant therapy if indicated.",
+          "critical_evidence": "Negative lymph nodes",
+          "differential_considered": "While other factors like tumor size and grade could influence treatment decisions, the presence of negative lymph nodes significantly reduces the likelihood of regional recurrence, making chest wall irradiation unnecessary.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 151,
+            "generation_time_s": 7.443
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Chest wall irradiation is typically reserved for high-risk features like positive lymph nodes, tumor size >5 cm, or histologic grade >3. With negative nodes and a mastectomy, the risk of local recurrence is low. Radiation may cause unnecessary morbidity without significant benefit in this scenario.",
+          "critical_evidence": "Negative lymph nodes after mastectomy",
+          "differential_considered": "Considered high-grade tumor but ruled out by negative nodes; considered large tumor but ruled out by size not specified; considered multiple positive nodes but ruled out by single negative node reported",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.247
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Chest wall irradiation is not routinely indicated after mastectomy for node-negative breast cancer without high-risk features, as the risk of local recurrence is low. Current guidelines (e.g., NCCN, ASCO) recommend radiation only for high-risk features such as close margins, positive margins, or extensive intraductal component. The case does not mention any such high-risk factors.",
+          "critical_evidence": "Negative lymph nodes and absence of high-risk features (e.g., close margins, positive margins) make chest wall irradiation unnecessary.",
+          "differential_considered": "High-risk features like positive margins or close margins were not mentioned, so chest wall irradiation is not indicated. Other indications like inflammatory breast cancer or locally advanced disease were not present.",
+          "usage": {
+            "prompt_tokens": 230,
+            "generated_tokens": 184,
+            "generation_time_s": 6.399
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The clinical reasoning and critical evidence are optional fields but highly recommended for demonstrating your understanding and thought process.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 21,
+            "generation_time_s": 0.517
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The clinical case describes a breast cancer patient who has undergone mastectomy with negative lymph node assessment. While negative nodes reduce the likelihood of residual disease, chest wall irradiation is traditionally recommended in some high-risk or locally advanced cases to reduce the risk of local recurrence. However, guidelines now often recommend chest wall radiation based on tumor size, lymph node involvement, and patient risk factors, not just negative nodes. Without specific details on tumor stage or risk factors, it is uncertain whether to include chest wall irradiation, making 'maybe' the most appropriate answer.",
+          "critical_evidence": "Lack of information about tumor stage or high-risk features (e.g., large tumor, positive margins, high-grade cancer, or extensive axillary involvement) that would traditionally warrant chest wall irradiation.",
+          "differential_considered": "Differential considerations include local recurrence risk in high-risk disease (e.g., large tumor, positive margins), but since nodes are negative, the risk is lower. Other options ('yes' or 'no') are less appropriate without additional clinical context.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 244,
+            "generation_time_s": 7.604
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

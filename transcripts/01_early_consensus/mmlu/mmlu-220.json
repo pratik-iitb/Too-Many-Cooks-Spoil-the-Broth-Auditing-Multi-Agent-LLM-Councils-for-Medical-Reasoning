@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-220",
+  "dataset": "mmlu",
+  "question_id": "220",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Why can't a patient talk if the cuff is inflated?",
+    "options": {
+      "A": "They are unable to breathe in sufficiently.",
+      "B": "They are unable to swallow properly.",
+      "C": "It is too tiring.",
+      "D": "They are unable to pass air through their vocal cords."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The inability to speak when the cuff is inflated suggests a problem with the mechanism of speech. The vocal cords need to be able to move to create sound. If the cuff is inflating, it's likely compressing the airway, making it difficult or impossible for the vocal cords to move properly. This would prevent the patient from being able to articulate words.",
+          "critical_evidence": "Inability to speak when the cuff is inflated.",
+          "differential_considered": "A: While breathing difficulty could be present, it's less likely to be the primary reason for the inability to speak specifically when the cuff is inflated. B: Swallowing issues would primarily affect the patient's ability to eat and drink, not necessarily their ability to speak. C: Fatigue is a general symptom and not directly related to the mechanism of speech. A, B, and C are less likely than D.",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 220,
+            "generation_time_s": 11.058
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "When a cuff is inflated, it creates pressure around the neck and chest, which can compress the airway and make it difficult for the patient to produce sound. The vocal cords require a certain amount of air pressure to vibrate and produce speech, and the cuff pressure interferes with this process. This is why the patient cannot talk while the cuff is inflated.",
+          "critical_evidence": "The patient's inability to talk while the cuff is inflated directly demonstrates that the vocal cords are being compressed by the cuff pressure, preventing them from vibrating properly.",
+          "differential_considered": "Other options like breathing difficulties (A) or swallowing problems (B) could occur with cuff inflation, but they are not the primary reason the patient cannot talk. Tiring (C) is a possible secondary effect but not the main issue. The key finding is the vocal cord compression, which is specific to speech production.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.093
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Inflating the cuff of an endotracheal tube or tracheostomy tube occludes the airway above the tube, preventing air from passing through the vocal cords, which are necessary for speech. This mechanical obstruction directly impairs the ability to produce sound. Other options like breathing difficulty (A) or swallowing issues (B) are not directly caused by cuff inflation, and fatigue (C) is not the primary mechanism.",
+          "critical_evidence": "Cuff inflation physically blocks airflow through the vocal cords, which are essential for phonation.",
+          "differential_considered": "Options A, B, and C were considered but ruled out: breathing difficulty may occur with cuff overinflation but is not the direct cause of inability to talk; swallowing issues relate to neurological or structural problems, not cuff inflation; fatigue is a secondary effect, not the primary mechanism.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 205,
+            "generation_time_s": 7.751
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 73,
+            "generation_time_s": 1.812
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The inability to talk after a cuff is inflated most likely due to obstruction of the airway at or near the vocal cords, which is necessary for producing speech. Breathing alone (option A) would not prevent vocalization, and swallowing (B) or fatigue (C) are not the primary mechanisms for speech loss in this scenario. The critical finding is the patient's inability to vocalize, pointing to airway obstruction rather than other factors.",
+          "critical_evidence": "",
+          "differential_considered": "Options A (inability to breathe) could cause shortness of breath but not specifically prevent talking; B (swallowing issues) might affect speech but is unrelated to the cuff; C (tiredness) is a non-specific symptom and less likely to directly explain the inability to talk. The best explanation is that the cuff is compressing the airway, preventing air from passing through the vocal cords required for speech.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 252,
+            "generation_time_s": 8.109
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

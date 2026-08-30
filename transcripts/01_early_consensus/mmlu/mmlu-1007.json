@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1007",
+  "dataset": "mmlu",
+  "question_id": "1007",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 68-year-old female presents to the emergency department with a 3-day history of worsening fever and headache. Today the patient is nauseated and less responsive. Lumbar puncture reveals a protein level of 89 mg/dL (reference range: 15-45 mg/dL) with pleocytosis. The most likely etiologic organism is",
+    "options": {
+      "A": "Clostridium perfringens",
+      "B": "Haemophilus influenzae",
+      "C": "rhinovirus",
+      "D": "Streptococcus pneumoniae"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, headache, nausea, decreased responsiveness, elevated protein level, and pleocytosis in the cerebrospinal fluid (CSF) strongly suggests meningitis. Given the patient's age, *Streptococcus pneumoniae* is the most common cause of bacterial meningitis in adults. While other options are possible, they are less likely given the clinical picture.",
+          "critical_evidence": "Elevated protein level (89 mg/dL) and pleocytosis in the CSF are highly suggestive of bacterial meningitis.",
+          "differential_considered": "Clostridium perfringens is typically associated with gas gangrene and is less likely to cause meningitis. Haemophilus influenzae was a common cause of meningitis in children before the Hib vaccine. Rhinovirus is a common cause of the common cold and is not typically associated with meningitis. Therefore, these are less likely etiologies given the patient's age and CSF findings.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 224,
+            "generation_time_s": 11.302
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's elevated protein level (89 mg/dL) and pleocytosis in the lumbar puncture strongly suggest bacterial meningitis. Streptococcus pneumoniae is a common cause of bacterial meningitis in older adults, particularly in those with fever, headache, and altered mental status. Clostridium perfringens typically causes gas ganglion infections, not meningitis. Haemophilus influenzae is more common in younger patients and usually causes less severe meningitis. Rhinovirus is a viral pathogen that does not cause meningitis.",
+          "critical_evidence": "Protein level of 89 mg/dL with pleocytosis in lumbar puncture",
+          "differential_considered": "Considered Clostridium perfringens (gas ganglion), Haemophilus influenzae (mild meningitis in young), and rhinovirus (viral infection). Ruled out due to mismatched clinical patterns and lack of typical presentation.",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.686
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is an elderly female with fever, headache, altered mental status, and elevated CSF protein with pleocytosis, consistent with bacterial meningitis. Streptococcus pneumoniae is the most common cause of bacterial meningitis in adults, especially in the elderly. The other options are less likely: Clostridium perfringens causes gas gangrene or necrotizing infections, not typical meningitis; Haemophilus influenzae is rare in adults and more common in children; rhinovirus causes viral meningitis, which typically presents with milder symptoms and lacks significant pleocytosis or elevated protein.",
+          "critical_evidence": "Elevated CSF protein (89 mg/dL) with pleocytosis in an elderly patient with systemic symptoms strongly suggests bacterial meningitis, most commonly caused by Streptococcus pneumoniae.",
+          "differential_considered": "Ruled out rhinovirus due to lack of typical viral meningitis presentation (mild symptoms, low CSF protein); ruled out Haemophilus influenzae due to rarity in adults; ruled out Clostridium perfringens due to lack of systemic necrotizing infection context.",
+          "usage": {
+            "prompt_tokens": 321,
+            "generated_tokens": 275,
+            "generation_time_s": 9.827
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 166,
+            "generation_time_s": 4.11
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "C. perfringens (possible but less common), H. influenzae (bacterial meningitis in children and adults), S. pneumoniae (common cause in elderly), rhinovirus (viral, low protein, non-neuroinvasive)",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 265,
+            "generation_time_s": 8.516
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

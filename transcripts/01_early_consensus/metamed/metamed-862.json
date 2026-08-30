@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-862",
+  "dataset": "metamed",
+  "question_id": "862",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 79-year-old man presents to the office due to shortness of breath with moderate exertion and a slightly productive cough. He has a medical history of 25 years of heavy smoking. His vitals include: heart rate 89/min, respiratory rate 27/min, and blood pressure 120/90 mm Hg. The physical exam shows increased resonance to percussion, decreased breath sounds, and crackles at the lung base. Chest radiography shows signs of pulmonary hyperinflation. Spirometry shows a forced expiratory volume in the first second (FEV1) of 48%, a forced vital capacity (FVC) of 85%, and an FEV1/FVC ratio of 56%. According to these results, what is the most likely diagnosis?",
+    "options": {
+      "A": "Asthma",
+      "B": "Lymphangioleiomyomatosis",
+      "C": "Chronic obstructive pulmonary disease (COPD)",
+      "D": "Heart failure",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of heavy smoking, combined with the physical exam findings (increased resonance, decreased breath sounds, crackles), and spirometry results (FEV1 48%, FVC 85%, FEV1/FVC 56%) strongly suggest COPD. The FEV1/FVC ratio is significantly reduced, indicating airflow obstruction, a hallmark of COPD.",
+          "critical_evidence": "The FEV1/FVC ratio of 56% is significantly reduced, indicating airflow obstruction.",
+          "differential_considered": "Asthma is less likely given the patient's age and smoking history. Lymphangioleiomyomatosis is rare and typically affects women of childbearing age. Heart failure can cause shortness of breath, but the spirometry results are not consistent with heart failure. Therefore, COPD is the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 450,
+            "generated_tokens": 217,
+            "generation_time_s": 11.599
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of heavy smoking, productive cough, and shortness of breath with exertion align with COPD. Spirometry shows decreased FEV1 (48%) and FEV1/FVC ratio (56%), consistent with obstructive lung disease. Pulmonary hyperinflation on CXR and crackles at lung base support this diagnosis. While lymphangioleiomyomatosis can cause similar findings, it's rare in this age group. Heart failure would typically show peripheral edema and right-sided heart changes, not hyperinflation. Asthma usually presents with reversible airflow obstruction.",
+          "critical_evidence": "Spirometry showing FEV1 48% and FEV1/FVC ratio 56%",
+          "differential_considered": "Asthma (ruled out by reversibility), heart failure (ruled out by lack of edema and right-sided heart changes), lymphangioleiomyomatosis (rare in this age group with different clinical presentation)",
+          "usage": {
+            "prompt_tokens": 445,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.686
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 79-year-old heavy smoker with chronic dyspnea, crackles, and pulmonary hyperinflation on chest X-ray. Spirometry shows reduced FEV1 (48%) with a preserved FVC (85%) and a low FEV1/FVC ratio (56%), consistent with obstructive lung disease. These findings, combined with smoking history, strongly point to COPD. Asthma typically shows reversible obstruction, heart failure presents with pulmonary edema and often normal or increased FVC, and lymphangioleiomyomatosis is rare and usually affects younger women.",
+          "critical_evidence": "Spirometry showing FEV1 48%, FVC 85%, and FEV1/FVC 56% — classic obstructive pattern with reduced FEV1 and preserved FVC, consistent with COPD.",
+          "differential_considered": "Asthma was considered but ruled out due to lack of reversibility data and chronicity; heart failure was considered but ruled out by absence of pulmonary edema and normal FVC; lymphangioleiomyomatosis is rare and not associated with heavy smoking or this spirometric pattern.",
+          "usage": {
+            "prompt_tokens": 426,
+            "generated_tokens": 273,
+            "generation_time_s": 10.389
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 17,
+            "generation_time_s": 0.476
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 318,
+            "generation_time_s": 10.875
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

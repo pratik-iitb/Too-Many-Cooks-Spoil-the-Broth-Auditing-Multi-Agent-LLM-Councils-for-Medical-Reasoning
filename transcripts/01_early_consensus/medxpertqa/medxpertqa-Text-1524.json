@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-1524",
+  "dataset": "medxpertqa",
+  "question_id": "Text-1524",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 59-year-old woman presents with left leg swelling that began following a transcontinental flight. Duplex ultrasound of the left leg reveals a noncompressible popliteal vein. She is prescribed a medication that inhibits the coagulation cascade. Two weeks later, her laboratory results are as follows:\n\n| Laboratory Parameter         | Result            |\n|------------------------------|-------------------|\n| Platelet count               | 210,000/mm3      |\n| Partial thromboplastin time  | 53 seconds       |\n| Prothrombin time             | 20 seconds       |\n| Thrombin time                | 15 seconds (control: 15 seconds) |\n\nWhich of the following medications was most likely prescribed?\nAnswer Choices: (A) Dabigatran (B) Edoxaban (C) Low molecular weight heparin (D) Bivalirudin (E) Apixaban (F) Unfractionated heparin (G) Rivaroxaban (H) Fondaparinux (I) Warfarin (J) Argatroban",
+    "options": {
+      "A": "Dabigatran",
+      "B": "Edoxaban",
+      "C": "Low molecular weight heparin",
+      "D": "Bivalirudin",
+      "E": "Apixaban",
+      "F": "Unfractionated heparin",
+      "G": "Rivaroxaban",
+      "H": "Fondaparinux",
+      "I": "Warfarin",
+      "J": "Argatroban"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Cardiovascular",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a noncompressible popliteal vein, suggesting a deep vein thrombosis (DVT). The patient is on a medication that inhibits the coagulation cascade. The PT and aPTT are normal, and the thrombin time is normal. This points towards a direct oral anticoagulant (DOAC) that does not significantly affect the PT or aPTT. Dabigatran is a direct thrombin inhibitor, and the normal thrombin time makes it the most likely choice.",
+          "critical_evidence": "Normal thrombin time (15 seconds) and normal PT (20 seconds) and aPTT (53 seconds) in the presence of a noncompressible popliteal vein strongly suggest a DOAC that does not significantly affect the PT or aPTT.",
+          "differential_considered": "Unfractionated heparin (F) and low molecular weight heparin (C) would typically prolong the aPTT, which is not the case here. Warfarin (I) takes several days to achieve therapeutic effect, and the patient is only two weeks into treatment. Bivalirudin (D) is typically used in the setting of cardiac surgery and is not a common outpatient medication. Argatroban (J) is a direct thrombin inhibitor used in patients with heparin-induced thrombocytopenia (HIT). Edoxaban (B), Apixaban (E), and Rivaroxaban (G) are all DOACs that primarily affect the thrombin pathway, but they are less likely to cause a normal thrombin time. Fondaparinux (H) is a synthetic pentasaccharide that selectively inhibits factor Xa, and it would not affect the thrombin time.",
+          "usage": {
+            "prompt_tokens": 531,
+            "generated_tokens": 411,
+            "generation_time_s": 17.79
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "H",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a noncompressible popliteal vein with a history of DVT after a flight, suggesting a likely diagnosis of DVT. The lab results show normal platelet count, normal PTT, and normal thrombin time, but a prolonged prothrombin time (PT) is consistent with direct thrombin inhibitor activity. Among the options, fondaparinux (H) is a direct thrombin inhibitor that would cause a prolonged PT without affecting PTT or platelets, matching the clinical and laboratory findings.",
+          "critical_evidence": "Prolonged prothrombin time with normal PTT and platelets",
+          "differential_considered": "Warfarin (I) would cause prolonged PT/INR, not just PT; heparin (F) would cause prolonged PTT; direct thrombin inhibitors like fondaparinux (H) match the lab profile",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 215,
+            "generation_time_s": 9.499
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 519,
+            "generated_tokens": 1024,
+            "generation_time_s": 36.828
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 537,
+            "generated_tokens": 137,
+            "generation_time_s": 4.524
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Dabigatran, edoxaban, rivaroxaban, and heparin derivatives act on different pathways (APC, factor Xa, thrombin) and would not cause the described combined prolongation of PT and aPTT without affecting other clotting factors in this way. Other options like bivalirudin or argatroban are used for specific thrombin inhibition in procedural settings and would not explain the lab pattern. Fondaparinux affects antifibrinolytic activity but does not prolong PT/aPTT. Apixaban and dabigatran have more selective effects and would not produce such a broad coagulation defect.",
+          "usage": {
+            "prompt_tokens": 576,
+            "generated_tokens": 341,
+            "generation_time_s": 11.783
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "H": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "sample_id": "mmlu-989",
+  "dataset": "mmlu",
+  "question_id": "989",
+  "category": "02_debate_1_round",
+  "question": {
+    "text": "A couple comes for preconceptional genetic counseling because they both have a family history of α-thalassemia. The woman has a minimally decreased hemoglobin concentration. Genetic studies show a single gene deletion. The man has microcytic anemia and a two-gene deletion. If the two-gene deletion is in trans (one deletion on the maternal gene and one deletion on the paternal gene), which of the following percentages of their offspring will have a two-gene deletion?",
+    "options": {
+      "A": "0%",
+      "B": "25%",
+      "C": "50%",
+      "D": "75%"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The couple has a family history of alpha-thalassemia, and genetic studies show deletions in both parents. The man has a two-gene deletion, and the woman has a single gene deletion. If the two-gene deletion is in trans, it means the two deletions are on different chromosomes. This results in a 25% chance of the offspring inheriting both deletions, leading to a two-gene deletion.",
+          "critical_evidence": "The two-gene deletion is in trans (one deletion on the maternal gene and one deletion on the paternal gene).",
+          "differential_considered": "The differential diagnosis includes other hemoglobinopathies, but the specific family history and genetic findings point strongly towards alpha-thalassemia. Other hemoglobinopathies are less likely given the specific deletion pattern.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 200,
+            "generation_time_s": 10.112
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The woman has a single gene deletion (α0/α+), and the man has a two-gene deletion in trans (α0/α0/α+). When the deletions are in trans, the man's genotype is α0/α0/α+. The woman contributes one α0 allele, and the man contributes one α0 and one α+ allele. The possible combinations for their offspring are: α0/α0 (two-gene deletion) with 25% probability, α0/α+ (single gene deletion) with 50% probability, and α+/α+ (normal) with 25% probability. Therefore, 25% of their offspring will have a two-gene deletion.",
+          "critical_evidence": "The man's two-gene deletion is in trans, which affects the probability calculation.",
+          "differential_considered": "Considered β-thalassemia and sickle cell anemia, but ruled them out due to the specific α-thalassemia findings and the man's microcytic anemia pattern consistent with α-thalassemia.",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.648
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The woman has a single gene deletion (heterozygous), and the man has a two-gene deletion in trans (heterozygous for two deletions, one on each chromosome). In trans configuration, each parent contributes one allele. The man can pass either of his two deleted alleles or the normal allele, while the woman can pass her single deleted allele or the normal allele. Therefore, 50% of offspring will inherit two deletions (one from each parent).",
+          "critical_evidence": "The man’s two-gene deletion is in trans, meaning one deletion is on his maternal chromosome and one on his paternal chromosome, allowing for 50% chance of passing a deletion to offspring.",
+          "differential_considered": "Other inheritance patterns (e.g., cis configuration) were considered but ruled out because the case explicitly states the two-gene deletion is in trans, which directly determines the 50% inheritance rate.",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 223,
+            "generation_time_s": 7.996
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 69,
+            "generation_time_s": 1.716
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possibilities such as autosomal recessive inheritance or different genetic configurations were considered but are not consistent with the described X-linked pattern of α-thalassemia in the family.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 306,
+            "generation_time_s": 9.853
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "B": 2,
+        "A": 1
+      },
+      "agreement_ratio": 0.4,
+      "position_changes": []
+    },
+    {
+      "round": 1,
+      "kind": "debate",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "Panelist B and Panelist B's reasoning are more accurate. The man's genotype is α0/α0/α+, and the woman contributes one α0 allele. The possible combinations for their offspring are: α0/α0 (two-gene deletion) with 25% probability, α0/α+ (single gene deletion) with 50% probability, and α+/α+ (normal) with 25% probability. Therefore, 25% of their offspring will have a two-gene deletion.",
+          "critical_evidence": "The man's genotype is α0/α0/α+, and the woman contributes one α0 allele. The possible combinations for their offspring are: α0/α0 (two-gene deletion) with 25% probability, α0/α+ (single gene deletion) with 50% probability, and α+/α+ (normal) with 25% probability.",
+          "counter_argument": "Panelist A's reasoning is flawed because it incorrectly assumes the man's genotype is α0/α0/α+. The man's genotype is α0/α0/α+.",
+          "usage": {
+            "prompt_tokens": 1068,
+            "generated_tokens": 300,
+            "generation_time_s": 15.749
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "Upon reviewing my colleagues' arguments, I reaffirm my initial reasoning. The woman has a single gene deletion (α0/α+), and the man has a two-gene deletion in trans (α0/α0/α+). The man's genotype allows him to contribute either of his two α0 alleles or the normal α+ allele. The woman contributes one α0 allele. The possible combinations for their offspring are: α0/α0 (two-gene deletion) with 25% probability, α0/α+ (single gene deletion) with 50% probability, and α+/α+ (normal) with 25% probability. Thus, 25% of their offspring will have a two-gene deletion.",
+          "critical_evidence": "The man's two-gene deletion is in trans, meaning one deletion is on his maternal chromosome and one on his paternal chromosome, allowing for a 25% chance of passing both deletions to offspring.",
+          "counter_argument": "Panelist B's argument incorrectly assumes the man can pass both his deleted alleles independently, leading to a 50% chance of two-gene deletion, but this is not possible with a two-gene deletion in trans. The man can only pass one of his two α0 alleles, not both, resulting in a 25% chance of the offspring inheriting two deletions.",
+          "usage": {
+            "prompt_tokens": 1100,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.627
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "I initially misinterpreted the inheritance pattern, assuming the man’s trans configuration meant he could pass either deletion with 50% probability, but the correct model is that each parent contributes one allele, and the man’s genotype is heterozygous for two deletions in trans, meaning he can pass either deletion or the normal allele. The woman contributes her single deletion or normal allele. The only combination that results in a two-gene deletion is when the offspring inherits the woman’s deletion and one of the man’s deletions — which occurs in 25% of cases.",
+          "critical_evidence": "The man’s two-gene deletion is in trans, meaning he carries one deletion on each chromosome, and the woman carries one deletion. The only way for an offspring to inherit a two-gene deletion is to receive the woman’s deletion and one of the man’s deletions — a 1 in 4 (25%) chance.",
+          "counter_argument": "My original reasoning incorrectly assumed the man’s trans configuration meant 50% chance of passing a deletion, but the correct genetic cross shows only 25% of offspring inherit both deletions — the only combination that yields a two-gene deletion.",
+          "usage": {
+            "prompt_tokens": 1084,
+            "generated_tokens": 283,
+            "generation_time_s": 9.978
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "",
+          "usage": {
+            "prompt_tokens": 1098,
+            "generated_tokens": 110,
+            "generation_time_s": 2.732
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.97,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "The man's two-gene deletion in trans indicates he is homozygous for the deletion (α0/α0), not just heterozygous. The child must inherit the deletion from both parents to have the two-gene deletion, which occurs with 0.5 (woman) x 0.5 (man) = 0.25 (25%) probability if the woman is heterozygous (α0/α+) and the man is homozygous (α0/α0).",
+          "counter_argument": "If the man is truly homozygous (α0/α0), the only the woman's normal allele can be passed, so the answer should be 25% (B), not 50% (C).",
+          "usage": {
+            "prompt_tokens": 1161,
+            "generated_tokens": 588,
+            "generation_time_s": 18.132
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": [
+        {
+          "model": "medgemma_4b",
+          "model_name": "MedGemma-4b",
+          "from": "C",
+          "to": "B"
+        },
+        {
+          "model": "qwen3_vl_8b",
+          "model_name": "Qwen3-VL-8b",
+          "from": "C",
+          "to": "B"
+        },
+        {
+          "model": "openbio_8b",
+          "model_name": "OpenBioLLM-8b",
+          "from": "B",
+          "to": "A"
+        },
+        {
+          "model": "olmo3_7b",
+          "model_name": "Olmo3-7b",
+          "from": "A",
+          "to": "C"
+        }
+      ]
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_debate_consensus",
+    "n_debate_rounds": 1,
+    "escalated": false
+  }
+}

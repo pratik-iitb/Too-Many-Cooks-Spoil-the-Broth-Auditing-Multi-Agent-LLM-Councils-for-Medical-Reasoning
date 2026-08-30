@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-143",
+  "dataset": "medqa",
+  "question_id": "143",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 34-year-old man with acute lymphocytic leukemia presents for follow-up in the oncology clinic after his second cycle of chemotherapy. In addition to intermittent nausea, he has mild weakness, tingling, and numbness in his left hand. With his affected hand, he is able to grip, but occasionally drops small objects. His oncologist tells him that one of his chemotherapy agents likely caused his neuropathy given its strong association with neurotoxicity. He was recently treated with cyclophosphamide, vincristine, doxorubicin, dexamethasone, and dasatinib. The culprit medication works by which of the following mechanisms of action?",
+    "options": {
+      "A": "Covalently X-links DNA",
+      "B": "Blocks microtubule formation",
+      "C": "Intercalates between DNA",
+      "D": "Modifies DNA transcription and protein synthesis",
+      "E": "Blocks tyrosine kinase"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of tingling, numbness, and weakness in the left hand, along with the history of chemotherapy, strongly suggest peripheral neuropathy. Vincristine is known to cause peripheral neuropathy through microtubule disruption. The other options are less likely given the specific symptoms and the chemotherapy regimen.",
+          "critical_evidence": "Vincristine is known to cause peripheral neuropathy.",
+          "differential_considered": "Cyclophosphamide can cause peripheral neuropathy, but it is less common than with vincristine. Doxorubicin can cause cardiotoxicity and myelosuppression, but not typically peripheral neuropathy. Dexamethasone can cause hyperglycemia and mood changes, but not peripheral neuropathy. Dasatinib is a tyrosine kinase inhibitor and is not typically associated with peripheral neuropathy. Therefore, vincristine is the most likely culprit.",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 207,
+            "generation_time_s": 10.279
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Vincristine is a vinca alkaloid that blocks microtubule formation, which is essential for cell division. This leads to cell death in rapidly dividing cells, including cancer cells. The neuropathy described is a known side effect of vincristine due to its effect on peripheral nerves, which also rely on microtubules for proper function. The other chemotherapy agents listed (cyclophosphamide, doxorubicin, dexamethasone, and dasatinib) do not primarily cause neuropathy through the mechanisms described in the options.",
+          "critical_evidence": "The patient's neuropathy is a known side effect of vincristine, which blocks microtubule formation.",
+          "differential_considered": "Other chemotherapy agents like doxorubicin (DNA intercalation) and dasatinib (tyrosine kinase inhibitor) were considered but ruled out as primary causes of neuropathy based on their known side effect profiles. Cyclophosphamide and dexamethasone do not typically cause neuropathy.",
+          "usage": {
+            "prompt_tokens": 417,
+            "generated_tokens": 245,
+            "generation_time_s": 11.392
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with peripheral neuropathy — tingling, numbness, and occasional dropping of objects — which is a classic manifestation of vincristine toxicity. Vincristine is a vinca alkaloid that inhibits microtubule formation, leading to neurotoxicity. Among the listed agents, vincristine is the most strongly associated with this type of neuropathy. The other agents (cyclophosphamide, doxorubicin, dexamethasone, dasatinib) have different toxicities and do not primarily cause this specific pattern of peripheral neuropathy.",
+          "critical_evidence": "The patient’s symptoms (tingling, numbness, impaired fine motor control) are consistent with peripheral neuropathy, and vincristine is the only agent in the regimen known for causing this specific neurotoxicity.",
+          "differential_considered": "Other agents like doxorubicin can cause cardiotoxicity or myelosuppression, cyclophosphamide causes hemorrhagic cystitis or myelosuppression, dexamethasone causes hyperglycemia or mood changes, and dasatinib causes myelosuppression or rash — none are associated with the specific peripheral neuropathy described. Vincristine is the only agent in the list with a well-documented mechanism causing this clinical presentation.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 303,
+            "generation_time_s": 10.607
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 240,
+            "generation_time_s": 5.798
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other drugs in the regimen (cyclophosphamide, doxorubicin, dexamethasone) are more associated with non-neurotoxic effects in this context. The question likely expects recognition that dasatinib, a tyrosine kinase inhibitor, is the one with a known neurotoxic mechanism among the options.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 452,
+            "generation_time_s": 14.18
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

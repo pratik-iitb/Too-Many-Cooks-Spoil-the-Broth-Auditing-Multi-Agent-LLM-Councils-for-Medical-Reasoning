@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-1312",
+  "dataset": "medxpertqa",
+  "question_id": "Text-1312",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 24-year-old man with cystic fibrosis arrives at the emergency department experiencing dyspnea and productive cough with abundant yellow-green sputum. His history includes multiple episodes of pneumonia caused by multi-drug resistant organisms, with previous hospitalizations complicated by frequent adjustments to broad-spectrum antibiotics. He is not currently taking any medications. His vital signs show: temperature 103.6º F, blood pressure 130/90 mmHg, pulse 92/min, and respiratory rate 24/min. Left lower lung demonstrates decreased breath sounds on auscultation. Laboratory results show significant leukocytosis with bandemia. After obtaining blood cultures from two sites, treatment begins with an experimental antimicrobial drug administered via continuous intravenous infusion. The drug follows first-order kinetics and has a documented clearance of 140 mL/min and volume of distribution of 84 liters. What is the minimum time required for this medication to achieve greater than 90% of its steady-state plasma concentration?\nAnswer Choices: (A) 42 hours (B) 31.5 hours (C) 10 hours (D) 28 hours (E) 35 hours (F) 24.5 hours (G) 21 hours (H) 14 hours (I) 7 hours (J) 17.5 hours",
+    "options": {
+      "A": "42 hours",
+      "B": "31.5 hours",
+      "C": "10 hours",
+      "D": "28 hours",
+      "E": "35 hours",
+      "F": "24.5 hours",
+      "G": "21 hours",
+      "H": "14 hours",
+      "I": "7 hours",
+      "J": "17.5 hours"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "medical_task": "Basic Science",
+      "body_system": "Respiratory",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks for the time to reach steady-state concentration for a drug with first-order kinetics, a known clearance, and a known volume of distribution. The formula for calculating the time to steady-state is: Time to steady-state = 4 * Vd / CL. In this case, Vd = 84 L and CL = 140 mL/min. We need to convert the clearance to L/hr: 140 mL/min = 0.14 L/min = 0.0014 L/hr. Therefore, Time to steady-state = (4 * 84 L) / 0.0014 L/hr = 10 hours.",
+          "critical_evidence": "The clearance (CL) and volume of distribution (Vd) are provided, which are essential for calculating the time to steady-state.",
+          "differential_considered": "While the patient's presentation suggests a serious infection, the question focuses on the pharmacokinetic properties of the administered drug. Other potential diagnoses are less relevant to the calculation of the time to steady-state.",
+          "usage": {
+            "prompt_tokens": 606,
+            "generated_tokens": 275,
+            "generation_time_s": 11.82
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 579,
+            "generated_tokens": 1024,
+            "generation_time_s": 45.146
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 580,
+            "generated_tokens": 1024,
+            "generation_time_s": 36.878
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The minimum time required for this medication to achieve greater than 90% of its steady-state plasma concentration is 10 hours.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 577,
+            "generated_tokens": 26,
+            "generation_time_s": 0.922
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "The need for rapid antimicrobial therapy in the context of a resistant infection highlights the urgency for drug exposure, though the calculation itself is inconsistent with the provided parameters.",
+          "differential_considered": "Other options like 7 or 14 hours reflect common pharmacokinetic time frames for other drug classes, but the given pharmacokinetic parameters do not support any of these except if there was a unit error (e.g., Cl in L/min), making J the closest plausible answer among the provided choices.",
+          "usage": {
+            "prompt_tokens": 613,
+            "generated_tokens": 409,
+            "generation_time_s": 14.187
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

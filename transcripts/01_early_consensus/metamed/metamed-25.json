@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-25",
+  "dataset": "metamed",
+  "question_id": "25",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old nurse is referred to an infectious disease specialist after she exhibited a PPD skin test with 17 mm of induration. She denies any cough, shortness of breath, hemoptysis, weight loss, fatigue, fevers, or night sweats over the last several months. Her temperature is 97.0°F (36.1°C), blood pressure is 120/81 mmHg, pulse is 82/min, respirations are 15/min, and oxygen saturation is 98% on room air. An initial chest radiograph is unremarkable. Which of the following is the most appropriate management of this patient?",
+    "options": {
+      "A": "Isoniazid",
+      "B": "No management indicated",
+      "C": "Repeat PPD in 1 week",
+      "D": "Rifampin, isoniazid, pyrazinamide, and ethambutol",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a positive PPD with 17 mm induration, which is suggestive of latent tuberculosis infection (LTBI). However, she denies any symptoms of active TB disease. Given the absence of symptoms and a normal chest radiograph, active TB disease is less likely. Therefore, no immediate treatment is indicated.",
+          "critical_evidence": "The patient denies any symptoms of active TB disease (cough, shortness of breath, hemoptysis, weight loss, fatigue, fevers, or night sweats) and has a normal chest radiograph.",
+          "differential_considered": "Active TB disease: The patient denies symptoms and has a normal chest radiograph, making active TB less likely. LTBI: The positive PPD suggests LTBI, but treatment is not always necessary in the absence of symptoms or high-risk factors. Other infections: While other infections can cause a positive PPD, the clinical picture is most consistent with LTBI.",
+          "usage": {
+            "prompt_tokens": 438,
+            "generated_tokens": 232,
+            "generation_time_s": 13.454
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a positive PPD with 17 mm induration but no symptoms of active tuberculosis. Given the absence of clinical symptoms and a normal chest X-ray, there is no indication for immediate antimicrobial therapy. A repeat PPD in 1 week is appropriate to monitor for progression, but no treatment is needed at this time.",
+          "critical_evidence": "Absence of clinical symptoms and normal chest radiograph",
+          "differential_considered": "Considered latent TB infection vs active TB, but ruled out active TB due to lack of symptoms and normal CXR",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 147,
+            "generation_time_s": 7.819
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 33-year-old nurse with a positive PPD (17 mm induration), but no symptoms of active TB, normal chest X-ray, and no risk factors for active disease. She is likely to have latent TB infection, which does not require treatment unless she is at high risk for progression or has immunocompromise. No treatment is indicated without evidence of active disease or high-risk exposure.",
+          "critical_evidence": "Unremarkable chest radiograph and absence of symptoms of active tuberculosis.",
+          "differential_considered": "Active TB was considered but ruled out by normal CXR and absence of symptoms; latent TB infection is the most likely diagnosis, for which treatment is not indicated without specific risk factors or progression risk.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 181,
+            "generation_time_s": 6.971
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not provided in the options.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 10,
+            "generation_time_s": 0.288
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Active tuberculosis (unlikely given lack of symptoms and normal X-ray), extrapulmonary TB (not supported by current presentation), other non-infectious causes of positive PPD (e.g., BCG vaccination), but without more data, repeat PPD is the standard follow-up. Options A, D, and E are not first-line for latent TB evaluation in this scenario.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 240,
+            "generation_time_s": 8.035
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

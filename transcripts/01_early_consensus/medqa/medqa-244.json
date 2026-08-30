@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-244",
+  "dataset": "medqa",
+  "question_id": "244",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 19-year-old woman is brought to the emergency room by her mother. She found her daughter pale, cold to the touch, and collapsed next to her bed earlier this morning. The patient has no previous medical or psychiatric history, but the mother does report that her daughter has not had her periods for the last 3 months. In the emergency department, the patient is alert and oriented. Her vitals include: blood pressure 80/60 mm Hg supine, heart rate 55/min. On physical examination, the patient appears pale and emaciated. A urine pregnancy test is negative. She is suspected of having an eating disorder. Which of the following treatment options would be contraindicated in this patient?",
+    "options": {
+      "A": "Bupropion",
+      "B": "High caloric food",
+      "C": "Cognitive-behavioral therapy",
+      "D": "Selective serotonin reuptake inhibitors",
+      "E": "Olanzapine"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (hypotension, bradycardia, pallor, emaciation, amenorrhea) strongly suggests a possible eating disorder, specifically anorexia nervosa. Olanzapine, an atypical antipsychotic, is known to cause significant weight gain and metabolic disturbances, which could worsen the patient's condition and potentially lead to serious complications like diabetes or cardiac issues. While the other options are generally considered safe and even beneficial in the management of eating disorders, olanzapine is contraindicated due to its potential to exacerbate the patient's underlying condition.",
+          "critical_evidence": "The patient's hypotension, bradycardia, pallor, and emaciation are highly suggestive of anorexia nervosa and its associated complications.",
+          "differential_considered": "While other conditions could present with similar symptoms, the combination of amenorrhea and the patient's age makes anorexia nervosa the most likely diagnosis. Other differentials like hypothyroidism or Addison's disease are less likely given the acute presentation and lack of other supporting symptoms. Therefore, the focus should be on managing the potential eating disorder and its complications.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 262,
+            "generation_time_s": 12.905
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "Bupropion is contraindicated because it can cause serotonin syndrome when combined with other serotonergic agents, and the patient's symptoms suggest a possible eating disorder with potential for serotonin dysregulation. The patient's low vital signs, pallor, and emaciation are concerning for anorexia nervosa, a condition where serotoninergic medications can be dangerous. The negative pregnancy test and alert mental status rule out some conditions, but the eating disorder history and physical findings point to a need for careful medication management.",
+          "critical_evidence": "The patient's emaciated appearance and low vital signs strongly suggest anorexia nervosa, a condition where serotoninergic medications can be dangerous.",
+          "differential_considered": "Anorexia nervosa, hypoglycemia, and cardiac arrhythmia were considered, but the eating disorder history and physical findings make anorexia nervosa the most likely diagnosis, making Bupropion contraindicated.",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 228,
+            "generation_time_s": 10.598
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs of severe malnutrition (pale, emaciated, hypotension, bradycardia) and amenorrhea, consistent with anorexia nervosa. Olanzapine, an atypical antipsychotic, is contraindicated in acute starvation states due to risk of worsening metabolic instability, QT prolongation, and increased mortality. Other options are generally safe or beneficial in eating disorders.",
+          "critical_evidence": "Patient is emaciated, hypotensive, bradycardic, and amenorrheic — signs of severe malnutrition and possible anorexia nervosa.",
+          "differential_considered": "Pregnancy was ruled out by negative urine test. Other causes of amenorrhea (e.g., hyperprolactinemia, PCOS) are less likely given acute physical findings and absence of hormonal history. Olanzapine is the only option with clear contraindication in acute malnutrition.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 231,
+            "generation_time_s": 8.079
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 12,
+            "generation_time_s": 0.314
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 282,
+            "generation_time_s": 8.85
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-141",
+  "dataset": "mmlu",
+  "question_id": "141",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following is true in diplopia?",
+    "options": {
+      "A": "Diplopia can never occur if one eye is covered",
+      "B": "The outer image is always the false image",
+      "C": "A fourth nerve palsy occurs when the patient looks upwards",
+      "D": "A sixth nerve palsy causes a divergent squint"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Diplopia, or double vision, is a misalignment of the eyes. If one eye is covered, the image from the uncovered eye is the true image, and the image from the covered eye is the false image. Therefore, diplopia can occur if one eye is covered.",
+          "critical_evidence": "Diplopia is defined as double vision, which occurs when the eyes are not properly aligned.",
+          "differential_considered": "Option B is incorrect because the outer image is not always the false image. The false image depends on which eye is covered. Option C is incorrect because a fourth nerve palsy typically causes a vertical diplopia, not a diplopia that worsens with upward gaze. Option D is incorrect because a sixth nerve palsy causes a horizontal diplopia, not a divergent squint.",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 199,
+            "generation_time_s": 10.242
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Diplopia occurs when the brain receives conflicting images from the two eyes. Covering one eye eliminates the conflict, so option A is false. The brain typically processes the central image as real and the outer image as false, but this isn't always the case in certain pathologies, making option B incorrect. A fourth nerve palsy (superior oblique weakness) can cause upward gaze limitation but doesn't specifically cause a divergent squint, so option C is inaccurate. A sixth nerve palsy (abducens nerve palsy) results in horizontal misalignment (esotropia or exotropia) due to weakness of the lateral rectus muscle, making option D the correct choice.",
+          "critical_evidence": "A sixth nerve palsy causes horizontal deviation of the eye due to paralysis of the abducens nerve, leading to a divergent squint",
+          "differential_considered": "Considered other cranial nerve palsies (e.g., third, fourth, sixth) but ruled them out based on their specific effects on eye movement. Third nerve palsy causes vertical deviation, fourth nerve palsy affects upward gaze, and sixth nerve palsy causes horizontal deviation.",
+          "usage": {
+            "prompt_tokens": 297,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.239
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Diplopia is a symptom of misalignment of the eyes, and a sixth nerve palsy (abducens nerve) causes inability to abduct the eye, leading to a divergent squint when looking laterally. Option A is false because diplopia often resolves when one eye is covered, indicating a misalignment. Option B is incorrect as the false image can be either outer or inner depending on the direction of gaze. Option C is false because fourth nerve palsy causes downgaze diplopia, not upgaze. D is correct as sixth nerve palsy leads to inability to abduct, causing the eye to turn inward, creating a divergent squint.",
+          "critical_evidence": "Sixth nerve palsy results in impaired lateral gaze, causing the affected eye to deviate medially, which is clinically described as a divergent squint.",
+          "differential_considered": "Considered fourth nerve palsy (causes downgaze diplopia), third nerve palsy (causes ptosis and pupil abnormalities), and medial rectus palsy (causes esotropia). Ruled them out based on the specific description of divergent squint, which is characteristic of sixth nerve palsy.",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 282,
+            "generation_time_s": 10.498
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "In diplopia, the false image is typically the image that disappears when the patient looks towards the affected side. This is because the paralytic eye is unable to turn inward, causing the images to align and the false image to be perceived as the outer image. Option B is the correct answer as it states that the outer image is always the false image, which is a common clinical finding in patients with diplopia.",
+          "critical_evidence": "The disappearance of the false image when looking towards the affected side.",
+          "differential_considered": "A fourth nerve palsy does not necessarily cause diplopia when looking upwards, and a sixth nerve palsy does not always cause a divergent squint.",
+          "usage": {
+            "prompt_tokens": 295,
+            "generated_tokens": 168,
+            "generation_time_s": 4.324
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A third nerve palsy (vertical diplopia), fourth nerve palsy (vertical upward deviation), and other types of strabismus were considered but do not specifically describe the hallmark of a sixth nerve palsy or the associated squint pattern as in option D.",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 245,
+            "generation_time_s": 8.038
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 1,
+        "D": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

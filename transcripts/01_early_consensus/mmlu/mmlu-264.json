@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-264",
+  "dataset": "mmlu",
+  "question_id": "264",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Pairs of electrons carried in the form, FADH2 and NADH+H, collectively contain enough free energy to rephosphorylate:",
+    "options": {
+      "A": "6 ATP.",
+      "B": "5 ATP.",
+      "C": "4 ATP.",
+      "D": "3 ATP."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 1024,
+            "generation_time_s": 53.976
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "FADH2 and NADH+H are electron carriers that transfer energy to the electron transport chain. NADH+H donates electrons to complex I, producing 3 ATP via substrate-level phosphorylation and 2.5 ATP via oxidative phosphorylation (total 5.5 ATP). FADH2 donates electrons to complex II, producing 2 ATP via substrate-level phosphorylation and 1.5 ATP via oxidative phosphorylation (total 3.5 ATP). The combined total is approximately 9 ATP, but the question asks for the amount that can be rephosphorylated from the pairs collectively, which is 4 ATP (2 from each pair).",
+          "critical_evidence": "The combined total of ATP produced from NADH+H and FADH2 is 4 ATP.",
+          "differential_considered": "No differential diagnoses were needed as the question is about energy yield from electron carriers, not a clinical condition.",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.053
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 1024,
+            "generation_time_s": 37.778
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 48,
+            "generation_time_s": 1.214
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options B, C, and D underestimate the total energy contribution of these carriers, whereas A aligns with the typical combined energy output from NADH and FADH₂ in mitochondrial electron transport chain function.",
+          "usage": {
+            "prompt_tokens": 317,
+            "generated_tokens": 301,
+            "generation_time_s": 9.838
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-16909975",
+  "dataset": "pubmedqa",
+  "question_id": "16909975",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can dose reduction to one parotid gland prevent xerostomia?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Parotid gland surgery, specifically parotidectomy, is a common treatment for tumors or other conditions affecting the parotid gland. One of the known side effects of parotidectomy is xerostomia (dry mouth). Reducing the dose of medication to one parotid gland can potentially reduce the severity of xerostomia, as the remaining gland may be able to compensate for the reduced function of the other gland.",
+          "critical_evidence": "Parotidectomy is a known cause of xerostomia.",
+          "differential_considered": "While other causes of xerostomia exist (e.g., medications, Sjogren's syndrome), the question specifically asks about the effect of parotid gland surgery. Therefore, the most relevant differential is the impact of parotidectomy on salivary gland function.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 201,
+            "generation_time_s": 9.939
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Parotid gland involvement in radiation therapy can cause significant xerostomia due to damage to the parotid salivary glands. Reducing the dose to one parotid gland may preserve the other gland's function, potentially mitigating xerostomia symptoms while still delivering therapeutic radiation to the tumor site.",
+          "critical_evidence": "Radiation-induced xerostomia is directly proportional to the dose received by the parotid glands, and dose reduction to one gland can preserve salivary function in the other.",
+          "differential_considered": "Other causes of xerostomia like Sjögren's syndrome or medication side effects were not relevant as the question specifically addresses radiation therapy to the parotid gland.",
+          "usage": {
+            "prompt_tokens": 259,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.663
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Dose reduction to one parotid gland during radiation therapy has been shown in multiple studies to significantly reduce the incidence and severity of xerostomia, as the contralateral gland can compensate for partial irradiation. This is supported by randomized controlled trials demonstrating improved salivary flow and patient-reported outcomes with unilateral sparing.",
+          "critical_evidence": "Randomized controlled trials show that sparing one parotid gland reduces xerostomia incidence by 30-50% compared to bilateral irradiation.",
+          "differential_considered": "Other causes of xerostomia (e.g., Sjögren’s syndrome, medications) were considered but ruled out as the case focuses on radiation-induced xerostomia and its mitigation strategy.",
+          "usage": {
+            "prompt_tokens": 230,
+            "generated_tokens": 186,
+            "generation_time_s": 6.503
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The clinical reasoning and critical evidence are optional fields but highly recommended for demonstrating your understanding and thought process.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 21,
+            "generation_time_s": 0.521
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.7,
+          "clinical_reasoning": "Reducing the dose to one parotid gland may help preserve some salivary flow, but complete dose reduction could compromise the remaining functional parotid gland, potentially leading to incomplete prevention of xerostomia. Xerostomia is a reduction in saliva production, which depends on overall glandular function rather than just one side. The effectiveness would depend on the degree of damage and the necessity of the remaining side for normal salivation.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 244,
+            "generation_time_s": 7.669
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "metamed-275",
+  "dataset": "metamed",
+  "question_id": "275",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 53-year-old male presents to his primary care physician complaining of fatigue and joint and muscle pain. He reports a 6-month history of slowly progressive tiredness associated with dull achy pain in his knees, hips, and shoulders. His past medical history is notable for hypertension, diabetes, and stable angina. He takes lisinopril, metformin, glyburide, and aspirin. He has a history of intravenous drug use and was homeless in his early 30’s. He drinks alcohol socially and has a 30 pack-year smoking history. His temperature is 98.6°F (37°C), blood pressure is 130/85 mmHg, pulse is 95/min, and respirations are 18/min. Physical examination reveals a generally well-appearing male without evidence of ascites, peripheral edema, or jaundice. Results from laboratory tests are below:\n\nHepatitis A IgM: Negative\nHepatitis A IgG: Negative\nHepatitis B surface antigen: Negative\nHepatitis B E antigen: Negative\nHepatitis B core antigen: Negative\nHepatitis B surface IgG: Positive\nHepatitis B E IgG: Negative\nHepatitis B core IgG: Negative\nHepatitis C IgG: Positive\nHCV RNA: 100,000,000 IU/ml\n\nThis patient should be started on which of the following medications?",
+    "options": {
+      "A": "Sofosbuvir and simeprevir",
+      "B": "Interferon-gamma",
+      "C": "Ribavirin",
+      "D": "Lamivudine",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's positive Hepatitis C IgG and high HCV RNA level (100,000,000 IU/ml) confirm a chronic Hepatitis C infection. Sofosbuvir and simeprevir are direct-acting antiviral (DAA) medications highly effective in treating Hepatitis C. Therefore, initiating treatment with these medications is the most appropriate course of action.",
+          "critical_evidence": "Positive Hepatitis C IgG and HCV RNA > 100,000 IU/ml",
+          "differential_considered": "While the patient's history of intravenous drug use raises suspicion for HIV, the provided lab results do not indicate HIV infection. The patient's symptoms could be related to other conditions, but the positive Hepatitis C test strongly suggests that Hepatitis C is the primary driver of his symptoms. Therefore, treating the Hepatitis C is the priority.",
+          "usage": {
+            "prompt_tokens": 589,
+            "generated_tokens": 218,
+            "generation_time_s": 11.859
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a positive Hepatitis C IgG and high CVC RNA, indicating active HCV infection. Sofosbuvir and simeprevir are first-line direct-acting antivirals for HCV genotype 1, which is the most common genotype. The patient's comorbidities (diabetes, hypertension) are manageable with current medications, and no contraindications to DAAs are present.",
+          "critical_evidence": "HCV RNA: 100,000,000 IU/ml confirms active hepatitis C infection",
+          "differential_considered": "Considered hepatitis B (ruled out by negative HBV DNA tests), alcohol-related liver disease (but HCV RNA is positive), and autoimmune hepatitis (no positive ANA or rheumatoid factor mentioned). Drug use history supports HCV transmission risk.",
+          "usage": {
+            "prompt_tokens": 582,
+            "generated_tokens": 201,
+            "generation_time_s": 10.151
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has chronic hepatitis C virus (HCV) infection confirmed by positive HCV IgG and high viral load (100,000,000 IU/mL). Direct-acting antiviral (DAA) regimens like sofosbuvir and simeprevir are first-line for HCV genotype 1, 4, 5, or 6, which is appropriate for this patient. Interferon-based therapies are outdated and have significant side effects. Ribavirin is no longer first-line due to toxicity and inferior efficacy. Lamivudine is an antiretroviral, not indicated for HCV. No other options are appropriate for HCV treatment.",
+          "critical_evidence": "HCV RNA: 100,000,000 IU/ml confirms active, high viral load infection requiring antiviral therapy.",
+          "differential_considered": "Other causes of fatigue and joint pain (e.g., rheumatoid arthritis, fibromyalgia, or metabolic syndrome) were considered but are not supported by lab findings. Hepatitis B is ruled out by negative HBsAg and negative HBeAg/HBeAb, and positive HBsAb indicates past infection with immunity. HCV is the only active infection confirmed.",
+          "usage": {
+            "prompt_tokens": 570,
+            "generated_tokens": 295,
+            "generation_time_s": 11.053
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 580,
+            "generated_tokens": 17,
+            "generation_time_s": 0.441
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hepatitis A (ruled out due to negative IgM and IgG), hepatitis B (negative for surface and other markers), and other causes of fatigue (ruling out anemia, depression, or malignancy based on the provided data). The most specific and actionable finding is the active HCV infection.",
+          "usage": {
+            "prompt_tokens": 621,
+            "generated_tokens": 338,
+            "generation_time_s": 12.007
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

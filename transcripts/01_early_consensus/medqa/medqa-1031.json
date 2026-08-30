@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1031",
+  "dataset": "medqa",
+  "question_id": "1031",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old sexually active male presents to an internal medicine physician for a routine health check up after having several unprotected sexual encounters. After appropriate testing the physician discusses with the patient that he is HIV+ and must be started on anti-retroviral treatment. Which of the following medications prescribed acts on the gp41 subunit of the HIV envelope glycoprotein?",
+    "options": {
+      "A": "Amantadine",
+      "B": "Rimantadine",
+      "C": "Zidovudine",
+      "D": "Saquinavir",
+      "E": "Enfuvirtide"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks for a medication that acts on the gp41 subunit of the HIV envelope glycoprotein. Enfuvirtide is a fusion inhibitor that specifically targets the gp41 subunit, preventing the fusion of the viral envelope with the host cell membrane. The other options are nucleoside reverse transcriptase inhibitors (NRTIs) or protease inhibitors, which act on different stages of the HIV replication cycle.",
+          "critical_evidence": "Enfuvirtide is a fusion inhibitor that targets gp41.",
+          "differential_considered": "Amantadine and Rimantadine are antiviral medications used to treat influenza A, not HIV. Zidovudine is an NRTI. Saquinavir is a protease inhibitor. While protease inhibitors can indirectly affect viral entry, they do not directly target gp41.",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 205,
+            "generation_time_s": 10.144
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "Enfuvirtide (T-20) is a fusion inhibitor that specifically targets the gp41 subunit of the HIV envelope glycoprotein, preventing viral fusion with the host cell membrane. The other options are nucleoside reverse transcriptase inhibitors (nRTIs) or non-nucleoside reverse transcriptase inhibitors (nnRTIs) that target different parts of the HIV replication cycle, such as reverse transcriptase or integrase.",
+          "critical_evidence": "Enfuvirtide's mechanism of action as a fusion inhibitor targeting gp41",
+          "differential_considered": "Options A-D are all protease inhibitors or nucleoside/nnRTIs that target different HIV enzymes, not the gp41 subunit. Only enfuvirtide specifically inhibits HIV-1 fusion to host cells.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 196,
+            "generation_time_s": 9.12
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is HIV-positive and requires antiretroviral therapy. Enfuvirtide is a fusion inhibitor that specifically targets the gp41 subunit of the HIV envelope glycoprotein, preventing viral entry into host cells. The other options are not fusion inhibitors and act on different stages of the HIV lifecycle or are not antiretrovirals.",
+          "critical_evidence": "Enfuvirtide is the only drug among the options that acts on the gp41 subunit of the HIV envelope glycoprotein.",
+          "differential_considered": "Amantadine and Rimantadine are antivirals for influenza, not HIV. Zidovudine is a nucleoside reverse transcriptase inhibitor. Saquinavir is a protease inhibitor. All are antiretrovirals but do not target gp41.",
+          "usage": {
+            "prompt_tokens": 318,
+            "generated_tokens": 204,
+            "generation_time_s": 7.172
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 160,
+            "generation_time_s": 3.864
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Amantadine, Rimantadine, and Zidovudine target different stages of the HIV life cycle but do not directly target gp41. Saquinavir inhibits the protease enzyme, which is unrelated to gp41. Only Enfuvirtide is a CCR5 co-receptor chemokine (RANTES) that binds and inhibits the gp41 subunit, making it the correct choice.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 276,
+            "generation_time_s": 8.642
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

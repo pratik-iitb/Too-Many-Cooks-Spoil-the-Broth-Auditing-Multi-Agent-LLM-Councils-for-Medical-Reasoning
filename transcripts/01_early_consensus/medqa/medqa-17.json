@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-17",
+  "dataset": "medqa",
+  "question_id": "17",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 70-year-old male presents to his primary care physician for complaints of fatigue. The patient reports feeling tired during the day over the past 6 months. Past medical history is significant for moderately controlled type II diabetes. Family history is unremarkable. Thyroid stimulating hormone and testosterone levels are within normal limits. Complete blood cell count reveals the following: WBC 5.0, hemoglobin 9.0, hematocrit 27.0, and platelets 350. Mean corpuscular volume is 76. Iron studies demonstrate a ferritin of 15 ng/ml (nl 30-300). Of the following, which is the next best step?",
+    "options": {
+      "A": "MRI abdomen",
+      "B": "Blood transfusion",
+      "C": "CT abdomen",
+      "D": "Gel electrophoresis",
+      "E": "Colonoscopy"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fatigue and microcytic anemia (low hemoglobin, low hematocrit, low MCV). The low ferritin level strongly suggests iron deficiency anemia. Given the patient's age and the possibility of occult blood loss, an MRI of the abdomen is the most appropriate next step to investigate the source of the iron deficiency.",
+          "critical_evidence": "Ferritin of 15 ng/ml (low)",
+          "differential_considered": "While other causes of microcytic anemia exist (e.g., thalassemia, sideroblastic anemia), the low ferritin level makes iron deficiency the most likely diagnosis. Colonoscopy is a reasonable consideration for occult blood loss, but an MRI is more likely to identify a source of bleeding in the abdomen, such as a tumor or other lesion, before proceeding to colonoscopy. Blood transfusion is not indicated at this stage as the patient's hemoglobin is not critically low and the cause of the anemia needs to be determined first. CT abdomen is less specific than MRI for evaluating the gastrointestinal tract and other abdominal organs. Gel electrophoresis is used to diagnose hemoglobinopathies, which are less likely given the low ferritin level.",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 273,
+            "generation_time_s": 13.495
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's low ferritin level (15 ng/ml) indicates iron deficiency anemia, which is a common cause of fatigue in older adults. While the patient's hemoglobin and hematocrit are slightly low, the most direct next step to evaluate the cause of anemia is to investigate the gastrointestinal tract, where chronic blood loss often occurs in older patients with diabetes. A colonoscopy can identify sources of chronic blood loss, such as polyps or inflammatory bowel disease, which are common in this patient population.",
+          "critical_evidence": "Ferritin level of 15 ng/ml, indicating iron deficiency anemia",
+          "differential_considered": "While other causes of anemia exist (e.g., chronic disease, vitamin deficiency), the combination of diabetes, age, and iron deficiency makes gastrointestinal causes more likely. Thyroid and testosterone levels are normal, ruling out other common causes of fatigue.",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 213,
+            "generation_time_s": 9.812
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fatigue and microcytic, hypochromic anemia (Hb 9.0, MCV 76) with very low ferritin (15 ng/mL), indicating iron deficiency anemia. Given the chronicity and lack of other obvious causes (normal TSH, testosterone, and CBC parameters excluding infection or bleeding), the next step is to evaluate for gastrointestinal blood loss, which is the most common cause of iron deficiency in this age group. Colonoscopy is the gold standard for evaluating potential sources of chronic GI bleeding.",
+          "critical_evidence": "Ferritin 15 ng/mL (severely low) with microcytic hypochromic anemia strongly supports iron deficiency anemia, which in a 70-year-old male requires evaluation for GI bleeding.",
+          "differential_considered": "Other causes like chronic disease anemia or hemolysis were considered but ruled out by normal ferritin (though low, it's not diagnostic of chronic disease), normal MCV (not macrocytic), and absence of other systemic signs. Blood transfusion is not indicated without severe symptoms or hemodynamic instability. Imaging (MRI/CT) and gel electrophoresis are not first-line for suspected GI bleeding.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 286,
+            "generation_time_s": 10.005
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 146,
+            "generation_time_s": 3.503
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of fatigue (e.g., heart failure, anemia of chronic disease, sleep disorders) are less likely given the specific low ferritin and no evidence of other systemic issues in the provided data.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 239,
+            "generation_time_s": 7.425
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

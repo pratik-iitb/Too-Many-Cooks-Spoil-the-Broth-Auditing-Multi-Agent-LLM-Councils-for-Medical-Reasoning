@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-365",
+  "dataset": "medqa",
+  "question_id": "365",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 6-year-old boy is brought to a primary care provider by his adoptive parents for evaluation of a 3-month history of jaw swelling. He has a travel history of recent immigration from equatorial Africa where his deceased mother was positive for HIV and died from related complications. On physical exam, extensive lymph node swelling on the left side of his jaw is noted. There is also an ulceration that appears to be infected. Fine needle biopsy of the lymph node yields a diagnosis of Burkitt’s lymphoma by the pathologist. Which of the following is most likely associated with the involvement of lymph nodes around his jaw?",
+    "options": {
+      "A": "Infected ulcer",
+      "B": "Close family member with HIV",
+      "C": "Recent immigration from equatorial Africa",
+      "D": "Gender of the patient",
+      "E": "Ethnicity of the patient"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Burkitt's lymphoma is strongly associated with Epstein-Barr virus (EBV) infection, which is often linked to immunosuppression. The patient's history of HIV exposure and the presence of an infected ulcer in the jaw are highly suggestive of EBV-associated Burkitt's lymphoma. The jaw involvement is a common presentation of this type of lymphoma.",
+          "critical_evidence": "Infected ulcer in the jaw",
+          "differential_considered": "While the patient's travel history and HIV exposure are relevant, they are not as directly linked to the jaw involvement as the infected ulcer. The patient's gender and ethnicity are not directly related to the development of Burkitt's lymphoma. Close family member with HIV is a risk factor for HIV, but not directly for Burkitt's lymphoma.",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 205,
+            "generation_time_s": 10.183
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Burkitt's lymphoma is a high-grade non-Hodgkin lymphoma strongly associated with Epstein-Barr virus (EBV) and Epstein-Barr-associated lymphoproliferative disease. It is most common in equatorial Africa, particularly in areas with high HIV prevalence. The patient's travel history from equatorial Africa and the presence of HIV in his deceased mother strongly suggest an environmental and viral risk factor for this aggressive lymphoma. While HIV is a risk factor, the geographic location is the more direct and immediate association with Burkitt's lymphoma.",
+          "critical_evidence": "Recent immigration from equatorial Africa",
+          "differential_considered": "An infected ulcer (A) could explain local symptoms but doesn't explain lymph node involvement. Family HIV status (B) is a risk factor but not the direct cause. Gender (D) and ethnicity (E) are not causally linked to this specific lymphoma type. The geographic and viral context (C) is the strongest predictor.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 233,
+            "generation_time_s": 10.898
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has Burkitt’s lymphoma, a highly aggressive B-cell lymphoma strongly associated with Epstein-Barr virus (EBV) and endemic in equatorial Africa, where the child recently immigrated. The jaw lymph node involvement and ulceration are consistent with the disease’s typical presentation. While HIV exposure is a risk factor for lymphoma, the key epidemiological link here is the geographic origin, which correlates with the endemic form of Burkitt’s lymphoma. Other options are less directly relevant to the lymph node involvement pattern.",
+          "critical_evidence": "Recent immigration from equatorial Africa, where endemic Burkitt’s lymphoma is prevalent, is the most significant risk factor for this presentation.",
+          "differential_considered": "Infected ulcer (A) is a symptom, not a cause; HIV exposure (B) is a risk factor but not the primary driver in this case; gender (D) and ethnicity (E) are not associated with Burkitt’s lymphoma localization. The diagnosis is confirmed by biopsy, making geographic origin the most relevant epidemiological clue.",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 246,
+            "generation_time_s": 8.655
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's presentation of jaw swelling and an infected ulcer, along with a recent history of immigration from equatorial Africa, raises suspicion for Burkitt’s lymphoma. The involvement of lymph nodes around the jaw is most likely due to the local spread of the tumor from the initial site of infection.",
+          "critical_evidence": "The diagnosis of Burkitt’s lymphoma from a fine needle biopsy of the lymph node.",
+          "differential_considered": "None of the other options provided are directly associated with the involvement of lymph nodes around the jaw in the context of Burkitt’s lymphoma.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 142,
+            "generation_time_s": 3.454
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "Recent immigration from equatorial Africa, a region with high HIV prevalence, increases the likelihood of post-infectious B cell lymphoma such as Burkitt's lymphoma.",
+          "differential_considered": "Differential diagnoses include bacterial or fungal infections, but the biopsy confirms a neoplastic process. There is no evidence to suggest a hereditary or gender-based predisposition here.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 241,
+            "generation_time_s": 7.612
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

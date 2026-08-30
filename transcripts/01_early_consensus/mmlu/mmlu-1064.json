@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1064",
+  "dataset": "mmlu",
+  "question_id": "1064",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 62-year-old woman comes to the physician because of low back pain for 1 week. Menopause occurred 10 years ago. Physical examination shows localized tenderness over the lumbar spine after movement. X-rays of the spine show a compression fracture of L1-2. A DEXA scan shows decreased bone mineral density. Serum calcium and phosphorus concentrations and serum alkaline phosphatase activity are within the reference ranges. A bisphosphonate drug is prescribed. The expected beneficial effect of this drug is most likely due to which of the following actions?",
+    "options": {
+      "A": "Decreased insulin-like growth factor-1 concentration",
+      "B": "Decreased osteoclast activity",
+      "C": "Decreased osteoprotegerin production",
+      "D": "Increased 1,25-dihydroxycholecalciferol concentration"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a compression fracture and decreased bone mineral density, indicating osteoporosis. Bisphosphonates are first-line treatments for osteoporosis. They inhibit osteoclast activity, which is responsible for bone resorption. The other options are incorrect because they do not directly address the underlying mechanism of action of bisphosphonates in treating osteoporosis.",
+          "critical_evidence": "The patient has osteoporosis (compression fracture and decreased bone mineral density) and is being treated with a bisphosphonate.",
+          "differential_considered": "Osteoarthritis: While back pain is a symptom, the X-ray showing a compression fracture and DEXA scan showing decreased bone mineral density point more strongly towards osteoporosis. Paget's disease: While possible, the normal alkaline phosphatase makes this less likely. Osteomyelitis: The localized tenderness and lack of fever or elevated inflammatory markers make this less likely. These were considered and ruled out based on the clinical picture.",
+          "usage": {
+            "prompt_tokens": 393,
+            "generated_tokens": 227,
+            "generation_time_s": 11.411
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a compression fracture with osteoporosis, and bisphosphonates are prescribed. Bisphosphonates primarily work by inhibiting osteoclasts, which are responsible for bone resorption. This reduces bone turnover and increases bone mineral density, which is the most direct mechanism of action for treating osteoporotic fractures.",
+          "critical_evidence": "DEXA scan showing decreased bone mineral density",
+          "differential_considered": "While menopause and low bone density suggest osteoporosis, other causes of compression fractures (e.g., trauma, tumors, infections) were ruled out by the clinical presentation and imaging. The patient's normal calcium, phosphorus, and alkaline phosphatase levels support a diagnosis of osteoporosis rather than secondary hyperparathyroidism or other metabolic bone diseases.",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 196,
+            "generation_time_s": 9.31
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient has osteoporosis, confirmed by low bone mineral density and a compression fracture, and is being treated with a bisphosphonate. Bisphosphonates work primarily by inhibiting osteoclast-mediated bone resorption, thereby reducing bone loss. The normal calcium, phosphorus, and alkaline phosphatase levels rule out hyperparathyroidism or bone metastases, making osteoporosis the most likely diagnosis. The mechanism of action of bisphosphonates is direct inhibition of osteoclasts, not modulation of IGF-1, osteoprotegerin, or vitamin D metabolism.",
+          "critical_evidence": "Compression fracture at L1-2 with decreased bone mineral density on DEXA scan confirms osteoporosis, and bisphosphonates are first-line therapy for this condition by inhibiting osteoclast activity.",
+          "differential_considered": "Hyperparathyroidism and bone metastases were considered but ruled out by normal serum calcium, phosphorus, and alkaline phosphatase levels. Other causes of osteoporosis (e.g., Cushing’s, hyperthyroidism) were not suggested by the history or labs.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 271,
+            "generation_time_s": 9.662
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The expected beneficial effect of the bisphosphonate drug in this case is most likely due to decreased osteoclast activity. Bisphosphonates inhibit osteoclast-mediated bone resorption, which helps to increase bone mineral density and reduce the risk of fractures.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 55,
+            "generation_time_s": 1.379
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.97,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Osteoporotic fracture (most likely), primary hyperparathyroidism (ruled out by normal calcium and phosphorus and alkaline phosphatase), malignancy (no radiologic or systemic clues), nutritional deficiencies (not indicated here), and other metabolic bone diseases (excluded due to normal lab values). The key finding is the osteoporosis leading to the chosen mechanism.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 290,
+            "generation_time_s": 9.309
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

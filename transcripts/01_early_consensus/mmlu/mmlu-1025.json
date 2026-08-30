@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1025",
+  "dataset": "mmlu",
+  "question_id": "1025",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 22-year-old man is brought to the emergency department 30 minutes after he sustained a gunshot wound to the abdomen. His pulse is 120/min, respirations are 28/min, and blood pressure is 70/40 mm Hg. Breath sounds are normal on the right and decreased on the left. Abdominal examination shows an entrance wound in the left upper quadrant at the midclavicular line below the left costal margin. There is an exit wound laterally in the left axillary line at the 4th rib. Intravenous fluid resuscitation is begun. Which of the following is the most appropriate next step in management?",
+    "options": {
+      "A": "CT scan of the chest",
+      "B": "Intubation and mechanical ventilation",
+      "C": "Peritoneal lavage",
+      "D": "Left tube thoracostomy"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a gunshot wound to the abdomen, signs of hypovolemic shock (tachycardia, hypotension, tachypnea), and decreased breath sounds on the left. This suggests a possible hemothorax. A left tube thoracostomy is indicated to drain any blood or air from the pleural space, improving respiratory function and potentially stabilizing the patient.",
+          "critical_evidence": "Decreased breath sounds on the left and signs of hypovolemic shock strongly suggest a hemothorax.",
+          "differential_considered": "A CT scan (A) might be helpful for definitive diagnosis, but it delays immediate life-saving intervention. Intubation and mechanical ventilation (B) are not the priority at this moment, as the primary problem is likely a hemothorax causing respiratory compromise. Peritoneal lavage (C) is not indicated in the acute management of a gunshot wound, as it is not a reliable method for detecting free intraperitoneal blood. Therefore, a left tube thoracostomy is the most appropriate next step.",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 247,
+            "generation_time_s": 12.445
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a gunshot wound with exit wound in the left axilla, suggesting a penetrating injury to the chest. Decreased breath sounds on the left side indicate possible pneumothorax or hemothorax. Immediate decompression of the pleural space is necessary to prevent respiratory failure. Left tube thoracostomy allows rapid decompression and assessment of the pleural fluid.",
+          "critical_evidence": "Exit wound in the left axillary line at the 4th rib with decreased breath sounds on the left side",
+          "differential_considered": "Considered pneumothorax, hemothorax, and tension pneumothorax. Ruled out abdominal injury as the primary concern due to the location of the exit wound. Peritoneal lavage (C) is appropriate for abdominal injuries but not for chest injuries. Intubation (B) is premature without airway assessment. CT scan (A) is not the most urgent intervention.",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.486
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a penetrating abdominal injury with hypotension and tachycardia, indicating hemodynamic instability. The presence of a left-sided pneumothorax (decreased breath sounds on the left) and an exit wound at the 4th rib in the axillary line suggests possible lung injury. Immediate intervention to relieve tension or ongoing air leak is critical. Tube thoracostomy is the most appropriate next step to address potential pneumothorax and prevent further deterioration.",
+          "critical_evidence": "Decreased breath sounds on the left with an exit wound at the 4th rib in the axillary line strongly suggests a left-sided pneumothorax or hemothorax requiring immediate thoracostomy.",
+          "differential_considered": "CT scan (A) is not immediately indicated due to hemodynamic instability; intubation (B) is not yet indicated without signs of respiratory failure; peritoneal lavage (C) is invasive and not the priority when a thoracic injury is suspected and evident by physical exam.",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 243,
+            "generation_time_s": 8.677
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 13,
+            "generation_time_s": 0.344
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (intubation) could be needed if respiratory compromise is suspected, but the primary concern is the abdominal injury. C (peritoneal lavage) is outdated and not routinely used in modern trauma care. D (left tube thoracostomy) is for suspected hemothorax but is less specific and can be delayed until imaging clarifies the cause of the chest symptoms.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 314,
+            "generation_time_s": 10.096
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

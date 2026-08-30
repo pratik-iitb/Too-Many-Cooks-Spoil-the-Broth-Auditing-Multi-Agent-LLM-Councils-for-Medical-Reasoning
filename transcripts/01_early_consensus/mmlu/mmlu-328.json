@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-328",
+  "dataset": "mmlu",
+  "question_id": "328",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The optimum position for performing CPR is to position the patient:",
+    "options": {
+      "A": "in a semi-recumbent posture.",
+      "B": "tilted to the left to keep the heart perfused.",
+      "C": "flat on a firm surface.",
+      "D": "on the floor with the legs raised."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The optimal position for CPR is a semi-recumbent posture, which allows for better chest compression depth and improved blood flow to the brain. This position is achieved by raising the head of the bed to about 30 degrees.",
+          "critical_evidence": "The need for adequate chest compression depth to circulate blood to the brain.",
+          "differential_considered": "Tilted to the left (B) might be considered for certain conditions like tension pneumothorax, but it's not the standard position for general CPR. Flat on a firm surface (C) is not ideal as it can impede chest compressions. Placing the patient on the floor with the legs raised (D) is not a standard CPR position and could be dangerous.",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 190,
+            "generation_time_s": 13.324
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "CPR requires chest compressions to circulate blood. A flat surface provides optimal chest compression depth and allows for uninterrupted compressions without interruptions from body movement. The semi-recumbent position (A) may limit chest compression depth, tilting to the left (B) could compress the liver and reduce effectiveness, and raising legs (D) may cause venous return to decrease.",
+          "critical_evidence": "Chest compression depth and uninterrupted compressions are critical for effective CPR",
+          "differential_considered": "While other positions might seem to improve blood flow, none provide the necessary stability and compression efficiency required for CPR. The flat surface ensures consistent chest wall movement and prevents interruptions from patient movement.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 172,
+            "generation_time_s": 11.69
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "CPR requires maximal chest compression depth and rate to generate effective blood flow. A flat, firm surface ensures optimal compression effectiveness and minimizes energy loss. Semi-recumbent, tilted, or elevated positions compromise compression quality and reduce perfusion.",
+          "critical_evidence": "American Heart Association guidelines explicitly recommend positioning the patient flat on a firm surface for CPR to ensure effective chest compressions.",
+          "differential_considered": "Other positions (semi-recumbent, tilted, legs raised) were considered but ruled out as they reduce compression efficacy and may impede blood flow to vital organs.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 147,
+            "generation_time_s": 7.977
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 18,
+            "generation_time_s": 0.467
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "During CPR, maintaining the patient in a flat position on a firm surface allows for proper chest compressions, which are essential for effective blood flow to the heart and brain. Other positions may compromise the mechanical effectiveness of compressions or patient comfort, making the flat position optimal for resuscitation efforts.",
+          "critical_evidence": "The effectiveness of CPR relies on adequate compression depth and quality, which are best achieved when the patient is flat on a firm surface to allow unobstructed compressions of the sternum.",
+          "differential_considered": "Options A, B, and D describe non-standard positions that could reduce compression quality or comfort, while C is the standard and evidence-based position for CPR.",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 174,
+            "generation_time_s": 8.696
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

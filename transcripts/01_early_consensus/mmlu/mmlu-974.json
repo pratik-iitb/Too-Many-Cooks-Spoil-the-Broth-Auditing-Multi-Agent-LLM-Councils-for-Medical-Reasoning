@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-974",
+  "dataset": "mmlu",
+  "question_id": "974",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A study is conducted to assess the effectiveness of a new drug for the treatment of type 2 diabetes mellitus. A total of 1000 patients with type 2 diabetes mellitus are enrolled. Patients are randomly assigned to receive the new drug or standard treatment. The alpha and beta values for calculating probability are 0.05 and 0.20, respectively. Results show that the new drug is significantly better than standard treatment. If this study had been performed in a population of only 500 patients, which of the following would have been most likely to increase?",
+    "options": {
+      "A": "Chance of a type I error",
+      "B": "Chance of a type II error",
+      "C": "Power of the study",
+      "D": "Sensitivity of the study"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study's sample size is reduced from 1000 to 500 patients. A smaller sample size leads to a decrease in statistical power. A smaller sample size also increases the chance of a Type I error (false positive) because the variability within the smaller sample is more likely to influence the results.",
+          "critical_evidence": "The reduction in sample size from 1000 to 500.",
+          "differential_considered": "A Type II error (false negative) would be less likely with a smaller sample size, as the study would be more likely to detect a true effect. Power would decrease, not increase. Sensitivity would not be directly affected by the sample size change.",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 187,
+            "generation_time_s": 9.457
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "With a smaller sample size (500 instead of 1000), the study would have less statistical power to detect a true effect, increasing the likelihood of failing to reject a false null hypothesis. This directly increases the chance of a type II error (failing to detect a real treatment effect when one exists). The alpha level (0.05) remains unchanged, so the chance of a type I error remains the same. Power is directly related to sample size, so it would decrease. Sensitivity is not a standard statistical measure in this context.",
+          "critical_evidence": "Smaller sample size reduces statistical power, which directly increases the probability of a type II error",
+          "differential_considered": "No differential diagnoses needed - this is a straightforward statistical question about study design. The key consideration is the relationship between sample size, power, and error probabilities in hypothesis testing.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.717
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Reducing the sample size from 1000 to 500 decreases the statistical power of the study, making it more likely to fail to detect a true effect (type II error). Power is inversely related to sample size, and a smaller sample increases the risk of missing a true difference. The study already showed significance with 1000 patients, but with 500, the chance of a false negative (type II error) increases.",
+          "critical_evidence": "Sample size reduction directly increases the probability of a type II error, as power decreases with smaller sample sizes.",
+          "differential_considered": "Type I error (false positive) is unlikely to increase with smaller sample size; power and sensitivity are also reduced, but type II error is the most directly affected. Sensitivity is not typically a primary concern in randomized controlled trials for drug efficacy.",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 209,
+            "generation_time_s": 7.491
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 64,
+            "generation_time_s": 1.596
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered whether the study might have been underpowered or biased due to small sample size, but the question focuses on what increases when the sample shrinks, which is the probability of a Type II error.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 387,
+            "generation_time_s": 12.443
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "B": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

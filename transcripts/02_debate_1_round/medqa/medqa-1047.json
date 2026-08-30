@@ -1,0 +1,211 @@
+{
+  "sample_id": "medqa-1047",
+  "dataset": "medqa",
+  "question_id": "1047",
+  "category": "02_debate_1_round",
+  "question": {
+    "text": "A 44-year-old woman presents to the emergency department with confusion starting this morning. Her husband states that she initially complained of abdominal pain, diarrhea, and fatigue after eating. She has vomited 3 times and progressively became more confused. Her past medical history is notable for morbid obesity, diabetes, hypertension, dyslipidemia, a sleeve gastrectomy 1 month ago, and depression with multiple suicide attempts. Her temperature is 98.0°F (36.7°C), blood pressure is 104/54 mmHg, pulse is 120/min, respirations are 15/min, and oxygen saturation is 98% on room air. Her physical exam is notable for generalized confusion. Laboratory values are ordered as seen below.\n\nSerum:\nNa+: 139 mEq/L\nCl-: 100 mEq/L\nK+: 3.9 mEq/L\nHCO3-: 24 mEq/L\nBUN: 22 mg/dL\nGlucose: 41 mg/dL\nCreatinine: 1.1 mg/dL\nCa2+: 10.2 mg/dL\nC-peptide level: normal\n\nWhich of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Dumping syndrome",
+      "B": "Glipizide overdose",
+      "C": "Insulin overdose",
+      "D": "Malnutrition",
+      "E": "Propranolol overdose"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with confusion, hypoglycemia (glucose 41 mg/dL), and a history of sleeve gastrectomy. The normal C-peptide level makes insulin overdose less likely, as insulin would be expected to be present in the serum. The rapid onset of confusion after eating is consistent with a rapid drop in blood glucose. The patient's history of diabetes and recent surgery makes insulin overdose a strong possibility.",
+          "critical_evidence": "Hypoglycemia (glucose 41 mg/dL) in a patient with a history of diabetes and recent sleeve gastrectomy.",
+          "differential_considered": "Dumping syndrome: While abdominal pain and diarrhea can occur, the rapid onset of confusion is less typical. Glipizide overdose: While possible, the normal C-peptide level makes this less likely. Malnutrition: While possible given the history of sleeve gastrectomy, the acute onset of confusion is more suggestive of a metabolic derangement. Propranolol overdose: This would typically present with bradycardia and hypotension, which are not prominent features in this case.",
+          "usage": {
+            "prompt_tokens": 532,
+            "generated_tokens": 255,
+            "generation_time_s": 13.354
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of confusion, vomiting, and hypokalemia after a meal are consistent with dumping syndrome, but the extremely low glucose level (41 mg/dL) and normal C-peptide suggest insulin-related hypoglycemia rather than reactive hypoglycemia. The combination of hypokalemia, hypoglycemia, and the patient's history of diabetes and recent sleeve gastrectomy strongly support an insulin overdose or insulin reaction.",
+          "critical_evidence": "Glucose level of 41 mg/dL with normal C-peptide indicates endogenous insulin production is intact, ruling out insulin deficiency and pointing to insulin excess or action.",
+          "differential_considered": "Dumping syndrome (A) was considered but ruled out by the hypoglycemia and normal C-peptide. Glipizide overdose (B) is most likely due to the combination of hypoglycemia, hypokalemia, and insulin-like symptoms. Insulin overdose (C) is also possible but less likely given the specific symptoms. Malnutrition (D) is unlikely given the recent sleeve gastrectomy and other medical issues. Propranolol overdose (E) is unlikely as no cardiac symptoms are present.",
+          "usage": {
+            "prompt_tokens": 517,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.202
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute confusion, hypoglycemia (glucose 41 mg/dL), and tachycardia (pulse 120/min), consistent with insulin-induced hypoglycemia. Her recent sleeve gastrectomy and history of depression with suicide attempts raise concern for intentional insulin overdose. The normal C-peptide level rules out endogenous insulin secretion (e.g., insulinoma), supporting exogenous insulin administration. Other options lack direct support: dumping syndrome typically presents with postprandial symptoms without hypoglycemia, malnutrition is chronic and not acute, and beta-blocker overdose would cause bradycardia, not tachycardia.",
+          "critical_evidence": "Glucose 41 mg/dL with normal C-peptide level",
+          "differential_considered": "Dumping syndrome (no postprandial hypoglycemia or tachycardia), malnutrition (chronic, not acute), propranolol overdose (would cause bradycardia, not tachycardia), glipizide overdose (less likely given normal C-peptide and lack of sulfonylurea history)",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 275,
+            "generation_time_s": 9.702
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 142,
+            "generation_time_s": 3.453
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute confusion, hypoglycemia (41 mg/dL), and a recent sleeve gastrectomy, which is known to impair glucose absorption. These findings are most consistent with an insulin overdose, given her history of diabetes and the risk of medication error post-surgery. Other options like dumping syndrome or propranolol overdose typically present with more immediate gastrointestinal symptoms and different laboratory findings, while glipizide overdose would cause hyperglycemia rather than hypoglycemia. Malnutrition and hypokalemia are less likely in the acute setting with these lab results.",
+          "critical_evidence": "Hypoglycemia in the context of a recent sleeve gastrectomy and diabetes increases suspicion for insulin overdose.",
+          "differential_considered": "Dumping syndrome (acute hypoglycemia after gastric surgery), propranolol overdose (can cause hypotension and confusion), and severe malnutrition (chronic anemia, elevated BUN, but less likely acute presentation). However, the acute onset of hypoglycemia points away from chronic malnutrition and more toward a medication error. Glipizide overdose would not cause hypoglycemia this low as quickly. Propranolol overdose is less supported by the main complaint and lab findings.",
+          "usage": {
+            "prompt_tokens": 561,
+            "generated_tokens": 296,
+            "generation_time_s": 9.308
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "B": 1,
+        "A": 2
+      },
+      "agreement_ratio": 0.4,
+      "position_changes": []
+    },
+    {
+      "round": 1,
+      "kind": "debate",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "While the other options are possible, the combination of acute confusion, severe hypoglycemia (41 mg/dL), and a normal C-peptide level strongly points to an insulin overdose. The recent sleeve gastrectomy increases the risk of rapid glucose decline, and the patient's history of diabetes makes her more susceptible to hypoglycemia from exogenous insulin. The normal C-peptide level is a key differentiator, as it indicates that the body is not producing its own insulin.",
+          "critical_evidence": "Hypoglycemia (glucose 41 mg/dL) with normal C-peptide level",
+          "counter_argument": "Panelist A's argument about dumping syndrome is plausible, but the severe hypoglycemia and normal C-peptide make it less likely than an insulin overdose. Panelist D's argument about the sleeve gastrectomy is valid, but the normal C-peptide is a stronger indicator of exogenous insulin.",
+          "usage": {
+            "prompt_tokens": 1319,
+            "generated_tokens": 234,
+            "generation_time_s": 12.327
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "changed_position": true,
+          "clinical_reasoning": "",
+          "reasoning_update": "Upon reviewing the colleagues' responses, I recognize that the combination of hypoglycemia (glucose 41 mg/dL), normal C-peptide, and the patient's history of diabetes and recent sleeve gastrectomy strongly supports insulin overdose. The rapid onset of confusion after eating and tachycardia further align with insulin-induced hypoglycemia. While dumping syndrome is a possibility, it typically presents with postprandial symptoms without hypoglycemia, and propranolol overdose would cause bradycardia, not tachycardia. The normal C-peptide level rules out endogenous insulin secretion, supporting exogenous insulin administration. Malnutrition is less likely in the acute setting with these lab results.",
+          "critical_evidence": "Glucose 41 mg/dL with normal C-peptide level",
+          "counter_argument": "Dumping syndrome and propranolol overdose do not explain the hypoglycemia and tachycardia, and glipizide overdose would cause hyperglycemia, not hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 1389,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.698
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "My initial reasoning remains valid: the combination of profound hypoglycemia (41 mg/dL), tachycardia, and normal C-peptide strongly supports exogenous insulin action, likely intentional given the patient’s psychiatric history. Colleagues’ arguments do not refute this; Panelist A’s low confidence and Panelist B’s misinterpretation of C-peptide do not override the key evidence.",
+          "critical_evidence": "Glucose 41 mg/dL with normal C-peptide level — this rules out endogenous insulin excess (e.g., insulinoma) and strongly supports exogenous insulin administration, consistent with intentional overdose in a patient with depression and suicide attempts.",
+          "counter_argument": "Panelist B incorrectly suggests dumping syndrome as a possibility, but dumping syndrome typically causes reactive hypoglycemia with normal or elevated C-peptide and does not explain the profound hypoglycemia or tachycardia seen here.",
+          "usage": {
+            "prompt_tokens": 1391,
+            "generated_tokens": 232,
+            "generation_time_s": 8.233
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "",
+          "counter_argument": "",
+          "usage": {
+            "prompt_tokens": 1387,
+            "generated_tokens": 29,
+            "generation_time_s": 0.794
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.97,
+          "changed_position": false,
+          "clinical_reasoning": "",
+          "reasoning_update": "",
+          "critical_evidence": "Normal C-peptide levels in a hypoglycemic presentation argue against insulin deficiency and support an overdose.",
+          "counter_argument": "While dumping syndrome can cause acute hypoglycemia, the normal C-peptide and the context of recent surgery make insulin overdose more likely.",
+          "usage": {
+            "prompt_tokens": 1483,
+            "generated_tokens": 217,
+            "generation_time_s": 6.805
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": [
+        {
+          "model": "rnj1_8b",
+          "model_name": "Rnj1-8b",
+          "from": "B",
+          "to": "C"
+        }
+      ]
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_debate_consensus",
+    "n_debate_rounds": 1,
+    "escalated": false
+  }
+}

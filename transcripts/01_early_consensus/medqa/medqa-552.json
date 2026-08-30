@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-552",
+  "dataset": "medqa",
+  "question_id": "552",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old G1P0 woman at an estimated gestational age of 9 weeks presents for her first prenatal visit following a positive home pregnancy test. She says she missed 2 periods but assumed it was due to stress at work. She has decided to continue with the pregnancy. Her past medical history is significant for migraine headaches, seizures, and asthma. She takes multiple medications for her condition. Physical examination is unremarkable. An ultrasound confirms a 9-week-old intrauterine pregnancy. Which of these following medications poses the greatest risk to the fetus?",
+    "options": {
+      "A": "Acetaminophen",
+      "B": "Sumatriptan",
+      "C": "Valproic acid",
+      "D": "Albuterol",
+      "E": "Budesonide"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Valproic acid is known to be teratogenic, particularly associated with neural tube defects, developmental delay, and cognitive impairment. The other medications are generally considered safer in pregnancy, although they still require careful consideration and monitoring. Acetaminophen is a common pain reliever, sumatriptan is a triptan used for migraines, albuterol is a bronchodilator for asthma, and budesonide is an inhaled corticosteroid for asthma.",
+          "critical_evidence": "Valproic acid is associated with a significantly increased risk of major congenital malformations, including neural tube defects and developmental delays.",
+          "differential_considered": "While all medications have potential risks, valproic acid carries the highest risk of major congenital malformations compared to the other options. The other medications are generally considered safer, although they still require careful consideration and monitoring during pregnancy.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 215,
+            "generation_time_s": 10.677
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Valproic acid is a teratogenic medication that can cause neural tube defects and other serious birth defects. While acetaminophen, albuterol, budesonide, and sumatriptan have some potential risks, valproic acid is the most dangerous to fetal development at any stage of pregnancy.",
+          "critical_evidence": "Valproic acid is a known teratogen that crosses the placenta and can cause significant fetal abnormalities including spina bifida, cleft lip/palate, and heart defects.",
+          "differential_considered": "Considered other medications' risks but valproic acid's teratogenic profile is well-established and most concerning for a developing fetus at any gestational age.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 180,
+            "generation_time_s": 8.439
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is pregnant and taking multiple medications for chronic conditions including seizures (likely requiring anticonvulsants), migraines, and asthma. Valproic acid is a well-documented teratogen associated with severe congenital malformations, including neural tube defects, cardiac anomalies, and developmental delays, especially in the first trimester. Other medications like acetaminophen, sumatriptan, albuterol, and budesonide are generally considered safer in pregnancy when used appropriately, though caution is warranted with sumatriptan. The key risk factor here is the anticonvulsant regimen, and valproic acid is the most teratogenic among the listed options.",
+          "critical_evidence": "Valproic acid is classified as Category X by the FDA for pregnancy due to its high risk of teratogenicity, including neural tube defects and cognitive impairment.",
+          "differential_considered": "Sumatriptan and acetaminophen are relatively safe in pregnancy, albuterol and budesonide are considered low risk for asthma management, and while valproic acid is teratogenic, it is the only option with clear, high-level evidence of severe fetal harm. Other anticonvulsants (e.g., phenytoin, carbamazepine) may also be risky, but valproic acid is the most dangerous among the listed choices.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 316,
+            "generation_time_s": 11.113
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 76,
+            "generation_time_s": 1.861
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Acetaminophen (A) is low-risk; albuterol and budesonide (D and E) are inhaled drugs with little placental transfer; sumatriptan (B) has limited evidence of teratogenicity in early pregnancy. Valproic acid (C), however, is strongly teratogenic in the first trimester, especially relevant given the high-risk pregnancy context.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 329,
+            "generation_time_s": 10.386
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

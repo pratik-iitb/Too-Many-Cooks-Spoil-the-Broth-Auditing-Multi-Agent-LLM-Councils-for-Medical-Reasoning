@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-15141797",
+  "dataset": "pubmedqa",
+  "question_id": "15141797",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can we rely on arterial line sampling in performing activated plasma thromboplastin time after cardiac surgery?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Arterial line sampling is not recommended for APTT testing due to the risk of contamination and inaccurate results. The arterial blood sample is more susceptible to contamination with heparin or other anticoagulants used during cardiac surgery, which can falsely prolong the APTT. Therefore, a peripheral blood sample is preferred for accurate APTT measurement.",
+          "critical_evidence": "The risk of contamination of the arterial blood sample with heparin or other anticoagulants used during cardiac surgery.",
+          "differential_considered": "While a peripheral blood sample is preferred, in a critical situation where an arterial line is already in place, it might be used as a last resort. However, the risk of inaccurate results outweighs the benefit in most cases. Therefore, relying on arterial line sampling for APTT is not recommended.",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 197,
+            "generation_time_s": 9.72
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Arterial line sampling after cardiac surgery carries significant risk of hemodynamic instability due to blood loss and potential for arterial rupture. The activated plasma thromboplastin time (aPTT) is a coagulation test that requires precise blood collection, and any disturbance in the arterial integrity during sampling could lead to false results or patient harm. Given the critical nature of cardiac surgery and the invasiveness of arterial line procedures, the potential risks outweigh the benefits of performing aPTT via arterial line.",
+          "critical_evidence": "Arterial line sampling is associated with increased risk of bleeding and hemodynamic instability in critically ill patients.",
+          "differential_considered": "While other coagulation tests like PT or INR can be performed via venous access, the question specifically addresses aPTT. The differential consideration includes the risk of arterial sampling vs. venous sampling, but the aPTT's sensitivity to blood handling and exposure to air makes arterial sampling particularly problematic.",
+          "usage": {
+            "prompt_tokens": 263,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.366
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Activated plasma thromboplastin time (aPTT) requires plasma, not whole blood, and arterial line sampling delivers whole blood with potential contamination by anticoagulants or hemodilution. Arterial lines are not designed for plasma collection and may introduce artifacts, making aPTT unreliable. Central venous lines or dedicated blood draws are preferred for coagulation testing.",
+          "critical_evidence": "Arterial line sampling delivers whole blood, which is not suitable for aPTT testing that requires plasma to accurately measure intrinsic coagulation pathway function.",
+          "differential_considered": "Alternative sampling methods (e.g., venous draw) were considered and are preferred; arterial line use was ruled out due to technical incompatibility with plasma-based assays.",
+          "usage": {
+            "prompt_tokens": 234,
+            "generated_tokens": 187,
+            "generation_time_s": 6.464
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 10,
+            "generation_time_s": 0.252
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Arterial line sampling is commonly used for rapid hemodynamic assessment post-cardiac surgery but may introduce errors due to contamination, improper calibration, or incorrect blood collection. Activated partial thromboplastin time (aPTT) is a coagulation time, which is most accurately measured using citrate-anticoagulated plasma drawn from an arterial line, though venous samples can also be valid if properly collected and handled. However, relying solely on arterial line samples is risky due to potential technical issues and the need for strict protocols. Alternative methods, such as venous sampling with appropriate anticoagulants, are more reliable for aPTT. Thus, while arterial line sampling might be feasible, it is not the safest or most reliable method.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 253,
+            "generation_time_s": 7.85
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

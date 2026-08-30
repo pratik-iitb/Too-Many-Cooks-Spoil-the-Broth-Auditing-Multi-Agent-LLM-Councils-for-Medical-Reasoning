@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-107",
+  "dataset": "medqa",
+  "question_id": "107",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 2-year-old boy presents to the emergency department with the complaint of acute onset abdominal pain and vomiting. Upon further questioning you find the patient has no past medical history except for occasional painless rectal bleeding the past couple of weeks. Physical exam is significant for an 8/10 sharp pain in the right lower quadrant. Bowel sounds are hyper-active. Laboratory analysis reveals a white blood cell count of 11,000 per mcL. Nuclear imaging is performed and can be seen in Figure A. What is the likely underlying medical condition that lead to this patient's clinical presentation?",
+    "options": {
+      "A": "Appendicitis",
+      "B": "Gastroenteritis",
+      "C": "Diabetic ketoacidosis (DKA)",
+      "D": "Meckel's diverticulum",
+      "E": "Encopresis"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of acute onset abdominal pain, vomiting, and painless rectal bleeding in a young child strongly suggests a Meckel's diverticulum. The hyperactive bowel sounds are also consistent with this diagnosis. The nuclear imaging finding (Figure A, not provided, but implied to be a characteristic finding) further supports this.",
+          "critical_evidence": "Painless rectal bleeding in a young child with acute abdominal pain is highly suggestive of Meckel's diverticulum.",
+          "differential_considered": "Appendicitis is possible, but the painless rectal bleeding makes it less likely. Gastroenteritis is a common cause of abdominal pain and vomiting, but the rectal bleeding is atypical. DKA can cause abdominal pain, but the rectal bleeding is not a typical feature. Encopresis is a chronic condition and would not present with acute onset abdominal pain and vomiting.",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 215,
+            "generation_time_s": 10.623
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's acute abdominal pain, hyperactive bowel sounds, and elevated white blood cell count strongly suggest acute inflammation, which is consistent with appendicitis. The absence of fever and the history of painless rectal bleeding make other conditions like DKA or encopresis less likely. Gastroenteritis could cause vomiting but typically presents with diarrhea, which is not mentioned. Meckel's diverticulum is a congenital anomaly and less likely to present acutely with such symptoms.",
+          "critical_evidence": "8/10 sharp pain in the right lower quadrant with hyperactive bowel sounds",
+          "differential_considered": "Gastroenteritis (ruled out by lack of diarrhea), DKA (ruled out by no history of diabetes or ketosis), encopresis (ruled out by age and symptom presentation), Meckel's diverticulum (less likely for acute onset)",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.23
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with acute right lower quadrant pain, vomiting, and a history of painless rectal bleeding — classic for Meckel's diverticulum, which can cause bleeding and mimic appendicitis. The hyperactive bowel sounds and elevated WBC support inflammation, but the key clue is the rectal bleeding, which is uncommon in appendicitis. Nuclear imaging (likely a Meckel's scan) would show ectopic gastric mucosa in the diverticulum, confirming the diagnosis.",
+          "critical_evidence": "Painless rectal bleeding in a young child with acute abdominal pain and RLQ tenderness strongly suggests Meckel's diverticulum.",
+          "differential_considered": "Appendicitis was considered but ruled out by the presence of painless rectal bleeding, which is not typical. Gastroenteritis lacks systemic signs like fever or localized pain. DKA and encopresis are inconsistent with acute abdominal pain and WBC elevation.",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 226,
+            "generation_time_s": 7.893
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<2-4 sentences of step-by-step clinical reasoning>",
+          "critical_evidence": "<single most important finding>",
+          "differential_considered": "<key differential diagnoses and why they were ruled out>",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 86,
+            "generation_time_s": 2.076
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.96,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Gastroenteritis (B) often presents with vomiting and abdominal pain but typically lacks localized right lower quadrant tenderness; DKA (C) in a 2-year-old is unlikely without diabetes history; Meckel's diverticulum (D) can mimic appendicitis but is a rare cause; Encopresis (E) is a behavioral issue and wouldn't explain the acute abdominal and WBC findings.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 229,
+            "generation_time_s": 7.148
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

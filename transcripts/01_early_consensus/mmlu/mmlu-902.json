@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-902",
+  "dataset": "mmlu",
+  "question_id": "902",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 54-year-old woman comes to the emergency department because of severe jaw pain since undergoing a painful dental procedure 1 day ago. The patient was prescribed codeine after the procedure and instructed to take the medication every 4 hours, but she has continued pain despite adherence to this analgesic regimen. Other members of her family also have experienced poor pain control with codeine. Which of the following is the most likely explanation for this therapeutic failure?",
+    "options": {
+      "A": "Decreased absorption of codeine",
+      "B": "Decreased metabolism of codeine to morphine",
+      "C": "Deficiency of κ receptors",
+      "D": "Increased plasma protein-binding of codeine"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's persistent pain despite codeine use, along with a family history of poor pain control with codeine, strongly suggests a problem with codeine metabolism. Codeine is primarily metabolized to morphine by the cytochrome P450 enzyme system, specifically CYP2D6. Genetic variations in CYP2D6 can lead to poor metabolizers, who have reduced codeine conversion to morphine, resulting in inadequate pain relief. Decreased absorption, receptor deficiency, and increased protein binding are less likely explanations given the clinical scenario.",
+          "critical_evidence": "The patient's persistent pain despite codeine use and the family history of poor pain control with codeine.",
+          "differential_considered": "Decreased absorption of codeine: While possible, it's less likely given the family history. Receptor deficiency: Less likely as the primary cause, as codeine is a prodrug that requires activation. Increased plasma protein-binding of codeine: This would reduce the free (active) drug concentration, but the family history points more towards a metabolic issue.",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 254,
+            "generation_time_s": 12.859
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's persistent pain despite codeine administration suggests impaired conversion of codeine to its active metabolite morphine. Codeine's analgesic effect relies on hepatic 6-mono-oxygenase (CYP2D6) metabolism to form morphine, which binds to μ-opioid receptors. Genetic polymorphisms in CYP2D6 can reduce this conversion, leading to poor pain relief. The family history of similar response further supports a genetic basis. While decreased absorption or protein binding could contribute, the consistent failure across family members points to a metabolic defect rather than variable absorption or binding.",
+          "critical_evidence": "Family history of poor codeine response",
+          "differential_considered": "Considered decreased absorption (e.g., gastric pH, food intake) and protein binding (e.g., albumin levels), but ruled out due to consistent family history and immediate onset of pain. Deficiency of κ receptors is unlikely as codeine primarily acts on μ-opioid receptors. Genetic polymorphism in CYP2D6 remains the most consistent explanation.",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.78
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's persistent pain despite codeine use, combined with a family history of poor response to codeine, strongly suggests an inherited pharmacogenetic variation. Codeine is metabolized to morphine via CYP2D6, and poor metabolizers have reduced conversion, leading to inadequate analgesia. This explains both the individual and familial pattern of therapeutic failure.",
+          "critical_evidence": "Family history of poor pain control with codeine indicates a likely inherited pharmacogenetic defect in codeine metabolism.",
+          "differential_considered": "Decreased absorption (A) is unlikely without GI symptoms; κ receptor deficiency (C) is not associated with codeine analgesia; increased protein binding (D) would not explain familial pattern. The key clue is the family history pointing to CYP2D6 polymorphism.",
+          "usage": {
+            "prompt_tokens": 334,
+            "generated_tokens": 196,
+            "generation_time_s": 7.048
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 124,
+            "generation_time_s": 3.081
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has severe pain despite using codeine, which is a κ-opioid receptor agonist. Codeine's analgesic effect is significantly augmented by the conversion to morphine via the enzyme CYP2D6, which requires κ receptor activation. The family history of poor pain control with codeine suggests a genetic polymorphism affecting κ receptor availability, making C the most likely explanation for therapeutic failure.",
+          "critical_evidence": "",
+          "differential_considered": "Other causes like decreased absorption (A), increased protein binding (D), or altered metabolism (B) could theoretically reduce codeine's effect, but the consistent lack of response across the family strongly points to a receptor-related issue rather than individual drug metabolism or excretion problems.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 208,
+            "generation_time_s": 6.706
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

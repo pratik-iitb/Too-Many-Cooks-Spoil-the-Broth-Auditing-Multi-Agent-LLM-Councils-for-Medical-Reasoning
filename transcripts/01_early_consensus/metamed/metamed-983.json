@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-983",
+  "dataset": "metamed",
+  "question_id": "983",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old man presents to the office because of extreme fatigue for the past 2 days. He is also worried about his skin looking yellow. He does not have any other complaints and denies fever and headache. He admits to using illicit intravenous drugs in the past. He does not have any immunization records because he moved from Africa to the US at the age of 18. His vital signs are as follows: heart rate 72/min, respiratory rate 14/min, temperature 37.9°C (100.2°F), and blood pressure 100/74 mm Hg. Physical examination is not significant except for mild diffuse abdominal tenderness. His blood is drawn for routine tests and shows an alanine aminotransferase level (ALT) of 2,000 IU/L. A hepatitis viral panel is ordered which shows:\nAnti-HAV IgM negative\nHBsAg positive\nAnti-HBs negative\nIgM anti-HBc positive\nAnti-HCV negative\nAnti-HDV negative\nWhat is the most likely diagnosis?",
+    "options": {
+      "A": "Past hepatitis B infection",
+      "B": "Acute hepatitis A",
+      "C": "Acute hepatitis D superinfection",
+      "D": "Acute hepatitis B",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's elevated ALT (2,000 IU/L) and positive IgM anti-HBc indicate acute hepatitis B infection. The HBsAg positivity confirms the presence of the hepatitis B virus. The negative Anti-HBs suggests he has not been vaccinated or has cleared the infection. The negative Anti-HCV rules out hepatitis C. The negative Anti-HAV rules out hepatitis A. The negative Anti-HDV rules out hepatitis D.",
+          "critical_evidence": "Positive IgM anti-HBc and HBsAg positivity",
+          "differential_considered": "A: Past hepatitis B infection is less likely given the IgM anti-HBc positivity, which indicates an acute infection. B: Acute hepatitis A is ruled out by the negative Anti-HAV IgM. C: Acute hepatitis D superinfection is ruled out by the negative Anti-HDV. E: While the patient's history of IV drug use could be a risk factor for hepatitis B, the lab results are more specific to acute hepatitis B infection.",
+          "usage": {
+            "prompt_tokens": 509,
+            "generated_tokens": 251,
+            "generation_time_s": 12.683
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has HBsAg positive, IgM anti-HBc positive, and no anti-HBs, indicating an active hepatitis B infection. The elevated ALT level supports liver inflammation. The patient's history of intravenous drug use increases the risk of acute hepatitis B. The absence of HAV IgM and HDV antibodies further supports hepatitis B over other viral hepatitis.",
+          "critical_evidence": "HBsAg positive with IgM anti-HBc positive indicates acute hepatitis B infection",
+          "differential_considered": "Considered hepatitis A (ruled out by negative HAV IgM), hepatitis D (ruled out by negative HDV), and past hepatitis B (ruled out by positive HBsAg and negative anti-HBs).",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.908
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with acute hepatitis symptoms (fatigue, jaundice, elevated ALT) and has a hepatitis B viral panel showing HBsAg positive, IgM anti-HBc positive, and Anti-HBs negative — which is diagnostic of acute hepatitis B infection. The absence of anti-HAV IgM, anti-HCV, and anti-HDV rules out hepatitis A, C, and D superinfection. His history of intravenous drug use and lack of immunization are risk factors for hepatitis B, but do not change the serologic interpretation.",
+          "critical_evidence": "HBsAg positive, IgM anti-HBc positive, and Anti-HBs negative — classic serologic markers of acute hepatitis B infection.",
+          "differential_considered": "Acute hepatitis A (ruled out by negative anti-HAV IgM), hepatitis C (ruled out by negative anti-HCV), hepatitis D (ruled out by negative anti-HDV), and past hepatitis B (ruled out by presence of IgM anti-HBc and absence of anti-HBs).",
+          "usage": {
+            "prompt_tokens": 484,
+            "generated_tokens": 250,
+            "generation_time_s": 8.83
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 11,
+            "generation_time_s": 0.293
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hepatitis A (ruled out by negative anti-HAV IgM), hepatitis C (anti-HCV negative), and hepatitis D (anti-HDV negative and no evidence of superinfection). Other possibilities like acute viral hepatitis of unknown etiology are less likely given the specific serology results.",
+          "usage": {
+            "prompt_tokens": 537,
+            "generated_tokens": 261,
+            "generation_time_s": 8.416
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

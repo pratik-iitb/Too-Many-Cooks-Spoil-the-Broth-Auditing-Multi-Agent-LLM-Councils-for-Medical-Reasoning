@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1371",
+  "dataset": "medqa",
+  "question_id": "1371",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A previously healthy 15-year-old girl is brought to the physician by her parents for lethargy, increased thirst, and urinary frequency for 10 days. She is 173 cm (5 ft 8 in) tall and weighs 54 kg (120 lb); BMI is 18 kg/m2. Physical examination shows no abnormalities. Her serum glucose concentration is 224 mg/dL. A urine dipstick is positive for ketone bodies. Which of the following is most likely involved in the pathogenesis of this patient's condition?",
+    "options": {
+      "A": "Expression of human leukocyte antigen subtype A3",
+      "B": "B-cell production of antimitochondrial antibodies",
+      "C": "Complement-mediated destruction of insulin receptors",
+      "D": "T-cell infiltration of pancreatic islets",
+      "E": "Pancreatic islet amyloid polypeptide deposition"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyperglycemia (224 mg/dL), polyuria, polydipsia, and ketonuria, strongly suggesting a diagnosis of type 1 diabetes mellitus (T1DM). T1DM is characterized by autoimmune destruction of pancreatic beta cells, leading to insulin deficiency. The other options are less likely given the acute presentation and lack of other specific findings.",
+          "critical_evidence": "Hyperglycemia, ketonuria, and polyuria/polydipsia are classic symptoms of T1DM.",
+          "differential_considered": "A: Expression of human leukocyte antigen subtype A3 is not directly related to the acute presentation of hyperglycemia and ketonuria. B: Antimitochondrial antibodies are associated with primary biliary cholangitis, not T1DM. C: Complement-mediated destruction of insulin receptors is a mechanism for insulin resistance, not T1DM. E: Pancreatic islet amyloid polypeptide deposition is associated with type 2 diabetes, not T1DM.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 241,
+            "generation_time_s": 11.964
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of lethargy, increased thirst, and urinary frequency with a serum glucose of 224 mg/dL and positive ketones suggest diabetic ketoacidosis (DKA). The presence of ketones indicates fat metabolism, consistent with DKA. B-cell production of antimitochondrial antibodies is a hallmark of type 1 diabetes, where autoantibodies target insulin-producing beta cells, leading to insulin deficiency and subsequent DKA.",
+          "critical_evidence": "Serum glucose 224 mg/dL and positive ketone bodies in urine",
+          "differential_considered": "Other causes of hyperglycemia like stress, infection, or medications were ruled out due to the absence of physical exam abnormalities and the specific lab findings. Pancreatic islet amyloid polypeptide deposition (E) is more associated with type 2 diabetes, and T-cell infiltration (D) is less specific than B-cell autoantibodies for type 1 diabetes.",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 228,
+            "generation_time_s": 10.541
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic symptoms of type 1 diabetes mellitus (polyuria, polydipsia, lethargy) and hyperglycemia with ketonuria, indicating insulin deficiency. The absence of physical exam abnormalities and the young age point to autoimmune destruction of pancreatic beta cells. T-cell infiltration of pancreatic islets is the hallmark pathogenic mechanism in type 1 diabetes.",
+          "critical_evidence": "Serum glucose 224 mg/dL and positive urine ketones in a young, previously healthy patient strongly suggest insulin deficiency due to autoimmune destruction of beta cells.",
+          "differential_considered": "Type 2 diabetes (ruled out by age and lack of obesity or insulin resistance markers), maturity-onset diabetes of the young (MODY, unlikely without family history or genetic markers), and other autoimmune conditions (e.g., autoimmune hepatitis or thyroid disease) were considered but do not explain the specific beta-cell destruction seen here.",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 222,
+            "generation_time_s": 7.813
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 15,
+            "generation_time_s": 0.384
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: HLA A3 expression could be relevant in type 1 diabetes but is not the primary pathogenic mechanism in this acute presentation. B: Antimitochondrial antibodies are associated with thyroid disease. C: Complement-mediated destruction of insulin receptors is a less common pathway compared to T-cell mediated beta-cell destruction. E: Amyloid deposition is seen in older patients with long-standing diabetes, not typically in a previously healthy 15-year-old.",
+          "usage": {
+            "prompt_tokens": 434,
+            "generated_tokens": 289,
+            "generation_time_s": 9.009
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

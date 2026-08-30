@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19327500",
+  "dataset": "pubmedqa_context",
+  "question_id": "19327500",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Gender difference in survival of resected non-small cell lung cancer: histology-related phenomenon?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "It remains controversial whether there is a gender difference in survival of patients with resected non-small cell lung cancer. We retrospectively analyzed 2770 patients (1689 men and 1081 women) with non-small cell lung cancer who underwent pulmonary resection between 1995 and 2005 at the National Cancer Center Hospital, Tokyo. A gender difference in survival was studied in all patients, in those divided according to histology or pathologic stage, and in propensity-matched gender pairs. There were no differences in background, such as preoperative pulmonary function, operation procedures, or operative mortality. The proportions of adenocarcinoma and pathologic stage I in women were greater than those in men (93.6% vs 61.7% and 71.4% vs 58.6%, respectively) (P<.001). Overall 5-year survival of women was better than that of men (81% vs 70%, P<.001). In adenocarcinoma, the overall 5-year survival for women was better than that for men in pathologic stage I (95% vs 87%, P<.001) and in pathologic stage II or higher (58% vs 51%, P = .017). In non-adenocarcinoma, there was no significant gender difference in survival in pathologic stage I (P = .313) or pathologic stage II or higher (P = .770). The variables such as age, smoking status, histology, and pathologic stage were used for propensity score matching, and survival analysis of propensity score-matched gender pairs did not show a significant difference (P = .69).",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found a significant gender difference in survival for resected non-small cell lung cancer, with women having better overall survival than men. This difference was observed across all histological subtypes and pathologic stages, including adenocarcinoma and non-adenocarcinoma. Propensity score matching did not eliminate the gender difference, suggesting that the observed survival difference is not primarily due to confounding factors.",
+          "critical_evidence": "Overall 5-year survival of women was better than that of men (81% vs 70%, P<.001).",
+          "differential_considered": "While the study controls for age, smoking status, histology, and pathologic stage, it's possible that unmeasured confounders could contribute to the observed gender difference. However, the lack of significant difference after propensity score matching makes this less likely.",
+          "usage": {
+            "prompt_tokens": 624,
+            "generated_tokens": 208,
+            "generation_time_s": 12.27
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that women had better survival than men overall, but this difference was primarily driven by higher proportions of adenocarcinoma and pathologic stage I in women. The survival difference was only significant in adenocarcinoma patients at both stages, but not in non-adenocarcinoma patients. Since the gender difference disappears when accounting for histology and stage through propensity score matching, the observed difference appears to be a histology-related phenomenon rather than a true gender effect.",
+          "critical_evidence": "The propensity score matching analysis showed no significant survival difference (P =.69), indicating that the gender survival gap was largely explained by differences in histology and stage between men and women.",
+          "differential_considered": "The key differential consideration is whether the gender difference is biologically meaningful or an artifact of clinical differences. The data suggests it's primarily an artifact of adenocarcinoma being more common in women and having better survival, rather than a true gender-specific survival advantage.",
+          "usage": {
+            "prompt_tokens": 609,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.148
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows a significant gender survival difference overall (81% vs 70% 5-year survival in women vs men), which persists even after propensity matching. This difference is largely explained by histology: women have higher rates of adenocarcinoma and stage I disease, both associated with better survival. The lack of gender difference in non-adenocarcinoma suggests the survival gap is histology-related.",
+          "critical_evidence": "In adenocarcinoma, women had significantly better survival than men in both stage I (95% vs 87%) and stage II+ (58% vs 51%), while no difference was found in non-adenocarcinoma.",
+          "differential_considered": "The possibility that gender difference is due to confounding factors (e.g., smoking, comorbidities) was ruled out by propensity matching. The finding that the difference disappears in non-adenocarcinoma supports histology as the key driver, not gender per se.",
+          "usage": {
+            "prompt_tokens": 613,
+            "generated_tokens": 240,
+            "generation_time_s": 10.08
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 607,
+            "generated_tokens": 124,
+            "generation_time_s": 3.605
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The most significant finding is that women with non-adenocarcinoma had the same survival as men, but women with adenocarcinoma had better survival at all pathologic stages compared to men. Since the gender difference in survival is confined to adenocarcinoma and not seen in non-adenocarcinoma, it is most likely a histology-related phenomenon rather than a general gender difference in all non-small cell lung cancer patients.",
+          "critical_evidence": "Women with adenocarcinoma have significantly better overall 5-year survival than men with the same histology, even when matched for other factors, but no significant difference in non-adenocarcinoma regardless of gender.",
+          "differential_considered": "Other possible causes such as age or smoking status differences, but the absence of gender difference in non-adenocarcinoma and the presence in adenocarcinoma strongly suggests the phenomenon is related to histologic subtype.",
+          "usage": {
+            "prompt_tokens": 643,
+            "generated_tokens": 227,
+            "generation_time_s": 8.65
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

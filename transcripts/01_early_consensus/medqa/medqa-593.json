@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-593",
+  "dataset": "medqa",
+  "question_id": "593",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 31-year-old woman presents with difficulty walking and climbing stairs for the last 3 weeks. She has no history of trauma. The physical examination reveals a waddling gait with the trunk swaying from side-to-side towards the weight-bearing limb. When she stands on her right leg, the pelvis on the left side falls, but when she stands on the left leg, the pelvis on the right side rises. Which of the following nerves is most likely injured in this patient?",
+    "options": {
+      "A": "Right superior gluteal nerve",
+      "B": "Right femoral nerve",
+      "C": "Right inferior gluteal nerve",
+      "D": "Right obturator nerve",
+      "E": "Left femoral nerve"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of a waddling gait with pelvic asymmetry (left side higher when standing on the right leg, right side higher when standing on the left leg) strongly suggests a weakness in the hip abductor muscles. The gluteus medius and minimus are the primary hip abductors, and the inferior gluteal nerve innervates these muscles. The other options are less likely given the specific pattern of pelvic asymmetry.",
+          "critical_evidence": "Pelvic asymmetry (left side higher when standing on the right leg, right side higher when standing on the left leg)",
+          "differential_considered": "Right superior gluteal nerve: While it innervates the gluteus maximus, weakness would primarily affect hip extension, not abduction. Right femoral nerve: Weakness would affect hip flexion, knee extension, and hip rotation, not abduction. Right obturator nerve: Weakness would affect adduction of the leg, not abduction. Left femoral nerve: This would cause weakness on the right side, not the left.",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 251,
+            "generation_time_s": 12.424
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's waddling gait with trunk sway and ipsilateral pelvic drop when standing on one leg suggests a right-sided hip abductor weakness. The obturator nerve innervates the hip abductor muscles (gluteus medius and minimus), which are critical for maintaining pelvic stability during gait. The right inferior gluteal nerve also innervates these muscles, but the obturator nerve's role in pelvic tilt and gait stability makes it the most likely injured nerve. The femoral nerve's involvement would typically cause more proximal symptoms.",
+          "critical_evidence": "Pelvic tilt on the opposite side when standing on one leg indicates hip abductor weakness",
+          "differential_considered": "Considered hip fracture, hip dislocation, and other gait disorders, but ruled out due to lack of trauma history and normal physical findings. Muscle weakness rather than nerve root compression is more likely given the acute onset and distribution.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 222,
+            "generation_time_s": 10.353
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.882
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 151,
+            "generation_time_s": 3.663
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Femoral or obturator nerve injuries could cause lower limb weakness but do not classically explain the asymmetric pelvic shift described; the findings are more specific for the superior gluteal nerve.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 272,
+            "generation_time_s": 8.57
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "D": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

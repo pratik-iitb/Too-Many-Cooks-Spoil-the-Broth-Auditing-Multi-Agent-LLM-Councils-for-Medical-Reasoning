@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-63",
+  "dataset": "medqa",
+  "question_id": "63",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An investigator is studying obesity in mice. Over the course of 2 weeks, mice in the experimental group receive a daily injection with a synthetic analog of an endogenous hormone. Compared to the control group, the hormone-injected mice eat more and gain significantly more weight. Which of the following is the most likely explanation for the observed weight gain in the experimental group?",
+    "options": {
+      "A": "Cholecystokinin stimulation of the nucleus tractus solitarius",
+      "B": "Somatostatin inhibition of the anterior pituitary",
+      "C": "Leptin stimulation of the ventromedial hypothalamus",
+      "D": "Ghrelin stimulation of the lateral hypothalamus",
+      "E": "Glucagon stimulation of hepatocytes"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The experimental group of mice eats more and gains more weight compared to the control group. This suggests a hormone is stimulating appetite and/or promoting fat storage. Ghrelin is a hormone that stimulates appetite and is known to increase food intake. The lateral hypothalamus is the primary area of the brain that receives input from ghrelin and is involved in hunger and food-seeking behavior. Leptin, on the other hand, is a hormone that signals satiety and reduces appetite. Cholecystokinin (CCK) is involved in satiety and digestion, and somatostatin inhibits the release of many hormones, including growth hormone. Glucagon primarily regulates blood glucose levels and is not directly involved in appetite regulation.",
+          "critical_evidence": "The experimental group eats more and gains more weight than the control group.",
+          "differential_considered": "A: Cholecystokinin stimulation of the nucleus tractus solitarius: While CCK is involved in satiety, it's more associated with digestion and fullness, not necessarily increased appetite and weight gain. B: Somatostatin inhibition of the anterior pituitary: Somatostatin inhibits growth hormone and other hormones, which would likely lead to decreased appetite and weight loss, not weight gain. C: Leptin stimulation of the ventromedial hypothalamus: Leptin is a satiety hormone, so its stimulation would likely decrease appetite and promote weight loss. E: Glucagon stimulation of hepatocytes: Glucagon primarily regulates blood glucose levels and is not directly involved in appetite regulation.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 346,
+            "generation_time_s": 17.101
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The hormone analog likely mimics ghrelin, a hunger-stimulating hormone. Ghrelin primarily acts on the lateral hypothalamus to increase food intake and promote weight gain. The other options involve hormones or pathways related to satiety (leptin), stress (somatostatin), or digestion (cholecystokinin, glucagon), which do not align with the observed increased appetite and weight gain.",
+          "critical_evidence": "The mice in the experimental group ate more and gained significantly more weight, consistent with ghrelin's role in stimulating appetite and food intake.",
+          "differential_considered": "Options A, B, C, and E were ruled out because they relate to hormones or pathways that would not increase food intake and weight gain in the manner described.",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 192,
+            "generation_time_s": 8.934
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The experimental mice gain weight and eat more after receiving a synthetic hormone analog, indicating increased appetite and caloric intake. Ghrelin, known as the 'hunger hormone,' acts on the lateral hypothalamus to stimulate appetite. The other options involve hormones that either suppress appetite (C, A) or act on peripheral tissues (B, E), which do not directly explain increased food intake and weight gain.",
+          "critical_evidence": "The mice eat more and gain weight — consistent with orexigenic (appetite-stimulating) effects of ghrelin.",
+          "differential_considered": "Leptin (C) suppresses appetite; cholecystokinin (A) reduces food intake; somatostatin (B) inhibits pituitary secretion; glucagon (E) acts on liver metabolism — none of these explain increased food intake and weight gain.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 211,
+            "generation_time_s": 7.412
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 61,
+            "generation_time_s": 1.476
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Cholecystokinin mainly stimulates gastric emptying, somatostatin inhibits gastrin and may affect appetite but less directly, ghrelin is an appetite-stimulating hormone but not typically injected in obesity models, and glucagon promotes fat breakdown. The best fit is a disruption of satiety via a leptin analog.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 239,
+            "generation_time_s": 7.469
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

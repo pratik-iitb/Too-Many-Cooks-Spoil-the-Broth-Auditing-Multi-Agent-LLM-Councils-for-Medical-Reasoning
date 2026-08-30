@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1100",
+  "dataset": "medqa",
+  "question_id": "1100",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 23-year-old Caucasian G2P1 presents for a routine prenatal care visit at 25 weeks gestation. She has no complaints and the pregnancy has been uncomplicated thus far. The previous pregnancy was complicated by pre-eclampsia and she delivered a small-for-gestational-age girl at 36 weeks gestation. The pre-pregnancy weight was 73 kg (161 lb), and she now weighs 78 kg (172 lb). Her height is 155 cm. The blood pressure is 120/80 mm Hg, the heart rate is 91/min, the respiratory rate is 14/min, and the temperature is 36.7℃ (98℉). Her physical examination is normal and the gynecologic examination corresponds to 25 weeks gestation. An oral glucose tolerance test (OGTT) with a 75-g glucose load was abnormal with a 1-h glucose level of 189 mg/dL. Which of the following is a risk factor for the patient’s condition?",
+    "options": {
+      "A": "Patient age",
+      "B": "Patient ethnicity",
+      "C": "re-pregnancy BMI",
+      "D": "History of pre-eclampsia",
+      "E": "History of birth of a small-for-gestational-age baby"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's abnormal glucose tolerance test (OGTT) at 25 weeks gestation strongly suggests gestational diabetes mellitus (GDM). A history of pre-eclampsia in a previous pregnancy is a well-established risk factor for GDM. While other factors like age, ethnicity, and BMI can contribute to GDM, the history of pre-eclampsia is the most directly relevant and strongly associated risk factor in this scenario.",
+          "critical_evidence": "History of pre-eclampsia in a previous pregnancy",
+          "differential_considered": "Patient age: While age can be a factor in some conditions, it's not a primary risk factor for GDM. Patient ethnicity: Ethnicity is not a primary risk factor for GDM. re-pregnancy BMI: While BMI is a risk factor for GDM, the patient's BMI is within a normal range, making this less likely to be the primary driver of the abnormal OGTT. History of birth of a small-for-gestational-age baby: This is a consequence of GDM, not a risk factor for developing it.",
+          "usage": {
+            "prompt_tokens": 503,
+            "generated_tokens": 260,
+            "generation_time_s": 12.9
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of pre-eclampsia in a previous pregnancy is the most significant risk factor for developing gestational diabetes in this current pregnancy. While the OGTT result is abnormal, the patient's age, ethnicity, and re-pregnancy BMI are not directly linked to gestational diabetes. The history of delivering a small-for-gestational-age baby is a secondary concern but not a primary risk factor for gestational diabetes.",
+          "critical_evidence": "History of pre-eclampsia in a previous pregnancy",
+          "differential_considered": "Other risk factors for gestational diabetes include advanced maternal age, obesity, family history of diabetes, and ethnicity, but none are as strongly supported by the clinical data as the history of pre-eclampsia.",
+          "usage": {
+            "prompt_tokens": 484,
+            "generated_tokens": 186,
+            "generation_time_s": 11.669
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s current BMI is 31.3 (calculated from weight 78 kg and height 155 cm), which classifies her as obese. Obesity is a well-established risk factor for gestational diabetes mellitus (GDM), and her abnormal 1-hour OGTT confirms GDM. While other factors like history of pre-eclampsia or SGA birth are associated with future risk, the most direct and modifiable risk factor in this case is her current BMI, which is elevated and contributes significantly to GDM pathogenesis.",
+          "critical_evidence": "The patient’s current BMI is 31.3, placing her in the obese category, which is a major risk factor for gestational diabetes mellitus.",
+          "differential_considered": "Other risk factors like age (23 years is not high risk), ethnicity (Caucasian, not high-risk group), and prior pre-eclampsia or SGA birth were considered but are less directly causative than obesity in this context. Pre-eclampsia and SGA are associated with future risk but not as strongly predictive as BMI for this specific diagnosis.",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 265,
+            "generation_time_s": 9.548
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 15,
+            "generation_time_s": 0.388
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "While elevated 1-hour glucose on OGTT suggests gestational diabetes, the most concerning and directly relevant risk factor for potential current pre-eclampsia is her past history of pre-eclampsia; however, the question likely refers to risk for adverse pregnancy outcomes, where prior pre-eclampsia is most significant. Other options are less directly linked to the current risk in this context.",
+          "usage": {
+            "prompt_tokens": 526,
+            "generated_tokens": 228,
+            "generation_time_s": 7.195
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

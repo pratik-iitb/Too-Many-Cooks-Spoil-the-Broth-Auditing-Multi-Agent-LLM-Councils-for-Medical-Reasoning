@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-27136599",
+  "dataset": "pubmedqa_context",
+  "question_id": "27136599",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is it safe to perform rectal anastomosis in gynaecological debulking surgery without a diverting stoma?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Patient data were retrospectively collected from a database for gynaecological cancer procedures carried out between January 2013 and July 2015. All patients who underwent a colorectal resection during cytoreduction were included in the study. The primary outcome was anastomotic leakage in the presence or absence of a diverting stoma. Secondary outcome parameters were complications and reoperations. In the period of study, 43 major colorectal procedures were performed on 37 women. The most common colorectal procedure was low rectal resection (n = 22; 59%) followed by anterior rectal resection (n = 7; 19%) and sigmoid resection (n = 4; 11%). Five (14%) patients underwent Hartmann's procedure. In three (8%) patients, a diverting loop ileostomy was created.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study retrospectively collected data on 43 major colorectal procedures in 37 women undergoing gynaecological debulking surgery. The study focused on anastomotic leakage in the presence or absence of a diverting stoma. The data suggests that performing rectal anastomosis without a diverting stoma is associated with a higher risk of anastomotic leakage. Therefore, it is not safe to perform rectal anastomosis in gynaecological debulking surgery without a diverting stoma.",
+          "critical_evidence": "The study found that 14% of patients underwent Hartmann's procedure (a diverting stoma), indicating a higher risk of anastomotic leakage without a stoma.",
+          "differential_considered": "While other complications could occur, the primary focus of the study was anastomotic leakage, and the data strongly suggests a higher risk without a diverting stoma. Other complications like infection or bleeding are not directly addressed in the study's primary outcome.",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 230,
+            "generation_time_s": 13.625
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The data shows that 14% of patients underwent Hartmann's procedure, which involves creating a diverting stoma to facilitate anastomosis. The presence of a diverting stoma in 8% of cases suggests it is a common practice in this setting. Given the significant complication rates associated with direct anastomosis in gynecological debulking surgery, the use of a diverting stoma appears to be a prudent safety measure. The retrospective data indicates that diverting stomas were used in a substantial proportion of cases, supporting their importance in reducing complications.",
+          "critical_evidence": "The fact that 8% of patients received a diverting loop ileostomy suggests this is a recognized practice in this surgical setting",
+          "differential_considered": "While the primary concern is anastomotic leakage, other complications like stricture formation or stenosis could also be relevant. However, the retrospective nature of the study and the specific focus on anastomotic outcomes make the diverting stoma's role in reducing leakage the most critical factor in this decision.",
+          "usage": {
+            "prompt_tokens": 453,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.308
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that only 3 out of 37 patients (8%) had a diverting stoma, and the majority underwent low rectal or anterior rectal resections, which are high-risk procedures for anastomotic leakage. Given the high risk of leakage and the lack of protective stoma in most cases, performing rectal anastomosis without a diverting stoma is generally unsafe in gynecological debulking surgery.",
+          "critical_evidence": "Only 8% of patients had a diverting stoma, and the study focused on anastomotic leakage as the primary outcome, implying that the absence of a stoma increases risk.",
+          "differential_considered": "The possibility of safe anastomosis without a stoma was considered, but the high rate of anastomotic leakage in the absence of a stoma (implied by the low stoma rate and focus on leakage) rules this out as a safe option.",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 228,
+            "generation_time_s": 9.683
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 83,
+            "generation_time_s": 2.418
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The possibility of performing primary anastomosis without diversion in low-risk cases, but the context indicates high-risk resections; alternatives like Hartmann's or stoma use are often considered for better outcomes, suggesting the default of no stoma may not be safe.",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 251,
+            "generation_time_s": 9.537
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-25636371",
+  "dataset": "pubmedqa",
+  "question_id": "25636371",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is it possible to stop treatment with nucleos(t)ide analogs in patients with e-antigen negative chronic hepatitis B?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "In patients with e-antigen-negative chronic hepatitis B, the likelihood of treatment cessation is higher compared to those with e-antigen-positive chronic hepatitis B. This is because e-antigen-negative patients often have a lower viral load and a better response to treatment, making it more feasible to achieve sustained virological suppression and potentially discontinue therapy.",
+          "critical_evidence": "e-antigen negativity",
+          "differential_considered": "e-antigen-positive chronic hepatitis B: While treatment cessation is possible, it's less likely due to the higher viral load and potentially less favorable response to treatment in this group. Therefore, it's not the best answer.",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 181,
+            "generation_time_s": 10.914
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Patients with e-antigen negative chronic hepatitis B have likely cleared the virus to some extent, suggesting reduced viral replication. Nucleos(t)ide analogs are most effective when viral load is high, so discontinuation may be reasonable if viral suppression is maintained and liver function is stable. However, the decision should be individualized based on sustained virologic response and clinical status.",
+          "critical_evidence": "e-antigen negativity indicates reduced viral replication, making discontinuation of nucleos(t)ide therapy potentially safe if viral suppression is maintained.",
+          "differential_considered": "Consideration of potential reactivation of hepatitis B virus after discontinuation, but this is low in e-antigen negative patients with good liver function.",
+          "usage": {
+            "prompt_tokens": 269,
+            "generated_tokens": 1024,
+            "generation_time_s": 58.164
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In e-antigen negative chronic hepatitis B, viral replication is typically low, but the virus remains persistent and can reactivate. Current guidelines (AASLD, EASL) recommend long-term or indefinite nucleos(t)ide analog therapy for e-antigen negative patients due to higher risk of disease progression and HCC. Discontinuation is not routinely recommended without achieving sustained virological and serological responses, which is rare in this group.",
+          "critical_evidence": "Current guidelines state that nucleos(t)ide analogs should generally be continued indefinitely in e-antigen negative patients due to persistent viral reservoir and risk of relapse.",
+          "differential_considered": "HBeAg-negative chronic hepatitis B with low viral load may mimic remission, but the risk of reactivation and liver disease progression remains high, making discontinuation inappropriate without meeting strict criteria.",
+          "usage": {
+            "prompt_tokens": 240,
+            "generated_tokens": 208,
+            "generation_time_s": 8.88
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 267,
+            "generated_tokens": 95,
+            "generation_time_s": 2.822
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Chronic hepatitis B with e-antigen negativity typically indicates successful suppression of viral replication by current antiviral therapy, such as nucleos(t)ide analogs. However, sustained e-antigen negativity does not guarantee permanent cure or eradication of the virus, as HBV can reactivate or develop resistance. Therefore, it is premature to stop treatment without further monitoring for potential viral rebound or complications.",
+          "critical_evidence": "",
+          "differential_considered": "Differential includes the possibility of incomplete response, treatment resistance, or rare but possible HBV reactivation after treatment discontinuation, which must be ruled out before stopping therapy.",
+          "usage": {
+            "prompt_tokens": 295,
+            "generated_tokens": 185,
+            "generation_time_s": 7.099
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

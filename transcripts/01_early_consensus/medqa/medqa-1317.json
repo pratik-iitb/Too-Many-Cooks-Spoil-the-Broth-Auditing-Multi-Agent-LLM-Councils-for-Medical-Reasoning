@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1317",
+  "dataset": "medqa",
+  "question_id": "1317",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 51-year-old woman with a history of paroxysmal atrial fibrillation comes to the physician for a follow-up visit. She feels well and wants to discuss pausing her only current medication, flecainide. Her pulse is 75/min and regular, blood pressure is 125/75 mm Hg. Physical examination shows no abnormalities. An ECG shows a PR interval of 180 ms, QRS time of 120 ms, and corrected QT interval of 440 ms. Which of the following ECG changes is most likely to be seen on cardiac stress testing in this patient?",
+    "options": {
+      "A": "Prolonged QTc interval",
+      "B": "False-positive ST-segment depression",
+      "C": "Shortened PR interval",
+      "D": "Prolonged QRS complex",
+      "E": "Decreased maximal heart rate"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of paroxysmal atrial fibrillation and is currently on flecainide. Flecainide is a Class IC antiarrhythmic drug known to prolong the QTc interval. The ECG shows a normal QTc interval of 440ms. Therefore, the most likely ECG change during stress testing would be a false-positive ST-segment depression, which is a common finding in patients taking Class IC antiarrhythmics.",
+          "critical_evidence": "The patient's history of taking flecainide, a Class IC antiarrhythmic known to prolong the QTc interval.",
+          "differential_considered": "Prolonged QTc interval (A): While flecainide can prolong the QTc interval, the patient's current QTc is normal, making this less likely. Shortened PR interval (C): This is not a typical finding associated with flecainide or stress testing. Prolonged QRS complex (D): This is not a typical finding associated with flecainide or stress testing. Decreased maximal heart rate (E): While stress testing can reveal a decreased maximal heart rate, it is not the most likely ECG change in this scenario.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 286,
+            "generation_time_s": 14.134
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a corrected QT interval of 440 ms, which is prolonged and may increase the risk of torsades de pointes during stress. Stress testing could induce arrhythmias, potentially leading to a prolonged QTc interval. The other options are less likely: the PR interval is already prolonged, but stress may not necessarily shorten it; QRS complex is not typically prolonged in this context; ST-segment depression could be false-positive but is not the most likely finding; maximal heart rate may not decrease with stress testing in this case.",
+          "critical_evidence": "Corrected QT interval of 440 ms",
+          "differential_considered": "Considered paroxysmal atrial fibrillation and potential stress-induced arrhythmias, but ruled out other arrhythmias like AV block or bundle branch block based on ECG findings.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.506
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has paroxysmal atrial fibrillation and is on flecainide, a class Ic antiarrhythmic. Her ECG shows a prolonged PR interval (180 ms), which suggests possible conduction delay, and a corrected QT interval of 440 ms, which is markedly prolonged. This combination raises concern for drug-induced conduction abnormalities. Cardiac stress testing in such patients may reveal false-positive ST-segment depression due to the drug’s effect on repolarization and conduction, which can mimic ischemia. The other options are less likely: QTc prolongation is already present, QRS is not prolonged, PR shortening is not expected, and maximal heart rate is unlikely to be decreased in a healthy patient without significant conduction disease.",
+          "critical_evidence": "Corrected QT interval of 440 ms, indicating significant drug-induced QT prolongation, which predisposes to false-positive ST changes on stress testing.",
+          "differential_considered": "Other causes of QT prolongation (e.g., electrolyte imbalances, congenital long QT) were considered but ruled out by absence of symptoms, normal physical exam, and context of flecainide use. Prolonged PR and QTc together suggest drug effect rather than structural disease.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 294,
+            "generation_time_s": 10.291
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 15,
+            "generation_time_s": 0.386
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (B, C, D, E) are unrelated to her known risk factor (QTc prolongation) and do not directly result from her ECG abnormality. No evidence supports changes in PR interval, QRS duration, false ST depression, or decreased maximal HR as the most likely stress test finding here.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 344,
+            "generation_time_s": 10.793
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

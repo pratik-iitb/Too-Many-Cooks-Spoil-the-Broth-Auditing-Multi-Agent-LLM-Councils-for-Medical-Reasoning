@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-984",
+  "dataset": "medqa",
+  "question_id": "984",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 29-year-old male presents to an urgent care clinic with complaints of fever, malaise, fatigue, and a rash on his upper arm (Figure A). He reports that he just returned from a camping trip in Connecticut this past weekend. Which of the following is a known complication of failing to appropriately treat this patient's presenting condition?",
+    "options": {
+      "A": "Toxic megacolon",
+      "B": "Flaccid paralysis",
+      "C": "Hydrophobia",
+      "D": "Cranial nerve VII palsy",
+      "E": "Paralytic myelitis"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms (fever, malaise, fatigue, rash on the upper arm) and recent camping trip in Connecticut strongly suggest Lyme disease. A known complication of untreated Lyme disease is late-stage neurological involvement, specifically, Lyme neuroborreliosis. This can manifest as cranial nerve palsies, including facial nerve palsy (cranial nerve VII palsy). While other options are possible, they are less directly linked to the clinical picture.",
+          "critical_evidence": "The patient's recent camping trip in Connecticut, combined with the characteristic rash (erythema migrans) and systemic symptoms, points towards Lyme disease.",
+          "differential_considered": "Toxic megacolon is associated with inflammatory bowel disease or infections like *Clostridium difficile*, not typically Lyme disease. Flaccid paralysis is more commonly associated with conditions like Guillain-Barré syndrome or poliomyelitis, which are not directly linked to Lyme disease. Cranial nerve VII palsy can occur in Lyme neuroborreliosis, but it's not the most common or immediate complication. Paralytic myelitis is a rare and severe complication of Lyme disease, but less likely than cranial nerve palsy in the initial presentation.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 278,
+            "generation_time_s": 13.755
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's presentation of fever, malaise, fatigue, and rash after a camping trip in Connecticut suggests a tick-borne illness. Lyme disease is a common diagnosis in this setting. If untreated, Lyme disease can lead to neurologic complications including meningitis, which can progress to toxic megacolon due to severe inflammation and systemic effects. The other options (B, C, D, E) are not typical complications of untreated Lyme disease.",
+          "critical_evidence": "The patient's travel history to Connecticut and the presence of a rash are key indicators of Lyme disease.",
+          "differential_considered": "Other tick-borne illnesses like Rocky Mountain spotted fever were considered but ruled out due to the geographic location of the camping trip. Other causes of fever and rash were also considered but Lyme disease remains the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 341,
+            "generated_tokens": 197,
+            "generation_time_s": 9.127
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a young male with fever, malaise, fatigue, and a rash after a camping trip in Connecticut, suggesting a tick-borne illness. Lyme disease is a likely diagnosis, and a known complication is flaccid paralysis (e.g., Bell’s palsy or peripheral neuropathy), though the rash is more typical of erythema migrans. Other options are associated with different diseases (e.g., toxic megacolon with colitis, hydrophobia with rabies, cranial nerve VII palsy with Bell’s palsy, paralytic myelitis with polio or enterovirus).",
+          "critical_evidence": "The rash on the upper arm after a camping trip in Connecticut strongly suggests Lyme disease, which can lead to flaccid paralysis as a complication.",
+          "differential_considered": "Other tick-borne illnesses (e.g., Rocky Mountain spotted fever) were considered, but the rash location and absence of petechiae or severe systemic toxicity make Lyme more likely. Rabies, polio, and other listed complications are not associated with Lyme disease.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 252,
+            "generation_time_s": 8.845
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 339,
+            "generated_tokens": 11,
+            "generation_time_s": 0.277
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possible causes of the rash (e.g., urticaria, viral exanthem) were considered but are less likely given the acute neurological symptoms potentially associated with Lyme disease. Options A, B, and C are unrelated to the clinical scenario provided.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 225,
+            "generation_time_s": 7.005
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

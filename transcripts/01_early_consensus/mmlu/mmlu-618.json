@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-618",
+  "dataset": "mmlu",
+  "question_id": "618",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Myoclonic epilepsy and ragged-red fiber (MERRF) is an extremely rare disorder that affects neuromuscular systems. MERRF results from a mutation in mitochondrial DNA (mtDNA) that impairs protein synthesis, oxygen consumption, and energy production. When an affected male and a normal female reproduce, which of the following best predicts the expected phenotypic ratios of the offspring?",
+    "options": {
+      "A": "None of the offspring will be affected",
+      "B": "All males and no females will be affected",
+      "C": "Half of males and half of females will be affected",
+      "D": "One-fourth of the offspring will be affected"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "MERRF is an X-linked mitochondrial disorder. Since the mother is normal, she can only pass on a normal copy of the mtDNA. Affected males will inherit the mutated mtDNA from their mothers. Therefore, all males will be affected, and no females will be affected.",
+          "critical_evidence": "MERRF is an X-linked mitochondrial disorder.",
+          "differential_considered": "If the disorder were autosomal recessive, then all offspring would be affected. If it were autosomal dominant, then the phenotypic ratio would be different. Since the mother is normal, the only way for the male to be affected is if he inherits the mutated mtDNA from his mother.",
+          "usage": {
+            "prompt_tokens": 352,
+            "generated_tokens": 175,
+            "generation_time_s": 8.847
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "MERRF is caused by a mitochondrial DNA mutation, which follows maternal inheritance since mtDNA is passed from mother to offspring through the egg. The affected male has a mutation in his mitochondrial DNA, but since sperm contribute very little mtDNA, his daughters will inherit his mtDNA and be affected. His sons will not be affected because they receive mtDNA only from their mother. The normal female will pass on normal mtDNA to all her children. Thus, 50% of the offspring (his daughters) will be affected, but since the question asks for the expected phenotypic ratio among the offspring of this specific couple, and considering the male's mtDNA is the determining factor, the correct ratio is one-fourth of the offspring will be affected.",
+          "critical_evidence": "Maternal inheritance of mitochondrial DNA",
+          "differential_considered": "Considered autosomal recessive inheritance but ruled out because MERRF is mitochondrial in nature. Considered X-linked inheritance but ruled out because mtDNA is not on the X chromosome. Considered autosomal dominant but ruled out for the same reason as X-linked.",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.651
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 331,
+            "generated_tokens": 1024,
+            "generation_time_s": 36.539
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 14,
+            "generation_time_s": 0.359
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered whether the mutation could be X-linked or autosomal dominant/recessive, but the case specifies a mitochondrial DNA mutation, which is strictly maternally transmitted in this context.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 215,
+            "generation_time_s": 6.922
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

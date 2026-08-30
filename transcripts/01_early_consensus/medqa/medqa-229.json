@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-229",
+  "dataset": "medqa",
+  "question_id": "229",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old male presents to the emergency department with dyspnea and palpitations. He does not smoke cigarettes or consume alcohol, and past medical history is insignificant. Blood pressure is 115/75 mmHG and heart rate is 125/min. Heart rhythm is irregularly irregular. After initial treatment with IV digoxin the patient's heart rate drops to 85/min and remains irregular. Which of the following best explains the effect of digoxin in this patient?",
+    "options": {
+      "A": "Blockade of beta-adrenergic receptors",
+      "B": "Calcium channel blockade",
+      "C": "Blockade of Na-K-ATPase on cardiac myocytes",
+      "D": "Vagal stimulation",
+      "E": "Increased ventricular contractility"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with atrial fibrillation and a heart rate of 125 bpm, which is then reduced to 85 bpm after digoxin administration. Digoxin's primary mechanism of action is to inhibit the Na-K-ATPase pump in cardiac myocytes. This leads to an increase in intracellular sodium, which then reduces the activity of the sodium-calcium exchanger, leading to increased intracellular calcium. Increased intracellular calcium enhances cardiac contractility and slows conduction through the AV node, which explains the reduction in heart rate in atrial fibrillation.",
+          "critical_evidence": "The patient's heart rate decreased significantly after digoxin administration, indicating a positive effect on the AV node conduction.",
+          "differential_considered": "A: Beta-blockers and calcium channel blockers can also slow the heart rate in atrial fibrillation, but digoxin's effect is more specific to the AV node. B: While calcium channel blockers can slow the heart rate, digoxin's effect is more pronounced and specific to the AV node. D: Vagal stimulation can cause bradycardia, but the patient's heart rate was already low before digoxin administration. E: Digoxin increases contractility, but the primary effect in this scenario is the slowing of the heart rate in atrial fibrillation.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 292,
+            "generation_time_s": 15.031
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Digoxin (Lanoxin) is a cardiac glycoside that primarily inhibits the sodium-potassium ATPase pump in cardiac myocytes, leading to intracellular accumulation of intracellular sodium and activation of phospholipase C, which increases intracellular calcium levels. This enhances cardiac contractility. However, in this case, the patient's heart rate decreased from 125 to 85 bpm after digoxin administration, which is a bradycardic effect. This suggests that digoxin is acting as a beta-adrenergic receptor antagonist, blocking the sympathetic stimulation of the heart, which is consistent with its antiarrhythmic and anti-tachycardic effects. The irregularly irregular rhythm suggests atrial fibrillation, and digoxin's antiarrhythmic properties are mediated by its beta-blocking effects.",
+          "critical_evidence": "The decrease in heart rate from 125 to 85 bpm after digoxin administration",
+          "differential_considered": "Considered: Atrial fibrillation, ventricular tachycardia, and other arrhythmias. Ruled out: Calcium channel blockade (would cause different ECG changes) and increased ventricular contractility (would not explain bradycardia). Vagal stimulation is unlikely as it would cause bradycardia with regular rhythm, not irregularly irregular. The most consistent explanation is beta-adrenergic receptor blockade.",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.361
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with irregularly irregular rhythm and tachycardia, consistent with atrial fibrillation. Digoxin slows the ventricular rate by increasing vagal tone and directly inhibiting the Na-K-ATPase pump in cardiac myocytes, which increases intracellular calcium and enhances contractility while also slowing conduction through the AV node. The reduction in heart rate from 125 to 85 bpm after digoxin administration supports its direct effect on AV nodal conduction, which is mediated via Na-K-ATPase inhibition.",
+          "critical_evidence": "Heart rate decreased from 125 to 85 bpm after IV digoxin, indicating AV nodal slowing — a direct effect of digoxin’s action on Na-K-ATPase.",
+          "differential_considered": "Beta-blockers (A) and calcium channel blockers (B) could also slow heart rate, but the patient’s presentation and response to digoxin point to digoxin’s specific mechanism. Vagal stimulation (D) is a secondary effect, not the primary mechanism. Increased contractility (E) is a secondary effect and not responsible for rate control.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 271,
+            "generation_time_s": 9.477
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 378,
+            "generated_tokens": 307,
+            "generation_time_s": 7.342
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 269,
+            "generation_time_s": 8.412
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

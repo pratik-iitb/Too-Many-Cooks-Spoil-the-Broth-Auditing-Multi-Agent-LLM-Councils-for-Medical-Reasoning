@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-190",
+  "dataset": "mmlu",
+  "question_id": "190",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A person weighs 62 kg. Their drug dose is 15 mg/kg. How many grams is their dose? Choose one answer from the following:",
+    "options": {
+      "A": "930",
+      "B": "93",
+      "C": "9.3",
+      "D": "0.93"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's weight is 62 kg, and the drug dose is 15 mg/kg. To calculate the total dose in grams, we multiply the weight in kilograms by the dose per kilogram: 62 kg * 15 mg/kg = 930 mg. Since 1 gram = 1000 mg, we convert 930 mg to grams by dividing by 1000: 930 mg / 1000 mg/g = 0.93 g. However, the options are in grams, so we need to convert 930 mg to grams. 930 mg / 1000 mg/g = 0.93 g. The correct answer is 93 grams.",
+          "critical_evidence": "The patient's weight (62 kg) and the dose (15 mg/kg) are provided.",
+          "differential_considered": "The question is straightforward and doesn't require complex calculations or consideration of other factors. The dose is given in mg/kg, and the weight is in kg, so the calculation is simple. Therefore, no other differential diagnoses are needed.",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 290,
+            "generation_time_s": 14.616
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient weighs 62 kg and the dose is 15 mg per kg. Multiplying 62 kg by 15 mg/kg gives 930 mg. Since the question asks for the dose in grams and 1 gram equals 1000 milligrams, 930 mg is equivalent to 0.93 grams. However, the correct calculation yields 930 mg, which is 0.93 grams, but the options provided seem to have a discrepancy. The correct answer should be 0.93 grams, which corresponds to option C. However, based on the calculation, the correct answer is 0.93 grams, which is option C.",
+          "critical_evidence": "The calculation of 62 kg multiplied by 15 mg/kg equals 930 mg, which is 0.93 grams.",
+          "differential_considered": "No differential diagnoses were considered as this is a straightforward calculation problem.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.752
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient weighs 62 kg and the dose is 15 mg/kg, so the total dose is 62 × 15 = 930 mg. Since the question asks for the dose in grams, and 1 gram = 1000 mg, 930 mg equals 0.93 grams. This calculation directly matches option D.",
+          "critical_evidence": "The dose is 15 mg/kg for a 62 kg patient, resulting in 930 mg, which equals 0.93 grams.",
+          "differential_considered": "No differential diagnoses are relevant here as this is a straightforward pharmacological calculation with no clinical context beyond dosage.",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 175,
+            "generation_time_s": 6.277
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 11,
+            "generation_time_s": 0.283
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.99,
+          "clinical_reasoning": "The person's weight is 62 kg and the prescribed dose is 15 mg per kg. To find the total dose in milligrams, multiply 62 by 15, resulting in 930 mg. To convert milligrams to grams, divide by 1000, yielding 0.93 grams. However, the question asks for the dose in grams, so the correct answer is 0.93 grams (option D). But since the options list D as 0.93, that is the correct choice. However, upon re-reading the instructions, the question specifically asks for grams, so the calculation must be performed correctly. 62 × 15 = 930 mg, and 930 mg = 0.93 g. Thus, the answer is D.",
+          "critical_evidence": "The dose is given in mg/kg and must be converted to grams for the correct answer.",
+          "differential_considered": "One might mistakenly multiply by 100 instead of dividing by 1000 when converting mg to g, but the standard conversion is dividing by 1000.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 250,
+            "generation_time_s": 8.01
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

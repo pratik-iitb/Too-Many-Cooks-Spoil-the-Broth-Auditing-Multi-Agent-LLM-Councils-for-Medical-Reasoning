@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-463",
+  "dataset": "mmlu",
+  "question_id": "463",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In chloroplasts, a certain protein is found in the lumen of the thylakoid (thylakoid space). It is transcribed in the nucleus and synthesized on cytoplasmic ribosomes. How many membrane bilayers must this protein cross to reach its final location?",
+    "options": {
+      "A": "One",
+      "B": "Two",
+      "C": "Three",
+      "D": "Four"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The protein is transcribed in the nucleus and synthesized on cytoplasmic ribosomes, indicating that it is a protein destined for the cytoplasm. Since it resides in the thylakoid lumen, which is inside the thylakoid membrane, it must cross two membrane bilayers to reach its final location.",
+          "critical_evidence": "The protein is synthesized on cytoplasmic ribosomes, indicating it is destined for the cytoplasm.",
+          "differential_considered": "The question is about a protein in chloroplasts. The key is the location of the protein (thylakoid lumen) and its origin (cytoplasmic ribosomes). This points to a protein destined for the cytoplasm, which requires crossing two membranes to reach the thylakoid lumen.",
+          "usage": {
+            "prompt_tokens": 298,
+            "generated_tokens": 184,
+            "generation_time_s": 9.253
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The protein is transcribed in the nucleus (cytoplasm) and synthesized on cytoplasmic ribosomes. To reach the thylakoid lumen, it must cross the nuclear envelope (1 bilayer), then the thylakoid membrane (1 bilayer), totaling 2 bilayers. The protein does not need to cross the chloroplast envelope or any additional membranes since it is already synthesized on cytoplasmic ribosomes.",
+          "critical_evidence": "The protein is synthesized on cytoplasmic ribosomes, indicating it does not require import through the chloroplast envelope.",
+          "differential_considered": "Options A (1 bilayer) would be incorrect if the protein were synthesized in the chloroplast, requiring at least the nuclear envelope. Option C (3) and D (4) would apply to proteins imported through the chloroplast envelope, which is not the case here.",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 214,
+            "generation_time_s": 10.158
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The protein is synthesized in the cytoplasm and must be imported into the chloroplast. It enters via the chloroplast envelope, which consists of two membranes (outer and inner), and then reaches the thylakoid lumen. The thylakoid membrane is not crossed by the protein since it resides in the lumen, but the protein must traverse the two envelope membranes to enter the chloroplast. Thus, it crosses two membrane bilayers.",
+          "critical_evidence": "The protein is transcribed in the nucleus and synthesized on cytoplasmic ribosomes, indicating it must be imported into the chloroplast, which has a double membrane envelope.",
+          "differential_considered": "Other organelles like mitochondria also have double membranes, but the question specifies chloroplasts. The thylakoid membrane is internal and not crossed by the protein since it resides in the lumen, so crossing it is not required.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 218,
+            "generation_time_s": 7.776
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 306,
+            "generated_tokens": 54,
+            "generation_time_s": 1.34
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "One might consider if the protein passes through the endoplasmic reticulum lumen, but the question specifies crossing membrane bilayers, not internal ER lumen. The key is recognizing the nuclear and chloroplast outer membranes as bilayers that the protein must cross.",
+          "usage": {
+            "prompt_tokens": 333,
+            "generated_tokens": 285,
+            "generation_time_s": 9.134
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1348",
+  "dataset": "medqa",
+  "question_id": "1348",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 35-year-old male is picked up by paramedics presenting with respiratory depression, pupillary constriction, and seizures. Within a few minutes, the male dies. On autopsy, fresh tracks marks are seen on both arms. Administration of which of the following medications would have been appropriate for this patient?",
+    "options": {
+      "A": "Methadone",
+      "B": "Naloxone",
+      "C": "Diazepam",
+      "D": "Flumazenil",
+      "E": "Buproprion"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with respiratory depression, pupillary constriction, and seizures, strongly suggesting opioid overdose. Naloxone is a specific opioid antagonist and the appropriate antidote for opioid overdose. The rapid onset of symptoms and death further supports this diagnosis.",
+          "critical_evidence": "Respiratory depression, pupillary constriction, and seizures in the context of a rapid death strongly indicate opioid overdose.",
+          "differential_considered": "Methadone is a long-acting opioid, and while it could cause similar symptoms, the rapid onset and death make it less likely than a more rapidly acting opioid. Diazepam is a benzodiazepine and would not address the primary issue of opioid toxicity. Flumazenil is a benzodiazepine antagonist and would be inappropriate. Buproprion is an antidepressant and has no role in this presentation.",
+          "usage": {
+            "prompt_tokens": 325,
+            "generated_tokens": 201,
+            "generation_time_s": 9.943
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presented with respiratory depression, pupillary constriction, and seizures, all of which are classic signs of opioid overdose. Methadone and buprenorphine (not listed) are long-acting opioids that can cause these symptoms. Diazepam and flumazenil are benzodiazepines and are not associated with respiratory depression or opioid-related seizures. Buproprion is an antidepressant with no opioid interaction. Naloxone is the only medication that reverses opioid overdose by competitively binding to opioid receptors, restoring respiratory function. The presence of fresh track marks on the arms suggests intravenous drug use, further supporting opioid involvement.",
+          "critical_evidence": "Respiratory depression and opioid-related seizures",
+          "differential_considered": "Considered benzodiazepines (diazepam, flumazenil) and antidepressants (buproprion) but ruled them out due to lack of respiratory depression. Methadone is a possibility but less likely given the rapid onset of symptoms. Buprenorphine could cause respiratory depression but is less likely to cause seizures. Naloxone is the most appropriate treatment for opioid overdose.",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.488
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with respiratory depression, pupillary constriction, and seizures — classic signs of opioid overdose. Fresh track marks on the arms suggest intravenous drug use. Naloxone is the antidote for opioid overdose and would have reversed respiratory depression and potentially saved the patient’s life. Other options target different mechanisms (e.g., benzodiazepines for seizures, flumazenil for benzodiazepine overdose, methadone for chronic opioid dependence, bupropion for smoking cessation).",
+          "critical_evidence": "Respiratory depression, pupillary constriction, and track marks strongly indicate opioid overdose.",
+          "differential_considered": "Benzodiazepine overdose (considered due to seizures, but no history of sedative use or track marks consistent with benzodiazepines); alcohol or other CNS depressants (ruled out by track marks and opioid-specific signs).",
+          "usage": {
+            "prompt_tokens": 300,
+            "generated_tokens": 217,
+            "generation_time_s": 7.613
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 113,
+            "generation_time_s": 2.735
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 355,
+            "generated_tokens": 240,
+            "generation_time_s": 7.536
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

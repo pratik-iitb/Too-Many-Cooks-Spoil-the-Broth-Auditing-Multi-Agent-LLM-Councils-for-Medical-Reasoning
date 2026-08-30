@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-584",
+  "dataset": "medqa",
+  "question_id": "584",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 19-year-old man is admitted to the medical intensive care unit with suspected sepsis. Blood cultures grow Gram-negative cocci containing lipooligosaccharide in their cell wall. Which of the following would you expect to find on a detailed history and physical examination of this patient?",
+    "options": {
+      "A": "History of consuming undercooked beef",
+      "B": "Petechial rash",
+      "C": "Ascending paralysis",
+      "D": "History of exposure to rabbit hides",
+      "E": "Rice water stools"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The Gram-negative cocci with lipooligosaccharide in the cell wall strongly suggest *Neisseria* species, most likely *Neisseria meningitidis* or *Neisseria gonorrhoeae*. The most common clinical presentation of *Neisseria meningitidis* is meningitis, which can present with petechial rash. While other options are possible, they are less likely given the Gram stain result. *Neisseria gonorrhoeae* can cause disseminated gonococcal infection (DGI), which can present with skin lesions, tenosynovitis, and arthritis, but a petechial rash is more characteristic of meningococcal disease.",
+          "critical_evidence": "Petechial rash",
+          "differential_considered": "A: History of consuming undercooked beef would suggest *Yersinia enterocolitica*, which typically causes gastrointestinal symptoms. C: Ascending paralysis is more characteristic of Guillain-Barré syndrome or poliomyelitis. D: History of exposure to rabbit hides would suggest *Francisella tularensis*, which causes tularemia, often with ulceroglandular or glandular fever presentations. E: Rice water stools are characteristic of *Vibrio cholerae* infection.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 333,
+            "generation_time_s": 16.472
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The presence of Gram-negative cocci with lipooligosaccharide (LPS) in the blood suggests likely infection with a Gram-negative bacterium such as E. coli or Klebsiella species. These organisms can produce endotoxins that lead to septic shock, which is characterized by features like tachycardia, tachypnea, hypotension, and in severe cases, organ dysfunction. Petechial rash is a common manifestation of disseminated intravascular coagulation (DIC), a complication of septic shock caused by bacterial toxins like LPS. While other findings such as rice water stools (suggesting enteric infection) or ascending paralysis (suggesting Guillain-Barré syndrome) could occur, they are less directly linked to the specific pathogen identified. A history of consuming undercooked beef or exposure to rabbit hides (which could suggest anthrax) are less relevant here, as anthrax is not typically associated with Gram-negative cocci. Ascending paralysis is more commonly seen in Guillain-Barré syndrome or botulism, not septic shock from Gram-negative cocci.",
+          "critical_evidence": "Petechial rash is a direct consequence of DIC induced by LPS, a hallmark of septic shock.",
+          "differential_considered": "Considered: Enteric infections (e.g., E. coli), urinary tract infections, pneumonia, or other sepsis-causing pathogens. Ruled out: Anthrax (not Gram-negative cocci), botulism (not indicated by LPS), and Guillain-Barré syndrome (less likely without specific neurological findings).",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.639
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The organism described — Gram-negative cocci with lipooligosaccharide in the cell wall — is characteristic of Neisseria meningitidis, which commonly causes meningococcemia. This condition often presents with petechial rash, a hallmark sign of disseminated intravascular coagulation and sepsis due to bacterial endotoxin release. Other options are less relevant: undercooked beef relates to Salmonella, rabbit hides to tularemia, ascending paralysis to botulism or Guillain-Barré, and rice water stools to cholera.",
+          "critical_evidence": "Gram-negative cocci with lipooligosaccharide in the cell wall is diagnostic of Neisseria meningitidis, which classically presents with petechial rash in sepsis.",
+          "differential_considered": "Other Gram-negative organisms like E. coli or Klebsiella were considered but lack lipooligosaccharide and are not typically associated with petechial rash. Salmonella (A), tularemia (D), botulism (C), and cholera (E) were ruled out based on organism morphology and clinical presentation.",
+          "usage": {
+            "prompt_tokens": 302,
+            "generated_tokens": 263,
+            "generation_time_s": 9.176
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 12,
+            "generation_time_s": 0.304
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 202,
+            "generation_time_s": 6.368
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

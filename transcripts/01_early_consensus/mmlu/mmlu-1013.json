@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-1013",
+  "dataset": "mmlu",
+  "question_id": "1013",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A previously healthy 19-year-old college student comes to student health services 24 hours after the onset of headache, stiff neck, and sensitivity to light. She does not recall any sick contacts. She had chickenpox at the age of 7 years. Her most recent examination 1 year ago included PPD skin testing and showed no abnormalities. She takes a daily multivitamin and an herbal weight-loss preparation. She received all appropriate immunizations during childhood but has not received any since then. She does not smoke, drink alcohol, or use illicit drugs. There is no family history of serious illness. She appears lethargic. Her temperature is 39.1°C (102.4°F), pulse is 112/min, respirations are 20/min, and blood pressure is 100/68 mm Hg. Examination shows diffuse petechiae. Kernig and Brudzinski signs are present. The remainder of the examination shows no abnormalities. A lumbar puncture is performed. Cerebrospinal fluid (CSF) analysis shows numerous segmented neutrophils and a decreased glucose concentration. A Gram stain of the CSF shows gram-negative cocci. Which of the following is the most appropriate pharmacotherapy?",
+    "options": {
+      "A": "Ceftriaxone",
+      "B": "Clindamycin",
+      "C": "Erythromycin",
+      "D": "Metronidazole"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic signs and symptoms of bacterial meningitis, including headache, stiff neck, photophobia, fever, lethargy, petechiae, and positive Kernig and Brudzinski signs. The CSF analysis showing numerous segmented neutrophils and decreased glucose, along with gram-negative cocci on Gram stain, strongly suggests Neisseria meningitidis as the causative agent. Ceftriaxone is a third-generation cephalosporin that provides excellent coverage against Neisseria meningitidis and is the first-line treatment for this infection.",
+          "critical_evidence": "Gram stain of the CSF showing gram-negative cocci.",
+          "differential_considered": "While other bacterial causes of meningitis are possible, the Gram stain result strongly points towards Neisseria meningitidis. Ceftriaxone is the most appropriate empiric treatment for this organism, given its efficacy and availability. Other options are less likely to be effective or have a narrower spectrum of activity.",
+          "usage": {
+            "prompt_tokens": 513,
+            "generated_tokens": 238,
+            "generation_time_s": 11.985
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with meningitis, confirmed by Kernig and Brudzinski signs, petechiae, and CSF findings showing numerous segmented neutrophils and gram-negative cocci on Gram stain. Meningococcal meningitis is the most likely diagnosis given the age, clinical presentation, and CSF results. Ceftriaxone is the first-line antibiotic for meningococcal disease.",
+          "critical_evidence": "Gram-negative cocci in CSF with meningitis signs",
+          "differential_considered": "Considered bacterial meningitis (meningococcal, pneumococcal, E. coli), viral meningitis, and non-infectious causes. Ruled out viral meningitis due to absence of viral markers in CSF and no recent travel history. Non-infectious causes are less likely given the clinical picture.",
+          "usage": {
+            "prompt_tokens": 512,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.508
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with fever, headache, stiff neck, photophobia, and positive meningeal signs, consistent with bacterial meningitis. CSF shows gram-negative cocci, neutrophilic pleocytosis, and low glucose — classic for bacterial meningitis. Gram-negative cocci suggest Neisseria meningitidis, which is most effectively treated with ceftriaxone. Other options are not first-line for gram-negative bacterial meningitis.",
+          "critical_evidence": "Gram stain of CSF shows gram-negative cocci, indicating likely Neisseria meningitidis, which is highly sensitive to ceftriaxone.",
+          "differential_considered": "Viral meningitis (ruled out by CSF neutrophils and fever), tuberculosis (ruled out by absence of chronic symptoms and negative PPD), and fungal meningitis (ruled out by age and acute presentation).",
+          "usage": {
+            "prompt_tokens": 494,
+            "generated_tokens": 212,
+            "generation_time_s": 7.573
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 510,
+            "generated_tokens": 12,
+            "generation_time_s": 0.322
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Viral meningitis (could present similarly), but CSF findings and lack of clear viral prodrome favor bacterial meningitis. Fungal and anaerobic infections are less likely given the clinical and laboratory context.",
+          "usage": {
+            "prompt_tokens": 545,
+            "generated_tokens": 281,
+            "generation_time_s": 9.037
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

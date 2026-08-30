@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-22186742",
+  "dataset": "pubmedqa",
+  "question_id": "22186742",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does a colonoscopy after acute diverticulitis affect its management?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "A colonoscopy is generally recommended after acute diverticulitis to rule out other conditions such as colon cancer, inflammatory bowel disease, or infectious colitis. Performing a colonoscopy after an acute episode of diverticulitis is safe and can help guide further management.",
+          "critical_evidence": "Colonoscopy is recommended to rule out other conditions.",
+          "differential_considered": "While other conditions can mimic diverticulitis, colonoscopy is the gold standard for evaluating the colon and is therefore the most important consideration in this scenario.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 145,
+            "generation_time_s": 7.456
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Colonoscopy after acute diverticulitis is generally recommended to assess for complications such as colonic stricture or abscess formation. While acute diverticulitis itself may not require immediate colonoscopy, post-acute evaluation helps guide management by identifying potential sequelae that could affect future treatment decisions.",
+          "critical_evidence": "Post-acute colonoscopy identifies complications in up to 15-20% of diverticulitis cases, influencing management strategies",
+          "differential_considered": "Considered complications include colonic stricture, abscess, fistula formation, and peritonitis. These findings would alter management from simple medical therapy to surgical intervention or specialized endoscopic procedures.",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.296
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Colonoscopy is generally contraindicated within 6-8 weeks of acute diverticulitis due to risk of perforation or bleeding. Management focuses on antibiotics, bowel rest, and symptom resolution before considering diagnostic procedures. Once inflammation has resolved, colonoscopy may be performed to rule out malignancy or other causes, but it does not alter the initial management of acute diverticulitis.",
+          "critical_evidence": "Colonoscopy is typically deferred until resolution of acute inflammation to avoid complications.",
+          "differential_considered": "Other causes of acute abdominal pain (e.g., appendicitis, bowel obstruction, ischemic colitis) were considered but ruled out by clinical presentation and imaging findings consistent with diverticulitis.",
+          "usage": {
+            "prompt_tokens": 229,
+            "generated_tokens": 180,
+            "generation_time_s": 6.524
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 109,
+            "generation_time_s": 2.752
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Acute diverticulitis often requires initial medical management, and colonoscopy is typically delayed until the patient is stable. Performing a colonoscopy after acute symptoms can identify complications such as perforation, abscess, or new diverticulitis lesions that may impact ongoing management and surgical planning. Thus, the timing of the colonoscopy is important and may influence the approach to treatment.",
+          "critical_evidence": "",
+          "differential_considered": "The main concern is whether the colonoscopy could have altered the initial acute management if performed earlier, but since it is done after the acute phase, it mainly informs long-term or modified management rather than the initial treatment. Other differentials like perforation or stricture are best assessed at this point.",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 194,
+            "generation_time_s": 6.343
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

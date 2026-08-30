@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-10757151",
+  "dataset": "pubmedqa",
+  "question_id": "10757151",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does ischemic preconditioning require reperfusion before index ischemia?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Ischemic preconditioning is a phenomenon where a brief period of ischemia followed by reperfusion protects the heart from subsequent, prolonged ischemia. This protection is dependent on the initial ischemic insult, which triggers a cascade of intracellular signaling events. Therefore, reperfusion is required before the index ischemia to initiate the preconditioning process.",
+          "critical_evidence": "Ischemic preconditioning requires a prior ischemic insult to trigger the protective mechanism.",
+          "differential_considered": "While the question is about ischemic preconditioning, it's important to consider other ischemic conditions. However, the question specifically asks about ischemic preconditioning, and the definition of this phenomenon necessitates a prior ischemic event to initiate the protective response.",
+          "usage": {
+            "prompt_tokens": 253,
+            "generated_tokens": 179,
+            "generation_time_s": 8.858
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Ischemic preconditioning is a protective mechanism where brief episodes of ischemia and reperfusion to tissues improve tolerance to subsequent, prolonged ischemia. The process requires initial ischemia followed by reperfusion to activate protective signaling pathways. However, the index ischemia (the main event requiring protection) is the one that is prolonged and potentially damaging. Therefore, reperfusion before the index ischemia is not required for the preconditioning effect to occur.",
+          "critical_evidence": "The definition of ischemic preconditioning explicitly involves preconditioning (initial ischemia and reperfusion) followed by index ischemia, but the index ischemia does not require prior reperfusion to be effective.",
+          "differential_considered": "Options A and C suggest uncertainty, but the mechanism of ischemic preconditioning is well-established in literature, making C less likely. Option A is incorrect because reperfusion before index ischemia is not a requirement for the protective effect.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 225,
+            "generation_time_s": 10.504
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Ischemic preconditioning is a protective mechanism where brief, non-lethal episodes of ischemia and reperfusion induce tolerance to subsequent prolonged ischemia. Reperfusion is essential to trigger the protective signaling pathways that mediate preconditioning. Without reperfusion, the preconditioning stimulus does not activate the necessary cellular responses.",
+          "critical_evidence": "Reperfusion is required to initiate the signaling cascade (e.g., involving nitric oxide, adenosine, and KATP channels) that confers protection against subsequent ischemic injury.",
+          "differential_considered": "The alternative options (B and C) were considered but ruled out: 'no' contradicts established physiology, and 'maybe' is inaccurate because reperfusion is consistently required in experimental and clinical models of ischemic preconditioning.",
+          "usage": {
+            "prompt_tokens": 228,
+            "generated_tokens": 193,
+            "generation_time_s": 6.761
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 97,
+            "generation_time_s": 2.354
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Option A assumes a strict requirement of reperfusion before the index ischemia, which is not universally true; Option B is too absolute because some protocols do not require full reperfusion; thus, Option C (maybe) best reflects the variable but generally accepted nature of preconditioning.",
+          "usage": {
+            "prompt_tokens": 282,
+            "generated_tokens": 261,
+            "generation_time_s": 8.21
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

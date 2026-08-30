@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-10331115",
+  "dataset": "pubmedqa_context",
+  "question_id": "10331115",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is amoxapine an atypical antipsychotic?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "All currently available atypical antipsychotics have, at clinically relevant doses: i) high serotonin (5-HT)2 occupancy; ii) greater 5-HT2 than dopamine (D)2 occupancy; and iii) a higher incidence of extrapyramidal side effects when their D2 occupancy exceeds 80%. A review of pharmacologic and behavioral data suggested that amoxapine should also conform to this profile; therefore, we undertook a positron-emission tomography (PET) study of its 5-HT2 and D2 occupancy. Seven healthy volunteers received 50-250 mg/day of amoxapine for 5 days and then had [11C]-raclopride and [18F]-setoperone PET scans. 5-HT2 receptors showed near saturation at doses of 100 mg/day and above. The D2 receptor occupancies showed a dose-dependent increase, never exceeding 80%; at all doses 5-HT2 occupancy exceeded D2 occupancy.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The clinical case describes the pharmacological profile of atypical antipsychotics, including their 5-HT2 and D2 receptor occupancy. The PET study of amoxapine showed that at clinically relevant doses, 5-HT2 occupancy exceeded D2 occupancy, and D2 occupancy never exceeded 80%. This aligns with the definition of an atypical antipsychotic. Therefore, amoxapine is an atypical antipsychotic.",
+          "critical_evidence": "5-HT2 occupancy exceeded D2 occupancy at all doses, and D2 occupancy never exceeded 80%.",
+          "differential_considered": "The clinical case focuses on the pharmacological profile of amoxapine and its similarity to atypical antipsychotics. Other potential medications were not considered as the question specifically asks about amoxapine.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 196,
+            "generation_time_s": 11.634
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Amoxapine does not meet the criteria for an atypical antipsychotic as defined by the clinical profile of high 5-HT2 occupancy, greater 5-HT2 than D2 occupancy, and low D2 occupancy (<80%). The PET study showed 5-HT2 receptors saturating at 100 mg/day and D2 occupancy never exceeding 80%, but the key criterion is that 5-HT2 occupancy did not consistently exceed D2 occupancy across all doses, which is a defining feature of atypical antipsychotics.",
+          "critical_evidence": "At all doses, 5-HT2 occupancy did not exceed D2 occupancy, which contradicts the profile of atypical antipsychotics.",
+          "differential_considered": "While amoxapine is a tricyclic antidepressant with antipsychotic properties, it does not fit the pharmacologic profile of atypical antipsychotics. It was initially classified as a typical antipsychotic, and the PET data confirm its typical antipsychotic characteristics rather than atypical.",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.362
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Amoxapine is a tricyclic antidepressant, not an atypical antipsychotic. The PET study showed that while it achieves high 5-HT2 receptor occupancy, its D2 receptor occupancy never exceeds 80%, which is below the threshold for atypical antipsychotic classification. This aligns with its known pharmacological profile as an antidepressant, not an antipsychotic.",
+          "critical_evidence": "D2 receptor occupancy never exceeded 80% at any dose, which is below the threshold for atypical antipsychotic classification.",
+          "differential_considered": "Considered whether amoxapine might meet atypical antipsychotic criteria based on receptor occupancy, but ruled it out because D2 occupancy remained below 80% — a key criterion for classification.",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 197,
+            "generation_time_s": 8.339
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 8,
+            "generation_time_s": 0.253
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "5-HT2 receptor occupancy approaches near saturation while D2 occupancy remains below 80% at therapeutic doses, unlike most atypicals which show greater D2 occupancy.",
+          "differential_considered": "Dopamine D2 partial agonist ([11C]-raclopride PET) and serotonin 2A receptor occupancy studies; however, the provided data most directly challenges the 'greater D2 than 5-HT2' criterion for atypicals.",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 269,
+            "generation_time_s": 10.235
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

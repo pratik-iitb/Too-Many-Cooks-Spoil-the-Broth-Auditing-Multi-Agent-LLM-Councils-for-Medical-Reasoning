@@ -1,0 +1,117 @@
+{
+  "sample_id": "metamed-884",
+  "dataset": "metamed",
+  "question_id": "884",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A scientist is studying the properties of myosin-actin interactions in a sample of human muscle tissue. She has identified a drug that selectively inhibits phosphate release by the myosin head. If she gives this drug to a sample of human muscle tissue under physiologic conditions, which of the following steps in cross-bridge cycling will most likely be blocked?",
+    "options": {
+      "A": "Myosin head cocking",
+      "B": "Exposure of myosin-binding sites on actin",
+      "C": "Myosin head binding to actin",
+      "D": "Power stroke",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The drug selectively inhibits phosphate release by the myosin head. This means the myosin head is unable to detach from actin. The power stroke is the part of the cross-bridge cycle where the myosin head pivots, pulling the actin filament towards the center of the sarcomere. If the myosin head cannot detach, it cannot perform the power stroke.",
+          "critical_evidence": "Myosin head cannot detach from actin.",
+          "differential_considered": "A: Myosin head cocking is a preparatory step to the power stroke, but the drug's effect is on the myosin head's ability to detach, not cocking. B: Exposure of myosin-binding sites on actin is a necessary step for myosin to bind, but the drug's effect is on the myosin head's ability to detach, not the binding site. C: Myosin head binding to actin is the initial step, but the drug's effect is on the myosin head's ability to detach, not binding. A, B, and C are all steps that would be affected if the myosin head cannot detach, but the question asks which step is MOST likely blocked.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 316,
+            "generation_time_s": 15.7
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The drug inhibits phosphate release by the myosin head, which is essential for the power stroke. The power stroke is the final step in cross-bridge cycling where the myosin head moves toward the thin filament, generating force and shortening the sarcomere. Without phosphate release, the myosin head cannot detach from actin and cannot generate force.",
+          "critical_evidence": "Phosphate release is required for the power stroke",
+          "differential_considered": "Other steps (cocking, binding, exposure of binding sites) do not directly require phosphate release, so they would not be blocked by this drug.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 159,
+            "generation_time_s": 7.472
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The drug inhibits phosphate release from the myosin head, which is a critical step that follows myosin-actin binding. Without phosphate release, the myosin head cannot undergo the conformational change necessary for the power stroke. The power stroke is the mechanical step that generates force and pulls the actin filament, and it is directly dependent on the release of inorganic phosphate.",
+          "critical_evidence": "Phosphate release is required for the power stroke to occur; inhibition of this step blocks force generation.",
+          "differential_considered": "Other steps like myosin head cocking (A) or actin binding (C) occur before phosphate release and are not directly blocked by this mechanism. Exposure of binding sites (B) is regulated by calcium and troponin, not phosphate release. Thus, D is the only step directly dependent on phosphate release.",
+          "usage": {
+            "prompt_tokens": 337,
+            "generated_tokens": 209,
+            "generation_time_s": 7.489
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 11,
+            "generation_time_s": 0.284
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other steps like myosin head cocking, binding, or site exposure are not directly dependent on phosphate release by myosin in the context of cross-bridge cycling. Therefore, these are unlikely to be blocked by this specific drug action.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 208,
+            "generation_time_s": 6.597
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

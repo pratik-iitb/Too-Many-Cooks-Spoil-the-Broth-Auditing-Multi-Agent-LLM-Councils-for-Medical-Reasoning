@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-20530150",
+  "dataset": "pubmedqa",
+  "question_id": "20530150",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is cholecystectomy really an indication for concomitant splenectomy in mild hereditary spherocytosis?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Hereditary spherocytosis is a hemolytic anemia caused by defects in red blood cell membrane proteins. While cholecystectomy is a common procedure, it is not typically indicated for mild hereditary spherocytosis. Splenectomy is sometimes considered in severe cases of hereditary spherocytosis to reduce red blood cell destruction, but it is not a standard or routine procedure for mild cases. Therefore, concomitant splenectomy is not indicated in mild hereditary spherocytosis.",
+          "critical_evidence": "The case specifies 'mild' hereditary spherocytosis, indicating a less severe presentation.",
+          "differential_considered": "Differential diagnoses for hemolytic anemia include autoimmune hemolytic anemia, glucose-6-phosphate dehydrogenase deficiency, and sickle cell anemia. These conditions are not directly related to cholecystectomy or splenectomy, and the presence of mild hereditary spherocytosis makes these less likely.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 209,
+            "generation_time_s": 10.313
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Cholecystectomy is not an indication for concomitant splenectomy in mild hereditary spherocytosis. Splenectomy is typically reserved for severe cases with splenic sequestration crises or life-threatening complications. In mild cases, the spleen's role in hemolysis is minimal, and the risk of splenectomy outweighs benefits. The patient's clinical presentation shows no signs of severe splenic dysfunction or crisis, making a prophylactic splenectomy unnecessary.",
+          "critical_evidence": "The patient's mild hereditary spherocytosis with normal spleen size and absence of splenic sequestration crises",
+          "differential_considered": "Considered differential diagnoses include other causes of hemolytic anemia and cholelithiasis, but these do not require splenectomy in the absence of splenic dysfunction. The patient's stable condition and lack of severe complications support conservative management.",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.388
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cholecystectomy in mild hereditary spherocytosis is typically performed for symptomatic gallstones or cholecystitis, not for splenic pathology. Splenectomy is reserved for severe hemolysis or recurrent complications, not routine concomitant procedures. There is no evidence supporting routine splenectomy during cholecystectomy in mild cases.",
+          "critical_evidence": "Mild hereditary spherocytosis does not require splenectomy unless there is significant hemolysis or splenic sequestration.",
+          "differential_considered": "Considered splenic sequestration crisis or severe hemolysis, but these are not present in mild cases; thus, concomitant splenectomy is not indicated.",
+          "usage": {
+            "prompt_tokens": 239,
+            "generated_tokens": 180,
+            "generation_time_s": 6.281
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 266,
+            "generated_tokens": 10,
+            "generation_time_s": 0.255
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other hematologic disorders (e.g., thalasemia, hemophilia) may have more established associations with biliary indications, but they are not present here; spherocytosis alone does not warrant splenectomy even in the context of gallbladder surgery.",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 259,
+            "generation_time_s": 8.119
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

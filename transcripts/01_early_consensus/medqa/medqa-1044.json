@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1044",
+  "dataset": "medqa",
+  "question_id": "1044",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 68-year-old man presents to the emergency department complaining of difficulty in breathing for the past 2 days. He has had recurrent episodes of bacterial pneumonia in the right lower lobe during the last 6 months. His last episode of pneumonia started 7 days ago for which he is being treated with antibiotics. He has a 35-pack-year smoking history. Past medical history is significant for hypertension for which he takes lisinopril. Physical examination reveals decreased breath sounds and dullness to percussion in the right lung base. Chest X-ray reveals a large right-sided pleural effusion, and chest CT scan shows a large mass near the hilum of the right lung. Cytologic examination of pleural fluid shows evidence of malignancy. Which of the following is the most likely diagnosis of this patient?",
+    "options": {
+      "A": "Pulmonary hamartoma",
+      "B": "Mesothelioma",
+      "C": "Non-small cell lung cancer",
+      "D": "Small cell lung cancer",
+      "E": "Metastatic lung disease"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of recurrent pneumonia, smoking history, and the presence of a large mass near the hilum of the right lung with malignant pleural effusion strongly suggest lung cancer. The recurrent pneumonia is likely due to the mass obstructing the airway and impairing mucociliary clearance.",
+          "critical_evidence": "The presence of a large mass near the hilum of the right lung with malignant pleural effusion is the most critical finding.",
+          "differential_considered": "Pulmonary hamartoma is less likely given the recurrent pneumonia and malignant effusion. Mesothelioma is possible but less common than lung cancer in this clinical context. Small cell lung cancer is less likely to present with a large mass. Metastatic lung disease is possible, but the localized mass near the hilum is more suggestive of primary lung cancer.",
+          "usage": {
+            "prompt_tokens": 434,
+            "generated_tokens": 203,
+            "generation_time_s": 10.046
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.535
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a heavy smoker with a central lung mass, recurrent pneumonia, and malignant pleural effusion — classic features of non-small cell lung cancer (NSCLC). The pleural effusion is exudative and cytologically malignant, supporting primary lung malignancy rather than metastatic disease. The mass location near the hilum is typical for NSCLC, and the smoking history is the strongest risk factor.",
+          "critical_evidence": "Cytologic examination of pleural fluid shows evidence of malignancy, combined with a central lung mass and smoking history, strongly supports primary NSCLC.",
+          "differential_considered": "Mesothelioma (B) is considered but less likely due to absence of asbestos exposure and more typical diffuse pleural thickening; small cell lung cancer (D) is less likely given the central mass and slower progression; metastatic disease (E) is less likely without evidence of primary tumor elsewhere; pulmonary hamartoma (A) is benign and would not cause malignant pleural fluid.",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 238,
+            "generation_time_s": 8.348
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 434,
+            "generated_tokens": 12,
+            "generation_time_s": 0.314
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "Pleural fluid showing evidence of malignancy and a large mass in the right lung hilum on CT scan",
+          "differential_considered": "Pulmonary hamartoma (possible but less likely given the mass size and malignancy of pleural fluid), mesothelioma (possible but less likely without clear asbestos exposure), small cell lung cancer (possible but typically presents with different clinical and radiologic features), non-small cell lung cancer (most consistent with a primary lung mass and pleural effusion, often associated with malignancy in pleural fluid)",
+          "usage": {
+            "prompt_tokens": 469,
+            "generated_tokens": 304,
+            "generation_time_s": 9.549
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

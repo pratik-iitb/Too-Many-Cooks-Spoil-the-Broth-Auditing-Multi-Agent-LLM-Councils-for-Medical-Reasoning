@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-18005142",
+  "dataset": "pubmedqa_context",
+  "question_id": "18005142",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does early migraine treatment shorten time to headache peak and reduce its severity?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To explore whether early treatment would shorten the duration of headache from headache onset to its peak and reduce headache severity at peak. Prior clinical studies almost exclusively focused on headache relief after dosing. No data are available on whether early intervention affects the duration from headache onset to peak and headache severity at peak. Adult migraineurs were enrolled in this observational study from multi-site headache clinics. Patients recorded their migraine experiences via an electronic diary over 1 month. Patients reported the time and pain severity at onset, dosing, and peak. We used a linear mixed model to evaluate the impact of the timing of treatment and to adjust for covariates and correlation of observations within subjects. A total of 182 patients reported 970 migraine episodes, 620 of which were treated before headaches progressed to peak. Mean time from headache onset to peak varied from 1.9 hours to 8.9 hours for patients treated within 15 minutes of onset and those who waited for 4 or more hours, respectively. However, early intervention was not associated with reduced headache severity at peak. In multivariate analysis, early treatment, use of triptans, and mild migraine headache in the past 3 months were significantly associated with shorter time from onset to headache peak. A separate model indicated that the timing of medication was not associated with the duration between dosing and headache peak, but use of triptans shortened the time from dosing to headache peak.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that early treatment was associated with a shorter time from headache onset to peak. This suggests that early intervention can shorten the duration of the headache. While the study did not find a significant reduction in headache severity at peak, the primary finding supports the question's premise.",
+          "critical_evidence": "Early intervention was associated with a shorter time from headache onset to headache peak.",
+          "differential_considered": "The study did not find a significant reduction in headache severity at peak, which could be due to other factors influencing severity. However, the primary finding supports the question's premise.",
+          "usage": {
+            "prompt_tokens": 552,
+            "generated_tokens": 162,
+            "generation_time_s": 9.55
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "Early treatment was associated with shorter time from onset to peak in multivariate analysis, but not with reduced headache severity at peak. The study found that early intervention shortened duration from onset to peak (p<0.05) but had no effect on peak severity. This suggests partial benefit with early treatment primarily affecting duration rather than intensity.",
+          "critical_evidence": "Early treatment was significantly associated with shorter time from onset to headache peak in multivariate analysis (p<0.05), but not with reduced headache severity at peak.",
+          "differential_considered": "No differential diagnoses needed as this is a single study evaluating a specific treatment question. The key differentiator is the distinction between duration and severity outcomes.",
+          "usage": {
+            "prompt_tokens": 549,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.021
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that early treatment significantly shortened the time from headache onset to peak, with a mean difference of 1.9 to 8.9 hours depending on treatment timing. Although early treatment did not reduce headache severity at peak, it did reduce duration to peak, which is a clinically relevant outcome. The multivariate analysis confirmed early treatment as a significant predictor of shorter time to peak.",
+          "critical_evidence": "Mean time from headache onset to peak varied from 1.9 hours to 8.9 hours for patients treated within 15 minutes versus those who waited 4+ hours, indicating early treatment shortens time to peak.",
+          "differential_considered": "The possibility that early treatment might reduce severity at peak was considered, but the study explicitly found no such association, so it was ruled out as a primary outcome. Other factors like triptan use and migraine severity were considered but not the focus of the question.",
+          "usage": {
+            "prompt_tokens": 527,
+            "generated_tokens": 220,
+            "generation_time_s": 9.218
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 547,
+            "generated_tokens": 32,
+            "generation_time_s": 0.947
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The key finding is that early treatment (within 15 minutes of onset) did not associate with a shorter time to peak headache, though it was linked with less severe pain at peak. Since the main outcome of interest—time to peak—was not improved by early treatment, the best answer is 'no.'",
+          "critical_evidence": "Mean time from headache onset to peak was not significantly shorter in patients treated early compared to those who waited longer.",
+          "differential_considered": "Differential diagnoses such as migraine with aura vs. non-aura migraine, or migraine vs. other headache types, were not discussed in the case. However, the absence of an effect of timing on time to peak, despite early treatment's benefit for pain at peak, suggests the question focuses on duration, which was not shortened by early intervention.",
+          "usage": {
+            "prompt_tokens": 578,
+            "generated_tokens": 197,
+            "generation_time_s": 7.44
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

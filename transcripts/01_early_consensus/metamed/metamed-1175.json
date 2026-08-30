@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1175",
+  "dataset": "metamed",
+  "question_id": "1175",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 72-year-old anthropologist with long-standing hypertension visits your office for a routine exam. You notice an abnormality on his laboratory results caused by his regimen of captopril and triamterene. What abnormality did you most likely find?",
+    "options": {
+      "A": "Hypokalemia",
+      "B": "Hypernatremia",
+      "C": "Thrombocytopenia",
+      "D": "Anemia",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Answer modified"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is taking captopril (an ACE inhibitor) and triamterene (a potassium-sparing diuretic). ACE inhibitors can cause hyperkalemia, while triamterene can cause hypokalemia. The combination of these two medications is a common cause of hypokalemia. Therefore, hypokalemia is the most likely abnormality.",
+          "critical_evidence": "The patient is taking captopril and triamterene, which are known to cause hypokalemia.",
+          "differential_considered": "Hypernatremia is less likely given the medications. Thrombocytopenia and anemia are not typically associated with these medications. While ACE inhibitors can cause hyperkalemia, the patient is taking triamterene, which is a potassium-sparing diuretic, making hypokalemia more probable.",
+          "usage": {
+            "prompt_tokens": 329,
+            "generated_tokens": 204,
+            "generation_time_s": 10.138
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Captopril is an ACE inhibitor that can cause hypokalemia by increasing urinary potassium excretion. Triamterene is a potassium-sparing diuretic that also increases potassium loss. The combination of these two medications significantly increases the risk of hypokalemia, making it the most likely laboratory abnormality in this patient with hypertension.",
+          "critical_evidence": "The combination of captopril (ACE inhibitor) and triamterene (potassium-sparing diuretic) increases potassium loss through the kidneys",
+          "differential_considered": "While other medications in this regimen could theoretically affect labs (e.g., captopril can cause hyperkalemia in rare cases, triamterene rarely causes hypernatremia), the most significant and expected effect of this specific drug combination is hypokalemia. Anemia and thrombocytopenia are not typically caused by these medications, and hypernatremia would be an unlikely effect of triamterene.",
+          "usage": {
+            "prompt_tokens": 334,
+            "generated_tokens": 233,
+            "generation_time_s": 11.245
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 306,
+            "generated_tokens": 1024,
+            "generation_time_s": 35.974
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is taking captopril and triamterene, both of which can cause hypokalemia. Hypokalemia is defined as a serum potassium level below the normal range, which can lead to symptoms such as muscle weakness, cramps, and arrhythmias. Given the patient's medication regimen, the most likely abnormality found is hypokalemia.",
+          "critical_evidence": "The patient's medication regimen of captopril and triamterene, both of which are known to cause hypokalemia.",
+          "differential_considered": "None of the other options listed are typically associated with the combination of medications the patient is taking.",
+          "usage": {
+            "prompt_tokens": 332,
+            "generated_tokens": 159,
+            "generation_time_s": 3.872
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is on captopril (an ACE inhibitor) and triamterene (a potassium-sparing diuretic). ACE inhibitors and potassium-sparing diuretics are both associated with increased risk of hyperkalemia, but triamterene in particular is notorious for causing hypokalemia when used alone or with other diuretics. The mention of abnormal laboratory results related to these medications most strongly suggests a electrolyte disturbance involving potassium. Hypokalemia is a well-known and classic adverse effect in this context, whereas the other options are less likely given the drug regimen described.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 362,
+            "generated_tokens": 246,
+            "generation_time_s": 7.811
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

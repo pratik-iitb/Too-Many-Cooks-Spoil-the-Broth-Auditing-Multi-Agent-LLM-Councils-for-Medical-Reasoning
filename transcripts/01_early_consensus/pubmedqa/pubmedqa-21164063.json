@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-21164063",
+  "dataset": "pubmedqa",
+  "question_id": "21164063",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is there a role for fondaparinux in perioperative bridging?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Fondaparinux is an anticoagulant that can be used for perioperative bridging in patients with venous thromboembolism (VTE) or at high risk of VTE. It offers several advantages over heparin, including a more predictable anticoagulant effect and a lower risk of heparin-induced thrombocytopenia (HIT). Therefore, it can be a suitable option for bridging.",
+          "critical_evidence": "The clinical case does not explicitly state the patient's history of VTE or their risk factors for VTE, but the question asks about the role of fondaparinux in perioperative bridging, implying that the patient is at risk or has a history of VTE.",
+          "differential_considered": "Heparin: While heparin is a common choice for perioperative bridging, fondaparinux offers advantages in terms of predictability and HIT risk. Direct oral anticoagulants (DOACs) are also an option, but fondaparinux is a reasonable choice for bridging in the perioperative setting.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 240,
+            "generation_time_s": 11.878
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Fondaparinux is an effective anticoagulant for perioperative bridging in patients with non-valvular atrial fibrillation. It provides a balanced risk-benefit profile with lower bleeding risk compared to unfractionated heparin while maintaining anticoagulant efficacy. Given its favorable pharmacokinetics and safety profile, it is a suitable option for bridging therapy in selected patients.",
+          "critical_evidence": "Fondaparinux's demonstrated efficacy in reducing stroke risk in non-valvular atrial fibrillation patients",
+          "differential_considered": "Considered alternatives like warfarin and direct oral anticoagulants, but fondaparinux offers superior convenience and safety profile for perioperative use",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.684
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Fondaparinux is not recommended for perioperative bridging due to its lack of reversal agents and increased bleeding risk during surgery. It is primarily used for VTE prophylaxis and treatment, not for bridging anticoagulation in the perioperative setting where rapid reversal or adjustment is often needed.",
+          "critical_evidence": "Fondaparinux has no specific antidote and carries a higher bleeding risk during surgery compared to other anticoagulants like low molecular weight heparin or warfarin, which can be bridged with shorter-acting agents.",
+          "differential_considered": "Considered alternatives like LMWH or warfarin bridging, but ruled out fondaparinux due to its pharmacokinetic profile and lack of safety in surgical settings.",
+          "usage": {
+            "prompt_tokens": 229,
+            "generated_tokens": 190,
+            "generation_time_s": 6.664
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 100,
+            "generation_time_s": 2.433
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The options assume knowledge of a thromboembolic risk scenario (e.g., surgery with high VTE risk), which is not present in the provided case. Other anticoagulants (e.g., LMWH, DOAC) might be more appropriate without further data.",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 203,
+            "generation_time_s": 6.391
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

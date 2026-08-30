@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa_context-23337545",
+  "dataset": "pubmedqa_context",
+  "question_id": "23337545",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is acute fibrinous and organizing pneumonia the expression of immune dysregulation?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Acute fibrinous and organizing pneumonia (AFOP) is a recently described histologic pattern of diffuse pulmonary disease. In children, all cases reported to date have been fatal. In this study, we describe the first nonfatal AFOP in a child and review the literature. A 10-year-old boy developed very severe aplastic anemia (VSAA) after being admitted to our hospital with a fulminant hepatic failure of unknown origin. A chest computed tomography scan revealed multiple lung nodules and a biopsy of a pulmonary lesion showed all the signs of AFOP. Infectious workup remained negative. We started immunosuppressive therapy with antithymocyte globulin and cyclosporine to treat VSAA. Subsequent chest computed tomography scans showed a considerable diminution of the lung lesions but the VSAA did not improve until we performed hematopoietic stem cell transplantation 5 months later.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a child with acute fibrinous and organizing pneumonia (AFOP) following fulminant hepatic failure and severe aplastic anemia. The development of AFOP in the context of VSAA suggests an immune dysregulation as a potential underlying mechanism. The treatment with immunosuppressants (ATG and cyclosporine) and subsequent hematopoietic stem cell transplantation further supports this possibility.",
+          "critical_evidence": "The development of AFOP in the setting of severe aplastic anemia and the response to immunosuppressive therapy strongly suggest an immune dysregulation.",
+          "differential_considered": "While other causes of pulmonary infiltrates exist, the combination of AFOP, VSAA, and the response to immunosuppression makes immune dysregulation the most likely explanation. Other possibilities like infection or drug-induced lung injury are less likely given the negative infectious workup and the lack of response to initial immunosuppression.",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 218,
+            "generation_time_s": 12.967
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient developed AFOP after severe aplastic anemia (VSAA) with no infectious cause identified. Immunosuppressive therapy and stem cell transplantation improved lung lesions, suggesting immune dysregulation is a key factor in AFOP pathogenesis.",
+          "critical_evidence": "The absence of infectious etiology and the response to immunosuppressive therapy indicate immune-mediated mechanisms are driving the disease process.",
+          "differential_considered": "Considered infectious causes (bacteria, fungi, viruses) but ruled out due to negative workup. Autoimmune etiology is more likely given the clinical and therapeutic response.",
+          "usage": {
+            "prompt_tokens": 448,
+            "generated_tokens": 154,
+            "generation_time_s": 8.649
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed AFOP following severe immune dysregulation due to aplastic anemia, and immunosuppressive therapy led to improvement in lung lesions, suggesting immune-mediated pathology. The absence of infection and the response to immunosuppression strongly support immune dysregulation as the underlying cause.",
+          "critical_evidence": "The patient's AFOP resolved with immunosuppressive therapy, indicating immune-mediated pathology rather than infectious or other etiologies.",
+          "differential_considered": "Infectious causes were ruled out by negative workup; malignancy or autoimmune disease were considered but not supported by evidence, leaving immune dysregulation as the most plausible explanation.",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 165,
+            "generation_time_s": 6.959
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 98,
+            "generation_time_s": 2.859
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Infectious pneumonia (ruling out due to negative workup), idiopathic pneumonia (less likely given the organizing pattern), autoimmune diseases (e.g., SLE), and hematologic malignancies (not mentioned here but possible in context of aplastic anemia). However, the absence of a known infectious or malignancy cause for the pneumonia itself makes a definitive immune etiology unproven.",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 308,
+            "generation_time_s": 11.692
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

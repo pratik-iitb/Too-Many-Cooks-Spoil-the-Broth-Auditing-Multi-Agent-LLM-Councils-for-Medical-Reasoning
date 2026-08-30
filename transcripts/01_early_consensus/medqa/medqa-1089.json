@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1089",
+  "dataset": "medqa",
+  "question_id": "1089",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 59-year-old woman with a past medical history of atrial fibrillation currently on warfarin presents to the emergency department for acute onset dizziness. She was watching TV in the living room when she suddenly felt the room spin around her as she was getting up to go to the bathroom. She denies any fever, weight loss, chest pain, palpitations, shortness of breath, lightheadedness, or pain but reports difficulty walking and hiccups. A physical examination is significant for rotary nystagmus and decreased pin prick sensation throughout her left side. A magnetic resonance image (MRI) of the head is obtained and shows ischemic changes of the right lateral medulla. What other symptoms would you expect to find in this patient?",
+    "options": {
+      "A": "Decreased gag reflex",
+      "B": "Language impairment",
+      "C": "Left-sided tongue deviation",
+      "D": "Paralysis of the right lower limb",
+      "E": "Right-sided facial paralysis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of acute onset dizziness, rotary nystagmus, and decreased pin prick sensation on the left side, along with MRI findings of ischemic changes in the right lateral medulla, strongly suggests lateral medullary syndrome (Wallenberg syndrome). The key finding is the contralateral loss of pinprick sensation, which corresponds to the spinothalamic tract, which decussates in the spinal cord and ascends in the lateral medulla. The other options are less likely given the specific location of the lesion.",
+          "critical_evidence": "Decreased pin prick sensation on the left side",
+          "differential_considered": "A: Decreased gag reflex (could be present, but less specific to lateral medullary syndrome), B: Language impairment (more common in lesions of the dominant hemisphere, not the lateral medulla), D: Paralysis of the right lower limb (would be more consistent with a lesion in the spinal cord or brainstem affecting the corticospinal tract, but the symptoms are more localized to the lateral medulla), E: Right-sided facial paralysis (would be more consistent with a lesion in the pons or midbrain, not the lateral medulla.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 275,
+            "generation_time_s": 14.424
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The MRI showing ischemic changes in the right lateral medulla suggests a vascular event affecting the brainstem. The right lateral medulla controls right-sided motor functions, including facial muscles. Decreased pin prick sensation on the left side may indicate a contralateral relationship, but the most direct motor function affected by right medullary ischemia would be right-sided facial paralysis. The other options (A, B, C, D) are less directly related to medullary ischemia.",
+          "critical_evidence": "Ischemic changes in the right lateral medulla on MRI",
+          "differential_considered": "Considered stroke, subarachnoid hemorrhage, and other vascular events, but ruled out based on the MRI findings showing ischemia rather than hemorrhage. The location of the ischemic changes in the medulla makes facial paralysis the most likely motor deficit.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 208,
+            "generation_time_s": 9.709
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has an ischemic lesion in the right lateral medulla, which is a classic Wallenberg syndrome presentation. This syndrome typically involves ipsilateral Horner’s syndrome, dysphagia, and decreased gag reflex, along with contralateral pain/temperature loss. The patient’s decreased pinprick sensation on the left side (contralateral to the lesion) supports this. The other options involve different neuroanatomical regions or are inconsistent with Wallenberg syndrome.",
+          "critical_evidence": "Ischemic changes in the right lateral medulla with left-sided sensory loss and rotary nystagmus are hallmark features of Wallenberg syndrome, which includes decreased gag reflex.",
+          "differential_considered": "Other causes of dizziness and nystagmus (e.g., vestibular neuritis, BPPV) were ruled out by the presence of sensory deficits and MRI findings. Brainstem stroke (e.g., midbrain or pons) was considered but excluded by the specific lateral medullary location and associated symptoms.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 239,
+            "generation_time_s": 8.424
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 52,
+            "generation_time_s": 1.28
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Ischemic changes of the right lateral medulla on MRI — a right-sided brainstem lesion most classically causes right-sided facial paralysis.",
+          "differential_considered": "Other possibilities like right-sided motor or sensory deficit, vertigo, or oculomotor signs, but facial paralysis is the most directly supported by right medulla involvement and is the best expected additional symptom.",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 248,
+            "generation_time_s": 7.817
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "E": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

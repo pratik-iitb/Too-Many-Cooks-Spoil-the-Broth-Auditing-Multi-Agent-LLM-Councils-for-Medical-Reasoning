@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-78",
+  "dataset": "medqa",
+  "question_id": "78",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old male presents to his primary care physician complaining of dark urine. He first noticed that his urine was darker than usual approximately two months ago. He denies dysuria, urgency, or hesitancy. His past medical history is notable for a history of severe rheumatoid arthritis requiring multiple long-term anti-inflammatory medications. He has otherwise been healthy and takes no other medications. He has never smoked and does not drink alcohol. His temperature is 98.6°F (37°C), blood pressure is 130/85 mmHg, pulse is 80/min, and respirations are 18/min. He has no costovertebral angle tenderness. Urinalysis is positive for heme. A CT urogram is shown in Figure A. Which of the following medications has this patient likely taken in the past?",
+    "options": {
+      "A": "Cyclophosphamide",
+      "B": "Cyclosporine",
+      "C": "Hydroxychloroquine",
+      "D": "Azathioprine",
+      "E": "Etanercept"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's dark urine and positive heme on urinalysis strongly suggest hematuria. Given his history of severe rheumatoid arthritis and long-term anti-inflammatory medications, the most likely culprit is cyclophosphamide. Cyclophosphamide is known to cause hemorrhagic cystitis, leading to hematuria and dark urine.",
+          "critical_evidence": "The patient's history of severe rheumatoid arthritis requiring long-term anti-inflammatory medications, specifically cyclophosphamide, is the most important clue.",
+          "differential_considered": "Cyclosporine can cause kidney damage, but is less likely to cause hematuria. Hydroxychloroquine is generally safe for the kidneys. Azathioprine is also less likely to cause hematuria. Etanercept is a TNF inhibitor and is not typically associated with hematuria.",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 202,
+            "generation_time_s": 10.004
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's dark urine and positive heme in urinalysis strongly suggest hematuria, which is a known side effect of cyclophosphamide. Given the patient's history of rheumatoid arthritis and the use of long-term anti-inflammatory medications, cyclophosphamide is a chemotherapy drug that can cause severe gastrointestinal toxicity and hematuria. The other options (B, C, D, E) are not associated with hematuria as a common side effect.",
+          "critical_evidence": "Positive heme in urinalysis",
+          "differential_considered": "Other causes of hematuria such as urinary tract infection, kidney stones, or trauma were ruled out due to the patient's history and physical exam findings. The patient's long-term use of anti-inflammatory medications suggests a systemic disease requiring immunosuppressive therapy, making cyclophosphamide a more likely culprit.",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 213,
+            "generation_time_s": 9.956
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with dark urine and hematuria, with a history of rheumatoid arthritis and long-term anti-inflammatory medications. The CT urogram (Figure A, though not visible, is implied to show findings consistent with drug-induced hematuria or glomerulonephritis) suggests a drug-related cause. Among the options, azathioprine is a well-known cause of hemolytic uremic syndrome and drug-induced hematuria, especially in patients with autoimmune conditions. Other options like cyclophosphamide (A) can cause hemorrhagic cystitis, but are less commonly associated with chronic hematuria in this context. Cyclosporine (B) and hydroxychloroquine (C) are less likely to cause hematuria. Etanercept (E) is an anti-TNF agent with minimal renal toxicity. Azathioprine’s mechanism includes myelosuppression and potential nephrotoxicity, making it the most likely culprit in this scenario.",
+          "critical_evidence": "History of rheumatoid arthritis on long-term anti-inflammatory meds + hematuria + dark urine + implied imaging findings consistent with drug-induced renal injury",
+          "differential_considered": "Cyclophosphamide (can cause hemorrhagic cystitis, but less likely in this chronic setting), cyclosporine (can cause nephrotoxicity but not typically hematuria), hydroxychloroquine (rarely causes hematuria), etanercept (minimal renal toxicity). Azathioprine is the most likely due to its known association with hematuria and renal toxicity in autoimmune patients.",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 367,
+            "generation_time_s": 12.888
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 12,
+            "generation_time_s": 0.317
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hematuria could be due to underlying renal disease, urinary tract infection, or other medications, but cyclophosphamide is a classic drug used in rheumatologic conditions that can cause hematuria as a side effect, especially with long-term use.",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 250,
+            "generation_time_s": 7.893
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

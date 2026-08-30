@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-787",
+  "dataset": "medqa",
+  "question_id": "787",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 10-year-old boy with trisomy 21 arrives for his annual check-up with his pediatrician. His parents explain that over the past week, he has been increasingly withdrawn and lethargic. On examination, lymph nodes appear enlarged around the left side of his neck; otherwise, there are no remarkable findings. The pediatrician orders some routine blood work.\nThese are the results of his complete blood count:\nWBC 30.4 K/μL\nRBC 1.6 M/μL\nHemoglobin 5.1 g/dL\nHematocrit 15%\nMCV 71 fL\nMCH 19.5 pg\nMCHC 28 g/dL\nPlatelets 270 K/μL\nDifferential:\nNeutrophils 4%\nLymphocytes 94%\nMonocytes 2%\nPeripheral smear demonstrates evidence of immature cells and the case is referred to hematopathology. On flow cytometry, the cells are found to be CALLA (CD10) negative. Which of the following diseases is most associated with these clinical and cytological findings?",
+    "options": {
+      "A": "Hairy cell leukemia",
+      "B": "Precursor T-cell acute lymphoblastic leukemia/lymphoma",
+      "C": "Classic Hodgkin’s lymphoma",
+      "D": "Precursor B-cell acute lymphoblastic leukemia/lymphoma",
+      "E": "Diffuse large B-cell lymphoma"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 10-year-old boy with trisomy 21 (Down syndrome) presenting with lethargy, lymphadenopathy, and pancytopenia (low RBC, Hb, and Hct). The peripheral smear shows immature cells, and flow cytometry is CALLA (CD10) negative. This points towards a B-cell lineage malignancy. The absence of CALLA positivity makes Hairy cell leukemia less likely. Hodgkin's lymphoma is less common in children and typically presents with a different clinical picture. Diffuse large B-cell lymphoma is possible, but the CALLA negativity makes it less likely than ALL/LBL. The patient's age and the presence of immature cells strongly suggest a leukemia.",
+          "critical_evidence": "CALLA (CD10) negative flow cytometry result",
+          "differential_considered": "Hairy cell leukemia is less likely due to the absence of CALLA positivity. Classic Hodgkin's lymphoma is less common in children and typically presents with a different clinical picture. Diffuse large B-cell lymphoma is possible, but the CALLA negativity makes it less likely than ALL/LBL. The patient's age and the presence of immature cells strongly suggest a leukemia.",
+          "usage": {
+            "prompt_tokens": 527,
+            "generated_tokens": 293,
+            "generation_time_s": 14.483
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 10-year-old boy with trisomy 21 (Down syndrome) presenting with enlarged lymph nodes and abnormal blood work. The peripheral smear shows immature cells, and flow cytometry reveals CALLA (CD10) negative cells. CD10 is expressed on B-cell precursors, so its absence suggests a B-cell malignancy. Given the immature cells and CD10 negativity, the most likely diagnosis is a precursor B-cell acute lymphoblastic leukemia/lymphoma. The clinical presentation, cytological findings, and genetic marker all align with this diagnosis.",
+          "critical_evidence": "CALLA (CD10) negativity",
+          "differential_considered": "Hairy cell leukemia (A) is typically CD10 positive and involves B-cells but is not associated with Down syndrome. Classic Hodgkin's lymphoma (C) is CD10 positive and involves mature lymphocytes. Diffuse large B-cell lymphoma (E) is CD10 positive and involves mature B-cells. Precursor T-cell acute lymphoblastic leukemia/lymphoma (B) would be CD10 positive if T-cell precursors were involved, but the differential shows lymphocytosis, suggesting B-cell involvement. Only precursor B-cell acute lymphoblastic leukemia/lymphoma (D) fits the CD10 negativity and immature cell morphology.",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.574
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 10-year-old with Down syndrome, presenting with lymphadenopathy, profound anemia, and leukocytosis with lymphocytosis and immature cells on smear. Flow cytometry shows CALLA (CD10) negativity, which is characteristic of precursor B-cell ALL, especially in Down syndrome patients. The combination of lymphadenopathy, anemia, and immature lymphoid cells strongly points to B-cell ALL, not T-cell or Hodgkin’s lymphoma.",
+          "critical_evidence": "CALLA (CD10) negativity on flow cytometry, combined with lymphocytosis and immature cells on peripheral smear, is most consistent with precursor B-cell acute lymphoblastic leukemia.",
+          "differential_considered": "Hairy cell leukemia (A) is rare in children and typically presents with pancytopenia and splenomegaly, not lymphadenopathy or CALLA negativity. Precursor T-cell ALL (B) is more common in younger children but typically shows CD10 negativity, and the MCV and MCH are more consistent with B-cell ALL. Classic Hodgkin’s (C) and DLBCL (E) usually present with Reed-Sternberg cells or large B-cells, not CALLA-negative immature lymphocytes in a Down syndrome child with anemia.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 299,
+            "generation_time_s": 10.492
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The clinical presentation of a 10-year-old boy with trisomy 21 and lymphadenopathy, along with laboratory findings of leukocytosis with a predominance of lymphocytes and immature cells on peripheral smear, suggests a diagnosis of hairy cell leukemia. This is supported by the negative CALLA (CD10) on flow cytometry, which is characteristic of hairy cell leukemia. The other options are less likely given the specific findings and the typical age of onset for the other diseases listed.",
+          "critical_evidence": "Negative CALLA (CD10) on flow cytometry",
+          "differential_considered": "Precursor T-cell acute lymphoblastic leukemia/lymphoma, Classic Hodgkin’s lymphoma, Precursor B-cell acute lymphoblastic leukemia/lymphoma, Diffuse large B-cell lymphoma",
+          "usage": {
+            "prompt_tokens": 521,
+            "generated_tokens": 191,
+            "generation_time_s": 4.585
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B-cell acute lymphoblastic leukemia (options B and D) typically shows CD10-positive lymphocytes; classic Hodgkin’s lymphoma (C) and diffuse large B-cell lymphoma (E) involve Reed-Sternberg or large B cells, which are usually CD20-positive and show different cytological features. These are less likely given the CD10-negative T-cell morphology and the clinical context.",
+          "usage": {
+            "prompt_tokens": 564,
+            "generated_tokens": 261,
+            "generation_time_s": 8.129
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

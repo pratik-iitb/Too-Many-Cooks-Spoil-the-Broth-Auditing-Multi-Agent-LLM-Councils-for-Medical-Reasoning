@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-752",
+  "dataset": "mmlu",
+  "question_id": "752",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "______ explained genetic disorders such as alkaptonuria and albinism.",
+    "options": {
+      "A": "Recessive inheritance has",
+      "B": "Dominant genes have",
+      "C": "X chromosomes",
+      "D": "Y chromosomes"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes genetic disorders like alkaptonuria and albinism. These are classic examples of autosomal recessive disorders. Dominant genes are less likely to cause these specific conditions, as they typically manifest with a single affected parent.",
+          "critical_evidence": "Alkaptonuria and albinism are well-known examples of autosomal recessive genetic disorders.",
+          "differential_considered": "Recessive inheritance (A) is a possibility, but the specific examples given (alkaptonuria and albinism) are more strongly associated with autosomal recessive inheritance. X and Y chromosomes (C and D) are involved in sex-linked disorders, which don't fit the description of alkaptonuria and albinism.",
+          "usage": {
+            "prompt_tokens": 271,
+            "generated_tokens": 189,
+            "generation_time_s": 9.638
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Alkaptonuria and albinism are both autosomal recessive genetic disorders. In alkaptonuria, the mutation is in the HGD gene on chromosome 12, while albinism involves mutations in genes like TYR or OCA2 on chromosomes 11 and 15 respectively. Both conditions require the presence of two mutant alleles for expression, which is characteristic of recessive inheritance. The other options (B, C, D) relate to dominant inheritance patterns or sex chromosomes, which do not apply to these autosomal recessive disorders.",
+          "critical_evidence": "Both disorders are caused by recessive mutations in specific autosomal genes",
+          "differential_considered": "Considered X-linked inheritance patterns but ruled out as both conditions are autosomal recessive, not sex-linked. Dominant inheritance was also ruled out as only one copy of the mutant allele is not sufficient for expression in these cases.",
+          "usage": {
+            "prompt_tokens": 274,
+            "generated_tokens": 216,
+            "generation_time_s": 10.375
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Alkaptonuria and albinism are both well-documented autosomal recessive disorders, meaning affected individuals inherit two mutant alleles (one from each parent). Dominant inheritance (B) would require only one mutant allele, which is not the case for these conditions. X and Y chromosomes (C and D) are not involved in the inheritance pattern of either disorder.",
+          "critical_evidence": "Both alkaptonuria and albinism are inherited in an autosomal recessive manner, confirmed by genetic studies and family pedigree analysis.",
+          "differential_considered": "Dominant inheritance (B) was considered but ruled out because affected individuals typically have unaffected parents, which is characteristic of recessive disorders. X and Y chromosomes (C and D) were considered but excluded as these disorders are not sex-linked.",
+          "usage": {
+            "prompt_tokens": 245,
+            "generated_tokens": 193,
+            "generation_time_s": 7.233
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 272,
+            "generated_tokens": 90,
+            "generation_time_s": 2.275
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A (Recessive inheritance has) could be relevant for some genetic conditions but the phrasing is incomplete; C and D (X and Y chromosomes) are about sex chromosomes and do not explain the disorders in the question. Thus, \"Dominant genes have\" is the best fit.",
+          "usage": {
+            "prompt_tokens": 299,
+            "generated_tokens": 193,
+            "generation_time_s": 6.261
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

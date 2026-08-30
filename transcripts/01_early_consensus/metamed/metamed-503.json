@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-503",
+  "dataset": "metamed",
+  "question_id": "503",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 59-year-old man complains of chest pain that has been present for 4 hours on the 5th day of hospitalization for acute myocardial infarction. 5 days ago, he had a burning sensation in his chest and discomfort in his left shoulder. Upon initial presentation to the hospital’s emergency department, he was diagnosed with an ST-elevation myocardial infarction and treated with alteplase. He has been under close observation since then. The patient now describes discomfort in his chest and left shoulder, somewhat similar in nature to what initially brought him into the hospital. A pulse of 86/min, respiratory rate of 16/min, and a blood pressure of 146/90 mm Hg are observed. Auscultation of the chest reveals no abnormal findings. The patient’s ECG is difficult to interpret. Of the following laboratory tests, an abnormal result of which would have the most diagnostic utility?",
+    "options": {
+      "A": "Alkaline phosphatase",
+      "B": "Creatine kinase (CK-MB)",
+      "C": "Lactate dehydrogenase",
+      "D": "Troponin T",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent chest pain and left shoulder discomfort, suggestive of a possible re-infarction or unstable angina. While the initial ECG was difficult to interpret, the current ECG is also difficult to interpret. Troponin T is the most sensitive and specific marker for myocardial necrosis, making it the most useful test to determine if there is new or ongoing myocardial damage. CK-MB is also useful, but troponin T is more sensitive.",
+          "critical_evidence": "The patient's recurrent chest pain and the difficulty in interpreting the ECG strongly suggest the possibility of a re-infarction or unstable angina, making troponin T the most useful test to assess for new myocardial damage.",
+          "differential_considered": "A: Alkaline phosphatase is not typically used to diagnose acute myocardial infarction. B: CK-MB can be elevated in re-infarction, but troponin T is more sensitive. C: Lactate dehydrogenase is not specific for myocardial infarction and is less useful than troponin T. E: While other tests might be helpful, troponin T is the most important in this scenario.",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 265,
+            "generation_time_s": 15.057
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's ECG is difficult to interpret, suggesting possible ischemic changes or instability. Troponin T is the most sensitive marker for myocardial injury and remains elevated in the setting of ongoing ischemia or new infarction. Given the chest discomfort and the initial ST-elevation MI, a rise in Troponin T would indicate persistent myocardial injury, making it the most useful test for diagnosing ongoing cardiac ischemia.",
+          "critical_evidence": "The patient's ECG difficulty and chest discomfort suggest ongoing cardiac ischemia, which would be confirmed by elevated Troponin T.",
+          "differential_considered": "Considered cardiac causes (e.g., unstable angina, new infarction) and non-cardiac causes (e.g., musculoskeletal pain), but ruled out non-cardiac based on chest auscultation and history. The ECG difficulty supports cardiac etiology.",
+          "usage": {
+            "prompt_tokens": 477,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.897
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a post-MI patient presenting with recurrent chest discomfort 5 days after initial STEMI, raising concern for recurrent ischemia or complications like myocardial infarction recurrence. Troponin T is the most specific and sensitive biomarker for myocardial injury and remains the gold standard for diagnosing recurrent myocardial infarction in this context. Other markers like CK-MB and LDH are less specific and have longer windows of elevation, while alkaline phosphatase is unrelated to cardiac injury.",
+          "critical_evidence": "The patient’s recurrent chest pain 5 days after STEMI, with ECG difficulty to interpret, strongly suggests recurrent myocardial injury, which troponin T can reliably detect.",
+          "differential_considered": "Recurrent MI, pericarditis, musculoskeletal pain, or gastrointestinal reflux were considered, but troponin T is the most specific for myocardial injury and would help confirm or rule out recurrent MI, which is the most concerning diagnosis.",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 232,
+            "generation_time_s": 8.648
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 475,
+            "generated_tokens": 113,
+            "generation_time_s": 2.968
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Acute recurrent ischemia (possible NSTEMI or re-infarction), atypical chest pain syndromes, and other non-cardiac causes. CK-MB (B) is less specific than troponin, and ALP (A), LDH (C), and E (E) are non-specific markers not helpful in this scenario. Thus, troponin T (D) is the best choice.",
+          "usage": {
+            "prompt_tokens": 510,
+            "generated_tokens": 289,
+            "generation_time_s": 10.314
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

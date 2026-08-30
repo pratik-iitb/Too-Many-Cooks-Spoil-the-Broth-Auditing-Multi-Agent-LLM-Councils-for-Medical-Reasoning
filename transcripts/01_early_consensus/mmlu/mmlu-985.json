@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-985",
+  "dataset": "mmlu",
+  "question_id": "985",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 29-year-old woman is prescribed carbamazepine for trigeminal neuralgia. She has a strong family history of osteoporosis. As a result, the physician also advises her to increase her intake of vitamin D. The most likely reason for this recommendation is that carbamazepine may affect which of the following pharmacokinetic processes?",
+    "options": {
+      "A": "Absorption",
+      "B": "Distribution",
+      "C": "Excretion",
+      "D": "Metabolism"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Carbamazepine is primarily metabolized by the liver, specifically by the cytochrome P450 enzyme system (CYP450). Vitamin D deficiency can impair the function of CYP450 enzymes, leading to decreased carbamazepine metabolism and increased drug levels in the blood. This can increase the risk of adverse effects associated with carbamazepine.",
+          "critical_evidence": "Carbamazepine is metabolized by the liver, specifically by the cytochrome P450 enzyme system (CYP450).",
+          "differential_considered": "Absorption: While absorption can be affected by various factors, it's less likely to be the primary reason for the recommendation in this case. Distribution and metabolism are more directly related to the drug's effects. Excretion: While excretion is important, the primary concern is the drug's effect on the liver's metabolic capacity.",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 221,
+            "generation_time_s": 11.196
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Carbamazepine is a CYP3A4 substrate, and its metabolism is primarily affected by this enzyme. Vitamin D can induce CYP3A4 activity, which would increase the metabolism of carbamazepine, potentially leading to decreased serum levels and reduced efficacy. The family history of osteoporosis suggests a need for vitamin D supplementation, which would enhance the drug's metabolism, necessitating dose adjustments to maintain therapeutic levels.",
+          "critical_evidence": "Carbamazepine is a known CYP3A4 substrate",
+          "differential_considered": "While other factors like food interactions or renal function could affect carbamazepine levels, the specific recommendation to increase vitamin D intake points directly to its effect on CYP3A4 metabolism, making this the most appropriate explanation.",
+          "usage": {
+            "prompt_tokens": 324,
+            "generated_tokens": 193,
+            "generation_time_s": 9.215
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Carbamazepine is a potent inducer of hepatic cytochrome P450 enzymes, particularly CYP3A4 and CYP2C19, which accelerates the metabolism of many drugs and endogenous compounds, including vitamin D. This increased metabolism leads to reduced serum levels of vitamin D, increasing the risk of deficiency and osteoporosis, especially in patients with predisposing factors like family history. The recommendation to increase vitamin D intake is aimed at counteracting this pharmacokinetic effect.",
+          "critical_evidence": "Carbamazepine induces hepatic enzymes that accelerate the metabolism of vitamin D, reducing its serum concentration.",
+          "differential_considered": "Other options like absorption, distribution, or excretion were considered but are less relevant: carbamazepine does not primarily affect vitamin D absorption (A), distribution (B), or renal excretion (C) — its main impact is metabolic via enzyme induction (D).",
+          "usage": {
+            "prompt_tokens": 298,
+            "generated_tokens": 226,
+            "generation_time_s": 8.105
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 322,
+            "generated_tokens": 10,
+            "generation_time_s": 0.261
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Absorption and distribution are not the primary pharmacokinetic processes directly implicated in increased osteoporosis risk; metabolism is more relevant because carbamazepine's hepatic metabolism may influence its bioavailability or active metabolite formation, indirectly affecting bone health. Excretion is less directly linked to the osteoporosis risk in this context.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 516,
+            "generation_time_s": 16.599
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "D": 3
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-258",
+  "dataset": "medqa",
+  "question_id": "258",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 20-year-old G0 woman presents with 4 days of fever and pelvic pain. The patient has had these symptoms before but not to this extent. Last night, she even experienced an episode of emesis from her discomfort. The patient is a yoga instructor, does not smoke or drink alcohol, is a vegan, and is sexually active with both men and women. Her temperature is 102°F (38.9°C), blood pressure is 124/84 mmHg, pulse is 110/min, respirations are 17/min, and oxygen saturation is 98% on room air. Physical examination reveals cervical motion tenderness, left adnexal fullness, and the finding in Figure A. Laboratory values are ordered as seen below.\n\nHemoglobin: 13 g/dL\nHematocrit: 39%\nLeukocyte count: 19,500/mm^3 with normal differential\nPlatelet count: 297,000/mm^3\n\nAn ultrasound is performed as seen in Figure B. Which of the following is the most appropriate initial treatment for this patient?",
+    "options": {
+      "A": "Cefoxitin and doxycycline",
+      "B": "Ceftriaxone and azithromycin",
+      "C": "Levofloxacin and metronidazole",
+      "D": "Metronidazole",
+      "E": "Surgical drainage"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, pelvic pain, cervical motion tenderness, and adnexal fullness, strongly suggesting a pelvic inflammatory disease (PID) or ectopic pregnancy. The elevated white blood cell count further supports an infectious process. Given the patient's sexual history and the clinical findings, PID is the most likely diagnosis. Ceftriaxone and azithromycin are the recommended first-line antibiotics for PID, covering common pathogens like Neisseria gonorrhoeae and Chlamydia trachomatis.",
+          "critical_evidence": "Cervical motion tenderness and adnexal fullness are highly suggestive of PID.",
+          "differential_considered": "Ectopic pregnancy is a concern given the patient's age and sexual history. However, the lack of reported vaginal bleeding and the presence of cervical motion tenderness make PID more likely. While a pregnancy test is important, the initial treatment should be directed towards PID until pregnancy is ruled out. Other differentials like tubo-ovarian abscess (TOA) are possible, but the initial treatment is the same.",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 252,
+            "generation_time_s": 12.408
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's symptoms, physical exam findings (cervical motion tenderness, left adnexal fullness), and ultrasound showing a fluid collection consistent with an acute salpingitis, along with elevated WBC count, suggest acute pelvic inflammatory disease. Ceftriaxone is a third-generation cephalosporin effective against likely pathogens (N. gonorrhoeae, E. coli), while azithromycin covers anaerobic organisms and Chlamydia. This combination is the standard empiric treatment for PID.",
+          "critical_evidence": "Left adnexal fullness on physical exam and ultrasound fluid collection",
+          "differential_considered": "Considered PID, ovarian cyst, ectopic pregnancy, but ruled out by ultrasound findings and patient's history of recurrent symptoms. PID is most likely given the pattern of symptoms and findings.",
+          "usage": {
+            "prompt_tokens": 508,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.943
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a young sexually active woman with fever, pelvic pain, cervical motion tenderness, and left adnexal fullness — classic signs of pelvic inflammatory disease (PID). Ultrasound (Figure B) likely shows tubo-ovarian abscess or fluid collection, supporting acute PID. The most appropriate initial treatment is broad-spectrum antibiotics covering gonorrhea and chlamydia, which are the most common causes. Ceftriaxone and azithromycin is the CDC-recommended first-line regimen for PID.",
+          "critical_evidence": "Cervical motion tenderness, adnexal fullness, fever, and sexual activity — all consistent with PID requiring empiric antibiotic therapy.",
+          "differential_considered": "Ectopic pregnancy was considered but ruled out by absence of vaginal bleeding or shoulder pain; appendicitis was considered but excluded by lack of right lower quadrant pain; ovarian torsion was considered but unlikely without acute onset of severe pain without prior history; surgical drainage was considered but not first-line unless abscess is large or unresponsive to antibiotics.",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 250,
+            "generation_time_s": 8.712
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The most appropriate initial treatment for this patient is Ceftriaxone and azithromycin.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 22,
+            "generation_time_s": 0.551
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 546,
+            "generated_tokens": 378,
+            "generation_time_s": 11.723
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

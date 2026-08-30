@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-20629769",
+  "dataset": "pubmedqa",
+  "question_id": "20629769",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is primary angioplasty an acceptable alternative to thrombolysis?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Primary angioplasty is often a preferred alternative to thrombolysis in acute coronary syndromes (ACS) when there is a clear indication for revascularization and the patient is a suitable candidate. Thrombolysis is generally reserved for situations where timely percutaneous coronary intervention (PCI) is not available or feasible. The decision depends on factors like the patient's presentation, risk factors, and the availability of experienced interventional cardiologists.",
+          "critical_evidence": "The question asks if primary angioplasty is an acceptable alternative to thrombolysis, implying that it is a reasonable option in certain circumstances.",
+          "differential_considered": "While other factors influence the decision, the question specifically asks about the *alternative* to thrombolysis. Other considerations like the patient's overall health and the specific type of ACS are important, but the core question is about the relative merits of angioplasty versus thrombolysis.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 230,
+            "generation_time_s": 13.8
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Primary angioplasty is not an acceptable alternative to thrombolysis in this context because thrombolysis is a time-sensitive treatment for acute ischemic stroke, while angioplasty is a surgical intervention that requires more extensive preparation and is typically performed in a different clinical setting. Thrombolysis is the standard of care for early stroke treatment due to its rapid onset and ability to restore blood flow quickly, whereas angioplasty is reserved for cases where thrombolysis is contraindicated or ineffective.",
+          "critical_evidence": "Thrombolysis is the first-line treatment for acute ischemic stroke due to its rapid action and high efficacy when administered within the first 4.5 hours of symptom onset.",
+          "differential_considered": "Considered: Hemorrhagic vs. ischemic stroke, contraindications to thrombolysis (e.g., recent surgery, uncontrolled hypertension), patient's age and comorbidities. Ruled out hemorrhagic stroke due to different treatment modalities and thrombolysis being contraindicated in such cases.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.737
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Primary angioplasty is the preferred reperfusion strategy for ST-elevation myocardial infarction (STEMI) when available, as it offers superior outcomes compared to thrombolysis in terms of mortality and recurrent ischemia. The case implies a STEMI context, where primary angioplasty is an acceptable and often superior alternative to thrombolysis.",
+          "critical_evidence": "Primary angioplasty is guideline-recommended for STEMI patients when PCI is available, due to its proven efficacy and safety advantages over thrombolysis.",
+          "differential_considered": "Non-ST-elevation myocardial infarction or unstable angina were not indicated; thrombolysis is not preferred in non-STEMI unless PCI is unavailable, making primary angioplasty the best alternative in STEMI.",
+          "usage": {
+            "prompt_tokens": 227,
+            "generated_tokens": 189,
+            "generation_time_s": 7.967
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The clinical reasoning and critical evidence are optional but highly recommended for demonstrating your understanding and thought process.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 20,
+            "generation_time_s": 0.594
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The differential includes whether the lesion is accessible for angioplasty, the time since onset of symptoms, and the risk of complications with each treatment. Without these details, neither option can be definitively chosen.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 224,
+            "generation_time_s": 8.538
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

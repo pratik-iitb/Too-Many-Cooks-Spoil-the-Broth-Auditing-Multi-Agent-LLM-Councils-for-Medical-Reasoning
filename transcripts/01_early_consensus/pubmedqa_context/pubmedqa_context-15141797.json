@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-15141797",
+  "dataset": "pubmedqa_context",
+  "question_id": "15141797",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can we rely on arterial line sampling in performing activated plasma thromboplastin time after cardiac surgery?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Arterial catheters are routinely used to sample blood for clotting studies in most cardiothoracic intensive care units. The clotting profile in surgical bleeding after cardiac surgery influences further management. Aspiration and discard of a certain amount of blood from the line, prior to sampling, are assumed to clear heparin contamination. We have investigated this assumption through analysis of the clotting profile by simultaneous arterial line and peripheral venous samples. The morning following cardiac surgery, simultaneous arterial line and peripheral venous blood samples were taken for activated plasma thromboplastin time (APTT) ratio and international normalized ratio (INR) in 49 randomly selected patients. Also, a thromboelastogram analysis (TEG) (n = 7) was made. A survey of 22 UK cardiothoracic intensive care units was carried out to determine the practice for the withdrawal of blood for clotting studies. The median arterial APTT ratio value was 1.32 +/- 0.52 as compared to the median peripheral APTT ratio value which was 1.1 +/- 0.24 (P<0.001). INR values were statistically similar by both routes. Heparin contamination was confirmed by TEG which revealed that the R-value for arterial catheter blood samples without heparinase in the cup was higher (406.00 +/- 64.44 s) compared with the value for arterial samples with heparinase in the cup (318.28 +/- 47.26s, P<0.05). The survey of 22 UK cardiothoracic intensive care units showed that heparinized arterial lines were by far the commonest ports used for blood withdrawal for the measurement of APTT ratio results.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that arterial line blood samples, even when heparinized, contain heparin contamination. The TEG analysis confirms this. Therefore, relying on arterial line sampling for APTT ratio without heparinase is unreliable.",
+          "critical_evidence": "The TEG analysis showed a significantly higher R-value for arterial catheter blood samples without heparinase compared to those with heparinase, indicating heparin contamination.",
+          "differential_considered": "The differential diagnoses considered were the possibility of the arterial line being contaminated with heparin, and the possibility of the heparinized arterial line being a reliable source of APTT ratio. The study results strongly suggest that the arterial line is indeed contaminated, making the APTT ratio unreliable without heparinase.",
+          "usage": {
+            "prompt_tokens": 619,
+            "generated_tokens": 184,
+            "generation_time_s": 13.652
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that arterial line samples had a significantly higher APTT ratio (1.32) compared to peripheral venous samples (1.1), indicating potential heparin contamination in arterial lines. The TEG analysis confirmed this, showing higher R-values in arterial samples without heparinase. Despite the common practice of using arterial lines, the data suggests they may not be reliable for accurate APTT measurements due to contamination issues.",
+          "critical_evidence": "The statistically significant difference in APTT ratios between arterial and peripheral venous samples (P<0.001) demonstrates that arterial line sampling may not provide accurate results due to heparin contamination.",
+          "differential_considered": "While the primary concern is heparin contamination in arterial lines, other potential issues like sampling technique or line-related artifacts were not found to be significant in this study. The TEG analysis specifically identified heparin contamination as the key problem.",
+          "usage": {
+            "prompt_tokens": 626,
+            "generated_tokens": 222,
+            "generation_time_s": 12.503
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrated a statistically significant difference in APTT ratio between arterial line and peripheral venous samples (1.32 vs 1.1, P<0.001), indicating heparin contamination in arterial lines. This contamination leads to falsely prolonged APTT, making arterial line sampling unreliable for accurate coagulation assessment. The TEG findings further confirmed heparin presence in arterial samples, validating the contamination issue.",
+          "critical_evidence": "Median arterial APTT ratio was significantly higher (1.32 ± 0.52) than peripheral venous APTT ratio (1.1 ± 0.24, P<0.001), indicating heparin contamination in arterial lines.",
+          "differential_considered": "We considered whether venous lines or other sampling methods might be more reliable, but the study directly compared arterial vs. venous samples and found arterial lines consistently overestimate APTT due to heparin contamination. No alternative explanation for the APTT discrepancy was provided.",
+          "usage": {
+            "prompt_tokens": 616,
+            "generated_tokens": 245,
+            "generation_time_s": 10.313
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 624,
+            "generated_tokens": 116,
+            "generation_time_s": 3.383
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Arterial line blood is known to be affected by heparin contamination, which can falsely elevate the APTT. The study shows a statistically significant difference in APTT ratio between arterial and peripheral venous samples (P<0.001), with arterial samples being higher. Additionally, TEG results demonstrated that arterial blood without heparinase had a higher R-value than with heparinase, further supporting heparin contamination of arterial lines. Given this, relying on arterial line samples for APTT ratio would not provide accurate results due to heparin interference, making venous samples the more reliable option.",
+          "critical_evidence": "The significant increase in APTT ratio in arterial line samples compared to peripheral venous samples, along with TEG evidence of heparin contamination in arterial blood, indicates that arterial line blood is not suitable for accurate APTT ratio measurement.",
+          "differential_considered": "Possible considerations included whether the arterial line had been flushed or heparin locked, but the study explicitly addresses heparin contamination and its effect on APTT. Other factors like sample clots or anticoagulant residues were not highlighted as the primary issue in the provided data.",
+          "usage": {
+            "prompt_tokens": 655,
+            "generated_tokens": 277,
+            "generation_time_s": 10.546
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "B": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

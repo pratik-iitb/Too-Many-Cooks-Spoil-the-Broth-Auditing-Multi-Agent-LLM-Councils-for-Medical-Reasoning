@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-96",
+  "dataset": "medqa",
+  "question_id": "96",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 70-year-old man was first evaluated for an enlarging neck mass with complaints of night sweats, fever, and weight loss. Excisional biopsy confirms the diagnosis of Burkitt lymphoma. The patient is started on a CODOX-M/IVAC chemotherapy regime. The physician notes a marked improvement, but is concerned about a common complication of chemotherapy. The patient is prescribed rasburicase in response to this complication. Which of the following statements describing the patient’s current state is most accurate?",
+    "options": {
+      "A": "Rasburicase is a xanthine oxidase inhibitor",
+      "B": "The development of hyperuricemia is gradual",
+      "C": "This complication only occurs in response to radiation",
+      "D": "Rasburicase converts uric acid to allantoin, increasing its secretion",
+      "E": "Hypophosphatemia is expected to develop in this patient"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is receiving CODOX-M/IVAC chemotherapy, a regimen known to cause tumor lysis syndrome (TLS). TLS leads to the rapid breakdown of cancer cells, releasing large amounts of purines, which are metabolized to uric acid. Rasburicase is used to treat hyperuricemia caused by TLS. Rasburicase converts uric acid to allantoin, a more soluble metabolite that is easily excreted by the kidneys.",
+          "critical_evidence": "The patient is receiving CODOX-M/IVAC chemotherapy, a regimen known to cause tumor lysis syndrome (TLS).",
+          "differential_considered": "A: Rasburicase is a xanthine oxidase inhibitor. While true, this is not the mechanism of action in this case. B: The development of hyperuricemia is gradual. This is incorrect, as TLS causes a rapid increase in uric acid. C: This complication only occurs in response to radiation. This is incorrect, as TLS can occur with chemotherapy. E: Hypophosphatemia is expected to develop in this patient. While hypophosphatemia can occur in TLS, it is not the primary concern addressed by rasburicase.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 279,
+            "generation_time_s": 13.819
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Rasburicase is used to treat hyperuricemia caused by chemotherapy-induced increased uric acid levels. It converts uric acid to allantoin, which is more water-soluble and thus increases its excretion, lowering blood uric acid levels. This is a known complication of CODOX-M/IVAC chemotherapy, not radiation, and hyperuricemia develops gradually during treatment. Rasburicase does not act as a xanthine oxidase inhibitor, and hypophosphatemia is not expected in this scenario.",
+          "critical_evidence": "Rasburicase converts uric acid to allantoin, increasing its secretion",
+          "differential_considered": "Other complications of chemotherapy include neutropenia, anemia, and electrolyte imbalances, but none are as directly addressed by rasburicase as hyperuricemia from uric acid elevation.",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 214,
+            "generation_time_s": 10.039
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has Burkitt lymphoma treated with CODOX-M/IVAC, a regimen known to cause rapid tumor lysis, leading to hyperuricemia. Rasburicase is used to prevent or treat tumor lysis syndrome by converting uric acid to allantoin, which is more water-soluble and easily excreted. Option D correctly describes this mechanism. The other options are inaccurate: rasburicase is not an inhibitor (A), hyperuricemia is acute (B), it occurs with chemotherapy, not just radiation (C), and hypophosphatemia is not expected (E).",
+          "critical_evidence": "The patient is on CODOX-M/IVAC chemotherapy, which is known to cause rapid tumor lysis and hyperuricemia, prompting the use of rasburicase.",
+          "differential_considered": "Considered hyperuricemia from other causes (e.g., gout, renal failure), but the context of aggressive chemotherapy for lymphoma makes tumor lysis syndrome the most likely cause. Also considered radiation-induced complications, but the patient is on chemotherapy, not radiation.",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 262,
+            "generation_time_s": 9.444
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 80,
+            "generation_time_s": 1.997
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 277,
+            "generation_time_s": 8.953
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

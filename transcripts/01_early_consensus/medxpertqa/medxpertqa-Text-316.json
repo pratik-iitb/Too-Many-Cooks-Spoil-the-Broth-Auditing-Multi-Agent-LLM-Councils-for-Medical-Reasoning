@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-316",
+  "dataset": "medxpertqa",
+  "question_id": "Text-316",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old woman visits a genetic counselor, explaining that both her parents are carriers of a genetic condition characterized by excessive iron deposition in organs such as the liver, pancreas, brain, and skin. This condition, which can be fatal in some cases, often requires therapeutic phlebotomy for management. The woman has no siblings and has not exhibited any symptoms. The counselor informs her that she may have a genetic profile that prevents symptom manifestation throughout her lifetime. Based on this information, what is the probability that she is a carrier of this genetic condition?\nAnswer Choices: (A) 58% (B) 25% (C) 16% (D) 42% (E) 66% (F) 83% (G) 33% (H) 75% (I) 100% (J) 50%",
+    "options": {
+      "A": "58%",
+      "B": "25%",
+      "C": "16%",
+      "D": "42%",
+      "E": "66%",
+      "F": "83%",
+      "G": "33%",
+      "H": "75%",
+      "I": "100%",
+      "J": "50%"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "medical_task": "Basic Science",
+      "body_system": "Other / NA",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a woman with a family history of a genetic condition characterized by iron overload. Since both parents are carriers, the woman has a 25% chance of inheriting the condition from each parent. Therefore, the probability of her being a carrier is 25% * 25% = 6.25%. However, since the options are rounded, the closest answer is 58%.",
+          "critical_evidence": "Both parents are carriers of a genetic condition characterized by iron overload.",
+          "differential_considered": "The differential diagnosis includes other genetic conditions that cause iron overload, but the specific description of the condition and the family history strongly suggest hemochromatosis. Other conditions like thalassemia or sideroblastic anemia are less likely given the described symptoms and family history.",
+          "usage": {
+            "prompt_tokens": 504,
+            "generated_tokens": 202,
+            "generation_time_s": 8.418
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "J",
+          "confidence": 0.9,
+          "clinical_reasoning": "The woman's parents are carriers, and she has no siblings or symptoms. This suggests a scenario where she could be a carrier without manifesting symptoms due to genetic or environmental factors. The probability calculation for carrier status in such a scenario typically aligns with the expected carrier frequency in the population, which is 50% when both parents are carriers and assuming autosomal recessive inheritance.",
+          "critical_evidence": "Both parents are carriers, no siblings or symptoms observed.",
+          "differential_considered": "Considered autosomal dominant vs. recessive inheritance patterns, but the lack of symptoms and siblings supports a recessive pattern with carrier status.",
+          "usage": {
+            "prompt_tokens": 471,
+            "generated_tokens": 1024,
+            "generation_time_s": 44.878
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "J",
+          "confidence": 0.95,
+          "clinical_reasoning": "The condition described is autosomal recessive hemochromatosis (e.g., HFE-related hereditary hemochromatosis), where both parents being carriers implies a 25% chance per child of being affected, 50% chance of being a carrier, and 25% chance of being neither. Since the woman has no symptoms and is asymptomatic, her carrier status is not ruled out by phenotype, but the genetic counselor’s statement implies she may have a protective genetic profile (e.g., compound heterozygosity or modifier genes) that prevents symptoms — which does not alter the initial 50% carrier probability from parental carrier status. Thus, the best estimate remains 50%.",
+          "critical_evidence": "Both parents are carriers, and the woman has no symptoms — consistent with autosomal recessive inheritance, where 50% of offspring of carrier parents are carriers.",
+          "differential_considered": "Other autosomal dominant or X-linked conditions were considered but ruled out due to the requirement for two carrier parents and the pattern of inheritance described (autosomal recessive).",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 257,
+            "generation_time_s": 9.181
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 469,
+            "generated_tokens": 98,
+            "generation_time_s": 3.231
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Autosomal dominant inheritance would give a 50% risk of manifesting the condition, but the scenario suggests she is likely asymptomatic like her parents, making autosomal dominant less likely. Mitochondrial or X-linked recessive would require different inheritance patterns or maternal transmission, which are not indicated here. Thus, autosomal recessive carrier probability is the best fit.",
+          "usage": {
+            "prompt_tokens": 509,
+            "generated_tokens": 271,
+            "generation_time_s": 9.294
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "J": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

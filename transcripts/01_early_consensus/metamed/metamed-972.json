@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-972",
+  "dataset": "metamed",
+  "question_id": "972",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 41-year-old man is brought to the emergency department after a suicide attempt. His wife found him on the bathroom floor with an empty bottle of medication next to him. He has a history of major depressive disorder. His only medication is nortriptyline. His pulse is 127/min and blood pressure is 90/61 mm Hg. Examination shows dilated pupils and dry skin. The abdomen is distended and there is dullness on percussion in the suprapubic region. An ECG shows tachycardia and a QRS complex width of 130 ms. In addition to intravenous fluid resuscitation, which of the following is the most appropriate pharmacotherapy?",
+    "options": {
+      "A": "Naloxone",
+      "B": "Cyproheptadine",
+      "C": "Ammonium chloride",
+      "D": "Sodium bicarbonate",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a history of major depressive disorder treated with nortriptyline, along with signs of anticholinergic toxicity (dilated pupils, dry skin, tachycardia, QRS widening). The distended abdomen and suprapubic dullness suggest possible anticholinergic-induced ileus. Sodium bicarbonate is the antidote for tricyclic antidepressant (TCA) overdose, as it helps to narrow the QRS complex and improve cardiac function. While naloxone is for opioid overdose, and cyproheptadine is for serotonin syndrome, they are not indicated in this scenario.",
+          "critical_evidence": "The QRS complex width of 130 ms strongly suggests TCA toxicity.",
+          "differential_considered": "Naloxone is for opioid overdose, and while the patient has a history of depression, the presentation is more consistent with TCA toxicity. Cyproheptadine is for serotonin syndrome, which is less likely given the history of nortriptyline use and the absence of other serotonin syndrome symptoms. While the patient's presentation could be due to other causes, the QRS widening is the most critical finding that points towards TCA toxicity.",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 267,
+            "generation_time_s": 13.645
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's ECG shows a wide QRS complex (130 ms), indicating possible drug toxicity, likely from nortriptyline. Nortriptyline is a tricyclic antidepressant with potential for cardiac toxicity. The wide QRS suggests drug-induced QT prolongation, not typical of opioid overdose (which would show narrow QRS). Ammonium chloride and sodium bicarbonate are for metabolic acidosis, not relevant here. Cyproheptadine is for serotonin syndrome, unlikely. Naloxone is for opioids, which are not indicated. Fluid resuscitation is appropriate, but no additional pharmacotherapy is needed as the primary treatment is supportive care and monitoring.",
+          "critical_evidence": "Wide QRS complex (130 ms) on ECG",
+          "differential_considered": "Opioid overdose (narrow QRS), serotonin syndrome, metabolic acidosis, cardiac toxicity from nortriptyline. Ruled out opioid overdose due to wide QRS, no evidence of serotonin syndrome, no acidosis signs, nortriptyline toxicity is most likely cause.",
+          "usage": {
+            "prompt_tokens": 424,
+            "generated_tokens": 255,
+            "generation_time_s": 12.239
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of major depressive disorder and is taking nortriptyline, a tricyclic antidepressant (TCA). His clinical presentation — tachycardia, hypotension, dilated pupils, dry skin, abdominal distension, and widened QRS complex (130 ms) on ECG — is classic for TCA overdose. Sodium bicarbonate is the treatment of choice for severe TCA overdose with QRS widening, as it corrects intracellular acidosis and improves sodium channel function, thereby reducing QRS duration and stabilizing cardiac conduction.",
+          "critical_evidence": "QRS complex width of 130 ms on ECG — a hallmark of TCA toxicity requiring sodium bicarbonate.",
+          "differential_considered": "Naloxone (A) is for opioid overdose; cyproheptadine (B) is for serotonin syndrome; ammonium chloride (C) is for metabolic alkalosis — none fit the TCA toxicity presentation. E and F are not applicable given clear evidence of TCA overdose.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 248,
+            "generation_time_s": 8.838
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 137,
+            "generation_time_s": 3.405
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Dilated pupils and dry skin are classic signs of opioid overdose, which is the most likely complication from an empty medication bottle in this context.",
+          "differential_considered": "Opioid overdose (most likely), suicide attempt (already in progress), anticholinergic toxicity (B), hypovolemia (but managed with fluids), and arrhythmia (not specific enough for other interventions).",
+          "usage": {
+            "prompt_tokens": 452,
+            "generated_tokens": 267,
+            "generation_time_s": 8.564
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "E": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

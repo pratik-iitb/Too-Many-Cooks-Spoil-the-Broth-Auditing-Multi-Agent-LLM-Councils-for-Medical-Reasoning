@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-300",
+  "dataset": "mmlu",
+  "question_id": "300",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Peak flow meters record:",
+    "options": {
+      "A": "the lowest rate of air expelled from the lungs through an open mouth.",
+      "B": "forced expiratory volume.",
+      "C": "forced vital capacity.",
+      "D": "the highest rate of air expelled from the lungs through an open mouth."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Peak flow meters measure the maximum speed of air exhaled from the lungs. This is the fastest rate of air expulsion, which is the definition of peak flow. The other options relate to different lung volumes or capacities.",
+          "critical_evidence": "Peak flow meters measure the maximum speed of air exhaled from the lungs.",
+          "differential_considered": "Forced expiratory volume (B) is a measure of the amount of air exhaled in one second, not the speed. Forced vital capacity (C) is the total amount of air exhaled, not the speed. While the lowest rate of air expelled could be a symptom of a respiratory issue, the peak flow meter directly measures the speed of exhalation, making it the most accurate answer.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 193,
+            "generation_time_s": 9.71
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Peak flow meters measure the maximum volume of air that can be forcibly exhaled within one second, which is the definition of forced expiratory volume (FEV1). This is a standard pulmonary function test used to assess airflow limitation in respiratory conditions like asthma. Options A and D refer to flow rates, not volumes, while C (forced vital capacity) measures total expired air, not just the peak rate. The term 'peak flow' directly corresponds to FEV1 measurement.",
+          "critical_evidence": "Peak flow meters are standardized devices that measure forced expiratory volume in one second (FEV1), which is the volume of air exhaled with maximum force in the first second of a forced expiration.",
+          "differential_considered": "Considered options A (lowest rate), C (forced vital capacity), and D (highest rate) were ruled out because they either describe different pulmonary function parameters or incorrect terminology. Only option B accurately represents the measurement performed by peak flow meters.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 230,
+            "generation_time_s": 10.928
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Peak flow meters are designed to measure the maximum speed of air expelled from the lungs during a forced exhalation, which reflects the patient's best effort. This is critical in assessing asthma or COPD control. The other options describe different pulmonary function tests (e.g., forced expiratory volume or vital capacity) that are not measured by peak flow meters.",
+          "critical_evidence": "Peak flow meters specifically measure the highest rate of air expelled during forced exhalation, as defined by standard pulmonary function testing guidelines.",
+          "differential_considered": "Considered differential diagnoses such as obstructive vs. restrictive lung disease, but peak flow meters are not used to measure FVC or FEV1, which are key in differentiating these conditions.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 180,
+            "generation_time_s": 6.418
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 282,
+            "generated_tokens": 73,
+            "generation_time_s": 1.81
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and C describe measurements not directly recorded by peak flow meters (minimum and total air exhaled over a set period, respectively). Option B is a related but distinct measurement (FEV1) that peak flow meters do not directly record, unlike the instantaneous peak flow value.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 216,
+            "generation_time_s": 6.931
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "D": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

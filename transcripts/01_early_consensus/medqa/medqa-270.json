@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-270",
+  "dataset": "medqa",
+  "question_id": "270",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 44-year-old Caucasian male presents with a fever, recent weight loss, and a cough productive of bloody sputum. A chest X-ray and CT scan were performed, revealing cavities near the apex of his lungs. The patient is started on rifampin, isoniazid, ethambutol and pyrazinamide. Formation of the cavities in the patient's lungs is mainly mediated by:",
+    "options": {
+      "A": "TH1 cells",
+      "B": "Toxin secretion by the bacterium",
+      "C": "B-cells",
+      "D": "NK cells",
+      "E": "Apoptosis"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (fever, weight loss, bloody sputum, cavitary lesions on chest imaging) strongly suggests tuberculosis (TB). The treatment regimen (rifampin, isoniazid, ethambutol, pyrazinamide) is standard for TB. Cavitary lesions in TB are primarily caused by the host's immune response, specifically the activation of macrophages and the subsequent formation of granulomas. This process is largely driven by TH1 cells, which release cytokines that activate macrophages to kill intracellular bacteria. While other immune cells play a role, TH1 cells are the primary mediators of granuloma formation and cavity formation in TB.",
+          "critical_evidence": "Cavitary lesions in the lungs are a hallmark of tuberculosis.",
+          "differential_considered": "While other conditions can cause cavitary lung lesions (e.g., fungal infections, bacterial infections like Klebsiella), the patient's history of fever, weight loss, and the specific treatment regimen strongly point towards TB. The immune response to TB is the most likely cause of the cavities.",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 254,
+            "generation_time_s": 12.554
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation with lung cavities suggests necrotizing pneumonia, commonly seen in tuberculosis. The cavities are likely formed through bacterial destruction of lung tissue, leading to subsequent immune-mediated processes. While immune cells like TH1 cells and NK cells are involved in the inflammatory response, the cavities themselves are primarily a result of bacterial killing of host cells, followed by tissue breakdown and subsequent apoptosis of dying cells. This process creates the characteristic cavities seen on imaging. B-cells are more involved in antibody production, and toxin secretion by the bacterium contributes to disease severity but not cavity formation. Rifampin, isoniazid, ethambutol, and pyrazinamide are standard first-line TB medications, supporting a diagnosis of active tuberculosis.",
+          "critical_evidence": "Chest X-ray and CT scan showing cavities near the apex of the lungs",
+          "differential_considered": "Considered fungal infections, viral pneumonias, and other causes of cavities, but ruled out due to the combination of symptoms, clinical presentation, and the fact that the patient is on TB-specific medications. The presence of bloody sputum and recent weight loss further supports a diagnosis of active tuberculosis.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.593
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s presentation — fever, weight loss, bloody sputum, and apical lung cavities — is classic for active pulmonary tuberculosis. The treatment regimen (rifampin, isoniazid, ethambutol, pyrazinamide) confirms TB diagnosis. Cavitation in TB is primarily driven by granulomatous inflammation and immune-mediated tissue destruction, particularly involving TH1 cells that orchestrate macrophage activation and bacterial killing. Other options (B, C, D, E) are not primary mediators of TB cavity formation.",
+          "critical_evidence": "Apical lung cavities and treatment with anti-TB drugs strongly indicate active pulmonary tuberculosis, where TH1-mediated immune response is central to granuloma formation and tissue necrosis leading to cavitation.",
+          "differential_considered": "Other causes of lung cavities (e.g., lung cancer, fungal infections, necrotizing pneumonia) were considered but ruled out by the clinical context (fever, weight loss, bloody sputum) and the efficacy of anti-TB therapy.",
+          "usage": {
+            "prompt_tokens": 325,
+            "generated_tokens": 247,
+            "generation_time_s": 8.667
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The formation of the cavities in the patient's lungs is mainly mediated by TH1 cells.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 20,
+            "generation_time_s": 0.498
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of cavitary lung lesions (e.g., lung cancer, fungal infections, idiopathic pulmonary nodules) were likely considered but are less consistent with the drug regimen and the classic TB symptom profile.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 222,
+            "generation_time_s": 6.993
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

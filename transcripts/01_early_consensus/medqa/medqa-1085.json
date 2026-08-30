@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1085",
+  "dataset": "medqa",
+  "question_id": "1085",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 20-year-old man presents with a tremor involving his upper limbs for the past 3 weeks. He says his symptoms have been progressively worsening. Past medical history is significant for 2 episodes of undiagnosed jaundice over the last year. No significant family history. His temperature is 36.9°C (98.4°F), the pulse is 82/min, the blood pressure is 116/78 mm Hg, and the respiratory rate is 12/min. On physical examination, there is excessive salivation, and he has an expressionless face. He has an ataxic gait accompanied by asymmetric resting and kinetic tremors. Hepatomegaly is evident. There is a greenish-gold limbal ring in both corneas. After laboratory findings confirm the diagnosis, the patient is prescribed a medication that he is warned may worsen his tremors. The patient is also instructed to return in a week for a complete blood count and urinalysis. Which of the following additional adverse effects may be expected in this patient while taking this medication?",
+    "options": {
+      "A": "Pulmonary fibrosis",
+      "B": "Constipation",
+      "C": "Weight gain",
+      "D": "Myasthenia gravis",
+      "E": "Sensorineural deafness"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (tremor, jaundice, hepatomegaly, and a greenish-gold limbal ring) strongly suggests Wilson's disease. The medication prescribed is likely a copper chelator, such as penicillamine. Pulmonary fibrosis is a known adverse effect of penicillamine.",
+          "critical_evidence": "The combination of tremor, jaundice, hepatomegaly, and a greenish-gold limbal ring is highly suggestive of Wilson's disease.",
+          "differential_considered": "While the symptoms could potentially be caused by other conditions, the presence of a greenish-gold limbal ring is a key indicator of Wilson's disease, making it the most likely diagnosis. Other conditions like thyroid disorders or certain medications could cause tremors, but they wouldn't typically present with the other findings.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 204,
+            "generation_time_s": 10.072
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's ataxic gait, tremors, and hepatomegaly with jaundice suggest a likely diagnosis of Wilson's disease, a genetic disorder causing copper accumulation. The greenish-gold limbal ring is a classic sign of Wilson's disease. The medication prescribed is likely to treat Wilson's disease, which can cause sensorineural deafness as a side effect due to cochlear damage from copper toxicity. The other options (pulmonary fibrosis, constipation, weight gain, myasthenia gravis) are less likely given the clinical presentation and lack of supporting evidence.",
+          "critical_evidence": "Greenish-gold limbal ring in both corneas",
+          "differential_considered": "Considered Wilson's disease (primary diagnosis), but ruled out other causes of ataxia and tremors such as multiple sclerosis or drug-induced tremors due to the absence of typical neurological signs and the presence of hepatomegaly and jaundice. The patient's history of undiagnosed jaundice supports the diagnosis of Wilson's disease.",
+          "usage": {
+            "prompt_tokens": 489,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.456
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with tremors, hepatomegaly, jaundice history, and a greenish-gold limbal ring — classic signs of Wilson disease. The medication prescribed is likely penicillamine or trientine, which are chelators used to treat Wilson disease. These drugs are known to cause constipation as a common adverse effect. The other options are not typical adverse effects of Wilson disease treatment.",
+          "critical_evidence": "Greenish-gold limbal ring (Kayser-Fleischer ring) is pathognomonic for Wilson disease.",
+          "differential_considered": "Other causes of tremor and hepatomegaly (e.g., hepatic encephalopathy, hyperthyroidism, essential tremor) were considered but ruled out by the presence of Kayser-Fleischer rings, expressionless face, and ataxic gait — findings highly suggestive of Wilson disease.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 216,
+            "generation_time_s": 7.581
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 12,
+            "generation_time_s": 0.316
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "- Dementia with Lewy bodies (could also present with tremor and cognitive changes, but the medication warning and the neurologic exam are more directly linked to myasthenia gravis if considering a drug effect).\n  - Multiple system atrophy (another movement disorder, but the question focuses on a medication-induced adverse effect).\n  - Wilson's disease (related to liver issues and copper accumulation, but not directly to medication side effects).\n  - Essential tremor or other tremor disorders (but the progressive motor symptoms and medication warning point away from these).",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 421,
+            "generation_time_s": 13.22
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 1,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

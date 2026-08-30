@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-670",
+  "dataset": "mmlu",
+  "question_id": "670",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following molecules will stop being produced first when oxygen is no longer supplied to the cell?",
+    "options": {
+      "A": "Oxaloacetate",
+      "B": "Pyruvate",
+      "C": "Water",
+      "D": "Adenosine triphosphate"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The first molecule to be stopped being produced when oxygen is no longer supplied to the cell is pyruvate. This is because pyruvate is the end product of glycolysis and its conversion to acetyl-CoA requires oxygen. Without oxygen, pyruvate is converted to lactate, which is a fermentation product.",
+          "critical_evidence": "Pyruvate is the end product of glycolysis and its conversion to acetyl-CoA requires oxygen.",
+          "differential_considered": "Oxaloacetate is involved in the citric acid cycle, which requires oxygen. Water is a byproduct of many cellular processes and is not directly related to oxygen supply. ATP is the final product of cellular respiration and is produced in the presence of oxygen. While ATP production will eventually cease, pyruvate is the first molecule to be affected by the lack of oxygen.",
+          "usage": {
+            "prompt_tokens": 273,
+            "generated_tokens": 198,
+            "generation_time_s": 10.011
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "When oxygen is no longer supplied to the cell, the electron transport chain stops functioning, halting oxidative phosphorylation. This leads to a rapid decrease in ATP production. Pyruvate, which is a key intermediate in glycolysis and the entry point for the citric acid cycle, will be the first to accumulate as glycolysis slows down due to lack of NADH and FADH2 for its continuation. Oxaloacetate is a stable intermediate in the citric acid cycle, water is continuously produced in various metabolic pathways, and ATP levels decrease but are not the first to be affected. Thus, pyruvate is the first molecule to stop being produced.",
+          "critical_evidence": "The immediate halt in electron transport chain activity due to oxygen deprivation leads to the accumulation of pyruvate.",
+          "differential_considered": "Other options like oxaloacetate, water, and ATP are not the first to be affected because they are either stable intermediates or products of multiple pathways, or are produced in varying amounts depending on the cell's energy needs. The key differentiator is the direct link between oxygen availability and pyruvate production through glycolysis.",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 273,
+            "generation_time_s": 13.012
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Oxygen is essential for oxidative phosphorylation, the final stage of cellular respiration that produces ATP. Without oxygen, ATP synthesis ceases almost immediately due to the collapse of the proton gradient. While pyruvate and oxaloacetate are intermediates in glycolysis and the Krebs cycle, they can persist for a short time due to prior metabolic activity. Water is a byproduct of the electron transport chain and its production halts only after the chain is disrupted — but ATP depletion is the most immediate consequence of oxygen deprivation.",
+          "critical_evidence": "ATP is the direct product of oxidative phosphorylation, which requires oxygen as the final electron acceptor; its production stops within seconds of oxygen deprivation.",
+          "differential_considered": "Pyruvate and oxaloacetate were considered as potential early stoppages, but they are intermediates that can be maintained by prior glycolytic or Krebs cycle activity. Water production is also delayed relative to ATP depletion. None of these are as immediately affected as ATP, which is essential for cellular function and is rapidly depleted without oxygen.",
+          "usage": {
+            "prompt_tokens": 251,
+            "generated_tokens": 251,
+            "generation_time_s": 9.122
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "When oxygen is no longer supplied to the cell, the first molecule to stop being produced is pyruvate. This is because in the absence of oxygen, the cell cannot continue with aerobic respiration and must switch to anaerobic glycolysis. In anaerobic glycolysis, pyruvate is converted to lactate, thus stopping the production of pyruvate.",
+          "critical_evidence": "The inability to continue with aerobic respiration leads to the cessation of pyruvate production.",
+          "differential_considered": "None of the other options are directly related to the immediate cessation of production due to lack of oxygen.",
+          "usage": {
+            "prompt_tokens": 278,
+            "generated_tokens": 155,
+            "generation_time_s": 3.892
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 305,
+            "generated_tokens": 261,
+            "generation_time_s": 8.692
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

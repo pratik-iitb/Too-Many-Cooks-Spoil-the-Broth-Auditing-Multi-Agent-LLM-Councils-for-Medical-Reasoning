@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-990",
+  "dataset": "mmlu",
+  "question_id": "990",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old woman, gravida 2, para 1, at 12 weeks' gestation comes to the physician for a prenatal visit. She feels well. Pregnancy and delivery of her first child were uncomplicated. Medications include folic acid and a multivitamin. Her temperature is 37.2°C (99°F), and blood pressure is 108/60 mm Hg. Pelvic examination shows a uterus consistent in size with a 12-week gestation. Urine dipstick shows leukocyte esterase; urinalysis shows WBCs and rare gram-negative rods. Which of the following is the most appropriate next step in management?",
+    "options": {
+      "A": "Recommend drinking 8 oz of cranberry juice daily",
+      "B": "Oral amoxicillin therapy",
+      "C": "Oral metronidazole therapy",
+      "D": "Intravenous cefazolin therapy"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a positive leukocyte esterase and WBCs on urinalysis, suggesting a urinary tract infection (UTI). Given her pregnancy status, the most appropriate initial management is to recommend drinking plenty of fluids and potentially oral antibiotics. Cranberry juice is a reasonable adjunct to oral antibiotics, but not a standalone treatment. Amoxicillin and metronidazole are not first-line agents for UTIs in pregnancy due to concerns about potential fetal harm. Intravenous antibiotics are not indicated at this stage unless there are signs of systemic infection or complications.",
+          "critical_evidence": "Positive leukocyte esterase and WBCs on urinalysis strongly suggest a UTI.",
+          "differential_considered": "Pyelonephritis: While possible, the patient is afebrile and has no flank pain, making pyelonephritis less likely as the primary diagnosis. Other infections: The urinalysis findings are more suggestive of a UTI than other infections. Therefore, other infections are less likely.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 235,
+            "generation_time_s": 11.854
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The presence of WBCs and gram-negative rods in the urine suggests a urinary tract infection (UTI), which is a common cause of leukocyte esterase in pregnant women. Amoxicillin is the first-line oral antibiotic for uncomplicated UTIs in pregnancy, including in the second and third trimesters. It is safe for the fetus and effectively treats gram-negative organisms.",
+          "critical_evidence": "Gram-negative rods in the urine",
+          "differential_considered": "Considered stone formation, sexually transmitted infections, and other causes of leukocyturia, but ruled out due to the specific pathogen identified and the context of pregnancy. Cranberry juice (A) has limited evidence for UTI prevention, metronidazole (C) is less appropriate for gram-negative infections, and IV cefazolin (D) is reserved for severe infections or when IV antibiotics are necessary.",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 211,
+            "generation_time_s": 10.059
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a 12-week pregnant woman with asymptomatic bacteriuria (WBCs and rare gram-negative rods on urinalysis) and leukocyte esterase on dipstick, indicating a urinary tract infection. In pregnancy, asymptomatic bacteriuria should be treated with oral antibiotics to prevent pyelonephritis and preterm delivery. Amoxicillin is first-line for uncomplicated UTIs in pregnancy due to safety and efficacy. Cranberry juice (A) is not therapeutic. Metronidazole (C) is not indicated for gram-negative rods. IV cefazolin (D) is reserved for severe or complicated infections.",
+          "critical_evidence": "Urine dipstick shows leukocyte esterase; urinalysis shows WBCs and rare gram-negative rods — indicating asymptomatic bacteriuria requiring treatment in pregnancy.",
+          "differential_considered": "Pyelonephritis was considered but ruled out due to absence of fever, flank pain, or systemic symptoms. Other causes of leukocyte esterase (e.g., non-infectious inflammation) were less likely given the presence of WBCs and gram-negative rods.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 264,
+            "generation_time_s": 9.472
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 113,
+            "generation_time_s": 2.812
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "UTI (differential), but other causes like pyelonephritis or less likely sexually transmitted infection were ruled out due to the context of pregnancy and the presence of WBCs and gram-negative rods in urine. Severe symptoms or high-risk pregnancy factors would have warranted IV antibiotics, but the case does not indicate those. Thus, oral antibiotics targeting typical UTI causative organisms are appropriate.",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 325,
+            "generation_time_s": 10.466
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

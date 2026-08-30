@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-1223",
+  "dataset": "metamed",
+  "question_id": "1223",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A man is brought into the emergency department by the police department. The officer state that the man has been arrested multiple times for public alcohol intoxication, but recently became homeless. On exam, the man is behaving erratically. His vitals are all within normal limits. He appears confused and has a slurred speech. On gait exam, the patient is ataxic and cannot stand without support for more than a few seconds. Labs return with the following values: Na 140, K 4, Cl 106, BUN 8, Cr 2. His ABG has pH 7.3, PaCO2 13mm, PaO2 130mm, HCO3 7. His urinalysis is shown in Figure 1. Blood salicylate levels return as normal. While you await other diagnostic tests, which of the following should be administered next to treat this patient?",
+    "options": {
+      "A": "Ethanol",
+      "B": "Naltrexone",
+      "C": "Naloxone",
+      "D": "Fomepizole",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "F",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Bad"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of ataxia, slurred speech, and confusion, along with a history of public intoxication, strongly suggests alcohol withdrawal. The elevated chloride level (106) is also consistent with alcohol withdrawal. While the patient's history of homelessness and the urinalysis are important, the immediate priority is to address the potential for alcohol withdrawal, which can be life-threatening. Naloxone is used for opioid overdose, and while alcohol withdrawal can cause similar symptoms, it is not the primary treatment for this presentation.",
+          "critical_evidence": "Elevated chloride level (106) and history of public intoxication.",
+          "differential_considered": "Ethanol (A) would worsen the patient's condition, as it is a central nervous system depressant. Naltrexone (B) is used for opioid and alcohol dependence, but is not the first-line treatment for acute alcohol withdrawal. Fomepizole (D) is used to treat ethylene glycol or methanol poisoning, which is not indicated by the patient's presentation. While the patient's history of homelessness and the urinalysis are important, the immediate priority is to address the potential for alcohol withdrawal, which can be life-threatening.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 289,
+            "generation_time_s": 14.548
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's elevated BUN and Cr suggest possible renal dysfunction, which could impair clearance of alcohol and its metabolites. The normal ABG values rule out severe respiratory acidosis, but the low HCO3 (7) indicates metabolic acidosis, likely from alcohol metabolism. Given the homeless patient's history of alcohol intoxication and the metabolic acidosis, fomepizole (a sodium bicarbonate) is indicated to alkalinize the urine and protect against renal tubular acidosis. Ethanol is not indicated as the patient is not actively intoxicated, and naloxone/opiates are not indicated by the urinalysis or vitals. Naltrexone is for addiction treatment, not acute intoxication.",
+          "critical_evidence": "Elevated BUN and Cr with metabolic acidosis",
+          "differential_considered": "Considered alcohol intoxication, but ruled out by normal ABG and lack of active intoxication. Considered renal failure, which is supported by BUN/Cr ratio and acidosis. Considered other causes of metabolic acidosis, but renal tubular acidosis is most likely given the patient's history.",
+          "usage": {
+            "prompt_tokens": 466,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.651
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with confusion, slurred speech, ataxia, and a severe metabolic acidosis with profound respiratory alkalosis (pH 7.3, PaCO2 13 mmHg, HCO3 7), consistent with ethylene glycol or methanol poisoning. However, blood salicylate levels are normal, ruling out salicylate toxicity. The urinalysis (not shown but implied to be significant) likely shows characteristic findings such as low specific gravity or ketones, but the most critical clue is the ABG pattern. Fomepizole is the antidote of choice for ethylene glycol or methanol poisoning, and it should be administered immediately while awaiting confirmatory tests. Ethanol and naloxone are not indicated here; naltrexone is for alcohol dependence, not acute intoxication.",
+          "critical_evidence": "ABG showing pH 7.3, PaCO2 13 mmHg, HCO3 7 — classic for metabolic acidosis with respiratory compensation, suggestive of toxic alcohol ingestion.",
+          "differential_considered": "Alcohol intoxication (ruled out by normal salicylate levels and lack of typical ethanol toxicity signs), diabetic ketoacidosis (BUN/Cr normal, no ketones implied), and other metabolic causes — all less likely given the ABG pattern and clinical presentation.",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 311,
+            "generation_time_s": 11.084
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 13,
+            "generation_time_s": 0.364
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 491,
+            "generated_tokens": 311,
+            "generation_time_s": 10.361
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "F",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

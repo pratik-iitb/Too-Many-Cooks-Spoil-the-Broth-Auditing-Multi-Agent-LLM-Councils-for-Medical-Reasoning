@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-231",
+  "dataset": "mmlu",
+  "question_id": "231",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A person is prescribed Ropinirole 1.5 mg divided into three doses. How many micrograms is each dose? Choose one answer from the following:",
+    "options": {
+      "A": "5",
+      "B": "50",
+      "C": "0.5",
+      "D": "500"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "Ropinirole is a dopamine agonist used to treat Parkinson's disease and restless legs syndrome. The dosage is 1.5 mg divided into three doses, which means each dose is 1.5 mg / 3 doses = 0.5 mg per dose. Since 1 mg = 1000 micrograms, each dose is 0.5 mg * 1000 micrograms/mg = 500 micrograms.",
+          "critical_evidence": "The dosage is 1.5 mg divided into three doses.",
+          "differential_considered": "The question asks for the dosage in micrograms. While the dosage is given in milligrams, the conversion to micrograms is straightforward. Other conditions that might cause similar symptoms (e.g., essential tremor) are not relevant to the question.",
+          "usage": {
+            "prompt_tokens": 289,
+            "generated_tokens": 205,
+            "generation_time_s": 10.765
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Ropinirole is prescribed as 1.5 mg total, divided into three equal doses. To find the dose per administration, we divide 1.5 mg by 3. Since 1 mg equals 1000 micrograms, 1.5 mg equals 1500 micrograms. Dividing 1500 micrograms by 3 gives 500 micrograms per dose. Therefore, each dose is 500 micrograms.",
+          "critical_evidence": "1.5 mg total dose divided into three equal doses",
+          "differential_considered": "No differential diagnoses needed as this is a straightforward dosage calculation. The key consideration was unit conversion from milligrams to micrograms and proper division of the total dose.",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.482
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Ropinirole is prescribed in milligrams (mg), and 1.5 mg divided into three doses equals 0.5 mg per dose. Since 1 mg = 1000 mcg, 0.5 mg equals 500 mcg per dose. This conversion is straightforward and clinically standard.",
+          "critical_evidence": "1.5 mg divided into three doses = 0.5 mg per dose; 0.5 mg = 500 mcg.",
+          "differential_considered": "No differential diagnoses are relevant here as this is a straightforward unit conversion question with no clinical context beyond medication dosing.",
+          "usage": {
+            "prompt_tokens": 262,
+            "generated_tokens": 163,
+            "generation_time_s": 6.559
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The correct dose of Ropinirole is 1.5 mg, which is prescribed to be taken in three doses. To calculate the amount of each dose, we divide the total daily dose (1.5 mg) by the number of doses per day (3). This gives us 0.5 mg per dose. Therefore, each dose is 0.5 mg, which is 500 micrograms.",
+          "critical_evidence": "The prescription states 1.5 mg total, and it is divided into three doses.",
+          "differential_considered": "None of the other options are correct as they do not accurately represent the calculation of the dose.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 158,
+            "generation_time_s": 3.893
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (A: 5 µg, B: 50 µg, C: 0.5 mg) do not match the result of dividing 1.5 mg by three, which yields 0.5 mg per dose, equivalent to 500 µg.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 215,
+            "generation_time_s": 6.918
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

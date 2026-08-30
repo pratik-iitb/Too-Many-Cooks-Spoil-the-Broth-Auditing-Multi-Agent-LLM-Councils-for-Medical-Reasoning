@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-739",
+  "dataset": "medqa",
+  "question_id": "739",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 58-year-old man with a history of heart failure is admitted to the hospital for a cardiac transplantation. Five years ago, the patient had a mitral valve replacement with a porcine valve, but since then his heart failure symptoms have not improved. He developed persistent New York Heart Association class IV symptoms and was placed on the transplant waiting list. The heart to be transplanted originated from a deceased donor and the family has given consent for the transplantation. The patient is subsequently started on cyclosporine, and the postoperative period is unremarkable. He is readmitted to the emergency department 10 months later due to chest pain and severe shortness of breath. What is true about the medication prescribed to this patient?",
+    "options": {
+      "A": "Inhibits IMP dehydrogenase",
+      "B": "Binds FK506 binding protein",
+      "C": "Blocks IL-2R",
+      "D": "Inhibits calcineurin",
+      "E": "Is a precursor of 6-mercaptopurine"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is on cyclosporine, a calcineurin inhibitor. Calcineurin inhibitors are known to cause nephrotoxicity and hypertension, which can lead to chest pain and shortness of breath. The patient's history of heart failure and the timing of his readmission strongly suggest a medication-related side effect.",
+          "critical_evidence": "The patient is on cyclosporine, a calcineurin inhibitor.",
+          "differential_considered": "A: IMP dehydrogenase inhibitors (e.g., mycophenolate mofetil) are used for immunosuppression but are not typically the primary immunosuppressant in heart transplant recipients. B: FK506 binding protein inhibitors (e.g., tacrolimus) are also used for immunosuppression, but cyclosporine is the more likely culprit given the clinical presentation. C: IL-2R blockers (e.g., basiliximab) are used for induction immunosuppression, not typically continued long-term. E: 6-mercaptopurine is an antimetabolite used for immunosuppression, but it is not a primary immunosuppressant in heart transplant recipients and would not be the first medication to be considered in this scenario.",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 278,
+            "generation_time_s": 13.737
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient received a heart transplant and was started on cyclosporine, which is a calcineurin inhibitor. Calcineurin inhibitors prevent the activation of calcineurin, an enzyme that phosphorylates and inactivates NF-κB, a transcription factor involved in immune regulation. By inhibiting calcineurin, cyclosporine allows NF-κB to remain active, leading to the upregulation of genes involved in immune suppression, which is essential for preventing graft rejection. The other options are not relevant to cyclosporine's mechanism of action.",
+          "critical_evidence": "The patient was started on cyclosporine after the heart transplant.",
+          "differential_considered": "Options A, B, C, and E were considered but ruled out because they do not describe cyclosporine's mechanism of action. Cyclosporine is a calcineurin inhibitor, not an IMP dehydrogenase inhibitor, FK506 binding protein binder, IL-2R blocker, or precursor of 6-mercaptopurine.",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.471
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient received cyclosporine post-transplant, which is a calcineurin inhibitor used to prevent organ rejection. Calcineurin inhibition blocks T-cell activation, a key mechanism in transplant rejection. The clinical scenario involves post-transplant complications, and cyclosporine’s mechanism of action is directly tied to calcineurin inhibition. Other options describe mechanisms of different immunosuppressants (e.g., mycophenolate for IMP dehydrogenase, tacrolimus for FKBP binding, basiliximab for IL-2R), which are not relevant here.",
+          "critical_evidence": "The patient was started on cyclosporine post-transplant, and the question asks about the mechanism of this specific drug.",
+          "differential_considered": "Other immunosuppressants like tacrolimus (B) or basiliximab (C) were considered, but cyclosporine’s primary mechanism is calcineurin inhibition (D), which is well-established and directly relevant to the case. Mycophenolate (A) and 6-mercaptopurine (E) are not used as first-line post-transplant agents and are not associated with cyclosporine.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 285,
+            "generation_time_s": 9.989
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 433,
+            "generated_tokens": 96,
+            "generation_time_s": 2.314
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "The patient is on cyclosporine as part of transplant immunosuppression, which is known to inhibit calcineurin to prevent T-cell activation and allograft rejection.",
+          "differential_considered": "Other options describe drug mechanisms not used in this patient's management; the key issue is transplant rejection, best addressed by cyclosporine's immunosuppressive role.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 276,
+            "generation_time_s": 8.585
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1187",
+  "dataset": "medqa",
+  "question_id": "1187",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 21-year-old woman comes to the physician for a routine physical examination. She feels well. She is 163 cm (5 ft 4 in) tall and weighs 54 kg (120 lb); BMI is 20.3 kg/m2. Physical examination shows no abnormalities. Her fasting serum glucose concentration is 132 mg/dL. Serum insulin concentration 30 minutes after oral glucose administration is 20 mIU/L (N: 30–230). Her hemoglobin A1C concentration is 7.1%. After a thorough workup, the physician concludes that the patient has a chronic condition that can likely be managed with diet only and that she is not at a significantly increased risk of micro- or macrovascular complications. Which of the following is the most likely cause of the patient's condition?",
+    "options": {
+      "A": "Defect in expression of glucokinase gene",
+      "B": "Increased endogenous cortisol production",
+      "C": "Resistance to insulin-mediated glucose uptake",
+      "D": "Autoantibodies to pancreatic beta cells",
+      "E": "Mutation in hepatocyte nuclear factor 1\n\""
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's fasting glucose of 132 mg/dL, a 2-hour post-glucose load of 20 mIU/L, and a hemoglobin A1c of 7.1% all point towards impaired glucose tolerance. The patient's BMI is within the normal range, making obesity less likely. The physician's conclusion that the condition is likely manageable with diet only and that the patient is not at significantly increased risk of complications suggests a diagnosis of prediabetes. Insulin resistance is a common cause of impaired glucose tolerance. While other options could cause hyperglycemia, they are less likely given the clinical picture.",
+          "critical_evidence": "The patient's 2-hour post-glucose load of 20 mIU/L is significantly below the normal range (30-230 mIU/L), indicating impaired glucose tolerance.",
+          "differential_considered": "A: Defect in expression of glucokinase gene: While glucokinase deficiency can cause impaired glucose tolerance, it typically presents in infancy or childhood, not in a 21-year-old. B: Increased endogenous cortisol production: Cushing's syndrome can cause hyperglycemia, but the patient's presentation is not typical for Cushing's. D: Autoantibodies to pancreatic beta cells: Autoimmune destruction of beta cells is the hallmark of type 1 diabetes, which usually presents with more severe hyperglycemia and ketoacidosis. E: Mutation in hepatocyte nuclear factor 1: Mutations in HNF1 can cause maturity-onset diabetes of the young (MODY), but this is less likely given the patient's age and the absence of other typical MODY features.",
+          "usage": {
+            "prompt_tokens": 466,
+            "generated_tokens": 381,
+            "generation_time_s": 18.906
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's fasting glucose is elevated (132 mg/dL) but normal hemoglobin A1C (7.1%) and normal insulin response (20 mIU/L) suggest impaired insulin action rather than absolute insulin deficiency. The normal insulin response rules out primary insulin deficiency (e.g., type 1 diabetes), while the elevated fasting glucose with normal A1C indicates glucose production exceeds utilization. This pattern is consistent with insulin resistance, where cells fail to respond properly to insulin, leading to compensatory hyperinsulinemia and normal A1C despite elevated glucose.",
+          "critical_evidence": "Normal insulin response (20 mIU/L) after oral glucose administration",
+          "differential_considered": "Type 1 diabetes (ruled out by normal insulin response), type 2 diabetes with normal A1C (but elevated glucose), and other rare causes like glucokinase deficiency (ruled out by normal insulin response), cortisol excess (not supported by clinical presentation), pancreatic autoimmunity (not indicated by normal insulin response), and hepatocyte nuclear factor 1 mutation (not supported by clinical data).",
+          "usage": {
+            "prompt_tokens": 451,
+            "generated_tokens": 254,
+            "generation_time_s": 11.855
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has impaired fasting glucose (132 mg/dL) and elevated HbA1c (7.1%), consistent with prediabetes or early type 2 diabetes. Her 30-minute post-glucose insulin level (20 mIU/L) is low, suggesting insulin deficiency or resistance. Given her young age, normal BMI, and absence of complications, this is most consistent with insulin resistance, a hallmark of type 2 diabetes in early stages. The other options involve autoimmune (D), genetic (A, E), or hormonal (B) causes that typically present with different patterns or earlier complications.",
+          "critical_evidence": "HbA1c of 7.1% and fasting glucose of 132 mg/dL indicate impaired glucose regulation, while the low 30-minute insulin level suggests insulin resistance rather than beta-cell failure or autoimmune destruction.",
+          "differential_considered": "Defect in glucokinase (A) causes MODY, typically presents earlier and with fasting hyperglycemia; cortisol excess (B) causes fasting hyperglycemia with other signs; autoantibodies (D) point to type 1 diabetes, which would show low insulin and autoantibodies; HNF1 mutation (E) causes MODY, often with early-onset diabetes and family history. None fit as well as insulin resistance (C).",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 314,
+            "generation_time_s": 11.041
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's fasting glucose is at the upper limit of normal, and her hemoglobin A1C is slightly elevated, indicating impaired glucose metabolism. The most likely cause of her condition is insulin resistance, which is common in young women and can be managed with diet and exercise. The other options are less likely given the clinical presentation and workup findings.",
+          "critical_evidence": "The patient's elevated hemoglobin A1C level is the most important finding, indicating chronic hyperglycemia.",
+          "differential_considered": "The differential diagnoses considered were defects in glucokinase expression, increased endogenous cortisol production, autoantibodies to pancreatic beta cells, and a mutation in hepatocyte nuclear factor 1. These were ruled out based on the clinical presentation and workup findings, with insulin resistance being the most likely cause.",
+          "usage": {
+            "prompt_tokens": 449,
+            "generated_tokens": 191,
+            "generation_time_s": 4.645
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyperglycemia (serum glucose 132 mg/dL) and impaired glucose tolerance (low insulin response at 30 minutes postprandial glucose, 20 mIU/L), along with a HbA1c of 7.1%, which is mildly elevated but not yet in the diabetic range (HbA1c >6.5%). This pattern is most consistent with a genetic defect affecting glucose regulation, such as a glucokinase gene defect, which can cause mild, stable hyperglycemia and variable insulin response despite normal BMI. Other causes like stress-induced cortisol increase (B), insulin resistance (C), autoantibody-mediated diabetes (D), or HNF1 mutations (E) typically present with more pronounced or progressive glucose abnormalities and are less likely to explain a mildly elevated HbA1c in a young, otherwise healthy woman without evidence of autoimmune or metabolic syndrome.",
+          "critical_evidence": "The combination of mildly elevated HbA1c with a subnormal insulin response to glucose challenge in a young woman with no other risk factors strongly suggests an inherited enzyme deficiency affecting glucose metabolism, such as a defect in the glucokinase gene.",
+          "differential_considered": "Insulin resistance (C), T2D due to autoimmunity (D), Cushing syndrome (B), and metabolic syndrome (E) were considered but are less likely given the lack of obesity, no evidence of hypercortisolism, and the absence of autoimmune markers or HNF1-related disease features.",
+          "usage": {
+            "prompt_tokens": 484,
+            "generated_tokens": 345,
+            "generation_time_s": 10.869
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

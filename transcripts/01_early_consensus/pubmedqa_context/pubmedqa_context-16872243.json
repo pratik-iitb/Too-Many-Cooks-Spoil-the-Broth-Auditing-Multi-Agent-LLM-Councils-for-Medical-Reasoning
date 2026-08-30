@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-16872243",
+  "dataset": "pubmedqa_context",
+  "question_id": "16872243",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can decisional algorithms replace global introspection in the individual causality assessment of spontaneously reported ADRs?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "In this study, an expert panel assessed causality of adverse reports by using the WHO global introspection (GI) method. The same reports were independently assessed using 15 published algorithms. The causality assessment level 'possible' was considered the lower limit for a report to be considered to be drug related. For a given algorithm, sensitivity was determined by the proportion of reports simultaneously classified as drug related by the algorithm and the GI method. Specificity was measured as the proportion of reports simultaneously considered non-drug related. The analysis was performed for the total sample and within serious or unexpected events. Five hundred adverse reports were studied. Algorithms presented high rates of sensitivity (average of 93%, positive predictive value of 89%) and low rates of specificity (average of 7%, negative predictive value of 31%).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that algorithms have high sensitivity but low specificity in assessing causality of adverse drug reactions (ADRs). This means they are good at identifying potential drug-related events but also prone to false positives. Global introspection, while subjective, may be more reliable in distinguishing true drug-related events from other causes, especially in cases with less clear-cut evidence. Therefore, algorithms cannot fully replace global introspection.",
+          "critical_evidence": "Algorithms presented high rates of sensitivity (average of 93%, positive predictive value of 89%) and low rates of specificity (average of 7%, negative predictive value of 31%).",
+          "differential_considered": "While other factors could contribute to ADRs, the study focuses specifically on drug causality. Other potential causes (e.g., patient factors, environmental factors) are not directly addressed in the provided information, making them less relevant to the question of whether algorithms can replace global introspection in assessing drug causality.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 236,
+            "generation_time_s": 13.898
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The study shows that decisional algorithms have high sensitivity (93% average) but low specificity (7% average), meaning they are good at detecting potential drug-related events but poor at correctly identifying non-drug related events. This suggests algorithms are better at flagging possible drug-related events but may generate many false positives. Global introspection by experts provides more nuanced judgment and better negative predictive value (31%), which is crucial for correctly excluding drug-related events. Therefore, algorithms cannot fully replace human judgment in causality assessment.",
+          "critical_evidence": "The low specificity of algorithms (7%) and high false positive rate compared to the better negative predictive value of global introspection (31%) indicates that algorithms are not reliable for definitive causality assessment.",
+          "differential_considered": "The key differential is whether algorithms can match human expertise in both sensitivity and specificity. The data shows they excel in sensitivity but fail in specificity, making them insufficient for complete replacement of global introspection.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.061
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Decisional algorithms show high sensitivity but extremely low specificity, meaning they frequently misclassify non-drug-related events as drug-related. This undermines their reliability for individual causality assessment, especially when global introspection (GI) is the gold standard. The low specificity (7%) and negative predictive value (31%) indicate high false-positive rates, making algorithms unsuitable as replacements for GI in clinical decision-making.",
+          "critical_evidence": "Algorithms have an average specificity of 7% and negative predictive value of 31%, indicating poor ability to rule out drug-relatedness in non-drug-related reports.",
+          "differential_considered": "Considered 'maybe' as a middle ground, but ruled out because the data show algorithms are unreliable for individual causality assessment due to high false positives. 'Yes' was ruled out because the low specificity and negative predictive value make algorithms unsuitable for clinical use in this context.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 216,
+            "generation_time_s": 9.086
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not displayed here.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 8,
+            "generation_time_s": 0.252
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "I considered whether the algorithms might be tuned for a specific type of ADR (e.g., serious or unexpected), but the context specifies the analysis was for all spontaneously reported ADRs, and the low specificity applies to the total sample.",
+          "usage": {
+            "prompt_tokens": 459,
+            "generated_tokens": 207,
+            "generation_time_s": 7.834
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

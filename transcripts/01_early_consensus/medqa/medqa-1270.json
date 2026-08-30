@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1270",
+  "dataset": "medqa",
+  "question_id": "1270",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 55-year-old man presents to the emergency department with shortness of breath and fatigue. His symptoms began insidiously and progressively worsened over the course of a month. He becomes short of breath when climbing the stairs or performing low-intensity exercises. He also needs to rest on multiple pillows in order to comfortably sleep. A few weeks ago he developed fever, malaise, and chest pain. Medical history is significant for hypertension, hypercholesterolemia, type II diabetes, and bariatric surgery performed 10 years ago. He is taking lisinopril, atorvastatin, and metformin. He drinks alcohol occasionally and does not smoke. He tried cocaine 3 days ago for the first time and has not used the illicit drug since. Physical exam is significant for bibasilar crackles, an S3 heart sound, and a laterally displaced cardiac apex. He has normal muscle tone throughout, 2+ reflexes, and an intact sensory exam. Which of the following is most likely the cause of this patient's symptoms",
+    "options": {
+      "A": "Alcohol use",
+      "B": "Bariatric surgery",
+      "C": "Cocaine use",
+      "D": "Enterovirus",
+      "E": "Medication side-effect"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's recent cocaine use, combined with his symptoms of shortness of breath, fatigue, bibasilar crackles, S3 heart sound, and laterally displaced cardiac apex, strongly suggests acute cocaine-induced cardiomyopathy. Cocaine can cause myocardial ischemia, leading to heart failure and the observed findings.",
+          "critical_evidence": "The patient's recent cocaine use is the most critical piece of information, given the constellation of symptoms and physical exam findings.",
+          "differential_considered": "Alcohol use: While alcohol can cause cardiomyopathy, the acute onset and recent cocaine use make this less likely. Bariatric surgery: This is a chronic condition and doesn't explain the acute presentation. Enterovirus: While possible, the physical exam findings are more consistent with a cardiac etiology. Medication side-effect: While possible, the recent cocaine use is a more compelling explanation for the acute symptoms.",
+          "usage": {
+            "prompt_tokens": 474,
+            "generated_tokens": 220,
+            "generation_time_s": 10.904
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's bibasilar crackles, S3 heart sound, and laterally displaced cardiac apex suggest right ventricular dysfunction, which is consistent with cocaine-induced cardiotoxicity. The acute onset of symptoms after cocaine use, along with the history of hypertension and hypercholesterolemia, further support this diagnosis. While the patient's medical history includes risk factors for cardiovascular disease, the timing of symptom onset and the presence of drug-related findings make cocaine use the most likely cause.",
+          "critical_evidence": "Laterally displaced cardiac apex with bibasilar crackles and S3 heart sound",
+          "differential_considered": "While hypertension, hypercholesterolemia, and diabetes could contribute to heart failure, they typically don't cause the acute onset of symptoms after cocaine use. Bariatric surgery is unlikely to cause these specific cardiac findings. Alcohol use doesn't typically cause right ventricular dysfunction. Enterovirus would not explain the cardiac findings. Medication side effects are less likely given the absence of new medications and the timing of symptoms.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.655
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with progressive dyspnea, orthopnea, and bibasilar crackles, consistent with heart failure. The recent cocaine use (3 days ago) is a critical clue, as cocaine can cause acute myocardial infarction or cardiomyopathy, leading to heart failure. His other risk factors (hypertension, diabetes, bariatric surgery) contribute to cardiovascular risk, but the temporal association with cocaine use and the acute onset of symptoms make it the most likely cause. No evidence supports alcohol, enterovirus, or medication side-effects as the primary cause.",
+          "critical_evidence": "Recent cocaine use (3 days ago) in a patient with progressive heart failure symptoms and physical findings consistent with volume overload and left ventricular dysfunction.",
+          "differential_considered": "Alcohol use was considered but ruled out due to occasional use and absence of alcoholic cardiomyopathy signs. Enterovirus is unlikely given the chronicity and absence of systemic viral symptoms. Medication side-effects are improbable as the patient’s medications are not known to cause acute heart failure. Bariatric surgery is a risk factor but not the direct cause here.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 263,
+            "generation_time_s": 9.236
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 209,
+            "generation_time_s": 5.065
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (Alcohol use), B (Bariatric surgery), C (Cocaine use), D (Enterovirus), E (Medication side-effect)",
+          "usage": {
+            "prompt_tokens": 511,
+            "generated_tokens": 404,
+            "generation_time_s": 12.715
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

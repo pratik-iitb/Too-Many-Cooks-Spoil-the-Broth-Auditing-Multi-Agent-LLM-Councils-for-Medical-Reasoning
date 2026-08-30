@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-729",
+  "dataset": "mmlu",
+  "question_id": "729",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In a condition such as schizophrenia the recurrence risk will be greatest for which of the following relatives of an affected individual?",
+    "options": {
+      "A": "Brother",
+      "B": "Nephew",
+      "C": "Grandchild",
+      "D": "Aunt"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Schizophrenia has a strong genetic component, with a significant heritability. The recurrence risk is highest for first-degree relatives, such as siblings and parents. While other relatives have a lower risk, the risk is still elevated compared to the general population. The recurrence risk is highest for siblings.",
+          "critical_evidence": "Schizophrenia has a strong genetic component.",
+          "differential_considered": "Nephew and Grandchild: While these relatives share genes with the affected individual, the genetic link is less direct and the risk is lower than for siblings. Aunt: The risk is lower than for siblings.",
+          "usage": {
+            "prompt_tokens": 273,
+            "generated_tokens": 164,
+            "generation_time_s": 8.369
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Schizophrenia has a strong genetic component with recurrence risks of approximately 10-15% in the general population, but significantly higher in relatives of affected individuals. The risk increases with closer degree of relatedness. Among the options, a grandchild represents the closest genetic relationship (50% shared genes through the parent), making them the highest risk category. While aunts/uncles (B) and brothers (A) also share genetic material, they are more distantly related than grandchildren. Nephews (D) would share less genetic material than grandchildren in most family structures.",
+          "critical_evidence": "The 50% genetic contribution from the affected parent to both the patient and their grandchild creates the highest potential for genetic transmission",
+          "differential_considered": "While other factors like shared environment or epigenetics could contribute, the question specifically asks about genetic risk, making genetic relatedness the primary differentiator. Age of onset and environmental factors were not mentioned in the case, so they were not considered differentials.",
+          "usage": {
+            "prompt_tokens": 275,
+            "generated_tokens": 238,
+            "generation_time_s": 11.434
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Schizophrenia has a strong genetic component, with recurrence risk increasing with genetic relatedness. Among the listed relatives, a brother shares the highest proportion of genes (approximately 50%) with the affected individual, making him the most at risk. Nephews, grandchildren, and aunts share significantly less genetic material, reducing their risk.",
+          "critical_evidence": "Genetic studies show that first-degree relatives of schizophrenia patients have a 10-15% lifetime risk, compared to ~1% in the general population, with siblings being the most closely related first-degree relatives.",
+          "differential_considered": "Nephews (second-degree), grandchildren (second or third-degree), and aunts (second-degree) were considered but ruled out due to lower genetic relatedness and thus lower recurrence risk compared to siblings.",
+          "usage": {
+            "prompt_tokens": 246,
+            "generated_tokens": 197,
+            "generation_time_s": 7.123
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 273,
+            "generated_tokens": 16,
+            "generation_time_s": 0.411
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 300,
+            "generated_tokens": 245,
+            "generation_time_s": 7.938
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

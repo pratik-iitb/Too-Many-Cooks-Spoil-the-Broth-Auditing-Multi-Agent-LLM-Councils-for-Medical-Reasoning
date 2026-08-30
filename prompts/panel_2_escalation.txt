@@ -1,0 +1,121 @@
+================================================================================
+Panel-2 Escalation Prompt
+================================================================================
+
+Used when the five-member council has run its three debate rounds without
+reaching the consensus threshold. The question is handed to a three-member
+larger-scale panel (Panel-2). Each Panel-2 specialist answers independently and
+in one turn; Panel-2 members never see each other's answers.
+
+Placeholders
+------------
+  {QUESTION_TEXT}    the case description
+  {CONTEXT_BLOCK}    "" except for PubMedQA-with-context, where it is literally
+                     "\n\nRELEVANT CONTEXT:\n<abstract>\n"
+  {OPTIONS_STR}      options, one per line, sorted, "<letter>: <text>"
+  {VALID_LETTERS}    option letters, sorted, comma-separated
+  {N_ROUNDS}         the number of debate rounds Panel-1 completed
+  {PANEL1_SUMMARY}   a deterministic summary of the Panel-1 discussion
+                     (format given below)
+
+The row of "=" characters shown below is, in the actual prompt, a run of 55
+U+2550 (BOX DRAWINGS DOUBLE HORIZONTAL) characters.
+
+================================================================================
+PROMPT (verbatim template)
+================================================================================
+
+You are a senior medical specialist serving on an expert review panel.
+A group of general medical AI models could NOT reach consensus on the following clinical case
+after {N_ROUNDS} rounds of debate. You are tasked with providing an authoritative assessment.
+
+CLINICAL CASE:
+{QUESTION_TEXT}{CONTEXT_BLOCK}
+
+OPTIONS:
+{OPTIONS_STR}
+
+=======================================================
+PANEL 1 DISCUSSION SUMMARY:
+{PANEL1_SUMMARY}
+=======================================================
+
+INSTRUCTIONS:
+1. You have access to the full debate history from Panel 1 above.
+2. Carefully evaluate the clinical evidence presented by each side.
+3. Consider aspects the initial panel may have overlooked.
+4. Provide your own independent expert assessment.
+
+Respond ONLY with a valid JSON object (no extra text before or after):
+{
+  "selected_option": "<{VALID_LETTERS}>",
+  "confidence": <0.0 to 1.0>,
+  "clinical_reasoning": "<your expert clinical reasoning, 3-5 sentences>",
+  "critical_evidence": "<the decisive clinical finding>",
+  "panel1_assessment": "<brief assessment of Panel 1's discussion: what they got right and wrong>",
+  "differential_considered": "<key differentials you considered>"
+}
+
+================================================================================
+PANEL1_SUMMARY format
+================================================================================
+
+Built by the orchestrator from the stored panel state. No LLM is involved. The
+separator before each rationale excerpt is an em dash, U+2014, and rationales are
+hard-truncated to their first 150 characters followed by a literal "...".
+
+  INITIAL POSITIONS:
+    - <Model name>: selected <option> (confidence: <c>) — <first 150 chars of clinical_reasoning>...
+    ... one line per Panel-1 member, in fixed panel order ...
+
+  INITIAL VOTE: <vote dict> (agreement: <pct>)
+
+  DEBATE ROUND <n>:
+    - <Model name>: selected <option>[ [CHANGED]] (confidence: <c>) — <first 150 chars of reasoning_update>...
+    ... one line per Panel-1 member ...
+    Votes: <vote dict> (agreement: <pct>)
+    Position changes: <changes>
+  ... one block per debate round ...
+
+  OUTCOME: Panel 1 could NOT reach consensus after <n> round(s).
+
+Two details a re-parser needs:
+
+  - The "Position changes:" line is omitted entirely for a round in which nobody
+    moved. It is not printed as empty.
+  - Position changes name the model KEY, not the display name used on the
+    "- <Model name>:" lines, and join the two options with a Unicode arrow
+    U+2192, for example:
+
+        Position changes: medgemma_4b changed C→D; rnj1_8b changed D→B
+
+  The "- <Model name>:" lines use the display names as recorded by the pipeline,
+  which are lower-cased on the final character: MedGemma-4b, Rnj1-8b,
+  Qwen3-VL-8b, OpenBioLLM-8b, Olmo3-7b. Those are the exact strings Panel-2 saw.
+
+================================================================================
+NOTES
+================================================================================
+
+1. Panel-1 identities ARE visible to Panel-2. The summary above prints each
+   council member's model name (MedGemma-4b, Rnj1-8b, Qwen3-VL-8b,
+   OpenBioLLM-8b, Olmo3-7b). This differs from the Panel-1 debate prompt, where
+   colleagues are anonymised as Panelist A-D. Anyone studying identity effects
+   should treat the two stages differently.
+
+2. Panel-2 members are GPT-OSS-20B, MedGemma-27B and Qwen3-VL-32B. Each runs the
+   prompt once, independently, under the same greedy decoding settings as
+   Panel-1 (temperature 0.0, max_new_tokens 1024). There is no debate among
+   Panel-2 members in this release.
+
+3. Convergence. If at least 2 of the 3 specialists select the same option, that
+   option is the final answer (verdict_method = "panel_2_consensus").
+
+4. Fallback. If Panel-2 does not converge, a weighted-majority vote decides:
+   each Panel-1 final-round vote counts 1, each Panel-2 vote counts 2, and the
+   highest-scoring option wins (verdict_method = "weighted_majority").
+
+5. Coverage. Panel-2 was not run for the MetaMedQA questions that exhausted
+   three debate rounds; those 33 questions went straight to the weighted-majority
+   fallback over Panel-1 votes alone and are filed under
+   transcripts/07_no_consensus_no_escalation/. See ../README.md.

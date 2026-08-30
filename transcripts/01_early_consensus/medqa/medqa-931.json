@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-931",
+  "dataset": "medqa",
+  "question_id": "931",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 61-year-old male dies in a motor vehicle accident. Autopsy of the heart reveals dilatation of the left atrium and expansion of the left ventricular cavity with associated eccentric hypertrophy. The structural changes in this patient's heart are most likely associated with which of the following?",
+    "options": {
+      "A": "Pulmonic stenosis",
+      "B": "Mitral insufficiency",
+      "C": "Chronic hypertension",
+      "D": "Wolff-Parkinson-White syndrome",
+      "E": "Congenital atrial septal defect"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The autopsy findings of left atrial dilatation and left ventricular cavity expansion with eccentric hypertrophy strongly suggest mitral insufficiency. Chronic mitral regurgitation leads to left atrial enlargement and left ventricular volume overload, resulting in eccentric hypertrophy. The other options are less likely to present with this specific combination of findings.",
+          "critical_evidence": "Left atrial dilatation and left ventricular cavity expansion with eccentric hypertrophy",
+          "differential_considered": "Pulmonic stenosis (A) typically causes right ventricular hypertrophy and pulmonary artery dilation, not left atrial and ventricular changes. Chronic hypertension (C) can cause left ventricular hypertrophy, but the eccentric hypertrophy and left atrial dilation are more characteristic of mitral insufficiency. Wolff-Parkinson-White syndrome (D) is a conduction abnormality and does not directly cause structural heart changes. Congenital atrial septal defect (E) can cause right atrial and ventricular enlargement, but not typically the specific left atrial and left ventricular changes described.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 226,
+            "generation_time_s": 11.171
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The findings of left atrial dilatation and left ventricular expansion with eccentric hypertrophy are classic features of chronic hypertension. Hypertension causes increased afterload, leading to ventricular remodeling and dilation. Pulmonic stenosis would cause right ventricular hypertrophy, not left ventricular changes. Mitral insufficiency typically presents with left ventricular hypertrophy but not left atrial dilatation. Wolff-Parkinson-White syndrome is an electrical conduction disorder. Congenital atrial septal defect would typically present with right ventricular hypertrophy and pulmonary congestion.",
+          "critical_evidence": "Left atrial dilatation and eccentric left ventricular hypertrophy",
+          "differential_considered": "Pulmonic stenosis (ruled out due to right ventricular changes), mitral insufficiency (ruled out due to different ventricular hypertrophy pattern), Wolff-Parkinson-White syndrome (electrical issue, not structural), congenital atrial septal defect (would show right ventricular changes)",
+          "usage": {
+            "prompt_tokens": 336,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.55
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The autopsy findings of left atrial dilatation and eccentric left ventricular hypertrophy are classic for volume overload due to mitral regurgitation. Mitral insufficiency causes chronic volume overload in the left atrium and ventricle, leading to compensatory hypertrophy and dilation. Other options like chronic hypertension cause concentric hypertrophy, and pulmonic stenosis or ASD primarily affect the right side of the heart. Wolff-Parkinson-White is an arrhythmia, not a structural change.",
+          "critical_evidence": "Eccentric hypertrophy with left atrial and left ventricular dilation is hallmark of volume overload from mitral insufficiency.",
+          "differential_considered": "Chronic hypertension (causes concentric hypertrophy, not eccentric), pulmonic stenosis (right heart hypertrophy), ASD (right atrial enlargement), and WPW (no structural changes).",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 214,
+            "generation_time_s": 7.509
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 334,
+            "generated_tokens": 167,
+            "generation_time_s": 4.048
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Atrial fibrillation (which can accompany hypertrophic cardiomyopathy), mitral valve disease, and congenital heart disease were considered but do not directly explain the described left atrial and ventricular dilatation and eccentric hypertrophy as prominently as chronic hypertension.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 232,
+            "generation_time_s": 7.296
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

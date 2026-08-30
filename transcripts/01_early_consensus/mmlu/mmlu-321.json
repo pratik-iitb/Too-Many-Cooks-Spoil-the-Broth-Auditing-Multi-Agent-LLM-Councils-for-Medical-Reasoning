@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-321",
+  "dataset": "mmlu",
+  "question_id": "321",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Under what circumstances would you use antibiotics prior to catheterization?",
+    "options": {
+      "A": "If the patient has had a catheter in situ for a week.",
+      "B": "If the patient does not have urinary tract infection.",
+      "C": "If patient has an artificial heart valve.",
+      "D": "If the patient requests them."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Antibiotics are typically administered prior to catheterization to prevent catheter-associated urinary tract infections (CAUTIs). While a week is a reasonable timeframe for catheterization, the presence of an artificial heart valve significantly increases the risk of endocarditis, making antibiotic prophylaxis a crucial consideration. The other options are less directly related to the risk of endocarditis.",
+          "critical_evidence": "Presence of an artificial heart valve.",
+          "differential_considered": "A: While a week is a reasonable timeframe for catheterization, it doesn't directly increase the risk of endocarditis. B: While a UTI is a risk factor for CAUTI, the presence of an artificial heart valve is a more direct risk factor for endocarditis. D: Patient request is not a clinical indication for antibiotic prophylaxis.",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 204,
+            "generation_time_s": 10.278
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "Antibiotics are indicated before catheterization in patients with artificial heart valves to prevent endocarditis, a serious infection of the heart lining. Catheterization in other scenarios (A, B, D) does not inherently require prophylactic antibiotics unless there are specific risk factors like a history of UTI or other indications.",
+          "critical_evidence": "Presence of an artificial heart valve increases the risk of endocarditis during invasive procedures.",
+          "differential_considered": "Options A, B, and D do not present specific risk factors for endocarditis or infection during catheterization, making them less relevant compared to the presence of an artificial heart valve.",
+          "usage": {
+            "prompt_tokens": 292,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.055
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "Antibiotic prophylaxis before catheterization is indicated in patients with prosthetic heart valves to prevent infective endocarditis, as per guidelines from the American Heart Association. Other options are not supported by evidence: prior catheter use (A) does not require prophylaxis, absence of UTI (B) is irrelevant, and patient request (D) is not a medical indication.",
+          "critical_evidence": "Prosthetic heart valves are a high-risk condition for infective endocarditis during invasive procedures like catheterization, necessitating antibiotic prophylaxis.",
+          "differential_considered": "Considered UTI risk (B), prior catheter use (A), and patient preference (D), but these do not meet current guidelines for prophylactic antibiotics in catheterization.",
+          "usage": {
+            "prompt_tokens": 263,
+            "generated_tokens": 192,
+            "generation_time_s": 7.253
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 21,
+            "generation_time_s": 0.576
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other considerations such as the patient's immunocompromised state, urinary tract abnormalities, or anticipated contamination during catheterization, but the case does not mention these. Routine use for a long-standing catheter (A) or patient request (D) is inappropriate. No evidence supports C as a relevant factor.",
+          "usage": {
+            "prompt_tokens": 321,
+            "generated_tokens": 326,
+            "generation_time_s": 11.36
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

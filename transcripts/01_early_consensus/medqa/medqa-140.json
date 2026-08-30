@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-140",
+  "dataset": "medqa",
+  "question_id": "140",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A concerned mother presents to clinic stating that her 14-year-old son has not gone through his growth spurt. She states that, although shorter, he had been growing at the same rate as his peers until the past year. There is no evidence of delayed puberty in the mother, but the father's history is unknown. The patient has no complaints. On physical exam, the patient is a healthy-appearing 14-year-old boy whose height is below the third percentile and whose weight is at the 50th percentile. His bone age is determined to be 11 years. A laboratory workup, including thyroid stimulating hormone (TSH), is unremarkable. What is the most likely diagnosis?",
+    "options": {
+      "A": "Constitutional growth delay",
+      "B": "Familial short stature",
+      "C": "Hypothyroidism",
+      "D": "Celiac disease",
+      "E": "Growth hormone deficiency"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's growth has plateaued, bone age is delayed, and TSH is normal, suggesting a constitutional growth delay. The lack of other symptoms and the normal TSH make other diagnoses less likely.",
+          "critical_evidence": "The patient's bone age of 11 years, which is delayed compared to his chronological age of 14 years, is the most important finding supporting constitutional growth delay.",
+          "differential_considered": "Familial short stature is possible, but the bone age delay makes it less likely. Hypothyroidism is less likely given the normal TSH. Celiac disease can cause growth delay, but it usually presents with other symptoms like abdominal pain or diarrhea. Growth hormone deficiency is less likely given the normal TSH and lack of other symptoms.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 199,
+            "generation_time_s": 9.823
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's bone age is 11 years, which is significantly delayed compared to his chronological age of 14. This discrepancy suggests a growth hormone deficiency, as bone age typically progresses at a similar rate to physical growth. While constitutional growth delay (option A) and familial short stature (option B) are possible, the sudden onset of delayed growth in the past year and the absence of other typical features (like delayed puberty) make these less likely. Hypothyroidism (option C) was ruled out by normal TSH levels, and celiac disease (option D) is not typically associated with growth delay without other symptoms. The most consistent finding supporting growth hormone deficiency is the mismatch between chronological and bone age.",
+          "critical_evidence": "Bone age of 11 years in a 14-year-old",
+          "differential_considered": "Constitutional growth delay (A) and familial short stature (B) were considered but ruled out due to the sudden onset of growth delay. Hypothyroidism (C) was ruled out by normal TSH. Celiac disease (D) was considered but is less likely without associated symptoms. Growth hormone deficiency (E) remains the most likely diagnosis based on the bone age discrepancy.",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.422
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 14-year-old boy with delayed growth spurt, but his growth rate was previously normal, and he has no symptoms or signs of underlying disease. His bone age (11 years) is significantly delayed compared to his chronological age, which is classic for constitutional growth delay. His thyroid function is normal, ruling out hypothyroidism, and his weight is appropriate for age, making familial short stature less likely. No evidence of malabsorption or autoimmune disease supports celiac disease. Growth hormone deficiency would typically present with low IGF-1 and other endocrine markers, which are not mentioned here.",
+          "critical_evidence": "Bone age of 11 years in a 14-year-old boy with previously normal growth rate and no other systemic symptoms.",
+          "differential_considered": "Hypothyroidism was ruled out by normal TSH; celiac disease was not supported by clinical or lab findings; familial short stature is less likely due to the bone age delay and normal prior growth; growth hormone deficiency was not suggested by the workup or presentation.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 251,
+            "generation_time_s": 8.78
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 95,
+            "generation_time_s": 2.313
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (Familial short stature) – requires a strong family history which is not mentioned; C (Hypothyroidism) – TSH is normal; D (Celiac disease) – no mention of malnutrition or gastrointestinal symptoms; E (Growth hormone deficiency) – bone age would typically show delayed puberty features if GH deficiency were present.",
+          "usage": {
+            "prompt_tokens": 438,
+            "generated_tokens": 233,
+            "generation_time_s": 7.309
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

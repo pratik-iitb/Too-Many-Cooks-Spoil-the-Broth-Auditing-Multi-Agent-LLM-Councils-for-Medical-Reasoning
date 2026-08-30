@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1119",
+  "dataset": "medqa",
+  "question_id": "1119",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 47-year-old man presents to the clinic with a 10-day history of a sore throat and fever. He has a past medical history significant for ulcerative colitis and chronic lower back pain. He smokes at least 1 pack of cigarettes daily for 10 years. The father of the patient died of colon cancer at the age of 50. He takes sulfasalazine and naproxen. The temperature is 38.9°C (102.0°F), the blood pressure is 131/87 mm Hg, the pulse is 74/min, and the respiratory rate is 16/min. On physical examination, the patient appears tired and ill. His pharynx is erythematous with exudate along the tonsillar crypts. The strep test comes back positive. In addition to treating the bacterial infection, what else would you recommend for the patient at this time?",
+    "options": {
+      "A": "Fecal occult blood testing",
+      "B": "Flexible sigmoidoscopy",
+      "C": "Low-dose CT",
+      "D": "Colonoscopy",
+      "E": "PSA and digital rectal exam"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of ulcerative colitis and a family history of colon cancer, making colon cancer a significant concern. Given the positive strep test, the current focus is on treating the bacterial infection. However, colon cancer screening is crucial in this patient population, especially with a family history of colon cancer and ulcerative colitis, which increases the risk of colorectal cancer. Colonoscopy is the gold standard for colon cancer screening and allows for both diagnosis and treatment.",
+          "critical_evidence": "Family history of colon cancer and ulcerative colitis.",
+          "differential_considered": "A: Fecal occult blood testing is a screening tool, but not sufficient for a patient with this risk profile. B: Flexible sigmoidoscopy only examines the lower colon, missing the upper colon. C: Low-dose CT is a screening tool, but colonoscopy is preferred for diagnosis and treatment. E: PSA and digital rectal exam are relevant for prostate cancer screening, which is not indicated in this case.",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 238,
+            "generation_time_s": 11.749
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a positive strep test and history of ulcerative colitis with a family history of colon cancer. Given the elevated risk for colorectal cancer due to ulcerative colitis and the father's history of colon cancer, it is prudent to screen for occult blood loss. Fecal occult blood testing is the most appropriate initial screening modality for colorectal cancer in this context.",
+          "critical_evidence": "Family history of colon cancer and diagnosis of ulcerative colitis",
+          "differential_considered": "While strep throat is the primary concern, the patient's chronic condition and family history warrant consideration of colorectal cancer screening. Other options like colonoscopy or CT are more invasive and not indicated as first-line screening in this scenario.",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.529
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of ulcerative colitis and a family history of colon cancer, making him at increased risk for colorectal cancer. While he currently presents with acute tonsillitis, the key concern is surveillance for colorectal cancer given his risk factors. Fecal occult blood testing (FOBT) is the most appropriate initial screening tool for colorectal cancer in this high-risk patient, as it is non-invasive, cost-effective, and recommended for routine surveillance in those with IBD and family history. Other options like colonoscopy or sigmoidoscopy are more invasive and typically reserved for abnormal FOBT or symptoms. CT and PSA are not relevant for colorectal cancer screening.",
+          "critical_evidence": "History of ulcerative colitis and family history of colon cancer at age 50.",
+          "differential_considered": "Acute tonsillitis (confirmed by positive strep test) is the immediate issue, but the high-risk profile for colorectal cancer necessitates screening. IBD-related dysplasia or cancer was not indicated by current symptoms, so invasive procedures like colonoscopy are premature without prior abnormal findings. FOBT is the first-line screening tool for this population.",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 271,
+            "generation_time_s": 9.49
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 455,
+            "generated_tokens": 12,
+            "generation_time_s": 0.315
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of ulcerative colitis, is currently symptomatic with a sore throat and positive strep test, and has a family history of colon cancer. Given the chronic inflammatory bowel disease (IBD) history and strong family cancer risk, regular surveillance for colorectal cancer is recommended, especially in the context of a positive strep test possibly indicating immunosuppression from his medications. While treating the streptococcal pharyngitis is urgent, the question specifically asks what to recommend in addition to bacterial infection management, pointing to cancer surveillance.",
+          "critical_evidence": "Past medical history of ulcerative colitis and a family history of colon cancer suggest a need for colorectal cancer screening despite the current presentation.",
+          "differential_considered": "Other options are unrelated to the current presentation (e.g., fecal occult blood testing is for GI bleeding, flexible sigmoidoscopy or CT are not standard first-line surveillance for IBD, and PSA/DRE is for prostate cancer).",
+          "usage": {
+            "prompt_tokens": 491,
+            "generated_tokens": 235,
+            "generation_time_s": 7.385
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

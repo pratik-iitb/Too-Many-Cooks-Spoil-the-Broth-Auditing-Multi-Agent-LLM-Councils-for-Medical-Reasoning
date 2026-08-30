@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-944",
+  "dataset": "medqa",
+  "question_id": "944",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 24-year-old male was in a motor vehicle accident that caused him to fracture his femur and pelvis. After 2 days in the hospital, the patient became delirious, tachypneic, and a petechial rash was found in his upper extremities. Which of the following is most likely responsible for this patient’s symptoms?",
+    "options": {
+      "A": "Thrombotic clot in the pulmonary artery",
+      "B": "Fat microglobules in the microvasculature",
+      "C": "Type I and type II pneumocyte damage due to neutrophils",
+      "D": "Aspiration of oropharyngeal contents",
+      "E": "Alveolar foamy exudates with disc shaped cysts seen with methenamine silver stain"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of delirium, tachypnea, and petechial rash after a femur and pelvis fracture strongly suggests fat embolism syndrome (FES). Fat emboli are released from the bone marrow after a long bone fracture and travel to the lungs, causing respiratory distress and neurological symptoms. The petechial rash is a classic sign of FES.",
+          "critical_evidence": "Petechial rash in the upper extremities is a hallmark sign of fat embolism syndrome.",
+          "differential_considered": "A: Thrombotic clot in the pulmonary artery (pulmonary embolism) is possible, but less likely given the recent trauma and the presence of a petechial rash. C: Type I and type II pneumocyte damage due to neutrophils is more characteristic of acute respiratory distress syndrome (ARDS), which typically presents with bilateral infiltrates on chest X-ray, not a petechial rash. D: Aspiration of oropharyngeal contents could cause pneumonia, but the petechial rash is not typical of aspiration pneumonia. E: Alveolar foamy exudates with disc shaped cysts seen with methenamine silver stain is characteristic of Pneumocystis pneumonia, which is less likely in this acute setting after trauma.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 287,
+            "generation_time_s": 14.209
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's delirium, tachypnea, and petechial rash suggest a systemic inflammatory response, likely due to sepsis or disseminated intravascular coagulation (DIC). Fat microglobules in the microvasculature (option B) are characteristic of DIC, which can occur in severe trauma patients with significant blood loss and inflammation. The petechial rash indicates microvascular leakage, and DIC involves the deposition of fat globules in small blood vessels, leading to this finding.",
+          "critical_evidence": "Petechial rash in upper extremities with systemic symptoms",
+          "differential_considered": "A: Thrombotic clot in the pulmonary artery could cause respiratory distress but not petechial rash. C: Pneumocyte damage due to neutrophils relates to pneumonia, not trauma. D: Aspiration would typically present with respiratory symptoms, not systemic delirium. E: Alveolar foamy exudates are specific to viral pneumonia, not trauma. DIC (B) best explains the systemic findings.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.303
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a recent major trauma (femur and pelvic fracture) and developed delirium, tachypnea, and petechial rash — classic signs of fat embolism syndrome. Fat microglobules in the microvasculature are the pathognomonic finding and explain the systemic symptoms. Other options like pulmonary thrombosis (A) or aspiration (D) don’t explain the petechial rash, and pneumocyte damage (C) or methenamine silver findings (E) are not associated with trauma-induced systemic symptoms.",
+          "critical_evidence": "Petechial rash in upper extremities + delirium + tachypnea in a trauma patient = fat embolism syndrome, best explained by fat microglobules in microvasculature.",
+          "differential_considered": "Pulmonary embolism (A) was considered but lacks petechial rash; aspiration (D) lacks history of vomiting or airway compromise; pneumocyte damage (C) and methenamine silver findings (E) are specific to other lung pathologies (e.g., ARDS or fungal infection) not linked to trauma.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 266,
+            "generation_time_s": 9.35
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 136,
+            "generation_time_s": 3.285
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 305,
+            "generation_time_s": 9.565
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

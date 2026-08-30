@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-357",
+  "dataset": "metamed",
+  "question_id": "357",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 72-year-old woman is admitted to the hospital for treatment of unstable angina. Cardiac catheterization shows occlusion that has caused a 50% reduction in the diameter of the left circumflex artery. Resistance to blood flow in this vessel has increased by what factor relative to a vessel with no occlusion?",
+    "options": {
+      "A": "64",
+      "B": "16",
+      "C": "8",
+      "D": "4",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The question asks for the resistance increase in a vessel with a 50% diameter reduction. This is a direct application of Poiseuille's Law, which states that resistance is inversely proportional to the fourth power of the radius. Therefore, a 50% reduction in diameter (radius) results in a resistance increase of 1/0.5^4 = 1/0.0625 = 16. The answer is 16.",
+          "critical_evidence": "The 50% reduction in the diameter of the left circumflex artery.",
+          "differential_considered": "While other factors can influence blood flow, the question specifically asks about the resistance increase due to the diameter reduction. Other factors like blood viscosity or blood pressure are not directly addressed in the question and would require additional information to consider.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 213,
+            "generation_time_s": 11.331
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The left circumflex artery's diameter is reduced by 50%, meaning its new diameter is 50% of the original. Using Poiseuille's law, resistance (R) is proportional to the inverse of the fourth power of the radius (R ∝ 1/r⁴). Since diameter is proportional to radius, a 50% reduction in diameter means the radius is also 50% of the original. Therefore, the resistance increases by a factor of (1/0.5)⁴ = 2⁴ = 16. However, this calculation assumes the original resistance was 1, so the increase is 16 times the original resistance, which corresponds to option A: 64 (since 16 times the original resistance is 16, but the question asks for the factor by which resistance has increased, which is 16 - 1 = 15, but the closest option is 64, indicating a possible error in the question or options).",
+          "critical_evidence": "The 50% reduction in diameter of the left circumflex artery",
+          "differential_considered": "Other causes of unstable angina such as coronary artery spasm or myocardial infarction were considered but ruled out based on the specific finding of a 50% reduction in vessel diameter, which points to a significant occlusion rather than a temporary spasm or recent infarction.",
+          "usage": {
+            "prompt_tokens": 339,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.591
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Blood flow resistance in a vessel is inversely proportional to the fourth power of the vessel radius (Poiseuille’s law). A 50% reduction in diameter means the radius is halved. Therefore, resistance increases by (1/0.5)^4 = 16-fold. This is a direct application of hemodynamic principles to the case.",
+          "critical_evidence": "50% reduction in diameter (i.e., radius halved) leads to 16-fold increase in resistance based on Poiseuille’s law.",
+          "differential_considered": "No differential diagnoses are relevant here; this is a straightforward hemodynamic calculation based on vessel diameter reduction.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 168,
+            "generation_time_s": 6.793
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 337,
+            "generated_tokens": 62,
+            "generation_time_s": 1.547
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.99,
+          "clinical_reasoning": "According to Poiseuille's law, vessel resistance to blood flow is inversely proportional to the fourth power of the vessel's radius. With a 50% reduction in diameter, the radius is reduced by 50%, so resistance increases by (1/0.5)^4 = 16 times. This directly relates to the left circumflex artery's occlusion causing the observed increase in resistance.",
+          "critical_evidence": "",
+          "differential_considered": "Other possible considerations (e.g., changes in vessel length or perfusion) are less relevant here, as the question specifically addresses the effect of occlusion on resistance, which is best explained by changes in diameter alone.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 189,
+            "generation_time_s": 6.107
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

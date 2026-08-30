@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-284",
+  "dataset": "medqa",
+  "question_id": "284",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 47-year-old woman presents to the emergency department with ongoing dyspnea and confusion for 2 hours. She has a history of psychosis and alcohol abuse. She has smoked 1 pack per day for 25 years. She is agitated and confused. Her blood pressure is 165/95 mm Hg; pulse 110/min; respirations 35/min; and temperature, 36.7°C (98.1°F). The pulmonary examination shows tachypnea and mild generalized wheezing. Auscultation of the heart shows no abnormal sounds. The remainder of the physical examination shows no abnormalities. Laboratory studies show:\nSerum\nNa+ 138 mEq/L\nCI- 100 mEq/L\nArterial blood gas analysis on room air\npH 7.37\npCO2 21 mm Hg\npO2 88 mm Hg\nHCO3- 12 mEq/L\nWhich of the following best explains these findings?",
+    "options": {
+      "A": "Alcoholic ketoacidosis",
+      "B": "Hyperventilation syndrome",
+      "C": "Salicylate intoxication",
+      "D": "Severe chronic obstructive pulmonary disease",
+      "E": "Vomiting"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute respiratory alkalosis (pH 7.37, pCO2 21 mm Hg, HCO3- 12 mEq/L) and hypoxemia (pO2 88 mm Hg). The history of psychosis and alcohol abuse, along with agitation and tachypnea, points towards a hyperventilation syndrome. The patient is likely hyperventilating due to anxiety or a psychiatric exacerbation.",
+          "critical_evidence": "The arterial blood gas analysis showing a low pCO2 (21 mm Hg) and a low HCO3- (12 mEq/L) with a pH of 7.37 is highly suggestive of respiratory alkalosis.",
+          "differential_considered": "A: Alcoholic ketoacidosis is less likely given the normal bicarbonate level and the absence of other typical ketoacidosis findings. C: Salicylate intoxication can cause respiratory alkalosis, but the patient's history doesn't strongly suggest salicylate ingestion. D: While the patient has a smoking history, the acute presentation and ABG findings are more consistent with a primary respiratory issue. E: Vomiting can cause metabolic alkalosis, but the ABG shows respiratory alkalosis, not metabolic alkalosis.",
+          "usage": {
+            "prompt_tokens": 489,
+            "generated_tokens": 293,
+            "generation_time_s": 15.438
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's dyspnea, tachypnea, and mild wheezing suggest respiratory distress. The arterial blood gas shows a low pO2 (88 mm Hg) and normal pCO2 (21 mm Hg), indicating hypoxemia with normal respiratory compensation. This pattern is consistent with hyperventilation syndrome, where rapid breathing leads to hypocapnia and hypoxemia. The patient's history of alcohol abuse and psychosis also supports this diagnosis, as these conditions can trigger hyperventilation. The normal electrolytes and absence of other abnormalities in the physical exam further support this diagnosis.",
+          "critical_evidence": "Arterial blood gas showing pO2 88 mm Hg and pCO2 21 mm Hg",
+          "differential_considered": "Alcoholic ketoacidosis (ruled out by normal ketones), salicylate intoxication (not indicated by physical exam findings), severe COPD (not typically acute and would show different lung exam), vomiting (not indicated by physical exam findings)",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.588
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute confusion, tachypnea, and marked respiratory alkalosis (pH 7.37, pCO2 21 mm Hg) with a low HCO3- (12 mEq/L), consistent with hyperventilation. Her history of alcohol abuse and psychosis increases the likelihood of hyperventilation syndrome triggered by anxiety or agitation. The ABG shows acute respiratory alkalosis with no evidence of metabolic derangements (normal Na+ and Cl-), ruling out ketoacidosis or salicylate intoxication. No signs of COPD exacerbation or vomiting-related metabolic disturbances are present.",
+          "critical_evidence": "Arterial blood gas showing pH 7.37, pCO2 21 mm Hg, HCO3- 12 mEq/L — classic for acute respiratory alkalosis with compensatory metabolic acidosis, consistent with hyperventilation.",
+          "differential_considered": "Alcoholic ketoacidosis (A) is ruled out by normal Na+ and Cl- and absence of ketosis; salicylate intoxication (C) would show metabolic acidosis with anion gap, not respiratory alkalosis; COPD (D) would show hypercapnia, not hypocapnia; vomiting (E) would cause metabolic alkalosis, not respiratory alkalosis.",
+          "usage": {
+            "prompt_tokens": 467,
+            "generated_tokens": 306,
+            "generation_time_s": 10.785
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 476,
+            "generated_tokens": 13,
+            "generation_time_s": 0.34
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's acute presentation of confusion, tachypnea, and hypoxemia (pO2 88 mm Hg on room air) with elevated anion gap (implied by the acidosis and the history) is most consistent with acute metabolic acidosis, a hallmark of alcoholic ketoacidosis. Her recent alcohol abuse, confusion, and hypoxemia (possibly due to underlying COPD from long-term smoking but not fully explained by chronic disease alone) point away from B (respiratory causes), C (salicylate toxicity would show hyperreninemia or metformin-like symptoms), D (COPD would typically present with chronic symptoms and lower confidence in acute confusion and rapid decompensation), and E (vomiting is not mentioned as a presenting feature).",
+          "critical_evidence": "Acute confusion in the context of alcohol history and metabolic acidosis on presentation",
+          "differential_considered": "Hyperventilation syndrome (B) could cause respiratory alkalosis, not acidosis; salicylate intoxication (C) presents with different lab and clinical findings; chronic COPD (D) is unlikely as the acute confusion and rapid decompensation are more suggestive of an acute process like alcoholic ketoacidosis; vomiting (E) is not described as the main complaint.",
+          "usage": {
+            "prompt_tokens": 513,
+            "generated_tokens": 298,
+            "generation_time_s": 9.363
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

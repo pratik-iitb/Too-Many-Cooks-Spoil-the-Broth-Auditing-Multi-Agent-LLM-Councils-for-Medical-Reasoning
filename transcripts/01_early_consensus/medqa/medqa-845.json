@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-845",
+  "dataset": "medqa",
+  "question_id": "845",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 59-year-old male presents to his primary care physician complaining of a tremor. He developed a tremor in his left hand approximately three months ago. It appears to be worse at rest and diminishes if he points to something or uses the hand to hold an object. His past medical history is notable for emphysema and myasthenia gravis. He has a 40 pack-year smoking history. Physical examination reveals slowed movements. The patient takes several seconds to rise from his chair for a gait analysis which reveals a shuffling gait. The physician decides to start the patient on a medication that prevents the degradation of a neurotransmitter. This medication is also indicated for use in which of the following conditions?",
+    "options": {
+      "A": "Major depressive disorder",
+      "B": "Influenza",
+      "C": "Seasonal allergies",
+      "D": "Hyperprolactinemia",
+      "E": "Restless leg syndrome"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of a resting tremor, slowed movements, and shuffling gait strongly suggests Parkinson's disease. The medication being considered is likely a dopamine precursor or dopamine agonist, which are used to treat Parkinson's disease. Major depressive disorder is a common comorbidity in Parkinson's disease, and these medications can also be used to treat depression.",
+          "critical_evidence": "The patient's resting tremor and shuffling gait are highly suggestive of Parkinson's disease.",
+          "differential_considered": "Influenza (B): While influenza can cause tremors, the resting nature and the other neurological findings are less typical. Seasonal allergies (C): Not typically associated with tremors or the described neurological findings. Hyperprolactinemia (D): While some medications can cause hyperprolactinemia, it's not a primary indication for the medication being considered. Restless leg syndrome (E): Not typically associated with tremors or the described neurological findings.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 233,
+            "generation_time_s": 11.541
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's tremor at rest and improvement with purposeful movement suggests a dopamine-related movement disorder. Given the history of myasthenia gravis and smoking, which are associated with dopaminergic dysfunction, levodopa or a dopamine agonist would be appropriate. Major depressive disorder is a common comorbidity in patients with myasthenia gravis and often involves dopaminergic pathways, making it a relevant condition for dopamine modulation.",
+          "critical_evidence": "The patient's history of myasthenia gravis, which is an autoimmune neuromuscular disorder often treated with cholinesterase inhibitors but also involves dopaminergic dysfunction.",
+          "differential_considered": "While the tremor could be related to Parkinson's disease, the presence of myasthenia gravis and the patient's age make a psychiatric condition like major depressive disorder more likely as a secondary cause of dopaminergic imbalance.",
+          "usage": {
+            "prompt_tokens": 417,
+            "generated_tokens": 217,
+            "generation_time_s": 10.122
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a rest tremor, bradykinesia, and shuffling gait — classic signs of Parkinson’s disease. The medication described is likely levodopa or a dopamine precursor, which prevents degradation of dopamine. Levodopa is also used in major depressive disorder when augmentation is needed, though not first-line. Other options are unrelated to dopamine modulation.",
+          "critical_evidence": "Rest tremor, bradykinesia, and shuffling gait strongly suggest Parkinson’s disease, which is treated with dopamine-replacement therapy (e.g., levodopa). Levodopa is also used off-label in treatment-resistant depression.",
+          "differential_considered": "Myasthenia gravis and emphysema were considered but do not explain the tremor or gait findings. Essential tremor was ruled out due to the rest tremor and response to movement. Restless leg syndrome was considered but lacks the motor slowing and gait abnormalities.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 227,
+            "generation_time_s": 7.977
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's presentation of a resting tremor, slowed movements, and shuffling gait is highly suggestive of Parkinson's disease. The medication that prevents the degradation of dopamine, which is indicated for use in Parkinson's disease, is levodopa. Levodopa is also used in the treatment of restless leg syndrome (RLS). Therefore, the correct answer is E: Restless leg syndrome.",
+          "critical_evidence": "The patient's resting tremor, slowed movements, and shuffling gait are indicative of Parkinson's disease.",
+          "differential_considered": "Major depressive disorder, influenza, seasonal allergies, and hyperprolactinemia do not typically present with a resting tremor, slowed movements, or shuffling gait. These symptoms are characteristic of Parkinson's disease, and the medication used to prevent the degradation of dopamine in Parkinson's disease is also indicated for use in restless leg syndrome.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 207,
+            "generation_time_s": 5.024
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A, B, C, and E are not consistent with the clinical features (tremor at rest, myasthenia-like presentation), so they are ruled out. The key finding is the patient's current neurologic symptoms in the context of prior myasthenia gravis.",
+          "usage": {
+            "prompt_tokens": 445,
+            "generated_tokens": 253,
+            "generation_time_s": 7.971
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

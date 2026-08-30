@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1119",
+  "dataset": "metamed",
+  "question_id": "1119",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 32-year-old man comes to the physician for a pre-employment examination. He recently traveled to Guatemala. He feels well but has not seen a physician in several years, and his immunization records are unavailable. Physical examination shows no abnormalities. Serum studies show:\nAnti-HAV IgM Positive\nAnti-HAV IgG Negative\nHBsAg Negative\nAnti-HBs Positive\nHBcAg Negative\nAnti-HBc Negative\nHBeAg Negative\nAnti-HBe Negative\nAnti-HCV Negative\nWhich of the following best explains this patient's laboratory findings?\"",
+    "options": {
+      "A": "Chronic hepatitis E infection",
+      "B": "Previous hepatitis A infection",
+      "C": "Chronic hepatitis B infection",
+      "D": "Chronic hepatitis C infection",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Answer modified"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's recent travel to Guatemala, combined with the presence of anti-HAV IgM and negative anti-HAV IgG, strongly suggests a recent hepatitis A infection. The negative HBsAg, anti-HBs, HBcAg, and anti-HBc results rule out hepatitis B infection. The negative anti-HCV result excludes hepatitis C infection.",
+          "critical_evidence": "Anti-HAV IgM Positive",
+          "differential_considered": "A: Chronic hepatitis E infection is less likely given the lack of specific findings and the patient's travel history. C: Chronic hepatitis B infection is ruled out by the negative HBsAg, anti-HBs, HBcAg, and anti-HBc results. D: Chronic hepatitis C infection is ruled out by the negative anti-HCV result. E: While the patient could have a different infection, the most likely explanation given the available data is hepatitis A.",
+          "usage": {
+            "prompt_tokens": 403,
+            "generated_tokens": 229,
+            "generation_time_s": 12.423
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has Anti-HAV IgM positive and Anti-HAV IgG negative, indicating a recent acute hepatitis A infection. HBsAg negative with Anti-HBs positive suggests resolved hepatitis B surface antigen with protective antibodies, ruling out chronic hepatitis B. No evidence of hepatitis C or E infection is present. The absence of HBcAg and Anti-HBc supports no current hepatitis B core infection.",
+          "critical_evidence": "Anti-HAV IgM positive with Anti-HAV IgG negative",
+          "differential_considered": "Chronic hepatitis B (ruled out by HBsAg negative) and hepatitis C (ruled out by Anti-HCV negative) were considered but excluded by the absence of corresponding markers. Hepatitis E was not considered as the patient's travel history to Guatemala does not strongly correlate with acute hepatitis E, and the specific IgM/IgG pattern is more consistent with hepatitis A.",
+          "usage": {
+            "prompt_tokens": 398,
+            "generated_tokens": 216,
+            "generation_time_s": 10.369
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient has anti-HAV IgM positive and anti-HAV IgG negative, indicating an acute, recent hepatitis A infection. All other hepatitis markers (HBsAg, Anti-HBc, HBeAg, Anti-HBe, Anti-HCV) are negative or non-reactive, ruling out hepatitis B or C. The absence of chronic markers and the presence of IgM without IgG confirms acute infection, not chronic or past infection.",
+          "critical_evidence": "Anti-HAV IgM positive with anti-HAV IgG negative indicates acute hepatitis A infection.",
+          "differential_considered": "Chronic hepatitis B or C were ruled out by negative HBsAg, Anti-HBc, HBeAg, Anti-HBe, and Anti-HCV. Chronic hepatitis E is unlikely due to lack of IgM anti-HEV and absence of endemic risk factors supporting acute infection. Previous hepatitis A is ruled out because IgG is negative, which would be expected if past infection occurred.",
+          "usage": {
+            "prompt_tokens": 370,
+            "generated_tokens": 231,
+            "generation_time_s": 8.796
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's laboratory findings are consistent with immunity to hepatitis A virus (Anti-HAV IgG positive) and hepatitis B virus (Anti-HBs positive), and lack of infection with hepatitis C virus (Anti-HCV negative). There is no evidence of current or past infection with hepatitis E virus, hepatitis B virus, or hepatitis C virus. Therefore, the correct answer is 'None of the above'.",
+          "critical_evidence": "The presence of Anti-HAV IgG indicates immunity to hepatitis A, which is typically acquired through infection or vaccination. The positive Anti-HBs indicates immunity to hepatitis B, usually from vaccination or past infection. The negative Anti-HCV rules out hepatitis C infection. The absence of IgM antibodies for hepatitis E, as well as the lack of HBsAg, HBeAg, and Anti-HBc, indicate no current or past infection with these viruses.",
+          "differential_considered": "None of the options provided match the patient's laboratory findings, as they all suggest different types of viral hepatitis infections that are not supported by the patient's test results.",
+          "usage": {
+            "prompt_tokens": 396,
+            "generated_tokens": 248,
+            "generation_time_s": 6.639
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Chronic hepatitis B (C, D) would require both HBeAg and positive HBs antibodies (including IgG), which are not present. Chronic hepatitis E (A) is less common and typically does not show IgM in adults. Chronic hepatitis C (D) would show positive HCV IgM and other markers, which are absent here. Thus, acute hepatitis A infection is the most likely explanation.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 262,
+            "generation_time_s": 9.004
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

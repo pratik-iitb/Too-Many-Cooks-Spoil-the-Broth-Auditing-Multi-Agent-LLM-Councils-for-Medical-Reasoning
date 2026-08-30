@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1217",
+  "dataset": "medqa",
+  "question_id": "1217",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old female visits her physician for workup of a new onset diastolic murmur found on physical examination. Past medical history is insignificant. Her temperature is 37.0 degrees C, blood pressure is 115/75 mm Hg, pulse is 76/min, and respiratory rate is 16/min. The patient denies dyspnea, fatigue, and syncope. Transthoracic echocardiography reveals a large, pedunculated tumor in the left atrium. This patient is most at risk for:",
+    "options": {
+      "A": "Abrupt hypotension",
+      "B": "Sudden cardiac death",
+      "C": "Deep venous thrombosis",
+      "D": "Acute arterial occlusion",
+      "E": "Septic embolism"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a large, pedunculated tumor in the left atrium, which is highly suggestive of a left atrial myxoma. Left atrial myxomas are the most common primary cardiac tumors and are known to embolize to the systemic circulation, leading to septic emboli. The patient's lack of symptoms like dyspnea or fatigue doesn't rule out the possibility of embolization, as the emboli can be small and cause subtle symptoms or be asymptomatic.",
+          "critical_evidence": "Large, pedunculated tumor in the left atrium",
+          "differential_considered": "Abrupt hypotension (A): While possible with any cardiac issue, the patient's stable vital signs make this less likely. Sudden cardiac death (B): Possible, but less likely than septic embolism given the tumor's location. Deep venous thrombosis (C): Not directly related to the tumor. Acute arterial occlusion (D): Less likely than septic embolism given the tumor's location in the left atrium.",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 240,
+            "generation_time_s": 11.912
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The presence of a large, pedunculated tumor in the left atrium suggests a mass that could potentially cause sudden cardiac death by obstructing blood flow or causing arrhythmias. While abrupt hypotension and acute arterial occlusion are possible complications, sudden cardiac death is the most direct and severe consequence of such a cardiac mass. Deep venous thrombosis and septic embolism are less likely given the absence of clinical signs like dyspnea and fever, and the echocardiographic finding directly points to a cardiac origin.",
+          "critical_evidence": "Transthoracic echocardiography revealing a large, pedunculated tumor in the left atrium",
+          "differential_considered": "Considered: Atrial myxoma, metastatic tumor, cardiac sarcoma. Ruled out: Deep venous thrombosis (no clinical signs), septic embolism (no fever or signs of infection), acute arterial occlusion (no evidence of ischemia or acute limb pain).",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.692
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a large, pedunculated tumor in the left atrium, which is highly suggestive of a myxoma. Myxomas are the most common benign cardiac tumors and are associated with a significant risk of sudden cardiac death due to embolization of tumor fragments causing systemic arterial occlusion or arrhythmias. The absence of symptoms like dyspnea or syncope does not rule out this risk, as embolic events can be sudden and catastrophic. Other options are less likely: hypotension (A) is not typical, DVT (C) is not directly related, acute arterial occlusion (D) is a possible complication but not the most common or immediate risk, and septic embolism (E) is not indicated by the clinical scenario.",
+          "critical_evidence": "Large, pedunculated tumor in the left atrium on echocardiography — classic for atrial myxoma, which carries high risk of embolic events and sudden cardiac death.",
+          "differential_considered": "Other left atrial masses (e.g., thrombus, metastasis) were considered, but the pedunculated nature and benign appearance on echo favor myxoma. Thrombus would not be pedunculated and would be associated with prior atrial fibrillation or stasis, which is absent here. Metastases are typically not pedunculated and would have a history of malignancy. No signs of infection or DVT support septic embolism or thromboembolism as primary concerns.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 341,
+            "generation_time_s": 11.991
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 383,
+            "generated_tokens": 128,
+            "generation_time_s": 3.118
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Atrial myxoma (the likely cause of the tumor), atrial fibrillation, or other atrial masses were considered, but the immediate life-threatening risk in this context is sudden cardiac arrhythmia leading to cardiac arrest (sudden cardiac death). There is no evidence for thromboembolic events, hypotension, or sepsis in this presentation.",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 243,
+            "generation_time_s": 7.673
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

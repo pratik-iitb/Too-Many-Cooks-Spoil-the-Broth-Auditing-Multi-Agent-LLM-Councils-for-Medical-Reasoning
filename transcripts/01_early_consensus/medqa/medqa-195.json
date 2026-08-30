@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-195",
+  "dataset": "medqa",
+  "question_id": "195",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 59-year-old man presents to general medical clinic for his yearly checkup. He has no complaints except for a dry cough. He has a past medical history of type II diabetes, hypertension, hyperlipidemia, asthma, and depression. His home medications are sitagliptin/metformin, lisinopril, atorvastatin, albuterol inhaler, and citalopram. His vitals signs are stable, with blood pressure 126/79 mmHg. Hemoglobin A1C is 6.3%, and creatinine is 1.3 g/dL. The remainder of his physical exam is unremarkable. If this patient's cough is due to one of the medications he is taking, what would be the next step in management?",
+    "options": {
+      "A": "Change citalopram to escitalopram",
+      "B": "Change lisinopril to propanolol",
+      "C": "Change lisinopril to amlodipine",
+      "D": "Change atorvastatin to to lovastatin",
+      "E": "Change lisinopril to losartan"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's dry cough is a common side effect of ACE inhibitors like lisinopril. Given his stable blood pressure and the presence of diabetes, hypertension, and hyperlipidemia, switching to an angiotensin II receptor blocker (ARB) like losartan is a reasonable and guideline-supported approach to manage the cough while maintaining blood pressure control.",
+          "critical_evidence": "The patient's dry cough is a common side effect of ACE inhibitors.",
+          "differential_considered": "Amlodipine (C) is a reasonable alternative for hypertension, but it doesn't directly address the cough. Escitalopram (A) is a different antidepressant and not likely to cause a cough. Lovastatin (D) is a statin and not typically associated with cough. While other medications could potentially cause cough, lisinopril is the most likely culprit given the patient's history and presentation.",
+          "usage": {
+            "prompt_tokens": 452,
+            "generated_tokens": 224,
+            "generation_time_s": 11.039
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "Lisinopril is a common cause of cough due to its conversion to angiotensin II type 1 receptor blockers, which can irritate the upper respiratory tract. The patient's dry cough, combined with his history of asthma, makes this a likely culprit. Changing to a non-cough-inducing ACE inhibitor like propanolol or switching to an ARB like losartan (option E) would be more appropriate, but propanolol is a beta-blocker that can also treat hypertension and is a more direct alternative to lisinopril in this context.",
+          "critical_evidence": "The patient's dry cough in the absence of other respiratory symptoms and his history of asthma suggest a medication-induced cough, with lisinopril being a known cause.",
+          "differential_considered": "Other causes of cough were considered, including postnasal drip, GERD, and chronic bronchitis, but the patient's stable vitals and lack of other respiratory symptoms make these less likely. The patient's history of depression and stable mental status rule out psychiatric causes of cough.",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 253,
+            "generation_time_s": 11.633
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's dry cough is a common side effect of ACE inhibitors like lisinopril. Switching to an angiotensin II receptor blocker (ARB) such as losartan is the standard management to resolve this side effect while maintaining antihypertensive control. Other medications listed are not known to cause dry cough.",
+          "critical_evidence": "Dry cough is a well-documented adverse effect of ACE inhibitors, and switching to an ARB is the preferred alternative.",
+          "differential_considered": "Other causes of cough (e.g., asthma exacerbation, GERD, smoking) were considered but ruled out by unremarkable exam and stable asthma control. Medications like citalopram, atorvastatin, and albuterol are not associated with dry cough.",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 193,
+            "generation_time_s": 6.752
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 64,
+            "generation_time_s": 1.547
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "History of hypertension and use of lisinopril, a medication class frequently associated with cough as a side effect.",
+          "differential_considered": "Cough could theoretically be due to asthma exacerbation, but the context suggests it is medication-related given the absence of respiratory signs and the focus on his medication list.",
+          "usage": {
+            "prompt_tokens": 493,
+            "generated_tokens": 247,
+            "generation_time_s": 7.673
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

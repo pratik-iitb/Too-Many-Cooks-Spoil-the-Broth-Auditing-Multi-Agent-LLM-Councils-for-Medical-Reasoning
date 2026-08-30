@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-28127977",
+  "dataset": "pubmedqa_context",
+  "question_id": "28127977",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are serum leptin levels a prognostic factor in advanced lung cancer?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "There are 71 previously untreated patients with cytological or histological evidence of primary lung cancer who were admitted to the oncology department between November 2013 and August 2014. Forty-five healthy individuals with age, sex and BMI matching the lung cancer patients, were recruited to take part in the study as a control group. Leptin levels were measured quantitatively by using a microELISA kit. The serum leptin levels at diagnosis were significantly lower in lung cancer patients than those in control subjects (4.75±4.91 ng/ml, 9.67±8.02 ng/ml; p<0.001). We did not find any significant difference in leptin values related to clinicopathological parameters such as ECOG PS, weight loss, histological type, disease stage and TNM classification. Nevertheless, we demonstrated a significant correlation between serum leptin levels and BMI in lung cancer patients (correlation coefficient: 0.303; p>0.010). The analysis of serum leptin values did not show any association with the overall survival of the patients.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found no significant association between serum leptin levels and overall survival in lung cancer patients. While there was a correlation between leptin and BMI, this doesn't necessarily imply a prognostic role of leptin in lung cancer. Therefore, leptin is not a prognostic factor.",
+          "critical_evidence": "The analysis of serum leptin values did not show any association with the overall survival of the patients.",
+          "differential_considered": "While leptin is known to be involved in metabolic regulation and inflammation, the lack of association with survival in this specific lung cancer cohort suggests it's not a primary prognostic factor in this context. Other factors like stage, grade, and treatment response are more likely to be significant.",
+          "usage": {
+            "prompt_tokens": 494,
+            "generated_tokens": 187,
+            "generation_time_s": 11.031
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that serum leptin levels were significantly lower in lung cancer patients compared to controls, but there was no association with overall survival. The correlation with BMI was not clinically significant (p>0.010), and no other clinicopathological factors showed a relationship with leptin levels. These findings suggest leptin is not a reliable prognostic factor in advanced lung cancer.",
+          "critical_evidence": "No association between serum leptin levels and overall survival in patients",
+          "differential_considered": "No differential diagnoses needed as the question focuses on leptin as a prognostic factor, not on differential diagnosis of lung cancer",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 1024,
+            "generation_time_s": 56.976
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The study explicitly states that serum leptin levels showed no association with overall survival in lung cancer patients, despite being lower in patients compared to controls. Since prognostic value requires correlation with survival outcomes, the lack of such correlation negates leptin's role as a prognostic factor.",
+          "critical_evidence": "The analysis of serum leptin values did not show any association with the overall survival of the patients.",
+          "differential_considered": "Other potential prognostic markers (e.g., ECOG PS, TNM stage) were considered but ruled out as not being correlated with leptin; however, none of these were shown to be linked to leptin's prognostic value, which remains unsupported by survival data.",
+          "usage": {
+            "prompt_tokens": 471,
+            "generated_tokens": 179,
+            "generation_time_s": 7.529
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 135,
+            "generation_time_s": 3.911
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "We demonstrated a significant correlation between serum leptin levels and BMI in lung cancer patients, but no association with overall survival.",
+          "differential_considered": "Possible confounders like weight loss or other cytokines (e.g., adiponectin) might influence survival, but the explicit finding is the absence of leptin as a prognostic factor for overall survival.",
+          "usage": {
+            "prompt_tokens": 516,
+            "generated_tokens": 189,
+            "generation_time_s": 7.133
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

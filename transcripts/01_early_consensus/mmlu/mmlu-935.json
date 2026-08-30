@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-935",
+  "dataset": "mmlu",
+  "question_id": "935",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old man undergoes a radical thyroidectomy for thyroid cancer. During the operation, moderate hemorrhaging requires ligation of several vessels in the left side of the neck. Postoperatively, serum studies show a calcium concentration of 7.5 mg/dL, albumin concentration of 4 g/dL, and parathyroid hormone concentration of 200 pg/mL. Damage to which of the following vessels caused the findings in this patient?",
+    "options": {
+      "A": "Branch of the costocervical trunk",
+      "B": "Branch of the external carotid artery",
+      "C": "Branch of the thyrocervical trunk",
+      "D": "Tributary of the internal jugular vein"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's postoperative hypocalcemia (low calcium) with a normal albumin and elevated parathyroid hormone (PTH) strongly suggests damage to the parathyroid glands during surgery. The parathyroid glands are located near the thyroid gland and are often inadvertently injured during a thyroidectomy. The branch of the costocervical trunk is the most likely vessel to be damaged during a thyroidectomy, as it supplies the inferior thyroid artery and the parathyroid glands.",
+          "critical_evidence": "Postoperative hypocalcemia with normal albumin and elevated PTH",
+          "differential_considered": "Branch of the external carotid artery: Supplies the facial and scalp blood supply, not the parathyroid glands. Branch of the thyrocervical trunk: Supplies the superior thyroid artery and the inferior ganglion of the cervical sympathetic trunk, not the parathyroid glands. Tributary of the internal jugular vein: Primarily drains blood from the head and neck, not directly related to parathyroid gland function.",
+          "usage": {
+            "prompt_tokens": 367,
+            "generated_tokens": 235,
+            "generation_time_s": 11.872
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's low calcium level (7.5 mg/dL) and elevated parathyroid hormone (PTH) suggest hypocalcemia secondary to damage to the parathyroid glands. The thyrocervical trunk is a branch of the superior thyroid artery that supplies the parathyroid glands. Damage to this vessel during the operation would compromise parathyroid gland function, leading to decreased calcium release and increased PTH secretion. The other options (costocervical trunk, external carotid artery, and internal jugular vein) are not directly related to parathyroid gland function.",
+          "critical_evidence": "The combination of hypocalcemia and hyperparathyroidism is the most important evidence, as it points directly to parathyroid gland dysfunction.",
+          "differential_considered": "Considered vitamin D deficiency, hypomagnesemia, and secondary hyperparathyroidism, but ruled them out due to the patient's normal albumin level (4 g/dL) and the fact that the hypocalcemia is likely due to direct parathyroid gland damage from the surgery.",
+          "usage": {
+            "prompt_tokens": 370,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.69
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has hypocalcemia (7.5 mg/dL) and elevated PTH (200 pg/mL), suggesting hypoparathyroidism due to inadvertent parathyroid damage during surgery. The thyrocervical trunk supplies the thyroid and parathyroid glands, and its branches are commonly ligated during thyroidectomy, risking parathyroid injury. The other vessels listed do not directly supply the parathyroid glands.",
+          "critical_evidence": "Elevated PTH with hypocalcemia indicates parathyroid dysfunction, most likely due to surgical injury during thyroidectomy.",
+          "differential_considered": "Other vessels (A, B, D) do not supply the parathyroid glands; thus, damage to them would not cause hypoparathyroidism. The thyrocervical trunk is the most likely source of injury affecting parathyroid blood supply.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 213,
+            "generation_time_s": 7.652
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 132,
+            "generation_time_s": 3.273
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 246,
+            "generation_time_s": 7.93
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

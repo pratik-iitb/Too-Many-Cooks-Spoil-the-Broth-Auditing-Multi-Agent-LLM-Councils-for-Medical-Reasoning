@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-844",
+  "dataset": "mmlu",
+  "question_id": "844",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 23-year-old woman comes to the physician for genetic counseling prior to conception. Her brother and maternal uncle had Duchenne muscular dystrophy (DMD) and died at the ages of 28 and 17 years, respectively. Genetic analysis was not performed on either relative prior to death. Serum studies show a muscle creatine kinase concentration of 120 U/L (N=22– 198). The patient's 50-year-old mother has a serum muscle creatine kinase concentration of 300 U/L. Which of the following is the most appropriate assessment of this patient's carrier status for this disease?",
+    "options": {
+      "A": "The patient has a 50% risk of having a child with DMD",
+      "B": "The patient is a carrier of the disease based on her family history of DMD",
+      "C": "The patient is not a carrier of the DMD based on her normal creatine kinase concentration",
+      "D": "The patient's DMD carrier status is uncertain because of random X inactivation"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Duchenne muscular dystrophy (DMD) is an X-linked recessive disorder. The patient's family history of DMD in her brother and maternal uncle strongly suggests an X-linked inheritance pattern. Since the mother is a carrier, the patient has a 50% chance of being a carrier. The normal creatine kinase level does not rule out carrier status, as it can be normal in carriers.",
+          "critical_evidence": "The patient's family history of DMD in a male relative (brother) and maternal uncle, coupled with the mother's elevated creatine kinase, strongly suggests an X-linked recessive inheritance pattern and a 50% chance of the patient being a carrier.",
+          "differential_considered": "While other genetic conditions can cause muscle weakness, the family history of DMD makes it the most likely diagnosis. Other conditions like myotonic dystrophy or limb-girdle muscular dystrophy are less likely given the specific pattern of inheritance and the patient's age of onset.",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 241,
+            "generation_time_s": 13.144
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's family history of DMD in both her brother and maternal uncle strongly suggests she is a carrier. DMD is an X-linked recessive disorder, and females with one mutated X chromosome (like the patient) typically have mild symptoms or are asymptomatic. The elevated CK levels in both the patient and her mother may indicate mild muscle involvement, but this alone does not rule out carrier status. The maternal history of DMD in males confirms the family pattern, making carrier status likely.",
+          "critical_evidence": "Maternal history of DMD in two affected sons",
+          "differential_considered": "The patient's normal CK level (120 U/L) is within the reference range and does not rule out carrier status, as females with DMD can have normal CK. Other X-linked muscle disorders were considered but ruled out due to the specific pattern of DMD in the family.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 210,
+            "generation_time_s": 9.986
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is female with a family history of DMD in her brother and maternal uncle, indicating an X-linked recessive inheritance pattern. Her mother has elevated CK (300 U/L), consistent with being a carrier. Since the patient is asymptomatic with normal CK (120 U/L), she may be a carrier but not express the disease due to X-inactivation; however, carrier status cannot be ruled out based on family history alone. The most appropriate assessment is that she is a carrier based on family history, as genetic testing is not available for the deceased relatives and CK levels are not definitive for carrier status in females.",
+          "critical_evidence": "Family history of DMD in male relatives and elevated CK in the mother strongly suggest X-linked recessive inheritance and carrier status in the mother, making carrier status likely in the patient.",
+          "differential_considered": "Other X-linked disorders were considered, but the clinical presentation and family history are highly suggestive of DMD. Elevated CK in the mother supports carrier status, and normal CK in the patient does not rule out carrier status due to skewed X-inactivation.",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 257,
+            "generation_time_s": 9.207
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 24,
+            "generation_time_s": 0.615
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A carrier status determination requires the patient to be a known carrier (e.g., via testing), which is not supported by the given data. Options A and B incorrectly assume the patient's own risk or certainty of carrying the mutation, which cannot be established from the information provided. Option C is incorrect because normal CK alone does not rule out carrier status for X-linked recessive DMD.",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 294,
+            "generation_time_s": 9.449
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "B": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

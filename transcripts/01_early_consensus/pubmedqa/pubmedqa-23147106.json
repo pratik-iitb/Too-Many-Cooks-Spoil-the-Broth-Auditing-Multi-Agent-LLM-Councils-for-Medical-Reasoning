@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-23147106",
+  "dataset": "pubmedqa",
+  "question_id": "23147106",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is peak concentration needed in therapeutic drug monitoring of vancomycin?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Vancomycin therapeutic drug monitoring (TDM) is crucial to ensure adequate drug concentrations to achieve therapeutic efficacy and minimize the risk of resistance development. Peak concentration is a key indicator of vancomycin's effectiveness in achieving the target concentration range. Therefore, peak concentration is needed.",
+          "critical_evidence": "Vancomycin's efficacy and resistance development are directly related to achieving the target concentration range, which is best monitored by peak concentration.",
+          "differential_considered": "While trough concentration is also important, peak concentration provides a more comprehensive assessment of the drug's effectiveness in achieving the target range. Other factors like renal function and drug interactions can influence both peak and trough concentrations, but peak concentration is the primary indicator for therapeutic efficacy.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 191,
+            "generation_time_s": 11.339
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Vancomycin is a protein-bound antibiotic with a narrow therapeutic index. Peak concentration (Cmax) is a critical parameter in therapeutic drug monitoring because it helps determine if the drug is reaching the target concentration for effective bactericidal activity while minimizing toxicity. Monitoring Cmax allows clinicians to individualize dosing based on renal function and patient characteristics, ensuring optimal treatment outcomes.",
+          "critical_evidence": "Vancomycin's narrow therapeutic range and potential for nephrotoxicity necessitate individualized dosing",
+          "differential_considered": "While trough concentration (Ct) is commonly monitored, peak concentration provides additional information about drug distribution and protein binding, which is particularly important in patients with altered renal function or those receiving concomitant medications affecting protein binding",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 184,
+            "generation_time_s": 10.351
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Vancomycin requires therapeutic drug monitoring (TDM) to ensure efficacy and avoid toxicity. Peak concentration (Cmax) is essential to confirm that the drug reaches therapeutic levels, especially in critically ill patients or those with renal impairment. Trough levels alone are insufficient to guide dosing and prevent subtherapeutic exposure.",
+          "critical_evidence": "Peak concentration is necessary to ensure therapeutic efficacy and prevent underdosing in vancomycin therapy.",
+          "differential_considered": "Other antibiotics like aminoglycosides also require peak levels, but vancomycin's dosing is uniquely dependent on peak levels to avoid therapeutic failure, making trough levels alone inadequate.",
+          "usage": {
+            "prompt_tokens": 227,
+            "generated_tokens": 163,
+            "generation_time_s": 6.891
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 11,
+            "generation_time_s": 0.326
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The question could be interpreted in the context of standard TDM practices (where trough is prioritized), but without case details, peak's necessity cannot be definitively confirmed or denied.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 186,
+            "generation_time_s": 7.07
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

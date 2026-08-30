@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-946",
+  "dataset": "mmlu",
+  "question_id": "946",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 29-year-old Hispanic woman, gravida 3, para 3, comes to the office because of recurrent low back pain during the past year. Rest and analgesics usually eradicate the pain within 2 weeks. However, the pain seems to recur every 2 to 3 months. Medical history is remarkable for gestational diabetes mellitus during her pregnancies. She takes no medications except for an oral contraceptive. She walks 3 miles daily for exercise and works as a sales representative for a computer software company. She is 165 cm (5 ft 5 in) tall and weighs 100 kg (220 lb); BMI is 37 kg/m2 . Vital signs are normal, and physical examination discloses no abnormalities. Which of the following is the most appropriate next step?",
+    "options": {
+      "A": "Administer an epidural injection of methylprednisolone",
+      "B": "Order MRI of the lumbosacral spine",
+      "C": "Order x-rays of the lumbosacral spine",
+      "D": "Recommend beginning a weight loss program"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with chronic low back pain that is relieved by rest and analgesics, suggesting a musculoskeletal origin. Her obesity (BMI 37 kg/m2) is a significant risk factor for spinal problems, including degenerative disc disease and spinal stenosis. While other options might be considered later, addressing the modifiable risk factor of obesity is the most appropriate initial step.",
+          "critical_evidence": "The patient's obesity (BMI 37 kg/m2) is a significant risk factor for spinal problems.",
+          "differential_considered": "A: Epidural steroid injections are typically reserved for radicular pain or significant nerve compression, which is not indicated in this case. B: While imaging may eventually be necessary, it is not the first-line approach for chronic low back pain without neurological deficits. C: X-rays are not sensitive for soft tissue abnormalities like disc herniations or spinal stenosis, which are more likely causes of her pain. Therefore, they are not the most appropriate initial investigation.",
+          "usage": {
+            "prompt_tokens": 448,
+            "generated_tokens": 245,
+            "generation_time_s": 12.362
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's BMI of 37 kg/m2 indicates severe obesity, which is a major contributor to mechanical low back pain. Given the recurrent nature of the pain and the patient's otherwise normal physical examination, the most appropriate next step is to recommend a weight loss program. Obesity places significant mechanical stress on the spine, and weight reduction is a fundamental treatment for obesity-related back pain.",
+          "critical_evidence": "BMI of 37 kg/m2 (severe obesity)",
+          "differential_considered": "While other causes like degenerative disc disease or spinal stenosis could contribute to back pain, the patient's normal physical examination and the absence of red flags (like neurological symptoms, cancer history, or trauma) make these less likely. The high BMI is the most significant factor here.",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 190,
+            "generation_time_s": 9.076
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent low back pain that responds to rest and analgesics, with no structural abnormalities found on physical exam. Her obesity (BMI 37) is a major risk factor for mechanical low back pain, and lifestyle modification including weight loss is the first-line intervention. Imaging and injections are not indicated without red flags or persistent symptoms unresponsive to conservative measures.",
+          "critical_evidence": "BMI of 37 kg/m2 indicates obesity, a well-established risk factor for mechanical low back pain, and the patient’s symptoms are consistent with non-specific mechanical back pain.",
+          "differential_considered": "Disc herniation or spinal stenosis were considered, but imaging is not indicated without red flags (e.g., neurologic deficits, trauma, fever, or persistent severe pain). No systemic or structural abnormalities were found on exam, making non-specific mechanical back pain the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 212,
+            "generation_time_s": 7.611
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 100,
+            "generation_time_s": 2.491
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Epidural steroid injection (not indicated without clear myelopathy or radiculopathy); B and C: MRI and x-rays (would be appropriate only if there are acute symptoms, trauma, or neurological deficits, which are not present); D: Weight loss recommendation (supported by her obesity and lack of other concerning features).",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 290,
+            "generation_time_s": 9.346
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

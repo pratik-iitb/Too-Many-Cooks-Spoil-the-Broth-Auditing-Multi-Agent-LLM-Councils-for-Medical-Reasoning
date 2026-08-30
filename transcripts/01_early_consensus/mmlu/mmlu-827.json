@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-827",
+  "dataset": "mmlu",
+  "question_id": "827",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "While you are on rounds at a local nursing facility, the nurse mentions that your patient, a 79-year-old woman, appears to be a \"poor eater.\" She was admitted to the nursing facility 3 months ago from the hospital where she was treated for congestive heart failure. Her daughter had moved away from the area, and nursing home placement was necessary because the patient could no longer function independently. Her present medications include furosemide and digoxin. Physical examination is normal except for a weight loss of 3.5 kg (7 lb) during the past 3 months. In your conversation with the patient, she says, \"No, I'm not depressed, I just don't have an appetite anymore. Nothing tastes good to me. I have a little bit of nausea most of the time.\" Which of the following is the most appropriate initial diagnostic study?",
+    "options": {
+      "A": "Chest x-ray",
+      "B": "Complete blood count",
+      "C": "Determination of serum albumin concentration",
+      "D": "Determination of serum digoxin level"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's anorexia and weight loss are concerning, especially in the context of heart failure and medication use. While nausea is present, it's not the primary concern. Low serum albumin can be a cause of anorexia and weight loss, and it's a relatively simple and non-invasive test to perform. Other options are less directly relevant to the initial assessment of anorexia.",
+          "critical_evidence": "Weight loss of 3.5 kg (7 lb) during the past 3 months.",
+          "differential_considered": "A chest x-ray might be considered later if there are respiratory symptoms, but it's not the most appropriate initial study for anorexia. A complete blood count is useful for assessing overall health, but it's less specific for the cause of anorexia. A serum digoxin level is important to monitor, but the patient is already on digoxin, and the primary concern is the anorexia and weight loss, not digoxin toxicity. Therefore, assessing albumin is the most appropriate first step.",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 244,
+            "generation_time_s": 12.294
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's weight loss, nausea, and loss of appetite suggest possible malnutrition or underlying metabolic issues. Serum albumin is a key marker of nutritional status and can indicate if the patient is losing protein due to poor intake or malabsorption. While digoxin level (D) is relevant for monitoring medication toxicity, the patient's symptoms point more toward a nutritional problem than digoxin toxicity. Chest x-ray (A) is less specific for this presentation, and CBC (B) doesn't directly address nutritional status. Albumin (C) is the most direct indicator of the patient's nutritional state.",
+          "critical_evidence": "Weight loss of 3.5 kg over 3 months with nausea and loss of appetite",
+          "differential_considered": "Considered digoxin toxicity (rational due to medication use), gastrointestinal issues, and cardiac failure complications, but ruled out as primary causes due to the patient's denial of depression and the absence of specific cardiac symptoms. The most likely explanation is malnutrition or metabolic derangement.",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.485
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a 79-year-old woman with unintentional weight loss, anorexia, and nausea, which are classic signs of malnutrition or underlying medical illness. Given her age and chronic illness (congestive heart failure), serum albumin is a key marker of nutritional status and protein-calorie malnutrition. It is the most appropriate initial test to assess for hypoalbuminemia, which can explain her symptoms and guide further management.",
+          "critical_evidence": "Unintentional weight loss of 3.5 kg over 3 months in a patient with chronic illness strongly suggests malnutrition, making serum albumin the most relevant initial diagnostic study.",
+          "differential_considered": "Other differentials like depression (ruled out by patient’s denial), digoxin toxicity (unlikely without symptoms like arrhythmia or GI distress beyond nausea), or infection (not supported by fever or other signs) were considered but do not require immediate testing over albumin, which directly addresses the nutritional deficit.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 234,
+            "generation_time_s": 8.718
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The most appropriate initial diagnostic study for this patient is the determination of serum albumin concentration.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 442,
+            "generated_tokens": 19,
+            "generation_time_s": 0.494
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Pneumonia, infection, malabsorption syndromes, depression, or malignancy were considered, but the absence of clear evidence for depression or specific organ pathology on exam makes CBC the most appropriate initial broad investigation.",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 252,
+            "generation_time_s": 8.12
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

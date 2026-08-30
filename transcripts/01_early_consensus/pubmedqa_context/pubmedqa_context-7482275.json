@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-7482275",
+  "dataset": "pubmedqa_context",
+  "question_id": "7482275",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Necrotizing fasciitis: an indication for hyperbaric oxygenation therapy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The accepted treatment protocol for necrotizing fasciitis (NF) consists of extensive surgery and wide spectrum antibiotics. Hyperbaric oxygenation (HBO) has been recommended as adjuvant therapy for NF, improving patient mortality and outcome. However, the beneficial effect of HBO for NF remains controversial. A retrospective evaluation of treatment outcome in 37 patients treated for NF between 1984 and 1993 was carried out. The mortality rate, morbidity criteria, and risk factors for grave prognosis were compared between a group of 25 patients who received HBO as part of their treatment protocol and a group of the remaining 12 patients treated by surgical excision and antibiotics alone. The two groups were found to be similar with regard to age, gender, the incidence of individual risk factors for ominous prognosis, and the Acute Physiology and Chronic Health Evaluation (APACHE) II score for disease's severity on presentation. The mortality rate among the HBO-treated patients was 36%, as opposed to 25% in the non-HBO group. The mean number of surgical débridements required per patient was significantly higher in the HBO group: 3.3 compared with 1.5 in the non-HBO-treated patients. Although the average length of hospitalization for survivors was shorter for the HBO group, the difference between the groups did not reach statistical significance.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case indicates that hyperbaric oxygenation (HBO) therapy is recommended as adjuvant therapy for necrotizing fasciitis (NF) due to its potential to improve patient outcomes. The study found a significantly higher mortality rate in the HBO group compared to the control group, although the difference in length of hospitalization was not statistically significant. Therefore, HBO is indicated.",
+          "critical_evidence": "The mortality rate among the HBO-treated patients was 36%, as opposed to 25% in the non-HBO group.",
+          "differential_considered": "While the study suggests a potential benefit of HBO, it's important to consider that the difference in length of hospitalization wasn't statistically significant. Other conditions that might mimic NF could also be considered, but the case specifically focuses on NF.",
+          "usage": {
+            "prompt_tokens": 543,
+            "generated_tokens": 204,
+            "generation_time_s": 21.721
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The evidence shows that while HBO therapy was associated with higher surgical debridement requirements and similar mortality rates between groups, the data does not demonstrate a clear benefit. The non-HBO group had better outcomes with fewer debridements and comparable survival, suggesting HBO may not be necessary for standard treatment of NF.",
+          "critical_evidence": "The 36% mortality in HBO group vs 25% in non-HBO group without statistically significant difference in survival, despite higher surgical requirements in HBO group",
+          "differential_considered": "Considered whether HBO might be beneficial for high-risk cases, but data shows no clear indication for routine use in standard NF treatment",
+          "usage": {
+            "prompt_tokens": 538,
+            "generated_tokens": 1024,
+            "generation_time_s": 58.257
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study showed higher mortality (36% vs 25%) and more surgical débridements in the HBO group, despite similar baseline characteristics. Although HBO was intended as an adjuvant to improve outcomes, the data suggest it may not be beneficial and could even be harmful. The lack of statistically significant reduction in hospital stay further weakens its clinical utility.",
+          "critical_evidence": "Mortality rate was higher in the HBO group (36%) compared to the non-HBO group (25%).",
+          "differential_considered": "Other adjuvant therapies for NF were not evaluated, but the study directly compared HBO to standard care. The higher morbidity and mortality in the HBO group suggest it is not superior, and thus not indicated as standard of care.",
+          "usage": {
+            "prompt_tokens": 518,
+            "generated_tokens": 188,
+            "generation_time_s": 8.506
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 536,
+            "generated_tokens": 32,
+            "generation_time_s": 1.02
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.6,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The main differential to consider was whether HBO could be an effective adjunct to standard treatment, but the lack of statistical significance in mortality and similar baseline characteristics weaken the case for routine HBO as indicated therapy.",
+          "usage": {
+            "prompt_tokens": 572,
+            "generated_tokens": 225,
+            "generation_time_s": 8.587
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

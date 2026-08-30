@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-541",
+  "dataset": "medqa",
+  "question_id": "541",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 32-year-old woman presents to the physician because she feels depressed, has difficulty sleeping, has a poor appetite, and has had a problem concentrating for the past 3 months. During this time, she has also has had low energy and has lost interest in playing the guitar. During high school, the patient went through similar episodes of low mood and poor sleep. At that time, she would repeatedly engage in binge eating and purging behavior, for which she was referred to therapy. There is no evidence of suicidal ideation. Her physician offers to prescribe a medication for her current symptoms. Treatment with which of the following drugs should be avoided in this patient?",
+    "options": {
+      "A": "Bupropion",
+      "B": "Citalopram",
+      "C": "Fluoxetine",
+      "D": "Mirtazapine",
+      "E": "Trazodone"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of binge eating and purging behavior during adolescence strongly suggests a history of Bulimia Nervosa. Bupropion is a norepinephrine-dopamine reuptake inhibitor (NDRI) and is generally not a first-line treatment for bulimia nervosa due to its potential to worsen or trigger binge-purge cycles. The other options (Citalopram, Fluoxetine, Mirtazapine, and Trazodone) are all SSRIs or SNRIs that are commonly used in the treatment of bulimia nervosa.",
+          "critical_evidence": "History of binge eating and purging behavior during adolescence.",
+          "differential_considered": "The patient's symptoms could be due to Major Depressive Disorder (MDD). However, the history of bulimia nervosa makes this a less likely diagnosis. Bipolar disorder is less likely given the absence of manic or hypomanic episodes. Anxiety disorders are possible, but the history of bulimia makes this less likely than a mood disorder.",
+          "usage": {
+            "prompt_tokens": 401,
+            "generated_tokens": 246,
+            "generation_time_s": 12.182
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a history of binge eating and purging behavior in high school, indicating a past eating disorder. Fluoxetine (C) is a selective serotonin reuptake inhibitor (SSRI) that can increase the risk of serotonin syndrome when combined with other serotonergic agents, and it has been associated with weight loss and potential triggering of eating disorders. Given the patient's history, prescribing Fluoxetine could potentially exacerbate her past disordered eating behaviors.",
+          "critical_evidence": "History of binge eating and purging behavior in high school",
+          "differential_considered": "While other antidepressants like Bupropion (A), Citalopram (B), Mirtazapine (D), and Trazodone (E) are generally safer in this context, the patient's past eating disorder history makes Fluoxetine (C) the most concerning choice due to its potential to influence eating behaviors.",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 216,
+            "generation_time_s": 10.074
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of recurrent depressive episodes with binge eating and purging behavior during adolescence, consistent with a history of bulimia nervosa. Bupropion is contraindicated in patients with a history of eating disorders due to the risk of inducing or worsening binge eating. Other antidepressants listed are generally considered safer in this context.",
+          "critical_evidence": "History of binge eating and purging behavior during adolescence, indicating a history of bulimia nervosa.",
+          "differential_considered": "Major depressive disorder with melancholic features; history of bulimia nervosa; ruled out bipolar disorder due to absence of manic symptoms and no suicidal ideation; bupropion is the only agent with specific contraindication in eating disorder history.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 186,
+            "generation_time_s": 6.533
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 400,
+            "generated_tokens": 137,
+            "generation_time_s": 3.334
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Differentials include bipolar II disorder, unipolar depression, or other mood disorders. However, the eating disorder history is critical for ruling out or considering risks with SSRIs, which are contraindicated in this scenario due to the serotonin system implications.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 317,
+            "generation_time_s": 9.974
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

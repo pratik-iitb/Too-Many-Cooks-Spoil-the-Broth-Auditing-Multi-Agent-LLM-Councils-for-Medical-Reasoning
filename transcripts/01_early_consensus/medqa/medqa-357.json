@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-357",
+  "dataset": "medqa",
+  "question_id": "357",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old man presents to the emergency department with a fever, chills, cough, and aches that started 3 days ago. He has also experienced night sweats and chills during this time frame. This morning, he noticed warts and a few small bleeding lesions on his skin. The patient has a past medical history of type I diabetes and asthma and is currently taking insulin, albuterol, and fluticasone. He is generally healthy and just returned from a trip visiting family in the southeastern United States. His temperature is 102°F (38.9°C), blood pressure is 129/82 mmHg, pulse is 107/min, respirations are 19/min, and oxygen saturation is 95% on room air. Physical exam demonstrates an ill appearing young man. Pulmonary exam is notable for bilateral coarse breath sounds. Dermatologic exam reveals the findings in Figure A. A chest radiograph is obtained as seen in Figure B. Further diagnostic studies and tests are sent off and are currently pending. Which of the following is the best treatment for the most likely diagnosis?",
+    "options": {
+      "A": "Azithromycin and ceftriaxone",
+      "B": "Itraconazole and amphotericin",
+      "C": "Rifampin, isoniazid, pyrazinamide, and ethambutol",
+      "D": "Supportive therapy",
+      "E": "Vancomycin, piperacillin-tazobactam, and azithromycin"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, chills, cough, night sweats, and skin lesions (warts and bleeding lesions) in the context of a recent trip to the southeastern US strongly suggests a diagnosis of tuberculosis (TB). The chest radiograph findings (Figure B) are also consistent with TB. The patient's history of diabetes and asthma is relevant but not directly causative of the current presentation.",
+          "critical_evidence": "The combination of fever, night sweats, cough, and skin lesions, along with a recent travel history to the southeastern US, is highly suggestive of TB.",
+          "differential_considered": "While pneumonia (A, E) is a possibility given the cough and fever, the presence of skin lesions and night sweats makes TB more likely. Leprosy (B) is less likely given the acute onset and lack of characteristic skin findings. Supportive therapy (D) is insufficient for a suspected infectious disease like TB. Therefore, the most likely diagnosis is TB, and the appropriate treatment is a multi-drug regimen.",
+          "usage": {
+            "prompt_tokens": 534,
+            "generated_tokens": 249,
+            "generation_time_s": 12.335
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of fever, chills, cough, night sweats, and skin lesions with warts and bleeding lesions, along with recent travel to the southeastern US, strongly suggests a tropical disease. The physical exam findings of coarse breath sounds and the chest radiograph showing bilateral hilar lymphadenopathy and patchy infiltrates are consistent with tuberculosis (TB). The patient's past medical history of diabetes and asthma does not rule out TB, as these conditions can be associated with increased susceptibility to opportunistic infections. Rifampin, isoniazid, pyrazinamide, and ethambutol are the first-line medications for TB treatment.",
+          "critical_evidence": "Bilateral hilar lymphadenopathy and patchy infiltrates on chest radiograph",
+          "differential_considered": "Considered malaria, dengue, and other tropical infections due to travel history, but ruled out by the absence of specific clinical features (e.g., dengue typically presents with severe headache and pain behind the eyes). Skin lesions with warts and bleeding lesions are more consistent with TB than other tropical infections.",
+          "usage": {
+            "prompt_tokens": 538,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.025
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, chills, night sweats, cough, and new cutaneous lesions (warts and bleeding lesions), along with a chest radiograph showing infiltrates. His history of diabetes and recent travel to the southeastern U.S. increases suspicion for tuberculosis. The cutaneous lesions are consistent with tuberculous cutaneous involvement, and the radiograph findings support pulmonary TB. The most appropriate treatment is first-line anti-TB therapy with rifampin, isoniazid, pyrazinamide, and ethambutol.",
+          "critical_evidence": "Chest radiograph showing infiltrates + cutaneous lesions + systemic symptoms + history of diabetes and travel = highly suggestive of pulmonary tuberculosis.",
+          "differential_considered": "Other differentials like community-acquired pneumonia (no specific organism identified yet), fungal infections (no systemic signs of fungal disease), or viral infections (no rash or systemic toxicity consistent with viral illness) were considered but ruled out by the presence of cutaneous lesions and radiographic infiltrates consistent with TB, and the patient’s risk factors.",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 247,
+            "generation_time_s": 9.078
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 536,
+            "generated_tokens": 336,
+            "generation_time_s": 8.126
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Fever, chills, night sweats, cough, and skin lesions consistent with tuberculosis",
+          "differential_considered": "Tuberculosis (most likely), fungal infection (less likely without clear dermatologic findings for a specific fungus), bacterial pneumonia (less likely given the symptom duration and lack of local focal findings), and other systemic infections. However, the combination of symptoms and risk factors strongly favor TB, for which supportive therapy is the standard of care pending diagnostic confirmation.",
+          "usage": {
+            "prompt_tokens": 570,
+            "generated_tokens": 282,
+            "generation_time_s": 8.888
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

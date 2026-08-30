@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1101",
+  "dataset": "medqa",
+  "question_id": "1101",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 51-year-old woman with AIDS presents to her primary care physician with fatigue and weakness. She has a history of type 2 diabetes mellitus, hypertension, infectious mononucleosis, and hypercholesterolemia. She currently smokes 1 pack of cigarettes per day, drinks a glass of wine per day, and denies any illicit drug use. Her temperature is 36.7°C (98.0°F), blood pressure is 126/74 mm Hg, pulse is 87/min, and respirations are 17/min. On physical examination, her pulses are bounding. The patent’s complexion is pale. She has an enlarged cervical lymph node, and breath sounds remain clear. Further lab and tissue diagnostic evaluation reveal and confirms Burkitt’s lymphoma with diffuse bulky disease. After receiving more information about her condition and treatment options, the patient agrees to start chemotherapy. Eight days after starting chemotherapy, she presents with decreased urinary output. Laboratory studies show:\nCreatinine 7.9 mg/dL\nBUN 41 mg/dL\nSerum uric acid 28 mg/dL\nPotassium 6.9 mEq/L\nWhich therapy is most likely to reverse the patient’s metabolic abnormalities?",
+    "options": {
+      "A": "Intravenous saline with mannitol with the goal of a daily urinary output above 2.5 L/day",
+      "B": "Hemodialysis",
+      "C": "Intravenous sodium bicarbonate with the goal of urinary pH > 7.0",
+      "D": "Allopurinol 300 mg/day",
+      "E": "Intravenous recombinant uricase enzyme rasburicase"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is experiencing acute kidney injury (AKI) likely due to chemotherapy-induced nephrotoxicity, specifically tumor lysis syndrome (TLS). The elevated creatinine, BUN, uric acid, and potassium levels strongly suggest this. Rasburicase is a recombinant uricase enzyme that converts uric acid to allantoin, a more soluble metabolite that is easily excreted by the kidneys. This is the most effective way to rapidly lower uric acid levels in this setting.",
+          "critical_evidence": "The significantly elevated uric acid level (28 mg/dL) in the setting of chemotherapy and AKI strongly suggests tumor lysis syndrome.",
+          "differential_considered": "While allopurinol (D) is used to prevent uric acid formation, it is not effective in rapidly lowering already elevated uric acid levels. Hemodialysis (B) is a definitive treatment for AKI, but rasburicase is preferred as the first-line treatment for TLS because it is more specific and effective at lowering uric acid. Intravenous saline with mannitol (A) is used for acute kidney injury due to dehydration, but it does not address the underlying cause of the uric acid elevation. Sodium bicarbonate (C) is used for metabolic acidosis, which is not the primary problem here. Therefore, rasburicase is the most appropriate initial therapy.",
+          "usage": {
+            "prompt_tokens": 571,
+            "generated_tokens": 305,
+            "generation_time_s": 16.13
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's elevated serum uric acid (28 mg/dL) and high creatinine (7.9 mg/dL) suggest severe renal dysfunction and hyperuricemia, likely due to chemotherapy-induced nephrotoxicity. Allopurinol (E) is the most appropriate therapy to lower uric acid levels, as it inhibits xanthine oxidase, the rate-limiting enzyme in uric acid synthesis. The other options (A, B, C, D) do not directly address the underlying cause of hyperuricemia or renal failure.",
+          "critical_evidence": "Serum uric acid level of 28 mg/dL, indicating severe hyperuricemia",
+          "differential_considered": "Considered chemotherapy-induced nephrotoxicity, but ruled out other causes of acute renal failure (e.g., dehydration, sepsis) based on the patient's history and presentation. The primary concern is the hyperuricemia secondary to chemotherapy, making allopurinol the most appropriate treatment.",
+          "usage": {
+            "prompt_tokens": 561,
+            "generated_tokens": 243,
+            "generation_time_s": 11.35
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with acute kidney injury, hyperkalemia, and markedly elevated serum uric acid, consistent with tumor lysis syndrome (TLS) following chemotherapy for Burkitt’s lymphoma. Rasburicase is the preferred therapy for TLS in high-risk patients due to its rapid and potent uric acid-lowering effect, especially in those with severe hyperuricemia and renal impairment. Other options like allopurinol or bicarbonate are less effective in acute, severe TLS, and hemodialysis is supportive but not the first-line agent for uric acid control.",
+          "critical_evidence": "Serum uric acid 28 mg/dL (normal <7 mg/dL) with creatinine 7.9 mg/dL and potassium 6.9 mEq/L strongly indicates tumor lysis syndrome requiring aggressive uric acid reduction.",
+          "differential_considered": "Acute kidney injury from dehydration or nephrotoxic drugs was considered, but the context of recent chemotherapy and extreme hyperuricemia and hyperkalemia points to tumor lysis syndrome. Hemodialysis and saline with mannitol are supportive measures, not curative for the underlying uric acid crisis.",
+          "usage": {
+            "prompt_tokens": 544,
+            "generated_tokens": 274,
+            "generation_time_s": 9.644
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 559,
+            "generated_tokens": 210,
+            "generation_time_s": 5.093
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has elevated creatinine, BUN, and uric acid, indicating acute kidney injury (likely prerenal due to dehydration from reduced oral intake and diuretic use). The most appropriate initial therapy for acute kidney injury in the context of chemotherapy-induced nephrotoxicity is to reduce uric acid and manage the underlying cause, which in this case is dehydration. Among the options, allopurinol (D) is used to lower serum uric acid, addressing the hyperuricemia, a critical early and reversible component of acute kidney injury when volume status is improved. Other options address volume status (A), dialysis (B, which is not typically first-line for hyperuricemia), acidosis (C, not indicated here), or specific enzyme therapy (E, which is reserved for gout or specific cases of hyperuricemia).",
+          "critical_evidence": "Elevated creatinine, BUN, and uric acid levels indicating acute kidney injury likely due to dehydration from chemotherapy-induced fluid loss.",
+          "differential_considered": "Prerenal AKI due to dehydration is the most likely cause. Hemodialysis (B) is appropriate for severe or refractory cases but is not the first step for volume resuscitation. Allopurinol (D) targets the underlying hyperuricemia, which can contribute to AKI and is often used acutely to reduce uric acid. Sodium bicarbonate (C) and uricase (E) are not indicated for this metabolic profile. Intravenous saline (A) is correct for volume resuscitation, but the question asks for therapy to reverse the metabolic abnormalities, which primarily involves correcting acid-base and/or uric acid levels, with uric acid elevation being the key metabolic abnormality here.",
+          "usage": {
+            "prompt_tokens": 602,
+            "generated_tokens": 396,
+            "generation_time_s": 12.486
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

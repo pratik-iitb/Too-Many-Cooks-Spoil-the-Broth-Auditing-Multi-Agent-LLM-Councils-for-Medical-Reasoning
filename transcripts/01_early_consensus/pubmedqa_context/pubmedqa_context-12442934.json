@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-12442934",
+  "dataset": "pubmedqa_context",
+  "question_id": "12442934",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does ibuprofen increase perioperative blood loss during hip arthroplasty?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To determine whether prior exposure of non-steroidal anti-inflammatory drugs increases perioperative blood loss associated with major orthopaedic surgery. Fifty patients scheduled for total hip replacement were allocated to two groups (double blind, randomized manner). All patients were pretreated for 2 weeks before surgery: Group 1 with placebo drug, Group 2 with ibuprofen. All patients were injected intrathecally with bupivacaine 20mg plus morphine 0.1 mg, in a total volume of 4 mL, to provide surgical anaesthesia. The presence of severe adverse effects caused eight patients in the ibuprofen group and six in the placebo group to terminate their participation in the trial. The perioperative blood loss increased by 45% in the ibuprofen group compared with placebo. The total (+/-SD) blood loss in the ibuprofen group was 1161 (+/-472) mL versus 796 (+/-337) mL in the placebo group.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case clearly demonstrates that ibuprofen increases perioperative blood loss during hip arthroplasty. The study showed a 45% increase in blood loss in the ibuprofen group compared to the placebo group. This is a significant finding that supports the conclusion that ibuprofen increases blood loss.",
+          "critical_evidence": "The perioperative blood loss increased by 45% in the ibuprofen group compared with placebo.",
+          "differential_considered": "While other factors could influence blood loss, the study design (double-blind, randomized) and the significant difference in blood loss between the two groups strongly suggest that ibuprofen is the primary driver of the increased blood loss. Other potential confounders were controlled for in the study design.",
+          "usage": {
+            "prompt_tokens": 461,
+            "generated_tokens": 185,
+            "generation_time_s": 10.877
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found a statistically significant 45% increase in perioperative blood loss in the ibuprofen group compared to the placebo group, with a large effect size (mean difference of 365 mL). The randomized design and double-blinding help reduce bias, and the large sample size (50 patients) supports the reliability of these findings. The observed effect size is clinically meaningful given typical blood loss volumes in hip arthroplasty.",
+          "critical_evidence": "The 45% increase in mean perioperative blood loss (1161 mL vs 796 mL) with a wide confidence interval (±472 and ±337 respectively) demonstrates a clinically significant effect of ibuprofen on blood loss.",
+          "differential_considered": "While other factors like surgical technique or patient characteristics could influence blood loss, the randomized controlled design and similar baseline characteristics between groups (implied by the study design) minimize confounding. The large effect size and statistical significance (not explicitly stated but implied by the reported increase) support the conclusion that ibuprofen is the primary driver of increased blood loss.",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 1024,
+            "generation_time_s": 56.99
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The study directly compares perioperative blood loss between ibuprofen and placebo groups, showing a 45% increase in blood loss in the ibuprofen group. This is a statistically significant and clinically relevant finding, despite the small sample size and dropouts. The evidence clearly supports that ibuprofen increases perioperative blood loss in this context.",
+          "critical_evidence": "The total blood loss was 1161 (+/-472) mL in the ibuprofen group versus 796 (+/-337) mL in the placebo group, representing a 45% increase.",
+          "differential_considered": "Other causes of increased blood loss (e.g., surgical technique, anesthesia, patient factors) were controlled for by randomization and blinding, so the differential is not applicable here.",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 196,
+            "generation_time_s": 8.198
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 66,
+            "generation_time_s": 1.921
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 202,
+            "generation_time_s": 7.626
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

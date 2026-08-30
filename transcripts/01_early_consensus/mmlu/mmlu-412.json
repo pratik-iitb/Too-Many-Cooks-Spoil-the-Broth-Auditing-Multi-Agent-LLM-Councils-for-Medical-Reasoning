@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-412",
+  "dataset": "mmlu",
+  "question_id": "412",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In Sweden, the red fox (Vulpes vulpes) severely limits populations of its prey, including hares. However, red fox populations are sometimes attacked by a fatal parasite, the mange mite. As mite population sizes increase at a given site, how are hare and fox populations most likely to respond at the same site? (Assume that hares have no major predators at this site other than foxes.)",
+    "options": {
+      "A": "Both fox and hare populations will decrease.",
+      "B": "Both fox and hare populations will increase.",
+      "C": "Fox populations will decrease and hare populations will increase.",
+      "D": "Fox populations will increase and hare populations will decrease."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The red fox population is limited by the hare population, which is in turn limited by the fox population. The mange mite is a fatal parasite for foxes. As the mite population increases, the fox population will decrease. This decrease in fox population will then allow the hare population to increase, as the foxes are no longer preying on them. Therefore, both populations will decrease.",
+          "critical_evidence": "The mange mite is a fatal parasite for foxes.",
+          "differential_considered": "While the hare population might be affected by other factors, the primary limiting factor for the fox population is the hare population. The fatal parasite affecting the fox population is the most significant factor in this scenario.",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 180,
+            "generation_time_s": 14.359
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The mange mite is a fatal parasite that attacks red fox populations. As mite numbers increase, fox mortality rises, leading to a decrease in fox population. With fewer foxes, there is less predation pressure on hare populations, allowing hare numbers to increase. This creates a compensatory ecological dynamic where the fox decline benefits the hare population.",
+          "critical_evidence": "The presence of a fatal parasite (mange mite) that directly reduces fox population size",
+          "differential_considered": "Options A and B were considered but ruled out because they don't account for the parasite's impact on foxes. Option D was considered but ruled out because increased fox mortality from mites would reduce fox numbers, not increase them.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 190,
+            "generation_time_s": 9.508
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "As mange mite populations increase, fox mortality rises due to the fatal parasite, causing fox numbers to decline. With fewer foxes preying on them, hare populations will increase due to reduced predation pressure. This is a classic predator-prey dynamic with an added mortality factor affecting the predator.",
+          "critical_evidence": "The mange mite is fatal to foxes, and hares have no other major predators at the site.",
+          "differential_considered": "Options A and B are incorrect because foxes do not increase with mites, and hares do not increase if foxes increase. Option D is incorrect because foxes decrease, not increase, with rising mite populations.",
+          "usage": {
+            "prompt_tokens": 334,
+            "generated_tokens": 170,
+            "generation_time_s": 8.731
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 66,
+            "generation_time_s": 1.693
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possible outcomes (such as both populations declining or both increasing) are inconsistent with the established ecological impact of the parasite on the fox population. There is no evidence in the case suggesting that hares are harmed by the mite, only that the mite kills foxes.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 238,
+            "generation_time_s": 10.709
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

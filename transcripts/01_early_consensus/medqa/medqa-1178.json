@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1178",
+  "dataset": "medqa",
+  "question_id": "1178",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An experimental infusable drug, X729, is currently being studied to determine its pharmacokinetics. The drug was found to have a half life of 1.5 hours and is eliminated by first order kinetics. What is the minimum number of hours required to reach a steady state concentration of >90%?",
+    "options": {
+      "A": "1.5",
+      "B": "3",
+      "C": "4.5",
+      "D": "6",
+      "E": "7.5"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "To reach steady state, the rate of drug administration must equal the rate of drug elimination. The half-life of X729 is 1.5 hours, which means the concentration is reduced to half every 1.5 hours. To reach 90% of steady state, the concentration must be at least 90% of the final steady state concentration. Therefore, the time required is 4.5 half-lives (1.5 * 4.5 = 6.75 hours). Since we need to reach >90% of steady state, we round up to 4.5 hours.",
+          "critical_evidence": "The half-life of 1.5 hours is the key pharmacokinetic parameter for calculating the time to reach steady state.",
+          "differential_considered": "While other factors could influence drug concentration, the first-order elimination kinetics and the given half-life are the most relevant for determining the time to steady state. Other factors like dose rate and patient factors are not provided in the case, so they are not considered.",
+          "usage": {
+            "prompt_tokens": 329,
+            "generated_tokens": 261,
+            "generation_time_s": 12.986
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "For a drug with first-order elimination and a half-life of 1.5 hours, steady-state concentration is reached when 97.5% of the total exposure has been achieved. To reach >90% of steady-state, we need approximately 4 half-lives (since (1/2)^4 = 0.0625, meaning 93.75% of the total exposure has been achieved). 4 × 1.5 hours = 6 hours. This is the minimum time required to achieve >90% of steady-state concentration.",
+          "critical_evidence": "First-order kinetics with a half-life of 1.5 hours",
+          "differential_considered": "No differential diagnoses needed - this is a straightforward pharmacokinetic calculation based on half-life and elimination kinetics",
+          "usage": {
+            "prompt_tokens": 328,
+            "generated_tokens": 191,
+            "generation_time_s": 8.957
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "For a drug eliminated by first-order kinetics, steady state is reached when approximately 90% of the total drug amount is present in the body. This typically requires about 3.3 half-lives (since 1 half-life = 50%, 2 = 75%, 3 = 87.5%, 4 = 93.75%). Given a half-life of 1.5 hours, 4 half-lives equal 6 hours, but 3.3 half-lives (≈4.95 hours) is closer to 90%. The closest option above 4.95 hours is 4.5 hours, which is insufficient, but 6 hours is the minimum that exceeds 90% (93.75%). However, 4.5 hours (3 half-lives) gives 87.5%, which is less than 90%. Therefore, 6 hours (4 half-lives) is the minimum to exceed 90%.",
+          "critical_evidence": "The drug has a half-life of 1.5 hours and follows first-order kinetics, which dictates that steady state concentration >90% requires approximately 3.3 half-lives (i.e., 4.95 hours), so the minimum option that exceeds this is 6 hours.",
+          "differential_considered": "No differential diagnoses are relevant here as this is a pharmacokinetic calculation, not a clinical case with multiple possible diagnoses. The key consideration is the time to reach 90% steady state based on half-life and first-order elimination.",
+          "usage": {
+            "prompt_tokens": 302,
+            "generated_tokens": 362,
+            "generation_time_s": 12.749
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 50,
+            "generation_time_s": 1.228
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "For a drug eliminated by first-order kinetics, the time to reach 90% of steady-state (t90) is calculated using t90 = (ln 2)/k × ln(10), where k = 0.693/(half-life). With a half-life of 1.5 hours, the t90 ≈ 4.5 hours. Reaching >90% requires slightly more than this, but 4.5 hours is the accepted threshold for practical clinical interpretation.",
+          "critical_evidence": "",
+          "differential_considered": "I considered whether the question might be asking for the time to reach 95% of steady-state (which would be closer to 6 hours), but the standard clinical interpretation for >90% is approximately the t90 value of 4.5 hours.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 265,
+            "generation_time_s": 8.366
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

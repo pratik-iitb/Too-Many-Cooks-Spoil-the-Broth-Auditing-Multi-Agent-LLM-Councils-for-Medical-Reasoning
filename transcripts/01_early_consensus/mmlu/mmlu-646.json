@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-646",
+  "dataset": "mmlu",
+  "question_id": "646",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Oxygen is used:",
+    "options": {
+      "A": "in glycolysis.",
+      "B": "in the conversion of fatty acids to acetyl CoA.",
+      "C": "in the tricarboxylic acid cycle (Krebs' cycle).",
+      "D": "in glycogenolysis."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Oxygen is essential for the complete oxidation of glucose and fatty acids. Glycolysis occurs in the absence of oxygen, while the tricarboxylic acid cycle and fatty acid oxidation require oxygen. Glycogenolysis is the breakdown of glycogen, which is a storage form of glucose, and does not directly involve oxygen. The question asks about oxygen use, so the best answer is the process that requires oxygen.",
+          "critical_evidence": "The question explicitly asks about the use of oxygen.",
+          "differential_considered": "A: Glycolysis is anaerobic and does not require oxygen. C: The tricarboxylic acid cycle is aerobic and requires oxygen. D: Glycogenolysis is the breakdown of glycogen, which is a storage form of glucose, and does not directly involve oxygen.",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 197,
+            "generation_time_s": 10.105
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Oxygen is required for glycolysis to proceed beyond the initial steps, specifically for the conversion of pyruvate to acetyl CoA, which occurs in the mitochondria. This process is essential for aerobic metabolism and is inhibited by the absence of oxygen. The other options involve processes that either do not require oxygen (fatty acid activation) or occur in the absence of oxygen (glycogenolysis).",
+          "critical_evidence": "Oxygen is required for the conversion of pyruvate to acetyl CoA in the mitochondria.",
+          "differential_considered": "Options B, C, and D involve processes that do not require oxygen, so they are less likely to be the correct answer.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.346
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "Oxygen is a critical final electron acceptor in the electron transport chain, which is directly linked to the tricarboxylic acid (TCA) cycle. The TCA cycle produces NADH and FADH2, whose electrons are transferred to oxygen to generate ATP. None of the other listed processes (glycolysis, fatty acid conversion to acetyl CoA, or glycogenolysis) require oxygen as a direct participant.",
+          "critical_evidence": "Oxygen is consumed in the electron transport chain, which is the final step of energy production following the TCA cycle.",
+          "differential_considered": "Glycolysis and glycogenolysis are anaerobic processes; fatty acid to acetyl CoA conversion does not require oxygen. All are ruled out because they do not involve oxygen as a direct reactant.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 202,
+            "generation_time_s": 7.373
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 73,
+            "generation_time_s": 1.84
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A (glycolysis) and D (glycogenolysis) are unlikely because these processes do not require oxygen. Option B (fatty acid conversion to acetyl CoA) occurs in mitochondria and uses oxygen downstream, but the direct, classic association with oxygen use in cellular metabolism is the TCA cycle. Option C is thus the best answer.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 260,
+            "generation_time_s": 8.51
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

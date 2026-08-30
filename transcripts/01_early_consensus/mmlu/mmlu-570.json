@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-570",
+  "dataset": "mmlu",
+  "question_id": "570",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "While working on a scene for an action movie, a sound technician is given the task of changing the frequency of a gunshot to more accurately reflect the normal speed of sound. The gunshot came from an actor inside a car traveling 108 km/h, and it was recorded by a camera on a platform 200 meters away traveling at 72 km/h in the same direction. If the frequency of the gunshot is normally 800Hz, what is the perceived frequency which the camera picks up the gunshot at?",
+    "options": {
+      "A": "941 Hz",
+      "B": "787 Hz",
+      "C": "924 Hz",
+      "D": "912 Hz"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.605
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The camera is moving toward the sound source (gunshot) while the actor is also moving toward the camera. This is a case of both the source and observer moving toward each other, which increases the perceived frequency. Using the Doppler effect formula for a moving source and observer: f' = f * (v + vo)/(v - vs), where v is speed of sound (343 m/s), vo is observer speed (72 km/h = 20 m/s), vs is source speed (108 km/h = 30 m/s), and f is original frequency (800 Hz). This results in f' = 800 * (343 + 20)/(343 - 30) = 941 Hz.",
+          "critical_evidence": "Both the source and observer are moving toward each other, which increases the perceived frequency",
+          "differential_considered": "Considered if the camera was moving away from the source (would decrease frequency) or if only the source was moving (would also increase frequency but to a different value), but both scenarios were ruled out by the given motion directions",
+          "usage": {
+            "prompt_tokens": 357,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.643
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "This is a Doppler effect problem in acoustics, not a clinical case. The perceived frequency depends on the relative motion between the source (gun in moving car) and the observer (camera on moving platform). The source is moving toward the observer (same direction, but source faster), and the observer is moving away from the source. Using the Doppler formula for sound: f' = f * (v + vo) / (v - vs), where v is speed of sound (343 m/s), vo is observer speed (72 km/h = 20 m/s), vs is source speed (108 km/h = 30 m/s). Plugging in: f' = 800 * (343 + 20) / (343 - 30) ≈ 787 Hz.",
+          "critical_evidence": "The relative motion of source and observer, and the application of the Doppler formula for sound waves, yields 787 Hz as the correct perceived frequency.",
+          "differential_considered": "No clinical differentials apply; this is a physics problem. Other options were ruled out by direct calculation using the Doppler effect formula.",
+          "usage": {
+            "prompt_tokens": 343,
+            "generated_tokens": 280,
+            "generation_time_s": 10.027
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The perceived frequency which the camera picks up the gunshot at is 787 Hz.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 355,
+            "generated_tokens": 17,
+            "generation_time_s": 0.435
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other possible effects like reflection off the ground were considered but the case specifies the sound is directly from the moving car to the camera, so only the Doppler shift due to their velocities matters.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 248,
+            "generation_time_s": 7.99
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

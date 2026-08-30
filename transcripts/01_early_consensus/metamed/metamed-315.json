@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-315",
+  "dataset": "metamed",
+  "question_id": "315",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 26-year-old G1P0 woman presents to her primary care physician’s office with feelings of anxiety and trouble with sleep. She finds it difficult initiating sleep, occasionally has palpitations, and feels fatigued. She denies having similar symptoms in the past or starting any new medications or illicit drugs. She is currently 10 weeks pregnant and is closely followed by her obstetrician. Her temperature is 98.6°F (37°C), blood pressure is 125/70 mmHg, pulse is 105/min, and respirations are 18/min. On physical exam, the patient is mildly diaphoretic. The skin is warm and the thyroid gland is diffusely enlarged with thyroid bruits. Laboratory studies are significant for a thyroid-stimulating hormone level of 0.01 µU/mL (normal is 0.5-5.0 µU/mL) and an elevated free thyroxine (FT4) that is inappropriate for her pregnancy. Which of the following is the best treatment option for this patient?",
+    "options": {
+      "A": "Methimazole",
+      "B": "Propylthiouracil",
+      "C": "Radioiodine therapy",
+      "D": "Thyroidectomy",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with symptoms of hyperthyroidism (anxiety, palpitations, fatigue, diaphoresis) and physical exam findings (diffusely enlarged thyroid with bruits) along with laboratory evidence of suppressed TSH and elevated free T4. Given her pregnancy, the most appropriate initial treatment is propylthiouracil (PTU) because it is the preferred antithyroid medication in the first trimester of pregnancy due to its lower risk of teratogenic effects compared to methimazole.",
+          "critical_evidence": "Suppressed TSH and elevated free T4 in a pregnant patient with hyperthyroid symptoms.",
+          "differential_considered": "Methimazole is generally preferred in non-pregnant patients, but PTU is safer in the first trimester. Radioiodine therapy is contraindicated in pregnancy due to the risk of fetal hypothyroidism. Thyroidectomy is rarely indicated in pregnancy unless there are other compelling reasons.",
+          "usage": {
+            "prompt_tokens": 503,
+            "generated_tokens": 224,
+            "generation_time_s": 12.631
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a low TSH and elevated FT4 with a diffusely enlarged thyroid and bruits, indicating hyperthyroidism. Given her pregnancy, antithyroid drugs are preferred over surgery or radioiodine. Methimazole is the first-line drug of choice during pregnancy due to its safety profile.",
+          "critical_evidence": "Thyroid bruits and diffusely enlarged thyroid suggest Graves' disease, a common cause of hyperthyroidism in pregnancy.",
+          "differential_considered": "Considered postpartum thyroiditis, thyroiditis, and subacute thyroiditis, but ruled out due to diffusely enlarged thyroid and bruits, which are more consistent with Graves' disease.",
+          "usage": {
+            "prompt_tokens": 496,
+            "generated_tokens": 1024,
+            "generation_time_s": 54.904
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a pregnant woman with hyperthyroidism (low TSH, elevated FT4) and signs of thyrotoxicosis (tachycardia, diaphoresis, thyroid bruits), consistent with Graves' disease. In pregnancy, propylthiouracil (PTU) is preferred over methimazole due to lower risk of fetal teratogenicity, especially in the first trimester. Radioiodine and thyroidectomy are contraindicated in pregnancy due to fetal radiation exposure or surgical risks. Methimazole is second-line if PTU is not tolerated.",
+          "critical_evidence": "Thyroid bruits and low TSH with elevated FT4 in pregnancy point to active Graves' disease requiring antithyroid medication.",
+          "differential_considered": "Toxic multinodular goiter or thyroiditis were considered but ruled out by the presence of thyroid bruits and diffuse goiter, which are more suggestive of Graves' disease. Radioiodine and thyroidectomy are contraindicated in pregnancy.",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 245,
+            "generation_time_s": 10.039
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 494,
+            "generated_tokens": 139,
+            "generation_time_s": 4.022
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "Thyroid-stimulating hormone (TSH) level of 0.01 µU/mL and an elevated free thyroxine (FT4) inappropriate for pregnancy",
+          "differential_considered": "Graves' disease (but her TSH is low, not high), thyroiditis (transient), and other endocrine disorders, but her current presentation and need for ongoing thyroid replacement in pregnancy make drug therapy the best option. Surgery and radioiodine are clearly contraindicated.",
+          "usage": {
+            "prompt_tokens": 532,
+            "generated_tokens": 289,
+            "generation_time_s": 10.391
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

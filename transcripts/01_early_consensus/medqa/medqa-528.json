@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-528",
+  "dataset": "medqa",
+  "question_id": "528",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 32-year-old woman presents to the emergency department with 2 hours of left-sided weakness. Her husband reports that she had been complaining of pain and swelling in her right calf for several weeks prior to this event. The couple had recently returned from a vacation in Europe. What ausculatory finding would explain the mechanism by which her more recent complaint occurred?",
+    "options": {
+      "A": "Holosystolic murmur radiating to the axilla",
+      "B": "Wide, fixed splitting of S2",
+      "C": "Crescendo-decrescendo murmur heard loudest at the right second intercostal space",
+      "D": "Holosystolic murmur that increases on inspiration",
+      "E": "An S2 that splits during expiration"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's recent travel to Europe, coupled with a history of calf pain and swelling, strongly suggests a deep vein thrombosis (DVT). The auscultatory finding that would explain the mechanism of a DVT is a holosystolic murmur that increases on inspiration (Carvallo's sign). This is due to the increased venous return to the right side of the heart during inspiration, which accentuates the murmur of tricuspid regurgitation, which can occur in the setting of a DVT causing pulmonary embolism and right heart strain.",
+          "critical_evidence": "Holosystolic murmur that increases on inspiration (Carvallo's sign)",
+          "differential_considered": "A: Holosystolic murmur radiating to the axilla (suggests mitral regurgitation, less likely given the acute presentation and travel history). B: Wide, fixed splitting of S2 (suggests atrial septal defect, less likely given the acute presentation and travel history). C: Crescendo-decrescendo murmur heard loudest at the right second intercostal space (suggests aortic stenosis, less likely given the acute presentation and travel history). E: An S2 that splits during expiration (suggests atrial septal defect, less likely given the acute presentation and travel history).",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 300,
+            "generation_time_s": 14.843
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's left-sided weakness suggests a possible embolic event, likely due to a thrombus that originated in her right leg (where she had swelling and pain). A holosystolic murmur radiating to the axilla is characteristic of a large pulmonary embolism, which would cause systemic hypoperfusion and lead to weakness. This murmur results from increased left ventricular afterload and is heard throughout systole, radiating to the axilla due to the embolism's effect on the left side of the heart.",
+          "critical_evidence": "Holosystolic murmur radiating to the axilla",
+          "differential_considered": "Considered DVT, pulmonary embolism, and other causes of left-sided weakness, but the most likely scenario given the clinical history and auscultatory finding is a pulmonary embolism causing a holosystolic murmur. The patient's recent travel history increases the likelihood of a venous thromboembolism.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 232,
+            "generation_time_s": 10.815
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s recent left-sided weakness suggests a stroke, likely embolic in origin. Her prior calf pain and swelling point to deep vein thrombosis (DVT), which is a common source of emboli. The auscultatory finding that best explains this mechanism is a crescendo-decrescendo murmur at the right second intercostal space, which is characteristic of aortic stenosis. Aortic stenosis can lead to left ventricular hypertrophy and increased risk of embolization, especially in the setting of chronic hypertension or prior cardiac pathology. The murmur’s location and description are classic for aortic stenosis, which may have been exacerbated by the recent travel (e.g., dehydration, prolonged sitting) and predisposed to thrombus formation.",
+          "critical_evidence": "Crescendo-decrescendo murmur heard loudest at the right second intercostal space is diagnostic of aortic stenosis, which can lead to embolic events via left ventricular thrombus formation.",
+          "differential_considered": "Other murmurs like holosystolic (e.g., mitral regurgitation, ventricular septal defect) or split S2 (e.g., ASD, pulmonary hypertension) are less likely to cause embolic stroke. Wide fixed splitting of S2 suggests ASD, which is not typically associated with embolic stroke. Holosystolic murmur increasing on inspiration suggests VSD, which is also not a common cause of embolism. S2 splitting during expiration is normal and not associated with embolic risk.",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 353,
+            "generation_time_s": 12.36
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 192,
+            "generation_time_s": 4.894
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of stroke (e.g., hemorrhage, ischemic carotid stenosis, sepsis) were likely considered but are less directly linked to the preceding calf symptoms, which are classic for deep vein thrombosis. Thromboembolic events from the right side of the heart are the best explanation here.",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 332,
+            "generation_time_s": 10.445
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-674",
+  "dataset": "mmlu",
+  "question_id": "674",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In an SDS-PAGE procedure, the SDS serves as a detergent. Why are the proteins treated with a detergent before being run through the electrophoresis gel?",
+    "options": {
+      "A": "To coat the proteins with a large positive charge, since amino acid side chains may have positive, negative, or neutral charges, and a large uniform charge is necessary to get good separation in the gel.",
+      "B": "To allow the electrophoresis to separate the proteins solely on the basis of the length of the primary sequence.",
+      "C": "To prevent the protein from denaturing so that the electrophoresis can accurately resolve the proteins on the basis of tertiary structure.",
+      "D": "To break the intramolecular bonds holding the tertiary and primary structure of the protein together, thereby generating linear fragments that may be sorted on size."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "SDS-PAGE separates proteins based on size. To achieve this, the proteins must be denatured, meaning their native structure (secondary, tertiary, and quaternary) must be disrupted. SDS is a detergent that binds to proteins and coats them with a uniform negative charge. This effectively masks the intrinsic charge of the amino acid side chains, ensuring that the proteins are separated primarily based on their size, not their charge or structure.",
+          "critical_evidence": "SDS is a detergent that coats proteins with a uniform negative charge.",
+          "differential_considered": "B: While length of the primary sequence is important, SDS-PAGE separates based on size, not primary sequence. C: Denaturation is necessary for SDS-PAGE, but the detergent's role is to create a uniform negative charge, not to prevent denaturation. D: While SDS does disrupt the protein structure, the primary goal is to create a uniform negative charge for size-based separation, not to break the protein into fragments.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 239,
+            "generation_time_s": 12.211
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "SDS (sodium dodecyl sulfate) is an anionic detergent that denatures proteins by disrupting non-covalent interactions such as hydrogen bonds, hydrophobic interactions, and disulfide bridges. This denaturation converts globular proteins into linear, unstructured polypeptide chains, allowing them to migrate through the gel based on their molecular weight. Without denaturation, proteins with similar sizes but different tertiary structures would not separate properly. Therefore, SDS is used to break the tertiary and primary structure of proteins, enabling size-based separation in SDS-PAGE.",
+          "critical_evidence": "SDS denatures proteins by disrupting non-covalent interactions, converting them into linear fragments that can be separated by size.",
+          "differential_considered": "Options A, B, and C are incorrect because SDS does not coat proteins with a uniform charge, does not separate proteins solely by primary sequence, and does not prevent denaturation. The primary purpose of SDS in SDS-PAGE is to denature proteins, not to preserve their structure.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.33
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "SDS (sodium dodecyl sulfate) is a strong anionic detergent that denatures proteins and coats them with a uniform negative charge, effectively masking their native charges. This allows separation based solely on molecular weight (size) during electrophoresis. Option D correctly describes this denaturing effect, which linearizes proteins and disrupts tertiary and secondary structures, enabling size-based resolution. The other options misrepresent the purpose of SDS — it does not impart positive charge (A), does not separate by primary sequence (B), and does not preserve tertiary structure (C).",
+          "critical_evidence": "SDS denatures proteins and imparts a uniform negative charge, enabling separation by molecular weight in SDS-PAGE.",
+          "differential_considered": "Options A, B, and C were considered but ruled out: A is incorrect because SDS adds negative charge, not positive; B is incorrect because primary sequence length is not the basis of separation; C is incorrect because SDS denatures proteins, not preserves tertiary structure.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 236,
+            "generation_time_s": 8.594
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 160,
+            "generation_time_s": 4.307
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "SDS (sodium dodecyl sulfate) acts as a detergent to break the hydrophobic interactions within and between proteins, making them linear and giving them a uniform charge so they migrate based on molecular size rather than their native structure. Without SDS, proteins may form complexes or aggregates that do not separate properly in the gel.",
+          "critical_evidence": "The primary function of SDS in SDS-PAGE is to denature proteins and coat them with a uniform negative charge, enabling separation by size rather than by charge or conformation.",
+          "differential_considered": "Options A and C refer to charge and native structure, but the key issue in SDS-PAGE is ensuring proteins are denatured and size-separated. Option B is incorrect because SDS does not separate proteins by length of the primary sequence alone; it linearizes them for size-based migration.",
+          "usage": {
+            "prompt_tokens": 421,
+            "generated_tokens": 203,
+            "generation_time_s": 7.103
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "D": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

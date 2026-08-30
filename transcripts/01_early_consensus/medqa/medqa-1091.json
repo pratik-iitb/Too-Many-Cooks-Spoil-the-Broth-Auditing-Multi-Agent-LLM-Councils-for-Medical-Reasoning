@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1091",
+  "dataset": "medqa",
+  "question_id": "1091",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 72-year-old woman presents to the clinic complaining of diarrhea for the past week. She mentions intense fatigue and intermittent, cramping abdominal pain. She has not noticed any blood in her stool. She recalls an episode of pneumonia last month for which she was hospitalized and treated with antibiotics. She has traveled recently to Florida to visit her family and friends. Her past medical history is significant for hypertension, peptic ulcer disease, and hypercholesterolemia for which she takes losartan, esomeprazole, and atorvastatin. She also has osteoporosis, for which she takes calcium and vitamin D and occasional constipation for which she takes an over the counter laxative as needed. Physical examination shows lower abdominal tenderness but is otherwise insignificant. Blood pressure is 110/70 mm Hg, pulse is 80/min, and respiratory rate is 18/min. Stool testing is performed and reveals the presence of anaerobic, gram-positive bacilli. Which of the following increased this patient’s risk of developing this clinical presentation?",
+    "options": {
+      "A": "Recent travel to Florida",
+      "B": "Constipation treated with laxatives",
+      "C": "Peptic ulcer disease treated with esomeprazole",
+      "D": "Hypercholesterolemia treated with atorvastatin",
+      "E": "Osteoporosis treated with calcium and vitamin D"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's diarrhea, abdominal pain, and the presence of anaerobic, gram-positive bacilli in the stool strongly suggest a bacterial infection, most likely *Clostridium difficile* (C. diff). Recent travel to Florida increases the risk of exposure to C. diff spores, which are commonly found in the environment and can be ingested, especially in areas with poor sanitation. While the other options are relevant to the patient's medical history, they are less directly linked to the acute onset of diarrhea and the specific stool findings.",
+          "critical_evidence": "Recent travel to Florida",
+          "differential_considered": "Constipation treated with laxatives: While laxative abuse can sometimes lead to diarrhea, it's less likely to cause the specific type of diarrhea and the presence of anaerobic bacilli. Peptic ulcer disease treated with esomeprazole: Esomeprazole is a proton pump inhibitor (PPI) that reduces stomach acid. While PPIs can sometimes be associated with *C. difficile* infection, the primary risk factor is antibiotic use, which is not mentioned in the case. Hypercholesterolemia treated with atorvastatin: Atorvastatin is a statin used to lower cholesterol. It does not directly increase the risk of *C. difficile* infection. Osteoporosis treated with calcium and vitamin D: Calcium and vitamin D are not directly linked to *C. difficile* infection.",
+          "usage": {
+            "prompt_tokens": 499,
+            "generated_tokens": 322,
+            "generation_time_s": 15.934
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's peptic ulcer disease, treated with esomeprazole, increases the risk of Clostridium difficile infection (CDI), which causes antibiotic-associated diarrhea. Esomeprazole reduces gastric acid, allowing C. difficile spores to survive and germinate in the intestine. The patient's recent antibiotic use for pneumonia and her constipation treated with laxatives further support CDI as the likely diagnosis, as laxatives can disrupt normal gut flora, promoting C. difficile overgrowth.",
+          "critical_evidence": "Esomeprazole use for peptic ulcer disease",
+          "differential_considered": "Considered: Travel to Florida (low risk for C. difficile), hypercholesterolemia (no direct link to diarrhea), osteoporosis (no direct link to diarrhea), and constipation (laxative use increases CDI risk). Ruled out: Blood in stool (not present), suggesting non-hemorrhagic causes like CDI.",
+          "usage": {
+            "prompt_tokens": 508,
+            "generated_tokens": 227,
+            "generation_time_s": 10.583
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with diarrhea, abdominal pain, and fatigue, with stool cultures positive for anaerobic, gram-positive bacilli — highly suggestive of Clostridioides difficile infection (CDI). CDI risk is significantly increased by recent antibiotic use, which in this case was for pneumonia. Esomeprazole, a proton pump inhibitor, is known to increase the risk of CDI by altering gastric pH and reducing normal gut flora, thereby allowing C. difficile to proliferate. Other options (travel, laxatives, statins, calcium/vitamin D) are not established risk factors for CDI.",
+          "critical_evidence": "Stool culture reveals anaerobic, gram-positive bacilli — consistent with C. difficile — and recent antibiotic use (for pneumonia) is a major risk factor for CDI, which is exacerbated by proton pump inhibitors like esomeprazole.",
+          "differential_considered": "Other differentials like viral gastroenteritis, food poisoning, or traveler’s diarrhea were considered, but the presence of anaerobic bacilli and recent antibiotic exposure strongly point to CDI. Osteoporosis, hypercholesterolemia, and laxative use do not contribute to this specific pathogen’s proliferation.",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 280,
+            "generation_time_s": 9.824
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 11,
+            "generation_time_s": 0.292
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Ongoing chronic conditions (hypertension, peptic ulcer, hypercholesterolemia, osteoporosis) are not directly linked to the acute diarrhea in this case. The key differentials are infectious causes (e.g\u0000a\u0000\u0000 of C. difficile) versus non-infectious causes (e.g. small intestinal bacterial overgrowth, food poisoning), but the strongest supporting evidence is the prior antibiotic exposure amplified by recent travel. Thus, the increased risk is most plausibly due to recent travel (A).",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 310,
+            "generation_time_s": 9.763
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

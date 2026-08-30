@@ -1,0 +1,124 @@
+{
+  "sample_id": "medxpertqa-Text-123",
+  "dataset": "medxpertqa",
+  "question_id": "Text-123",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which concurrent chemotherapy regimen is MOST suitable for preoperative chemoradiotherapy (chemoRT) to 50.4 Gy in a patient with HER2-positive T3N1 adenocarcinoma of the distal esophagus?\nAnswer Choices: (A) Cisplatin, paclitaxel, and capecitabine (B) Carboplatin, paclitaxel, and trastuzumab (C) Carboplatin and paclitaxel (D) Carboplatin, paclitaxel, and bevacizumab (E) Cisplatin and 5-fluorouracil (F) Carboplatin, paclitaxel, and erlotinib (G) Carboplatin, paclitaxel, and oxaliplatin (H) Carboplatin, paclitaxel, and capecitabine (I) Carboplatin, paclitaxel, and nivolumab (J) Cisplatin, paclitaxel, and trastuzumab",
+    "options": {
+      "A": "Cisplatin, paclitaxel, and capecitabine",
+      "B": "Carboplatin, paclitaxel, and trastuzumab",
+      "C": "Carboplatin and paclitaxel",
+      "D": "Carboplatin, paclitaxel, and bevacizumab",
+      "E": "Cisplatin and 5-fluorouracil",
+      "F": "Carboplatin, paclitaxel, and erlotinib",
+      "G": "Carboplatin, paclitaxel, and oxaliplatin",
+      "H": "Carboplatin, paclitaxel, and capecitabine",
+      "I": "Carboplatin, paclitaxel, and nivolumab",
+      "J": "Cisplatin, paclitaxel, and trastuzumab"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Digestive",
+      "question_type": "Understanding"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has HER2-positive esophageal adenocarcinoma, which requires a HER2-targeted therapy. Trastuzumab is a monoclonal antibody that targets HER2. The chemotherapy regimen should include a platinum-based agent (carboplatin or cisplatin) and a taxane (paclitaxel). Capecitabine is a reasonable choice for concurrent chemoradiotherapy, but trastuzumab is the most important addition for HER2-positive disease.",
+          "critical_evidence": "HER2-positive status of the esophageal adenocarcinoma.",
+          "differential_considered": "Options A, C, D, E, F, G, H, I, and J are all chemotherapy regimens, but none specifically address the HER2-positive status of the tumor. Therefore, trastuzumab is the most important addition to the regimen.",
+          "usage": {
+            "prompt_tokens": 574,
+            "generated_tokens": 263,
+            "generation_time_s": 11.437
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has HER2-positive esophageal cancer, which requires trastuzumab for HER2-targeted therapy. Preoperative chemoradiotherapy with 50.4 Gy necessitates potent chemotherapy, and carboplatin/paclitaxel is a standard regimen. Adding trastuzumab enhances HER2-specific cytotoxicity, making this combination most effective.",
+          "critical_evidence": "HER2-positive status requiring trastuzumab",
+          "differential_considered": "Other options lack HER2-targeted therapy; A, C, E, G, H, J use only platinum and taxane without HER2 treatment; D and I add anti-angiogenic or immune checkpoint inhibitors not indicated here; F adds EGFR inhibitor not relevant to HER2-positive disease.",
+          "usage": {
+            "prompt_tokens": 656,
+            "generated_tokens": 1024,
+            "generation_time_s": 45.278
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "J",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has HER2-positive T3N1 distal esophageal adenocarcinoma, requiring preoperative chemoradiotherapy. HER2-targeted therapy (trastuzumab) is essential for optimal outcomes in HER2+ esophageal cancer. Cisplatin and paclitaxel are standard backbone agents for esophageal cancer chemoradiation, and adding trastuzumab improves survival in HER2+ disease. Other regimens lack HER2 targeting or use less effective combinations for this specific tumor type.",
+          "critical_evidence": "HER2-positive status mandates inclusion of trastuzumab in the regimen for improved survival and pathologic response.",
+          "differential_considered": "Regimens without trastuzumab (e.g., A, B, C, D, E, F, G, H, I) were considered but ruled out because they do not address the HER2+ status. Bevacizumab, erlotinib, nivolumab, and oxaliplatin are not standard for preoperative chemoRT in esophageal cancer. Capecitabine and 5-FU are less preferred than cisplatin in this context.",
+          "usage": {
+            "prompt_tokens": 628,
+            "generated_tokens": 282,
+            "generation_time_s": 10.144
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 654,
+            "generated_tokens": 364,
+            "generation_time_s": 11.953
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 682,
+            "generated_tokens": 354,
+            "generation_time_s": 12.368
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "J": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

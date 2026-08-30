@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-259",
+  "dataset": "medqa",
+  "question_id": "259",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 21-year-old university student is found unconscious on the floor of his dorm room by his friends. He is rushed to the emergency room, and his temperature is 103°F (39.5°C) and blood pressure is 84/64 mmHg. On physical examination, he is observed to have purple-rose spots on his neck, abdomen, and lower legs as shown in Figure A. Laboratory data reveals metabolic acidosis. Infection with what organism is most likely responsible for this patient’s condition?",
+    "options": {
+      "A": "Haemophilus influenzae",
+      "B": "Neisseria gonorrhoeae",
+      "C": "Neisseria meningitidis",
+      "D": "Streptococcus pneumoniae",
+      "E": "Streptococcus pyogenes"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of a high fever, hypotension, petechial rash (purple-rose spots), and metabolic acidosis strongly suggests meningococcemia. *Neisseria meningitidis* is the most common cause of meningococcemia, which presents with this constellation of symptoms.",
+          "critical_evidence": "The presence of petechial rash (purple-rose spots) is highly suggestive of meningococcemia.",
+          "differential_considered": "Haemophilus influenzae is a cause of meningitis, but less likely to cause petechial rash. Neisseria gonorrhoeae can cause disseminated gonococcal infection, but the rash is typically pustular, not petechial. Streptococcus pneumoniae is a common cause of pneumonia and meningitis, but the rash is not typical. Streptococcus pyogenes causes scarlet fever, which presents with a sandpaper-like rash, not petechiae.",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 223,
+            "generation_time_s": 11.005
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's metabolic acidosis, high fever, and characteristic purple-rose spots on the neck, abdomen, and lower legs strongly suggest a bacterial meningitis caused by Neisseria meningitidis. This organism is known to produce a toxin that leads to purpura fulminans, which matches the clinical presentation. The other options are less likely: Haemophilus influenzae and Streptococcus pneumoniae typically cause pneumonia or other infections without the same cutaneous findings, while Neisseria gonorrhoeae and Streptococcus pyogenes are more associated with genital or skin infections respectively.",
+          "critical_evidence": "Purple-rose spots (purpura fulminans) associated with metabolic acidosis",
+          "differential_considered": "Considered Haemophilus influenzae (pneumonia), Neisseria gonorrhoeae (genital infection), Neisseria meningitidis (meningitis with purpura fulminans), Streptococcus pneumoniae (pneumococcal infections), and Streptococcus pyogenes (scarlet fever). Ruled out others due to mismatched clinical patterns and absence of relevant findings.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.975
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient presents with high fever, hypotension, and characteristic purple-rose petechial rash on trunk and extremities, consistent with meningococcemia. Metabolic acidosis further supports systemic infection. These findings are classic for Neisseria meningitidis infection, which can rapidly progress to sepsis and shock.",
+          "critical_evidence": "Purple-rose petechial rash on neck, abdomen, and lower legs in a young patient with fever and hypotension is pathognomonic for meningococcemia.",
+          "differential_considered": "Haemophilus influenzae (A) is less common in young adults and typically causes meningitis without rash. Neisseria gonorrhoeae (B) causes genital infections, not systemic sepsis with rash. Streptococcus pneumoniae (D) can cause sepsis but rarely presents with petechial rash. Streptococcus pyogenes (E) causes necrotizing fasciitis or strep throat, not typical petechial rash in this context.",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 246,
+            "generation_time_s": 8.566
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 109,
+            "generation_time_s": 2.613
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options such as Haemophilus influenzae, N. gonorrhoeae, and S. pneumoniae typically cause respiratory or genital infections, not the cutaneous petechiae and metabolic derangement seen here. S. pyogenes can cause toxic shock syndrome but is less commonly associated with the described rash pattern and laboratory findings.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 245,
+            "generation_time_s": 7.623
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

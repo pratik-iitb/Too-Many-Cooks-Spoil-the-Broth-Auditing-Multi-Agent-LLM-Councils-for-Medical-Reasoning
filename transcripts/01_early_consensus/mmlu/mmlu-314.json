@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-314",
+  "dataset": "mmlu",
+  "question_id": "314",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "For very high force contractions lasting 1-2 seconds, the initial energy source is from:",
+    "options": {
+      "A": "Glycolysis.",
+      "B": "creatine phosphorylation.",
+      "C": "phosphocreatine stores.",
+      "D": "ATP stores."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "During very high-force contractions, the body needs a rapid energy source. ATP stores are quickly depleted. Creatine phosphate is a readily available energy reserve that can quickly regenerate ATP. Glycolysis is a slower process and not the primary source for these intense bursts of energy. Therefore, creatine phosphorylation is the most appropriate initial energy source.",
+          "critical_evidence": "Very high force contractions lasting 1-2 seconds.",
+          "differential_considered": "ATP stores: While ATP is the primary energy currency, it is quickly depleted during intense activity. Glycolysis: Glycolysis is a slower process and not the primary source for these intense bursts of energy. Anaerobic metabolism: While anaerobic metabolism can provide energy, it is not the initial source for very high force contractions.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 199,
+            "generation_time_s": 11.305
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "For very high force contractions lasting 1-2 seconds, the body primarily relies on phosphocreatine stores for immediate energy. This is because such intense contractions require rapid ATP regeneration, and phosphocreatine provides the fastest source of ATP through creatine kinase reaction. Glycolysis (A) would be the next energy system, but it's slower and not the initial source. ATP stores (D) are limited and would be depleted quickly. Creatine phosphorylation (B) is the process, but the initial energy source is the stored phosphocreatine itself.",
+          "critical_evidence": "The duration of 1-2 seconds indicates the need for rapid ATP regeneration, which is best met by phosphocreatine stores through the creatine kinase reaction.",
+          "differential_considered": "Options A (glycolysis) and D (ATP stores) were considered but ruled out because they are secondary or insufficient energy sources for such high-intensity contractions. Option B (creatine phosphorylation) is the process, but the initial energy source is the stored phosphocreatine, not the reaction itself.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 1024,
+            "generation_time_s": 56.954
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "For very high force contractions lasting 1-2 seconds, the muscle relies on the phosphocreatine (PCr) system, which rapidly regenerates ATP from PCr and ADP. This system is the primary source of energy for short, intense bursts of activity, as it is faster than glycolysis and does not require oxygen. ATP stores alone are insufficient for sustained high force, and glycolysis becomes dominant only after phosphocreatine is depleted.",
+          "critical_evidence": "The duration (1-2 seconds) and intensity of contraction specifically match the time frame where phosphocreatine stores are the dominant energy source.",
+          "differential_considered": "Glycolysis (A) is considered but is slower and becomes dominant after phosphocreatine is depleted; ATP stores (D) are too limited for high force; creatine phosphorylation (B) is a misnomer — it's phosphocreatine that donates phosphate, not creatine itself.",
+          "usage": {
+            "prompt_tokens": 250,
+            "generated_tokens": 232,
+            "generation_time_s": 8.84
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The initial energy source for very high force contractions lasting 1-2 seconds is from phosphocreatine stores.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 277,
+            "generated_tokens": 25,
+            "generation_time_s": 0.656
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Very high force contractions, such as in explosive movements or the first seconds of intense exercise, primarily rely on rapidly available energy systems. While ATP is the immediate energy currency, its short duration limits sustained high force. Creatine kinase/PCr system provides quick ATP regeneration from creatine phosphate, enabling short bursts of high force. Glycolysis is slower and not the initial energy source for these brief, powerful contractions.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 212,
+            "generation_time_s": 6.859
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

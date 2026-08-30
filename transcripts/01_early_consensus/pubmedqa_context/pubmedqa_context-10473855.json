@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-10473855",
+  "dataset": "pubmedqa_context",
+  "question_id": "10473855",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is delayed gastric emptying following pancreaticoduodenectomy related to pylorus preservation?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Delayed gastric emptying (DGE) is the most frequent postoperative complication after pylorus-preserving pancreaticoduodenectomy (PPPD). This prospective, non-randomized study was undertaken to determine whether the incidence of DGE may be reduced by modifying the original reconstructive anatomy with a retrocolic duodenojejunostomy towards an antecolic duodenojejunostomy. The study was comprised of 51 patients who underwent PPPD between August 1994 and November 1997. The operation was carried out as originally described but was modified by performing the duodenojejunostomy antecolically. Clinical data were recorded prospectively, with special regard to DGE. After PPPD, the nasogastric tube could be removed at a median of 2 days (range 1-22 days) postoperatively; in two patients, the nasogastric tube was reinserted because of vomiting and nausea. A liquid diet was started at a median of 5 days (3-11 days); the patients were able to tolerate a full, regular diet at a median of 10 days (7-28 days). The overall incidence of DGE was 12% (n=6). No postoperative complications other than DGE were exhibited by 36 patients (71%). In this group, DGE was only seen in one patient (3%). In the second group, where postoperative complications other than DGE occurred (n=15), five patients (30%) exhibited DGE (P=0.002).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates a significantly lower incidence of delayed gastric emptying (DGE) in patients with an antecolic duodenojejunostomy compared to those with a retrocolic duodenojejunostomy. This suggests that pylorus preservation, achieved through an antecolic anastomosis, is associated with reduced DGE. The P-value of 0.002 further strengthens this conclusion.",
+          "critical_evidence": "The study showed a significantly lower incidence of DGE (3%) in the group with antecolic duodenojejunostomy compared to the group with retrocolic duodenojejunostomy (30%).",
+          "differential_considered": "While other factors could contribute to DGE, the study's design and results strongly implicate pylorus preservation as a key factor. Other potential causes of DGE, such as pancreatic insufficiency or medication side effects, were not specifically addressed in the study, but the focus on the surgical reconstruction makes pylorus preservation the most relevant differential.",
+          "usage": {
+            "prompt_tokens": 588,
+            "generated_tokens": 247,
+            "generation_time_s": 14.523
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that modifying the reconstructive anatomy from retrocolic to antecolic duodenojejunostomy significantly reduced the incidence of delayed gastric emptying (DGE) from 12% to 3% in patients with no other complications, and from 30% to 0% in those with complications. This strong statistical association (P=0.002) supports a causal relationship between pylorus preservation and reduced DGE risk.",
+          "critical_evidence": "The P=0.002 statistical significance showing a 10-fold reduction in DGE incidence with antecolic reconstruction",
+          "differential_considered": "Other factors like patient comorbidities or surgical technique variations were considered but the study's controlled design and specific focus on reconstructive anatomy modification make these less likely contributors to the observed outcome.",
+          "usage": {
+            "prompt_tokens": 582,
+            "generated_tokens": 1024,
+            "generation_time_s": 56.956
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that DGE incidence was significantly lower (3%) in patients without other complications, suggesting DGE is not inherently caused by pylorus preservation but rather by other factors like surgical technique or comorbidities. The key finding is that DGE was more common (30%) in patients with other complications, implying DGE is a secondary complication, not directly related to pylorus preservation.",
+          "critical_evidence": "In the group without other complications, DGE occurred in only 1 of 36 patients (3%), while in the group with other complications, 5 of 15 patients (30%) had DGE (P=0.002).",
+          "differential_considered": "Other surgical factors (e.g., anastomotic technique) and patient comorbidities were considered, but the data show DGE correlates with overall complication burden, not pylorus preservation status.",
+          "usage": {
+            "prompt_tokens": 569,
+            "generated_tokens": 218,
+            "generation_time_s": 9.144
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 580,
+            "generated_tokens": 73,
+            "generation_time_s": 2.132
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "In the group where postoperative complications other than DGE occurred (n=15), five patients (30%) exhibited DGE, compared to just 3% in the group without other complications.",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 612,
+            "generated_tokens": 234,
+            "generation_time_s": 8.831
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

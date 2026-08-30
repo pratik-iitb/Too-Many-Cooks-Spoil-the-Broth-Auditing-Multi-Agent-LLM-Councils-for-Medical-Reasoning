@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-493",
+  "dataset": "medqa",
+  "question_id": "493",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 32-year-old pregnant woman presents to the clinic with complaints of cramping, abdominal pain, and severe watery diarrhea for the past 3 days. She also is nauseous and complains of fever and malaise. She was started on a 7-day course of amoxicillin after being admitted to the hospital for pyelonephritis 5 days ago. The vital signs include heart rate 98/min, respiratory rate 16/min, temperature 38.9°C (102.0°F), and blood pressure 92/56 mm Hg. Physical examination reveals abdominal distention with diffuse tenderness. Laboratory studies show a peripheral white blood cell (WBC) count of 15,000/mm3 and stool guaiac positive for occult blood. Which of the following is the best pharmacotherapy for her condition?",
+    "options": {
+      "A": "Metronidazole",
+      "B": "Rifaximin",
+      "C": "IV metronidazole plus oral vancomycin",
+      "D": "Oral vancomycin",
+      "E": "Oral nitazoxanide"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of abdominal pain, watery diarrhea, fever, malaise, elevated WBC count, and positive stool guaiac strongly suggests a bacterial infection, most likely *Clostridioides difficile* (C. diff) colitis, given the recent antibiotic use (amoxicillin). Metronidazole is a first-line treatment for C. diff infection. While other options might be considered in specific circumstances, metronidazole is the most appropriate initial choice.",
+          "critical_evidence": "Recent amoxicillin use and the presence of watery diarrhea, abdominal pain, fever, elevated WBC count, and positive stool guaiac are highly suggestive of *Clostridioides difficile* infection.",
+          "differential_considered": "While other infections are possible, the combination of symptoms and recent antibiotic use makes *C. difficile* the most likely diagnosis. Antibiotic-associated diarrhea is common, and the patient's presentation is consistent with this. Other possibilities like viral gastroenteritis are less likely given the fever, elevated WBC, and positive stool guaiac. Therefore, I ruled out these options.",
+          "usage": {
+            "prompt_tokens": 452,
+            "generated_tokens": 258,
+            "generation_time_s": 12.779
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's symptoms of watery diarrhea, abdominal pain, and occult blood in stool suggest a bacterial infection, likely due to antibiotic-associated diarrhea. The positive stool guaiac and elevated WBC count support a bacterial etiology. Rifaximin is a potent antibiotic with minimal systemic absorption, making it effective for treating traveler's diarrhea and antibiotic-associated diarrhea. The patient's recent amoxicillin use increases the likelihood of antibiotic-associated diarrhea, which rifaximin is specifically indicated for. Metronidazole and vancomycin are not first-line choices for this indication, and nitazoxanide is primarily used for protozoal infections.",
+          "critical_evidence": "Stool guaiac positive for occult blood and elevated WBC count strongly suggest a bacterial infection, supporting the diagnosis of antibiotic-associated diarrhea.",
+          "differential_considered": "Considered: Clostridium difficile infection (CDI), viral gastroenteritis, and other bacterial causes. Ruled out CDI due to lack of classic features (e.g., pseudomembranous colitis). Viral gastroenteritis is less likely given the presence of occult blood and elevated WBC. Amoxicillin-induced diarrhea is the most likely cause, making rifaximin the best choice.",
+          "usage": {
+            "prompt_tokens": 445,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.645
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has severe diarrhea, fever, abdominal pain, and hypotension following recent antibiotic use (amoxicillin), suggesting antibiotic-associated diarrhea or pseudomembranous colitis. The presence of fever, leukocytosis, and abdominal tenderness raises concern for Clostridioides difficile infection (CDI), which is a leading cause of antibiotic-associated diarrhea. IV metronidazole plus oral vancomycin is the recommended regimen for severe CDI, especially in hospitalized patients with systemic symptoms and hypotension.",
+          "critical_evidence": "Recent antibiotic use (amoxicillin) + severe watery diarrhea + fever + leukocytosis + hypotension + abdominal tenderness = high suspicion for C. difficile colitis.",
+          "differential_considered": "Other differentials like viral gastroenteritis, bacterial enteritis, or other antibiotic-associated diarrhea were considered, but the severity, systemic symptoms, and recent antibiotic exposure strongly point to C. difficile. No evidence of traveler’s diarrhea, food poisoning, or parasitic infection supports alternatives.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 244,
+            "generation_time_s": 8.573
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 443,
+            "generated_tokens": 17,
+            "generation_time_s": 0.437
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with severe, persistent watery diarrhea, fever, malaise, and a history of pyelonephritis during pregnancy. These symptoms are highly suggestive of a bacterial gastrointestinal infection, possibly with antibiotic-associated colitis or a resistant organism. Guaiac-positive stool indicates possible blood, supporting a colitis or lower GI infection. Given the severity and the recent use of amoxicillin (which does not cover typical anaerobes like C. difficile or Bacteroides fragilis), a combination therapy targeting resistant gram-positive and anaerobic bacteria is warranted. Rifaximin covers anaerobes but is not effective against gram-positive pathogens; metronidazole alone is insufficient for C. difficile or certain gram-positive infections. Vancomycin is effective against resistant gram-positive bacteria such as Clostridioides difficile and VRE, and when combined with metronidazole, it provides broad coverage for both anaerobes and resistant gram-positives, making it the best choice in this context.",
+          "critical_evidence": "Stool guaiac positivity for occult blood and the clinical context of severe, persistent diarrhea after antibiotic use raise concern for antibiotic-associated colitis or a resistant infection such as Clostridioides difficile, for which vancomycin is first-line therapy.",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 366,
+            "generation_time_s": 11.517
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 1,
+        "B": 1,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

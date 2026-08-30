@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-322",
+  "dataset": "mmlu",
+  "question_id": "322",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of these features suggest that a pulsation in the neck is arterial?",
+    "options": {
+      "A": "A waggling earlobe",
+      "B": "Positive for hepatojugular reflux",
+      "C": "No variation with posture",
+      "D": "Pressure in the root of the neck reduces the impulse"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "A carotid bruit is a turbulent arterial flow. A pulsatile neck mass is most likely an arterial source. A carotid bruit is typically heard best over the carotid artery in the neck. The presence of a pulsatile mass that decreases with pressure in the root of the neck is highly suggestive of an arterial source, such as a carotid artery aneurysm or dissection.",
+          "critical_evidence": "Pressure in the root of the neck reduces the impulse",
+          "differential_considered": "A: A waggling earlobe is a sign of a pulsatile mass, but it is not specific to the carotid artery. B: Positive for hepatojugular reflux suggests increased central venous pressure, which can be seen in right heart failure or constrictive pericarditis, not directly related to the carotid artery. C: No variation with posture is more suggestive of a venous source, such as a dilated superior vena cava, rather than an arterial source.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 228,
+            "generation_time_s": 12.457
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Arterial pulsations in the neck typically diminish or disappear when pressure is applied at the source, such as the root of the neck. This is because the artery is compressed, reducing blood flow and the palpable pulse. In contrast, venous pulsations would persist or increase under pressure, as venous flow is aided by muscle contractions and gravity. The waggling earlobe (A) is a normal variant and not diagnostic. Hepatojugular reflux (B) indicates abnormal flow from the liver into the jugular vein, not arterial pulsation. No variation with posture (C) is more characteristic of venous or lymphatic flow, not arterial.",
+          "critical_evidence": "Pressure in the root of the neck reduces the impulse (D)",
+          "differential_considered": "Considered venous pulsations, lymphatic flow, and hepatic congestion. Ruled out because these do not respond to compression at the source. Arterial pulsations are specifically diminished by direct pressure.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.444
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Pulsations in the neck that are arterial typically diminish or disappear when pressure is applied to the root of the neck, as this compresses the underlying artery. This is a key distinguishing feature from venous pulsations, which are not affected by such pressure. The other options relate to different clinical signs (e.g., earlobe variation is unrelated, hepatojugular reflux indicates right heart failure, and lack of posture variation is more typical of venous pulsations).",
+          "critical_evidence": "Pressure in the root of the neck reduces the impulse — this is a classic sign of arterial pulsation due to direct compression of the artery.",
+          "differential_considered": "Venous pulsations (e.g., from jugular vein distension) were considered but ruled out because they are not diminished by pressure at the root of the neck. Hepatojugular reflux and earlobe variation are unrelated to arterial pulsation.",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 216,
+            "generation_time_s": 8.16
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 73,
+            "generation_time_s": 1.956
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include jugular venous pulsation (B's context), bradycardia, or absence of pulsation, but only D's pressure response is directly indicative of arterial origin.",
+          "usage": {
+            "prompt_tokens": 312,
+            "generated_tokens": 233,
+            "generation_time_s": 8.027
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-378",
+  "dataset": "mmlu",
+  "question_id": "378",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following is true of the assessment of power in the arms?",
+    "options": {
+      "A": "Grade 3/5 (MRC scale) represents movement of the arm only when gravity is eliminated",
+      "B": "Flexion at the elbow is produced by the triceps muscle",
+      "C": "The root value of shoulder abduction is C5",
+      "D": "Grade 1/5 power represents no movement or muscle contraction"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The MRC scale assesses muscle power. Grade 1/5 power indicates no movement or muscle contraction, which aligns with the description in option D. Options A, B, and C are incorrect. A 3/5 power means movement is possible with gravity eliminated, B is incorrect as elbow flexion is primarily controlled by the biceps brachii, and C is incorrect as shoulder abduction is primarily controlled by the deltoid muscle, which is innervated by the C5-C6 nerve roots.",
+          "critical_evidence": "Grade 1/5 power represents no movement or muscle contraction.",
+          "differential_considered": "A 3/5 power would indicate some movement with gravity eliminated, and the biceps brachii is responsible for elbow flexion, not the triceps. C5 nerve root innervates the deltoid muscle, which is responsible for shoulder abduction, not the biceps brachii.",
+          "usage": {
+            "prompt_tokens": 311,
+            "generated_tokens": 224,
+            "generation_time_s": 15.464
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The MRC (Modified Rankin Scale) is a standardized tool for assessing motor function. Grade 3/5 indicates the patient can move the arm only when gravity is eliminated, which aligns with the clinical description of partial power. The other options contain inaccuracies: flexion at the elbow is primarily controlled by the biceps, not the triceps (B); shoulder abduction's root nerve is C5, but this doesn't directly relate to power assessment (C); and Grade 1/5 represents no movement, not muscle contraction (D).",
+          "critical_evidence": "The MRC scale's specific definition of Grade 3/5 for arm movement under gravity",
+          "differential_considered": "Options B, C, and D were ruled out due to anatomical inaccuracies and misinterpretations of the MRC scale. None of these options correctly describe the assessment of arm power according to clinical motor function standards.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 220,
+            "generation_time_s": 15.606
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The MRC scale grades muscle strength from 0 to 5, with Grade 3/5 indicating full strength against gravity but not against resistance. Flexion at the elbow is primarily produced by the biceps, not the triceps (which extends the elbow). Grade 1/5 indicates minimal contraction with no movement. The root value for shoulder abduction is C5, as the supraspinatus (C5-C6) initiates abduction, and C5 is the primary root. This is the only correct statement among the options.",
+          "critical_evidence": "The root value for shoulder abduction is C5, as the supraspinatus muscle, innervated by C5-C6, is primarily responsible for initiating abduction, and C5 is the key root.",
+          "differential_considered": "Considered options A, B, and D: A is incorrect because Grade 3/5 requires movement against gravity; B is incorrect because triceps extends the elbow; D is incorrect because Grade 1/5 indicates minimal contraction, not zero movement.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 245,
+            "generation_time_s": 13.342
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 311,
+            "generated_tokens": 28,
+            "generation_time_s": 1.068
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options either misstate muscle function (B), confuse anatomical control (C), or misrepresent the MRC power grading (A), making D the only correct choice.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 280,
+            "generation_time_s": 11.799
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-190",
+  "dataset": "medqa",
+  "question_id": "190",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 5-year-old girl is brought in for a routine checkup. She was born at 39 weeks gestation via spontaneous vaginal delivery and is up to date on all vaccines and is meeting all developmental milestones. Upon examination, she is pale with a few petechiae on her chest neck and back. Examination of the abdomen reveals painless hepatosplenomegaly. Liver enzymes are mildly elevated and complete blood cell count shows slight anemia and thrombocytopenia. Iron, B12, and folate are normal. A bone marrow biopsy shows mildly hypocellular marrows with diffuse macrophages with eosinophilic cytoplasm. The cytoplasm looks like wrinkled tissue paper on further inspection. No blasts are observed. What is the most likely diagnosis in the present case?",
+    "options": {
+      "A": "Viral hepatitis",
+      "B": "Acute lymphoblastic leukemia",
+      "C": "Biliary obstruction",
+      "D": "Autoimmune disorder",
+      "E": "Gaucher disease type I"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical presentation of a 5-year-old girl with pallor, petechiae, hepatosplenomegaly, mild anemia, thrombocytopenia, and a bone marrow biopsy showing mildly hypocellular marrow with diffuse macrophages containing wrinkled tissue paper-like cytoplasm strongly suggests Gaucher disease type I. The characteristic finding of Gaucher cells (macrophages with wrinkled cytoplasm) is highly specific for this condition.",
+          "critical_evidence": "The presence of Gaucher cells in the bone marrow biopsy is the most important finding supporting the diagnosis of Gaucher disease.",
+          "differential_considered": "Viral hepatitis is less likely given the absence of jaundice and the specific findings on bone marrow biopsy. Acute lymphoblastic leukemia is less likely because blasts were not observed in the bone marrow. Biliary obstruction is less likely given the absence of jaundice and the specific findings on bone marrow biopsy. Autoimmune disorders are less likely given the specific findings on bone marrow biopsy.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 231,
+            "generation_time_s": 11.39
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's pale appearance, petechiae, hepatosplenomegaly, mild anemia, thrombocytopenia, and bone marrow showing macrophages with eosinophilic cytoplasm resembling wrinkled tissue paper are highly suggestive of an autoimmune disorder. The absence of blasts and normal hematopoietic cell counts rule out acute lymphoblastic leukemia. Viral hepatitis typically doesn't cause bone marrow changes, biliary obstruction would not explain the hematologic findings, and Gaucher disease type I usually presents with bone pain and fractures rather than hepatosplenomegaly.",
+          "critical_evidence": "The bone marrow finding of macrophages with eosinophilic cytoplasm resembling wrinkled tissue paper is the most characteristic feature of an autoimmune disorder, particularly in the context of the other hematologic abnormalities.",
+          "differential_considered": "Viral hepatitis (rarely causes bone marrow changes), biliary obstruction (doesn't explain hematologic findings), Gaucher disease type I (doesn't match bone marrow findings), and acute lymphoblastic leukemia (no blasts observed).",
+          "usage": {
+            "prompt_tokens": 433,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.952
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The child presents with hepatosplenomegaly, anemia, thrombocytopenia, and bone marrow findings of hypocellularity with macrophages containing eosinophilic cytoplasm described as 'wrinkled tissue paper' — a classic histological feature of Gaucher disease. The absence of blasts rules out leukemia, and normal iron/B12/folate exclude nutritional causes. Viral hepatitis and biliary obstruction typically do not cause this specific marrow morphology. Autoimmune disorders may cause cytopenias but lack the characteristic macrophage cytoplasmic appearance.",
+          "critical_evidence": "Bone marrow biopsy showing macrophages with eosinophilic cytoplasm resembling 'wrinkled tissue paper' — pathognomonic for Gaucher disease.",
+          "differential_considered": "Viral hepatitis (no liver enzyme pattern or marrow findings), AML (no blasts), biliary obstruction (no obstructive signs or imaging), autoimmune disorders (no autoantibodies or specific organ involvement).",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 238,
+            "generation_time_s": 8.295
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 12,
+            "generation_time_s": 0.311
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 280,
+            "generation_time_s": 8.688
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "D": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-224",
+  "dataset": "medqa",
+  "question_id": "224",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 74-year-old African-American woman is brought to the emergency department by her home health aid. The patient was eating breakfast this morning when she suddenly was unable to lift her spoon with her right hand. She attempted to get up from the table, but her right leg felt weak. One hour later in the emergency department, her strength is 0/5 in the right upper and right lower extremities. Strength is normal in her left upper and lower extremities. Sensation is normal bilaterally. An emergency CT of the head does not show signs of hemorrhage. Subsequent brain MRI shows an infarct involving the internal capsule. Which of the following is true about her disease process?",
+    "options": {
+      "A": "The most important risk factors are hypertension and diabetes",
+      "B": "The most common cause is embolism originating from the left atrium",
+      "C": "It is caused by ischemia to watershed areas",
+      "D": "IV thrombolysis cannot be used",
+      "E": "The most important risk factors are ethnicity and sex"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute onset of hemiparesis (weakness) affecting the right side of the body, indicating a stroke. Given her age, race (African-American), and the absence of hemorrhage on CT, the most likely cause is a stroke due to vascular disease. Hypertension and diabetes are major risk factors for stroke, particularly in African-American individuals. While other options are possible, they are less likely given the clinical picture.",
+          "critical_evidence": "The patient's age, race (African-American), and the absence of hemorrhage on CT strongly suggest a vascular etiology for the stroke.",
+          "differential_considered": "B: Embolism from the left atrium is possible, but less likely given the lack of atrial fibrillation or other cardiac abnormalities mentioned. C: Watershed infarcts are more common in the setting of severe hypotension or hypoperfusion, which is not indicated in the case. D: IV thrombolysis is a potential treatment option, but the decision depends on the time window and other factors. E: While ethnicity and sex can play a role in stroke risk, hypertension and diabetes are more directly linked to the underlying vascular disease.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 277,
+            "generation_time_s": 13.759
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a right-sided hemiakinic syndrome following a stroke involving the internal capsule. The internal capsule is a region of the brainstem that receives arterial supply from the middle cerebral artery (MCA) and its branches. Given the location of the infarct and the patient's age, hypertension, and diabetes (implied risk factors), the most likely cause is an embolic event originating from the left atrium (e.g., atrial fibrillation with emboli traveling through the left atrial appendage). The left atrium is a common source of emboli in elderly patients with cardiovascular risk factors.",
+          "critical_evidence": "The infarct location in the internal capsule, which receives MCA supply, and the patient's age with associated hypertension and diabetes suggest a left-sided embolic origin.",
+          "differential_considered": "Ischemia to watershed areas (C) could cause stroke but typically presents with more focal deficits and is less likely in this case. Hypertension and diabetes (A) are risk factors but not the cause. IV thrombolysis (D) may be considered if the stroke is recent and within the treatment window. Ethnicity and sex (E) are not primary causes but may be risk factors.",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.517
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute focal neurological deficits (right hemiparesis) and a brain MRI showing an infarct in the internal capsule, which is a common site for ischemic stroke. The internal capsule is typically supplied by the middle cerebral artery (MCA) territory, and the most common cause of MCA infarction is embolism originating from the left atrium, especially in patients with atrial fibrillation. The absence of hemorrhage on CT and the acute presentation support ischemic stroke rather than hemorrhagic or other causes.",
+          "critical_evidence": "MRI shows an infarct in the internal capsule, a classic location for MCA territory stroke, often caused by embolic events from the left atrium.",
+          "differential_considered": "Hemorrhagic stroke was ruled out by negative CT; watershed infarcts are less likely given the focal nature and internal capsule location; thrombolysis may be considered if within time window, so D is incorrect; ethnicity and sex are not primary risk factors for this specific infarct location.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 246,
+            "generation_time_s": 8.627
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's sudden weakness in the right upper and lower extremities, with normal strength in the left extremities, suggests a central nervous system pathology. Given the absence of hemorrhage on CT of the head, an ischemic etiology is more likely than a hemorrhagic one. The internal capsule location of the infarct on MRI is consistent with a lacunar stroke, which can be caused by small vessel disease. The most important risk factors for small vessel disease are hypertension and diabetes, making option A the correct answer.",
+          "critical_evidence": "The absence of hemorrhage on CT of the head.",
+          "differential_considered": "Hemorrhagic stroke was considered and ruled out due to the absence of hemorrhage on CT.",
+          "usage": {
+            "prompt_tokens": 437,
+            "generated_tokens": 173,
+            "generation_time_s": 4.163
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A) Ischemic stroke (most likely), B) Left atrial embolism (less likely without cardiac risk factors), D) Thrombolysis use (irrelevant to etiology), E) Ethnicity alone (not a direct cause but a risk factor). The key finding is the infarct location, pointing to ischemia.",
+          "usage": {
+            "prompt_tokens": 467,
+            "generated_tokens": 267,
+            "generation_time_s": 8.345
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

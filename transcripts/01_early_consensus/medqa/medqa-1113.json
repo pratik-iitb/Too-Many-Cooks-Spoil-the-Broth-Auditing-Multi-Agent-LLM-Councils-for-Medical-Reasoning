@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1113",
+  "dataset": "medqa",
+  "question_id": "1113",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 7-month-old Caucasian male presents with recurrent sinusitis and pharyngitis. The parents say that the child has had these symptoms multiple times in the past couple of months and a throat swab sample reveals the presence of Streptoccocus pneumoniae. Upon workup for immunodeficiency it is noted that serum levels of immunoglobulins are extremely low but T-cell levels are normal. Which of the following molecules is present on the cells that this patient lacks?",
+    "options": {
+      "A": "CD4",
+      "B": "CD8",
+      "C": "CD3",
+      "D": "CD19",
+      "E": "NKG2D"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent infections (sinusitis and pharyngitis) and low immunoglobulin levels with normal T-cell levels. This points towards a B-cell deficiency. CD19 is a marker found on B cells. The absence of CD19 would indicate a B-cell deficiency.",
+          "critical_evidence": "Low immunoglobulin levels with normal T-cell levels strongly suggest a B-cell deficiency.",
+          "differential_considered": "While T-cell deficiencies can cause recurrent infections, the normal T-cell count makes this less likely. A CD4 deficiency would cause a more profound immunodeficiency, and the presentation is more specific to B-cell dysfunction. CD3 is a marker for T-cells, and while it is important, the normal T-cell count makes this less likely than a B-cell deficiency.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 210,
+            "generation_time_s": 10.377
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has normal T-cell levels but extremely low immunoglobulin levels. This pattern suggests a defect in B-cell function rather than T-cell function. B-cells produce antibodies (immunoglobulins), while T-cells include CD4+ and CD8+ cells. CD3 is a marker for all T-cells, so normal T-cell levels indicate CD3 is not the issue. CD19 is a B-cell marker, and its absence would lead to low immunoglobulin levels. NKG2D is involved in innate immune regulation and is not directly linked to antibody production. The presence of Streptococcus pneumoniae suggests a bacterial infection, but the immunodeficiency is likely B-cell specific.",
+          "critical_evidence": "Extremely low immunoglobulin levels",
+          "differential_considered": "Considered X-linked agammaglobulinemia (XLA), which causes low immunoglobulins and is linked to CD19 deficiency, but ruled out other T-cell immunodeficiencies due to normal T-cell levels. Also considered common variable immunodeficiency, but XLA is more consistent with the B-cell antibody deficiency.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 263,
+            "generation_time_s": 12.232
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with recurrent infections (sinusitis, pharyngitis) and low immunoglobulin levels with normal T-cell counts, suggesting a B-cell deficiency. CD19 is a marker expressed on B cells, and its absence would explain the lack of antibody production. T-cell markers (CD4, CD8, CD3) are normal, ruling out T-cell deficiencies.",
+          "critical_evidence": "Extremely low serum immunoglobulins with normal T-cell levels point to a B-cell immunodeficiency.",
+          "differential_considered": "T-cell deficiencies (ruled out by normal CD3, CD4, CD8) and innate immune defects (ruled out by specific infection pattern and immunoglobulin deficiency) were considered but excluded based on lab findings.",
+          "usage": {
+            "prompt_tokens": 330,
+            "generated_tokens": 189,
+            "generation_time_s": 6.624
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 124,
+            "generation_time_s": 3.004
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 243,
+            "generation_time_s": 7.638
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

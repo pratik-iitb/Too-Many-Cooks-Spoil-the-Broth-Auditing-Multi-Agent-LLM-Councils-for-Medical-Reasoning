@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-272",
+  "dataset": "medqa",
+  "question_id": "272",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Four days after admission to the hospital for acute pancreatitis, a 41-year-old man develops hypotension and fever. His temperature is 39.1°C (102.3°F), pulse is 115/min, and blood pressure is 80/60 mm Hg. Physical examination shows warm extremities, asymmetric calf size, and blood oozing around his IV sites. There are numerous small, red, non-blanching macules and patches covering the extremities, as well as several large ecchymoses. His hemoglobin concentration is 9.0 g/dL. A peripheral blood smear shows schistocytes and decreased platelets. Which of the following sets of serum findings are most likely in this patient?\n $$$ Prothrombin time %%% Partial thromboplastin time %%% Fibrinogen %%% D-dimer $$$",
+    "options": {
+      "A": "↑ ↑ ↓ normal",
+      "B": "Normal normal normal normal",
+      "C": "↑ ↑ ↓ ↑",
+      "D": "Normal ↑ normal normal",
+      "E": "Normal normal normal ↑"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of hypotension, fever, warm extremities, asymmetric calf size, blood oozing around IV sites, petechiae, ecchymoses, anemia (hemoglobin 9.0 g/dL), schistocytes, and thrombocytopenia strongly suggests disseminated intravascular coagulation (DIC). In DIC, the consumption of clotting factors and platelets leads to prolonged PT and PTT, decreased fibrinogen, and elevated D-dimer. The presence of schistocytes indicates microangiopathic hemolytic anemia, which is a common finding in DIC.",
+          "critical_evidence": "The presence of schistocytes and thrombocytopenia strongly suggests DIC.",
+          "differential_considered": "While other conditions could cause some of these findings, the combination of DIC-associated findings (schistocytes, thrombocytopenia, prolonged PT/PTT, decreased fibrinogen, elevated D-dimer) makes DIC the most likely diagnosis. Other possibilities like sepsis, trauma, or malignancy are less likely given the specific combination of findings and the patient's history of acute pancreatitis.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 250,
+            "generation_time_s": 12.346
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's schistocytes and decreased platelets suggest intravascular hemolysis and consumption coagulopathy, consistent with DIC. DIC leads to elevated prothrombin time (PT) and partial thromboplastin time (PTT) due to consumption of coagulation factors, decreased fibrinogen from factor V deficiency, and elevated D-dimer from fibrin degradation products. Hypotension and fever support an inflammatory/infectious process, but the hematologic findings strongly point to DIC.",
+          "critical_evidence": "Schistocytes and decreased platelets",
+          "differential_considered": "Acute pancreatitis is the most likely cause of DIC in this setting. Other causes like sepsis or trauma were considered but the clinical picture aligns best with pancreatitis-induced DIC.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 194,
+            "generation_time_s": 9.03
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs of disseminated intravascular coagulation (DIC) including fever, hypotension, schistocytes on smear, thrombocytopenia, and petechiae/ecchymoses. DIC typically causes prolonged PT and aPTT due to consumption of clotting factors, decreased fibrinogen (consumption), and elevated D-dimer (fibrin degradation).",
+          "critical_evidence": "Schistocytes on peripheral smear and thrombocytopenia are hallmark signs of DIC, which directly correlate with the coagulation abnormalities expected in option C.",
+          "differential_considered": "Other causes like sepsis or acute liver failure were considered, but the presence of schistocytes and petechiae strongly points to DIC. Sepsis alone wouldn't explain schistocytes, and liver failure would more likely cause prolonged PT without the full DIC profile.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 215,
+            "generation_time_s": 7.534
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 444,
+            "generated_tokens": 261,
+            "generation_time_s": 6.302
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (A, B, D, E) do not reflect the expected laboratory abnormalities in TMA (e.g., normal PT/PTT in A, all normal in B and D/E, which are inconsistent with active TMA). Option C reflects the pattern seen in TMA with consumption of fibrinogen and possible mild factor deficiency.",
+          "usage": {
+            "prompt_tokens": 479,
+            "generated_tokens": 381,
+            "generation_time_s": 11.964
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

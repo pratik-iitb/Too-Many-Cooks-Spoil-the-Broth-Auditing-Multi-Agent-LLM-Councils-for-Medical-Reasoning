@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1398",
+  "dataset": "medqa",
+  "question_id": "1398",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 44-year-old woman is admitted after an episode of dizziness and palpitations with a subsequent loss of consciousness. At the time of admission, the patient is alert, but then quickly becomes lethargic and reports reoccurrence of palpitations. Past medical history is significant for an episode of ventricular tachycardia 4 months ago, now managed with pharmacologic antiarrhythmic prophylaxis. An ECG is obtained and is shown on the image. Which of the following antiarrhythmic drugs below is most likely responsible for this patient's condition?",
+    "options": {
+      "A": "Lidocaine",
+      "B": "Sotalol",
+      "C": "Propranolol",
+      "D": "Verapamil",
+      "E": "Diltiazem"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of ventricular tachycardia and current antiarrhythmic prophylaxis, coupled with the recurrence of palpitations and lethargy, strongly suggests a drug-induced arrhythmia. Sotalol is known to prolong the QT interval and can cause Torsades de Pointes, a type of polymorphic ventricular tachycardia, especially in patients with pre-existing cardiac conditions or those taking other QT-prolonging medications. The other options are less likely to cause this specific presentation.",
+          "critical_evidence": "The patient's history of ventricular tachycardia and current antiarrhythmic prophylaxis, coupled with the recurrence of palpitations and lethargy, strongly suggests a drug-induced arrhythmia.",
+          "differential_considered": "Lidocaine is a Class IB antiarrhythmic and is less likely to cause Torsades de Pointes. Propranolol is a beta-blocker and is less likely to cause Torsades de Pointes. Verapamil and Diltiazem are calcium channel blockers and are less likely to cause Torsades de Pointes. While all medications can have side effects, the clinical picture is most consistent with Sotalol.",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 269,
+            "generation_time_s": 13.356
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of ventricular tachycardia and current symptoms of dizziness, palpitations, and loss of consciousness suggest a possible recurrence of arrhythmia. Sotalol is a class Ic antiarrhythmic drug that can cause QT prolongation and torsades de pointes, which may explain the current condition. The other options (lidocaine, propranolol, verapamil, diltiazem) are less likely to cause this specific arrhythmia.",
+          "critical_evidence": "The patient's history of ventricular tachycardia and current symptoms of dizziness, palpitations, and loss of consciousness suggest a possible recurrence of arrhythmia.",
+          "differential_considered": "Other possible causes such as electrolyte imbalances, hypoxia, or structural heart disease were ruled out based on the patient's history and the ECG findings.",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.236
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of ventricular tachycardia and is now presenting with recurrent palpitations and loss of consciousness, suggesting a proarrhythmic effect. Sotalol, a class III antiarrhythmic with beta-blocking activity, is known to cause QT prolongation and torsades de pointes, especially in patients with underlying cardiac conditions or electrolyte imbalances. The ECG likely shows QT prolongation or a polymorphic ventricular rhythm, which is consistent with sotalol-induced torsades. Other options like lidocaine, propranolol, verapamil, and diltiazem are less likely to cause this specific arrhythmia pattern.",
+          "critical_evidence": "The ECG likely shows QT prolongation or torsades de pointes, which is classically associated with sotalol toxicity.",
+          "differential_considered": "Lidocaine (class IB) is less likely to cause torsades; propranolol (beta-blocker) and verapamil/diltiazem (class IV) are less likely to cause QT prolongation; sotalol is the only class III agent among the options known to cause torsades de pointes.",
+          "usage": {
+            "prompt_tokens": 356,
+            "generated_tokens": 274,
+            "generation_time_s": 9.646
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 11,
+            "generation_time_s": 0.279
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Atrial fibrillation, bradycardia from beta-blockers (Sotalol, Propranolol), or electrolyte abnormalities, but the ECG findings (not shown but inferred from the clinical scenario) and drug profiles point to verapamil as the likely culprit.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 317,
+            "generation_time_s": 9.898
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

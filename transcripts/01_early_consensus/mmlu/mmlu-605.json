@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-605",
+  "dataset": "mmlu",
+  "question_id": "605",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In order to determine the doppler shift in perceived sound frequency, the following variables must be known:\nI. speed of sound in medium\nII. Time of interaction between sound source and detector\nIII. distance between source and detector\nIV. frequency of emitted sound",
+    "options": {
+      "A": "I only",
+      "B": "I and III",
+      "C": "II and IV",
+      "D": "I and IV"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The Doppler shift is calculated using the formula: f = f₀ * (v ± v₀) / (v ± v₀), where f is the observed frequency, f₀ is the emitted frequency, v is the speed of sound in the medium, and v₀ is the speed of the source. Therefore, the speed of sound in the medium (I) and the frequency of emitted sound (IV) are necessary to calculate the Doppler shift. The time of interaction (II) is not directly used in the Doppler shift formula, and the distance between the source and detector (III) is used to calculate the speed of sound in the medium.",
+          "critical_evidence": "The Doppler shift formula directly requires the speed of sound in the medium (I) and the frequency of emitted sound (IV).",
+          "differential_considered": "While the distance between the source and detector (III) is relevant to the speed of sound calculation, it is not a direct component of the Doppler shift formula itself. Therefore, it is not as crucial as the speed of sound and the emitted frequency.",
+          "usage": {
+            "prompt_tokens": 309,
+            "generated_tokens": 261,
+            "generation_time_s": 13.207
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "To calculate the Doppler shift in perceived sound frequency, we need to know the speed of sound in the medium (I) and the frequency of the emitted sound (IV). The Doppler effect formula depends on these two variables, as they directly influence how the frequency is perceived by the detector. The time of interaction (II) and distance between source and detector (III) are not required for this calculation.",
+          "critical_evidence": "The Doppler effect formula requires the speed of sound and emitted frequency to calculate the perceived frequency shift.",
+          "differential_considered": "No differential diagnoses were needed as this is a straightforward physics question about the Doppler effect parameters.",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.05
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The Doppler effect for sound depends on the speed of sound in the medium (I) and the frequency of the emitted sound (IV), as these directly influence the perceived frequency shift. Time of interaction (II) and distance (III) are not direct determinants of the Doppler shift formula, which is primarily a function of relative motion and sound speed.",
+          "critical_evidence": "The Doppler shift formula for sound is Δf = f₀ * (v * cosθ) / (v ± vs), where v is the speed of sound and f₀ is the emitted frequency — confirming I and IV are essential.",
+          "differential_considered": "Time of interaction and distance were considered but ruled out because they do not appear in the standard Doppler shift equation for sound, which only requires speed of sound and source frequency.",
+          "usage": {
+            "prompt_tokens": 281,
+            "generated_tokens": 198,
+            "generation_time_s": 7.47
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 46,
+            "generation_time_s": 1.146
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "While distance and time of interaction are important for determining the actual frequency detected in a specific scenario (e.g., for calculating the observed frequency in Doppler ultrasound or ambulance siren examples), the question specifically asks which variables must be known to determine the doppler shift, not the final observed frequency. Thus, options II and III are not required for calculating the shift itself.",
+          "usage": {
+            "prompt_tokens": 335,
+            "generated_tokens": 217,
+            "generation_time_s": 6.999
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

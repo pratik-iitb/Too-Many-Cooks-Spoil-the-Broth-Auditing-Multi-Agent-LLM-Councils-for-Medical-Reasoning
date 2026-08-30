@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-845",
+  "dataset": "metamed",
+  "question_id": "845",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old man comes to the physician for a routine health maintenance examination. He was diagnosed with HIV 15 years ago. He was taking triple antiretroviral therapy but stopped a few months ago because he was feeling well. He lives in Wyoming. Vital signs are within normal limits. Cardiopulmonary examination shows no abnormalities. His CD4+ T-lymphocyte count is 47/mm3 (N ≥ 500). The patient currently refuses to restart antiretroviral therapy. Which of the following medication regimens is most appropriate at this time?",
+    "options": {
+      "A": "Azithromycin and itraconazole",
+      "B": "Azithromycin and amphotericin B",
+      "C": "Trimethoprim, sulfamethoxazole, azithromycin",
+      "D": "Dapsone, pyrimethamine, itraconazole, azithromycin",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a low CD4+ count (47/mm3) indicating advanced HIV infection and is at high risk for opportunistic infections. The most appropriate prophylactic medication for this patient is a combination of trimethoprim-sulfamethoxazole (TMP-SMX) to prevent *Pneumocystis jirovecii* pneumonia (PCP) and azithromycin to prevent *Mycobacterium avium* complex (MAC) infection. Other options are not as effective or commonly used for prophylaxis in this scenario.",
+          "critical_evidence": "CD4+ T-lymphocyte count of 47/mm3",
+          "differential_considered": "A: Azithromycin and itraconazole is used for fungal prophylaxis, but not the primary prophylaxis for HIV patients with low CD4 counts. B: Amphotericin B is an antifungal, not typically used for routine prophylaxis in HIV patients. D: Dapsone, pyrimethamine, itraconazole, and azithromycin is used for PCP prophylaxis, but TMP-SMX is the preferred agent. E: None of the above is incorrect because option C is the most appropriate choice.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 278,
+            "generation_time_s": 14.393
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a high CD4+ T-lymphocyte count (47/mm3) with no current symptoms or abnormalities, indicating his immune system is functioning well. Since he has been off antiretroviral therapy for several months and is asymptomatic, the most appropriate course is to continue monitoring rather than initiating new medications. No active opportunistic infections or complications are present that would require prophylactic treatment.",
+          "critical_evidence": "CD4+ T-lymphocyte count of 47/mm3 (N ≥ 500)",
+          "differential_considered": "Considered potential opportunistic infections (e.g., PCP, TB, toxoplasmosis) but ruled out due to normal vital signs and absence of symptoms. No evidence of active infection requiring prophylaxis.",
+          "usage": {
+            "prompt_tokens": 437,
+            "generated_tokens": 193,
+            "generation_time_s": 9.448
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is HIV-positive with a very low CD4+ count (47/mm³), indicating advanced immunosuppression and high risk for opportunistic infections. However, none of the listed options are appropriate empiric regimens for HIV-related opportunistic infections. The correct approach would be to restart antiretroviral therapy (ART) to restore immune function, which the patient refuses. Empiric regimens like those listed are not standard for this scenario without specific diagnostic evidence of infection.",
+          "critical_evidence": "CD4+ count of 47/mm³ indicates advanced HIV disease and high risk for opportunistic infections, but none of the listed regimens are appropriate empiric therapy for this patient’s current status.",
+          "differential_considered": "Opportunistic infections such as Pneumocystis jirovecii pneumonia, cryptococcosis, or toxoplasmosis were considered, but empiric regimens for these are not listed, and ART should be prioritized. The patient’s refusal to restart ART makes any empiric antimicrobial therapy inappropriate without specific diagnostic confirmation.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 254,
+            "generation_time_s": 9.414
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "F",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 15,
+            "generation_time_s": 0.406
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a very low CD4+ T-lymphocyte count (47/mm³, normal ≥500), which indicates severe immunodeficiency and high risk of opportunistic infections despite being asymptomatic. However, stopping antiretroviral therapy (ART) in HIV-positive individuals with such low CD4 counts is dangerous and not recommended, as it can lead to rapid disease progression and life-threatening complications. The options list combinations of antifungals and antibiotics, but these are not standard regimens for HIV management. The best answer is that no appropriate medication regimen from the options is suitable at this time due to the critical need for continued ART in this scenario.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 260,
+            "generation_time_s": 8.68
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "E": 3,
+        "F": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

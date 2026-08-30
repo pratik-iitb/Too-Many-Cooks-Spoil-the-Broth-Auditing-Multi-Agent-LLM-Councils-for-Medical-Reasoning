@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-392",
+  "dataset": "mmlu",
+  "question_id": "392",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which organ secretes insulin?",
+    "options": {
+      "A": "The gastric parietal cells.",
+      "B": "The pancreas.",
+      "C": "The walls of the large intestine.",
+      "D": "The autonomic nervous system."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Insulin is a hormone responsible for regulating blood glucose levels. The pancreas is the organ responsible for producing and secreting insulin. The other options are incorrect because gastric parietal cells secrete hydrochloric acid, the walls of the large intestine primarily absorb water and electrolytes, and the autonomic nervous system controls involuntary functions.",
+          "critical_evidence": "Insulin is a hormone produced by the pancreas.",
+          "differential_considered": "A: The gastric parietal cells are responsible for acid production in the stomach, not insulin secretion. C: The large intestine is primarily involved in absorption and waste elimination, not insulin production. D: The autonomic nervous system controls involuntary functions, not hormone secretion.",
+          "usage": {
+            "prompt_tokens": 270,
+            "generated_tokens": 174,
+            "generation_time_s": 10.46
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Insulin is a hormone primarily responsible for regulating blood glucose levels. The pancreas, specifically the beta cells within the pancreatic islets of Langerhans, are the primary site of insulin secretion. The other options are incorrect because gastric parietal cells secrete hydrochloric acid, the large intestine walls do not secrete insulin, and the autonomic nervous system is a network of nerves that controls involuntary functions but does not secrete hormones like insulin.",
+          "critical_evidence": "Insulin is produced and released by beta cells in the pancreas in response to elevated blood glucose levels.",
+          "differential_considered": "Options A, C, and D were considered but ruled out because they do not secrete insulin. The gastric parietal cells secrete acid, the large intestine walls do not secrete hormones, and the autonomic nervous system is not an endocrine structure.",
+          "usage": {
+            "prompt_tokens": 271,
+            "generated_tokens": 1024,
+            "generation_time_s": 52.567
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Insulin is a hormone critical for glucose metabolism and is produced by the beta cells of the pancreas. The other options are incorrect: gastric parietal cells secrete acid, the large intestine absorbs water and electrolytes, and the autonomic nervous system regulates organ function but does not secrete insulin.",
+          "critical_evidence": "Insulin is synthesized and secreted by pancreatic beta cells, which are part of the islets of Langerhans in the pancreas.",
+          "differential_considered": "Gastric parietal cells (A) secrete HCl, not insulin; intestinal walls (C) handle absorption, not hormone secretion; autonomic nervous system (D) modulates function but does not secrete insulin.",
+          "usage": {
+            "prompt_tokens": 242,
+            "generated_tokens": 180,
+            "generation_time_s": 7.064
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 269,
+            "generated_tokens": 86,
+            "generation_time_s": 2.321
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Gastric parietal cells secrete gastric acid, large intestine walls do not secrete insulin, and the autonomic nervous system regulates, but does not secrete, hormones. These alternatives are biologically incorrect for insulin secretion.",
+          "usage": {
+            "prompt_tokens": 300,
+            "generated_tokens": 172,
+            "generation_time_s": 6.015
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

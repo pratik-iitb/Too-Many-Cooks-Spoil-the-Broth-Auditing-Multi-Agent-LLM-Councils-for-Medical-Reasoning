@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1388",
+  "dataset": "medqa",
+  "question_id": "1388",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "An 18-year old college freshman presents to his university clinic because he has not been feeling well for the past two weeks. He has had a persistent headache, occasional cough, and chills without rigors. The patient’s vital signs are normal and physical exam is unremarkable. His radiograph shows patchy interstitial lung infiltrates and he is diagnosed with atypical pneumonia. The patient is prescribed azithromycin and takes his medication as instructed. Despite adherence to his drug regimen, he returns to the clinic one week later because his symptoms have not improved. The organism responsible for this infection is likely resistant to azithromycin through which mechanism?",
+    "options": {
+      "A": "Presence of a beta-lactamase",
+      "B": "Insertion of drug efflux pumps",
+      "C": "Decreased binding to RNA polymerase",
+      "D": "Mutation in topoisomerase II",
+      "E": "Methylation of ribosomal binding site"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's persistent symptoms despite azithromycin treatment, along with the diagnosis of atypical pneumonia, strongly suggests macrolide resistance. Azithromycin is a macrolide antibiotic. Beta-lactamase production is a common mechanism of resistance to macrolides, as it hydrolyzes the drug, rendering it inactive. The other options are less likely given the clinical scenario.",
+          "critical_evidence": "The patient's lack of improvement on azithromycin treatment, despite adherence, is the most critical evidence.",
+          "differential_considered": "While other possibilities exist, the clinical picture is most consistent with macrolide resistance. Other potential causes of atypical pneumonia, such as Mycoplasma pneumoniae or Chlamydophila pneumoniae, could be considered, but the lack of response to azithromycin points towards a resistance mechanism.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 209,
+            "generation_time_s": 10.38
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's persistent symptoms despite azithromycin treatment suggest resistance. Azithromycin is a macrolide antibiotic that inhibits bacterial protein synthesis by binding to 50S ribosomal subunits. Resistance mechanisms include beta-lactamase production (A), efflux pumps (B), decreased binding to RNA polymerase (C), topoisomerase II inhibition (D), and ribosomal binding site methylation (E). Given the persistent symptoms and the fact that azithromycin is a macrolide, efflux pumps (B) are the most likely mechanism of resistance, as they actively pump the antibiotic out of the bacterial cell, reducing intracellular concentrations and inhibiting its antimicrobial effect.",
+          "critical_evidence": "The patient's failure to improve despite azithromycin treatment",
+          "differential_considered": "Atypical pneumonia could be caused by Mycoplasma pneumoniae, Chlamydophila pneumoniae, or Legionella pneumophila. However, these organisms are typically sensitive to macrolides. The persistence of symptoms despite treatment suggests a resistant organism, most likely with efflux pump-mediated resistance.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 262,
+            "generation_time_s": 12.22
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has atypical pneumonia with persistent symptoms despite azithromycin therapy, suggesting resistance. Atypical pneumonia is commonly caused by Mycoplasma pneumoniae, which is intrinsically resistant to beta-lactams and often resistant to macrolides like azithromycin due to ribosomal methylation. This methylation prevents macrolide binding to the 50S ribosomal subunit, rendering the drug ineffective. Other mechanisms listed (e.g., beta-lactamase, efflux pumps) are more relevant to other pathogens or classes of antibiotics.",
+          "critical_evidence": "The patient has atypical pneumonia with persistent symptoms despite azithromycin, strongly suggesting resistance due to ribosomal methylation in Mycoplasma pneumoniae.",
+          "differential_considered": "Other causes of atypical pneumonia (e.g., Chlamydia pneumoniae, Legionella) were considered, but Mycoplasma is most common in young adults and is known for macrolide resistance via ribosomal methylation. Beta-lactamase (A) is irrelevant as Mycoplasma lacks cell wall. Efflux pumps (B) are not primary in Mycoplasma. Topoisomerase II mutations (D) relate to fluoroquinolone resistance, not macrolides.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 296,
+            "generation_time_s": 10.404
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 26,
+            "generation_time_s": 0.654
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Bacterial infections (e.g., Mycoplasma pneumonia, Chlamydia pneumoniae, or atypical pneumonia caused by resistant bacteria such as Streptococcus pneumoniae with macrolide resistance), viral infections (which do not have the listed resistance mechanisms), and fungal infections (not indicated here). These differentials were considered but do not explain the resistance mechanism described.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 260,
+            "generation_time_s": 8.174
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

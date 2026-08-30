@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-497",
+  "dataset": "mmlu",
+  "question_id": "497",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Antibiotics that affect bacterial cells interfere with all of the following EXCEPT",
+    "options": {
+      "A": "peptidoglycan synthesis",
+      "B": "protein synthesis",
+      "C": "DNA synthesis",
+      "D": "reverse transcriptase"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Antibiotics target specific cellular processes essential for bacterial survival. Peptidoglycan synthesis, protein synthesis, and DNA synthesis are all fundamental processes in bacterial cells. Reverse transcriptase is an enzyme used by retroviruses to convert RNA into DNA, not a primary target of standard antibiotics.",
+          "critical_evidence": "Reverse transcriptase is specific to retroviruses, not bacteria.",
+          "differential_considered": "Peptidoglycan synthesis inhibitors (e.g., penicillins, cephalosporins) target bacterial cell wall formation. Protein synthesis inhibitors (e.g., tetracyclines, macrolides) disrupt bacterial protein production. DNA synthesis inhibitors (e.g., quinolones) interfere with bacterial DNA replication. While some antibiotics might have off-target effects, reverse transcriptase is not a common target for antibacterial agents.",
+          "usage": {
+            "prompt_tokens": 268,
+            "generated_tokens": 208,
+            "generation_time_s": 10.469
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Antibiotics target bacterial cells by interfering with essential cellular processes. Peptidoglycan synthesis (A), protein synthesis (B), and DNA synthesis (C) are all critical processes in bacterial cells that are disrupted by various antibiotics. Reverse transcriptase (D) is an enzyme involved in viral replication, not bacterial, and is not a target for bacterial antibiotics. Viruses like HIV use reverse transcriptase to integrate their RNA into DNA, but this is not a process in bacterial cells.",
+          "critical_evidence": "Reverse transcriptase is specific to retroviruses and is not a component of bacterial cells.",
+          "differential_considered": "Considered whether any bacterial processes might involve reverse transcriptase, but confirmed that bacteria do not have reverse transcriptase as they are not retroviral pathogens.",
+          "usage": {
+            "prompt_tokens": 275,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.416
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Antibiotics commonly target bacterial cell wall synthesis (peptidoglycan), protein synthesis (ribosomes), and DNA replication (topoisomerases, DNA gyrase). Reverse transcriptase is an enzyme used by retroviruses (e.g., HIV) to convert RNA to DNA, not found in bacteria, and thus not a target of antibiotics.",
+          "critical_evidence": "Reverse transcriptase is a viral enzyme specific to retroviruses and not present in bacterial cells.",
+          "differential_considered": "Considered protein synthesis inhibitors (e.g., tetracyclines, aminoglycosides), cell wall inhibitors (e.g., penicillins), and DNA synthesis inhibitors (e.g., fluoroquinolones). Reverse transcriptase is irrelevant as it is not bacterial and not targeted by antibiotics.",
+          "usage": {
+            "prompt_tokens": 246,
+            "generated_tokens": 198,
+            "generation_time_s": 7.062
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the response is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 273,
+            "generated_tokens": 10,
+            "generation_time_s": 0.26
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "Antibiotics target bacterial processes like cell wall synthesis and protein/DNA synthesis, but they do not affect viral mechanisms such as reverse transcriptase, which is specific to retroviruses and not present in bacteria. Since reverse transcriptase is not a bacterial target, it is the exception among the listed processes.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 299,
+            "generated_tokens": 171,
+            "generation_time_s": 5.486
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

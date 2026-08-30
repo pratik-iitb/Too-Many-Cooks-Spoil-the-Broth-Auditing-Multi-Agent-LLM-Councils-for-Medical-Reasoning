@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-704",
+  "dataset": "medqa",
+  "question_id": "704",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 58-year-old woman with refractory gastrointestinal complaints undergoes a bowel biopsy. On histology, the pathologist observes that submucosal glands of Brunner are present in the specimen. Which portion of the bowel was most likely biopsied?",
+    "options": {
+      "A": "Duodenum",
+      "B": "Jejunum",
+      "C": "Ileum",
+      "D": "Cecum",
+      "E": "Descending colon"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Brunner's glands are characteristic of the duodenum. The presence of these glands on biopsy strongly suggests that the biopsy was taken from the duodenum. The other options do not typically contain Brunner's glands.",
+          "critical_evidence": "Presence of submucosal glands of Brunner",
+          "differential_considered": "Jejunum: The jejunum lacks Brunner's glands. Ileum: The ileum also lacks Brunner's glands. Cecum: The cecum is the beginning of the large intestine and does not contain Brunner's glands. Descending colon: The descending colon is part of the large intestine and does not contain Brunner's glands.",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 175,
+            "generation_time_s": 8.689
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The presence of Brunner's glands, which are specialized mucous glands found in the submucosa of the jejunum and ileum, strongly suggests that the biopsy was taken from either the jejunum or ileum. Since the patient is 58 years old with refractory gastrointestinal complaints, and given that Brunner's glands are more abundant in the jejunum than the ileum, the most likely location is the jejunum. The jejunum is also more commonly involved in inflammatory bowel diseases like Crohn's disease, which could explain the refractory nature of the symptoms.",
+          "critical_evidence": "The presence of Brunner's glands in the submucosa",
+          "differential_considered": "Considered small bowel lymphoma, celiac disease, and inflammatory bowel disease, but ruled out cecum (option D) and descending colon (option E) as these are not typical locations for Brunner's glands. Duodenum (option A) and ileum (option C) were considered but jejunum (option B) is more likely given the age and clinical context.",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 259,
+            "generation_time_s": 12.095
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The presence of Brunner glands, which are specialized submucosal glands that secrete alkaline mucus and bicarbonate, is a histological hallmark of the duodenum. These glands are absent in the jejunum, ileum, cecum, and colon. The patient’s refractory GI symptoms may suggest duodenal pathology, such as chronic inflammation or ulceration, which could explain the biopsy.",
+          "critical_evidence": "Brunner glands are exclusively found in the duodenum.",
+          "differential_considered": "Jejunum, ileum, cecum, and colon were considered but ruled out because they lack Brunner glands. The presence of these glands is pathognomonic for duodenal tissue.",
+          "usage": {
+            "prompt_tokens": 288,
+            "generated_tokens": 181,
+            "generation_time_s": 6.368
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 47,
+            "generation_time_s": 1.151
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (jejunum), C (ileum), D (cecum), E (descending colon) — these locations do not typically show Brunner's submucosal glands, making duodenum the most likely site.",
+          "usage": {
+            "prompt_tokens": 343,
+            "generated_tokens": 215,
+            "generation_time_s": 6.781
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

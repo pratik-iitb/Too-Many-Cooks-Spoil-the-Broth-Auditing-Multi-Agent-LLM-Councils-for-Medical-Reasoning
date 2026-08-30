@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-1010",
+  "dataset": "medxpertqa",
+  "question_id": "Text-1010",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which rehabilitation exercise is most effective for restoring range of motion while minimizing stress on the repair of a ruptured patellar tendon?\nAnswer Choices: (A) Active open chain flexion, active closed chain extension (B) Active flexion, active extension (C) Isometric extension, passive flexion (D) Passive flexion, active closed chain extension (E) Isometric flexion, active extension (F) Active flexion, passive extension (G) Active open chain extension, passive flexion (H) Passive flexion, passive extension (I) Active closed chain flexion, passive extension (J) Passive open chain extension, active flexion",
+    "options": {
+      "A": "Active open chain flexion, active closed chain extension",
+      "B": "Active flexion, active extension",
+      "C": "Isometric extension, passive flexion",
+      "D": "Passive flexion, active closed chain extension",
+      "E": "Isometric flexion, active extension",
+      "F": "Active flexion, passive extension",
+      "G": "Active open chain extension, passive flexion",
+      "H": "Passive flexion, passive extension",
+      "I": "Active closed chain flexion, passive extension",
+      "J": "Passive open chain extension, active flexion"
+    },
+    "context": "",
+    "correct_option": "F",
+    "metadata": {
+      "medical_task": "Treatment",
+      "body_system": "Muscular",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The goal is to restore range of motion while minimizing stress on the patellar tendon repair. Active exercises, especially closed chain exercises, are generally preferred as they engage the quadriceps muscle, which provides support and stability to the patella. Open chain exercises can place more stress on the repair. Therefore, active closed chain extension is the most appropriate choice.",
+          "critical_evidence": "Patellar tendon rupture requires minimizing stress on the repair to promote healing.",
+          "differential_considered": "Options B, C, D, E, F, G, I, and J all involve either passive or isometric exercises, which may not effectively activate the quadriceps and provide sufficient support for the patella, potentially increasing stress on the repair. Therefore, these options are less suitable.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 196,
+            "generation_time_s": 8.121
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "For a ruptured patellar tendon, the goal is to restore range of motion while minimizing stress on the repair. Passive flexion helps maintain joint mobility without applying load to the tendon, while active closed chain extension strengthens the quadriceps without directly stressing the patellar tendon. This combination reduces tendon stress while promoting functional recovery.",
+          "critical_evidence": "Passive flexion maintains joint mobility without tendon stress, and active closed chain extension strengthens the quadriceps without direct tendon loading.",
+          "differential_considered": "Other options either stress the tendon (active extension) or do not address both range of motion and muscle strengthening (isometric exercises).",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 161,
+            "generation_time_s": 7.079
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "After a patellar tendon rupture, early rehabilitation must prioritize minimizing stress on the repair while restoring range of motion. Passive flexion avoids active loading on the tendon, and active closed chain extension (e.g., terminal knee extension with weight-bearing) promotes quadriceps control without excessive tension on the repair site. This combination balances motion restoration with mechanical protection.",
+          "critical_evidence": "Active closed chain extension allows controlled quadriceps activation without excessive patellar tendon strain, while passive flexion avoids active loading on the repair.",
+          "differential_considered": "Other options involving active movements (e.g., A, B, E, F) risk overstressing the repair. Passive-only (H) or isometric-only (C, E) may not adequately restore motion. Open chain extension (G, J) places more stress on the tendon than closed chain.",
+          "usage": {
+            "prompt_tokens": 453,
+            "generated_tokens": 201,
+            "generation_time_s": 7.189
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 480,
+            "generated_tokens": 18,
+            "generation_time_s": 0.644
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options involving more active extension (A, B, D, I) could stress the repair if the knee is forced into extension against gravity. Isometric or purely passive options (C, E, H) may not adequately stimulate the necessary range of motion. Only F balances active and passive components favorably for early ROM with minimal tension on the repair.",
+          "usage": {
+            "prompt_tokens": 507,
+            "generated_tokens": 281,
+            "generation_time_s": 9.825
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "F",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

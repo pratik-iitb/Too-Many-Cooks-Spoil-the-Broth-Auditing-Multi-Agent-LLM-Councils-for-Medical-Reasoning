@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-496",
+  "dataset": "medqa",
+  "question_id": "496",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old man presents for severe abdominal pain and is diagnosed with appendicitis. He is taken for emergent appendectomy. During the procedure, the patient has massive and persistent bleeding requiring a blood transfusion. The preoperative laboratory studies showed a normal bleeding time, normal prothrombin time (PT), an INR of 1.0, and a normal platelet count. Postoperatively, when the patient is told about the complications during the surgery, he recalls that he forgot to mention that he has a family history of an unknown bleeding disorder. The postoperative laboratory tests reveal a prolonged partial thromboplastin time (PTT). Which of the following is the most likely diagnosis in this patient?",
+    "options": {
+      "A": "Hemophilia A",
+      "B": "Bernard-Soulier syndrome",
+      "C": "Glanzman syndrome",
+      "D": "Thrombotic thrombocytopenic purpura",
+      "E": "von Willebrand disease"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's postoperative prolonged PTT, normal PT and INR, and normal platelet count strongly suggest a factor deficiency affecting the intrinsic pathway of the coagulation cascade. Hemophilia A is a deficiency of factor VIII, which prolongs the PTT. The other options are less likely given the normal PT and platelet count.",
+          "critical_evidence": "Prolonged PTT with normal PT and INR.",
+          "differential_considered": "Hemophilia A: While a possibility, the normal PT makes it less likely. Bernard-Soulier syndrome: This is a platelet disorder, and the patient has a normal platelet count. Glanzman syndrome: This is a platelet disorder, and the patient has a normal platelet count. Thrombotic thrombocytopenic purpura (TTP): This is a microangiopathic hemolytic anemia and thrombocytopenia, which is not present in this case. von Willebrand disease: While vWD can sometimes present with a prolonged PTT, it is more commonly associated with a prolonged bleeding time and/or abnormal von Willebrand factor assays, which are not mentioned in the case. Therefore, von Willebrand disease is less likely than Hemophilia A.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 276,
+            "generation_time_s": 13.66
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a prolonged PTT postoperatively with normal PT, INR, and platelet count, which is characteristic of von Willebrand disease (vWD). The family history of an unknown bleeding disorder and the delayed diagnosis of appendicitis due to bleeding symptoms support this diagnosis. vWD is the most common hereditary bleeding disorder and is associated with reduced or absent von Willebrand factor (vWF) or factor VIII multimer complex, leading to impaired platelet adhesion and coagulation.",
+          "critical_evidence": "Prolonged PTT with normal PT and platelet count",
+          "differential_considered": "Hemophilia A (A) is ruled out due to normal factor VIII activity. Bernard-Soulier syndrome (B) typically presents with normal PTT and mild thrombocytopenia, which is not the case here. Glanzman syndrome (C) is extremely rare and usually presents in infancy with severe bleeding. Thrombotic thrombocytopenic purpura (D) is an autoimmune disorder with thrombocytopenia and microangiopathic hemolysis, which is not mentioned. The family history of bleeding disorder supports a hereditary condition like vWD.",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 284,
+            "generation_time_s": 13.107
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient had a prolonged PTT postoperatively, indicating a deficiency in intrinsic pathway coagulation factors. His preoperative labs were normal, including PT and INR, suggesting no extrinsic or common pathway defects. The family history of bleeding disorder points to an inherited coagulopathy. Hemophilia A, caused by Factor VIII deficiency, is the most likely cause of isolated prolonged PTT with normal PT and normal platelets.",
+          "critical_evidence": "Prolonged PTT with normal PT and normal platelet count, plus family history of bleeding disorder, strongly suggests Hemophilia A.",
+          "differential_considered": "von Willebrand disease (E) was considered but typically presents with prolonged bleeding time and variable PTT; Glanzman (C) and Bernard-Soulier (B) are platelet disorders with normal PTT; TTP (D) causes thrombocytopenia and microangiopathic hemolytic anemia, not isolated PTT prolongation.",
+          "usage": {
+            "prompt_tokens": 399,
+            "generated_tokens": 233,
+            "generation_time_s": 8.15
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 126,
+            "generation_time_s": 3.03
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Postoperative prolongation of partial thromboplastin time (PTT) despite normal PT and no evidence of platelet dysfunction or low count on preoperative testing.",
+          "differential_considered": "Hemophilia A (factor VIII deficiency), von Willebrand disease (vWD), Bernard-Soulier syndrome, thrombocytopenia, Glanzman syndrome (all ruled out for the post-op PTT finding and clinical context).",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 310,
+            "generation_time_s": 9.651
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

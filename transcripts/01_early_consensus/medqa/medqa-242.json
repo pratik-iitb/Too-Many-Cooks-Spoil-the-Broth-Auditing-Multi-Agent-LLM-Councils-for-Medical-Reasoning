@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-242",
+  "dataset": "medqa",
+  "question_id": "242",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 66-year-old male presents to the outpatient cardiology clinic for evaluation of suspected primary hypertension. His blood pressure is elevated to 169/96 mm Hg, and his heart rate is 85/min. Physical examination reveals an overweight male with regular heart and lung sounds. Following repeated elevated blood pressure measurements, the diagnosis is made and the patient is started on hydrochlorothiazide. Of the following options, which is a side effect that one could experience from thiazide-like diuretics?",
+    "options": {
+      "A": "Hyperuricemia",
+      "B": "Hyperkalemia",
+      "C": "Hypocalcemia",
+      "D": "Hypoglycemia",
+      "E": "Hypernatremia"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thiazide diuretics are known to cause hyperuricemia by increasing uric acid reabsorption in the proximal tubule of the kidney. This is a common side effect of thiazide diuretics. The other options are not typically associated with thiazide diuretics.",
+          "critical_evidence": "Thiazide diuretics are known to cause hyperuricemia.",
+          "differential_considered": "Hyperkalemia is a side effect of potassium-sparing diuretics, not thiazide diuretics. Hypocalcemia is not a typical side effect of thiazide diuretics. Hypoglycemia is not a typical side effect of thiazide diuretics. Hypernatremia is not a typical side effect of thiazide diuretics.",
+          "usage": {
+            "prompt_tokens": 369,
+            "generated_tokens": 177,
+            "generation_time_s": 8.732
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thiazide-like diuretics, including hydrochlorothiazide, can cause hyperuricemia by increasing urinary uric acid excretion. This is a well-documented side effect due to their diuretic action, which promotes renal excretion of uric acid. The patient's age and hypertension diagnosis are consistent with this side effect, while other options like hyperkalemia (B) are less likely as thiazides typically do not cause significant potassium loss, and hypocalcemia (C) is not a common side effect of this class of diuretics.",
+          "critical_evidence": "Thiazide diuretics increase urinary uric acid excretion, leading to hyperuricemia",
+          "differential_considered": "Other diuretic classes (loop or potassium-sparing) were ruled out as they have different side effect profiles, and the patient's presentation is consistent with thiazide diuretic use",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 1024,
+            "generation_time_s": 49.597
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thiazide-like diuretics, such as hydrochlorothiazide, are commonly used for hypertension and are known to cause hyperuricemia due to reduced renal excretion of uric acid. This is a well-documented side effect. Other options are incorrect: thiazides cause hypokalemia (not hyperkalemia), may cause hypocalcemia but less commonly than hyperuricemia, do not typically cause hypoglycemia or hypernatremia.",
+          "critical_evidence": "Thiazide diuretics inhibit proximal tubular reabsorption of sodium and chloride, which also reduces uric acid excretion, leading to hyperuricemia.",
+          "differential_considered": "Hyperkalemia (ruled out — thiazides cause hypokalemia), hypoglycemia (not typical), hypernatremia (unlikely with thiazides which promote sodium excretion), hypocalcemia (possible but less common than hyperuricemia).",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 238,
+            "generation_time_s": 8.505
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 371,
+            "generated_tokens": 123,
+            "generation_time_s": 2.97
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Thiazide diuretics, such as hydrochlorothiazide, are known to increase serum calcium levels by reducing calcium excretion in the urine, especially in the early phase of treatment. The patient's age and the context of starting a diuretic for hypertension make hypercalcemia the most likely adverse effect here, as opposed to hyperkalemia (more common with loop diuretics), hyperuricemia (which can occur but is less direct), or hypoglycemia (not a typical effect). No evidence suggests the patient has a pre-existing endocrine disorder that would make hypocalcemia more likely.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 402,
+            "generated_tokens": 259,
+            "generation_time_s": 8.117
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

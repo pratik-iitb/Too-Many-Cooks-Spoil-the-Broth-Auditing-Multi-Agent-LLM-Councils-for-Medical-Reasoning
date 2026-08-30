@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-12769830",
+  "dataset": "pubmedqa_context",
+  "question_id": "12769830",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Should tumor depth be included in prognostication of soft tissue sarcoma?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Most staging systems for soft tissue sarcoma are based on histologic malignancy-grade, tumor size and tumor depth. These factors are generally dichotomized, size at 5 cm. We believe it is unlikely that tumor depth per se should influence a tumor's metastatic capability. Therefore we hypothesized that the unfavourable prognostic importance of depth could be explained by the close association between size and depth, deep-seated tumors on average being larger than the superficial ones. When tumor size is dichotomized, this effect should be most pronounced in the large size (>5 cm) group in which the size span is larger. We analyzed the associations between tumor size and depth and the prognostic importance of grade, size and depth in a population-based series of 490 adult patients with soft tissue sarcoma of the extremity or trunk wall with complete, 4.5 years minimum, follow-up. Multivariate analysis showed no major prognostic effect of tumor depth when grade and size were taken into account. The mean size of small tumors was the same whether superficial or deep but the mean size of large and deep-seated tumors were one third larger than that of large but superficial tumors. Tumor depth influenced the prognosis in the subset of high-grade and large tumors. In this subset deep-seated tumors had poorer survival rate than superficial tumors, which could be explained by the larger mean size of the deep-seated tumors.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case indicates that tumor depth has a minor prognostic effect on soft tissue sarcoma, primarily in high-grade and large tumors. The analysis suggests that the apparent prognostic importance of depth is largely explained by the association with tumor size, with deep-seated tumors being larger on average. Therefore, depth alone is not a strong predictor of outcome.",
+          "critical_evidence": "Multivariate analysis showed no major prognostic effect of tumor depth when grade and size were taken into account.",
+          "differential_considered": "While other factors might influence prognosis, the study specifically focuses on the impact of depth, and the evidence suggests it's primarily linked to size. Other factors like location or specific subtypes might also play a role, but the case focuses on depth.",
+          "usage": {
+            "prompt_tokens": 540,
+            "generated_tokens": 192,
+            "generation_time_s": 11.441
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that tumor depth alone does not significantly influence prognosis when considering grade and size. The analysis showed that deep-seated tumors had poorer survival only in high-grade and large tumors, which was due to their larger mean size rather than depth itself. This suggests that depth should not be included as an independent prognostic factor in soft tissue sarcoma staging.",
+          "critical_evidence": "Multivariate analysis showed no major prognostic effect of tumor depth when grade and size were taken into account",
+          "differential_considered": "Other factors like histologic grade and tumor size were found to be more significant prognostic indicators than depth. The study specifically controlled for these variables in their analysis.",
+          "usage": {
+            "prompt_tokens": 553,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.431
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The multivariate analysis showed no major prognostic effect of tumor depth when grade and size were accounted for, indicating depth is not an independent prognostic factor. The poorer survival in deep tumors was explained by their larger size, not depth per se. Thus, depth should not be included in prognostication.",
+          "critical_evidence": "Multivariate analysis showed no major prognostic effect of tumor depth when grade and size were taken into account.",
+          "differential_considered": "The possibility that depth independently affects metastasis was considered, but ruled out by evidence showing depth's prognostic impact is confounded by size, especially in high-grade/large tumors.",
+          "usage": {
+            "prompt_tokens": 526,
+            "generated_tokens": 166,
+            "generation_time_s": 7.012
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 551,
+            "generated_tokens": 62,
+            "generation_time_s": 1.82
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Multivariate analysis showed no major prognostic effect of tumor depth when grade and size were taken into account.",
+          "differential_considered": "Other prognostic factors such as tumor grade and size are strongly established predictors in soft tissue sarcoma, whereas tumor depth's role is confounded by its correlation with tumor size. Therefore, depth alone is unlikely to add independent prognostic value, and its exclusion in multivariate analysis supports the answer 'no'.",
+          "usage": {
+            "prompt_tokens": 589,
+            "generated_tokens": 222,
+            "generation_time_s": 8.483
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

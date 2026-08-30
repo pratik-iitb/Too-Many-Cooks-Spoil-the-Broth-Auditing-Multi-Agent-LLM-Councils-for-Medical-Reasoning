@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-895",
+  "dataset": "metamed",
+  "question_id": "895",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A novel type of PET radiotracer is being developed to evaluate patients with Parkinson’s disease. A clinical research study has enrolled 1,200 patients, half of whom have the disease. The scan is found to be positive in 590 of the 600 patients with known PD, and positive in 20 of the 600 patients without PD. What is the test’s overall specificity?",
+    "options": {
+      "A": "580 / (20 + 590)",
+      "B": "580 / (10 + 580)",
+      "C": "590 / (590 + 10)",
+      "D": "580 / (580 + 20)",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Specificity is defined as the ability of a test to correctly identify those without the disease. In this case, the test is positive in 20 of the 600 patients without Parkinson's disease. Therefore, the number of patients without the disease who tested positive is 20. The total number of patients without Parkinson's disease is 600 - 590 = 10. Specificity is calculated as (True Negatives) / (True Negatives + False Positives). We know the number of true negatives is 10 and the number of false positives is 20. So, Specificity = 10 / (10 + 20) = 10/30 = 1/3 = 0.3333 or 33.33%. However, the options are not in the same format. The question asks for the specificity, which is the number of true negatives divided by the total number of people without the disease. The number of people without the disease is 600 - 590 = 10. The number of people without the disease who tested positive is 20. Therefore, the specificity is 10/ (10 + 20) = 10/30 = 1/3. The closest answer is B: 580 / (10 + 580). The question is asking for the specificity, which is the number of true negatives divided by the total number of people without the disease. The number of people without the disease is 600 - 590 = 10. The number of people without the disease who tested positive is 20. Therefore, the specificity is 10 / (10 + 20) = 10/30 = 1/3. The closest answer is B: 580 / (10 + 580).",
+          "critical_evidence": "The test is positive in 20 of the 600 patients without Parkinson's disease.",
+          "differential_considered": "The differential diagnosis includes other neurodegenerative diseases, vascular dementia, and psychiatric conditions. These were ruled out because the study is specifically designed to evaluate patients with Parkinson's disease, and the positive results are likely due to the radiotracer's sensitivity to the disease process.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 539,
+            "generation_time_s": 28.237
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Specificity is the proportion of true negatives among all individuals without the disease. In this case, 580 patients without PD had negative scans (600 total without PD - 20 positive = 580 negative). The denominator should be all individuals without PD (600), so specificity = 580/600 = 580/(580+20).",
+          "critical_evidence": "The 580 patients without PD who had negative scans",
+          "differential_considered": "No differentials needed - this is a straightforward specificity calculation based on the given data",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.559
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Specificity is calculated as true negatives divided by the sum of true negatives and false positives. In this case, true negatives are 580 (600 healthy patients minus 20 false positives), and false positives are 20. Thus, specificity = 580 / (580 + 20).",
+          "critical_evidence": "The test was positive in 20 of the 600 healthy patients (false positives), leaving 580 true negatives.",
+          "differential_considered": "No differential diagnoses are relevant here as this is a straightforward diagnostic test evaluation; the focus is on correctly calculating specificity using the given data.",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 167,
+            "generation_time_s": 6.1
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The overall specificity of the test is calculated by dividing the sum of true negatives (TN) by the sum of false positives (FP) + true positives (TP). In this case, the total number of patients without PD is 600, and the number of false positives is 20. Therefore, the specificity is 580 / (580 + 20) = 0.9.",
+          "critical_evidence": "The single most important finding that supports the answer is the total number of patients without PD and the number of false positives.",
+          "differential_considered": "None of the other options correctly calculate the specificity of the test based on the given information.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 157,
+            "generation_time_s": 3.924
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "Specificity is calculated as the number of true negatives divided by the sum of true negatives and false positives. Here, true negatives are the 20 patients without PD who were correctly identified as negative (scan negative), and false positives are the 20 patients without PD who were incorrectly identified as positive (scan positive). The 590 positives among PD patients are assumed to be true positives (since all PD patients should be positive for a perfect test). Thus, specificity = 20 / (20 + 590).",
+          "critical_evidence": "The key finding is the number of patients without PD who had a positive scan (20) versus those who had a negative scan (600 total without PD - 20 false positives = 580 true negatives).",
+          "differential_considered": "Differential consideration included confusion between sensitivity and specificity, but the question explicitly asks for specificity, which depends on the true negative and false positive rates. Other options misrepresent these values or the denominator.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 227,
+            "generation_time_s": 10.374
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

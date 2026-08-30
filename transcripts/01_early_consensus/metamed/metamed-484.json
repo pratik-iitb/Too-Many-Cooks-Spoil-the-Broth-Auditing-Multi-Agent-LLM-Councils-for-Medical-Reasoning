@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-484",
+  "dataset": "metamed",
+  "question_id": "484",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 22-year-old man presents to the medical clinic after getting bit in the hand by a stray dog 2 days ago. The patient has no past medical history and takes no prescription medications. He does not drink alcohol or smoke cigarettes. The patient’s vitals are currently within normal limits. On examination, the physician notices 2 clean puncture wounds with localized cellulitis. Capillary refill is 2 seconds. Sensorimotor evaluation of the hand is without deficits. Which of the following is the most appropriate treatment choice for this patient?",
+    "options": {
+      "A": "Amoxicillin",
+      "B": "Amoxicillin-clavulanate",
+      "C": "Clindamycin",
+      "D": "Doxycycline",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a dog bite and localized cellulitis. The most common bacterial cause of dog bite infections is *Pasteurella multocida*. Amoxicillin is a first-line antibiotic effective against *Pasteurella multocida*. While amoxicillin-clavulanate is a broader-spectrum antibiotic, it is not typically necessary for uncomplicated dog bite cellulitis.",
+          "critical_evidence": "The most common bacterial cause of dog bite infections is *Pasteurella multocida*",
+          "differential_considered": "While other bacteria can cause dog bite infections, *Pasteurella multocida* is the most common. Amoxicillin-clavulanate is a reasonable choice for more severe or complicated infections, but amoxicillin is sufficient for this patient's presentation.",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 202,
+            "generation_time_s": 11.674
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a dog bite with cellulitis and no systemic signs. Dog bites often carry risk of infection with beta-hemolytic streptococci, which are susceptible to amoxicillin-clavulanate. The presence of puncture wounds increases the risk of deep tissue infection, and clavulanate provides beta-lactamase coverage to prevent resistance. Amoxicillin alone may not suffice due to potential resistance patterns.",
+          "critical_evidence": "Puncture wounds with cellulitis and lack of systemic symptoms suggest a localized infection requiring empiric antibiotic coverage.",
+          "differential_considered": "Considered tetanus, but patient has no history of trauma or neurological symptoms. Considered rabies, but no history of animal behavior or neurological findings. Considered other soft tissue infections, but cellulitis with puncture wounds is most likely.",
+          "usage": {
+            "prompt_tokens": 394,
+            "generated_tokens": 1024,
+            "generation_time_s": 55.585
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a dog bite with localized cellulitis, which suggests a likely mixed bacterial infection including anaerobes and gram-negative organisms. Amoxicillin-clavulanate is preferred over amoxicillin alone because it covers anaerobes and beta-lactamase-producing organisms commonly found in dog bites. The absence of systemic signs and intact sensorimotor function supports localized infection without need for broader coverage or IV antibiotics.",
+          "critical_evidence": "Localized cellulitis with puncture wounds from a dog bite — indicating a high risk of mixed bacterial infection requiring anaerobic coverage.",
+          "differential_considered": "Considered cellulitis from other sources (e.g., trauma, staphylococcal infection), but the dog bite history and presence of puncture wounds strongly point to polymicrobial infection. Ruled out systemic infection due to normal vitals and intact sensorimotor function.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 212,
+            "generation_time_s": 8.764
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with two clean puncture wounds with localized cellulitis, indicating a potential dog bite infection. The most appropriate treatment choice is amoxicillin-clavulanate (option B) as it covers both aerobic and anaerobic bacteria commonly found in dog bite wounds, including Pasteurella, Streptococcus, and Staphylococcus species. This combination therapy provides broad-spectrum coverage and is recommended by current guidelines for dog bite wound infections.",
+          "critical_evidence": "The presence of localized cellulitis following a dog bite.",
+          "differential_considered": "None of the other options listed are appropriate as monotherapy for a dog bite wound infection. Amoxicillin alone (option A) may not provide adequate coverage against anaerobic bacteria. Clindamycin (option C) is not typically used as first-line therapy for dog bite wounds. Doxycycline (option D) is not the best choice due to its spectrum of activity and lack of coverage for common dog bite wound pathogens. The correct answer is amoxicillin-clavulanate (option B).",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 245,
+            "generation_time_s": 6.835
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Doxycycline (for possible rickettsia or chlamydia) and clindamycin (for anaerobes or MRSA) are less likely without additional testing or risk factors. No evidence points to these as the primary therapy here.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 277,
+            "generation_time_s": 9.365
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "B": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

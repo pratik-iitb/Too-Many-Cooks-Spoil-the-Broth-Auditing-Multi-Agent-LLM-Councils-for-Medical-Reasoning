@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-562",
+  "dataset": "mmlu",
+  "question_id": "562",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "For a very weak base, the pKb of a solution would likely be:",
+    "options": {
+      "A": "Equal to the pOH",
+      "B": "Higher than the pOH",
+      "C": "Lower than the pOH",
+      "D": "Near 7 at 25ºC"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The pKb is the negative logarithm of the base-10 of the base dissociation constant (Kb) of a weak base. The base dissociation constant (Kb) is related to the pOH of the solution. Therefore, the pKb is equal to the pOH.",
+          "critical_evidence": "The pKb is the negative logarithm of the base dissociation constant (Kb).",
+          "differential_considered": "Option B (Higher than the pOH) is incorrect because the pKb is the negative logarithm of Kb, which is always less than 1. Option C (Lower than the pOH) is incorrect because the pKb is the negative logarithm of Kb, which is always greater than -1. Option D (Near 7 at 25ºC) is incorrect because the pKb is the negative logarithm of Kb, which is always less than 1. The pKb is always less than 1, and the pOH is always greater than 7.",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 240,
+            "generation_time_s": 12.128
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "For a very weak base, the Kb value is small, meaning the base dissociates very little in water. This results in a higher pKb value compared to the pOH. Since pKb = 14 - pKa and pKa > 7 for weak bases, pKb will be less than 7 but still higher than the pOH (which is typically greater than 7 in basic solutions). Thus, the pKb of a very weak base is higher than the pOH.",
+          "critical_evidence": "The relationship between pKb and pOH for weak bases: pKb = 14 - pKa, and pKa > 7 for weak bases, leading to pKb < 7 but higher than pOH.",
+          "differential_considered": "Options A (equal), C (lower), and D (near 7) were considered but ruled out based on the definition of pKb for weak bases and the relationship between pKb and pOH.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.666
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "For a very weak base, its pKb is large (high value) because it does not dissociate significantly in water. Since pOH is typically low for basic solutions, a very weak base will have a pKb much higher than the pOH. This relationship is consistent with the definition of pKb = -log(Kb), where a small Kb corresponds to a large pKb.",
+          "critical_evidence": "pKb is inversely related to base strength; very weak bases have large pKb values, which are higher than typical pOH values in basic solutions.",
+          "differential_considered": "Considered options A, C, and D, but ruled them out: A is incorrect because pKb ≠ pOH unless the base is extremely strong and the solution is at equilibrium; C is incorrect because weak bases have higher pKb than pOH; D is incorrect because pKb is not near 7 for weak bases — pKb near 7 implies a moderately weak base, not a very weak one.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 245,
+            "generation_time_s": 8.792
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 283,
+            "generated_tokens": 240,
+            "generation_time_s": 5.938
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and D are incorrect because pKb is not equal to pOH (A) and pKb at 25°C is not necessarily near 7 (D). Option B is incorrect because pKb is not higher than pOH; rather, weak bases have low [B] in basic pH environments.",
+          "usage": {
+            "prompt_tokens": 310,
+            "generated_tokens": 247,
+            "generation_time_s": 7.944
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

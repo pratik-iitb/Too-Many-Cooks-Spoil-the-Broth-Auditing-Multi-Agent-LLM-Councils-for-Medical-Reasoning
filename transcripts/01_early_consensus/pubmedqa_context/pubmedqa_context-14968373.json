@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-14968373",
+  "dataset": "pubmedqa_context",
+  "question_id": "14968373",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can CT predict the level of CSF block in tuberculous hydrocephalus?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Treatment of obstructive hydrocephalus in children with tuberculous meningitis (TBM) depends on the level of the cerebrospinal fluid (CSF) block. Air-encephalography is regarded as the gold standard for differentiating communicating and non-communicating hydrocephalus. Since air-encephalography involves a lumbar puncture, it carries the risk of cerebral herniation. AIM. The aim of this study was to determine whether communicating and non-communicating hydrocephalus in TBM can be differentiated by means of cranial computerised tomography (CT). A number of CT indices were measured in 50 children with communicating and 34 children with non-communicating hydrocephalus according to air-encephalographic findings. The only CT finding that correlated with the type of hydrocephalus was the shape of the third ventricle. Significantly more children with non-communicating hydrocephalus had a rounded third ventricle than those with communicating hydrocephalus.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found a significant correlation between the shape of the third ventricle on CT and the type of hydrocephalus (communicating vs. non-communicating) in children with tuberculous meningitis. Specifically, children with non-communicating hydrocephalus had a rounded third ventricle more frequently than those with communicating hydrocephalus. This suggests that CT can be used to differentiate between the two types of hydrocephalus.",
+          "critical_evidence": "Significantly more children with non-communicating hydrocephalus had a rounded third ventricle than those with communicating hydrocephalus.",
+          "differential_considered": "While air-encephalography is the gold standard, the study focuses on CT as a potential alternative. Other potential causes of hydrocephalus were not specifically addressed in the case, but the study's focus on TBM makes them less relevant.",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 204,
+            "generation_time_s": 12.068
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study found that CT can differentiate between communicating and non-communicating hydrocephalus in TBM based on the shape of the third ventricle, with non-communicating cases showing a rounded shape more frequently. However, this is not a definitive predictor and air-encephalography remains the gold standard. The answer is'maybe' because while CT shows some correlation, it's not as reliable as air-encephalography and carries no risk of cerebral herniation.",
+          "critical_evidence": "Significantly more children with non-communicating hydrocephalus had a rounded third ventricle than those with communicating hydrocephalus",
+          "differential_considered": "While the study focused on TBM, the finding that CT can show correlation with hydrocephalus type is relevant to other obstructive hydrocephalus cases. However, the presence of tuberculosis was a key factor in this specific patient population.",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.057
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that only the shape of the third ventricle correlated with the type of hydrocephalus, and even this was not a reliable predictor for definitive differentiation. Since the gold standard (air-encephalography) was used to confirm the diagnosis, and CT alone could not reliably predict the CSF block level, CT is not sufficient for this purpose.",
+          "critical_evidence": "The only CT finding that correlated with hydrocephalus type was the shape of the third ventricle, which was not a reliable predictor.",
+          "differential_considered": "Other CT indices were considered but found not to correlate with CSF block level; thus, no other imaging feature was deemed sufficient to reliably predict the level of obstruction.",
+          "usage": {
+            "prompt_tokens": 445,
+            "generated_tokens": 179,
+            "generation_time_s": 7.48
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The clinical case presents a child with tuberculous meningitis and hydrocephalus. The key question is whether CT can predict the level of CSF block. The study shows that the shape of the third ventricle is the only CT finding that correlates with the type of hydrocephalus. A rounded third ventricle is more commonly seen in non-communicating hydrocephalus compared to communicating hydrocephalus. Therefore, a yes answer is justified based on the correlation between the shape of the third ventricle on CT and the type of hydrocephalus.",
+          "critical_evidence": "The shape of the third ventricle on CT is the key evidence that correlates with the type of hydrocephalus.",
+          "differential_considered": "None of the options provided are considered differentials.",
+          "usage": {
+            "prompt_tokens": 470,
+            "generated_tokens": 185,
+            "generation_time_s": 5.341
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Air-encephalography is the gold standard but is unsafe in this context. Other imaging like MRI might be more accurate, but the question specifically asks about CT. Differential diagnoses such as TB vs. non-TB causes were not discussed, but the key focus is on the ability of CT to predict the CSF block type based on the study's findings.",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 266,
+            "generation_time_s": 10.052
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

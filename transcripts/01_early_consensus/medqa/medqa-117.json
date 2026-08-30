@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-117",
+  "dataset": "medqa",
+  "question_id": "117",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 36 year-old woman presents to the doctor’s office for evaluation of substernal chest pain and a metallic taste in her mouth. The patient has a history of metabolic syndrome and hypothyroidism. She takes levothyroxine daily. The patient’s vital signs are currently stable. On examination, she appears to be in mild discomfort, but is alert and oriented. The abdomen is mildly tender to palpation without guarding. Which of the following is the most appropriate treatment choice based on her history and physical examination?",
+    "options": {
+      "A": "Omeprazole",
+      "B": "Ranitidine",
+      "C": "Bismuth subsalicylate",
+      "D": "Magnesium hydroxide",
+      "E": "Metoclopramide"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's symptoms of substernal chest pain and metallic taste, along with a history of metabolic syndrome and hypothyroidism, strongly suggest gastroesophageal reflux disease (GERD). Omeprazole is a proton pump inhibitor (PPI) that effectively reduces stomach acid production, making it the most appropriate initial treatment for GERD. The mild abdominal tenderness could be related to the GERD.",
+          "critical_evidence": "Substernal chest pain and metallic taste are classic symptoms of GERD.",
+          "differential_considered": "Ranitidine (B) is an H2 receptor antagonist, which is less effective than PPIs for GERD. Bismuth subsalicylate (C) is used for nausea and diarrhea, not primarily for GERD. Magnesium hydroxide (D) is an antacid and can provide temporary relief but doesn't address the underlying cause of GERD. Metoclopramide (E) is used for nausea and gastroparesis, not typically for GERD.",
+          "usage": {
+            "prompt_tokens": 373,
+            "generated_tokens": 243,
+            "generation_time_s": 12.282
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The metallic taste in the mouth suggests possible gastrointestinal irritation or acid reflux, which could be related to her metabolic syndrome. Bismuth subsalicylate is effective for both gastrointestinal symptoms and can help with acid-related discomfort. While antacids (A, D) or H2 blockers (B) might address acid reflux, bismuth subsalicylate also has anti-inflammatory properties that could help with mild abdominal tenderness. Metoclopramide (E) is typically used for nausea, which is not the primary symptom here. Levothyroxine absorption could be a concern, but the metallic taste is more suggestive of GI irritation than hypothyroidism-related symptoms.",
+          "critical_evidence": "Metallic taste in the mouth with mild abdominal tenderness",
+          "differential_considered": "Considered GERD, peptic ulcer, and thyroid-related symptoms, but ruled out thyroid as the primary cause due to stable vitals and lack of other thyroid symptoms. Abdominal tenderness without guarding suggests possible GI irritation rather than more serious pathology.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.073
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with substernal chest pain and metallic taste, with a history of metabolic syndrome and hypothyroidism. These symptoms, along with mild abdominal tenderness, are suggestive of a possible drug-induced side effect or gastrointestinal issue. Given her use of levothyroxine, which can cause gastrointestinal upset and metallic taste, and the absence of severe signs of acute illness, bismuth subsalicylate is appropriate for symptomatic relief of GI discomfort and taste disturbances. Other options like omeprazole or metoclopramide are less targeted for this presentation.",
+          "critical_evidence": "Metallic taste and mild abdominal tenderness in a patient on levothyroxine suggest a drug-related GI side effect best managed with symptomatic relief using bismuth subsalicylate.",
+          "differential_considered": "Acute coronary syndrome was considered but ruled out due to stable vitals and absence of diaphoresis, syncope, or severe pain. GERD or gastritis were considered, but the metallic taste and drug history make bismuth subsalicylate more appropriate than acid suppressants or prokinetics.",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 262,
+            "generation_time_s": 9.771
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 145,
+            "generation_time_s": 3.515
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "GERD, peptic ulcer, gallstone disease, but no data supports these except GERD, which is often linked to hypothyroidism and can be managed with prokinetic therapy;",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 300,
+            "generation_time_s": 9.636
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

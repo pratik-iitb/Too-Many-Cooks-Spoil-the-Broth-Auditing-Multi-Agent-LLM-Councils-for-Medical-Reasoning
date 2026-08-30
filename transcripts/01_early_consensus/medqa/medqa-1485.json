@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1485",
+  "dataset": "medqa",
+  "question_id": "1485",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 25-year-old woman first presented to your clinic due to morning stiffness, symmetrical arthralgia in her wrist joints, and fatigue. She had a blood pressure of 132/74 mm Hg and heart rate of 84/min. Physical examination revealed tenderness to palpation of both wrists but full range of motion. Anti-citrullinated protein antibodies were positive and ESR was above normal ranges. She was started on methotrexate therapy. She returns for follow up 2 months later and is found to have megaloblastic anemia. What is the mechanism of action of methotrexate?",
+    "options": {
+      "A": "Elevates tetrahydrofolate levels",
+      "B": "Elevates methylmalonic acid levels",
+      "C": "Intercalates into strands of DNA",
+      "D": "Inhibits vitamin B12 activation",
+      "E": "Inhibits dihydrofolate reductase"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of morning stiffness, symmetrical arthralgia, fatigue, positive anti-citrullinated protein antibodies, and elevated ESR strongly suggests rheumatoid arthritis (RA). Methotrexate is a common first-line treatment for RA. Methotrexate inhibits dihydrofolate reductase, an enzyme crucial for the synthesis of tetrahydrofolic acid, which is essential for DNA and RNA synthesis. This inhibition leads to megaloblastic anemia, which is a known side effect of methotrexate.",
+          "critical_evidence": "Megaloblastic anemia is a well-known side effect of methotrexate due to its inhibition of dihydrofolate reductase.",
+          "differential_considered": "While other options are possible, they are less likely given the clinical context. A: Elevates tetrahydrofolate levels is incorrect as methotrexate inhibits its production. B: Elevates methylmalonic acid levels is not a primary mechanism of methotrexate. C: Intercalates into strands of DNA is more characteristic of some chemotherapeutic agents, not methotrexate. D: Inhibits vitamin B12 activation is not the primary mechanism of methotrexate.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 258,
+            "generation_time_s": 12.755
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "Methotrexate inhibits dihydrofolate reductase, an enzyme critical for the synthesis of tetrahydrofolate, which is necessary for DNA synthesis and cell division. This leads to decreased cell proliferation, including in rapidly dividing cells like bone marrow cells, resulting in megaloblastic anemia. The positive anti-citrullinated protein antibodies and elevated ESR suggest an autoimmune rheumatic disease, likely RA, which is treated with methotrexate. The megaloblastic anemia 2 months after starting methotrexate supports this mechanism.",
+          "critical_evidence": "Megaloblastic anemia 2 months after starting methotrexate",
+          "differential_considered": "Considered vitamin B12 deficiency (commonly causes megaloblastic anemia) but ruled out by methotrexate mechanism; ruled out other causes of megaloblastic anemia like folate deficiency",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 220,
+            "generation_time_s": 10.271
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with symptoms suggestive of rheumatoid arthritis (RA), including symmetrical wrist arthralgia, morning stiffness, and positive anti-CCP antibodies. Methotrexate, a first-line DMARD for RA, works by inhibiting dihydrofolate reductase, which disrupts folate metabolism and reduces purine and thymidylate synthesis, thereby suppressing immune cell proliferation. The development of megaloblastic anemia at 2 months is a known adverse effect due to impaired DNA synthesis from folate deficiency, consistent with methotrexate’s mechanism.",
+          "critical_evidence": "Methotrexate inhibits dihydrofolate reductase, leading to impaired DNA synthesis and megaloblastic anemia as a side effect.",
+          "differential_considered": "Other DMARDs like leflunomide or hydroxychloroquine were not considered as first-line agents in this case. The megaloblastic anemia is not consistent with autoimmune or infectious etiologies, and the clinical context strongly supports methotrexate’s mechanism.",
+          "usage": {
+            "prompt_tokens": 395,
+            "generated_tokens": 253,
+            "generation_time_s": 8.887
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 155,
+            "generation_time_s": 3.773
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include autoimmune hemolytic anemia, B12 deficiency, or other drug-induced anemia, but the use of methotrexate and the anemia's morphology point to folate pathway inhibition rather than B12 deficiency or direct effects on folate metabolism as described in the options.",
+          "usage": {
+            "prompt_tokens": 447,
+            "generated_tokens": 309,
+            "generation_time_s": 9.742
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

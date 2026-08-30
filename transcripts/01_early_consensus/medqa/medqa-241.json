@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-241",
+  "dataset": "medqa",
+  "question_id": "241",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A medical student is reviewing dose-response curves of various experimental drugs. She is specifically interested in the different factors that cause the curve to shift in different directions. From her study, she plots the following graph (see image). She marks the blue curve for drug A, which acts optimally on a receptor. After drawing the second (green) curve, she discovers that this drug B has a lower ability to produce a reaction than the first one. She also discovers that more of the second drug B is required to produce the same response as the first one. Which of the following terms best describes the activity of drug B in comparison to drug A?",
+    "options": {
+      "A": "Lower potency",
+      "B": "Higher efficacy",
+      "C": "Higher potency",
+      "D": "Increased affinity",
+      "E": "Decreased efficacy"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The student observes that drug B requires a higher dose to achieve the same effect as drug A. This indicates that drug B is less potent, meaning it requires a greater concentration to produce the same level of response. Potency refers to the amount of drug needed to produce a specific effect.",
+          "critical_evidence": "Drug B requires a higher dose to produce the same response as drug A.",
+          "differential_considered": "Higher efficacy: While drug B might have a different mechanism of action, the primary observation is the dose-response relationship, which points to potency. Efficacy is the maximum effect a drug can produce, not directly related to the dose required to achieve a given effect.",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 257,
+            "generation_time_s": 12.65
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Drug B requires a higher concentration to produce the same response as drug A, indicating it has lower potency. Potency refers to the amount of drug needed to achieve a specific effect, while efficacy relates to the maximum response a drug can produce. Since drug B needs more of the drug to achieve the same effect, it is less potent than drug A.",
+          "critical_evidence": "Drug B requires a higher concentration to produce the same response as drug A",
+          "differential_considered": "Options B (higher efficacy) and D (increased affinity) were considered but ruled out because efficacy refers to maximum response, not the amount needed to achieve an effect, and affinity relates to binding strength, not the amount needed to produce a response. Option E (decreased efficacy) was considered but ruled out because the issue is not about the maximum response but the amount needed to achieve an effect.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.462
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Drug B requires more dose to produce the same response as drug A, indicating reduced potency. Potency refers to the dose required to achieve a given effect, and since drug B is less potent, it is the correct answer. Efficacy (B/E) relates to maximum effect, which is not mentioned as reduced in the case. Affinity (D) relates to binding strength, not directly to dose-response shift in this context.",
+          "critical_evidence": "More of drug B is required to produce the same response as drug A, indicating lower potency.",
+          "differential_considered": "Higher efficacy (B) and decreased efficacy (E) were considered, but the case does not mention maximum response, only dose requirement. Higher potency (C) and increased affinity (D) are contradicted by the need for more drug B.",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 198,
+            "generation_time_s": 6.928
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 10,
+            "generation_time_s": 0.266
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options B (higher efficacy), C (higher potency), D (increased affinity), and E (decreased efficacy) were considered, but only the dose-response relationship supports the concept of potency, not efficacy or receptor affinity.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 170,
+            "generation_time_s": 5.347
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

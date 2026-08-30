@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-963",
+  "dataset": "medqa",
+  "question_id": "963",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 67-year-old man with type 2 diabetes mellitus comes to the emergency department because of lightheadedness over the past 2 hours. He reports that he has had similar episodes of lightheadedness and palpitations over the past 3 days. His only medication is metformin. His pulse is 110/min and irregularly irregular. An ECG shows a variable R-R interval and absence of P waves. The patient undergoes transesophageal echocardiography. During the procedure, the tip of the ultrasound probe is angled posteriorly within the esophagus. This view is most helpful for evaluating which of the following conditions?",
+    "options": {
+      "A": "Thrombus in the left pulmonary artery",
+      "B": "Myxoma in the left atrium",
+      "C": "Aneurysm of the descending aorta",
+      "D": "Thrombus in the left ventricular apex",
+      "E": "Tumor in the right main bronchus"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of lightheadedness, palpitations, irregularly irregular pulse, and absence of P waves on ECG strongly suggests atrial fibrillation. Transesophageal echocardiography (TEE) is the best imaging modality to visualize the left atrium, where a myxoma, a benign tumor, is most likely to be found. The posterior angulation of the probe is crucial for visualizing the left atrium.",
+          "critical_evidence": "Irregularly irregular pulse and absence of P waves on ECG strongly suggest atrial fibrillation, making the left atrium the most likely location for a potential mass.",
+          "differential_considered": "A: Thrombus in the left pulmonary artery is less likely given the absence of chest pain or shortness of breath. C: Aneurysm of the descending aorta is not directly visualized by TEE. D: Thrombus in the left ventricular apex is not the primary target of TEE during this procedure. E: Tumor in the right main bronchus is not visualized by TEE.",
+          "usage": {
+            "prompt_tokens": 412,
+            "generated_tokens": 243,
+            "generation_time_s": 12.045
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's irregularly irregular pulse and ECG findings with variable R-R intervals and absence of P waves suggest atrial fibrillation. Transesophageal echocardiography (TEE) with posterior angulation of the probe is specifically designed to evaluate the left atrium for conditions like myxomas, which are common in elderly patients and can cause symptoms of lightheadedness and palpitations. The posterior view allows optimal visualization of the left atrial appendage where myxomas are typically located.",
+          "critical_evidence": "Posterior angulation of the TEE probe provides optimal visualization of the left atrial appendage",
+          "differential_considered": "While other conditions like pulmonary embolism, aortic aneurysm, and bronchial tumors could theoretically cause similar symptoms, the specific clinical presentation and the TEE view focused on the left atrium make myxoma the most likely diagnosis. The patient's age and history of irregular heart rhythms further support this consideration.",
+          "usage": {
+            "prompt_tokens": 430,
+            "generated_tokens": 233,
+            "generation_time_s": 10.839
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with syncope, palpitations, and an irregularly irregular pulse with absent P waves on ECG, consistent with atrial fibrillation. Transesophageal echocardiography (TEE) is indicated to evaluate for thrombus or structural abnormalities in the atria. Angling the probe posteriorly in the esophagus provides optimal visualization of the left atrium, particularly for detecting left atrial myxomas or thrombi. Other options involve structures not optimally visualized from this posterior esophageal view.",
+          "critical_evidence": "Posterior angling of the TEE probe provides the best acoustic window for the left atrium, which is critical in patients with atrial fibrillation to rule out embolic sources like myxomas or thrombi.",
+          "differential_considered": "Thrombus in the left pulmonary artery (A) and left ventricular apex (D) are not optimally visualized from posterior TEE; aneurysm of the descending aorta (C) is better seen from anterior or lateral views; tumor in the right main bronchus (E) is not a TEE target. Myxoma (B) is the most relevant given the atrial fibrillation and need to rule out embolic source.",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 289,
+            "generation_time_s": 10.152
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 16,
+            "generation_time_s": 0.409
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: TEE of the left pulmonary artery is not typically used to diagnose atrial fibrillation; D: Apex thrombus would require a different view; C and E are unrelated to the ECG findings; thus, the ECG's atrial activity changes most directly suggest atrial pathology, best seen via TEE of the left atrium.",
+          "usage": {
+            "prompt_tokens": 459,
+            "generated_tokens": 258,
+            "generation_time_s": 8.083
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

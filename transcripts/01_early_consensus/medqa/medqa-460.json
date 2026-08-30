@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-460",
+  "dataset": "medqa",
+  "question_id": "460",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 32-year-old woman comes to the physician with fever and malaise. For the past 2 days, she has felt fatigued and weak and has had chills. Last night, had a temperature of 40.8°C (104.2°F). She has had a sore throat since this morning. The patient was recently diagnosed with Graves disease and started on methimazole. Laboratory studies show:\nHemoglobin 13.3 g/dL\nLeukocyte count 3,200/mm3\nSegmented neutrophils 8%\nBasophils < 1%\nEosinophils < 1%\nLymphocytes 80%\nMonocytes 11%\nPlatelet count 220,000/mm3\nWhich of the following is the most appropriate next step in management?\"",
+    "options": {
+      "A": "Switch to propylthiouracil",
+      "B": "Bone marrow biopsy",
+      "C": "Test for EBV, HIV, and CMV",
+      "D": "Begin oral aminopenicillin",
+      "E": "Discontinue methimazole"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation of fever, malaise, sore throat, and recent diagnosis of Graves' disease treated with methimazole strongly suggests a drug-induced agranulocytosis. The low leukocyte count (3,200/mm3) with a significantly reduced neutrophil count (8%) is highly concerning. Methimazole is a known cause of agranulocytosis. Therefore, the most appropriate initial step is to discontinue the medication.",
+          "critical_evidence": "Low leukocyte count (3,200/mm3) with a significantly reduced neutrophil count (8%) in a patient recently started on methimazole.",
+          "differential_considered": "Agranulocytosis is the most likely diagnosis given the clinical picture and lab results. While other infections (EBV, HIV, CMV) could cause fever and malaise, the combination of symptoms and the patient's medication history makes drug-induced agranulocytosis the most probable cause. Bone marrow biopsy is not the first step, as it is invasive and less likely to be needed if the patient's condition improves after stopping the medication. Aminopenicillin is not indicated without evidence of bacterial infection. Switching to propylthiouracil is not the immediate priority, as the primary concern is the potential for severe neutropenia from methimazole.",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 306,
+            "generation_time_s": 15.13
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has Graves disease with elevated thyroid hormone levels, causing fever, fatigue, and chills. Methimazole is the standard treatment, but the high fever and leukocytosis suggest possible myxedema coma or severe hypothyroidism complications. Discontinuing methimazole temporarily allows assessment of thyroid function and avoids potential toxicity from abrupt withdrawal.",
+          "critical_evidence": "Hemoglobin 13.3 g/dL is within normal range, but the high fever (40.8°C) and leukocytosis (3,200/mm3) suggest an acute inflammatory response requiring evaluation of thyroid function.",
+          "differential_considered": "Considered thyroid storm (acute exacerbation of Graves disease), myxedema coma, and other causes of fever and leukocytosis, but methimazole is the primary treatment for Graves disease, so discontinuing it allows monitoring of symptoms and thyroid function.",
+          "usage": {
+            "prompt_tokens": 448,
+            "generated_tokens": 216,
+            "generation_time_s": 9.96
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a high fever, chills, and sore throat, along with a marked lymphocytosis (80%) and low neutrophil count (8%), which is atypical for a typical bacterial infection. This presentation, combined with recent initiation of methimazole, raises concern for agranulocytosis, a known adverse effect of methimazole. Discontinuing methimazole is the most appropriate immediate step to prevent progression to life-threatening infection or sepsis.",
+          "critical_evidence": "Lymphocytosis (80%) with low neutrophils (8%) and recent methimazole use strongly suggest agranulocytosis.",
+          "differential_considered": "EBV, HIV, and CMV (Option C) were considered but are less urgent than the drug-induced agranulocytosis. Switching to propylthiouracil (A) is not indicated without evidence of methimazole toxicity. Bone marrow biopsy (B) is unnecessary at this stage. Antibiotics (D) are not indicated without confirmed bacterial infection.",
+          "usage": {
+            "prompt_tokens": 432,
+            "generated_tokens": 254,
+            "generation_time_s": 8.881
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 152,
+            "generation_time_s": 3.651
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 300,
+            "generation_time_s": 9.356
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

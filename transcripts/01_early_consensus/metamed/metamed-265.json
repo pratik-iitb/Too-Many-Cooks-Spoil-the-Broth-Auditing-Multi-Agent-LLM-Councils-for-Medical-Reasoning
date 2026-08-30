@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-265",
+  "dataset": "metamed",
+  "question_id": "265",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The parents of a 14-year-old patient are concerned and have questions about the use of insulin for their son’s recently diagnosed type 1 diabetes. The patient has developed an upper respiratory infection while at school. He is coughing and has a runny nose. His temperature is 37.8° C (100.2° F) and vital signs are within normal limits. Physical examination is unremarkable. Which of the following modifications to his insulin regimen would you recommend to this patient and his parents?",
+    "options": {
+      "A": "Increase the frequency of blood glucose checks.",
+      "B": "Reduce the insulin dose.",
+      "C": "Continue same regimen.",
+      "D": "Hold insulin until the patient gets better.",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a mild upper respiratory infection (URI) with a low-grade fever and normal vital signs. URIs can cause mild hyperglycemia due to stress hormones released in response to the infection. Therefore, the insulin dose should not be significantly altered unless the patient's blood glucose levels are significantly elevated or if they are experiencing symptoms of diabetic ketoacidosis (DKA).",
+          "critical_evidence": "The patient has a mild URI with a low-grade fever and normal vital signs.",
+          "differential_considered": "DKA: While a URI can trigger DKA, the patient's normal vital signs and lack of significant symptoms make DKA less likely. The patient's blood glucose should be checked to rule out DKA, but the insulin dose should not be drastically reduced unless DKA is confirmed. Hypoglycemia: Hypoglycemia is less likely with a mild URI and a normal physical exam. The patient's blood glucose should be checked to rule out hypoglycemia, but the insulin dose should not be drastically reduced unless hypoglycemia is confirmed.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 255,
+            "generation_time_s": 13.589
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has type 1 diabetes with an upper respiratory infection. Infections can cause increased insulin requirements due to stress and potential ketone production. However, since vital signs are normal and temperature is only mildly elevated (37.8°C), the primary concern is monitoring for worsening glucose control. Increased blood glucose checks will help detect any need for insulin adjustment while avoiding unnecessary dose changes.",
+          "critical_evidence": "Normal vital signs and mild fever suggest the infection is likely self-limiting, but requires monitoring for glucose control changes",
+          "differential_considered": "Considered possible bacterial or viral infection, but ruled out severe sepsis or other complications due to normal vital signs. Also considered stress response to illness, but ruled out as primary cause due to normal temperature and vitals.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 189,
+            "generation_time_s": 9.521
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Infection, even mild, can increase insulin resistance and glucose production, leading to hyperglycemia. Therefore, more frequent blood glucose monitoring is essential to adjust insulin doses appropriately and prevent complications. The patient’s temperature is low-grade, and vital signs are normal, indicating no acute illness requiring insulin interruption.",
+          "critical_evidence": "The patient has an upper respiratory infection, which is known to increase insulin resistance and risk of hyperglycemia.",
+          "differential_considered": "Other differentials like severe infection or ketoacidosis were ruled out due to normal vitals and absence of ketosis or severe symptoms.",
+          "usage": {
+            "prompt_tokens": 365,
+            "generated_tokens": 155,
+            "generation_time_s": 5.887
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 15,
+            "generation_time_s": 0.427
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "The patient has a new upper respiratory infection, which can cause stress and increased metabolic demand, potentially leading to hyperglycemia in someone with type 1 diabetes. Monitoring blood glucose more frequently is crucial to detect and manage these fluctuations early to prevent complications like hypoglycemia or hyperglycemia. There is no indication to reduce insulin, hold it, or stop the regimen during an infection without evidence of poor control. Options B, D, and C are not appropriate because stress from illness may worsen glycemic control.",
+          "critical_evidence": "The patient's feverish temperature (37.8°C) and recent onset of an upper respiratory infection suggest stress-induced hyperglycemia common in type 1 diabetes during illness.",
+          "differential_considered": "Reducing or holding insulin could worsen his condition, especially without evidence of poor control or hypoglycemia. Other options like C (continue same regimen) ignore the increased risk during illness. Differential diagnoses such as DKA or infection-related stress are not supported by the case details.",
+          "usage": {
+            "prompt_tokens": 422,
+            "generated_tokens": 246,
+            "generation_time_s": 8.505
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

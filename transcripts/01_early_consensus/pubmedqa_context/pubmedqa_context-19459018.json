@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19459018",
+  "dataset": "pubmedqa_context",
+  "question_id": "19459018",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Very high serum CA 19-9 levels: a contraindication to pancreaticoduodenectomy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "From 2000 to 2007, 344 patients underwent pancreatoduodenectomy for PA. Fifty-three patients (elevated group) had preoperatively elevated serum CA 19-9 levels (>400 IU/ml) after resolution of obstructive jaundice. Of these, 27 patients had high levels (400-899 IU/ml (HL)) and 26 patients had very high levels>or=900 IU/ml (VHL). Fifty patients with normal preoperative serum CA 19-9 levels (<37 IU/ml) comprised the control group. Median survival of the control group (n = 50) versus elevated group (n = 53) was 22 versus 15 months (p = 0.02) and overall 3-year survival was 32% versus 14% (p = 0.03). There was no statistical difference in the median and 3-year overall survival between patients with HL and VHL. Patients in the elevated group who normalized their CA 19-9 levels after surgery (n = 11) had a survival equivalent to patients in the control group.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case indicates that very high CA 19-9 levels are associated with a worse prognosis in patients undergoing pancreatoduodenectomy for pancreatic adenocarcinoma. However, the study shows that patients with elevated CA 19-9 levels who normalize their levels after surgery have survival comparable to those with normal levels. Therefore, very high CA 19-9 levels are not an absolute contraindication to pancreatoduodenectomy.",
+          "critical_evidence": "Patients in the elevated group who normalized their CA 19-9 levels after surgery (n = 11) had a survival equivalent to patients in the control group.",
+          "differential_considered": "While other factors might influence the decision, the data suggests that normalization of CA 19-9 after surgery is a positive prognostic factor, making the very high levels less of a definitive contraindication.",
+          "usage": {
+            "prompt_tokens": 528,
+            "generated_tokens": 217,
+            "generation_time_s": 12.907
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that while elevated CA 19-9 levels were associated with shorter survival, the very high levels (>900 IU/ml) did not differ significantly from the high levels (400-899 IU/ml) in terms of survival outcomes. The 3-year survival for VHL patients was 14%, similar to HL patients at 14%, and both were significantly worse than the control group at 32%. The 11 patients who normalized their CA 19-9 levels after surgery had equivalent survival to the control group, suggesting that preoperative elevation alone is not a contraindication.",
+          "critical_evidence": "The lack of significant difference in survival between HL and VHL groups (p = 0.03 for overall 3-year survival between groups, but no difference within elevated group) indicates that very high levels are not independently predictive of worse outcomes.",
+          "differential_considered": "Disease stage severity vs. tumor heterogeneity: While elevated CA 19-9 levels may reflect advanced disease, the study's survival data suggests that the absolute level (>900 IU/ml) does not significantly impact prognosis, implying that other factors like tumor location, vascular invasion, or lymph node status may be more critical.",
+          "usage": {
+            "prompt_tokens": 497,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.349
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that while elevated CA 19-9 levels are associated with worse survival, normalization post-surgery correlates with survival equivalent to controls, suggesting it is not an absolute contraindication. The lack of survival difference between HL and VHL further supports that severity of elevation alone does not dictate surgical ineligibility.",
+          "critical_evidence": "Patients in the elevated group who normalized CA 19-9 after surgery had survival equivalent to the control group.",
+          "differential_considered": "Other causes of elevated CA 19-9 (e.g., cholangiocarcinoma, biliary obstruction) were considered but ruled out by context of pancreatic adenocarcinoma (PA) diagnosis and resolution of jaundice, which supports that CA 19-9 elevation was due to tumor burden rather than obstruction alone.",
+          "usage": {
+            "prompt_tokens": 498,
+            "generated_tokens": 203,
+            "generation_time_s": 8.555
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 8,
+            "generation_time_s": 0.256
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other causes of elevated CA 19-9 (e.g., biliary obstruction, pancreatitis) were not discussed, but the data specifically address the relationship between CA 19-9 levels and surgical outcomes, making it the key point for decision-making.",
+          "usage": {
+            "prompt_tokens": 532,
+            "generated_tokens": 269,
+            "generation_time_s": 10.22
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

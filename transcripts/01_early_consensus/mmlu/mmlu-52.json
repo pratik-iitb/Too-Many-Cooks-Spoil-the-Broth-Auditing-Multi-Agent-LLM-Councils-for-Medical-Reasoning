@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-52",
+  "dataset": "mmlu",
+  "question_id": "52",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which sequence describes the systemic circulation?",
+    "options": {
+      "A": "Left ventricle → aorta → arteries → veins → capillaries",
+      "B": "Left ventricle → aorta → arteries →capillaries → veins",
+      "C": "Right ventricle → pulmonary trunk → arteries → capillaries →veins",
+      "D": "Right ventricle → pulmonary trunk → arteries → veins → capillaries"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The systemic circulation begins with the left ventricle pumping blood into the aorta. This blood then travels through arteries, which branch into capillaries. Capillaries deliver oxygen and nutrients to tissues, and the blood then returns to the heart via veins. Therefore, the correct sequence is left ventricle → aorta → arteries → veins → capillaries.",
+          "critical_evidence": "The systemic circulation delivers oxygenated blood to the body's tissues, and the return of deoxygenated blood to the heart occurs via veins.",
+          "differential_considered": "Option C describes the pulmonary circulation, which is the opposite of the systemic circulation. Option D is incorrect because the capillaries are before the veins in the systemic circulation.",
+          "usage": {
+            "prompt_tokens": 296,
+            "generated_tokens": 180,
+            "generation_time_s": 9.837
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The systemic circulation refers to the part of the circulatory system that transports oxygenated blood from the left ventricle to the body tissues and returns deoxygenated blood back to the right atrium. The correct sequence starts with the left ventricle pumping blood into the aorta, which branches into arteries that deliver oxygenated blood to the body's tissues via capillaries, and then returns deoxygenated blood via veins to the right atrium.",
+          "critical_evidence": "The systemic circulation involves oxygenated blood flow from the left ventricle through arteries to capillaries and back via veins to the right atrium.",
+          "differential_considered": "Options A, C, and D describe either the pulmonary circulation or incorrect sequences. Option A incorrectly places capillaries after veins, while C and D describe the pulmonary circulation, which involves the right ventricle and pulmonary trunk.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 214,
+            "generation_time_s": 11.07
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Systemic circulation begins with the left ventricle pumping oxygenated blood into the aorta, which distributes it through arteries to capillaries where gas exchange occurs. Deoxygenated blood then returns via veins to the right atrium. Option B correctly sequences this pathway. Options A and D misplace capillaries and veins, while C describes pulmonary circulation, not systemic.",
+          "critical_evidence": "The left ventricle is the origin of systemic circulation, and capillaries are the site of exchange before venous return.",
+          "differential_considered": "Pulmonary circulation (Option C) was considered but ruled out because it involves the right ventricle and lungs, not systemic tissue perfusion. Options A and D were ruled out due to incorrect vessel sequence and placement of capillaries.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 194,
+            "generation_time_s": 7.51
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 311,
+            "generated_tokens": 165,
+            "generation_time_s": 4.198
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and D incorrectly start with the right ventricle (which is responsible for pulmonary circulation), while option C incorrectly starts with the right ventricle as well and mislabels the pulmonary trunk as part of systemic circulation. Only option B accurately describes the systemic circulation path from the heart to the body's tissues.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 198,
+            "generation_time_s": 15.429
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-966",
+  "dataset": "medqa",
+  "question_id": "966",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old woman is brought to the emergency department by ambulance after being found unconscious in her bedroom by her roommate. The roommate says the patient has type 1 diabetes and takes her insulin regularly. Her pulse is 110/min, the respiratory rate is 24/min, the temperature is 36.6°C (97.9°F), and the blood pressure is 95/65 mm Hg. She is breathing heavily and gives irrelevant responses to questions. Her skin and mucous membranes appear dry. Her breath has a fruity smell to it. Tendon reflexes are slightly delayed. The laboratory findings include:\nFinger-stick glucose  530 mg/dL\n    Arterial blood gas analysis \npH 7.1\npO2 94 mm Hg\npCO2 32 mm Hg\nHCO3 17 mEq/L\n    Serum  \nSodium 136 mEq/L\nPotassium 3.2 mEq/L\nChloride 136 mEq/L\n    Blood urea nitrogen  20 mg/dL\nSerum creatinine 1.2 mg/dL\n    Urine examination \nGlucose positive\nKetones positive\nLeucocytes negative\nNitrite negative\nRBC negative\nCasts negative\nWhich of the following abnormalities accounts for her sweet smelling breath?",
+    "options": {
+      "A": "Diminished glucose metabolism",
+      "B": "Excessive mobilization of fatty acids",
+      "C": "Extrahepatic ketone production",
+      "D": "Fermentation of excess blood sugars",
+      "E": "Inhibition of HMG-CoA synthase"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's presentation (unconsciousness, hyperglycemia, fruity breath, ketonuria, metabolic acidosis) strongly suggests diabetic ketoacidosis (DKA). The sweet smell of the breath is due to the presence of acetone, a ketone body produced during fat metabolism when insulin is deficient. This is a consequence of excessive mobilization of fatty acids.",
+          "critical_evidence": "Fruity breath (acetone)",
+          "differential_considered": "While the other options are relevant to diabetes, they don't directly explain the fruity breath. A: Diminished glucose metabolism is a general effect of diabetes but doesn't cause the specific smell. C: Extrahepatic ketone production is a consequence of the body breaking down fat for energy, which is the underlying cause of the fruity breath. D: Fermentation of excess blood sugars is not the primary mechanism for the sweet smell. E: Inhibition of HMG-CoA synthase is related to cholesterol synthesis and not directly to the fruity breath.",
+          "usage": {
+            "prompt_tokens": 566,
+            "generated_tokens": 239,
+            "generation_time_s": 11.835
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's fruity breath is due to the smell of acetone, which is a byproduct of excess fatty acid metabolism. The blood gas shows normal pH but low pCO2, indicating respiratory alkalosis, which occurs when the body tries to compensate for metabolic acidosis by hyperventilating. This respiratory compensation leads to the breakdown of fats for energy, producing ketones like acetone, which causes the sweet smell. The urine ketones positive and glucose positive support this diagnosis of diabetic ketoacidosis (DKA).",
+          "critical_evidence": "Positive urine ketones and respiratory alkalosis (low pCO2 with normal pH)",
+          "differential_considered": "Considered ketoacidosis from other causes (alcoholic, starvation, sepsis), but ruled out by the patient's history of type 1 diabetes and the presence of glucose in urine. The respiratory alkalosis pattern is specific to DKA.",
+          "usage": {
+            "prompt_tokens": 559,
+            "generated_tokens": 219,
+            "generation_time_s": 10.213
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient presents with hyperglycemia, ketonemia, metabolic acidosis (pH 7.1, HCO3 17), and fruity breath — classic signs of diabetic ketoacidosis (DKA). The fruity breath is due to acetone, a ketone body produced from excessive fatty acid mobilization and beta-oxidation in the absence of sufficient insulin. This matches option B. Other options are either incorrect mechanisms or not directly responsible for the breath odor.",
+          "critical_evidence": "Fruity breath odor in the context of DKA is caused by acetone, which results from excessive fatty acid mobilization and ketogenesis.",
+          "differential_considered": "Other causes of ketosis (e.g., starvation, alcoholism) were considered but ruled out by the presence of type 1 diabetes, hyperglycemia, and acidosis. Options A, C, D, and E describe unrelated or incorrect biochemical pathways.",
+          "usage": {
+            "prompt_tokens": 548,
+            "generated_tokens": 223,
+            "generation_time_s": 7.847
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 557,
+            "generated_tokens": 15,
+            "generation_time_s": 0.394
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Ketoacidosis can also result from other causes (e.g  alcohol, starvation), but the context of her type 1 diabetes and the specific mention of 'fruity' breath strongly suggests DKA, where ketone production (not directly fermentation) is the key abnormality. Other options do not explain the sweet odor.",
+          "usage": {
+            "prompt_tokens": 602,
+            "generated_tokens": 260,
+            "generation_time_s": 8.19
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "C": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

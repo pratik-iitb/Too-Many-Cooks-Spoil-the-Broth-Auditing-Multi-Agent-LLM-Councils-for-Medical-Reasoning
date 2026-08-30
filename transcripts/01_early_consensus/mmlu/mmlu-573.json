@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-573",
+  "dataset": "mmlu",
+  "question_id": "573",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A common heart defect in humans is a ventricular septal defect, in which there is a hole in the septum between the right and left ventricles. If a patient were to have this defect, which of the following statements is correct?",
+    "options": {
+      "A": "The percentage of oxygen in the left atrium would be lower.",
+      "B": "The percentage of CO2 in the right ventricle would be higher.",
+      "C": "The percentage of oxygen in the right atrium would be lower.",
+      "D": "The percentage of oxygen in the right ventricle would be higher."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "A ventricular septal defect (VSD) allows blood to shunt from the left ventricle (higher oxygenated blood) to the right ventricle (lower oxygenated blood). This means that the right ventricle will receive a higher percentage of oxygenated blood than normal. Therefore, the percentage of oxygen in the right ventricle would be higher.",
+          "critical_evidence": "Blood shunts from the left to the right ventricle, increasing oxygenated blood in the right ventricle.",
+          "differential_considered": "A: The percentage of oxygen in the left atrium would be lower. This is incorrect because the shunt is from left to right, not the other way around. C: The percentage of oxygen in the right atrium would be lower. This is incorrect because the shunt is from left to right, not the other way around. D: The percentage of oxygen in the right ventricle would be higher. This is correct based on the shunt direction.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 227,
+            "generation_time_s": 11.442
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "In a ventricular septal defect, oxygenated blood from the left ventricle mixes with deoxygenated blood in the right ventricle. This results in the right ventricle receiving a higher percentage of oxygenated blood than normal, leading to increased oxygen levels in the right ventricle.",
+          "critical_evidence": "The mixing of oxygenated and deoxygenated blood in the ventricular septal defect causes the right ventricle to receive more oxygenated blood than it normally would.",
+          "differential_considered": "Other heart defects like atrial septal defects were considered but ruled out because they involve the atria, not the ventricles. Pulmonary hypertension was also considered but ruled out as it affects pulmonary blood flow, not the ventricular oxygenation levels.",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 243,
+            "generation_time_s": 11.577
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "In a ventricular septal defect (VSD), oxygenated blood from the left ventricle shunts into the right ventricle, increasing the oxygen content in the right ventricle. This results in mixing of oxygenated and deoxygenated blood, leading to systemic desaturation and pulmonary overcirculation. The right ventricle receives oxygen-rich blood from the left ventricle, hence its oxygen percentage is higher than normal.",
+          "critical_evidence": "Shunting of oxygenated blood from the left ventricle to the right ventricle via VSD increases oxygen saturation in the right ventricle.",
+          "differential_considered": "Other congenital heart defects like atrial septal defect or tetralogy of Fallot were considered, but VSD specifically involves ventricular shunting, and the key hemodynamic change is left-to-right shunt increasing oxygen in the right ventricle.",
+          "usage": {
+            "prompt_tokens": 317,
+            "generated_tokens": 217,
+            "generation_time_s": 7.797
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "A ventricular septal defect (VSD) is a hole in the septum between the right and left ventricles. This allows oxygenated blood from the left ventricle to mix with deoxygenated blood in the right ventricle. Therefore, the percentage of oxygen in the right ventricle would be higher. The other options are incorrect because a VSD would not affect the oxygen levels in the left atrium or right atrium, and it would actually decrease the oxygen level in the left ventricle due to the mixing of blood.",
+          "critical_evidence": "The presence of a ventricular septal defect allows oxygenated blood from the left ventricle to mix with deoxygenated blood in the right ventricle, thus increasing the percentage of oxygen in the right ventricle.",
+          "differential_considered": "None of the other options correctly describe the effect of a ventricular septal defect on blood oxygen levels in the heart.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 222,
+            "generation_time_s": 5.498
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (A and C) incorrectly suggest increased deoxygenation or decreased oxygen in the left side, while B is less directly relevant. The key is understanding the direction and effect of the shunt, even if the wording is imprecise.",
+          "usage": {
+            "prompt_tokens": 375,
+            "generated_tokens": 639,
+            "generation_time_s": 20.527
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

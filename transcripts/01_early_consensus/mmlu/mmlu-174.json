@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-174",
+  "dataset": "mmlu",
+  "question_id": "174",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "If the mean rate of oxygen consumption of a male athlete during a training session is 2 l/min, then his rate of energy expenditure is approximately:",
+    "options": {
+      "A": "400 kJ/min.",
+      "B": "200 kJ/min.",
+      "C": "80 kJ/min.",
+      "D": "40 kJ/min."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The rate of oxygen consumption (VO2) is directly related to the rate of energy expenditure. We can estimate energy expenditure using the Fick equation: Energy Expenditure (EE) = VO2 * MET (Metabolic Equivalent of Task) * 3.5. Since the athlete's VO2 is 2 L/min, we can assume a MET value of 1 for training. Therefore, EE = 2 L/min * 1 * 3.5 = 7 kJ/min. However, this is an approximation. A more accurate estimate would require knowing the athlete's weight and height to calculate their resting metabolic rate (RMR) and then adjust for the training intensity. Since we don't have this information, we can assume a reasonable MET value for training, which is around 1.3 to 1.5. Using 1.3, EE = 2 L/min * 1.3 * 3.5 = 9.1 kJ/min. Using 1.5, EE = 2 L/min * 1.5 * 3.5 = 10.5 kJ/min. The closest answer to these values is 400 kJ/min, which is 40 kJ/min * 10. Therefore, the best answer is A.",
+          "critical_evidence": "The direct relationship between VO2 and energy expenditure.",
+          "differential_considered": "While other factors influence energy expenditure, the provided information focuses solely on VO2, making it the most relevant factor for this specific question. Other factors like body composition and training intensity are not provided, so they are not considered in this specific calculation.",
+          "usage": {
+            "prompt_tokens": 305,
+            "generated_tokens": 389,
+            "generation_time_s": 20.796
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The rate of oxygen consumption (VO2) is 2 L/min. Using the standard conversion factor of 1 L of oxygen = 20 kJ of energy, the energy expenditure is 2 L/min × 20 kJ/L = 40 kJ/min. However, this is the gross energy expenditure. The net energy expenditure (after accounting for heat production and other metabolic processes) is approximately 20 kJ/min. But considering the standard metabolic efficiency of about 20% for aerobic metabolism, the actual energy expenditure is 40 kJ/min × 0.20 = 8 kJ/min, which is not among the options. Re-evaluating, the correct calculation using standard metabolic formulas gives approximately 200 kJ/min as the net energy expenditure for a male athlete at this VO2 level.",
+          "critical_evidence": "The standard conversion factor of 1 L of oxygen = 20 kJ of energy and the metabolic efficiency of about 20% for aerobic metabolism",
+          "differential_considered": "No differential diagnoses were applicable as this is a straightforward calculation of energy expenditure based on oxygen consumption. The calculation is based on established metabolic principles and does not require differential diagnosis.",
+          "usage": {
+            "prompt_tokens": 295,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.848
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The energy expenditure from oxygen consumption is approximately 20 kJ per liter of O2 consumed. At 2 L/min, this yields 40 kJ/min, but this is a simplified estimate. In athletic contexts, the actual energy expenditure is often higher due to increased metabolic efficiency and work output, and standard physiological estimates for moderate to high-intensity exercise place energy expenditure at around 200 kJ/min for 2 L/min O2 consumption. This aligns with the commonly accepted value of ~10 kJ/L for resting metabolism and ~20 kJ/L for exercise, but for athletes, it's often rounded to 100 kJ/L for vigorous activity, yielding 200 kJ/min.",
+          "critical_evidence": "The mean oxygen consumption rate of 2 L/min in a male athlete is a key indicator of energy expenditure, and standard metabolic equivalents (METs) and energy yield from O2 suggest 200 kJ/min is a reasonable approximation for high-intensity exercise.",
+          "differential_considered": "Lower values (e.g., 40 kJ/min) might apply to resting or low-intensity metabolism, while higher values (e.g., 400 kJ/min) would imply extreme exertion or error in calculation. These were ruled out based on standard physiological energy expenditure per liter of O2 consumed during exercise.",
+          "usage": {
+            "prompt_tokens": 272,
+            "generated_tokens": 316,
+            "generation_time_s": 12.255
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 293,
+            "generated_tokens": 158,
+            "generation_time_s": 4.242
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 329,
+            "generated_tokens": 316,
+            "generation_time_s": 10.729
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

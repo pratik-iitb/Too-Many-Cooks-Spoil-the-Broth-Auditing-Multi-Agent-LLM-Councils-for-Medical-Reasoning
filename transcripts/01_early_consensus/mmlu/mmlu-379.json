@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-379",
+  "dataset": "mmlu",
+  "question_id": "379",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Two of the following are evident - pain at IV site, erythema, and swelling. What stage on the phlebitis scale is this and what should you do?",
+    "options": {
+      "A": "Stage 1 - observe cannula.",
+      "B": "Stage 2 - re-site cannula.",
+      "C": "Stage 3 - re-site cannula and consider treatment.",
+      "D": "Stage 0 - do nothing."
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes pain at the IV site, erythema, and swelling, which are signs of phlebitis. Based on the phlebitis scale, these findings indicate Stage 2. Stage 2 phlebitis requires re-siting the cannula to prevent further complications and consider treatment to address the underlying cause.",
+          "critical_evidence": "Pain at the IV site, erythema, and swelling are the key clinical findings indicating phlebitis.",
+          "differential_considered": "Stage 0 (do nothing) is not appropriate given the presence of clinical signs of phlebitis. Stage 1 (observe cannula) might be considered initially, but the presence of erythema and swelling suggests a more advanced stage, warranting re-siting.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 200,
+            "generation_time_s": 18.463
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The presence of two signs (pain at IV site and erythema) indicates Stage 3 phlebitis on the modified Lund scale. This requires immediate intervention with cannula repositioning and consideration of anticoagulant therapy to prevent progression to thrombophlebitis. The swelling, while not mentioned, would further support this diagnosis.",
+          "critical_evidence": "Two clinical signs (pain and erythema) at the IV site",
+          "differential_considered": "Considered infection and venous thrombosis but ruled out due to lack of fever, purulent drainage, and clinical context of IV placement. The signs are consistent with phlebitis rather than infection or thrombosis.",
+          "usage": {
+            "prompt_tokens": 313,
+            "generated_tokens": 1024,
+            "generation_time_s": 60.069
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The case describes two of the three key signs of phlebitis: pain, erythema, and swelling. According to the INS phlebitis scale, this corresponds to Stage 2, which requires re-siting the cannula. Stage 3 involves more severe signs like purulent drainage or cord formation, which are not mentioned. Stage 0 is inappropriate as signs are present. Stage 1 is for minimal signs and does not require re-siting.",
+          "critical_evidence": "Two of the three signs (pain, erythema, swelling) are present, which defines Stage 2 phlebitis per INS guidelines.",
+          "differential_considered": "Differential diagnoses like infection or allergic reaction were considered, but the presence of localized signs (pain, erythema, swelling) without systemic symptoms or purulence supports phlebitis rather than infection or allergy.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 212,
+            "generation_time_s": 12.681
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 311,
+            "generated_tokens": 75,
+            "generation_time_s": 1.999
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Stages 1 (mild erythema, little pain) and 2 (moderate inflammation, pain possible but not always present) were considered but ruled out due to the explicit presence of pain alongside erythema and swelling, which are strong indicators of more severe phlebitis.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 239,
+            "generation_time_s": 8.339
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "B": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

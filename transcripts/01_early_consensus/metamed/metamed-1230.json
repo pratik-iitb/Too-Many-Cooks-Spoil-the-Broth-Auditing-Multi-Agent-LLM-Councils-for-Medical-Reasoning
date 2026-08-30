@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-1230",
+  "dataset": "metamed",
+  "question_id": "1230",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 70-year-old man is brought to the emergency department by staff of the group home where he resides because of worsening confusion for the past week. He has a history of major depressive disorder and had an ischemic stroke 4 months ago. Current medications are aspirin and sertraline. He is lethargic and disoriented. His pulse is 78/min, and blood pressure is 135/88 mm Hg. Physical examination shows moist oral mucosa, normal skin turgor, and no peripheral edema. While in the waiting room, he has a generalized, tonic-clonic seizure. Laboratory studies show a serum sodium of 119 mEq/L and an elevated serum antidiuretic hormone concentration. Which of the following sets of additional laboratory findings is most likely in this patient?\n $$$ Serum osmolality %%% Urine sodium %%% Serum aldosterone $$$",
+    "options": {
+      "A": "↓ ↓ ↓",
+      "B": "↑ ↓ normal",
+      "C": "↓ ↑ ↑",
+      "D": "↓ ↑ ↓",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "F",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Bad"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyponatremia (Na+ 119 mEq/L), elevated ADH, and a seizure. This clinical picture strongly suggests Syndrome of Inappropriate Antidiuretic Hormone Secretion (SIADH). In SIADH, the body retains water due to excessive ADH, leading to dilutional hyponatremia. The kidneys are unable to excrete free water effectively. The expected lab findings in SIADH are low serum osmolality, elevated urine sodium, and inappropriately normal or slightly elevated aldosterone.",
+          "critical_evidence": "Hyponatremia (Na+ 119 mEq/L) and elevated serum ADH concentration are the most critical findings pointing towards SIADH.",
+          "differential_considered": "Other possible causes of hyponatremia, such as hypovolemic hyponatremia (e.g., due to diuretics or vomiting), were considered, but the patient has normal vital signs and no signs of dehydration. Hypothyroidism and adrenal insufficiency were also considered, but the patient's presentation is more consistent with SIADH given the elevated ADH and the absence of other typical features of these conditions. The seizure is also more common in severe hyponatremia.",
+          "usage": {
+            "prompt_tokens": 461,
+            "generated_tokens": 290,
+            "generation_time_s": 15.444
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's hyponatremia (serum sodium 119 mEq/L) and elevated antidiuretic hormone (ADH) suggest central diabetes insipidus or syndrome of inappropriate antidiuretic hormone secretion (SIADH). In SIADH, both serum sodium and serum osmolality are low, while urine sodium is dilute (low). Serum aldosterone is not typically elevated in this scenario. Thus, the most likely finding is ↓ serum osmolality, ↓ urine sodium, and normal aldosterone.",
+          "critical_evidence": "Serum sodium 119 mEq/L and elevated ADH",
+          "differential_considered": "SIADH is the primary diagnosis; other causes of hyponatremia like adrenal insufficiency or SIADH due to pituitary tumors were considered but ruled out by the absence of typical clinical findings and lab patterns.",
+          "usage": {
+            "prompt_tokens": 458,
+            "generated_tokens": 1024,
+            "generation_time_s": 51.479
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyponatremia (119 mEq/L), elevated ADH, and a seizure — classic features of syndrome of inappropriate antidiuretic hormone secretion (SIADH). In SIADH, serum osmolality is low (due to dilutional effect of excess water), urine sodium is typically elevated (kidneys retain sodium despite low plasma osmolality), and serum aldosterone is often normal or low (due to lack of volume depletion or RAAS activation).",
+          "critical_evidence": "Elevated ADH with hyponatremia and low serum osmolality strongly supports SIADH, which is associated with low serum osmolality, high urine sodium, and normal or low aldosterone.",
+          "differential_considered": "Other causes of hyponatremia like heart failure or SIADH were considered, but the presence of elevated ADH and seizure in a non-volume-depleted patient (normal skin turgor, no edema) makes SIADH the most likely diagnosis. Hypothyroidism or adrenal insufficiency were ruled out due to absence of other systemic signs and normal aldosterone expectation in SIADH.",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 274,
+            "generation_time_s": 10.216
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's presentation of confusion, lethargy, seizure, hyponatremia, and increased serum antidiuretic hormone concentration suggests a diagnosis of the syndrome of inappropriate antidiuretic hormone secretion (SIADH). This condition can be caused by various factors, including pulmonary and central nervous system disorders. Given the patient's recent stroke, it is likely that a cerebral event has led to SIADH. The laboratory findings most consistent with this diagnosis are hypouricemia (↓) and hypokalemia (↓) due to the excessive water retention and subsequent dilutional hyponatremia, as well as increased aldosterone secretion (↑) in an attempt to conserve sodium. Therefore, the correct answer is '↓ ↑ ↑' indicating hypouricemia, hypokalemia, and increased aldosterone.",
+          "critical_evidence": "The single most important finding that supports the diagnosis of SIADH is the patient's hyponatremia (↓) with a serum sodium of 119 mEq/L.",
+          "differential_considered": "The key differential diagnoses considered were cerebral hemorrhage and other causes of SIADH. Cerebral hemorrhage would likely present with a rapid onset of symptoms and altered mental status, but it does not typically cause SIADH. Other causes of SIADH were considered, but they are less likely given the patient's recent stroke and the acute onset of symptoms.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 316,
+            "generation_time_s": 8.272
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with confusion, seizure, and low serum sodium (hyponatremia), which suggests an osmotic or euvolemic hypotonic-tonic seizure. The elevated serum antidiuretic hormone (ADH) points to SIADH (syndrome of inappropriate antidiuretic hormone secretion), a common cause of hyponatremia in elderly with cognitive decline. SIADH typically occurs due to non-neoplastic issues such as drugs (e.g., SSRIs can cause SIADH), dehydration, or endocrine disorders. Other causes of confusion (e.g., post-stroke) are less likely given the lab findings. The combination of low sodium and high ADH strongly supports SIADH, and further low osmolality would confirm it, but among the given options, C (serum sodium ↓, ADH ↑) is the most consistent with SIADH and the clinical picture.",
+          "critical_evidence": "Elevated serum antidiuretic hormone (ADH) in the context of confusion and low serum sodium is highly suggestive of SIADH, especially considering his recent use of sertraline which can induce SIADH.",
+          "differential_considered": "Post-stroke hypotension or delirium, but these usually lack the specific lab finding of high ADH. Hyper/hypokalemia or renal dysfunction are less likely without other supporting electrolyte abnormalities. Other endocrine causes (e.g., Addisonian crisis) are less likely given the absence of hyperkalemia or low cortisol on labs not listed.",
+          "usage": {
+            "prompt_tokens": 488,
+            "generated_tokens": 357,
+            "generation_time_s": 12.206
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 1,
+        "A": 1,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "F",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

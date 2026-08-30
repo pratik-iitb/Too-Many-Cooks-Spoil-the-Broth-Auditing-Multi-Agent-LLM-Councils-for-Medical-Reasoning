@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1152",
+  "dataset": "medqa",
+  "question_id": "1152",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In an attempt to create other selective dopamine 1 (D1) agonists, a small pharmaceutical company created a cell-based chemical screen that involved three modified receptors - alpha 1 (A1), beta 1 (B1), and D1. In the presence of D1 stimulation, the cell would produce an mRNA that codes for a fluorescent protein; however, if the A1 or B1 receptors are also stimulated at the same time, the cells would degrade the mRNA of the fluorescent protein thereby preventing it from being produced. Which of the following would best serve as a positive control for this experiment?",
+    "options": {
+      "A": "Bromocriptine",
+      "B": "Dobutamine",
+      "C": "Dopamine",
+      "D": "Epinephrine",
+      "E": "Fenoldopam"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The experiment aims to identify D1 agonists. A positive control should stimulate the D1 receptor to confirm that the cell-based system is functional and capable of producing the fluorescent protein when D1 is activated. Dopamine is a known D1 receptor agonist, making it the most appropriate positive control.",
+          "critical_evidence": "Dopamine is a known D1 receptor agonist.",
+          "differential_considered": "Bromocriptine is a D2 receptor agonist, not a D1 agonist. Dobutamine and epinephrine are primarily beta-adrenergic receptor agonists. Fenoldopam is a D1 receptor agonist, but it is not a common or standard positive control in this type of cell-based assay, and the question is asking for the BEST answer, implying a more general and readily available positive control.",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 205,
+            "generation_time_s": 10.137
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Dopamine is the endogenous ligand for the D1 receptor. It will selectively activate the D1 receptor without stimulating A1 or B1 receptors, allowing the fluorescent protein to be produced. The other options are either non-selective agonists or antagonists of different receptor types.",
+          "critical_evidence": "Dopamine is the specific agonist for the D1 receptor",
+          "differential_considered": "Other options are either antagonists (epinephrine) or non-selective agonists (bromocriptine, fenoldopam) of different receptor types (A1, B1). Dobutamine is a non-selective β-adrenergic agonist.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.564
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The experiment requires a D1 agonist that activates the D1 receptor to induce fluorescent protein expression, while avoiding co-activation of A1 or B1 receptors that would degrade the mRNA. Fenoldopam is a selective D1 receptor agonist with minimal activity at A1 and B1 receptors, making it ideal as a positive control. Other options like dopamine or epinephrine are non-selective and would likely activate A1/B1 receptors, causing mRNA degradation. Bromocriptine and dobutamine are not primarily D1 agonists and would not reliably trigger the desired signal.",
+          "critical_evidence": "Fenoldopam is a selective D1 receptor agonist with minimal cross-reactivity at A1 and B1 receptors, ensuring fluorescent protein expression without interference.",
+          "differential_considered": "Bromocriptine (D2 agonist), dobutamine (beta-1 agonist), dopamine (non-selective), and epinephrine (alpha and beta agonist) were considered but ruled out due to lack of D1 selectivity or activation of A1/B1 receptors, which would interfere with the assay.",
+          "usage": {
+            "prompt_tokens": 361,
+            "generated_tokens": 267,
+            "generation_time_s": 9.363
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 13,
+            "generation_time_s": 0.338
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options like bromocriptine (a D2 agonist), dobutamine (a beta-1 adrenergic agonist), and epinephrine (which can activate multiple adrenergic and possibly other receptor pathways) could cause false negatives or irrelevant signals due to off-target activation. Fenoldopam (a D2 agonist) is also not suitable. Only dopamine fits the criteria for a D1-specific agonist in this experimental setup.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 260,
+            "generation_time_s": 8.187
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

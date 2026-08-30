@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-15223725",
+  "dataset": "pubmedqa",
+  "question_id": "15223725",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does blood pressure change in treated hypertensive patients depending on whether it is measured by a physician or a nurse?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Blood pressure readings can vary depending on the measurement technique, the patient's position, and the observer's skill. While a physician's measurement is generally considered more accurate, a trained nurse can obtain reliable blood pressure readings. Therefore, the blood pressure change is not dependent on whether it is measured by a physician or a nurse.",
+          "critical_evidence": "Blood pressure readings can vary depending on the measurement technique, the patient's position, and the observer's skill.",
+          "differential_considered": "While a physician's measurement is generally considered more accurate, a trained nurse can obtain reliable blood pressure readings. Therefore, the blood pressure change is not dependent on whether it is measured by a physician or a nurse.",
+          "usage": {
+            "prompt_tokens": 263,
+            "generated_tokens": 189,
+            "generation_time_s": 9.307
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Blood pressure measurements can vary based on the environment and the person taking the reading. Physicians and nurses may have different techniques, experience levels, or interactions with patients that could influence readings. Factors like patient anxiety, positioning, or the use of different equipment can contribute to variability. While these differences are generally small, they can be clinically significant in borderline cases.",
+          "critical_evidence": "Research studies have shown that blood pressure readings can differ by up to 5-10 mmHg between readings taken by different healthcare providers due to technique variations and patient perception.",
+          "differential_considered": "No specific differential diagnoses needed - this is a measurement variability question. The key consideration is the potential for human factors in clinical measurement rather than a medical condition.",
+          "usage": {
+            "prompt_tokens": 265,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.249
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Multiple studies have demonstrated that blood pressure readings can vary significantly based on who measures them—physicians often obtain higher readings than nurses due to patient anxiety or white coat effect, and nurses may be more consistent in technique and environment. This variability is clinically relevant in managing hypertension.",
+          "critical_evidence": "Systematic reviews and meta-analyses show consistent differences in BP measurements between physician and nurse readings in hypertensive patients.",
+          "differential_considered": "No differential diagnoses apply here as this is a straightforward measurement variability question; ruled out because it concerns methodology, not disease process.",
+          "usage": {
+            "prompt_tokens": 236,
+            "generated_tokens": 147,
+            "generation_time_s": 5.127
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 263,
+            "generated_tokens": 71,
+            "generation_time_s": 1.715
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The options 'A' and 'B' require evidence of a proven difference in blood pressure readings between physician and nurse measurements in this context, which is absent. 'C' is appropriate when the evidence is inconclusive or insufficient.",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 190,
+            "generation_time_s": 5.941
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

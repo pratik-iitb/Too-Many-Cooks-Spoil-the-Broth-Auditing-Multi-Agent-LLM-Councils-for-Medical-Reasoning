@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-393",
+  "dataset": "mmlu",
+  "question_id": "393",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "When teaching a patient inhaler technique, how will you ensure that a large proportion of the drug reaches the lower airways?",
+    "options": {
+      "A": "Ask them to take lots of small, quick breaths in before using the inhaler.",
+      "B": "Ask them to breathe normally when using the inhaler.",
+      "C": "Ask them to perform the procedure as quickly as they can.",
+      "D": "Ask them to hold their breath at the end of the inspiration on using the inhaler."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "To ensure a large proportion of the drug reaches the lower airways, the patient should breathe normally into the inhaler. This allows the medication to deposit in the airways where it is needed most for bronchodilation and anti-inflammatory effects.",
+          "critical_evidence": "The goal is to maximize drug deposition in the lower airways for optimal therapeutic effect.",
+          "differential_considered": "A: Taking multiple small breaths before using the inhaler might not be effective and could lead to wasted medication. C: Speed is not the primary factor in achieving optimal drug deposition. D: Holding breath at the end of inspiration is not the recommended technique and could lead to hyperinflation and increased risk of side effects.",
+          "usage": {
+            "prompt_tokens": 326,
+            "generated_tokens": 181,
+            "generation_time_s": 10.252
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Holding breath after inhaler use allows the medication to remain in the lungs longer, increasing deposition in the lower airways. This technique maximizes the time the drug is exposed to the alveolar surface, which is critical for effective delivery. The other options either promote rapid exhalation (A), interfere with proper technique (B), or reduce exposure time (C).",
+          "critical_evidence": "The mechanism of action of inhaled medications relies on prolonged contact time with the alveolar surface for optimal absorption.",
+          "differential_considered": "Options A, B, and C all interfere with the goal of maximizing drug deposition in the lower airways, while D directly supports this objective.",
+          "usage": {
+            "prompt_tokens": 325,
+            "generated_tokens": 173,
+            "generation_time_s": 9.096
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "To maximize drug delivery to the lower airways, patients should inhale slowly and deeply, then hold their breath for 5-10 seconds. This allows the aerosolized medication to deposit in the bronchi and alveoli rather than being expelled or deposited in the upper airways. Rapid or shallow breathing (options A, B, C) reduces deposition efficiency.",
+          "critical_evidence": "Holding breath after inhalation is a well-established technique to improve drug deposition in the lower airways, supported by pharmacokinetic studies and inhaler device guidelines.",
+          "differential_considered": "Other options (A, B, C) were considered but ruled out because they either promote rapid expulsion of drug or inadequate lung expansion, reducing efficacy. No differential diagnoses are relevant here as this is a technique-focused question.",
+          "usage": {
+            "prompt_tokens": 296,
+            "generated_tokens": 195,
+            "generation_time_s": 7.688
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 323,
+            "generated_tokens": 25,
+            "generation_time_s": 0.688
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The most effective way to ensure a large proportion of inhaled medication reaches the lower airways is to direct the patient to deliver the dose at the end of inspiration, when lung volumes are maximized and the drug remains in the alveoli longer. This is a standard recommendation for all inhalers, especially those that require coordination with breathing, such as metered dose inhalers with a spacer. Options A and C suggest rapid or excessive breathing, which would reduce lung compliance and expiratory flow, decreasing drug deposition in the lower airways. Option B, breathing normally, is insufficient because it does not ensure the medication is in the optimal position within the respiratory tract. The critical evidence is the need for timing the inhaler use with the end of inspiration to maximize lung deposition in the lower airways.",
+          "critical_evidence": "",
+          "differential_considered": "Options A and C could be considered if aiming for faster delivery, but this reduces the drug's effective target area in the lower airways. Option B is the standard instruction for many inhalers but is not optimal for maximizing lower airway delivery. Option D is supported by pharmacology and clinical guidelines for maximizing lung and specifically lower airway targeting.",
+          "usage": {
+            "prompt_tokens": 354,
+            "generated_tokens": 268,
+            "generation_time_s": 9.304
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 4
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

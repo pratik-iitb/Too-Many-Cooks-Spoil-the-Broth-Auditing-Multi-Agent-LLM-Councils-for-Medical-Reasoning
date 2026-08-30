@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-27690714",
+  "dataset": "pubmedqa",
+  "question_id": "27690714",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can EMS Providers Provide Appropriate Tidal Volumes in a Simulated Adult-sized Patient with a Pediatric-sized Bag-Valve-Mask?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Using a pediatric-sized bag-valve-mask (BVM) on an adult patient can lead to over-inflation and potential lung injury. The adult-sized BVM is designed for smaller airways and may not provide adequate ventilation to prevent over-distension. Therefore, EMS providers should not use a pediatric-sized BVM on an adult.",
+          "critical_evidence": "Using a pediatric-sized BVM on an adult patient can lead to over-inflation and potential lung injury.",
+          "differential_considered": "While other respiratory support devices exist, the immediate concern is the potential for harm from using an inappropriate device. Other devices like a neonatal BVM or a bag-mask with a reservoir could be considered, but the primary issue is the inappropriateness of the pediatric BVM for an adult.",
+          "usage": {
+            "prompt_tokens": 267,
+            "generated_tokens": 204,
+            "generation_time_s": 10.076
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "EMS providers may struggle to deliver appropriate tidal volumes using a pediatric-sized bag-valve-mask on an adult patient due to the device's limited capacity. Pediatric BVMs are designed for smaller lung volumes, and using them on adults could result in inadequate ventilation, potentially compromising oxygenation. The mismatch in device size and patient anatomy may lead to suboptimal tidal volumes, increasing the risk of respiratory failure or barotrauma.",
+          "critical_evidence": "The mismatch between pediatric BVM capacity and adult lung volume",
+          "differential_considered": "While other factors like patient condition or airway management could influence ventilation, the primary issue here is the physical limitation of the pediatric BVM itself, making it unsuitable for adult patients.",
+          "usage": {
+            "prompt_tokens": 271,
+            "generated_tokens": 1024,
+            "generation_time_s": 50.432
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "Using a pediatric-sized bag-valve-mask (BVM) on an adult-sized patient results in inadequate tidal volumes due to the smaller mask and reservoir bag, which cannot deliver sufficient air to meet adult lung requirements. This can lead to hypoventilation and inadequate oxygenation. EMS providers must use appropriately sized equipment to ensure effective ventilation.",
+          "critical_evidence": "Pediatric BVMs are designed for smaller airways and lung volumes, and their use in adults leads to insufficient tidal volumes.",
+          "differential_considered": "No differential diagnoses apply here; this is a straightforward equipment sizing issue. The concern is not a medical condition but a mechanical mismatch in ventilation equipment.",
+          "usage": {
+            "prompt_tokens": 242,
+            "generated_tokens": 164,
+            "generation_time_s": 6.696
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 269,
+            "generated_tokens": 11,
+            "generation_time_s": 0.3
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include equipment failure or operator inexperience, but the key issue here is the size incompatibility of the bag-valve-mask for the patient's airway and lung mechanics, which is the most critical factor in determining appropriate tidal volume delivery.",
+          "usage": {
+            "prompt_tokens": 300,
+            "generated_tokens": 192,
+            "generation_time_s": 6.037
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

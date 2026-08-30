@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-11713724",
+  "dataset": "pubmedqa_context",
+  "question_id": "11713724",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Cancer of the buccal mucosa: are margins and T-stage accurate predictors of local control?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Cancer of the buccal mucosa is an uncommon and aggressive neoplasm of the oral cavity. Less than 2% of patients treated for cancer of the oral cavity at Roswell Park Cancer Institute (RPCI) from 1971 to 1997 had primary buccal cancers. Because the majority of these patients did not undergo any adjuvant treatment, this group provided us with the opportunity to assess the relationship between margin status and local recurrence for both small (T1-T2) and large (T3-T4) tumors treated with surgery alone. The RPCI tumor registry database reported 104 patients who were treated for buccal carcinoma. A retrospective chart review identified 27 patients who met our criteria for a buccal mucosal primary tumor (epicenter of the mass in the buccal mucosa). There were 13 men and 14 women, ranging in age from 34 to 94 years (mean, 75). Data were collected regarding patient demographics, presenting symptoms, stage, treatment received, and outcome. All patients underwent surgical resection of their primary lesion; 21 (75%) had T1 or T2 tumors. The rate of local recurrence was 56% for the group as a whole. Patients with close or positive margins had a 66% local failure rate as compared with 52% when surgical margins were negative (greater than or equal to 5 mm from the resection margin after tissue fixation; P = ns). Among those in whom negative margins were achieved, patients with T1-T2 disease had a 40% local failure rate with surgical resection alone.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that while close or positive margins were associated with a higher local recurrence rate (66% vs 52%), the difference was not statistically significant (P = ns). This suggests that margin status, while potentially a factor, is not a reliable predictor of local control in this specific patient population. The study also showed that even with negative margins, local failure rates were observed, particularly in T1-T2 tumors.",
+          "critical_evidence": "The study found no statistically significant difference in local recurrence rates between patients with close or positive margins and those with negative margins (P = ns).",
+          "differential_considered": "Other factors like tumor grade, depth of invasion, and patient age could also influence local control. However, the study focuses specifically on margin status and its relationship to local recurrence, making it the most relevant factor to consider in this context.",
+          "usage": {
+            "prompt_tokens": 599,
+            "generated_tokens": 218,
+            "generation_time_s": 12.921
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The data shows that while negative margins were associated with better local control (52% failure rate), the overall local recurrence rate was 56%, and even with negative margins, 40% of T1-T2 patients had local failure. The study found no statistically significant difference in recurrence rates between positive and negative margins (P = ns), suggesting margins alone are not reliable predictors of local control in buccal mucosa cancer.",
+          "critical_evidence": "The non-significant P value (P = ns) between positive and negative margins indicates that margin status alone cannot be considered a reliable predictor of local control in this patient population.",
+          "differential_considered": "Other factors such as tumor size (T-stage), patient age, and treatment modality were considered, but the data specifically highlights the lack of predictive value of margins, making them less relevant than other prognostic factors in this context.",
+          "usage": {
+            "prompt_tokens": 601,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.305
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found no statistically significant difference in local recurrence rates between patients with close/positive margins (66%) and those with negative margins (52%) (P = ns), suggesting margins are not a strong independent predictor of local control. Additionally, T-stage alone (T1-T2 vs T3-T4) was not explicitly shown to be a strong predictor either, especially since T1-T2 patients with negative margins still had a 40% failure rate, indicating limitations in both margin and T-stage as sole predictors.",
+          "critical_evidence": "P = ns for the comparison between close/positive margins (66% failure) and negative margins (52% failure), indicating no statistically significant difference.",
+          "differential_considered": "Other factors like tumor biology, treatment modality, or patient comorbidities were not evaluated in this study, so their potential influence on local control was not ruled out, but the data specifically do not support margins or T-stage as accurate predictors.",
+          "usage": {
+            "prompt_tokens": 590,
+            "generated_tokens": 233,
+            "generation_time_s": 9.756
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 599,
+            "generated_tokens": 107,
+            "generation_time_s": 3.085
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.65,
+          "clinical_reasoning": "",
+          "critical_evidence": "Among those in whom negative margins were achieved, patients with T1-T2 disease had a 40% local failure rate.",
+          "differential_considered": "Other aggressive oral cancers (e.g., tongue, oropharyngeal) are known to have higher recurrence rates, but the case specifically focuses on buccal mucosa tumors, which show high recurrence even with negative margins. No evidence was provided that larger T-stages (T3-T4) have lower recurrence when margins are negative, but the T1-T2 negative margin group still had significant failure, challenging the sufficiency of margin and T-stage as standalone predictors for local control.",
+          "usage": {
+            "prompt_tokens": 633,
+            "generated_tokens": 295,
+            "generation_time_s": 11.129
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

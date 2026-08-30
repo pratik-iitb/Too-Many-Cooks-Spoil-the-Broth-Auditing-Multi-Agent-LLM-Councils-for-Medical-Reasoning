@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-813",
+  "dataset": "mmlu",
+  "question_id": "813",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A high blood ammonia level occurs in:",
+    "options": {
+      "A": "galactosaemia.",
+      "B": "Hurler's syndrome.",
+      "C": "ornithine transcarbamylase (OTC) deficiency.",
+      "D": "phenylketonuria."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "High blood ammonia levels are a hallmark of urea cycle disorders. Ornithine transcarbamylase (OTC) deficiency is the most common urea cycle disorder, and a deficiency in this enzyme directly leads to impaired ammonia detoxification, resulting in hyperammonemia. The other options are less directly linked to hyperammonemia.",
+          "critical_evidence": "Hyperammonemia",
+          "differential_considered": "Galactosemia can cause liver dysfunction and elevated ammonia, but it's not the primary cause of hyperammonemia. Hurler's syndrome is a mucopolysaccharidosis and primarily affects the skeletal system, eyes, and other organs, but not directly ammonia metabolism. Phenylketonuria (PKU) primarily affects phenylalanine metabolism, not ammonia metabolism, although severe PKU can lead to neurological problems.",
+          "usage": {
+            "prompt_tokens": 279,
+            "generated_tokens": 208,
+            "generation_time_s": 10.505
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "High blood ammonia levels are a hallmark of ornithine transcarbamylase (OTC) deficiency, a urea cycle disorder where impaired OTC activity leads to ammonia accumulation. Galactosaemia primarily affects galactose metabolism, Hurler's syndrome is a mucopolysaccharidosis, and phenylketonuria involves phenylalanine metabolism. Only OTC deficiency directly causes hyperammonemia without other characteristic metabolic features.",
+          "critical_evidence": "The presence of elevated ammonia in the blood is the most specific indicator of a urea cycle disorder, and OTC deficiency is the only option directly causing this without additional metabolic abnormalities.",
+          "differential_considered": "Galactosaemia, Hurler's syndrome, and phenylketonuria were considered but ruled out because they primarily affect different metabolic pathways and do not typically present with hyperammonemia as the primary finding.",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 217,
+            "generation_time_s": 10.338
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 1.0,
+          "clinical_reasoning": "High blood ammonia levels are a hallmark of urea cycle disorders, particularly ornithine transcarbamylase (OTC) deficiency, which directly impairs ammonia detoxification. Other options like galactosaemia, Hurler’s syndrome, and phenylketonuria may cause metabolic derangements but do not primarily present with hyperammonemia.",
+          "critical_evidence": "OTC deficiency is the most common urea cycle disorder and directly causes hyperammonemia due to impaired conversion of carbamoyl phosphate to citrulline.",
+          "differential_considered": "Galactosaemia and phenylketonuria primarily affect carbohydrate and amino acid metabolism respectively, not ammonia clearance. Hurler’s syndrome is a lysosomal storage disorder with no direct link to ammonia metabolism.",
+          "usage": {
+            "prompt_tokens": 251,
+            "generated_tokens": 192,
+            "generation_time_s": 6.883
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "The clinical presentation of a high blood ammonia level is most commonly associated with metabolic disorders that affect the urea cycle. Ornithine transcarbamylase (OTC) deficiency is one such disorder that can lead to hyperammonemia. Other options like galactosaemia, Hurler's syndrome, and phenylketonuria do not typically present with hyperammonemia as a key feature. Therefore, the most likely cause of hyperammonemia in this case is OTC deficiency.",
+          "critical_evidence": "The presence of a high blood ammonia level is the most critical evidence pointing towards OTC deficiency as the cause.",
+          "differential_considered": "While there are several metabolic disorders that can lead to hyperammonemia, OTC deficiency is the most likely cause in this scenario due to its direct impact on the urea cycle.",
+          "usage": {
+            "prompt_tokens": 278,
+            "generated_tokens": 198,
+            "generation_time_s": 4.892
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hurler's syndrome causes other metabolic issues (e.g., glycosaminoglycan storage) and not ammonia elevation; phenylketonuria leads to phenylalanine accumulation, not ammonia. These can be ruled out based on the given symptom.",
+          "usage": {
+            "prompt_tokens": 309,
+            "generated_tokens": 292,
+            "generation_time_s": 9.385
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

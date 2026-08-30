@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-21756515",
+  "dataset": "pubmedqa_context",
+  "question_id": "21756515",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does solid culture for tuberculosis influence clinical decision making in India?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Medical units at an academic tertiary referral hospital in Southern India. To investigate the impact of solid culture on Löwenstein-Jensen medium on clinical decision making. In a retrospective review of 150 culture-positive and 150 culture-negative consecutively sampled tuberculosis (TB) suspects, treatment decisions were analysed at presentation, after the availability of culture detection results and after the availability of drug susceptibility testing (DST) culture results. A total of 124 (82.7%) culture-positive patients and 35 (23.3%) culture-negative patients started anti-tuberculosis treatment prior to receiving their culture results; 101 patients (33.7%) returned for their results; two (1.3%) initiated treatment based on positive culture and no culture-negative patients discontinued treatment. DST was performed on 119 (79.3%) positive cultures: 30 (25.2%) showed any resistance, eight (6.7%) showed multidrug resistance and one (0.84%) showed extensively drug-resistant TB. Twenty-eight patients (23.5%) returned for their DST results. Based on DST, treatment was modified in four patients (3.4%).",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that a significant proportion of patients with culture-positive TB started treatment before receiving culture results, indicating that culture results influence clinical decision-making. The fact that two patients initiated treatment based on positive culture and no culture-negative patients discontinued treatment further supports the influence of culture results on treatment decisions. The relatively low percentage of patients who returned for DST results suggests that the initial treatment decisions were largely based on the positive culture.",
+          "critical_evidence": "A total of 124 (82.7%) culture-positive patients and 35 (23.3%) culture-negative patients started anti-tuberculosis treatment prior to receiving their culture results.",
+          "differential_considered": "While other factors like clinical presentation and risk factors also influence treatment decisions, the high percentage of patients starting treatment before culture results suggests that culture results play a significant role in the decision-making process.",
+          "usage": {
+            "prompt_tokens": 516,
+            "generated_tokens": 224,
+            "generation_time_s": 13.362
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that while solid culture results influenced treatment decisions in some cases (82.7% started treatment before results, 1.3% started based on positive results), the impact was limited. DST had a more significant effect on treatment modification (3.4%) than culture alone. The low number of patients who actually changed treatment based on culture results suggests limited influence on clinical decision making.",
+          "critical_evidence": "Only 1.3% of patients initiated treatment based on positive culture results, indicating limited direct influence on clinical decisions compared to DST's 3.4% modification rate",
+          "differential_considered": "Alternative diagnostic methods like DST showed greater impact on treatment decisions, suggesting culture may not be the most influential factor in clinical decision making for TB management in this setting",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 1024,
+            "generation_time_s": 54.956
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study shows that treatment decisions were made in 82.7% of culture-positive and 23.3% of culture-negative patients before culture results were available, indicating that culture results did not significantly alter initial treatment decisions. Additionally, DST results led to treatment modification in only 3.4% of cases, suggesting minimal impact on clinical decision-making.",
+          "critical_evidence": "124 (82.7%) culture-positive patients and 35 (23.3%) culture-negative patients started anti-tuberculosis treatment prior to receiving culture results, indicating culture results did not drive initial treatment decisions.",
+          "differential_considered": "Differential diagnoses such as other infectious or non-infectious causes of symptoms were not mentioned, so they were not relevant to the question about culture’s impact on TB treatment decisions.",
+          "usage": {
+            "prompt_tokens": 482,
+            "generated_tokens": 200,
+            "generation_time_s": 8.439
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "Based on the clinical case, solid culture for tuberculosis is indeed influential in clinical decision making in India. The study shows that a significant number of patients, both culture-positive and culture-negative, started anti-tuberculosis treatment before receiving their culture results. Furthermore, drug susceptibility testing on positive cultures revealed resistance in a substantial proportion of cases, leading to treatment modifications for a small percentage of patients. This indicates that solid culture is an essential tool for accurate diagnosis and effective management of tuberculosis in the Indian context.",
+          "critical_evidence": "The high percentage of patients who started treatment before receiving their culture results (124/150) and the modification of treatment based on drug susceptibility testing results are key evidence supporting the influence of solid culture on clinical decision making.",
+          "differential_considered": "None of the options provided are considered differentials as the question explicitly asks about the impact of solid culture on clinical decision making, which is clearly demonstrated in the case.",
+          "usage": {
+            "prompt_tokens": 490,
+            "generated_tokens": 212,
+            "generation_time_s": 6.159
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other diagnostic methods (e.g., sputum smear, chest X-ray, clinical symptoms) may be used, but the high proportion of treatment started without culture results suggests culture is a key adjunct, especially in a tertiary hospital where early treatment is essential to prevent drug resistance, and where DST is not universally available at initial presentation.",
+          "usage": {
+            "prompt_tokens": 530,
+            "generated_tokens": 245,
+            "generation_time_s": 9.365
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

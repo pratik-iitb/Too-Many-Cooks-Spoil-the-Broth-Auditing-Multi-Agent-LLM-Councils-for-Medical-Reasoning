@@ -1,0 +1,114 @@
+{
+  "sample_id": "mmlu-601",
+  "dataset": "mmlu",
+  "question_id": "601",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A certain molecule acts by binding to cytochrome oxidase A3, the final enzyme in the electron transport chain. Administration of a large dose of this substance to a human would likely:",
+    "options": {
+      "A": "Lead to death due to an inability of the cell to pass electrons to oxygen, thus stopping aerobic respiration and asphyxiating the cells.",
+      "B": "Lead to death due to an inadequate supply of ADP to accept a phosphate group at the ATP synthase enzyme.",
+      "C": "Have no effect as cells would switch which macronutrient they metabolize to circumvent the blocked biochemical pathway.",
+      "D": "Increase the cell’s ATP production as negative feedback would cause the cell to up-regulate anaerobic pathways."
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cytochrome oxidase A3 is the final enzyme in the electron transport chain, responsible for transferring electrons to oxygen, which is the terminal electron acceptor. Blocking this enzyme would halt the electron transport chain, preventing the generation of a proton gradient across the mitochondrial membrane. This would lead to a severe energy deficit and ultimately cell death due to the inability to produce ATP.",
+          "critical_evidence": "The molecule acts by binding to cytochrome oxidase A3, the final enzyme in the electron transport chain.",
+          "differential_considered": "B: While ADP is important for ATP synthesis, blocking the electron transport chain would have a much more profound and immediate impact on energy production than a lack of ADP. C: Cells are highly adaptable and can switch between different metabolic pathways. However, this would be a slower process and not immediately lethal. D: The electron transport chain is essential for ATP production, and blocking it would not lead to increased ATP production. Anaerobic pathways are less efficient and would not compensate for the blocked electron transport chain.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 247,
+            "generation_time_s": 12.461
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Cytochrome oxidase A3 is the terminal enzyme in the electron transport chain, responsible for transferring electrons to oxygen to form water. Blocking this enzyme prevents aerobic respiration, halting ATP production and causing cellular hypoxia. This leads to cell death due to asphyxiation, making option A the correct choice.",
+          "critical_evidence": "Cytochrome oxidase A3 is the final enzyme in the electron transport chain, and its inhibition stops aerobic respiration.",
+          "differential_considered": "Options B and D are incorrect because ATP production would decrease, not increase, and ADP supply is not directly affected. Option C is unlikely as cells cannot switch macronutrient metabolism instantaneously to bypass a blocked electron transport chain.",
+          "usage": {
+            "prompt_tokens": 376,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.563
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "Cytochrome oxidase A3 is the final complex in the electron transport chain, responsible for transferring electrons to oxygen to form water. Inhibiting this enzyme halts aerobic respiration, leading to cellular asphyxiation. The body cannot compensate by switching fuel sources effectively under acute, high-dose inhibition, and ATP production collapses rapidly. Options B, C, and D misrepresent cellular responses to mitochondrial blockade.",
+          "critical_evidence": "Binding to cytochrome oxidase A3 directly blocks the final step of oxidative phosphorylation, preventing oxygen utilization and causing cellular energy failure.",
+          "differential_considered": "Option B is incorrect because ADP availability is not the primary issue; ATP synthase requires a proton gradient, which collapses without electron transport. Option C is incorrect because metabolic switching (e.g., to glycolysis) is insufficient to sustain life under acute, high-dose inhibition. Option D is incorrect because anaerobic pathways produce far less ATP and cannot compensate for complete ETC blockade.",
+          "usage": {
+            "prompt_tokens": 347,
+            "generated_tokens": 234,
+            "generation_time_s": 8.394
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 35,
+            "generation_time_s": 0.877
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options B and D incorrectly focus on ATP synthase or metabolic pathway switching, which are not the direct effect of cytochrome oxidase inhibition. Option C is unlikely because the block is at the electron transport chain, not a macronutrient-metabolism step, and cells typically die from energy failure rather than simply switching metabolic substrates in this scenario.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 216,
+            "generation_time_s": 6.96
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

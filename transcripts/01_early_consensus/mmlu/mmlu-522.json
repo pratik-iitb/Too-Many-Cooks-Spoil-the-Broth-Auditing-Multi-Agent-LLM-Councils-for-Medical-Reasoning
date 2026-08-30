@@ -1,0 +1,116 @@
+{
+  "sample_id": "mmlu-522",
+  "dataset": "mmlu",
+  "question_id": "522",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Mitochondria isolated and placed in a buffered solution with a low pH begin to manufacture ATP. Which of the following is the best explanation for the effect of low external pH?",
+    "options": {
+      "A": "It increases the concentration of OH-, causing the mitochondria to pump H+ to the intermembrane space.",
+      "B": "It increases the OH- concentration in the mitochondria matrix.",
+      "C": "It increases the acid concentration in the mitochondria matrix.",
+      "D": "It increases diffusion of H+ from the intermembrane space to the matrix."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_biology"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Mitochondria generate ATP by using the proton gradient established across the inner mitochondrial membrane. A low external pH (acidosis) causes more H+ ions to move into the mitochondrial matrix to maintain electroneutrality. This movement of H+ ions down the concentration gradient from the matrix to the intermembrane space creates a more negative charge in the intermembrane space, further driving the proton gradient and ATP synthesis. The mitochondria then pump H+ ions from the matrix to the intermembrane space to maintain electroneutrality.",
+          "critical_evidence": "Mitochondria generate ATP by using the proton gradient established across the inner mitochondrial membrane.",
+          "differential_considered": "Option B is incorrect because the pH of the mitochondrial matrix is generally close to neutral, not increased. Option C is incorrect because the pH of the mitochondrial matrix is generally close to neutral, not increased. Option D is incorrect because the H+ ions move from the matrix to the intermembrane space, not the other way around.",
+          "usage": {
+            "prompt_tokens": 335,
+            "generated_tokens": 240,
+            "generation_time_s": 12.069
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Mitochondria use the proton gradient across the inner membrane to generate ATP via chemiosmosis. A low external pH would increase H+ concentration outside the mitochondria, causing H+ to diffuse into the matrix to equilibrate, thus increasing the proton gradient and ATP production. This directly supports option D, which correctly describes the mechanism of H+ movement from the intermembrane space to the matrix in response to low external pH.",
+          "critical_evidence": "The proton gradient is essential for ATP synthesis, and low external pH drives H+ influx into the matrix, increasing this gradient.",
+          "differential_considered": "Options A and B incorrectly suggest OH- concentration changes, which are not relevant to H+ transport. Option C misuses 'acid concentration' as a driving force, while D correctly identifies the direction of H+ movement in response to pH changes.",
+          "usage": {
+            "prompt_tokens": 337,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.391
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Low external pH means high H+ concentration outside the mitochondria. When mitochondria are isolated and placed in such a solution, H+ ions diffuse into the matrix, increasing acid concentration there. This acidification can drive ATP synthesis by creating a proton gradient, which is essential for ATP production via ATP synthase. The other options misinterpret the direction of ion movement or incorrectly assume OH- accumulation.",
+          "critical_evidence": "Mitochondria generate ATP by utilizing a proton gradient across the inner membrane, and low external pH increases H+ influx into the matrix, enhancing this gradient.",
+          "differential_considered": "Options A and B incorrectly suggest OH- accumulation or pumping, which contradicts the acidic environment. Option D misrepresents the direction of H+ diffusion; H+ moves INTO the matrix, not out, to build the gradient.",
+          "usage": {
+            "prompt_tokens": 308,
+            "generated_tokens": 200,
+            "generation_time_s": 7.141
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 335,
+            "generated_tokens": 74,
+            "generation_time_s": 1.829
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Options A and C suggest changes in mitochondrial or external pH that would impair, not enhance, ATP production by disrupting enzymes or blocking proton flow. Option B is unlikely because the matrix is already alkaline and external pH changes are more likely to affect the intermembrane space. Thus, the effect is best explained by the altered H+ distribution due to external pH, as in D.",
+          "usage": {
+            "prompt_tokens": 366,
+            "generated_tokens": 280,
+            "generation_time_s": 8.955
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

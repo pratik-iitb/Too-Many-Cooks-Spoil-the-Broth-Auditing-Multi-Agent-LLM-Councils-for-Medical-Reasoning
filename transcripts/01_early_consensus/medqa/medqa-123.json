@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-123",
+  "dataset": "medqa",
+  "question_id": "123",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 3-day-old girl is brought to the physician by her mother because of difficulty feeding and lethargy for 1 day. She had jaundice after birth and was scheduled for a follow-up visit the next day. Her hemoglobin is 18.5 g/dL, total bilirubin is 38.1 mg/dL, and direct bilirubin is 0.1 mg/dL. Despite appropriate measures, the infant dies. At autopsy, examination of the brain shows deep yellow staining of the basal ganglia and subthalamic nuclei bilaterally. Which of the following is the most likely cause of this infant's findings?",
+    "options": {
+      "A": "Defective intracellular bilirubin transport",
+      "B": "Increased degradation of red blood cells",
+      "C": "Extrahepatic obliteration of the biliary tree",
+      "D": "Impaired glucuronidation of bilirubin",
+      "E": "Decreased bilirubin uptake in hepatocytes"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant presents with severe hyperbilirubinemia (total bilirubin 38.1 mg/dL) and brain damage (basal ganglia and subthalamic nuclei staining), indicating a significant bilirubin encephalopathy. The direct bilirubin is low, suggesting unconjugated hyperbilirubinemia. The key finding is the deep yellow staining of the basal ganglia and subthalamic nuclei, which is characteristic of bilirubin encephalopathy. This points towards a problem with bilirubin metabolism, specifically the conjugation process.",
+          "critical_evidence": "Deep yellow staining of the basal ganglia and subthalamic nuclei bilaterally.",
+          "differential_considered": "A: Defective intracellular bilirubin transport: While possible, this typically presents with a more gradual onset and less severe neurological findings. B: Increased degradation of red blood cells: This would lead to increased unconjugated bilirubin, but the direct bilirubin is low, making this less likely. C: Extrahepatic obliteration of the biliary tree: This would cause conjugated hyperbilirubinemia, which is not consistent with the low direct bilirubin. E: Decreased bilirubin uptake in hepatocytes: This is not a common cause of such severe hyperbilirubinemia in a newborn, and the brain damage is more suggestive of a metabolic problem.",
+          "usage": {
+            "prompt_tokens": 411,
+            "generated_tokens": 294,
+            "generation_time_s": 14.547
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant's elevated total bilirubin (38.1 mg/dL) and normal direct bilirubin (0.1 mg/dL) suggest unconjugated hyperbilirubinemia. The presence of deep yellow staining in the brain at autopsy indicates neurotoxicity from bilirubin, which is more consistent with defective intracellular bilirubin transport rather than extrahepatic obstruction (which would typically show conjugated hyperbilirubinemia) or impaired glucuronidation (which would affect both direct and total bilirubin). The high hemoglobin level suggests ongoing red blood cell production, ruling out hemolytic disease. The yellow staining in specific brain regions points to intracellular accumulation of bilirubin, supporting transport defects.",
+          "critical_evidence": "Deep yellow staining of basal ganglia and subthalamic nuclei bilaterally at autopsy",
+          "differential_considered": "Extrahepatic biliary obstruction (ruled out by conjugated bilirubin being very low), hemolytic disease (ruled out by normal hemoglobin), and glucuronidation defects (ruled out by normal conjugated bilirubin).",
+          "usage": {
+            "prompt_tokens": 427,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.193
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant presented with severe hyperbilirubinemia (total bilirubin 38.1 mg/dL) and died with characteristic basal ganglia and subthalamic nucleus staining on autopsy, which is classic for kernicterus. This pattern of injury is due to unconjugated bilirubin toxicity, which occurs when bilirubin cannot be adequately glucuronidated and excreted. The direct bilirubin is low (0.1 mg/dL), indicating the bilirubin is primarily unconjugated, supporting impaired glucuronidation as the primary defect.",
+          "critical_evidence": "Direct bilirubin is 0.1 mg/dL, indicating unconjugated hyperbilirubinemia, and the autopsy finding of basal ganglia staining is pathognomonic for kernicterus caused by unconjugated bilirubin toxicity.",
+          "differential_considered": "Defective intracellular bilirubin transport (A) and increased RBC degradation (B) could contribute to hyperbilirubinemia but do not explain the specific brain pathology. Extrahepatic biliary obstruction (C) would cause elevated direct bilirubin, which is not seen here. Decreased bilirubin uptake (E) is less likely as the primary mechanism in this context; impaired glucuronidation is the key defect in unconjugated hyperbilirubinemia leading to kernicterus.",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 331,
+            "generation_time_s": 11.595
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The infant's clinical presentation of difficulty feeding, lethargy, and jaundice, along with the autopsy findings of deep yellow staining in the basal ganglia and subthalamic nuclei bilaterally, are highly suggestive of kernicterus. The most likely cause of kernicterus in this infant is a defect in intracellular bilirubin transport (option A). This condition can lead to the accumulation of unconjugated bilirubin in the brain, causing neurological damage. The other options, such as increased degradation of red blood cells, extrahepatic obliteration of the biliary tree, impaired glucuronidation of bilirubin, and decreased bilirubin uptake in hepatocytes, do not typically result in the specific findings of kernicterus and the associated neurological damage.",
+          "critical_evidence": "The deep yellow staining of the basal ganglia and subthalamic nuclei bilaterally in the brain at autopsy.",
+          "differential_considered": "The key differential diagnoses considered were conditions that could cause jaundice and neurological damage. However, the specific findings of kernicterus and the pattern of neurological damage strongly point towards a defect in intracellular bilirubin transport as the most likely cause.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 269,
+            "generation_time_s": 6.437
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "The key findings are neonatal jaundice with elevated total and direct bilirubin (despite the direct component being low), hyperbilirubinemia, and brain yellow staining involving areas that process bilirubin (basal ganglia, subthalamic nucleus). This pattern suggests impaired excretion or conjugation of bilirubin, most likely due to a defect in its transport out of cells, rather than increased production (RBC degradation), biliary obstruction, or hepatic uptake. The elevated direct bilirubin also suggests mild hemolysis but the main cause of death is likely the brain bilirubin toxicity.",
+          "critical_evidence": "Severe hyperbilirubinemia in a newborn with brain yellow staining localized to areas involved in bilirubin metabolism.",
+          "differential_considered": "B: Increased degradation of RBCs (would raise indirect bilirubin, not the total or brain findings); C: Biliary obstruction (would cause elevated total and indirect bilirubin, not the described pattern); D and E: Impaired glucuronidation or uptake could cause hyperbilirubinemia, but the specific brain staining points to accumulation in the central nervous system, most consistent with a transport defect. Option A (defective intracellular transport) explains both the elevated serum bilirubin and the neurotoxicity.",
+          "usage": {
+            "prompt_tokens": 463,
+            "generated_tokens": 315,
+            "generation_time_s": 9.82
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

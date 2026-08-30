@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa-25304452",
+  "dataset": "pubmedqa",
+  "question_id": "25304452",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Nutritional assessment of gluten-free diet. Is gluten-free diet deficient in some nutrient?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "A gluten-free diet, if not properly planned, can be deficient in certain nutrients. However, the question asks if it is deficient in *some* nutrient, implying that it is not universally deficient. A well-planned gluten-free diet can provide adequate amounts of most nutrients. Therefore, the answer is no.",
+          "critical_evidence": "A well-planned gluten-free diet can provide adequate amounts of most nutrients.",
+          "differential_considered": "A poorly planned gluten-free diet could be deficient in certain nutrients like fiber, iron, calcium, and B vitamins. However, the question asks about a general gluten-free diet, not a poorly planned one. Therefore, I ruled out the possibility of a poorly planned diet.",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 191,
+            "generation_time_s": 11.269
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "A gluten-free diet can lead to nutrient deficiencies, particularly in B vitamins (folate, B12), iron, calcium, and fiber, due to the elimination of whole grains and fortified foods that contain these nutrients. Without careful planning, individuals on long-term gluten-free diets may miss out on essential nutrients found in gluten-containing grains like wheat, barley, and rye. While some gluten-free products are fortified, not all are, and natural gluten-free foods often lack these nutrients. Therefore, the diet can be deficient in certain nutrients if not properly managed.",
+          "critical_evidence": "Elimination of gluten-containing grains reduces intake of naturally occurring B vitamins, iron, and fiber, which are not always adequately replaced in gluten-free alternatives.",
+          "differential_considered": "Considered whether the diet was properly planned and fortified, but concluded that even with planning, deficiencies can occur due to the inherent nutrient differences between gluten-containing and gluten-free foods.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 1024,
+            "generation_time_s": 56.913
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "A gluten-free diet, while necessary for individuals with celiac disease or gluten sensitivity, can be deficient in key nutrients such as iron, calcium, fiber, B vitamins, and vitamin D, due to the exclusion of nutrient-dense grains like whole wheat and fortified cereals. Proper nutritional planning is essential to prevent deficiencies.",
+          "critical_evidence": "Gluten-free diets are commonly associated with nutrient deficiencies due to reduced intake of fortified grains and whole grains, which are major sources of essential vitamins and minerals.",
+          "differential_considered": "Dietary adequacy in gluten-free diets can be improved with supplementation or fortified foods, but this does not negate the inherent risk of deficiency without careful planning — thus, 'maybe' or 'no' are incorrect.",
+          "usage": {
+            "prompt_tokens": 231,
+            "generated_tokens": 183,
+            "generation_time_s": 7.65
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 102,
+            "generation_time_s": 2.961
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 251,
+            "generation_time_s": 9.478
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "A": 3,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

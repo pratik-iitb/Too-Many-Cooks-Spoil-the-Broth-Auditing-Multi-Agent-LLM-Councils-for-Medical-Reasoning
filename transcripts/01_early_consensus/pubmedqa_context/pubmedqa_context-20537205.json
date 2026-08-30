@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-20537205",
+  "dataset": "pubmedqa_context",
+  "question_id": "20537205",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is halofantrine ototoxic?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Halofantrine is a newly developed antimalarial drug used for the treatment of Plasmodium falciparum malaria. The introduction of this drug has been delayed because of its possible side effects, and due to insufficient studies on adverse reactions in humans. There have been no studies investigating its effect on hearing. Thirty guinea pigs were divided into three groups: a control group, a halofantrine therapeutic dose group and a halofantrine double therapeutic dose group. One cochlea specimen from each animal was stained with haematoxylin and eosin and the other with toluidine blue. No changes were detected in the control group. The halofantrine therapeutic dose group showed loss and distortion of inner hair cells and inner phalangeal cells, and loss of spiral ganglia cells. In the halofantrine double therapeutic dose group, the inner and outer hair cells were distorted and there was loss of spiral ganglia cells.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a study on guinea pigs treated with halofantrine, revealing inner hair cell loss, distortion, and spiral ganglion cell loss. These findings strongly suggest ototoxicity, as these structures are crucial for hearing. The absence of studies on human hearing doesn't negate the evidence from animal studies.",
+          "critical_evidence": "Loss and distortion of inner hair cells and inner phalangeal cells, and loss of spiral ganglia cells in the halofantrine therapeutic dose group.",
+          "differential_considered": "While the case mentions no studies on human hearing, the animal studies provide strong evidence for ototoxicity. Other potential side effects of halofantrine, such as liver toxicity, were not mentioned, making them less relevant to the question of ototoxicity.",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 197,
+            "generation_time_s": 11.661
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.8,
+          "clinical_reasoning": "The study on guinea pigs showed structural damage to cochlear cells in both therapeutic dose groups, suggesting potential ototoxicity. However, this was conducted in animals, not humans, and there are no human studies confirming these effects. The lack of direct human data means we cannot definitively conclude halofantrine is ototoxic in humans.",
+          "critical_evidence": "No human studies have been conducted to investigate halofantrine's effect on hearing",
+          "differential_considered": "While the animal study suggests possible ototoxicity, we must consider that animal models may not perfectly predict human responses. The absence of human data makes it impossible to confirm or rule out ototoxicity with certainty.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.386
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrated histopathological damage to cochlear structures (inner hair cells, spiral ganglia cells) in guinea pigs treated with halofantrine, even at therapeutic doses. This suggests ototoxic potential, despite the absence of human studies. The dose-dependent severity further supports a causal relationship.",
+          "critical_evidence": "Halofantrine therapeutic dose group showed loss and distortion of inner hair cells and spiral ganglia cells, indicating cochlear damage consistent with ototoxicity.",
+          "differential_considered": "No other ototoxic agents were mentioned; the findings are directly attributable to halofantrine exposure. Human data absence does not negate animal evidence of ototoxicity.",
+          "usage": {
+            "prompt_tokens": 428,
+            "generated_tokens": 171,
+            "generation_time_s": 7.231
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 454,
+            "generated_tokens": 63,
+            "generation_time_s": 1.847
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other antimalarials like chloroquine or quinine were not tested in this study, but ototoxicity is a known risk with some drugs; however, the direct histological evidence here specifically points to halofantrine's involvement.",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 234,
+            "generation_time_s": 8.494
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

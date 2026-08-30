@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-11500608",
+  "dataset": "pubmedqa_context",
+  "question_id": "11500608",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does short-term treatment with proton pump inhibitors cause rebound aggravation of symptoms?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Rebound acid hypersecretion might occur after treatment with proton pump inhibitors. This study looks for a rebound aggravation of symptoms after short-term treatment with lansoprazole.STUDY: Sixty-two patients (19 men and 43 women; mean age, 54 years; range, 32-77 years) with heartburn and regurgitation and normal upper endoscopy findings were studied in a randomized, double-blind, placebo-controlled trial with a crossover design. There were two 5-day treatment periods with lansoprazole 60 mg once daily or placebo in random order, separated by a 9-day washout period. Reflux, total, and antacid scores were calculated for each of the treatment periods. Higher scores during the placebo period in the group given lansoprazole first than in the group given placebo first indicated a rebound aggravation of symptoms. The mean symptom scores during the placebo period in the groups given lansoprazole first and placebo first were as follows: reflux score, 21.5 and 17.6, respectively (not significant); total score, 11.2 and 10.3, respectively (not significant); and antacid score, 8.2 and 7.2, respectively (not significant).",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study design involved a randomized, double-blind, placebo-controlled crossover trial. The results showed that patients who received lansoprazole first had higher symptom scores during the placebo period compared to those who received placebo first. This indicates a rebound aggravation of symptoms after short-term lansoprazole treatment.",
+          "critical_evidence": "Higher symptom scores during the placebo period in the group given lansoprazole first than in the group given placebo first indicated a rebound aggravation of symptoms.",
+          "differential_considered": "While other conditions could cause heartburn, the study design specifically addresses the potential for rebound acid hypersecretion after PPI use, making it the most relevant differential to consider.",
+          "usage": {
+            "prompt_tokens": 527,
+            "generated_tokens": 177,
+            "generation_time_s": 10.579
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found no significant difference in symptom scores between the lansoprazole-first and placebo-first groups for reflux, total, or antacid scores during the washout period, indicating no evidence of rebound hypersecretion after short-term treatment.",
+          "critical_evidence": "No significant difference in symptom scores during the placebo period between the two groups",
+          "differential_considered": "Rebound hypersecretion is a known theoretical risk with PPIs, but this study's results show no evidence of it occurring in this short-term treatment scenario",
+          "usage": {
+            "prompt_tokens": 525,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.525
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study measured symptom scores during placebo periods after short-term lansoprazole treatment and found no statistically significant difference in reflux, total, or antacid scores between the lansoprazole-first and placebo-first groups, indicating no rebound aggravation.",
+          "critical_evidence": "Mean symptom scores during placebo period were not significantly different between groups (reflux: 21.5 vs 17.6; total: 11.2 vs 10.3; antacid: 8.2 vs 7.2), with all differences labeled as 'not significant'.",
+          "differential_considered": "Rebound acid hypersecretion was considered, but the study's results show no evidence of it after short-term PPI use, thus ruling it out as a clinically relevant phenomenon in this context.",
+          "usage": {
+            "prompt_tokens": 506,
+            "generated_tokens": 199,
+            "generation_time_s": 8.414
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 31,
+            "generation_time_s": 0.934
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Rebound aggravation would be suggested if symptom scores worsened after stopping PPI. However, the absence of a significant increase in symptom scores during the placebo period after PPI use supports the conclusion that rebound aggravation did not occur in this study.",
+          "usage": {
+            "prompt_tokens": 561,
+            "generated_tokens": 212,
+            "generation_time_s": 8.14
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "B": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

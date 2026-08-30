@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-15483019",
+  "dataset": "pubmedqa",
+  "question_id": "15483019",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is eligibility for a chemotherapy protocol a good prognostic factor for invasive bladder cancer after radical cystectomy?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Eligibility for chemotherapy after radical cystectomy is a well-established prognostic factor in invasive bladder cancer. Chemotherapy improves survival rates and is a standard part of treatment for patients with high-risk features. Therefore, eligibility is a good prognostic factor.",
+          "critical_evidence": "Eligibility for chemotherapy after radical cystectomy is a well-established prognostic factor in invasive bladder cancer.",
+          "differential_considered": "While other factors like tumor grade, stage, and presence of lymph node involvement are also important, eligibility for chemotherapy is a specific and actionable factor that directly impacts prognosis and treatment decisions.",
+          "usage": {
+            "prompt_tokens": 261,
+            "generated_tokens": 158,
+            "generation_time_s": 9.457
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Eligibility for chemotherapy after radical cystectomy is associated with better outcomes in invasive bladder cancer. Chemotherapy improves disease control and reduces recurrence rates, particularly in patients with high-risk features like positive margins, lymph node involvement, or tumor grade. These patients benefit most from adjuvant therapy, while low-risk patients may not require it. Thus, eligibility is a strong prognostic factor.",
+          "critical_evidence": "Chemotherapy reduces bladder cancer recurrence and improves survival in high-risk patients post-cystectomy",
+          "differential_considered": "Low-risk patients may not need chemotherapy, but eligibility criteria help identify those who do, so the factor remains prognostically relevant",
+          "usage": {
+            "prompt_tokens": 264,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.575
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Eligibility for chemotherapy in invasive bladder cancer typically indicates advanced disease stage (e.g., muscle-invasive or metastatic), which is associated with worse prognosis. Radical cystectomy is often performed in locally advanced disease, and chemotherapy eligibility usually reflects higher risk, not better prognosis. Therefore, being eligible for chemotherapy is not a good prognostic factor.",
+          "critical_evidence": "Chemotherapy eligibility in invasive bladder cancer correlates with higher stage and grade, which are independent negative prognostic factors.",
+          "differential_considered": "Considered whether chemotherapy eligibility might indicate early-stage disease (e.g., non-muscle-invasive), but this is not the case; eligibility typically implies advanced disease requiring systemic therapy.",
+          "usage": {
+            "prompt_tokens": 235,
+            "generated_tokens": 174,
+            "generation_time_s": 7.383
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 262,
+            "generated_tokens": 71,
+            "generation_time_s": 2.089
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Assuming eligibility means the cancer is highly responsive and early-stage (not confirmed here); B: Eligibility alone does not account for other critical factors like tumor biology or treatment response; C: The most accurate answer given the incomplete information.",
+          "usage": {
+            "prompt_tokens": 289,
+            "generated_tokens": 199,
+            "generation_time_s": 7.555
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

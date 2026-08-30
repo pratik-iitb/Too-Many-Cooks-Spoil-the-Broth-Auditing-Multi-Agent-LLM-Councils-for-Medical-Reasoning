@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-1323",
+  "dataset": "medqa",
+  "question_id": "1323",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 43-year-old man presents to a medical office for follow-up of hypertension. He was recently diagnosed and has been managing his condition with diet modification and moderate-intensity exercise. Today, he brings a list of his recent at-home morning blood pressure readings. The systolic blood pressure readings over the last 5 days are as follows:\nDay 1: 130 mm Hg\nDay 2: 132 mm Hg\nDay 3: 128 mm Hg\nDay 4: 132 mm Hg\nDay 5: 128 mm Hg\nWhat is the standard deviation for the systolic blood pressure readings?",
+    "options": {
+      "A": "1 mm Hg",
+      "B": "1.5 mm Hg",
+      "C": "4 mm Hg",
+      "D": "2 mm Hg",
+      "E": "2.5 mm Hg"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The standard deviation is a measure of the spread or dispersion of data points around the mean. To calculate the standard deviation, we first need to calculate the mean of the given systolic blood pressure readings. The mean is (130 + 132 + 128 + 132 + 128) / 5 = 130 mm Hg. Then, we calculate the squared difference between each reading and the mean, sum these squared differences, divide by (n-1), and take the square root. The standard deviation is approximately 1.5 mm Hg.",
+          "critical_evidence": "The mean systolic blood pressure is 130 mm Hg, and the range of readings is 128-132 mm Hg. This indicates a relatively consistent blood pressure within a narrow range.",
+          "differential_considered": "While other conditions could affect blood pressure, the patient's recent readings are relatively stable, suggesting that the current management plan is working. Therefore, other conditions are less likely to be the primary driver of the blood pressure fluctuations.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 264,
+            "generation_time_s": 13.047
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "To calculate the standard deviation, first find the mean of the readings: (130+132+128+132+128)/5 = 130 mm Hg. Then calculate the squared differences from the mean: (0^2 + 2^2 + (-2)^2 + 2^2 + (-2)^2) = 16. Divide by 5 (n) to get variance: 16/5 = 3.2. Take the square root of variance: √3.2 ≈ 1.79, which rounds to 2 mm Hg.",
+          "critical_evidence": "The variance calculation shows the data points are tightly clustered around the mean, indicating stable blood pressure control.",
+          "differential_considered": "No significant hypertension complications or other diagnoses were indicated by the stable readings, so no differential diagnosis was necessary.",
+          "usage": {
+            "prompt_tokens": 410,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.175
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The systolic BP readings are 130, 132, 128, 132, and 128 mm Hg. The mean is 130 mm Hg. Deviations from the mean are 0, +2, -2, +2, -2. Squaring these gives 0, 4, 4, 4, 4. Sum = 20. Variance = 20/5 = 4. Standard deviation = sqrt(4) = 2 mm Hg. This reflects low variability, consistent with well-controlled hypertension.",
+          "critical_evidence": "The standard deviation calculation yields exactly 2 mm Hg, matching option D.",
+          "differential_considered": "No differential diagnoses are relevant here as this is a straightforward statistical calculation for BP variability in a patient with newly diagnosed hypertension.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 212,
+            "generation_time_s": 7.417
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 408,
+            "generated_tokens": 254,
+            "generation_time_s": 6.059
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "I considered possible measurement errors or white coat hypertension, but the consistent low variability across multiple readings supports an accurate diagnosis and a precise calculation. Other differentials like secondary hypertension were not suggested by the data.",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 221,
+            "generation_time_s": 6.874
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "D": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19640728",
+  "dataset": "pubmedqa_context",
+  "question_id": "19640728",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Surgical treatment of prosthetic valve endocarditis in patients with double prostheses: is single-valve replacement safe?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Bias against operating on patients with prosthetic valve endocarditis (PVE) who have multiple prostheses may preclude the use of life-saving valve replacement. We investigated the accuracy of the preoperative diagnosis of PVE in patients with both mitral and aortic prosthesis and the safety of single-valve replacement when only one valve seemed infected. Patients with a diagnosis of active PVE who had mitral and aortic prosthesis in place were assessed. We looked at the methods for diagnosis, causative agents, indication for valve replacement, operative findings and outcome. Twenty patients, who had both mitral and aortic prostheses and a diagnosis of PVE, were assessed. Streptococci and staphylococci caused 70% of cases. By means of echocardiography, the valves involved were: mitral (11 patients), aortic (six patients), and in three cases both prosthetic valves seemed infected. Surgery was undertaken in 17 patients (85%). The positive predictive value of transesophageal echocardiogram (TEE) for the preoperative diagnosis of the site of infection was 100%. In 13 patients, only the prosthetic valve that seemed infected was replaced. Four of these patients died within a week after the procedure. Nine patients survived the surgical procedure, completed a course of antimicrobial therapy and were followed up for 15.78 months (95% CI: 12.83-18.72). All were considered cured and relapses were not observed.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that single-valve replacement is safe and effective in patients with prosthetic valve endocarditis (PVE) when only one valve appears infected. The high positive predictive value of TEE for the site of infection and the favorable outcomes in the patients who underwent single-valve replacement support this conclusion.",
+          "critical_evidence": "All 13 patients who underwent single-valve replacement were cured, and no relapses were observed.",
+          "differential_considered": "The differential diagnoses considered were the risks of a second surgery and the potential for a false negative diagnosis. However, the high accuracy of TEE and the favorable outcomes in the single-valve replacement group make these risks acceptable.",
+          "usage": {
+            "prompt_tokens": 568,
+            "generated_tokens": 181,
+            "generation_time_s": 10.762
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The study demonstrates that single-valve replacement is safe in patients with double prostheses when only one valve appears infected on echocardiography. With a 100% positive predictive value for TEE in diagnosing the infected site and a 9-month follow-up with no relapses, the evidence supports that single-valve replacement is a viable and safe option.",
+          "critical_evidence": "The 100% positive predictive value of TEE for diagnosing the site of infection and the absence of relapses in the 9 patients followed up for 15.78 months",
+          "differential_considered": "While multiple prostheses can complicate PVE management, the study specifically addressed this scenario and found no evidence of increased risk with single-valve replacement when the infected site was accurately identified",
+          "usage": {
+            "prompt_tokens": 586,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.496
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Although single-valve replacement was performed in 13 patients and 9 survived with no relapses, 4 died within a week, indicating significant mortality risk. The high mortality rate in this subgroup suggests that single-valve replacement is not reliably safe in this population, despite accurate preoperative diagnosis via TEE.",
+          "critical_evidence": "Four of the 13 patients who underwent single-valve replacement died within a week postoperatively.",
+          "differential_considered": "The possibility of occult infection in the non-operated valve was considered, but the study found TEE to be 100% accurate in identifying the infected site, so this was ruled out as a confounding factor.",
+          "usage": {
+            "prompt_tokens": 571,
+            "generated_tokens": 173,
+            "generation_time_s": 7.287
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 584,
+            "generated_tokens": 124,
+            "generation_time_s": 3.612
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.7,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The possibility of performing single-valve replacement was considered, but the high early mortality in these cases (despite eventual survival in some) argues against routine safety, making option A and C less appropriate compared to B (no), which reflects the documented risks.",
+          "usage": {
+            "prompt_tokens": 617,
+            "generated_tokens": 230,
+            "generation_time_s": 8.784
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

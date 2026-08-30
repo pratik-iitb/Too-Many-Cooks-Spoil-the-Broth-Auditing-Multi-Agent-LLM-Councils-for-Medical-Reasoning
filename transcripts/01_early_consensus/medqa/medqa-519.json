@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-519",
+  "dataset": "medqa",
+  "question_id": "519",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 63-year-old African American man presents to the physician for a follow-up examination. He has a history of chronic hypertension and type 2 diabetes mellitus. He has no history of coronary artery disease. His medications include aspirin, hydrochlorothiazide, losartan, and metformin. He exercises every day and follows a healthy diet. He does not smoke. He consumes alcohol moderately. There is no history of chronic disease in the family. His blood pressure is 125/75 mm Hg, which is confirmed on a repeat measurement. His BMI is 23 kg/m2. The physical examination shows no abnormal findings. The laboratory test results show:\nSerum  \nHbA1C 6.9%\nTotal cholesterol 176 mg/dL\nLow-density lipoprotein (LDL-C) 105 mg/dL\nHigh-density lipoprotein (HDL-C) 35 mg/dL\nTriglycerides 175 mg/dL\nThe patient's 10-year risk of cardiovascular disease (CVD) is 18.7%. Lifestyle modifications including diet and exercise have been instituted. Which of the following is the most appropriate next step in pharmacotherapy?",
+    "options": {
+      "A": "Atorvastatin",
+      "B": "Fenofibrate",
+      "C": "Liraglutide",
+      "D": "Lisinopril",
+      "E": "Metoprolol"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a 10-year ASCVD risk of 18.7%, which is considered intermediate. He already has a history of hypertension and diabetes, and his LDL-C is elevated at 105 mg/dL despite being on a statin (losartan). Current guidelines recommend statin therapy for secondary prevention in patients with established ASCVD or a 10-year ASCVD risk of 10% or greater. Given his risk factors and LDL-C level, initiating or intensifying statin therapy is the most appropriate next step.",
+          "critical_evidence": "The patient's 10-year ASCVD risk of 18.7% and elevated LDL-C of 105 mg/dL.",
+          "differential_considered": "While the patient's blood pressure is well-controlled, the primary concern is his elevated LDL-C and intermediate ASCVD risk. While lifestyle modifications are important, they are not sufficient to achieve the target LDL-C level. Therefore, other options are less appropriate at this time.",
+          "usage": {
+            "prompt_tokens": 523,
+            "generated_tokens": 260,
+            "generation_time_s": 12.971
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's LDL-C level of 105 mg/dL is elevated, indicating a need for lipid-lowering therapy. Atorvastatin is a statin that effectively reduces LDL-C and is appropriate for this patient's risk profile. The patient's 10-year CVD risk of 18.7% also supports the use of statin therapy.",
+          "critical_evidence": "LDL-C level of 105 mg/dL",
+          "differential_considered": "Fenofibrate (B) is considered for lipid management but is less effective than statins. Liraglutide (C) is primarily for diabetes management, not lipid control. Lisinopril (D) is an ACE inhibitor, not indicated for lipid management. Metoprolol (E) is a beta-blocker, not indicated for lipid management.",
+          "usage": {
+            "prompt_tokens": 515,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.498
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has established cardiovascular risk factors including hypertension, diabetes, and a 10-year CVD risk of 18.7%, which qualifies him for statin therapy per ACC/AHA guidelines. His LDL-C is 105 mg/dL, which is above the goal for high-risk patients (LDL-C <70 mg/dL). Statins are first-line for primary prevention in high-risk individuals. Other options like fenofibrate (B) are not first-line for primary prevention in this context, liraglutide (C) is for glycemic control, and lisinopril (D) or metoprolol (E) are not indicated for dyslipidemia.",
+          "critical_evidence": "10-year CVD risk of 18.7% and LDL-C of 105 mg/dL in a patient with diabetes and hypertension.",
+          "differential_considered": "Fenofibrate was considered for triglycerides but is not first-line for primary CVD prevention in this setting. Liraglutide was considered for glycemic control but HbA1c is already 6.9% (goal 7% or less), and it is not indicated for dyslipidemia. Lisinopril and metoprolol were considered for blood pressure control but BP is well-controlled and not indicated for dyslipidemia.",
+          "usage": {
+            "prompt_tokens": 500,
+            "generated_tokens": 317,
+            "generation_time_s": 11.113
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The most appropriate next step in pharmacotherapy for this patient is to start Atorvastatin.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 513,
+            "generated_tokens": 21,
+            "generation_time_s": 0.533
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options address different risk factors (e.g., triglycerides with a fibrate or HDL with an niacin), but his LDL is the most modifiable and directly targets atherogenic plaque, making statin initiation optimal here. No evidence of established CVD or very high risk warrants the other options as first-line.",
+          "usage": {
+            "prompt_tokens": 556,
+            "generated_tokens": 281,
+            "generation_time_s": 8.775
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

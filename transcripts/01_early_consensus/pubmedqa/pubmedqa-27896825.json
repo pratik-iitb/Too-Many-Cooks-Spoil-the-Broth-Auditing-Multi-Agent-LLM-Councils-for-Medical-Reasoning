@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-27896825",
+  "dataset": "pubmedqa",
+  "question_id": "27896825",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is it time to reconsider lobectomy in low-risk paediatric thyroid cancer?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Lobectomy is a surgical procedure that involves removing one lobe of the thyroid gland. In low-risk pediatric thyroid cancer, the risk of recurrence is generally low, and close follow-up with imaging is often sufficient. Therefore, reconsidering lobectomy is not typically necessary unless there are signs of local invasion or distant metastasis.",
+          "critical_evidence": "Low-risk pediatric thyroid cancer",
+          "differential_considered": "Distant metastasis: While possible, it's less likely in low-risk cases. Lymph node involvement: If lymph nodes are involved, lobectomy might be considered, but the case specifies low-risk, suggesting no such involvement.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 173,
+            "generation_time_s": 8.561
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "In low-risk pediatric thyroid cancer, lobectomy is generally curative and preserves long-term thyroid function. Given the low risk profile, the potential benefits of preserving thyroid function outweigh the risks of surgery, especially in children where growth and development are critical. The evidence supports conservative management with surveillance in low-risk cases, but if there are concerning features like rapid growth, multinodularity, or suspicious imaging, lobectomy should be reconsidered. Here, the case suggests a low-risk scenario with no red flags, making lobectomy unnecessary at this time.",
+          "critical_evidence": "The patient's low-risk classification based on age, tumor size, and histology supports conservative management over aggressive surgery.",
+          "differential_considered": "Considered medullary thyroid carcinoma (MTC) and anaplastic thyroid cancer, but ruled out due to age and tumor characteristics. Also considered benign thyroid nodules as differential, but the cancer diagnosis confirms malignancy, making surgery appropriate only if high-risk features are present.",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.585
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "In low-risk pediatric thyroid cancer, the standard of care is typically thyroidectomy with central neck dissection if indicated, but lobectomy is generally not recommended due to the risk of local recurrence and the need for complete removal to ensure cure. Current guidelines and evidence support more extensive resection for pediatric cases to minimize long-term complications and recurrence risk.",
+          "critical_evidence": "Low-risk pediatric thyroid cancer has a high cure rate with more extensive resection, and lobectomy is associated with higher recurrence rates compared to total thyroidectomy.",
+          "differential_considered": "Differential diagnoses such as benign thyroid nodules or non-thyroid neck masses were considered, but the clinical context and imaging findings support malignancy, and the focus is on optimal surgical management rather than benign alternatives.",
+          "usage": {
+            "prompt_tokens": 229,
+            "generated_tokens": 186,
+            "generation_time_s": 6.496
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 59,
+            "generation_time_s": 1.435
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A) Immediate lobectomy for rapid control of symptoms (ruling it out due to potential for over-surgery in growing children); B) Standard lobectomy as first-line (ruling it out due to the need for individualized, evidence-based consideration in paediatric cases); C) Reconsideration of lobectomy in favour of alternatives (supported by the paediatric context and evolving guidelines).",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 243,
+            "generation_time_s": 7.634
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

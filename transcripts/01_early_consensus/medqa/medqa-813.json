@@ -1,0 +1,115 @@
+{
+  "sample_id": "medqa-813",
+  "dataset": "medqa",
+  "question_id": "813",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old unconscious man is brought to the emergency department by a friend who witnessed him collapse. They were working in a greenhouse spraying the vegetables when the man started to complain of blurred vision and nausea. On the way to the hospital, the man lost consciousness and lost bladder continence. The patient’s vital signs are as follows: blood pressure 95/60 mm Hg; heart rate 59/min; respiratory rate 22/min; and temperature 36.0℃ (96.8℉). On examination, he is unconscious with a GCS score of 7. His pupils are contracted and react poorly to light. Lung auscultation reveals diffuse wheezing. Cardiac auscultation is significant for bradycardia. Abdominal auscultation reveals increased bowel sounds. A cardiac monitor shows bradycardia with grade 2 AV-block. Which of the following leads to the cardiac manifestations seen in this patient?",
+    "options": {
+      "A": "Activation of M2-cholinergic receptors",
+      "B": "Inhibition of β1-adrenergic receptors",
+      "C": "Activation of β2-adrenergic receptors",
+      "D": "Activation of M1-cholinergic receptors",
+      "E": "Inhibition of M2-cholinergic receptors"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with bradycardia, AV-block, and pinpoint pupils, along with a history of exposure to a chemical in a greenhouse. This clinical picture strongly suggests organophosphate poisoning. Organophosphates inhibit acetylcholinesterase, leading to an excess of acetylcholine at cholinergic synapses. The key finding is the pinpoint pupils, which are a classic sign of excessive acetylcholine activity at the muscarinic receptors. The bradycardia and AV-block are also consistent with this mechanism.",
+          "critical_evidence": "Pinpoint pupils",
+          "differential_considered": "While other conditions could cause bradycardia and AV-block, the combination of pinpoint pupils and the history of exposure to a chemical in a greenhouse makes organophosphate poisoning the most likely diagnosis. Other possibilities like severe hypovolemia or cardiac ischemia are less likely given the specific findings.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 209,
+            "generation_time_s": 10.329
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's bradycardia with AV-block and poor pupillary light reflex suggest cholinergic toxicity, likely from organophosphate exposure (common in greenhouse spraying). M2-cholinergic receptors are primarily responsible for these effects, including sinoatrial node inhibition and pupil constriction.",
+          "critical_evidence": "Bradycardia with grade 2 AV-block on cardiac monitor",
+          "differential_considered": "Considered beta-blockers (would cause bradycardia but not AV-block), digoxin toxicity (would show different ECG pattern), and other causes of bradycardia, but organophosphate exposure best fits the combination of symptoms and findings",
+          "usage": {
+            "prompt_tokens": 488,
+            "generated_tokens": 172,
+            "generation_time_s": 8.009
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient’s presentation—unconsciousness, bradycardia, AV block, miosis, wheezing, and gastrointestinal symptoms—is classic for organophosphate poisoning. Organophosphates inhibit acetylcholinesterase, leading to accumulation of acetylcholine, which overactivates muscarinic (M2) and nicotinic receptors. M2 receptor activation in the heart causes bradycardia and AV block. The other options involve either incorrect receptor types or inhibitory effects that do not explain the observed bradycardia.",
+          "critical_evidence": "Bradycardia with grade 2 AV block is a hallmark of muscarinic (M2) receptor overstimulation due to acetylcholine accumulation from acetylcholinesterase inhibition.",
+          "differential_considered": "Other causes of bradycardia (e.g., hypothyroidism, drug overdose) were considered but ruled out by the presence of miosis, wheezing, and gastrointestinal hyperactivity, which are specific to cholinergic excess. Organophosphate poisoning is the most likely diagnosis given the context of greenhouse pesticide exposure.",
+          "usage": {
+            "prompt_tokens": 465,
+            "generated_tokens": 267,
+            "generation_time_s": 9.368
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 16,
+            "generation_time_s": 0.413
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Cholinergic activation (A, D) could cause tachycardia or other autonomic symptoms, but do not typically cause AV block. Direct stimulation of β2 receptors (C) is less likely to affect conduction in the AV node. The clinical scenario points to a toxin affecting the heart's conduction system via β1 blockade, making B the best answer.",
+          "usage": {
+            "prompt_tokens": 525,
+            "generated_tokens": 318,
+            "generation_time_s": 9.969
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-16296668",
+  "dataset": "pubmedqa_context",
+  "question_id": "16296668",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can bedside assessment reliably exclude aspiration following acute stroke?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To investigate the ability of a bedside swallowing assessment to reliably exclude aspiration following acute stroke. Consecutive patients admitted within 24 h of stroke onset to two hospitals. A prospective study. Where possible, all patients had their ability to swallow assessed on the day of admission by both a doctor and a speech and language therapist using a standardized proforma. A videofluoroscopy examination was conducted within 3 days of admission. 94 patients underwent videofluoroscopy; 20 (21%) were seen to be aspirating, although this was not detected at the bedside in 10. In 18 (22%) of the patients the speech and language therapist considered the swallow to be unsafe. In the medical assessment, 39 patients (41%) had an unsafe swallow. Bedside assessment by a speech and language therapist gave a sensitivity of 47%, a specificity of 86%, positive predictive value (PPV) of 50% and a negative predictive value (NPV) of 85% for the presence of aspiration. Multiple logistic regression was used to identify the optimum elements of the bedside assessments for predicting the presence of aspiration. A weak voluntary cough and any alteration in conscious level gave a sensitivity of 75%, specificity of 72%, PPV of 41% and NPV of 91% for aspiration.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study indicates that a bedside assessment, even with a speech and language therapist, has a relatively low sensitivity for detecting aspiration after a stroke. While it has good specificity, the low sensitivity means that many patients with aspiration will be missed by the bedside assessment. Therefore, a bedside assessment cannot reliably exclude aspiration.",
+          "critical_evidence": "The sensitivity of the bedside assessment for aspiration was only 47%.",
+          "differential_considered": "While other conditions could cause dysphagia, the study focuses specifically on aspiration after stroke. Other causes of dysphagia (e.g., neurological conditions other than stroke, structural abnormalities) are not directly addressed in the case.",
+          "usage": {
+            "prompt_tokens": 539,
+            "generated_tokens": 175,
+            "generation_time_s": 10.459
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that bedside assessment cannot reliably exclude aspiration after acute stroke. While the speech therapist's assessment had 86% specificity, 10 patients were missed despite being seen to aspirate on videofluoroscopy. The high false negative rate (10/20 = 50%) indicates the bedside assessment is not sensitive enough to rule out aspiration.",
+          "critical_evidence": "20 (21%) patients were seen to be aspirating on videofluoroscopy, but 10 were not detected at bedside, demonstrating the assessment's inability to reliably exclude aspiration",
+          "differential_considered": "Considered the possibility that bedside assessment might be sufficient, but ruled it out due to the significant number of missed cases (10/20) despite direct observation during videofluoroscopy",
+          "usage": {
+            "prompt_tokens": 526,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.785
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The bedside assessment had a sensitivity of only 47%, meaning it missed nearly half of the actual aspiration cases. Additionally, 10 out of 20 aspirating patients were not detected at the bedside, indicating poor reliability for exclusion. The NPV of 85% suggests that while a negative test is often reassuring, it is not definitive, and aspiration cannot be reliably excluded based on bedside assessment alone.",
+          "critical_evidence": "10 out of 20 aspirating patients were not detected at the bedside, and sensitivity was only 47%, indicating poor reliability for excluding aspiration.",
+          "differential_considered": "Other causes of dysphagia (e.g., neurological deficits, muscle weakness) were considered, but the key issue is the poor sensitivity of bedside assessment to detect aspiration, which is the central question.",
+          "usage": {
+            "prompt_tokens": 514,
+            "generated_tokens": 201,
+            "generation_time_s": 8.5
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The Answer is not displayed to respect the privacy of the user.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 524,
+            "generated_tokens": 14,
+            "generation_time_s": 0.433
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "A bedside assessment sensitivity of 47% for aspiration, with a much higher sensitivity of 75% only when there is a weak voluntary cough or altered consciousness, still leaves a significant chance of missing aspiration.",
+          "differential_considered": "Other causes of acute altered swallowing (e.g., dysphagia unrelated to aspiration) or neurological deficits could contribute to false-negative results, but the primary issue is the low sensitivity of the standard assessment for detecting aspiration, making it unreliable for exclusion.",
+          "usage": {
+            "prompt_tokens": 554,
+            "generated_tokens": 223,
+            "generation_time_s": 8.509
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

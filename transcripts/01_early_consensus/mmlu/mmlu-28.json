@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-28",
+  "dataset": "mmlu",
+  "question_id": "28",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A patient sustains severe blunt trauma to the left upper abdomen and requires surgery. Which one of the following organs is most likely to be involved?",
+    "options": {
+      "A": "Appendix",
+      "B": "Gallbladder",
+      "C": "Spleen",
+      "D": "Urinary bladder"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "anatomy"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Blunt abdominal trauma is most likely to cause injury to organs in the left upper quadrant. The spleen is the most commonly injured organ in this region due to its size and location. While the liver is also in the RUQ, the spleen is more vulnerable in blunt trauma.",
+          "critical_evidence": "Spleen is the most commonly injured organ in the left upper quadrant during blunt abdominal trauma.",
+          "differential_considered": "Appendix: While appendicitis can present with abdominal pain, it is less likely to be directly injured by blunt trauma. Gallbladder: Gallbladder injuries are less common in blunt trauma compared to the spleen. Urinary bladder: Bladder injuries are possible, but less likely than splenic injuries in this scenario.",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 188,
+            "generation_time_s": 9.775
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Severe blunt trauma to the left upper abdomen commonly involves the spleen due to its location in the left upper quadrant. The spleen is particularly vulnerable to injury from blunt force, which can lead to splenic rupture. While the appendix, gallbladder, and urinary bladder can also be affected by trauma, the spleen is the most frequently injured abdominal organ in blunt trauma cases, especially in the left upper quadrant.",
+          "critical_evidence": "Location of injury in the left upper abdomen",
+          "differential_considered": "Appendicitis (right lower quadrant), gallbladder injury (right upper quadrant), and urinary bladder trauma (typically involves flank pain and hematuria) were considered but ruled out due to the specific location of the trauma. The spleen's position in the left upper quadrant makes it the most likely organ involved.",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.685
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The left upper abdomen is anatomically dominated by the spleen, which is highly vulnerable to blunt trauma due to its location and lack of protective musculature. Other organs like the appendix (right lower quadrant) and gallbladder (right upper quadrant) are not in the left upper abdomen. The urinary bladder is located in the pelvis, making it less likely to be injured by upper abdominal trauma.",
+          "critical_evidence": "The location of the trauma — left upper abdomen — directly corresponds to the anatomical position of the spleen, which is the most commonly injured organ in this region during blunt trauma.",
+          "differential_considered": "Appendix and gallbladder were ruled out due to their right-sided location. Urinary bladder was ruled out due to its pelvic location. While liver injury is also possible in the right upper abdomen, the question specifies left upper abdomen, making spleen the most likely.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 215,
+            "generation_time_s": 7.81
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 282,
+            "generated_tokens": 73,
+            "generation_time_s": 1.833
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Gallbladder (B) can be injured in the left upper quadrant, but gallbladder trauma often presents with right upper quadrant pain due to its position; spleen (C) is more commonly affected in the left upper quadrant by trauma but is less likely to be the primary surgical concern in blunt trauma compared to the appendix; urinary bladder (D) is located lower and posteriorly, making it less likely to be the main focus in upper abdominal trauma.",
+          "usage": {
+            "prompt_tokens": 309,
+            "generated_tokens": 259,
+            "generation_time_s": 9.215
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

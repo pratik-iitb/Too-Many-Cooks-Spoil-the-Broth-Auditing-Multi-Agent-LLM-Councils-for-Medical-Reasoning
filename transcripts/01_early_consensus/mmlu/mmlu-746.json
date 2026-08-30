@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-746",
+  "dataset": "mmlu",
+  "question_id": "746",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "If both parents are affected with the same autosomal recessive disorder then the probability that each of their children will be affected equals ___.",
+    "options": {
+      "A": "1 in 4",
+      "B": "1 in 2",
+      "C": "2 in 3",
+      "D": "1"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "medical_genetics"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "If both parents are affected with an autosomal recessive disorder, they are both heterozygous carriers. This means each parent has one normal allele and one affected allele. Therefore, each child has a 25% (1/4) chance of inheriting the affected allele from each parent, resulting in a 1 in 4 chance of being affected.",
+          "critical_evidence": "Both parents are affected with the same autosomal recessive disorder.",
+          "differential_considered": "Autosomal dominant disorders would not present with both parents being affected. X-linked recessive disorders would present differently based on the sex of the child. Autosomal recessive disorders are the most likely given the scenario.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 174,
+            "generation_time_s": 9.126
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "When both parents are affected with an autosomal recessive disorder, each child has a 25% chance of inheriting two recessive alleles (one from each parent), resulting in the disorder. This is because each parent has a 50% chance of passing on the recessive allele, and the probability of both passing it on is 0.5 × 0.5 = 0.25, or 1 in 4.",
+          "critical_evidence": "Both parents are affected with the autosomal recessive disorder, which establishes the 50% carrier status for each parent and allows calculation of the 25% risk for affected offspring.",
+          "differential_considered": "No differential diagnoses needed - the question specifically states both parents have the autosomal recessive disorder, making this a straightforward Mendelian inheritance calculation.",
+          "usage": {
+            "prompt_tokens": 289,
+            "generated_tokens": 198,
+            "generation_time_s": 9.513
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 1024,
+            "generation_time_s": 38.725
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "<your reasoning>",
+          "critical_evidence": "<key finding>",
+          "differential_considered": "<differentials you considered and why they are ruled out>",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 73,
+            "generation_time_s": 2.167
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "Autosomal recessive disorders require two copies of the mutated allele (one from each parent) for an individual to express the disease. If both parents are affected, they each carry one mutated allele, so every child has a 25% chance of inheriting two mutated alleles and thus being affected.",
+          "critical_evidence": "Both parents are carriers (heterozygous for the recessive allele), so the probability of an affected child (homozygous recessive) is 1 in 4.",
+          "differential_considered": "Options B and C are incorrect because a recessive disorder does not increase the risk to 50% or more than 66%; D is incorrect because a single mutated allele is not sufficient for the disorder in a recessive trait.",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 189,
+            "generation_time_s": 6.134
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

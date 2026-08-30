@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1039",
+  "dataset": "mmlu",
+  "question_id": "1039",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 26-year-old woman with HIV infection comes to the office because of a 4-day history of pain and redness of her left lower leg. She says the symptoms began after she tripped over a tree branch in her yard and scraped her left leg. Current medications include antiretroviral therapy and ibuprofen as needed. Vital signs are temperature 38.3°C (100.9°F), pulse 86/min, respirations 14/min, and blood pressure 138/70 mm Hg. There is a 5×8-cm area on the anterior surface of her left lower extremity that is swollen, erythematous, and tender. She previously has developed a rash after taking erythromycin, and she has had an anaphylactic response to penicillin. Which of the following antibiotic therapies is most appropriate for this patient?",
+    "options": {
+      "A": "Amoxicillin",
+      "B": "Ciprofloxacin",
+      "C": "Clarithromycin",
+      "D": "Clindamycin"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a localized skin infection (cellulitis) on her lower leg, likely secondary to a scrape. Given her history of penicillin allergy and erythromycin-induced rash, we must avoid these antibiotics. Amoxicillin is a penicillin derivative and is contraindicated. Ciprofloxacin is a quinolone, which is generally safe in penicillin-allergic patients, but clindamycin is a good alternative for cellulitis, especially in patients with penicillin allergies. Clarithromycin is a macrolide, which is also a reasonable alternative.",
+          "critical_evidence": "The patient's history of penicillin allergy and erythromycin-induced rash makes amoxicillin and clarithromycin unsafe options.",
+          "differential_considered": "Cellulitis is the most likely diagnosis. Other considerations include impetigo, erysipelas, and abscess. However, the patient's history of penicillin allergy makes penicillin-based antibiotics like amoxicillin inappropriate. Ciprofloxacin is a reasonable alternative, but clindamycin is a better choice given the patient's allergy history.",
+          "usage": {
+            "prompt_tokens": 434,
+            "generated_tokens": 253,
+            "generation_time_s": 12.697
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a cellulitis-like presentation with erythema, swelling, and pain after trauma. Given her history of anaphylaxis to penicillin and rash with erythromycin, both penicillins and macrolides are contraindicated. Amoxicillin (A) and clarithromycin (C) are therefore ruled out due to allergy history. Ciprofloxacin (B) is a fluoroquinolone, which is not indicated for cellulitis caused by the typical streptococcal or staphylococcal bacteria. Clindamycin (D) is a lincosamide effective against anaerobic bacteria commonly involved in cellulitis and is safe for patients with penicillin allergy.",
+          "critical_evidence": "History of anaphylaxis to penicillin and rash with erythromycin",
+          "differential_considered": "Considered cellulitis (most likely), but ruled out penicillin and macrolide allergy. Fluoroquinolones are not indicated for this likely bacterial infection, leaving clindamycin as the safest and most effective choice.",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.47
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs of cellulitis (swelling, erythema, tenderness) following a trauma, with fever, and has a history of penicillin anaphylaxis and erythromycin rash, making beta-lactams and macrolides contraindicated. Clindamycin is a safe alternative with good tissue penetration and efficacy against common skin pathogens including Streptococcus pyogenes and Staphylococcus aureus, including some MRSA strains. It is also preferred in HIV patients with cellulitis due to its safety profile and effectiveness.",
+          "critical_evidence": "History of penicillin anaphylaxis and erythromycin rash, which rules out amoxicillin and clarithromycin.",
+          "differential_considered": "Deep vein thrombosis (DVT) was considered but ruled out by absence of calf pain, Homan’s sign, or distal edema; osteomyelitis was considered but not supported by localized bone tenderness or fever pattern; cellulitis is the most likely diagnosis given acute onset, localized erythema, and trauma history.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 259,
+            "generation_time_s": 9.248
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 438,
+            "generated_tokens": 11,
+            "generation_time_s": 0.296
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "History of anaphylactic reaction to penicillin",
+          "differential_considered": "Alternatives such as amoxicillin (beta-lactam), clarithromycin (macrolide), and clindamycin (lincosamide) are contraindicated due to potential allergic cross-reactivity with penicillin. The symptoms suggest an acute infection, for which antibiotics like ciprofloxacin (fluoroquinolone) are appropriate and safe in this context.",
+          "usage": {
+            "prompt_tokens": 472,
+            "generated_tokens": 339,
+            "generation_time_s": 10.877
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

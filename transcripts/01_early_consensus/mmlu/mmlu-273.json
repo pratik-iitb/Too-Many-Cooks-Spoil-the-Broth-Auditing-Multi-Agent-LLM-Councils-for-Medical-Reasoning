@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-273",
+  "dataset": "mmlu",
+  "question_id": "273",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "What is the risk if water is used for bladder washout in secondary care?",
+    "options": {
+      "A": "Fluid may bypass when the washout is carried out.",
+      "B": "Bladder washout may be unsuccessful.",
+      "C": "Using water may cause electrolyte imbalance.",
+      "D": "The medical staff may be unhappy."
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "clinical_knowledge"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Using water for bladder washout in secondary care can lead to electrolyte imbalance due to the potential for significant fluid loss and dilution of electrolytes. This is a common concern in patients who may already be dehydrated or have electrolyte abnormalities.",
+          "critical_evidence": "Using water may cause electrolyte imbalance.",
+          "differential_considered": "A: Fluid may bypass when the washout is carried out. While possible, this is more related to the technique of the washout than the fluid used. B: Bladder washout may be unsuccessful. This is a general concern with any washout procedure, not specific to the fluid used. D: The medical staff may be unhappy. This is irrelevant to the medical risk.",
+          "usage": {
+            "prompt_tokens": 290,
+            "generated_tokens": 178,
+            "generation_time_s": 13.678
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Bladder washout using water can lead to electrolyte imbalance because water lacks essential electrolytes like sodium and potassium. When water is used for bladder irrigation, it can dilute the body's electrolyte levels, potentially causing hyponatremia or hypokalemia, especially in patients with compromised kidney function or those receiving other fluids. This is a significant risk in secondary care settings where patients may have underlying conditions that affect electrolyte balance.",
+          "critical_evidence": "Water lacks essential electrolytes needed for proper cellular function and fluid balance in the body.",
+          "differential_considered": "Other options (A, B, D) are possible but less clinically significant. Fluid bypass is a mechanical issue, not an electrolyte problem. Washout failure and staff unhappiness are secondary concerns compared to the potential for electrolyte imbalance, which directly affects patient safety.",
+          "usage": {
+            "prompt_tokens": 291,
+            "generated_tokens": 219,
+            "generation_time_s": 11.329
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "In secondary care, bladder washout is often performed for conditions like urinary tract infections or bladder irrigation after surgery. Using plain water can lead to electrolyte imbalances, particularly hyponatremia, due to dilution of serum electrolytes. This is a well-documented risk in clinical guidelines, especially when large volumes are used without isotonic solutions. Other options are either irrelevant or not clinically significant.",
+          "critical_evidence": "Clinical guidelines recommend isotonic solutions (e.g., normal saline) for bladder washout to prevent electrolyte disturbances.",
+          "differential_considered": "Options A and B are not primary concerns; fluid bypass is a procedural issue, and failure is context-dependent. Option D is subjective and not clinically relevant. Electrolyte imbalance is the only evidence-based, systemic risk.",
+          "usage": {
+            "prompt_tokens": 262,
+            "generated_tokens": 192,
+            "generation_time_s": 7.323
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 289,
+            "generated_tokens": 88,
+            "generation_time_s": 2.266
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B and D are not directly related to the physiologic effect of water irrigation; C is relevant only if non-water solutions were used. The case focuses on the use of water, making A the best answer.",
+          "usage": {
+            "prompt_tokens": 320,
+            "generated_tokens": 196,
+            "generation_time_s": 9.583
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "C": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

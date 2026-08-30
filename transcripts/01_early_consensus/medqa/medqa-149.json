@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-149",
+  "dataset": "medqa",
+  "question_id": "149",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old primigravida schedules an appointment with her obstetrician for a regular check-up. She says that everything is fine, although she reports that her baby has stopped moving as much as previously. She is 22 weeks gestation. She denies any pain or vaginal bleeding. The obstetrician performs an ultrasound and also orders routine blood and urine tests. On ultrasound, there is no fetal cardiac activity or movement. The patient is asked to wait for 1 hour, after which the scan is to be repeated. The second scan shows the same findings. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Missed abortion",
+      "B": "Fetal demise",
+      "C": "Incomplete abortion",
+      "D": "Complete abortion",
+      "E": "Ectopic pregnancy"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is 22 weeks pregnant and reports a significant decrease in fetal movement. The ultrasound shows no fetal cardiac activity or movement, indicating fetal demise. This is a serious finding that requires immediate attention.",
+          "critical_evidence": "No fetal cardiac activity or movement on ultrasound.",
+          "differential_considered": "Missed abortion: While possible, the lack of any fetal activity makes this less likely. Incomplete/complete abortion: These typically involve bleeding and cramping, which the patient denies. Ectopic pregnancy: This is highly unlikely at 22 weeks gestation. The patient is also a primigravida, making ectopic pregnancy less probable.",
+          "usage": {
+            "prompt_tokens": 392,
+            "generated_tokens": 173,
+            "generation_time_s": 8.674
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The absence of fetal cardiac activity and movement on two consecutive ultrasounds at 22 weeks gestation strongly suggests fetal demise. While missed abortion typically occurs later in pregnancy, the combination of no fetal movement and no cardiac activity at this gestational age points more toward fetal death. Complete abortion would imply the products of conception have been expelled, which is not indicated here since the patient is still gestating. Ectopic pregnancy would usually present with pain or bleeding, which are absent. Incomplete abortion would typically involve some fetal tissue remaining, but again, the patient is still pregnant. The most consistent finding supporting fetal demise is the lack of fetal movement and cardiac activity on repeat ultrasound.",
+          "critical_evidence": "No fetal cardiac activity or movement on two consecutive ultrasounds",
+          "differential_considered": "Missed abortion was considered but ruled out due to gestational age; complete/incomplete abortion were ruled out as the patient remains pregnant; ectopic pregnancy was ruled out due to absence of pain/bleeding",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.446
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The patient is at 22 weeks gestation, and ultrasound confirms absence of fetal cardiac activity and movement after a 1-hour wait, indicating fetal demise. This is consistent with intrauterine fetal death (IUFD), which is the most likely diagnosis at this gestational age. The absence of pain or bleeding rules out active abortion types (C and D), and the fetus is intrauterine, not ectopic (E). Missed abortion (A) typically occurs earlier, before 20 weeks, and is often asymptomatic until detected on ultrasound.",
+          "critical_evidence": "Ultrasound at 22 weeks showing no fetal cardiac activity or movement after a 1-hour wait.",
+          "differential_considered": "Missed abortion (A) is less likely because it usually occurs before 20 weeks and is often asymptomatic; ectopic pregnancy (E) is ruled out by intrauterine location; incomplete/complete abortion (C/D) are associated with pain and bleeding, which are absent here.",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 237,
+            "generation_time_s": 8.294
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 10,
+            "generation_time_s": 0.266
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "The key finding is the absence of fetal cardiac activity and movement on two consecutive ultrasound exams at 22 weeks gestation. This strongly suggests that the fetus is no longer viable, which is characteristic of fetal demise. Other options like missed abortion or incomplete abortion refer to miscarriage with partial fetal loss, which typically presents with ongoing fetal heart activity until the very end. Ectopic pregnancy would likely show an adnexal mass and may have variable fetal heart rates but not complete absence of movement at this gestational age. Thus, the most likely diagnosis is fetal demise.",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 419,
+            "generated_tokens": 245,
+            "generation_time_s": 7.699
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-568",
+  "dataset": "medqa",
+  "question_id": "568",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Which of the following physiologic changes decreases pulmonary vascular resistance (PVR)?",
+    "options": {
+      "A": "Inhaling the inspiratory reserve volume (IRV)",
+      "B": "Exhaling the expiratory reserve volume (ERV)",
+      "C": "Inhaling the entire vital capacity (VC)",
+      "D": "Exhaling the entire vital capacity (VC)",
+      "E": "Breath holding maneuver at functional residual capacity (FRC)"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Inhaling the inspiratory reserve volume (IRV) increases lung volume, which leads to increased alveolar ventilation and a decrease in PCO2. This, in turn, causes pulmonary vasodilation, thus decreasing PVR. Exhaling air (options B, C, D, and E) would have the opposite effect, increasing PVR.",
+          "critical_evidence": "Inhaling IRV increases lung volume and alveolar ventilation, leading to decreased PCO2 and pulmonary vasodilation.",
+          "differential_considered": "Exhaling air (options B, C, D, and E) would increase PVR by decreasing lung volume and alveolar ventilation, leading to increased PCO2 and pulmonary vasoconstriction. Breath-holding at FRC would also increase PVR by decreasing lung volume and alveolar ventilation.",
+          "usage": {
+            "prompt_tokens": 317,
+            "generated_tokens": 207,
+            "generation_time_s": 10.273
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Inhaling the inspiratory reserve volume (IRV) increases lung volume, which reduces the transpulmonary pressure gradient and thus decreases pulmonary vascular resistance (PVR). This is because increased lung volume leads to more alveolar expansion, which reduces the pressure difference between the pulmonary artery and the alveoli, thereby lowering PVR. The other options either involve exhaling (which increases PVR) or breath-holding (which may not directly affect PVR in a consistent manner).",
+          "critical_evidence": "Inhaling IRV increases lung volume, which reduces the transpulmonary pressure gradient and thus decreases PVR.",
+          "differential_considered": "Options B, C, D, and E involve exhaling or breath-holding, which either increase PVR or have variable effects, making them less likely to decrease PVR compared to inhaling IRV.",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 211,
+            "generation_time_s": 9.856
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "Inhaling the entire vital capacity (VC) maximizes lung volume, which increases alveolar surface area and promotes optimal ventilation-perfusion matching. This leads to decreased pulmonary vascular resistance (PVR) due to recruitment of pulmonary vessels and reduced vasoconstriction. Other maneuvers like ERV or breath holding do not produce the same degree of vasodilation or vascular recruitment.",
+          "critical_evidence": "Maximal lung inflation (VC) reduces PVR by promoting alveolar distension and pulmonary vasodilation, a well-established physiologic response.",
+          "differential_considered": "Breath holding (E) may transiently increase PVR due to hypoxia-induced vasoconstriction; ERV (B) and exhalation (D) reduce lung volume and may increase PVR; IRV (A) is a maximal inspiratory maneuver but not as effective as full VC in reducing PVR.",
+          "usage": {
+            "prompt_tokens": 287,
+            "generated_tokens": 218,
+            "generation_time_s": 7.67
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 314,
+            "generated_tokens": 91,
+            "generation_time_s": 2.218
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 346,
+            "generated_tokens": 285,
+            "generation_time_s": 8.976
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "C": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

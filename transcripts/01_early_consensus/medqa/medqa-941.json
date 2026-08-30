@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-941",
+  "dataset": "medqa",
+  "question_id": "941",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 74-year-old man is brought from a nursing home to the emergency room for progressive confusion. The patient has a history of stroke 3 years ago, which rendered him wheelchair-bound. He was recently started on clozapine for schizothymia disorder. Vital signs reveal a temperature of 38.7°C (101.66°F), a blood pressure of 100/72 mm Hg, and a pulse of 105/minute. On physical examination, he is disoriented to place and time. Initial lab work-up results are shown:\nSerum glucose: 945 mg/dL\nSerum sodium: 120 mEq/L\nSerum urea: 58 mg/dL\nSerum creatinine: 2.2 mg/dL\nSerum osmolality: 338 mOsm/kg\nSerum beta-hydroxybutyrate: negative\nUrinalysis reveals: numerous white blood cells and trace ketones\nWhich of the following manifestations is more likely to be present in this patient?",
+    "options": {
+      "A": "Fruity odor of the breath",
+      "B": "Abdominal pain",
+      "C": "Seizures",
+      "D": "Nausea or vomiting",
+      "E": "Rapid deep breathing"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyperglycemia (glucose 945 mg/dL), hyperosmolality (338 mOsm/kg), and hyponatremia (120 mEq/L). The negative beta-hydroxybutyrate rules out diabetic ketoacidosis (DKA). The clinical picture is most consistent with Hyperosmolar Hyperglycemic State (HHS). A key feature of HHS is rapid, deep breathing (Kussmaul respirations) as the body attempts to compensate for the severe hyperglycemia and hyperosmolality.",
+          "critical_evidence": "Hyperosmolality (338 mOsm/kg) and negative beta-hydroxybutyrate strongly suggest HHS.",
+          "differential_considered": "Fruity odor of the breath (DKA), Abdominal pain (DKA, other metabolic disorders), Seizures (various metabolic disorders), Nausea or vomiting (various metabolic disorders). DKA is less likely given the negative beta-hydroxybutyrate. While other metabolic disorders could present with some of these symptoms, the combination of hyperglycemia, hyperosmolality, and hyponatremia points most strongly to HHS.",
+          "usage": {
+            "prompt_tokens": 492,
+            "generated_tokens": 276,
+            "generation_time_s": 13.641
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's elevated serum glucose (945 mg/dL) and trace ketones in urine strongly suggest diabetic ketoacidosis (DKA), a metabolic acidosis characterized by ketone production. Clozapine use can impair insulin secretion, increasing risk of hyperglycemia. The fruity odor of breath is a classic manifestation of DKA due to acetone-like ketones on exhalation.",
+          "critical_evidence": "Serum glucose: 945 mg/dL and trace ketones in urinalysis",
+          "differential_considered": "Considered electrolyte imbalance (hypernatremia), but serum sodium (120 mEq/L) is normal. Considered infection or sepsis, but no fever and negative beta-hydroxybutyrate ruled out DKA. Considered clozapine toxicity, but metabolic acidosis is more consistent with DKA than antipsychotic toxicity.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 214,
+            "generation_time_s": 9.965
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with hyperglycemia (945 mg/dL), hyponatremia (120 mEq/L), and elevated serum osmolality (338 mOsm/kg), consistent with hyperosmolar hyperglycemic state (HHS). HHS is commonly associated with type 2 diabetes and is often precipitated by infection or medications like clozapine. While neurological symptoms (confusion) and dehydration are prominent, abdominal pain is a common presenting symptom in HHS, especially when associated with underlying infection or metabolic derangement. The absence of ketones (negative beta-hydroxybutyrate) rules out diabetic ketoacidosis, making HHS the most likely diagnosis. Other options like fruity breath (DKA), rapid deep breathing (Kussmaul respirations, DKA), or seizures (HHS can cause seizures but less commonly) are less specific or less likely in this context.",
+          "critical_evidence": "Serum glucose 945 mg/dL, serum sodium 120 mEq/L, and serum osmolality 338 mOsm/kg are diagnostic of hyperosmolar hyperglycemic state (HHS), which commonly presents with abdominal pain as a key symptom.",
+          "differential_considered": "Diabetic ketoacidosis (DKA) was considered but ruled out by negative beta-hydroxybutyrate. Other causes of hyperglycemia (e.g., drug-induced, infection) were considered, but the constellation of findings points to HHS. Clozapine-induced hyperglycemia is a known risk factor, and infection (evidenced by fever) is a common precipitant.",
+          "usage": {
+            "prompt_tokens": 471,
+            "generated_tokens": 379,
+            "generation_time_s": 13.277
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 15,
+            "generation_time_s": 0.389
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "Serum glucose of 945 mg/dL is significantly elevated and is a hallmark of clozapine-induced hyperglycemia and DKA.",
+          "differential_considered": "Other possibilities include drug-induced hypotensive or metabolic syndrome from age, but the combination of very high glucose, ketonuria, and the use of clozapine strongly points to clozapine-induced DKA, which classically presents with fruity breath odor. A seizure or abdominal pain could occur in DKA but are not the most specific or immediate clues in this presentation.",
+          "usage": {
+            "prompt_tokens": 520,
+            "generated_tokens": 305,
+            "generation_time_s": 9.606
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

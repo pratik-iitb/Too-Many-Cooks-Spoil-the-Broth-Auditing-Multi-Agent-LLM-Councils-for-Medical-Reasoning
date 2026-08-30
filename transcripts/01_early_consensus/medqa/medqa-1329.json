@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1329",
+  "dataset": "medqa",
+  "question_id": "1329",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 76-year-old woman seeks evaluation at a medical office for chest pain and shortness of breath on exertion of 3 months' duration. Physical examination shows bilateral pitting edema on the legs. On auscultation, diffuse crackles are heard over the lower lung fields. Cardiac examination shows jugular venous distention and an S3 gallop. Troponin is undetectable. A chest film shows cardiomegaly and pulmonary edema. Which of the following medications would be effective in lowering her risk of mortality?",
+    "options": {
+      "A": "Digoxin",
+      "B": "Furosemide",
+      "C": "Lisinopril",
+      "D": "Propranolol",
+      "E": "Verapamil"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs and symptoms consistent with heart failure, including chest pain, shortness of breath, bilateral edema, crackles, jugular venous distention, S3 gallop, cardiomegaly, and pulmonary edema. ACE inhibitors like lisinopril are first-line therapy for heart failure with reduced ejection fraction (HFrEF) as they reduce mortality and morbidity by reducing afterload and preventing cardiac remodeling. Digoxin, verapamil, and propranolol are not first-line treatments and may even be harmful in this setting.",
+          "critical_evidence": "The presence of heart failure symptoms (edema, crackles, JVD, S3 gallop, cardiomegaly, pulmonary edema) strongly suggests a need for an ACE inhibitor.",
+          "differential_considered": "While the patient's presentation could be consistent with other conditions like angina or pulmonary embolism, the constellation of findings points most strongly towards heart failure. Therefore, the focus should be on managing the heart failure, and ACE inhibitors are the most appropriate initial therapy to reduce mortality in this scenario.",
+          "usage": {
+            "prompt_tokens": 368,
+            "generated_tokens": 258,
+            "generation_time_s": 12.746
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with heart failure symptoms (chest pain, dyspnea on exertion), pulmonary edema, and cardiomegaly. The presence of an S3 gallop and jugular venous distention further supports left ventricular dysfunction. While digoxin (A) is used for heart failure, it's primarily for symptomatic relief. Propranolol (D) and verapamil (E) are beta blockers and calcium channel blockers, respectively, which are not first-line for heart failure. Furosemide (B) is a diuretic that addresses fluid overload but doesn't reduce mortality risk. Lisinopril (C) is an ACE inhibitor that improves outcomes in heart failure by reducing mortality through neurohormonal pathways.",
+          "critical_evidence": "The presence of pulmonary edema and cardiomegaly on chest film strongly indicates heart failure, and ACE inhibitors are proven to reduce mortality in this condition.",
+          "differential_considered": "Considered: pulmonary embolism (ruled out by normal troponin), myocardial infarction (ruled out by normal troponin), valvular heart disease (not indicated by findings), cardiomyopathy (not specified).",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.378
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with signs and symptoms of heart failure (bilateral edema, crackles, JVD, S3 gallop, cardiomegaly, pulmonary edema), and troponin is undetectable, suggesting no acute myocardial infarction. ACE inhibitors like lisinopril are first-line for reducing mortality in chronic heart failure with reduced ejection fraction, especially in patients with NYHA class II-IV symptoms. Other options like digoxin, furosemide, propranolol, and verapamil have symptomatic or supportive roles but are not mortality-reducing agents in this context.",
+          "critical_evidence": "Cardiomegaly, pulmonary edema, and S3 gallop on exam, along with troponin being undetectable, point to chronic heart failure without acute myocardial injury, making ACE inhibitors the mortality-reducing therapy of choice.",
+          "differential_considered": "Acute coronary syndrome was considered but ruled out by undetectable troponin. Pulmonary embolism was considered but unlikely given the chronicity and absence of pleuritic pain or hypoxia. Constrictive pericarditis or restrictive cardiomyopathy were considered but not supported by the clinical picture.",
+          "usage": {
+            "prompt_tokens": 351,
+            "generated_tokens": 287,
+            "generation_time_s": 10.05
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 377,
+            "generated_tokens": 360,
+            "generation_time_s": 8.599
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "S3 gallop and pulmonary edema with a 76-year-old woman's symptoms of heart failure",
+          "differential_considered": "HFrEF (likely heart failure with reduced ejection fraction), hypertension (for which C and D are used), but the best mortality-reducing therapy in HFrEF is often a combination of ACE inhibitors or ARBs and beta-blockers; however, verapamil directly improves cardiac hemodynamics in this setting and is a recognized therapy for heart failure, making E the best choice among the given options for lowering mortality risk.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 432,
+            "generation_time_s": 13.446
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-522",
+  "dataset": "medqa",
+  "question_id": "522",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old man is brought to the emergency department following a house fire. Following initial stabilization, the patient is transferred to the ICU for management of his third-degree burn injuries. On the second day of hospitalization, a routine laboratory panel is obtained, and the results are demonstrated below. Per the nurse, he remains stable compared to the day prior. His temperature is 99°F (37°C), blood pressure is 92/64 mmHg, pulse is 98/min, respirations are 14/min, and SpO2 is 98%. A physical examination demonstrates an unresponsive patient with extensive burn injuries throughout his torso and lower extremities.\n\nHemoglobin: 13 g/dL\nHematocrit: 36%\nLeukocyte count: 10,670/mm^3 with normal differential\nPlatelet count: 180,000/mm^3\n\nSerum:\nNa+: 135 mEq/L\nCl-: 98 mEq/L\nK+: 4.7 mEq/L\nHCO3-: 25 mEq/L \nBUN: 10 mg/dL \nGlucose: 123 mg/dL\nCreatinine: 1.8 mg/dL\nThyroid-stimulating hormone: 4.3 µU/mL\nTriiodothyronine: 48 ng/dL\nThyroxine: 10 ug/dL\nCa2+:  8.7 mg/dL\nAST: 89 U/L\nALT: 135 U/L\n\nWhat is the best course of management for this patient?",
+    "options": {
+      "A": "Continued management of his burn wounds",
+      "B": "Immediate administration of propanolol",
+      "C": "Increase opioid dosage",
+      "D": "Regular levothyroxine sodium injections",
+      "E": "Start patient on intravenous ceftriaxone and vancomycin"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a burn victim with extensive injuries and is currently stable. The primary focus should be on managing the burn wounds and preventing complications such as infection. While other options might be considered later, they are not the priority at this stage.",
+          "critical_evidence": "The patient's stable vital signs and the primary focus on burn wound management.",
+          "differential_considered": "While infection is a concern in burn patients, the current lab results do not indicate a need for immediate broad-spectrum antibiotics. The patient's stable condition and lack of signs of sepsis make this option less urgent than wound care.",
+          "usage": {
+            "prompt_tokens": 641,
+            "generated_tokens": 165,
+            "generation_time_s": 8.185
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's primary presentation is third-degree burn injuries requiring intensive wound care. His vital signs are stable, and laboratory values are within normal ranges except for slightly elevated AST and ALT, which are common in burn patients due to tissue injury and inflammation. There is no evidence of infection, sepsis, or endocrine dysfunction requiring immediate intervention. Propanolol (B), opioid adjustment (C), thyroid replacement therapy (D), and antibiotics (E) are not indicated at this time. Continued burn wound management (A) is the most appropriate initial step.",
+          "critical_evidence": "Extensive burn injuries throughout torso and lower extremities with stable vital signs and normal laboratory values except for expected elevated liver enzymes",
+          "differential_considered": "Considered sepsis, endocrine disorders, and pain management needs, but ruled out due to lack of evidence of infection, metabolic derangement, or pain requiring opioid escalation",
+          "usage": {
+            "prompt_tokens": 615,
+            "generated_tokens": 218,
+            "generation_time_s": 10.19
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is stable with no signs of infection, sepsis, or thyroid dysfunction. His lab values are largely within normal limits, and his unresponsiveness is likely due to burn-induced cerebral edema or sedation, not an acute metabolic or infectious process. No evidence supports the need for antibiotics, beta-blockers, opioids, or thyroid replacement.",
+          "critical_evidence": "The patient is stable hemodynamically, has normal inflammatory markers, and no signs of sepsis or thyroid dysfunction; thus, routine burn wound care remains the priority.",
+          "differential_considered": "Sepsis was considered but ruled out by normal WBC, temperature, and lack of systemic signs; thyroid dysfunction was considered but ruled out by normal TSH, T3, and T4; infection was considered but no fever or localized signs; no indication for antibiotics or opioids.",
+          "usage": {
+            "prompt_tokens": 615,
+            "generated_tokens": 205,
+            "generation_time_s": 7.22
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 613,
+            "generated_tokens": 19,
+            "generation_time_s": 0.492
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a burn victim with an unresponsive mental status, elevated creatinine (1.8 mg/dL), and mildly elevated glucose (123 mg/dL). These findings suggest possible hypothyroid secondary to chronic stress or iatrogenic effects from the burn injury, which can impair thermoregulation and cause lethargy or coma. While burn management is critical, the most concerning issue here is the altered thyroid function, requiring replacement therapy rather than acute burn care or antibiotics.",
+          "critical_evidence": "Thyroid-stimulating hormone is elevated (4.3 µU/mL) with low free T4 (10 µg/dL) and normal T3 (48 ng/dL), indicating primary hypothyroidism likely needing treatment.",
+          "differential_considered": "Other differentials such as sepsis, electrolyte disturbance, or drug toxicity were less supported by the labs; the thyroid function abnormalities are the most directly relevant to his current unresponsiveness and general instability in the context of a burn injury.",
+          "usage": {
+            "prompt_tokens": 672,
+            "generated_tokens": 243,
+            "generation_time_s": 7.671
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "D": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

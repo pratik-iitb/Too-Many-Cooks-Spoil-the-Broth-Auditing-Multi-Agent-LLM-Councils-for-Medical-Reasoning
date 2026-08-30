@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1260",
+  "dataset": "medqa",
+  "question_id": "1260",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 2-month-old infant boy is brought into the clinic for a well-child check. Mom reports a healthy pregnancy with no complications. Though she said the ultrasound technician saw “some white deposits in his brain” during a prenatal check, mom was not concerned. The baby was delivered at 38 weeks of gestation during a home birth. When asked if there were any problems with the birthing process, mom denied any difficulties except that “he was small and had these blue dots all over.” Physical exam was unremarkable except for the absence of object tracking. What other finding would you expect?",
+    "options": {
+      "A": "Continuous machine-like murmur",
+      "B": "Hutchinson teeth",
+      "C": "Limb hypoplasia",
+      "D": "Sensorineural hearing loss",
+      "E": "Skin vesicles"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a 2-month-old infant with absent object tracking and a history of",
+          "critical_evidence": "Absent object tracking and history of 'white deposits in the brain' during prenatal ultrasound.",
+          "differential_considered": "A: Continuous machine-like murmur (could be associated with congenital heart defects, but less specific to Down syndrome), B: Hutchinson teeth (associated with Down syndrome, but not always present), D: Sensorineural hearing loss (common in Down syndrome, but not the most specific finding), E: Skin vesicles (not typically associated with Down syndrome.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 217,
+            "generation_time_s": 10.768
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The absence of object tracking in a 2-month-old infant suggests possible sensorineural hearing loss, which is a common finding in infants with prenatal brain abnormalities. The 'blue dots' mentioned by the mother could be petechiae or other skin findings, but the absence of object tracking is a strong indicator of auditory processing issues. While the prenatal ultrasound finding of 'white deposits' in the brain is concerning, the absence of other neurological findings like limb hypoplasia or Hutchinson teeth makes sensorineural hearing loss the most likely explanation. The continuous machine-like murmur and skin vesicles are less likely given the clinical presentation.",
+          "critical_evidence": "Absence of object tracking in a 2-month-old infant",
+          "differential_considered": "Limb hypoplasia and Hutchinson teeth were considered but ruled out due to lack of supporting evidence. A continuous machine-like murmur could suggest cardiac issues, but no cardiac findings were mentioned. Skin vesicles are less likely given the absence of skin findings. Sensorineural hearing loss remains the most supported diagnosis.",
+          "usage": {
+            "prompt_tokens": 391,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.698
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The infant’s prenatal ultrasound finding of 'white deposits in the brain' and postnatal absence of object tracking strongly suggest congenital cytomegalovirus (CMV) infection, which commonly causes sensorineural hearing loss. The 'blue dots' likely refer to petechiae, which can occur in CMV infection, and the infant’s small size may reflect intrauterine growth restriction. Other findings like Hutchinson teeth or limb hypoplasia are more associated with congenital syphilis or other syndromes, not CMV. A continuous machine-like murmur is not typical, and skin vesicles are more suggestive of varicella or other viral exanthems.",
+          "critical_evidence": "Absence of object tracking + prenatal brain white deposits = high likelihood of congenital CMV, which classically presents with sensorineural hearing loss.",
+          "differential_considered": "Congenital syphilis (ruled out by absence of Hutchinson teeth, rhagades, or limb hypoplasia), congenital toxoplasmosis (less likely without hydrocephalus or chorioretinitis), and congenital varicella (ruled out by absence of vesicles).",
+          "usage": {
+            "prompt_tokens": 363,
+            "generated_tokens": 276,
+            "generation_time_s": 9.701
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 389,
+            "generated_tokens": 13,
+            "generation_time_s": 0.34
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other findings like continuous murmur (A) suggest cardiac issues, Hutchinson's teeth (B) is a dental sign, limb hypoplasia (C) suggests skeletal anomaly, and skin vesicles (E) would indicate infection. None directly explain the lack of object tracking except for possible hearing impairment, which is common in preterm infants and can be subtle early on.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 272,
+            "generation_time_s": 8.586
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "D": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

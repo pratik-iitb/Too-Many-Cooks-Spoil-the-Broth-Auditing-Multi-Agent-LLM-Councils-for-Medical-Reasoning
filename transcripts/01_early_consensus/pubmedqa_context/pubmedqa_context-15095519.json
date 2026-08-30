@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-15095519",
+  "dataset": "pubmedqa_context",
+  "question_id": "15095519",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Are patients with diabetes receiving the same message from dietitians and nurses?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The purpose of this study was to determine if registered dietitian (RD) and registered nurse (RN) certified diabetes educators (CDEs) provide similar recommendations regarding carbohydrates and dietary supplements to individuals with diabetes. A survey was mailed to CDEs in the southern United States. Participants were asked to indicate their recommendations for use of carbohydrates, fiber, artificial sweeteners, and 12 selected dietary and herbal supplements when counseling individuals with diabetes. The survey sample consisted of 366 CDEs: 207 were RNs and 159 were RDs. No statistically significant differences were found between RNs and RDs in typical carbohydrate recommendations for treatment of diabetes. However, RDs were more likely than RNs to make recommendations for fiber intake or use of the glycemic index. A significant difference also was found in the treatment of hypoglycemia: RNs were more likely than RDs to recommend consuming a carbohydrate source with protein to treat hypoglycemia.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that RDs were more likely to recommend fiber intake and the glycemic index compared to RNs. RNs were more likely to recommend consuming a carbohydrate source with protein to treat hypoglycemia. These findings suggest that there are differences in recommendations between dietitians and nurses, even though there was no significant difference in carbohydrate recommendations.",
+          "critical_evidence": "RDs were more likely than RNs to make recommendations for fiber intake or use of the glycemic index.",
+          "differential_considered": "While the study focused on carbohydrate and supplement recommendations, other aspects of diabetes management (e.g., exercise, medication adherence) might differ. However, the specific recommendations for fiber and glycemic index, along with the hypoglycemia treatment strategy, provide strong evidence for a difference in messaging.",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 197,
+            "generation_time_s": 11.605
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that RDs and RNs provide different recommendations for managing diabetes. RDs were more likely to recommend fiber and glycemic index, while RNs were more likely to recommend consuming carbohydrates with protein for hypoglycemia. These differences indicate that patients may receive inconsistent messages from dietitians and nurses.",
+          "critical_evidence": "RDs and RNs provided different recommendations for fiber intake, glycemic index, and hypoglycemia treatment",
+          "differential_considered": "No other factors were considered as the question specifically asks about differences between RDs and RNs",
+          "usage": {
+            "prompt_tokens": 459,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.185
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found statistically significant differences in recommendations between RDs and RNs, particularly regarding fiber, glycemic index, and hypoglycemia treatment. Since the messages are not identical across professions, the answer is 'no'.",
+          "critical_evidence": "RNs were more likely than RDs to recommend consuming a carbohydrate source with protein to treat hypoglycemia, indicating a divergence in clinical messaging.",
+          "differential_considered": "Considered 'maybe' (C) due to similar carbohydrate advice, but significant differences in fiber, glycemic index, and hypoglycemia treatment rule out uniform messaging.",
+          "usage": {
+            "prompt_tokens": 437,
+            "generated_tokens": 158,
+            "generation_time_s": 6.612
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 457,
+            "generated_tokens": 82,
+            "generation_time_s": 2.377
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Possible differentials include variations in training or emphasis between RDs and RNs, but the survey directly compares their recommendations and reveals discrepancies, which is more relevant to the question asked.",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 216,
+            "generation_time_s": 8.206
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

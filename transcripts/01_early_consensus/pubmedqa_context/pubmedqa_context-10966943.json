@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-10966943",
+  "dataset": "pubmedqa_context",
+  "question_id": "10966943",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Amblyopia: is visual loss permanent?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "The records of 465 patients with an established diagnosis of age related macular degeneration who had attended a specialist macular clinic between 1990 and 1998 were scrutinised. A full clinical examination and standardised refraction had been carried out in 189 of these cases on a minimum of two occasions. Cases were looked for where an improvement of one or more lines of either distance or near acuity was recorded in the eye unaffected by macular disease. In each one of these cases the improvement in visual acuity could not be attributed to treatment of other existing pathology. 12 such cases were detected. In nine of these the eye showing improvement of acuity had a history of amblyopia. The mean improvement in distance and near acuity in amblyopic eyes by 12 months was 3.3 and 1.9 lines logMAR respectively. The improvement in acuity generally occurred between 1 and 12 months from baseline and remained stable over the period of follow up.",
+    "correct_option": "B",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a study of patients with age-related macular degeneration (AMD) who experienced improvement in visual acuity in the unaffected eye. The improvement was specifically linked to a history of amblyopia in nine of the cases. This suggests that amblyopia can be treated and that the visual loss is not necessarily permanent.",
+          "critical_evidence": "The study found that 12 cases of improvement in visual acuity in the unaffected eye were detected, and nine of these cases had a history of amblyopia.",
+          "differential_considered": "While the case focuses on amblyopia, other conditions that could cause improvement in vision in the unaffected eye were considered. However, the study specifically looked for improvement in the unaffected eye *not* attributable to other pathology, making amblyopia the most likely explanation for the observed improvement.",
+          "usage": {
+            "prompt_tokens": 460,
+            "generated_tokens": 210,
+            "generation_time_s": 10.316
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study found that in 9 out of 12 cases where visual acuity improved, the eye with amblyopia showed improvement, suggesting that amblyopia may not cause permanent visual loss. The mean improvement in acuity was significant, and the changes remained stable over time, indicating that visual function can be restored in amblyopic eyes.",
+          "critical_evidence": "The documented improvement in visual acuity in 9 out of 12 cases with a history of amblyopia demonstrates that amblyopia does not necessarily result in permanent visual loss.",
+          "differential_considered": "Other causes of visual loss such as macular degeneration were ruled out as the improvement in acuity could not be attributed to treatment of other existing pathology. The focus on amblyopia-specific cases strengthens the conclusion that amblyopia is not inherently permanent.",
+          "usage": {
+            "prompt_tokens": 458,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.096
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The case describes improvement in visual acuity in amblyopic eyes following a period of observation, suggesting that amblyopia may not be permanently fixed. The improvement was stable over follow-up, indicating potential for recovery even after a diagnosis of amblyopia. This contradicts the notion of permanent visual loss.",
+          "critical_evidence": "In nine of the 12 cases, amblyopic eyes showed measurable improvement in acuity (mean 3.3 lines distance acuity) that remained stable over time, indicating reversibility.",
+          "differential_considered": "Other causes of visual loss such as macular degeneration were ruled out as the improvement was not attributable to treatment of other pathology, and the study specifically focused on amblyopia-related improvement.",
+          "usage": {
+            "prompt_tokens": 440,
+            "generated_tokens": 183,
+            "generation_time_s": 7.682
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 61,
+            "generation_time_s": 1.776
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "- \"A: yes\": This would require evidence that amblyopia is reversible, which the case does not provide.\n    - \"B: no\": This would require evidence that amblyopia is always permanent, but the case shows a rare exception due to AMD.\n    - \"C: maybe\": The case highlights a rare scenario where vision improved in an amblyopic eye due to AMD, but amblyopia's permanence is not established by the data.",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 457,
+            "generation_time_s": 17.286
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

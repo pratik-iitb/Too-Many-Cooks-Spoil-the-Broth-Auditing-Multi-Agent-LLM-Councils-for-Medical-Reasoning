@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-400",
+  "dataset": "metamed",
+  "question_id": "400",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old man is admitted to the intensive care unit with decreased consciousness and convulsions. His wife reports that 30 min following the onset of her husband’s condition, which started approximately 6 hours ago, he treated his garden bed with pesticides against mice. He developed nausea, vomiting, and abdominal cramps. The patient noted facial muscle twitching and developed a tonic-clonic seizure that lasted 3 minutes, 4 hours following the onset of his condition. His past medical history is insignificant for any seizure disorders, and he does not take any medications. His blood pressure is 95/60 mm Hg, heart rate is 104/min, respiratory rate is 10/min, and the temperature is 37.0°C (98.6°F). On physical examination, the patient’s consciousness is decreased with a Glasgow Coma Scale score of 13. He is pale and sweaty. His lung sounds are normal, cardiac sounds are decreased, and no murmurs are present. Abdominal palpation reveals epigastric tenderness. Neurological examination shows rapid downbeating nystagmus, facial muscle twitching, and symmetrically decreased sensation to all the sensory modalities on both the upper and lower extremities. Further discussion reveals that the patient was using sodium fluoroacetate as a pesticide, which is known to form fluorocitrate in the cells of aerobic organisms. Which of the following substances will accumulate in the patient’s cells?",
+    "options": {
+      "A": "Fumarate",
+      "B": "Citrate",
+      "C": "Malate",
+      "D": "Succinate",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of pesticide exposure, particularly sodium fluoroacetate, strongly suggests fluorocitrate accumulation. Sodium fluoroacetate inhibits the enzyme aconitase, which is involved in the citric acid cycle. This leads to the buildup of fluorocitrate within the cells, inhibiting the Krebs cycle and ultimately causing cellular energy depletion.",
+          "critical_evidence": "The patient's use of sodium fluoroacetate as a pesticide is the most critical piece of information.",
+          "differential_considered": "While other metabolic disturbances could cause altered mental status and seizures, the history of pesticide exposure makes fluorocitrate accumulation the most likely cause. Other possibilities like hypoglycemia or electrolyte imbalances are less likely given the specific history and clinical findings.",
+          "usage": {
+            "prompt_tokens": 581,
+            "generated_tokens": 187,
+            "generation_time_s": 15.804
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "Sodium fluoroacetate is converted to fluorocitrate in cells, which inhibits citrate synthase in the tricarboxylic acid (TCA) cycle, blocking citrate formation and causing cellular energy depletion. This leads to hypoglycemia, hypotension, and neurological symptoms. The accumulation of fluorocitrate in cells matches the pathophysiology of fluoroacetate poisoning.",
+          "critical_evidence": "The patient's history of sodium fluoroacetate exposure and the development of seizures and metabolic acidosis consistent with TCA cycle inhibition",
+          "differential_considered": "Considered epilepsy, hypoglycemia, and other metabolic toxins, but ruled out due to the specific history of pesticide exposure and the characteristic metabolic derangements seen in fluoroacetate poisoning",
+          "usage": {
+            "prompt_tokens": 573,
+            "generated_tokens": 199,
+            "generation_time_s": 18.863
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "Sodium fluoroacetate is metabolized to fluorocitrate, which inhibits the citric acid cycle by irreversibly inhibiting aconitase, blocking the conversion of citrate to isocitrate. This leads to citrate accumulation and a downstream blockade of the cycle, preventing the production of downstream intermediates like fumarate, malate, and succinate. The clinical presentation (seizures, decreased consciousness, nystagmus, muscle twitching) is consistent with acute poisoning from a mitochondrial toxin affecting energy metabolism.",
+          "critical_evidence": "The patient ingested sodium fluoroacetate, which is metabolized to fluorocitrate, inhibiting aconitase and causing citrate accumulation and blockade of the citric acid cycle.",
+          "differential_considered": "Other toxins like organophosphates (which cause cholinergic crisis) were considered but ruled out due to absence of SLUDGE symptoms, miosis, or bradycardia. The specific mention of sodium fluoroacetate and its metabolic pathway makes this a unique case of mitochondrial poisoning, not a typical cholinergic or metabolic encephalopathy.",
+          "usage": {
+            "prompt_tokens": 554,
+            "generated_tokens": 268,
+            "generation_time_s": 15.456
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 571,
+            "generated_tokens": 107,
+            "generation_time_s": 3.714
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 608,
+            "generated_tokens": 260,
+            "generation_time_s": 8.962
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "E": 1,
+        "A": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

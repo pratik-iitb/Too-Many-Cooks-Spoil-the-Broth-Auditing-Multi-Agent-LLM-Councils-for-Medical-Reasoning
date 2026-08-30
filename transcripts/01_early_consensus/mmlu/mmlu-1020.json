@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1020",
+  "dataset": "mmlu",
+  "question_id": "1020",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A previously healthy 14-year-old girl is brought to the physician because of a 2-day history of fever and pain and swelling of the right knee. She remembers injuring the knee while playing soccer last week, but she was able to finish the game. She has no history of rash or joint pain. Her sister has inflammatory bowel disease. The patient's temperature is 39°C (102.2°F), blood pressure is 110/80 mm Hg, pulse is 95/min, and respirations are 20/min. Examination of the right knee shows swelling, tenderness, warmth, and erythema; range of motion is limited. Which of the following is the most appropriate next step in management?",
+    "options": {
+      "A": "Nuclear scan of the right knee",
+      "B": "MRI of the right knee",
+      "C": "Antibiotic therapy",
+      "D": "Arthrocentesis"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute monoarticular arthritis, likely secondary to a recent injury. The most important next step is to rule out septic arthritis, which is a medical emergency. Arthrocentesis is the gold standard for diagnosing septic arthritis by analyzing the synovial fluid for cell count, Gram stain, and culture.",
+          "critical_evidence": "Acute monoarticular arthritis with fever and elevated inflammatory markers (swelling, tenderness, warmth, erythema) raises concern for septic arthritis.",
+          "differential_considered": "Septic arthritis is the most concerning diagnosis given the acute onset of monoarticular arthritis with fever. While other possibilities exist (e.g., transient synovitis, reactive arthritis), septic arthritis must be ruled out first due to its potential for rapid joint destruction. Therefore, arthrocentesis is the most appropriate next step.",
+          "usage": {
+            "prompt_tokens": 420,
+            "generated_tokens": 210,
+            "generation_time_s": 10.589
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with acute knee swelling, warmth, erythema, and limited range of motion after a soccer injury. Given the acute inflammatory response and the need to confirm the presence of joint fluid or infection, arthrocentesis is the most appropriate next step. It allows direct visualization of joint fluid for analysis, which is critical for diagnosing septic arthritis or other joint infections, especially considering the patient's family history of inflammatory bowel disease, which may predispose to infection.",
+          "critical_evidence": "The presence of erythema, warmth, and swelling suggests an inflammatory process that requires fluid analysis to determine if it is infectious or inflammatory in nature.",
+          "differential_considered": "Considered septic arthritis, osteomyelitis, and traumatic arthritis, but ruled out chronic inflammatory conditions due to the acute onset and family history of IBD, which is more relevant for gastrointestinal involvement. The acute presentation supports an infectious or traumatic cause requiring immediate fluid analysis.",
+          "usage": {
+            "prompt_tokens": 407,
+            "generated_tokens": 226,
+            "generation_time_s": 10.758
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute unilateral knee swelling, warmth, erythema, and fever, consistent with septic arthritis. Given the high fever and localized signs of infection, prompt diagnosis is critical to prevent joint destruction. Arthrocentesis is the gold standard for diagnosing septic arthritis and allows for immediate culture and synovial fluid analysis. Imaging (MRI or nuclear scan) and antibiotics are important but should follow diagnostic confirmation via arthrocentesis.",
+          "critical_evidence": "Fever (39°C), localized signs of infection (swelling, warmth, erythema), and limited range of motion in a previously healthy adolescent strongly suggest septic arthritis.",
+          "differential_considered": "Osteomyelitis, trauma-related effusion, or reactive arthritis were considered, but the acute presentation with fever and systemic signs makes septic arthritis the most likely diagnosis. The absence of rash or prior joint pain makes systemic autoimmune or viral causes less likely.",
+          "usage": {
+            "prompt_tokens": 387,
+            "generated_tokens": 224,
+            "generation_time_s": 8.025
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 405,
+            "generated_tokens": 19,
+            "generation_time_s": 0.493
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Aseptic arthritis (most likely), osteomyelitis, gout, or a reactive synovitis; however, the acute, post-injury presentation with systemic symptoms makes septic arthritis the leading concern, which is best diagnosed by joint aspiration.",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 205,
+            "generation_time_s": 6.616
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

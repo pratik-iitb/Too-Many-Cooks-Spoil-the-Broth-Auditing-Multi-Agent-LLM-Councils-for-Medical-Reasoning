@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-643",
+  "dataset": "mmlu",
+  "question_id": "643",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "The trigger to initiate the contractile process in skeletal muscle is:",
+    "options": {
+      "A": "potassium binding to myosin.",
+      "B": "calcium binding to tropomyosin.",
+      "C": "ATP binding to the myosin cross bridges.",
+      "D": "calcium binding to troponin."
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "college_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The contractile process in skeletal muscle is initiated by the binding of calcium to troponin. This binding causes a conformational change in troponin, which then moves tropomyosin away from the myosin-binding sites on actin, allowing myosin to bind and initiate the power stroke.",
+          "critical_evidence": "Calcium binding to troponin",
+          "differential_considered": "A: Potassium binding to myosin is not the primary trigger for muscle contraction. B: Calcium binding to tropomyosin is incorrect; calcium binds to troponin. C: ATP binding to the myosin cross bridges is incorrect; ATP is required for myosin to detach from actin, not for the initial binding.",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 170,
+            "generation_time_s": 8.656
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "Calcium binding to troponin is the trigger that exposes the actin-binding sites on actin filaments, allowing myosin heads to attach and initiate the sliding filament mechanism. This is a fundamental step in skeletal muscle contraction, as calcium influx from the sarcoplasmic reticulum triggers the process.",
+          "critical_evidence": "Calcium binding to troponin exposes actin-binding sites, enabling myosin to form cross bridges and initiate contraction.",
+          "differential_considered": "Options A (potassium binding to myosin) and C (ATP binding to myosin cross bridges) are part of the contraction cycle but occur after the initial trigger. Option B (calcium binding to tropomyosin) is incorrect because tropomyosin is displaced by troponin, not directly by calcium.",
+          "usage": {
+            "prompt_tokens": 286,
+            "generated_tokens": 201,
+            "generation_time_s": 9.644
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "Skeletal muscle contraction is initiated when calcium ions bind to troponin, causing a conformational change that moves tropomyosin away from the myosin-binding sites on actin. This allows myosin heads to bind actin and initiate the cross-bridge cycling. The other options describe steps in the process but not the initial trigger.",
+          "critical_evidence": "Calcium binding to troponin is the key event that initiates the exposure of myosin-binding sites on actin, enabling contraction.",
+          "differential_considered": "Options A, B, and C were considered but ruled out: potassium binding to myosin is not involved; calcium binding to tropomyosin is incorrect (tropomyosin is moved by troponin, not calcium directly); ATP binding to myosin is required for detachment, not initiation.",
+          "usage": {
+            "prompt_tokens": 257,
+            "generated_tokens": 206,
+            "generation_time_s": 7.432
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 284,
+            "generated_tokens": 14,
+            "generation_time_s": 0.364
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "The initiation of the contractile process in skeletal muscle is classically dependent on calcium binding to troponin, which causes a conformational change that allows myosin to bind and pull on actin, starting muscle contraction. While ATP is necessary for the actual power stroke, the question focuses on the trigger for the process to begin, not its sustained phase. Options A and C describe ongoing steps in the contraction cycle, not the initiation signal. Tropomyosin's role is to block myosin until calcium binds, making B and A incorrect for the initial trigger. The most critical finding supporting this is the well-established calcium-dependent activation mechanism in the sliding filament theory of muscle contraction.",
+          "critical_evidence": "",
+          "differential_considered": "Options A and C describe events that occur during muscle contraction after the initial trigger, while B and D both involve calcium but D correctly identifies the specific protein it binds to as the initiating event.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 240,
+            "generation_time_s": 7.849
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 2,
+        "D": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "D",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

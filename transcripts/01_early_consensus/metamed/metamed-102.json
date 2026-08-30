@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-102",
+  "dataset": "metamed",
+  "question_id": "102",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 58-year-old male with a history of obesity and hypertension presents to his primary care physician for a follow-up visit. He reports that he feels well and has no complaints. He currently takes hydrochlorothiazide. His temperature is 98.6°F (37°C), blood pressure is 135/80 mmHg, pulse is 86/min, and respirations are 17/min. His BMI is 31 kg/m2. Results of a lipid panel are: Total cholesterol is 280 mg/dl, triglycerides are 110 mg/dl, HDL cholesterol is 40 mg/dl, and LDL cholesterol is 195 mg/dl. Her physician considers starting her on atorvastatin. Which of the following will most likely decrease after initiating this medication?",
+    "options": {
+      "A": "Mevalonate",
+      "B": "Acetoacetyl-CoA",
+      "C": "Diacyglycerol",
+      "D": "High-density lipoprotein",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Atorvastatin is a statin medication that inhibits HMG-CoA reductase, an enzyme in the mevalonate pathway. This pathway is responsible for the synthesis of cholesterol. Therefore, initiating atorvastatin will most likely decrease the production of mevalonate.",
+          "critical_evidence": "Atorvastatin is a statin medication that inhibits HMG-CoA reductase, an enzyme in the mevalonate pathway.",
+          "differential_considered": "While the patient has hyperlipidemia, the question specifically asks which will decrease after starting atorvastatin. The other options are related to cholesterol synthesis or metabolism, but not directly affected by the mechanism of action of atorvastatin. Therefore, the most direct and likely answer is A.",
+          "usage": {
+            "prompt_tokens": 459,
+            "generated_tokens": 185,
+            "generation_time_s": 10.407
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "Atorvastatin is a statin medication that inhibits HMG-CoA reductase, an enzyme involved in cholesterol synthesis. This inhibition reduces mevalonate production, a key intermediate in cholesterol biosynthesis, which in turn lowers LDL cholesterol levels. The patient's elevated LDL cholesterol (195 mg/dl) and obesity-related risk factors make this a reasonable intervention.",
+          "critical_evidence": "LDL cholesterol level of 195 mg/dl is significantly elevated and responsive to statin therapy",
+          "differential_considered": "Considered secondary causes of hypercholesterolemia (e.g., familial hypercholesterolemia, liver disease) but ruled out by normal liver function tests and patient's age. Hypertension and obesity are better managed with lifestyle modifications and antihypertensives rather than lipid-lowering drugs.",
+          "usage": {
+            "prompt_tokens": 448,
+            "generated_tokens": 205,
+            "generation_time_s": 10.876
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Atorvastatin is a statin that inhibits HMG-CoA reductase, the rate-limiting enzyme in cholesterol biosynthesis, which reduces mevalonate production. Mevalonate is a key intermediate in the cholesterol synthesis pathway, and its levels decrease with statin therapy. The patient’s high LDL (195 mg/dL) and elevated total cholesterol (280 mg/dL) indicate a need for lipid-lowering therapy, making atorvastatin appropriate. The question asks what will most likely decrease after initiating atorvastatin — mevalonate is the direct downstream product inhibited by the drug.",
+          "critical_evidence": "Atorvastatin inhibits HMG-CoA reductase, which directly reduces mevalonate production in the cholesterol biosynthesis pathway.",
+          "differential_considered": "Other options like HDL (D) may not decrease with statins; in fact, HDL often remains stable or may even increase slightly. Acetoacetyl-CoA and diacylglycerol are not primary targets of statins. None of the above (E) is incorrect because mevalonate does decrease. I don't know or cannot answer (F) is not applicable as the mechanism is well established.",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 293,
+            "generation_time_s": 11.762
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 93,
+            "generation_time_s": 2.617
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "Elevated LDL and total cholesterol levels, making him a candidate for statin therapy.",
+          "differential_considered": "The main goal of atorvastatin is to lower LDL and total cholesterol. The listed HDL is not the primary target, but the question's options may be a distractor. The correct biochemical target (HMG-CoA, not listed) would be E (none of the above).",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 1024,
+            "generation_time_s": 38.051
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

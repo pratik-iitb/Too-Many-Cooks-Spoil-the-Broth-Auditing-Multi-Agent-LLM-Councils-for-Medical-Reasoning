@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-865",
+  "dataset": "mmlu",
+  "question_id": "865",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 30-year-old woman, gravida 2, para 0, aborta 1, at 28 weeks' gestation comes to the office for a prenatal visit. She has had one previous pregnancy resulting in a spontaneous abortion at 12 weeks' gestation. Today, her vital signs are within normal limits. Physical examination shows a uterus consistent in size with a 28-week gestation. Fetal ultrasonography shows a male fetus with no abnormalities. Her blood group is O, Rh-negative. The father's blood group is B, Rh-positive. The physician recommends administration of Rho",
+    "options": {
+      "A": "immune globulin to the patient. This treatment is most likely to prevent which of the following in this mother?",
+      "B": "Development of natural killer cells",
+      "C": "Development of polycythemia",
+      "D": "Formation of antibodies to RhD"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is Rh-negative and the fetus is Rh-positive. This scenario indicates a potential for Rh incompatibility. Rho(D) immune globulin (RhoGAM) is administered to prevent the mother from developing antibodies against the RhD antigen. These antibodies would then be able to attack the RhD-positive fetal red blood cells in subsequent pregnancies, leading to hemolytic disease of the fetus and newborn (HDFN). Therefore, the primary goal of RhoGAM is to prevent the formation of anti-RhD antibodies.",
+          "critical_evidence": "Rh-negative mother and Rh-positive fetus",
+          "differential_considered": "Development of natural killer cells: While NK cells play a role in immune responses, the primary concern in Rh incompatibility is the formation of anti-RhD antibodies. Polycythemia: Polycythemia is not directly related to Rh incompatibility. HDFN: HDFN is the consequence of Rh incompatibility, not the treatment itself.",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 237,
+            "generation_time_s": 11.96
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is Rh-negative and the fetus is Rh-positive, making her at risk for hemolytic disease of the newborn. Since she had a previous spontaneous abortion, she may have been sensitized to RhD antigens, and administration of Rho immune globulin will prevent her from developing antibodies to RhD in subsequent pregnancies.",
+          "critical_evidence": "The patient is Rh-negative and the fetus is Rh-positive.",
+          "differential_considered": "Options B (natural killer cells) and C (polycythemia) are unrelated to Rh incompatibility. Option D (formation of antibodies to RhD) is the expected outcome if Rho immune globulin is not administered, but the question asks what the treatment is most likely to prevent.",
+          "usage": {
+            "prompt_tokens": 406,
+            "generated_tokens": 183,
+            "generation_time_s": 8.728
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient is Rh-negative and has been exposed to Rh-positive fetal blood (via previous spontaneous abortion at 12 weeks), which may have triggered Rh antibody formation. RhoGAM (Rh immune globulin) is administered to prevent maternal sensitization to RhD antigens, thereby avoiding hemolytic disease of the fetus and newborn in future pregnancies. The other options are unrelated to Rh immunoprophylaxis.",
+          "critical_evidence": "The patient is Rh-negative and has had a prior pregnancy with an Rh-positive fetus (father is Rh-positive), making her at risk for Rh sensitization.",
+          "differential_considered": "Natural killer cells, polycythemia, and other Rh-related complications were considered but are not the primary targets of RhoGAM. RhoGAM specifically prevents RhD antibody formation, which is the only relevant mechanism in this context.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 207,
+            "generation_time_s": 7.402
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 404,
+            "generated_tokens": 70,
+            "generation_time_s": 1.748
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options (A, B, C) are not relevant here—vaccination for NK cells, polycythemia, and antibody formation to non-Rh factors are not the indication for Rho immunoglobulin in this scenario. The standard prevention in Rh-negative pregnancies with an Rh-positive fetus is the formation of anti-D antibodies.",
+          "usage": {
+            "prompt_tokens": 436,
+            "generated_tokens": 254,
+            "generation_time_s": 8.171
+          }
+        }
+      },
+      "vote_distribution": {
+        "D": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

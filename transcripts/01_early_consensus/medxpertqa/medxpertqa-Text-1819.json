@@ -1,0 +1,124 @@
+{
+  "sample_id": "medxpertqa-Text-1819",
+  "dataset": "medxpertqa",
+  "question_id": "Text-1819",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A geneticist investigates a family affected by an autosomal dominant form of early-onset dementia. Her research reveals that affected individuals possess a defective protease that fails to properly degrade certain lipid byproducts. Western blot analysis indicates that the mutant protein is 10 kilodaltons larger than the normal protein. Structural analysis reveals an additional unfolded amino acid loop inserted in the middle of the protein near the active site, interfering with substrate binding. Upon gene sequencing of both wild-type and mutant variants, a specific mutation is identified as the cause. Which mutation type is most likely responsible for this inherited condition?\nAnswer Choices: (A) Insertion of 30 nucleotides in an exon (B) CGA to TGA in the coding region (C) Duplication of an entire exon (D) Deletion of TAG in the coding region (E) CAG to CTG in the coding region (F) Addition of a cryptic splice site (G) GU to AG at a splice site junction (H) AAA to AAG in the noncoding region (I) Deletion of the branch point sequence (J) GT to AT at the 5' splice site",
+    "options": {
+      "A": "Insertion of 30 nucleotides in an exon",
+      "B": "CGA to TGA in the coding region",
+      "C": "Duplication of an entire exon",
+      "D": "Deletion of TAG in the coding region",
+      "E": "CAG to CTG in the coding region",
+      "F": "Addition of a cryptic splice site",
+      "G": "GU to AG at a splice site junction",
+      "H": "AAA to AAG in the noncoding region",
+      "I": "Deletion of the branch point sequence",
+      "J": "GT to AT at the 5' splice site"
+    },
+    "context": "",
+    "correct_option": "H",
+    "metadata": {
+      "medical_task": "Basic Science",
+      "body_system": "Nervous",
+      "question_type": "Understanding"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes an autosomal dominant early-onset dementia with a defective protease and a larger mutant protein with an unfolded amino acid loop interfering with substrate binding. This points towards a mutation affecting protein folding or function. The specific mutation identified is a change in the coding region. The most likely type of mutation that would cause a larger protein with an unfolded loop is a frameshift mutation. CAG to CTG is a common type of frameshift mutation that results in a premature stop codon, leading to a truncated and likely misfolded protein.",
+          "critical_evidence": "The presence of a larger mutant protein with an unfolded amino acid loop interfering with substrate binding strongly suggests a frameshift mutation.",
+          "differential_considered": "Options A, C, D, F, G, H, I, and J are less likely because they do not directly cause a significant change in protein size or structure that would lead to the described phenotype. While some of these mutations could affect protein function, they are less likely to cause the specific structural changes described in the case.",
+          "usage": {
+            "prompt_tokens": 584,
+            "generated_tokens": 255,
+            "generation_time_s": 10.78
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The key finding is that the mutant protein is 10 kilodaltons larger than the normal protein, indicating an addition of 10 kDa of mass. This suggests an insertion of 30 nucleotides (since each amino acid is approximately 110 Da, 10 kDa corresponds to ~91 amino acids, and 30 nucleotides would add 10 amino acids). This matches option C, which describes duplication of an entire exon, which would add a segment of protein and increase its size. The other options either don't explain the size increase (e.g., single nucleotide changes) or are unrelated to protein structure (e.g., splice site mutations).",
+          "critical_evidence": "The 10 kDa size increase directly indicates an insertion of 30 nucleotides, matching option C.",
+          "differential_considered": "Options like single nucleotide changes (B, D, E, H, J) would not cause a 10 kDa increase. Splice site mutations (F, G, I) would affect mRNA processing, not protein structure. Noncoding changes (H) are irrelevant to protein function.",
+          "usage": {
+            "prompt_tokens": 595,
+            "generated_tokens": 1024,
+            "generation_time_s": 45.044
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The mutant protein is 10 kDa larger than the normal protein, indicating an insertion of 30 nucleotides (10 amino acids) in the coding sequence. This is consistent with an insertion mutation in an exon that introduces an additional unfolded loop near the active site, impairing function. The autosomal dominant inheritance and structural disruption support a gain-of-function or dominant-negative mutation caused by a frameshift or in-frame insertion.",
+          "critical_evidence": "The 10 kDa increase corresponds to 10 amino acids, suggesting an insertion of 30 nucleotides (3 nucleotides per amino acid), which is consistent with option A.",
+          "differential_considered": "Other options like point mutations (B, E, H) or splice site mutations (F, G, I, J) would not typically cause a 10 kDa increase unless they lead to frameshifts or exon duplications. Option C (exon duplication) could also cause size increase, but 30 nucleotides is a more precise and likely explanation for a 10-amino-acid insertion without disrupting the reading frame. Option D (deletion of TAG) is nonsensical as TAG is a stop codon; deleting it would cause a frameshift or elongation, but not a 10 kDa increase. Options G, I, J are splice-related and would not directly cause a 10 kDa increase unless they lead to exon inclusion, which is less specific. Option H is in noncoding region and would not affect protein size.",
+          "usage": {
+            "prompt_tokens": 569,
+            "generated_tokens": 352,
+            "generation_time_s": 12.609
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 593,
+            "generated_tokens": 23,
+            "generation_time_s": 0.825
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Other options involving large insertions (A, F), exon duplications (C), or noncoding mutations (H, J) would likely cause much larger or non-coding region effects, not the specific 10 kDa increase and active site defect described. Deletion in the coding region (B, D, I) would more likely cause a truncation or loss of function, not the described gain in size and loop insertion.",
+          "usage": {
+            "prompt_tokens": 622,
+            "generated_tokens": 298,
+            "generation_time_s": 10.315
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 1,
+        "C": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "H",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-826",
+  "dataset": "mmlu",
+  "question_id": "826",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 42-year-old man comes to the physician for a follow-up examination 1 week after he passed a renal calculus. X-ray crystallographic analysis of the calculus showed calcium as the primary cation. Physical examination today shows no abnormalities. A 24-hour collection of urine shows increased calcium excretion. Which of the following is the most appropriate pharmacotherapy?",
+    "options": {
+      "A": "Carbonic anhydrase inhibitor",
+      "B": "Na+ –Cl− symport inhibitor",
+      "C": "Na+ –K + –2Cl− symport inhibitor",
+      "D": "Osmotic diuretic"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of calcium kidney stones and is now excreting increased calcium in the urine. This indicates hypercalciuria. Thiazide diuretics inhibit sodium reabsorption in the distal convoluted tubule, leading to increased calcium reabsorption and decreased urinary calcium excretion. This is the most appropriate pharmacotherapy to reduce calcium excretion in this patient.",
+          "critical_evidence": "Increased calcium excretion in the urine (hypercalciuria) in a patient with a history of calcium kidney stones.",
+          "differential_considered": "A: Carbonic anhydrase inhibitors are used for glaucoma and altitude sickness, not hypercalciuria. B: Na+-Cl- symport inhibitors (like thiazide diuretics) are used for hypertension and edema, and can reduce calcium excretion. D: Osmotic diuretics (like mannitol) are used for edema and increased intracranial pressure, not hypercalciuria. Therefore, these are not appropriate for this patient.",
+          "usage": {
+            "prompt_tokens": 349,
+            "generated_tokens": 230,
+            "generation_time_s": 11.593
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has a history of renal calculus with calcium as the primary cation and increased calcium excretion in urine. Calcium excretion suggests hypercalciuria, which is often managed by reducing urinary calcium reabsorption. Carbonic anhydrase inhibitors (CAIs) decrease renal bicarbonate reabsorption, leading to increased urinary pH and reduced calcium reabsorption, thereby reducing stone formation. This is the most direct pharmacologic approach for hypercalciuria.",
+          "critical_evidence": "Increased calcium excretion in 24-hour urine collection",
+          "differential_considered": "Considered other options: B (Na+-Cl- symport inhibitors) primarily treat potassium wasting and are not indicated for hypercalciuria; C (Na+-K+-2Cl- symport inhibitors) are used for hypokalemic conditions, not hypercalciuria; D (osmotic diuretics) are used for metabolic alkalosis, not hypercalciuria. None of these are as directly effective as CAIs for reducing urinary calcium.",
+          "usage": {
+            "prompt_tokens": 350,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.514
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of calcium stone formation with increased urinary calcium excretion, suggesting hypercalciuria. The most appropriate pharmacotherapy to reduce calcium excretion is a thiazide diuretic, which inhibits the Na+–K+–2Cl− symport in the distal convoluted tubule, thereby decreasing calcium reabsorption in the proximal tubule and reducing urinary calcium. While thiazides are not listed, option C is the closest pharmacologic agent that targets this pathway. Other options do not directly address calcium excretion.",
+          "critical_evidence": "Increased urinary calcium excretion in a patient with recurrent calcium stones indicates hypercalciuria, which is best treated with a thiazide-like agent that inhibits the Na+–K+–2Cl− symport.",
+          "differential_considered": "Other causes of hypercalciuria (e.g., hyperparathyroidism, renal tubular acidosis) were considered but ruled out by normal physical exam and absence of other systemic symptoms. Osmotic diuretics and carbonic anhydrase inhibitors are not first-line for calcium stone prevention.",
+          "usage": {
+            "prompt_tokens": 323,
+            "generated_tokens": 264,
+            "generation_time_s": 9.446
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 348,
+            "generated_tokens": 13,
+            "generation_time_s": 0.334
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A: Carbonic anhydrase inhibitors (for treating aciduria, not directly for hypercalciuria); B and C (inhibit specific sodium/calcium or chloride reabsorption, which may not directly address the main problem of excessive urinary calcium loss without evidence of renal tubular acidosis or specific transport defect); D: Osmotic diuretic (reduces renal calcium reabsorption by increasing urine output).",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 288,
+            "generation_time_s": 9.244
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "B",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

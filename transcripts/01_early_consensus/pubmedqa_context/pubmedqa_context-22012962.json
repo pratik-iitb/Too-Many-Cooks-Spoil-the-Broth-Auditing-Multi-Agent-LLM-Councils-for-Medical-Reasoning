@@ -1,0 +1,113 @@
+{
+  "sample_id": "pubmedqa_context-22012962",
+  "dataset": "pubmedqa_context",
+  "question_id": "22012962",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Marital status, living arrangement and mortality: does the association vary by gender?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Men appear to benefit more from being married than women with respect to mortality in middle age. However, there is some uncertainty about gender differences in mortality risks in older individuals, widowed, divorced and single individuals and about the impact of living arrangements. Longitudinal data with 1990 census records being linked to mortality data up to 2005 were used (Swiss National Cohort). The sample comprised all residents over age 44 years in Switzerland (n=2,440,242). All-cause mortality HRs for marital status and living arrangements were estimated by Cox regression for men and women and different age groups with adjustment for education and socio-professional category. The benefit of being married was stronger for men than for women; however, mortality patterns were similar, with higher mortality in divorced and single individuals compared with widowed individuals (<80 years). After adjustment for living arrangements, the gender difference by marital status disappeared. Stratification by living arrangement revealed that mortality risks were highest for 45-64-year-old divorced (HR 1.72 (95% CI 1.67 to 1.76)) and single men (HR 1.67 (95% CI 1.63 to 1.71)) who lived alone. In women of the same age, the highest mortality risk was observed for those who were single and living with a partner (HR 1.70 (95% CI 1.58 to 1.82)). In older age groups, the impact of marital status decreased.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that the benefit of being married on mortality was stronger for men than for women. After adjusting for living arrangements, the gender difference in mortality risk by marital status disappeared. This suggests that living arrangements are a more significant factor than gender in determining mortality risk.",
+          "critical_evidence": "After adjustment for living arrangements, the gender difference by marital status disappeared.",
+          "differential_considered": "While the study mentions higher mortality in divorced and single individuals compared to widowed individuals, it doesn't directly address the question of whether the association varies by gender. However, the disappearance of the gender difference after adjusting for living arrangements suggests that living arrangements are a more important factor than gender in determining mortality risk, making the gender difference less relevant.",
+          "usage": {
+            "prompt_tokens": 593,
+            "generated_tokens": 190,
+            "generation_time_s": 11.291
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows that while men benefit more from marriage than women in middle age, the gender difference disappears after adjusting for living arrangements. This suggests that the initial gender disparity in marital status effects is likely confounded by living arrangement factors rather than a true biological difference. The evidence indicates that marital status effects are more influenced by housing and social support factors than gender-specific biological mechanisms.",
+          "critical_evidence": "After adjustment for living arrangements, the gender difference by marital status disappeared, indicating that the initial gender disparity was likely due to confounding factors rather than a true gender difference in marital status effects on mortality.",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 570,
+            "generated_tokens": 197,
+            "generation_time_s": 11.083
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that men benefit more from being married than women in middle age, but after adjusting for living arrangements, the gender difference disappeared. This indicates that the association between marital status and mortality does vary by gender, at least in unadjusted analyses. The key evidence is that the gender difference in mortality benefit from marriage was eliminated when living arrangements were accounted for, suggesting that living arrangements mediate the gender effect.",
+          "critical_evidence": "After adjustment for living arrangements, the gender difference by marital status disappeared.",
+          "differential_considered": "The possibility that living arrangements alone explain the gender difference was considered and supported by the data, which shows that stratifying by living arrangement reveals distinct mortality risks by gender and living situation, thus ruling out that the gender difference is due to biological or behavioral factors independent of living arrangements.",
+          "usage": {
+            "prompt_tokens": 565,
+            "generated_tokens": 195,
+            "generation_time_s": 8.215
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 568,
+            "generated_tokens": 112,
+            "generation_time_s": 3.261
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "In middle-aged individuals, the benefit of being married was stronger for men than for women, but in women, the highest mortality risk was observed in those who were single and living with a partner, indicating variability by gender and living arrangement.",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 600,
+            "generated_tokens": 225,
+            "generation_time_s": 8.572
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "C": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

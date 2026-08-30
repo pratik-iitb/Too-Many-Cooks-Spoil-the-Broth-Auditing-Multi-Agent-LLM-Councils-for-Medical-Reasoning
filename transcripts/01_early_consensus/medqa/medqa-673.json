@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-673",
+  "dataset": "medqa",
+  "question_id": "673",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 34-year-old man comes to the physician with a 2-month history of difficulty concentrating at work. He is worried he may lose his job due to poor performance. He feels constantly tired but attributes his fatigue to waking up early most mornings and being unable to fall back asleep. His wife has noticed that he has been speaking more slowly than usual and his appetite has decreased. He used to enjoy dance classes with her but has not been as interested in this recently. He is a veteran who returned from a deployment to Afghanistan 2 years ago. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Major depressive disorder",
+      "B": "Persistent depressive disorder",
+      "C": "Adjustment disorder",
+      "D": "Acute stress disorder",
+      "E": "Post traumatic stress disorder"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a 2-month history of persistent symptoms including difficulty concentrating, fatigue, decreased appetite, and loss of interest in activities he previously enjoyed. These symptoms, lasting for at least two months, are indicative of a depressive disorder. While the patient is a veteran, the symptoms are not directly related to a specific traumatic event, making PTSD less likely.",
+          "critical_evidence": "The duration of symptoms (2 months) and the presence of multiple symptoms (fatigue, decreased appetite, loss of interest) are key indicators of a depressive disorder.",
+          "differential_considered": "Adjustment disorder is possible, but the symptoms have persisted for longer than the typical 6-month duration. PTSD is less likely because the symptoms are not directly related to a specific traumatic event. Major depressive disorder is a possibility, but the symptoms have been present for 2 months, which is longer than the typical duration for major depressive disorder. Therefore, persistent depressive disorder is the most likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 240,
+            "generation_time_s": 11.89
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's history of deployment to Afghanistan 2 years ago, combined with symptoms of fatigue, decreased interest in activities, and concentration difficulties, strongly suggests a PTSD diagnosis. While other mood disorders are possible, the trauma history and specific symptoms align most closely with PTSD criteria.",
+          "critical_evidence": "Deployment to Afghanistan 2 years ago with ongoing symptoms of fatigue, decreased interest in previously enjoyed activities, and concentration difficulties",
+          "differential_considered": "Major depressive disorder (less likely without clear mood symptoms), Persistent depressive disorder (symptoms too recent), Adjustment disorder (symptoms don't fully match stressor), Acute stress disorder (symptoms too persistent and not fully meeting criteria)",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 170,
+            "generation_time_s": 7.971
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a 2-month history of persistent depressive symptoms including anhedonia (loss of interest in dance), fatigue, slowed speech, decreased appetite, and impaired concentration — all core criteria for major depressive disorder. His military deployment history is relevant but does not meet the full criteria for PTSD or acute stress disorder. The duration and constellation of symptoms are more consistent with major depression than persistent depressive disorder (which requires chronicity >2 years) or adjustment disorder (which is typically shorter and stressor-bound).",
+          "critical_evidence": "The presence of multiple depressive symptoms (anhedonia, fatigue, slowed speech, appetite loss, concentration difficulties) over a 2-month period meeting DSM-5 criteria for major depressive disorder.",
+          "differential_considered": "Persistent depressive disorder was considered but ruled out due to insufficient duration (>2 years required). Adjustment disorder was considered but lacks a clear stressor-specific onset and is typically shorter in duration. PTSD and acute stress disorder were considered but lack hallmark symptoms like re-experiencing, hyperarousal, or avoidance that are not described here.",
+          "usage": {
+            "prompt_tokens": 358,
+            "generated_tokens": 251,
+            "generation_time_s": 8.828
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 384,
+            "generated_tokens": 78,
+            "generation_time_s": 1.904
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 207,
+            "generation_time_s": 6.545
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 1,
+        "E": 1,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

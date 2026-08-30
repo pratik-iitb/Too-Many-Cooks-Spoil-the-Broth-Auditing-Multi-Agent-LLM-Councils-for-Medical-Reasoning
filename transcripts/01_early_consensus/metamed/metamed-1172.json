@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-1172",
+  "dataset": "metamed",
+  "question_id": "1172",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 14-year-old boy is brought to the emergency department by his mother after falling from the jungle gym and developing severe left knee pain and swelling. On presentation, he is found to be in pain with a hot, swollen, erythematous left knee. His past medical history is significant for abnormal coagulation lab tests before an appendectomy, but his mother cannot recall the exact details. Coagulation tests are conducted with the following results:\n\nBleeding time: 3 minutes\nProthrombin time: 11 seconds\nPartial thromboplastin time: 53 seconds\nBradykinin formation: decreased\n\nWhich of the following factors is most likely defective in this patient?",
+    "options": {
+      "A": "Factor VII",
+      "B": "Factor VIII",
+      "C": "Factor IX",
+      "D": "Factor XIII",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Answer modified"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a bleeding disorder, indicated by the prolonged partial thromboplastin time (PTT) and decreased bradykinin formation. The bleeding time is normal, which suggests a problem with the intrinsic or common pathway of coagulation. The PTT is prolonged, pointing towards a deficiency in factors in the intrinsic pathway. Factor IX deficiency (Hemophilia B) is a common cause of prolonged PTT and decreased bradykinin formation. Factor VIII deficiency (Hemophilia A) also causes prolonged PTT, but bradykinin formation is not directly affected. Factor VII deficiency causes a prolonged PT, not PTT. Factor XIII deficiency causes delayed bleeding, not acute bleeding with a prolonged PTT. Therefore, Factor IX is the most likely defective factor.",
+          "critical_evidence": "Prolonged partial thromboplastin time (PTT) and decreased bradykinin formation.",
+          "differential_considered": "Factor VIII deficiency (Hemophilia A): While it causes prolonged PTT, bradykinin formation is not directly affected. Factor VII deficiency: Causes prolonged PT, not PTT. Factor XIII deficiency: Causes delayed bleeding, not acute bleeding with a prolonged PTT.",
+          "usage": {
+            "prompt_tokens": 413,
+            "generated_tokens": 277,
+            "generation_time_s": 13.81
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's prolonged partial thromboplastin time (53 seconds) suggests a defect in the intrinsic pathway of coagulation. Factor VII is a key component of the intrinsic pathway, and its deficiency can lead to prolonged PTT. The decreased bradykinin formation is consistent with a coagulation factor deficiency rather than an anticoagulant effect. The abnormal coagulation tests in the past, including the prolonged bleeding time, further support a coagulation factor deficiency.",
+          "critical_evidence": "Prolonged partial thromboplastin time (53 seconds)",
+          "differential_considered": "Considered von Willebrand disease (vWD) and hemophilia A/B, but ruled out due to normal bleeding time and the specific PTT defect. Coagulation factor deficiency is the most likely explanation for the prolonged PTT and coagulation abnormalities.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.03
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with acute knee swelling and pain following trauma, with a prolonged partial thromboplastin time (PTT) and normal prothrombin time (PT), suggesting a deficiency in a factor involved in the intrinsic pathway. The bleeding time is normal, ruling out platelet dysfunction. Bradykinin formation is decreased, which is not directly relevant to coagulation factor deficiencies. The prolonged PTT is most consistent with a deficiency in Factor VIII, which is part of the intrinsic pathway and commonly associated with hemophilia A.",
+          "critical_evidence": "Partial thromboplastin time: 53 seconds (prolonged) and prothrombin time: 11 seconds (normal) — indicating intrinsic pathway defect, most likely Factor VIII deficiency.",
+          "differential_considered": "Factor IX deficiency (Hemophilia B) was considered but is less common and typically presents with a more severe bleeding history; Factor XIII deficiency would cause poor clot stability and is associated with recurrent bleeding, not typically isolated trauma; Factor VII deficiency would prolong PT, not PTT; bleeding time normal rules out platelet disorders.",
+          "usage": {
+            "prompt_tokens": 390,
+            "generated_tokens": 258,
+            "generation_time_s": 9.07
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 414,
+            "generated_tokens": 122,
+            "generation_time_s": 2.981
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Hemophilia A (factor VIII), B (factor IX), or platelet disorder could cause bleeding, but the isolated PT defect and normal PTT most specifically indicate factor VII deficiency. Other factors would not explain this pattern of coagulation abnormality in this context.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 238,
+            "generation_time_s": 7.565
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 1,
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

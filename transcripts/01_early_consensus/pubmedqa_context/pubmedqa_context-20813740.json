@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa_context-20813740",
+  "dataset": "pubmedqa_context",
+  "question_id": "20813740",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Does β-catenin have a role in pathogenesis of sebaceous cell carcinoma of the eyelid?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "48 cases of SbCC were analysed immunohistochemically using monoclonal β-catenin antibody and the results correlated with tumour size, histopathological differentiation, orbital invasion and pagetoid spread. Cytoplasmic overexpression of β-catenin was seen in 66% cases of SbCC which correlated positively with tumour size, orbital invasion and pagetoid spread. This correlation was found to be significant in tumour size>2 cm (p = 0.242). Nuclear staining was not observed in any of the cases.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case demonstrates a strong correlation between cytoplasmic β-catenin overexpression and tumor size, orbital invasion, and pagetoid spread in sebaceous cell carcinoma (SbCC). This suggests a role for β-catenin in the pathogenesis of SbCC.",
+          "critical_evidence": "Cytoplasmic overexpression of β-catenin was seen in 66% of SbCC cases and correlated positively with tumor size, orbital invasion, and pagetoid spread.",
+          "differential_considered": "While other factors may contribute to SbCC development, the strong correlation between β-catenin and tumor progression suggests a significant role for this protein. Other potential factors like genetic mutations or epigenetic modifications were not explicitly mentioned in the case, but the focus on β-catenin points towards its involvement.",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 195,
+            "generation_time_s": 11.502
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The study shows cytoplasmic β-catenin overexpression in 66% of SbCC cases, correlating with larger tumor size (>2 cm), orbital invasion, and pagetoid spread. This suggests a role in tumor progression and metastasis, supporting a potential role in pathogenesis.",
+          "critical_evidence": "66% of cases showed cytoplasmic β-catenin overexpression correlating with tumor size and invasion",
+          "differential_considered": "No significant nuclear staining observed, ruling out other nuclear markers; histopathological differentiation and orbital invasion data support specific tumor behavior",
+          "usage": {
+            "prompt_tokens": 382,
+            "generated_tokens": 153,
+            "generation_time_s": 8.549
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrated cytoplasmic overexpression of β-catenin in 66% of sebaceous cell carcinomas, which correlated significantly with increased tumor size, orbital invasion, and pagetoid spread — all indicators of aggressive disease. Although the p-value for tumor size >2 cm was borderline (p=0.242), the consistent correlation across multiple aggressive features supports a pathogenic role. Nuclear staining, which would suggest canonical Wnt pathway activation, was absent, but cytoplasmic accumulation still implies functional involvement in tumorigenesis.",
+          "critical_evidence": "Cytoplasmic overexpression of β-catenin in 66% of SbCC cases correlated positively with tumor size, orbital invasion, and pagetoid spread — features associated with aggressive behavior.",
+          "differential_considered": "Differential diagnoses such as basal cell carcinoma or squamous cell carcinoma were not considered relevant here, as the case specifically focuses on sebaceous cell carcinoma and its molecular markers. The absence of nuclear β-catenin does not negate a pathogenic role, as cytoplasmic accumulation can still drive oncogenic signaling.",
+          "usage": {
+            "prompt_tokens": 360,
+            "generated_tokens": 265,
+            "generation_time_s": 11.123
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 380,
+            "generated_tokens": 79,
+            "generation_time_s": 2.291
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "Cytoplasmic overexpression of β-catenin in 66% of SbCC cases correlates with tumour size, orbital invasion, and pagetoid spread.",
+          "differential_considered": "Other markers of malignancy (e.g., p63, CK5/6, melanocytosis) were not mentioned, but the strong correlation of β-catenin overexpression with aggressive features suggests it is biologically relevant, though further mechanistic evidence would be ideal.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 269,
+            "generation_time_s": 10.187
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

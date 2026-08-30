@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-436",
+  "dataset": "medqa",
+  "question_id": "436",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 65-year-old man arrives to the emergency department (ED) complaining of pain and swelling in his right leg. The patient reports he recently underwent a total hip replacement. His past medical history is significant for hypertension and diabetes. His current medications include aspirin, lisinopril, metformin, and atorvastatin. On arrival, his temperature is 99°F (37.2°C), blood pressure is 135/82 mmHg, pulse is 88/minute, and oxygen saturation is 99% O2. He denies chest pain or shortness of breath. On physical exam, his right leg appears moderately erythematous, swollen, and is tender to palpation. Other physical exam findings are negative.\n\nA complete blood count (CBC) was performed with the following findings:\n\nHemoglobin: 13.0 g/dL\nLeukocyte count: 6500/mm^3\nPlatelet count: 150,000/mm^3\n\nThe appropriate anti-coagulation therapy is started. Seven days later the patient arrives back to the ED complaining of crushing substernal chest pain. An electrocardiogram is performed and is shown in Figure A.\n\nA CBC was performed with the following findings:\n\nHemoglobin: 13.5 g/dL\nLeukocyte count: 8500/mm^3\nPlatelet count: 58,000/mm^3\nINR: 2.5\naPTT: 34 seconds\nFibrinogen level: 200 mg/dL\nTroponin T: 0.2 ng/mL\n\nOn physical exam, the right leg is again swollen and tender to palpation. However, a new lesion has also formed, as shown in Figure B. In addition to sending the patient for cardiac catherization, what is the most appropriate next step in management?",
+    "options": {
+      "A": "Administer alteplase",
+      "B": "Administer a platelet infusion",
+      "C": "Start plasmapheresis",
+      "D": "Discontinue warfarin and maintain heparin",
+      "E": "Discontinue heparin and start argatroban"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a history of recent total hip replacement, hypertension, and diabetes, and is on warfarin and heparin. The new lesion on the leg, along with the thrombocytopenia (platelet count of 58,000/mm^3), elevated aPTT (34 seconds), and elevated INR (2.5) strongly suggest warfarin-induced skin necrosis and/or bleeding. The elevated aPTT and INR indicate that the patient is still on warfarin, which is the most likely cause of the new lesion and thrombocytopenia. Discontinuing warfarin and starting argatroban, a direct thrombin inhibitor, is the most appropriate next step to reverse the anticoagulation and prevent further bleeding.",
+          "critical_evidence": "The combination of warfarin use, elevated aPTT and INR, thrombocytopenia, and a new skin lesion strongly suggests warfarin-induced skin necrosis and/or bleeding.",
+          "differential_considered": "While the patient has chest pain, the ECG findings are not specific for acute coronary syndrome. The new lesion on the leg is more concerning given the patient's history of warfarin use. Other potential causes of thrombocytopenia and bleeding could be considered, but the clinical picture is most consistent with warfarin-induced complications.",
+          "usage": {
+            "prompt_tokens": 682,
+            "generated_tokens": 294,
+            "generation_time_s": 14.552
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's elevated platelet count (58,000/mm^3) and elevated fibrinogen (200 mg/dL) suggest a hypercoagulable state, likely due to warfarin therapy. The presence of a new lesion and continued leg swelling supports a thrombotic process. Discontinuing warfarin and maintaining heparin (option D) is the most appropriate step to rapidly reduce the risk of thrombotic events while ensuring anticoagulation is maintained.",
+          "critical_evidence": "Platelet count of 58,000/mm^3 and fibrinogen level of 200 mg/dL indicate hypercoagulability",
+          "differential_considered": "Considered DVT, pulmonary embolism, and other thrombotic disorders, but ruled out by the patient's history of hip replacement and the presence of a new lesion consistent with thrombosis",
+          "usage": {
+            "prompt_tokens": 669,
+            "generated_tokens": 214,
+            "generation_time_s": 9.914
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of recent hip replacement with leg swelling and erythema, suggestive of deep vein thrombosis (DVT). He now presents with chest pain and ECG changes, consistent with acute coronary syndrome. His INR is elevated at 2.5, indicating warfarin is active, but his platelet count has dropped to 58,000/mm³, raising concern for heparin-induced thrombocytopenia (HIT). HIT is a life-threatening condition that requires immediate discontinuation of warfarin and switching to a non-heparin anticoagulant. However, since he is already on heparin (as implied by the INR and aPTT), the most appropriate next step is to discontinue warfarin and continue heparin (or switch to an alternative anticoagulant if heparin is contraindicated). Option D correctly addresses this by discontinuing warfarin while maintaining heparin, which is the standard approach in HIT to avoid further platelet consumption.",
+          "critical_evidence": "Platelet count of 58,000/mm³ (low) in the context of recent anticoagulation and new thrombotic events (leg swelling + chest pain) strongly suggests heparin-induced thrombocytopenia (HIT).",
+          "differential_considered": "Other differentials like acute coronary syndrome, pulmonary embolism, or sepsis were considered, but the low platelet count and recent anticoagulation point specifically to HIT. HIT is a time-sensitive diagnosis requiring immediate intervention to prevent further thrombotic complications.",
+          "usage": {
+            "prompt_tokens": 664,
+            "generated_tokens": 369,
+            "generation_time_s": 12.904
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "D",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 667,
+            "generated_tokens": 18,
+            "generation_time_s": 0.472
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has a history of anticoagulant use (warfarin, INR 2.5) and thrombocytopenia (platelets 58,000), which are consistent with a bleeding risk despite ongoing anticoagulation. The new lesion on the leg suggests a thromboembolic event, likely a thrombus in the femoral artery or vein, given his recent total hip replacement and vascular risk factors. Since the INR is elevated and platelets are low, he is at risk for both bleeding and clotting, making reversal of the anticoagulant necessary before further management or intervention. Heparin can be reversed with protamine, but since warfarin is involved, the best next step is to discontinue warfarin and start an alternative anticoagulant such the the options allow (argatroban or fresh frozen plasma for bridging), but discontinuing warfarin and starting argatroban (an anticoagulant) is most appropriate to manage active bleeding while maintaining anticoagulation for suspected thrombosis. Other options like administering alteplase (A) are for acute ischemic events, which is not supported by the case. Platelet infusion (B) is for thrombocytopenia alone. Plasmapheresis (C) is for immune-mediated thrombocytopenia or other coagulopathy, not indicated here. Discontinuing heparin (not an option) would be premature without knowing the source of bleeding. The most critical finding is the new vascular lesion raising suspicion for embolism while on warfarin.",
+          "critical_evidence": "Elevated INR (2.5) with new vascular lesion and ongoing bleeding risk",
+          "differential_considered": "DVT/PE in the leg, likely due to hypercoagulable state from warfarin and possible mechanical prosthetic hip; risk of bleeding due to low platelets and elevated INR. Options A (thrombolytic), B (platelet transfusion), C (plasmapheresis) are not first-line in this scenario. D and E involve anticoagulation management, but E is the only option that addresses both the ongoing warfarin and bleeding risk appropriately by reversing warfarin and starting an alternative anticoagulant.",
+          "usage": {
+            "prompt_tokens": 718,
+            "generated_tokens": 509,
+            "generation_time_s": 15.917
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 2,
+        "D": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "D",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

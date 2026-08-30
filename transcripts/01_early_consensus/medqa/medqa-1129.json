@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1129",
+  "dataset": "medqa",
+  "question_id": "1129",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 28-year-old man presents to his primary care physician because he has been experiencing constipation for the last 6 days. He says that the constipation started 1 day after he started taking an over the counter medication for sinus congestion and a chronic cough. He has no other findings associated with the constipation. His past medical history is significant for seasonal allergies but he is not currently taking any other medications besides the one he reported. Which of the following drugs was most likely responsible for this patient's symptoms?",
+    "options": {
+      "A": "Dextromethorphan",
+      "B": "Diphenhydramine",
+      "C": "Guaifenesin",
+      "D": "Loratadine",
+      "E": "N-acetylcysteine"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's constipation started shortly after beginning an over-the-counter medication for sinus congestion and a chronic cough. Antihistamines, particularly first-generation ones like diphenhydramine, are known to cause anticholinergic effects, which can lead to constipation. The other options are less likely to cause constipation as a primary side effect.",
+          "critical_evidence": "The temporal relationship between starting the medication and the onset of constipation.",
+          "differential_considered": "Dextromethorphan: While it can cause constipation, it's less common than with antihistamines. Guaifenesin: It's an expectorant and is not typically associated with constipation. Loratadine: It's a second-generation antihistamine and is less likely to cause constipation. N-acetylcysteine: It's used for mucolytic purposes and is not typically associated with constipation.",
+          "usage": {
+            "prompt_tokens": 374,
+            "generated_tokens": 222,
+            "generation_time_s": 10.978
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's constipation began 1 day after starting an OTC medication for sinus congestion and a chronic cough. Diphenhydramine, an antihistamine with anticholinergic properties, is a common cause of constipation. Dextromethorphan (cough suppressant) and guaifenesin (mucinolytic expectorant) are less likely to cause constipation. Loratadine (non-sedating antihistamine) and N-acetylcysteine (mucolytic) are not associated with constipation. The onset of symptoms after medication initiation and the presence of anticholinergic side effects support diphenhydramine as the most likely culprit.",
+          "critical_evidence": "Onset of constipation 1 day after starting antihistamine for sinus congestion",
+          "differential_considered": "Considered other anticholinergic medications (dextromethorphan, guaifenesin) and non-anticholinergic antihistamines (loratadine), ruled them out due to lack of association with constipation. N-acetylcysteine is a mucolytic and not associated with constipation.",
+          "usage": {
+            "prompt_tokens": 381,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.642
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed constipation shortly after starting an OTC medication for sinus congestion and chronic cough. Diphenhydramine, an antihistamine with anticholinergic properties, is well known to cause constipation as a common side effect. The other options do not have significant anticholinergic effects or are less likely to cause acute constipation in this context.",
+          "critical_evidence": "The timing of symptom onset (1 day after starting the medication) and the presence of anticholinergic side effects (constipation) strongly point to diphenhydramine.",
+          "differential_considered": "Dextromethorphan (A) can cause constipation but is less commonly associated with acute onset; Guaifenesin (C) is a mucolytic with no known constipating effects; Loratadine (D) is a non-sedating antihistamine with minimal anticholinergic effects; N-acetylcysteine (E) is not typically associated with constipation.",
+          "usage": {
+            "prompt_tokens": 353,
+            "generated_tokens": 243,
+            "generation_time_s": 8.525
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's symptoms of constipation starting 1 day after starting an over the counter medication for sinus congestion and a chronic cough suggest a medication side effect. Diphenhydramine, an antihistamine commonly used for these symptoms, can cause anticholinergic side effects including constipation. Other options like dextromethorphan, guaifenesin, loratadine, and N-acetylcysteine are less likely to cause constipation as a side effect.",
+          "critical_evidence": "The temporal association between starting the medication and the onset of constipation.",
+          "differential_considered": "None of the other options listed are typically associated with constipation as a common side effect.",
+          "usage": {
+            "prompt_tokens": 379,
+            "generated_tokens": 171,
+            "generation_time_s": 4.141
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 409,
+            "generated_tokens": 214,
+            "generation_time_s": 6.752
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "A",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

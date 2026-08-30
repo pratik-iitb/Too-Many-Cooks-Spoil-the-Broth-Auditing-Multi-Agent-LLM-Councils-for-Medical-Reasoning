@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa-21398266",
+  "dataset": "pubmedqa",
+  "question_id": "21398266",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Do symptoms matter when considering patients for phase I clinical trials?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Phase I clinical trials are designed to assess the safety and tolerability of a new treatment in humans. Therefore, symptoms are crucial as they provide the primary data on the treatment's effects and potential side effects. While other factors like disease stage or prior treatments are considered, symptoms are the most direct indicator of the treatment's impact on the patient.",
+          "critical_evidence": "The primary goal of a Phase I trial is to determine the safety and tolerability of a new treatment.",
+          "differential_considered": "While other factors like disease stage or prior treatments are important, they are secondary to the immediate safety assessment. The focus is on whether the treatment is safe enough to continue to Phase II and III trials.",
+          "usage": {
+            "prompt_tokens": 254,
+            "generated_tokens": 186,
+            "generation_time_s": 9.188
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "Symptoms are important in phase I trials because they help identify patients with the most aggressive disease, which is critical for evaluating safety and dose-limiting toxicity. Patients with worse symptoms are more likely to experience severe adverse events, providing valuable data on the drug's tolerability at higher doses.",
+          "critical_evidence": "Phase I trials prioritize safety and dose escalation, requiring patients with more aggressive disease presentation to better assess toxicity profiles.",
+          "differential_considered": "While asymptomatic patients might be considered for control groups, the primary goal of phase I trials is to find the maximum tolerated dose, which requires patients with symptomatic disease to accurately assess toxicity.",
+          "usage": {
+            "prompt_tokens": 255,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.472
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "In phase I clinical trials, the primary goal is to assess safety and tolerability of a new drug or treatment in humans, often in patients with advanced disease. Symptoms are critical because they help determine if the patient can tolerate the intervention and whether the treatment is causing adverse effects. While phase I trials may include patients with significant disease burden, symptom assessment remains essential for ethical and practical reasons.",
+          "critical_evidence": "Phase I trials prioritize patient safety and tolerability, which directly depend on symptom evaluation.",
+          "differential_considered": "Differential diagnoses such as early-stage disease or benign conditions were not applicable here, as phase I trials typically involve patients with advanced disease where symptoms are clinically relevant for safety monitoring.",
+          "usage": {
+            "prompt_tokens": 226,
+            "generated_tokens": 172,
+            "generation_time_s": 6.009
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": null,
+          "confidence": 0.0,
+          "clinical_reasoning": "The format of the JSON object is as follows:",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 253,
+            "generated_tokens": 11,
+            "generation_time_s": 0.275
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "B",
+          "confidence": 0.85,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "If the trial is for a novel therapy where symptoms are not yet well-defined or if the intervention is being tested in asymptomatic patients, symptoms may not matter. However, if the drug is being tested to treat a particular condition, symptoms would be critical. Without more context, the answer is indeterminate.",
+          "usage": {
+            "prompt_tokens": 280,
+            "generated_tokens": 243,
+            "generation_time_s": 7.793
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "B": 1
+      },
+      "agreement_ratio": 0.75,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1024",
+  "dataset": "mmlu",
+  "question_id": "1024",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "During a clinical study examining the effects of exercise, men between the ages of 20 and 30 years are evaluated during a 15- minute session on a treadmill. The average pulse for the last 2 minutes of the session is 175/min. During the last minute of exercise, various measurements are taken. Compared with the measurement before the session, which of the following is most likely to be decreased?",
+    "options": {
+      "A": "Pulse pressure",
+      "B": "Stroke volume",
+      "C": "Systolic blood pressure",
+      "D": "Total peripheral resistance"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "During exercise, the body increases cardiac output to meet the increased metabolic demands. This is achieved by increasing stroke volume and heart rate. As the exercise intensity increases, the body attempts to maintain blood pressure by decreasing peripheral resistance. Therefore, during the last minute of exercise, stroke volume is most likely to decrease.",
+          "critical_evidence": "The average pulse for the last 2 minutes of the session is 175/min, indicating a high level of exertion.",
+          "differential_considered": "A: Pulse pressure might increase slightly due to increased systolic blood pressure, but the primary response is to maintain cardiac output. C: Systolic blood pressure would likely increase, not decrease. D: Total peripheral resistance would likely decrease to maintain blood pressure during exercise.",
+          "usage": {
+            "prompt_tokens": 343,
+            "generated_tokens": 195,
+            "generation_time_s": 9.835
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "During exercise, the heart rate increases to meet the body's demand for oxygenated blood. While stroke volume (B) typically increases during exercise due to improved cardiac output, the question states that the average pulse for the last 2 minutes is 175/min, which is quite high. This suggests the individual may be approaching their maximum heart rate, where stroke volume may begin to plateau or even decrease slightly. Additionally, systolic blood pressure (C) and total peripheral resistance (D) would likely increase during exercise to maintain blood flow, while pulse pressure (A) is determined by the difference between systolic and diastolic pressures and would not necessarily decrease.",
+          "critical_evidence": "The high heart rate of 175/min suggests the individual is near their maximum heart rate, where stroke volume may not increase further.",
+          "differential_considered": "Considered conditions like cardiac pathology or deconditioning, but ruled out as the high heart rate indicates a normal physiological response to exercise. The focus is on the body's adaptive response to increased demand, where stroke volume may plateau at high intensities.",
+          "usage": {
+            "prompt_tokens": 339,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.575
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "During intense exercise, stroke volume increases due to enhanced cardiac output, but as exercise nears its end, cardiac output begins to decline. The average pulse of 175/min indicates maximal effort, and the last minute likely shows a return to baseline. Stroke volume typically decreases as exercise ends because of reduced venous return and sympathetic drive. Other parameters like systolic BP and pulse pressure may remain elevated or even increase slightly due to continued sympathetic activation, while total peripheral resistance may decrease slightly but not as predictably as stroke volume.",
+          "critical_evidence": "The patient is at maximal exercise (175/min pulse) and the question asks for the parameter most likely to decrease during the last minute of exercise, which is when stroke volume begins to decline as the body transitions from maximal effort to recovery.",
+          "differential_considered": "Systolic BP and pulse pressure may remain elevated due to continued sympathetic stimulation; total peripheral resistance may decrease slightly but is less directly affected than stroke volume. These were considered but ruled out as less likely to decrease compared to stroke volume, which is the most sensitive to the termination of exercise.",
+          "usage": {
+            "prompt_tokens": 315,
+            "generated_tokens": 257,
+            "generation_time_s": 9.204
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 337,
+            "generated_tokens": 35,
+            "generation_time_s": 0.876
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 365,
+            "generated_tokens": 242,
+            "generation_time_s": 7.771
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-1370",
+  "dataset": "medqa",
+  "question_id": "1370",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 60-year-old man presents to the emergency department with ‘discomfort’ in his chest and a ‘squeezing’ sensation in his neck. The symptoms started 45 minutes ago while he was washing the dishes. He also complains of nausea. He has been a regular smoker for 45 years, averaging a pack of cigarettes each day. He also drinks heavily on weekends. His medical history is significant for a stroke 3 months ago, but the patient admits he has not been taking his medications. Vital signs show: pulse 62/min, respiratory rate 20/min, blood pressure 176/94 mm Hg, and temperature 36.9°C (98.4°F). Physical examination reveals a visibly distressed man who is sweating profusely. The chest is clear to auscultation and a 4th heart sound can be heard. Aspirin was administered upon arrival. His ECG is shown in the picture. Which of the following features is a contraindication for thrombolytic therapy in this patient?",
+    "options": {
+      "A": "Patient's age",
+      "B": "Aspirin administration",
+      "C": "Elevated blood pressure",
+      "D": "History of smoking",
+      "E": "Stroke 3 months ago"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of a stroke 3 months ago is a significant contraindication to thrombolytic therapy due to the increased risk of hemorrhagic conversion of the ischemic stroke. While the other options are relevant to the patient's overall health, they do not represent absolute contraindications to thrombolysis in the acute setting.",
+          "critical_evidence": "History of stroke 3 months ago",
+          "differential_considered": "A: Patient's age is not an absolute contraindication, although it increases the risk of complications. B: Aspirin administration is not a contraindication, and in fact, it is often given in the setting of acute coronary syndrome. C: Elevated blood pressure is a relative contraindication, but can be managed. D: History of smoking is a risk factor for cardiovascular disease, but not a contraindication to thrombolysis.",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 215,
+            "generation_time_s": 10.659
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient's history of a recent stroke 3 months ago is a significant contraindication for thrombolytic therapy. Stroke within the last 3 months indicates ongoing ischemic damage, and administering thrombolytics could increase the risk of intracranial hemorrhage. While age, smoking, and hypertension are risk factors, they are not absolute contraindications. Aspirin administration is actually a positive factor as it may have provided some anticoagulant effect, and the patient's blood pressure is within a manageable range. The ECG findings would need to be evaluated to confirm the diagnosis, but the recent stroke history is the most critical factor here.",
+          "critical_evidence": "Stroke 3 months ago",
+          "differential_considered": "While acute coronary syndrome (ACS) is a possible diagnosis given the chest discomfort and ECG findings, the recent stroke history makes this less likely. Other differentials like pulmonary embolism or aortic dissection were considered but ruled out by the clear chest auscultation and the presence of a 4th heart sound. The patient's symptoms could also be related to cardiac or non-cardiac causes, but the recent stroke is the most critical factor in determining the management approach.",
+          "usage": {
+            "prompt_tokens": 480,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.179
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with classic signs of acute myocardial infarction (chest discomfort, nausea, sweating, ECG changes), and thrombolytic therapy is indicated. However, a recent history of stroke (within 3 months) is a well-established contraindication to thrombolytics due to the risk of hemorrhagic transformation. Other options (age, BP, smoking, aspirin) are not absolute contraindications in this context.",
+          "critical_evidence": "History of stroke 3 months ago",
+          "differential_considered": "Other differentials like GERD or musculoskeletal pain were considered but ruled out by the presence of sweating, nausea, ECG changes, and classic angina presentation. Stroke history remains the key contraindication.",
+          "usage": {
+            "prompt_tokens": 461,
+            "generated_tokens": 188,
+            "generation_time_s": 6.614
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 478,
+            "generated_tokens": 9,
+            "generation_time_s": 0.242
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 511,
+            "generated_tokens": 247,
+            "generation_time_s": 7.712
+          }
+        }
+      },
+      "vote_distribution": {
+        "E": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "E",
+    "correct_option": "E",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

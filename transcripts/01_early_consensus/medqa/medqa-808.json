@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-808",
+  "dataset": "medqa",
+  "question_id": "808",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 45-year-old man presents with a chronic productive cough that he has had for the past few years. He admits to having smoked 1 pack of cigarettes a day for the past 25 years. A chest radiograph reveals an enlarged heart. The patient's pulmonary function tests would be similar to that seen in a patient with:",
+    "options": {
+      "A": "Asymptomatic asthma",
+      "B": "Silicosis",
+      "C": "Emphysema",
+      "D": "Coal worker's pneumonitis",
+      "E": "Prior lung radiation"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's chronic productive cough and significant smoking history strongly suggest a chronic obstructive pulmonary disease (COPD). The enlarged heart is likely due to pulmonary hypertension secondary to chronic hypoxemia from the lung disease. Emphysema is a common component of COPD, characterized by destruction of alveolar walls leading to airflow obstruction.",
+          "critical_evidence": "The patient's 25-year smoking history and chronic productive cough are highly suggestive of COPD.",
+          "differential_considered": "Asthma is less likely given the chronic, productive nature of the cough and the patient's age of onset. Silicosis is associated with occupational exposure, which is not mentioned. Coal worker's pneumonitis is also related to occupational exposure. Radiation therapy can cause lung damage, but the history doesn't suggest this. Therefore, emphysema is the most likely diagnosis given the clinical picture.",
+          "usage": {
+            "prompt_tokens": 340,
+            "generated_tokens": 219,
+            "generation_time_s": 10.826
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's chronic productive cough, 25-year history of heavy smoking, and enlarged heart on chest radiograph strongly suggest COPD. Emphysema is the most common cause of chronic obstructive pulmonary disease associated with smoking, and the combination of productive cough and smoking history aligns with this diagnosis. The enlarged heart is a known feature of advanced COPD due to chronic hypoxemia and pulmonary hypertension.",
+          "critical_evidence": "25-year history of smoking 1 pack per day",
+          "differential_considered": "Silicosis (requires occupational exposure to silica dust), coal worker's pneumonitis (requires coal dust exposure), and prior lung radiation (would show different radiographic patterns) were ruled out by the patient's smoking history. Asymptomatic asthma was unlikely given the chronic productive cough.",
+          "usage": {
+            "prompt_tokens": 338,
+            "generated_tokens": 196,
+            "generation_time_s": 9.053
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a heavy smoker with a chronic productive cough and an enlarged heart on chest radiograph, which strongly suggests chronic obstructive pulmonary disease (COPD) with cor pulmonale. Pulmonary function tests in emphysema typically show obstructive pattern with reduced FEV1/FVC ratio and low lung volumes. The other options do not typically present with chronic productive cough in a heavy smoker or associated right heart enlargement.",
+          "critical_evidence": "Chronic productive cough in a heavy smoker with an enlarged heart (cor pulmonale) is classic for emphysema as part of COPD.",
+          "differential_considered": "Asthma (A) is ruled out due to chronicity and smoking history; silicosis (B) and coal worker's pneumonitis (D) are occupational and less likely without exposure history; prior lung radiation (E) typically causes fibrosis, not chronic productive cough with heart enlargement.",
+          "usage": {
+            "prompt_tokens": 311,
+            "generated_tokens": 223,
+            "generation_time_s": 7.827
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "C",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 336,
+            "generated_tokens": 16,
+            "generation_time_s": 0.396
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Asthma (lack of risk factors), silicosis (no occupational exposure), coal worker's pneumonitis (no coal exposure), prior lung radiation (no history of radiation), emphysema (strongly supported by smoking history and possible heart involvement due to chronic hypoxia/pulmonary hypertension)",
+          "usage": {
+            "prompt_tokens": 365,
+            "generated_tokens": 253,
+            "generation_time_s": 7.863
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 4,
+        "A": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "C",
+    "correct_option": "C",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

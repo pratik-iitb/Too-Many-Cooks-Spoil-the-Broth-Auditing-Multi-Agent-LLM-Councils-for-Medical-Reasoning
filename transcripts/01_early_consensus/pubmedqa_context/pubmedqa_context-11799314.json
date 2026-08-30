@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa_context-11799314",
+  "dataset": "pubmedqa_context",
+  "question_id": "11799314",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is external palliative radiotherapy for gallbladder carcinoma effective?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Gallbladder carcinoma is characterized by delayed diagnosis, ineffective treatment and poor prognosis. Surgical resection has been thought to be the treatment of choice, while the role of radiotherapy as adjuvant or palliative treatment has not been fully clarified in the literature. We present the case of a 45-year-old female, with unresectable gallbladder carcinoma, grade IV, histologically diagnosed during laparotomy. The patient was treated with palliative intent with percutaneous transhepatic biliary drainage. Furthermore, she received external radiotherapy by (60)Co, using a three-field technique (anterior-posterior and right lateral). The total dose was 3,000 cGy in 10 fractions, with 300 cGy per fraction, 5 days weekly. The patient showed clinico-laboratory improvement and was discharged with a permanent percutaneous transhepatic endoprosthesis. During follow-up (10 and 12 months postirradiation), abdominal CTs showed no local extension of the tumor, while the patient had a good performance status. So far, 1 year after the diagnosis of gallbladder cancer she is still alive.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient received external radiotherapy for unresectable gallbladder carcinoma with a good response, evidenced by the absence of local tumor extension on follow-up CT scans and a good performance status. This suggests that external radiotherapy can be an effective palliative treatment option for gallbladder carcinoma.",
+          "critical_evidence": "Absence of local tumor extension on follow-up CT scans.",
+          "differential_considered": "While the case focuses on gallbladder carcinoma, other potential diagnoses like cholangiocarcinoma or metastatic disease could have been considered. However, the patient's history of gallbladder carcinoma and the lack of evidence for other primary tumors make these less likely. Furthermore, the response to radiotherapy is more consistent with a primary tumor than metastatic disease.",
+          "usage": {
+            "prompt_tokens": 487,
+            "generated_tokens": 184,
+            "generation_time_s": 10.94
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient received palliative external radiotherapy with a total dose of 3,000 cGy in 10 fractions, and showed clinical improvement with no local tumor progression at 10 and 12 months. This suggests radiotherapy may have provided palliative benefit.",
+          "critical_evidence": "No local extension of the tumor on follow-up CT scans after radiotherapy",
+          "differential_considered": "Considered whether the improvement could be due to other factors, but the lack of tumor progression supports radiotherapy's role",
+          "usage": {
+            "prompt_tokens": 503,
+            "generated_tokens": 1024,
+            "generation_time_s": 58.831
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient with unresectable gallbladder carcinoma showed clinico-laboratory improvement and maintained good performance status after palliative radiotherapy, with no local tumor progression at 10 and 12 months follow-up, and remained alive 1 year post-diagnosis — suggesting a meaningful palliative benefit. While the sample size is small, the clinical response supports efficacy in this context.",
+          "critical_evidence": "The patient remained alive 1 year after diagnosis with stable disease and good performance status following palliative radiotherapy.",
+          "differential_considered": "Other causes of symptom improvement (e.g., biliary drainage alone) were considered, but the timing and correlation with radiotherapy, along with stable imaging and prolonged survival, support radiotherapy as a contributing factor.",
+          "usage": {
+            "prompt_tokens": 483,
+            "generated_tokens": 186,
+            "generation_time_s": 8.103
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 501,
+            "generated_tokens": 67,
+            "generation_time_s": 1.952
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.75,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A (yes) and B (no) are both too definitive without clear evidence of overall survival benefit or tumor control. Surgical therapy was not feasible due to unresectable disease, so C (maybe) is most appropriate given the partial stabilization but lack of complete resolution.",
+          "usage": {
+            "prompt_tokens": 537,
+            "generated_tokens": 238,
+            "generation_time_s": 9.051
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

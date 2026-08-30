@@ -1,0 +1,115 @@
+{
+  "sample_id": "mmlu-1048",
+  "dataset": "mmlu",
+  "question_id": "1048",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 19-year-old woman comes to the emergency department because, she says, \"I'm burning up.\" Medical history is significant for intravenous drug use. Physical examination discloses a systolic heart murmur over the precordium. An expected physical finding will be which of the following?",
+    "options": {
+      "A": "Decreased intensity of S1",
+      "B": "Increased intensity of the murmur with deep inspiration",
+      "C": "Increased intensity of the murmur with forced expiration",
+      "D": "Positive Kussmaul sign (rise in jugular venous pulse with inspiration)"
+    },
+    "context": "",
+    "correct_option": "B",
+    "metadata": {
+      "subject": "professional_medicine"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's history of intravenous drug use and a systolic heart murmur strongly suggest infective endocarditis. The murmur's intensity changes with respiration due to increased blood flow to the right side of the heart during inspiration. This is a classic finding in tricuspid valve endocarditis, which is common in IV drug users.",
+          "critical_evidence": "The systolic heart murmur and history of intravenous drug use are the most important findings.",
+          "differential_considered": "A: Decreased intensity of S1 could be seen in mitral stenosis, but the murmur is systolic, not diastolic. C: Increased intensity of the murmur with forced expiration is not typical of heart murmurs. D: Positive Kussmaul sign is associated with constrictive pericarditis or right ventricular failure, not typically with endocarditis.",
+          "usage": {
+            "prompt_tokens": 341,
+            "generated_tokens": 208,
+            "generation_time_s": 10.478
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with a systolic heart murmur over the precordium and intravenous drug use, suggesting possible valvular or endocarditis-related pathology. In such cases, the murmur typically increases in intensity with forced expiration due to the movement of blood through narrowed or stenotic valves, which is exacerbated by the changes in intrathoracic pressure during expiration. This is a classic finding in mitral or aortic stenosis, which can be associated with drug use. The other options are less likely: S1 intensity is not typically decreased in this context, Kussmaul sign is more related to metabolic acidosis, and the murmur's intensity with inspiration is not a primary finding in these conditions.",
+          "critical_evidence": "Increased intensity of the murmur with forced expiration",
+          "differential_considered": "Considered mitral stenosis, aortic stenosis, and endocarditis due to drug use. Ruled out other causes of fever and heart murmurs such as pericarditis or rheumatic heart disease without strong supporting evidence.",
+          "usage": {
+            "prompt_tokens": 344,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.438
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient is a young woman with intravenous drug use and a systolic murmur, raising concern for infective endocarditis. A murmur that increases with deep inspiration is characteristic of aortic regurgitation, which can be associated with infective endocarditis. This is due to increased venous return and left ventricular volume during inspiration, enhancing the regurgitant flow. Other options are less likely: S1 is typically not decreased in this context; forced expiration does not typically increase aortic regurgitant murmur; and Kussmaul sign is associated with right heart failure, not this presentation.",
+          "critical_evidence": "Systolic murmur in a patient with IV drug use and fever suggests infective endocarditis, often involving aortic regurgitation, which intensifies with inspiration.",
+          "differential_considered": "Infective endocarditis (most likely), aortic regurgitation, and other causes of systolic murmur (e.g., aortic stenosis, hypertrophic cardiomyopathy) were considered; however, the murmur's response to inspiration and the context of IV drug use and fever strongly point to infective endocarditis with aortic regurgitation.",
+          "usage": {
+            "prompt_tokens": 316,
+            "generated_tokens": 280,
+            "generation_time_s": 10.001
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 342,
+            "generated_tokens": 14,
+            "generation_time_s": 0.359
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Considered infective endocarditis vs. other causes of murmur (mitral stenosis, atrial septal defect), but the context of IV drug use strongly suggests vegetations causing mitral valve prolapse or vegetative endocarditis.",
+          "usage": {
+            "prompt_tokens": 372,
+            "generated_tokens": 353,
+            "generation_time_s": 11.331
+          }
+        }
+      },
+      "vote_distribution": {
+        "B": 3,
+        "A": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "B",
+    "correct_option": "B",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

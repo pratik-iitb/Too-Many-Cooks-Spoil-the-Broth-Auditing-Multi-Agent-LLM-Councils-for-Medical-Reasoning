@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-1009",
+  "dataset": "metamed",
+  "question_id": "1009",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 66-year-old man presents to the emergency department for a cough and fatigue. The patient was brought in from a nursing home with documentation stating that he has seemed confused for the past day according to the staff. The patient has a past medical history of diabetes and hypertension. He is currently taking insulin, metformin, lisinopril, and atorvastatin. His temperature is 102°F (38.9°C), blood pressure is 107/58 mmHg, pulse is 120/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam reveals crackles on pulmonary exam and S4 on cardiac auscultation. Which of the following is the next best step in management?",
+    "options": {
+      "A": "Azithromycin and admission to the medical floor",
+      "B": "Azithromycin and discharge",
+      "C": "Azithromycin, moxifloxacin, and admission to the intensive care unit",
+      "D": "Moxifloxacin and admission to the medical floor",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "D",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, cough, fatigue, confusion, and crackles on pulmonary exam, suggesting a possible pneumonia. His history of diabetes and hypertension, along with his medications, increases his risk for complications. The elevated heart rate and low blood pressure could indicate sepsis or dehydration. The S4 heart sound suggests possible diastolic dysfunction, which could be exacerbated by the infection. Given the patient's age, comorbidities, and signs of possible pneumonia, admission to the medical floor for further evaluation and treatment is warranted.",
+          "critical_evidence": "Fever, cough, confusion, and crackles on pulmonary exam strongly suggest pneumonia, especially in an elderly patient with comorbidities.",
+          "differential_considered": "While influenza and other respiratory viruses are possible, the presence of crackles on pulmonary exam points more towards a bacterial pneumonia. The patient's confusion could be due to the infection itself or a complication like sepsis. Therefore, a broad-spectrum antibiotic is appropriate, but admission is necessary for monitoring and further investigation.",
+          "usage": {
+            "prompt_tokens": 470,
+            "generated_tokens": 244,
+            "generation_time_s": 13.683
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient presents with fever, crackles, S4 gallop, and altered mental status. While respiratory and cardiac findings suggest possible pneumonia or heart failure, the absence of a clear bacterial etiology and the patient's age with multiple comorbidities make empiric antibiotic therapy alone insufficient. The patient requires evaluation for sepsis, pneumonia, or acute decompensated heart failure, which necessitates further diagnostic testing and potentially ICU-level monitoring.",
+          "critical_evidence": "The patient's altered mental status combined with fever and respiratory findings suggests possible sepsis or severe infection, which requires immediate evaluation rather than empiric antibiotic therapy.",
+          "differential_considered": "Considered pneumonia, sepsis, acute decompensated heart failure, and pulmonary embolism. Ruled out simple bacterial pneumonia without clear risk factors, but the patient's age, comorbidities, and clinical presentation warrant a more comprehensive evaluation.",
+          "usage": {
+            "prompt_tokens": 464,
+            "generated_tokens": 1024,
+            "generation_time_s": 67.607
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with fever, tachycardia, hypotension, crackles, and new confusion — signs of possible severe pneumonia with sepsis. His age, comorbidities, and altered mental status suggest high-risk features requiring ICU-level care. Broad-spectrum antibiotics (moxifloxacin) are indicated for community-acquired pneumonia in high-risk patients, and ICU admission is warranted due to hemodynamic instability and altered mental status.",
+          "critical_evidence": "Hypotension (107/58 mmHg) and tachycardia (120/min) with fever and confusion indicate sepsis, necessitating ICU admission and broad-spectrum antibiotics.",
+          "differential_considered": "Other differentials like urinary tract infection or heart failure were considered, but the combination of fever, hypotension, crackles, and altered mental status strongly points to severe pneumonia with sepsis. Heart failure alone wouldn't explain the fever and hypotension, and UTI would not typically cause crackles or systemic signs without other localizing symptoms.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 253,
+            "generation_time_s": 13.752
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 462,
+            "generated_tokens": 158,
+            "generation_time_s": 3.972
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "Pneumonia, congestive heart failure exacerbation, decompensated chronic heart failure, or other acute cardiovascular events. While infection is a concern, the key cardiac findings and acute decompensation point to heart failure as the primary issue needing immediate in-hospital monitoring and treatment.",
+          "usage": {
+            "prompt_tokens": 495,
+            "generated_tokens": 233,
+            "generation_time_s": 7.535
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "E": 1,
+        "C": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "D",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

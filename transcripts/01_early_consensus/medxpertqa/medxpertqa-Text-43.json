@@ -1,0 +1,123 @@
+{
+  "sample_id": "medxpertqa-Text-43",
+  "dataset": "medxpertqa",
+  "question_id": "Text-43",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "In a population where red-green color blindness (an X-linked recessive condition) affects 1 in 200 males, what is the likelihood that a phenotypically unaffected couple (male and female) will have a child with this condition?\nAnswer Choices: (A) 1/50 (B) 1/1000 (C) 1/400 (D) 1/100 (E) 1/1600 (F) 1/250 (G) 1/600 (H) 1/300 (I) 1/800 (J) 1/200",
+    "options": {
+      "A": "1/50",
+      "B": "1/1000",
+      "C": "1/400",
+      "D": "1/100",
+      "E": "1/1600",
+      "F": "1/250",
+      "G": "1/600",
+      "H": "1/300",
+      "I": "1/800",
+      "J": "1/200"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "medical_task": "Basic Science",
+      "body_system": "Nervous",
+      "question_type": "Reasoning"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 481,
+            "generated_tokens": 1024,
+            "generation_time_s": 46.132
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 441,
+            "generated_tokens": 1024,
+            "generation_time_s": 45.294
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 452,
+            "generated_tokens": 1024,
+            "generation_time_s": 36.772
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "J",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 439,
+            "generated_tokens": 11,
+            "generation_time_s": 0.416
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "J",
+          "confidence": 0.99,
+          "clinical_reasoning": "Red-green color blindness is an X-linked recessive disorder. For a male to be affected, he must inherit the recessive allele from both parents. Since the couple is phenotypically unaffected, each has at least one normal X chromosome. Assuming a 1:199 (XN: Xn) carrier frequency in females (due to X-linked recessive inheritance), the probability of an affected son is (1/199) × (1) = 1/199. However, among the given options, the closest and most likely intended answer is based on a 1:200 male:female ratio of affected males in the population, which would imply a carrier frequency of about 1/400 in the general population (since affected males must have X^n Y). Thus, the probability for an unaffected female to be a carrier is ~1/400, making the chance of an affected son 1/400 when both are carriers. But the strict X-linked recessive probability from two carriers is (1/200)² = 1/40,000, which is not listed. Given the options and the phrasing, the best fit is assuming the question expects the carrier frequency in the female (1/400), so the answer is C (1/400). However, if the question mistakenly uses the population prevalence as the carrier rate (1/200), the answer would be J (1/200). Based on standard X-linked recessive inheritance and the prevalence, the correct theoretical answer is 1/40000, but C is the best of the provided options if assuming carrier frequency is half the male prevalence. The most defensible choice from the options is C.",
+          "critical_evidence": "The 1 in 200 prevalence in males implies a carrier frequency in females of approximately 1 in 400 (since carriers must be heterozygous females who can pass the recessive X to a son).",
+          "differential_considered": "Differential is whether the question assumes the couple are carriers or not; but since they are phenotypically unaffected, only if one is a carrier (1/400) could an affected son result (1/400 × 1). Other options do not fit standard X-linked recessive inheritance unless the prevalence is interpreted differently.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 492,
+            "generation_time_s": 16.883
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "J": 2
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

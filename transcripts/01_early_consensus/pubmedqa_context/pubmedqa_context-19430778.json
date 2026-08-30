@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-19430778",
+  "dataset": "pubmedqa_context",
+  "question_id": "19430778",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Can magnetic resonance imaging accurately predict concordant pain provocation during provocative disc injection?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "To correlate magnetic resonance (MR) image findings with pain response by provocation discography in patients with discogenic low back pain, with an emphasis on the combination analysis of a high intensity zone (HIZ) and disc contour abnormalities. Sixty-two patients (aged 17-68 years) with axial low back pain that was likely to be disc related underwent lumbar discography (178 discs tested). The MR images were evaluated for disc degeneration, disc contour abnormalities, HIZ, and endplate abnormalities. Based on the combination of an HIZ and disc contour abnormalities, four classes were determined: (1) normal or bulging disc without HIZ; (2) normal or bulging disc with HIZ; (3) disc protrusion without HIZ; (4) disc protrusion with HIZ. These MR image findings and a new combined MR classification were analyzed in the base of concordant pain determined by discography. Disc protrusion with HIZ [sensitivity 45.5%; specificity 97.8%; positive predictive value (PPV), 87.0%] correlated significantly with concordant pain provocation (P<0.01). A normal or bulging disc with HIZ was not associated with reproduction of pain. Disc degeneration (sensitivity 95.4%; specificity 38.8%; PPV 33.9%), disc protrusion (sensitivity 68.2%; specificity 80.6%; PPV 53.6%), and HIZ (sensitivity 56.8%; specificity 83.6%; PPV 53.2%) were not helpful in the identification of a disc with concordant pain.",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study found that disc protrusion with HIZ had a significant positive predictive value (PPV) for concordant pain provocation during discography (87.0%). This indicates that the combination of these MR findings is a strong predictor of pain reproduction during the procedure. Therefore, magnetic resonance imaging can accurately predict concordant pain provocation.",
+          "critical_evidence": "Disc protrusion with HIZ [sensitivity 45.5%; specificity 97.8%; positive predictive value (PPV), 87.0%] correlated significantly with concordant pain provocation (P<0.01).",
+          "differential_considered": "Other discogenic pain causes could be present, but the study focuses on the correlation between MR findings and pain provocation during discography, making the MR findings the most relevant factor to consider.",
+          "usage": {
+            "prompt_tokens": 605,
+            "generated_tokens": 207,
+            "generation_time_s": 12.457
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that only disc protrusion with HIZ showed significant correlation (45.5% sensitivity, 97.8% specificity, 87% PPV) with concordant pain provocation, while other MR findings did not. This indicates MR imaging alone cannot reliably predict pain provocation.",
+          "critical_evidence": "Disc protrusion with HIZ showed 87% PPV for concordant pain, but other findings like disc degeneration (33.9% PPV) and normal discs with HIZ had no predictive value",
+          "differential_considered": "Other potential predictors like disc contour abnormalities and endplate changes were considered but showed no significant correlation, reinforcing that MR imaging alone is insufficient",
+          "usage": {
+            "prompt_tokens": 608,
+            "generated_tokens": 1024,
+            "generation_time_s": 57.779
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The study demonstrates that only the combination of disc protrusion with HIZ (class 4) significantly correlates with concordant pain provocation, with high specificity and positive predictive value. Other individual findings (HIZ alone, disc degeneration, protrusion alone) were not predictive. Thus, MR imaging can accurately predict concordant pain when using this specific combined classification.",
+          "critical_evidence": "Disc protrusion with HIZ [sensitivity 45.5%; specificity 97.8%; PPV, 87.0%] correlated significantly with concordant pain provocation (P<0.01).",
+          "differential_considered": "Other MR findings (e.g., disc degeneration, HIZ alone) were considered but ruled out as insufficient predictors due to low specificity or PPV, making the combined class (protrusion + HIZ) the only reliable predictor.",
+          "usage": {
+            "prompt_tokens": 596,
+            "generated_tokens": 217,
+            "generation_time_s": 9.214
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 606,
+            "generated_tokens": 72,
+            "generation_time_s": 2.123
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "A disc protrusion with HIZ had sensitivity 45.5% and PPV 87.0%, but this is still low and other findings (HIZ without contour abnormality, disc degeneration, disc protrusion alone) had even lower or poor predictive values, indicating poor accuracy of MRI in predicting pain provocation.",
+          "differential_considered": "Differentials such as herniated disc without HIZ or other non-concordant imaging findings were considered, but the key evidence is the lack of strong correlation for any single MRI feature with accurate pain prediction except the combined HIZ+contour abnormality, which is still not highly accurate.",
+          "usage": {
+            "prompt_tokens": 637,
+            "generated_tokens": 253,
+            "generation_time_s": 9.698
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

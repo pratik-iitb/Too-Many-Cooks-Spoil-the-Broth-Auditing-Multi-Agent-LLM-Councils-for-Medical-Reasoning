@@ -1,0 +1,112 @@
+{
+  "sample_id": "pubmedqa_context-11570976",
+  "dataset": "pubmedqa_context",
+  "question_id": "11570976",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Is it Crohn's disease?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "Sulfasalazine is a widely used anti-inflammatory agent in the treatment of inflammatory bowel disease and several rheumatological disorders. Although as many as 20% of treated patients may experience reversible, dose-dependent side effects, less frequent but potentially severe, systemic reactions have also been reported. A severe systemic reaction to sulfasalazine developed in a 21-year old female with rheumatoid arthritis characterized by eosinophilia, granulomatous enteritis and myelotoxicity, cholestatic hepatitis, and seizures. The clinical course and management of this patient are presented as well as a review of the incidence and outcome of severe systemic reactions to sulfasalazine.",
+    "correct_option": "C",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The clinical case describes a severe systemic reaction to sulfasalazine, including eosinophilia, granulomatous enteritis, myelotoxicity, cholestatic hepatitis, and seizures. These findings are highly suggestive of a severe adverse drug reaction, and given the context of sulfasalazine use, Crohn's disease is a strong consideration. While other conditions could present with some of these symptoms, the combination points towards a drug-induced inflammatory process.",
+          "critical_evidence": "The combination of eosinophilia, granulomatous enteritis, myelotoxicity, cholestatic hepatitis, and seizures in a patient taking sulfasalazine strongly suggests a severe drug-induced inflammatory reaction.",
+          "differential_considered": "Other conditions like systemic lupus erythematosus (SLE) or vasculitis could present with some of these symptoms, but the presence of granulomatous enteritis and the context of sulfasalazine use make Crohn's disease a more likely diagnosis.",
+          "usage": {
+            "prompt_tokens": 385,
+            "generated_tokens": 223,
+            "generation_time_s": 13.302
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's presentation of eosinophilia, granulomatous enteritis, and myelotoxicity aligns with Crohn's disease, a type of inflammatory bowel disease. Sulfasalazine is a known treatment for such conditions, and the severe systemic reaction, including cholestatic hepatitis and seizures, supports a diagnosis of Crohn's disease exacerbated by the medication.",
+          "critical_evidence": "Granulomatous enteritis is a hallmark of Crohn's disease.",
+          "differential_considered": "Rheumatoid arthritis was considered but ruled out due to the presence of granulomatous enteritis, which is not typical in RA. Myelotoxicity and cholestatic hepatitis further support a systemic inflammatory process like Crohn's disease.",
+          "usage": {
+            "prompt_tokens": 388,
+            "generated_tokens": 185,
+            "generation_time_s": 10.417
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient developed a severe systemic reaction to sulfasalazine, including eosinophilia, granulomatous enteritis, and myelotoxicity — findings consistent with drug-induced hypersensitivity rather than primary Crohn's disease. Crohn's disease typically presents with chronic inflammation, often with transmural involvement, but not as a direct result of sulfasalazine exposure. The case explicitly attributes the enteritis to the drug reaction, not to an underlying autoimmune or inflammatory bowel disorder.",
+          "critical_evidence": "The clinical course is described as a 'severe systemic reaction to sulfasalazine' with granulomatous enteritis, which is drug-induced, not a manifestation of Crohn's disease.",
+          "differential_considered": "Drug-induced enteritis (ruled in based on temporal association with sulfasalazine) vs. Crohn's disease (ruled out because the enteritis is explicitly attributed to drug hypersensitivity, not chronic inflammatory bowel disease).",
+          "usage": {
+            "prompt_tokens": 364,
+            "generated_tokens": 229,
+            "generation_time_s": 9.656
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 386,
+            "generated_tokens": 96,
+            "generation_time_s": 2.8
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 304,
+            "generation_time_s": 11.536
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

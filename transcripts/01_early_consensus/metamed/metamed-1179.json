@@ -1,0 +1,118 @@
+{
+  "sample_id": "metamed-1179",
+  "dataset": "metamed",
+  "question_id": "1179",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A pulmonologist is analyzing the vital signs of patients with chronic obstructive pulmonary disease (COPD) who presented to an emergency room with respiratory distress and subsequently required intubation. The respiratory rates of 7 patients with COPD during their initial visit to the emergency room are shown:\nPatient 1 22 breaths per minute\nPatient 2 32 breaths per minute\nPatient 3 23 breaths per minute\nPatient 4 30 breaths per minute\nPatient 5 31 breaths per minute\nPatient 6 31 breaths per minute\nPatient 7 23 breaths per minute\nWhich of the following is the mode of these respiratory rates?\"",
+    "options": {
+      "A": "30 breaths per minute",
+      "B": "32 breaths per minute",
+      "C": "10 breaths per minute",
+      "D": "27.7 breaths per minute",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1",
+      "kind": "Question modified"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The respiratory rates of the seven patients with COPD are 22, 32, 23, 30, 31, 31, and 23 breaths per minute. The mode is the respiratory rate that appears most frequently. In this case, the respiratory rate of 30 breaths per minute is the most frequent, appearing in four of the seven patients. Therefore, 30 breaths per minute is the mode.",
+          "critical_evidence": "The respiratory rate of 30 breaths per minute is the most frequent among the seven patients.",
+          "differential_considered": "While other respiratory rates are present, the frequency of 30 breaths per minute is the highest, making it the most likely mode. Other respiratory rates are less common, suggesting they are not the primary mode.",
+          "usage": {
+            "prompt_tokens": 429,
+            "generated_tokens": 208,
+            "generation_time_s": 10.354
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.9,
+          "clinical_reasoning": "The mode is the value that appears most frequently in the dataset. Among the given respiratory rates, 23 breaths per minute appears twice, while all other values appear only once. Therefore, 23 breaths per minute is the mode.",
+          "critical_evidence": "The frequency of 23 breaths per minute occurring twice among the seven patients",
+          "differential_considered": "No differential diagnoses were needed as the question only asks for the mode of the given data, not a clinical diagnosis or prognosis.",
+          "usage": {
+            "prompt_tokens": 433,
+            "generated_tokens": 1024,
+            "generation_time_s": 48.911
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "B",
+          "confidence": 1.0,
+          "clinical_reasoning": "The mode is the most frequently occurring value in a dataset. Among the 7 respiratory rates, 31 appears twice, which is the highest frequency. However, reviewing the data: 22, 32, 23, 30, 31, 31, 23 — the value 31 appears twice, and 23 also appears twice. Therefore, there are two modes: 23 and 31. Since the question asks for 'the mode' and option B is 31, but 23 also appears twice, the correct answer should be 'E: None of the above' because the data is bimodal. However, since 31 is listed as an option and the question may expect the highest mode, but strictly speaking, bimodal data has no single mode. Thus, E is correct.",
+          "critical_evidence": "The dataset contains two values (23 and 31) that each occur twice, making it bimodal — no single mode exists.",
+          "differential_considered": "The question is purely statistical; no differential diagnosis is relevant. The key consideration is whether the data is unimodal or bimodal, and since it is bimodal, none of the listed options (A, B, C, D) correctly represent the mode.",
+          "usage": {
+            "prompt_tokens": 415,
+            "generated_tokens": 308,
+            "generation_time_s": 11.258
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 1.0,
+          "clinical_reasoning": "The mode of the respiratory rates is the most frequently occurring value. Among the given options, 30 breaths per minute is the most common, appearing twice (in patients 4 and 7). Therefore, the mode is 30 breaths per minute.",
+          "critical_evidence": "The respiratory rate of 30 breaths per minute is the most common rate among the patients, appearing twice.",
+          "differential_considered": "None of the other options are as commonly represented as 30 breaths per minute, making them less likely to be the mode.",
+          "usage": {
+            "prompt_tokens": 431,
+            "generated_tokens": 137,
+            "generation_time_s": 3.47
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "The question asks for the mode, but the data does not have a repeating value, so standard statistical analysis does not yield a mode from the listed options.",
+          "usage": {
+            "prompt_tokens": 459,
+            "generated_tokens": 139,
+            "generation_time_s": 4.597
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "B": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

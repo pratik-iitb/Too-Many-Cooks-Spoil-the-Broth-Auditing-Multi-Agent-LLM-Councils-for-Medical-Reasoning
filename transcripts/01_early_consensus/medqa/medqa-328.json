@@ -1,0 +1,117 @@
+{
+  "sample_id": "medqa-328",
+  "dataset": "medqa",
+  "question_id": "328",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 38-year-old woman presents to a physician’s office for progressive weakness and pallor during the last few weeks. She also complains of shortness of breath during her yoga class. She denies fevers, cough, rhinorrhea, or changes in appetite or bowel and bladder habits. She is generally healthy except for an occasional migraine, which is relieved by acetaminophen. For the last month, she has been having more frequent migraine attacks and was started on prophylactic aspirin. The vital signs include: pulse 102/min, respirations 18/min, and blood pressure 130/84 mm Hg. Her blood pressure on previous visits has been 110/76 mm Hg, 120/78 mm Hg, and 114/80 mm Hg. The physical examination is otherwise unremarkable. Stool for occult blood is positive. In addition to a low hemoglobin concentration, which other laboratory finding is expected in this patient?",
+    "options": {
+      "A": "Decreased platelet count",
+      "B": "Prolonged activated partial thromboplastin time (aPTT)",
+      "C": "Elevated D-dimer",
+      "D": "Prolonged prothrombin time (PT)",
+      "E": "Prolonged bleeding time"
+    },
+    "context": "",
+    "correct_option": "E",
+    "metadata": {
+      "meta_info": "step1"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with progressive weakness, pallor, shortness of breath, and positive stool occult blood, suggesting iron deficiency anemia. Iron deficiency anemia is commonly associated with decreased platelet count (thrombocytopenia) due to impaired thrombopoiesis. The other options are less likely given the clinical picture.",
+          "critical_evidence": "Positive stool occult blood",
+          "differential_considered": "While the patient has a history of migraines, the new onset of weakness, pallor, and shortness of breath, along with the positive stool occult blood, strongly points towards iron deficiency anemia. The other options are less likely given the clinical picture. For example, prolonged aPTT or PT would suggest a coagulation disorder, which is not the primary concern here. Elevated D-dimer would suggest a thrombotic event, which is not indicated by the patient's symptoms. Prolonged bleeding time is more commonly associated with platelet disorders or von Willebrand disease, which are less likely given the patient's presentation.",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 242,
+            "generation_time_s": 11.988
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "D",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's progressive weakness, pallor, and shortness of breath suggest anemia. The positive stool for occult blood indicates gastrointestinal bleeding, which can lead to anemia. In patients with gastrointestinal bleeding, a prolonged prothrombin time (PT) is expected due to the consumption of clotting factors, particularly factor VIII and factor IX, which are involved in the intrinsic and common pathways of coagulation. This is because these factors are also found in the gastrointestinal tract and can be lost with bleeding. The other options are less directly related to the clinical presentation.",
+          "critical_evidence": "Positive stool for occult blood",
+          "differential_considered": "Considered iron deficiency anemia, vitamin B12 deficiency, and other causes of anemia, but ruled out due to the presence of occult blood and the patient's history of migraines and aspirin use, which suggests a gastrointestinal source of bleeding.",
+          "usage": {
+            "prompt_tokens": 488,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.673
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with progressive weakness, pallor, shortness of breath, and a positive stool occult blood test, suggesting chronic blood loss. Her recent initiation of aspirin (an antiplatelet agent) and increased migraine frequency may be coincidental or related to underlying anemia. The most likely cause is iron deficiency anemia due to occult gastrointestinal bleeding. Bleeding time is prolonged in platelet dysfunction or deficiency, which can occur in iron deficiency anemia due to impaired platelet function, though this is not the most specific finding. However, among the options, bleeding time is the most directly related to platelet function and bleeding diathesis in this context.",
+          "critical_evidence": "Positive stool occult blood + progressive anemia + recent aspirin use suggests chronic GI bleeding, which may be associated with platelet dysfunction or impaired hemostasis.",
+          "differential_considered": "Iron deficiency anemia (most likely), chronic GI bleeding (e.g., from ulcers or polyps), and less likely, hemolytic anemia or aplastic anemia. Other coagulation tests (aPTT, PT, D-dimer) are not typically affected in iron deficiency anemia unless there is a concurrent coagulopathy, which is not suggested here.",
+          "usage": {
+            "prompt_tokens": 475,
+            "generated_tokens": 287,
+            "generation_time_s": 10.064
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 486,
+            "generated_tokens": 12,
+            "generation_time_s": 0.317
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B: Prolonged aPTT (possible vitamin K deficiency or clotting factor issue), C: Elevated D-dimer (suggests hypercoagulability but not specific to her symptoms), D: Prolonged PT (also suggests clotting factor deficiency), E: Prolonged bleeding time (possible platelet dysfunction). However, the anemia with signs of bleeding makes thrombocytopenia the most expected additional lab finding, especially given her medication history.",
+          "usage": {
+            "prompt_tokens": 521,
+            "generated_tokens": 311,
+            "generation_time_s": 9.784
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "D": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "E",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

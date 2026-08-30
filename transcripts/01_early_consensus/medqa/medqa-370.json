@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-370",
+  "dataset": "medqa",
+  "question_id": "370",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 27-year-old male presents to the emergency department after being brought in from a house fire. The patient has extensive burns covering his body and is conscious but in severe pain. The patient has a past medical history notable for marijuana use. He is not currently on any medications. Physical exam is notable for extensive burns covering the patients back, chest, thighs, and legs. The patient's oropharynx reveals no signs of damage or extensive smoke inhalation. The patient is breathing on his own and has normal breath sounds bilaterally. His temperature is 99.5°F (37.5°C), pulse is 145/min, blood pressure is 100/70 mmHg, respirations are 27/min, and oxygen saturation is 93% on room air. Which of the following interventions is most likely to reduce mortality in this patient?",
+    "options": {
+      "A": "IV fluids",
+      "B": "Oral antibiotics",
+      "C": "Topical antibiotics",
+      "D": "Normal saline soaked dressings",
+      "E": "Oxygen administration"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient presents with significant burns and signs of hypovolemic shock (tachycardia, hypotension, tachypnea, and decreased oxygen saturation). The most immediate threat to life is hypovolemia due to fluid loss from the burns. Therefore, aggressive fluid resuscitation is crucial to improve tissue perfusion and prevent further complications.",
+          "critical_evidence": "Hypotension (100/70 mmHg) and tachycardia (145/min) in the setting of extensive burns strongly suggest hypovolemic shock.",
+          "differential_considered": "While oxygen administration is important, it addresses hypoxemia, which is not the primary immediate concern. Topical and oral antibiotics are not indicated at this stage, as there is no evidence of infection. The patient's oropharynx is intact, so there is no need for immediate airway management.",
+          "usage": {
+            "prompt_tokens": 446,
+            "generated_tokens": 214,
+            "generation_time_s": 10.602
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "E",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's primary concern is hypoxemia, evidenced by a low oxygen saturation of 93% on room air. Burns can cause significant respiratory compromise through inhalation injury, smoke inhalation, or direct tissue damage to the airway. Oxygen administration directly addresses this life-threatening condition by improving oxygen delivery to tissues and supporting vital organ function. While IV fluids and dressings help with fluid resuscitation and wound care, oxygen is the most immediate and critical intervention for a patient with acute hypoxemia.",
+          "critical_evidence": "Oxygen saturation of 93% on room air indicates hypoxemia, which requires immediate intervention to prevent tissue hypoxia and organ failure.",
+          "differential_considered": "Considered smoke inhalation injury, inhalation injury, and fluid resuscitation needs, but oxygen administration is the most urgent intervention for the current hypoxemia. Topical antibiotics and IV fluids are important but secondary to immediate oxygen support.",
+          "usage": {
+            "prompt_tokens": 437,
+            "generated_tokens": 223,
+            "generation_time_s": 10.424
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has extensive burns with signs of shock (tachycardia, hypotension, tachypnea), indicating significant fluid loss requiring immediate resuscitation. IV fluids are the cornerstone of burn resuscitation to prevent hypovolemic shock and reduce mortality. Other interventions like antibiotics or oxygen are supportive but not the most critical first step in this context.",
+          "critical_evidence": "Hypotension (100/70 mmHg) and tachycardia (145/min) indicate hypovolemic shock from burn-induced fluid loss, necessitating rapid IV fluid resuscitation.",
+          "differential_considered": "Smoke inhalation was ruled out by normal breath sounds and intact oropharynx; no signs of infection or sepsis were present; oxygen was not indicated as saturation was only mildly low (93%) and respiratory effort was adequate.",
+          "usage": {
+            "prompt_tokens": 418,
+            "generated_tokens": 215,
+            "generation_time_s": 7.571
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 435,
+            "generated_tokens": 112,
+            "generation_time_s": 2.732
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.98,
+          "clinical_reasoning": "This patient has extensive burns and is hypoxic on room air (O2 sat 93%), which is a major risk factor for mortality. The primary respiratory and metabolic demands in burn injuries are met by providing adequate oxygen to prevent hypoxia and support tissue perfusion. While fluid resuscitation and pain management are also critical, the immediate life-threatening issue here is poor oxygenation, making oxygen the most urgent intervention to reduce mortality.",
+          "critical_evidence": "Extensive burns with oxygen saturation of 93% on room air indicates hypoxemia, a critical finding in burn patients where early and adequate oxygenation is essential to prevent organ failure and improve outcomes.",
+          "differential_considered": "Other options like IV fluids, pain control, or topical antibiotics are important but secondary to the immediate hypoxemia. Oxygen therapy addresses the most critical pathophysiological need in this acute presentation.",
+          "usage": {
+            "prompt_tokens": 468,
+            "generated_tokens": 212,
+            "generation_time_s": 6.686
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 4,
+        "E": 1
+      },
+      "agreement_ratio": 0.8,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

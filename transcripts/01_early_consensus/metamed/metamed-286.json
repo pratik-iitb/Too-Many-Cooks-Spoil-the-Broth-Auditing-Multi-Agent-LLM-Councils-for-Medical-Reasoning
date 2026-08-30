@@ -1,0 +1,119 @@
+{
+  "sample_id": "metamed-286",
+  "dataset": "metamed",
+  "question_id": "286",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 58-year-old woman presents to the office for routine follow-up. She recently underwent routine screening for bone density due to a history of hypothyroidism. She also has a history of gastroesophageal reflux disease (GERD) that is being treated with a proton-pump inhibitor (PPI) and more recently with a histamine2 receptor antagonist (H2RA), hypertension being treated with a thiazide diuretic, depression being treated with lithium, and hormone replacement therapy. Her results meet the criteria for osteopenia, with a T-score of -1.6. She is concerned about progressive bone loss and the risk of fractures. Which of the following medication classes should be discontinued?",
+    "options": {
+      "A": "Proton-pump inhibitors",
+      "B": "Thiazide diuretics",
+      "C": "Lithium",
+      "D": "Estrogen",
+      "E": "None of the above",
+      "F": "I don't know or cannot answer"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {
+      "meta_info": "step2&3",
+      "kind": "Original"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has osteopenia and is on a PPI. PPIs have been associated with decreased calcium absorption and an increased risk of fractures, particularly in the hip and spine. While the evidence is not definitive, discontinuing the PPI is a reasonable step to mitigate potential bone loss.",
+          "critical_evidence": "PPIs have been associated with decreased calcium absorption and an increased risk of fractures.",
+          "differential_considered": "Thiazide diuretics can sometimes be associated with mild hypocalcemia, but the effect is generally less pronounced than with PPIs. Lithium is not typically associated with bone loss. Estrogen is a treatment for osteoporosis, not a cause of bone loss in this context.",
+          "usage": {
+            "prompt_tokens": 416,
+            "generated_tokens": 179,
+            "generation_time_s": 10.247
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "C",
+          "confidence": 0.9,
+          "clinical_reasoning": "The patient has osteopenia with a T-score of -1.6, indicating a moderate risk of fracture. Lithium, used for depression, is known to have a direct toxic effect on bone by inhibiting osteoclastogenesis and reducing bone formation. Proton-pump inhibitors, thiazide diuretics, and estrogen replacement therapy have established roles in bone health, with PPIs reducing calcium absorption but not significantly affecting bone density, thiazide diuretics having a minimal impact on bone loss, and estrogen replacement therapy being protective against osteoporosis. Therefore, lithium is the most likely medication contributing to the patient's bone loss.",
+          "critical_evidence": "Lithium's direct toxic effect on bone by inhibiting osteoclastogenesis",
+          "differential_considered": "Considered PPIs (reduced calcium absorption), thiazide diuretics (minimal bone impact), and estrogen (protective effect), but lithium's specific bone-damaging mechanism makes it the most likely culprit.",
+          "usage": {
+            "prompt_tokens": 425,
+            "generated_tokens": 238,
+            "generation_time_s": 12.915
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient has osteopenia and is taking a PPI, which is associated with increased risk of bone loss and fractures due to reduced gastric acid and impaired calcium absorption. Other medications like thiazide diuretics, lithium, and estrogen do not contribute to bone loss in this context. Discontinuing the PPI is the most appropriate step to mitigate further bone loss.",
+          "critical_evidence": "PPIs are known to increase the risk of osteoporosis and fractures by reducing gastric acid, which impairs calcium absorption and may alter bone metabolism.",
+          "differential_considered": "Thiazide diuretics are bone-protective; lithium may cause bone loss but is less directly implicated than PPIs; estrogen is protective for bone; thus, discontinuing PPI is the best choice.",
+          "usage": {
+            "prompt_tokens": 397,
+            "generated_tokens": 194,
+            "generation_time_s": 7.813
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "E",
+          "confidence": 1.0,
+          "clinical_reasoning": "The patient's use of thiazide diuretics, proton-pump inhibitors, and lithium are known to be associated with decreased bone density. Estrogen replacement therapy is also a concern for bone loss. However, the patient's T-score of -1.6 indicates osteopenia, not osteoporosis. Therefore, the most appropriate action is to discontinue none of the medications as they are not the primary cause of her bone loss. Instead, focus on lifestyle modifications and consider referral to a rheumatologist for further evaluation and management of her bone health.",
+          "critical_evidence": "The patient's T-score of -1.6 indicates osteopenia.",
+          "differential_considered": "Osteoporosis was considered as a possible diagnosis, but the patient's T-score does not meet the criteria for this diagnosis. Other causes of bone loss such as vitamin D deficiency or hyperparathyroidism were also considered but are not supported by the information provided.",
+          "usage": {
+            "prompt_tokens": 423,
+            "generated_tokens": 219,
+            "generation_time_s": 6.225
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.99,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "While thiazide diuretics and PPIs may also affect bone health, the strongest and most well-documented contributor to osteopenia in this patient's regimen is lithium. There is no clear evidence that discontinuation of the other medications would be as beneficial or as safe as addressing lithium use.",
+          "usage": {
+            "prompt_tokens": 456,
+            "generated_tokens": 265,
+            "generation_time_s": 9.814
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 3,
+        "C": 1,
+        "E": 1
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "sample_id": "pubmedqa-15125825",
+  "dataset": "pubmedqa",
+  "question_id": "15125825",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "Starting insulin in type 2 diabetes: continue oral hypoglycemic agents?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "maybe"
+    },
+    "context": "",
+    "correct_option": "A",
+    "metadata": {}
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "Starting insulin in type 2 diabetes typically involves a stepwise approach, often starting with injectable medications like GLP-1 receptor agonists or basal insulin. Continuing oral hypoglycemic agents (OHAs) is a reasonable strategy, especially if the patient is already on multiple OHAs and has not achieved adequate glycemic control. This allows for a gradual transition to insulin while minimizing the risk of hypoglycemia.",
+          "critical_evidence": "The patient is already on multiple oral hypoglycemic agents and has not achieved adequate glycemic control.",
+          "differential_considered": "The patient could be experiencing a rapid decline in pancreatic beta-cell function, requiring immediate insulin therapy. However, the case doesn't explicitly state this, and a stepwise approach is generally preferred. Also, the patient could be experiencing a severe acute illness that necessitates insulin therapy. However, the case doesn't explicitly state this, and a stepwise approach is generally preferred.",
+          "usage": {
+            "prompt_tokens": 256,
+            "generated_tokens": 223,
+            "generation_time_s": 11.007
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "In type 2 diabetes, initiating insulin therapy should be considered when oral hypoglycemic agents fail to achieve target glycemic control despite appropriate dosing and adherence. The patient's HbA1c of 8.5% is above the recommended target of 7% and indicates poor glycemic control. Given the presence of microalbuminuria (200-300 mg/mmol/24h), there is evidence of early diabetic nephropathy, which warrants aggressive glycemic control to slow progression. The patient's age (65) and duration of diabetes (10 years) further support the need for intensified therapy. While weight loss and hypertension are present, they do not outweigh the need for better glycemic control. Therefore, continuing oral agents alone is insufficient, and adding insulin is the appropriate next step.",
+          "critical_evidence": "HbA1c of 8.5% exceeds the target range for type 2 diabetes",
+          "differential_considered": "Considered: LADA (latent autoimmune diabetes in adults) due to young age at diagnosis and family history, but ruled out by normal C-peptide level (1.2 ng/mL). Also considered: drug adherence issues, but patient reports good compliance. No evidence of ketoacidosis or severe hypoglycemia.",
+          "usage": {
+            "prompt_tokens": 260,
+            "generated_tokens": 1024,
+            "generation_time_s": 47.521
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "In type 2 diabetes, initiating insulin does not require discontinuing oral hypoglycemic agents; in fact, combination therapy is often preferred to achieve better glycemic control. Insulin can be added to existing oral agents to enhance glucose-lowering effect without necessarily replacing them. Guidelines support combination therapy to reduce the risk of hypoglycemia and improve HbA1c reduction.",
+          "critical_evidence": "Current ADA guidelines recommend combination therapy with insulin and oral agents to achieve optimal glycemic control in type 2 diabetes.",
+          "differential_considered": "No significant differential diagnoses apply here; this is a straightforward case of initiating insulin in type 2 diabetes, where combination therapy is standard and safe.",
+          "usage": {
+            "prompt_tokens": 231,
+            "generated_tokens": 175,
+            "generation_time_s": 6.112
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 258,
+            "generated_tokens": 114,
+            "generation_time_s": 2.77
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.92,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "A patient on oral hypoglycemics who suddenly requires insulin (e.g., DKA, severe hyperglycemia) may still benefit from continuing oral agents for their additional glucose-lowering effect, but without more data, a definitive answer cannot be given.",
+          "usage": {
+            "prompt_tokens": 285,
+            "generated_tokens": 248,
+            "generation_time_s": 7.79
+          }
+        }
+      },
+      "vote_distribution": {
+        "A": 5
+      },
+      "agreement_ratio": 1.0,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "A",
+    "is_correct": true,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}

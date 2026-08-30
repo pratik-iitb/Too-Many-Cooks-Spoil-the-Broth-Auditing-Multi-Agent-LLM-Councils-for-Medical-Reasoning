@@ -1,0 +1,116 @@
+{
+  "sample_id": "medqa-194",
+  "dataset": "medqa",
+  "question_id": "194",
+  "category": "01_early_consensus",
+  "question": {
+    "text": "A 33-year-old man presents to the emergency department after an episode of syncope. He states that for the past month ever since starting a new job he has experienced an episode of syncope or near-syncope every morning while he is getting dressed. The patient states that he now gets dressed, shaves, and puts on his tie sitting down to avoid falling when he faints. He has never had this before and is concerned it is stress from his new job as he has been unemployed for the past 5 years. He is wondering if he can get a note for work since he was unable to head in today secondary to his presentation. The patient has no significant past medical history and is otherwise healthy. His temperature is 99.2°F (37.3°C), blood pressure is 122/83 mmHg, pulse is 92/min, respirations are 16/min, and oxygen saturation is 100% on room air. Cardiopulmonary and neurologic exams are within normal limits. An initial ECG and laboratory values are unremarkable as well. Which of the following is the most likely diagnosis?",
+    "options": {
+      "A": "Anxiety",
+      "B": "Aortic stenosis",
+      "C": "Carotid hypersensitivity syndrome",
+      "D": "Hypertrophic obstructive cardiomyopathy",
+      "E": "Malingering"
+    },
+    "context": "",
+    "correct_option": "C",
+    "metadata": {
+      "meta_info": "step2"
+    }
+  },
+  "panel_1": [
+    "medgemma_4b",
+    "rnj1_8b",
+    "qwen3_vl_8b",
+    "openbio_8b",
+    "olmo3_7b"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "independent",
+      "responses": {
+        "medgemma_4b": {
+          "model_name": "MedGemma-4b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient's syncope occurring specifically upon standing and the avoidance of activities like dressing and shaving strongly suggests a vasovagal response. Carotid hypersensitivity syndrome is a condition where the carotid sinus is overly sensitive to pressure, leading to a reflex bradycardia and hypotension upon neck manipulation, which can trigger syncope. The patient's age and lack of significant medical history make this a plausible diagnosis.",
+          "critical_evidence": "The syncope occurring upon standing and the avoidance of activities like dressing and shaving.",
+          "differential_considered": "Anxiety (A): While anxiety can cause syncope, it's less likely to be specifically triggered by activities like dressing. Aortic stenosis (B): Aortic stenosis typically presents with exertional syncope, not syncope upon standing. Hypertrophic obstructive cardiomyopathy (D): While possible, the lack of exertional symptoms and normal ECG makes this less likely. Malingering (E): While possible, the patient's distress and the specific nature of the syncope make this less likely than a physiological cause.",
+          "usage": {
+            "prompt_tokens": 505,
+            "generated_tokens": 256,
+            "generation_time_s": 12.624
+          }
+        },
+        "rnj1_8b": {
+          "model_name": "Rnj1-8b",
+          "selected_option": "A",
+          "confidence": 0.85,
+          "clinical_reasoning": "The patient's sudden onset of morning syncope or near-syncope after starting a new job, with avoidance behaviors and no structural heart disease, points to psychogenic causes. Anxiety is the most likely explanation given the stress of unemployment and job change, absence of physical findings, and normal labs.",
+          "critical_evidence": "No significant past medical history and normal physical exam with unremarkable ECG and labs",
+          "differential_considered": "B (Aortic stenosis) ruled out by normal ECG; C (Carotid hypersensitivity) unlikely without neurologic findings; D (HOCM) ruled out by normal physical exam; E (Malingering) unlikely given patient's distress",
+          "usage": {
+            "prompt_tokens": 504,
+            "generated_tokens": 176,
+            "generation_time_s": 8.097
+          }
+        },
+        "qwen3_vl_8b": {
+          "model_name": "Qwen3-VL-8b",
+          "selected_option": "C",
+          "confidence": 0.95,
+          "clinical_reasoning": "The patient experiences recurrent syncope or near-syncope specifically during morning dressing, a behavior consistent with carotid hypersensitivity syndrome, which is triggered by neck movement or pressure. His otherwise normal exam, ECG, and labs support a non-cardiac, non-anxiety-related cause. The timing and context (morning routine) strongly point to a vascular trigger rather than psychological or structural cardiac disease.",
+          "critical_evidence": "Syncope occurring specifically while getting dressed (neck movement/pressure) in a previously healthy individual with normal cardiac and neurological exams.",
+          "differential_considered": "Anxiety (A) is less likely due to the specific, mechanical trigger and absence of psychological symptoms; Aortic stenosis (B) and HOCM (D) would present with exertional symptoms and abnormal ECG/lab findings; Malingering (E) is unlikely given the patient’s concern and lack of inconsistent history or behavior.",
+          "usage": {
+            "prompt_tokens": 485,
+            "generated_tokens": 220,
+            "generation_time_s": 7.659
+          }
+        },
+        "openbio_8b": {
+          "model_name": "OpenBioLLM-8b",
+          "selected_option": "A",
+          "confidence": 0.0,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "",
+          "usage": {
+            "prompt_tokens": 502,
+            "generated_tokens": 187,
+            "generation_time_s": 4.455
+          }
+        },
+        "olmo3_7b": {
+          "model_name": "Olmo3-7b",
+          "selected_option": "A",
+          "confidence": 0.95,
+          "clinical_reasoning": "",
+          "critical_evidence": "",
+          "differential_considered": "B (Aortic stenosis) – would likely show physical findings of heart dysfunction; D (Hypertrophic obstructive cardiomyopathy) – would likely have ECG changes; C (Carotid hypersensitivity syndrome) – would likely have vascular or neurological symptoms; E (Malingering) – less likely given the clinical context and self-reported symptom pattern consistent with benign syncope. These were all ruled out due to lack of supporting evidence.",
+          "usage": {
+            "prompt_tokens": 535,
+            "generated_tokens": 256,
+            "generation_time_s": 7.941
+          }
+        }
+      },
+      "vote_distribution": {
+        "C": 2,
+        "A": 3
+      },
+      "agreement_ratio": 0.6,
+      "position_changes": []
+    }
+  ],
+  "panel_2": null,
+  "final": {
+    "selected_option": "A",
+    "correct_option": "C",
+    "is_correct": false,
+    "verdict_method": "panel_1_early_consensus",
+    "n_debate_rounds": 0,
+    "escalated": false
+  }
+}
