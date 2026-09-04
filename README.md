@@ -26,10 +26,10 @@
   </p>
 </div>
 
-> [!NOTE]
-> **Project guidance.** This entire project was conducted under the guidance of
-> **Prof. Dr. Kshitij Jadhav**, Principal Investigator, AIDE Lab, and Assistant
-> Professor, Koita Centre for Digital Health (KCDH), IIT Bombay.
+<p align="center">
+  <strong>Corresponding Author: Prof. Dr. Kshitij Jadhav</strong><br>
+  <strong>Principal Investigator, AIDE Lab, and Assistant Professor, Koita Centre for Digital Health (KCDH), IIT Bombay</strong>
+</p>
 
 <p align="center">
   <a href="assets/council-debate-framework.pdf">
