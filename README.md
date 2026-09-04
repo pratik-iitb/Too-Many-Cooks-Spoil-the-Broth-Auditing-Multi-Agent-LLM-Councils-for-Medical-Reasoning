@@ -13,6 +13,9 @@
     <img src="https://img.shields.io/badge/Debate_rounds-up_to_3-D4A72C?style=flat-square" alt="Up to 3 debate rounds">
   </p>
 
+  <p>
+    <img src="https://img.shields.io/badge/EMNLP_2026-MAIN_CONFERENCE-B23A48?style=for-the-badge&amp;labelColor=0B2545" alt="EMNLP 2026 · Main Conference">
+  </p>
   <p><strong>EMNLP 2026 · Main Conference</strong></p>
   <p>
     <a href="transcripts/"><strong>Explore transcripts</strong></a>
@@ -39,6 +42,18 @@
   and tracks whether convergence reflects new evidence or social conformity.
   Select the figure to open the original PDF.
 </em></p>
+
+<p align="center">
+  <strong>Conditional resolution path</strong>
+  <br><br>
+  <img src="https://img.shields.io/badge/Round_0-Independent_answers-0B2545?style=flat-square" alt="Round 0: independent answers">
+  &nbsp;&rarr;&nbsp;
+  <img src="https://img.shields.io/badge/Panel_1-Up_to_3_debate_rounds-D4A72C?style=flat-square" alt="Panel 1: up to 3 debate rounds">
+  &nbsp;&rarr;&nbsp;
+  <img src="https://img.shields.io/badge/Panel_2-Specialist_escalation-B23A48?style=flat-square" alt="Panel 2: specialist escalation">
+  &nbsp;&rarr;&nbsp;
+  <img src="https://img.shields.io/badge/Verdict-Consensus_or_weighted_majority-2A9D8F?style=flat-square" alt="Verdict: consensus or weighted majority">
+</p>
 
 ---
 
