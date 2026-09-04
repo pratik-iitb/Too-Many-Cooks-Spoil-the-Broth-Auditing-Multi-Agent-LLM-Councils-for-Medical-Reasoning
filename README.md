@@ -1,23 +1,80 @@
-# Council Debate Transcripts
+<div align="center">
+  <img src="assets/aide-lab-logo.png" alt="AIDE Lab" width="250">
+  <br><br>
+  <h1>Too Many Cooks Spoil The Broth</h1>
+  <p><strong>Auditing Multi-Agent LLM Councils For Medical Reasoning</strong></p>
+  <p>Complete, question-level transcripts from a multi-agent medical reasoning council.</p>
 
-Full per-question debate transcripts from a five-member council of open-weight
-medical LLMs run over six medical question-answering benchmarks, together with
-the exact prompt templates that produced them.
+  <p>
+    <img src="https://img.shields.io/badge/Questions-8%2C402-0B2545?style=flat-square" alt="8,402 questions">
+    <img src="https://img.shields.io/badge/Benchmarks-6-176B87?style=flat-square" alt="6 benchmarks">
+    <img src="https://img.shields.io/badge/Panel--1_models-5-2A9D8F?style=flat-square" alt="5 Panel-1 models">
+    <img src="https://img.shields.io/badge/Panel--2_models-3-B23A48?style=flat-square" alt="3 Panel-2 models">
+    <img src="https://img.shields.io/badge/Debate_rounds-up_to_3-D4A72C?style=flat-square" alt="Up to 3 debate rounds">
+  </p>
 
-This release contains **all 8,402 questions** from the run: every independent
-Round-0 answer from every council member, every debate round that fired, every
-escalation to the larger Panel-2, the vote tallies at each step, and the final
-verdict with the rule that produced it. Nothing is subsampled and nothing is
-anonymised.
+  <p><strong>EMNLP 2026 · Main Conference</strong></p>
+  <p>
+    <a href="transcripts/"><strong>Explore transcripts</strong></a>
+    &nbsp;·&nbsp;
+    <a href="prompts/"><strong>View prompt templates</strong></a>
+    &nbsp;·&nbsp;
+    <a href="assets/council-debate-framework.pdf"><strong>Open framework figure</strong></a>
+  </p>
+</div>
 
-The accompanying paper is *Too Many Cooks Spoil The Broth: Auditing Multi-Agent
-LLM Councils For Medical Reasoning*, to appear at EMNLP (Main Conference).
+> [!NOTE]
+> **Project guidance.** This entire project was conducted under the guidance of
+> **Prof. Dr. Kshitij Jadhav**, Principal Investigator, AIDE Lab, and Assistant
+> Professor, Koita Centre for Digital Health (KCDH), IIT Bombay.
 
-## Contents
+<p align="center">
+  <a href="assets/council-debate-framework.pdf">
+    <img src="assets/council-debate-framework.png" alt="Multi-agent medical council debate framework showing evidence-driven deference and opinion-driven conformity" width="900">
+  </a>
+</p>
+
+<p align="center"><em>
+  The council begins with independent answers, exposes members to peer rationales,
+  and tracks whether convergence reflects new evidence or social conformity.
+  Select the figure to open the original PDF.
+</em></p>
+
+---
+
+## Overview
+
+This repository accompanies the paper *Too Many Cooks Spoil The Broth: Auditing
+Multi-Agent LLM Councils For Medical Reasoning*. It provides full per-question
+debate transcripts from a five-member council of open-weight medical LLMs across
+six medical question-answering benchmarks, together with the exact prompt
+templates used to produce them.
+
+The release contains **all 8,402 questions** from the run: every independent
+Round-0 answer, every debate round that fired, every escalation to the larger
+Panel-2, the vote tallies at each step, and the final verdict with the rule that
+produced it. Nothing is subsampled and nothing is anonymised.
+
+| Start here | What you will find |
+|---|---|
+| [Dataset composition](#dataset-composition) | Counts across resolution paths and benchmarks |
+| [Model panels](#model-panels) | The five-member council and three-member escalation panel |
+| [Resolution protocol](#resolution-protocol) | Consensus, debate, escalation, and weighted-majority rules |
+| [Transcript structure](#transcript-structure) | A shortened but faithful example record |
+| [Field reference](#field-reference) | Definitions for every released JSON field |
+| [Load the data](#load-the-data) | Minimal Python examples |
+| [Prompt templates](#prompt-templates) | Verbatim prompts used at every stage |
+| [Data notes](#data-notes-and-known-artefacts) | Parsing, prompting, and run-time artefacts to consider |
+
+## Repository contents
 
 ```
 .
 ├── README.md
+├── assets/
+│   ├── aide-lab-logo.png               AIDE Lab mark used in this page
+│   ├── council-debate-framework.png    preview of the council framework
+│   └── council-debate-framework.pdf    original publication-quality figure
 ├── prompts/
 │   ├── round_0_independent.txt          the independent-answer prompt
 │   ├── debate_round.txt                 the per-member debate prompt, Rounds 1-3
@@ -46,7 +103,7 @@ The filename carries the source benchmark and that benchmark's own question
 identifier, so any transcript can be joined straight back to the row it came
 from.
 
-## Composition
+## Dataset composition
 
 | Category | mmlu | medqa | metamed | pubmedqa | pubmedqa_context | medxpertqa | Total |
 |---|---|---|---|---|---|---|---|
@@ -79,7 +136,7 @@ The six benchmarks are MMLU-Med, MedQA, MetaMedQA, PubMedQA without context,
 PubMedQA with context, and MedXpertQA, with 4, 5, 6, 3, 3 and 10 answer options
 respectively.
 
-## The models
+## Model panels
 
 Every response in every transcript is keyed by the model that produced it. The
 `model_key` is the dictionary key inside the JSON; `model_name` is the display
@@ -88,7 +145,7 @@ pipeline recorded them, including the lower-case final character of the display
 names — those are the literal strings the run wrote, and the same strings Panel-2
 saw in the Panel-1 summary, so they are left untouched rather than tidied.
 
-### Panel-1, the council
+### Panel 1: the council
 
 Five open-weight medical or generalist models in the 4-8B range, listed in the
 fixed order used throughout the run. That order matters: it determines the
@@ -102,7 +159,7 @@ Panelist A-D labels in the debate prompt.
 | 4 | `openbio_8b` | OpenBioLLM-8b | `aaditya/Llama3-OpenBioLLM-8B` |
 | 5 | `olmo3_7b` | Olmo3-7b | `allenai/Olmo-3-7B-Instruct` |
 
-### Panel-2, the escalation panel
+### Panel 2: the escalation panel
 
 Three larger models, 20-32B, invoked only when Panel-1 exhausts its debate rounds
 without converging. Each answers independently; there is no debate among Panel-2
@@ -133,7 +190,7 @@ the shared prompt:
 The other five models were run with no system message. Each model's own chat
 template was applied on top of the prompt text before generation.
 
-## How a question was resolved
+## Resolution protocol
 
 These are the rules the run actually applied, and they are what the folder name
 and the `verdict_method` field record.
@@ -166,7 +223,7 @@ and the `verdict_method` field record.
    final-round vote counts 1 and each Panel-2 vote counts 2; the highest-scoring
    option is returned (`weighted_majority`).
 
-## Shape of a transcript
+## Transcript structure
 
 Abbreviated from the real record
 [`transcripts/02_debate_1_round/medqa/medqa-36.json`](transcripts/02_debate_1_round/medqa/medqa-36.json):
@@ -287,7 +344,7 @@ trimmed out of this excerpt but present in the real file.
 }
 ```
 
-## Every field
+## Field reference
 
 ### Top level
 
@@ -389,7 +446,7 @@ Present only for the two escalated categories; `null` everywhere else.
 | `n_debate_rounds` | int | Number of debate rounds that fired, 0 to 3. |
 | `escalated` | bool | Whether the question reached Panel-2. |
 
-## Loading
+## Load the data
 
 ```python
 import glob, json
@@ -408,7 +465,7 @@ medqa = [json.load(open(p)) for p in glob.glob("transcripts/*/medqa/*.json")]
 r = json.load(open("transcripts/02_debate_1_round/medqa/medqa-36.json"))
 ```
 
-## Prompts
+## Prompt templates
 
 The three files in [`prompts/`](prompts/) are the verbatim templates used at each
 stage, with their placeholders documented and notes on how the surrounding text
@@ -417,7 +474,7 @@ Round-2 summary block contained, and what the Panel-1 summary shown to Panel-2
 looked like. Read them alongside the transcripts before drawing conclusions about
 what any model could see when it answered.
 
-## Known artefacts
+## Data notes and known artefacts
 
 The transcripts are the run as it executed, not a cleaned-up idealisation. These
 are preserved deliberately, and they matter for any re-analysis.
@@ -471,7 +528,7 @@ are preserved deliberately, and they matter for any re-analysis.
   the others. The longest prompt in this release is 3,554 tokens, so nothing was
   ever clipped, but anyone re-running longer debates should know the cap is there.
 
-## Relation to the earlier 250-sample release
+## Earlier 250-sample release
 
 A stratified 250-sample subset was published while the paper was under review,
 with the models referred to by anonymous aliases (`panelist-MG`, `specialist-A`
@@ -501,6 +558,10 @@ one of its records. They have been recovered from the stored raw generations her
 
 This dataset is free to use for educational and research purposes. Please observe
 the licence of each source benchmark when redistributing question text.
+
+> [!CAUTION]
+> This is a research artifact, not medical advice or a clinical decision-support
+> system. Model outputs may be incomplete, incorrect, or unsafe.
 
 ## Source benchmarks
 
